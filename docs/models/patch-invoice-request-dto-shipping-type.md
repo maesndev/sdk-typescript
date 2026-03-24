@@ -1,0 +1,15 @@
+# PatchInvoiceRequestDtoShippingType
+
+## Example Usage
+
+```typescript
+import { PatchInvoiceRequestDtoShippingType } from "maesn/models";
+
+let value: PatchInvoiceRequestDtoShippingType = "SERVICEPERIOD";
+```
+
+## Values
+
+```typescript
+"SERVICE" | "SERVICEPERIOD" | "DELIVERY" | "DELIVERYPERIOD" | "NONE"
+```

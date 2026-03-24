@@ -1,0 +1,911 @@
+overlay: 1.0.0
+x-speakeasy-jsonpath: rfc9535
+info:
+  title: Speakeasy Modifications
+  version: 0.0.1
+  x-speakeasy-metadata:
+    type: speakeasy-modifications
+    before: ""
+    after: ""
+actions:
+  - target: $["paths"]["/accounting/bills/{billId}/lineItems"]["post"]
+    update:
+      x-speakeasy-group: accounting.bills
+      x-speakeasy-name-override: addLineItem
+    x-speakeasy-metadata:
+      after: sdk.accounting.bills.addLineItem()
+      before: sdk.accounting.createBillLineItem()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/transactions"]["post"]
+    update:
+      x-speakeasy-name-override: recordTransaction
+    x-speakeasy-metadata:
+      after: sdk.accounting.recordTransaction()
+      before: sdk.accounting.createTransaction()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/purchaseOrders"]["get"]
+    update:
+      x-speakeasy-group: purchaseOrders
+      x-speakeasy-name-override: list
+    x-speakeasy-metadata:
+      after: sdk.purchaseOrders.list()
+      before: sdk.accounting.getPurchaseOrders()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/asyncTask/{taskId}"]["get"]
+    update:
+      x-speakeasy-name-override: getAsyncTask
+    x-speakeasy-metadata:
+      after: sdk.accounting.getAsyncTask()
+      before: sdk.accounting.getAsyncTaskInfo()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/goodsReceipts/{goodsReceiptId}/lineItems"]["get"]
+    update:
+      x-speakeasy-name-override: retrieveGoodsReceiptLineItems
+    x-speakeasy-metadata:
+      after: sdk.accounting.retrieveGoodsReceiptLineItems()
+      before: sdk.accounting.getGoodsReceiptLineItems()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/taxRates/{taxRateId}"]["get"]
+    update:
+      x-speakeasy-name-override: fetchTaxRate
+    x-speakeasy-metadata:
+      after: sdk.accounting.fetchTaxRate()
+      before: sdk.accounting.getTaxRate()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/creditNotes"]["get"]
+    update:
+      x-speakeasy-name-override: listCreditNotes
+    x-speakeasy-metadata:
+      after: sdk.accounting.listCreditNotes()
+      before: sdk.accounting.getCreditNotes()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/journalEntries/{journalEntryId}/Attachments/{attachmentId}"]["get"]
+    update:
+      x-speakeasy-group: journalEntryAttachments
+      x-speakeasy-name-override: getById
+    x-speakeasy-metadata:
+      after: sdk.journalEntryAttachments.getById()
+      before: sdk.accounting.getJournalEntryAttachmentById()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/purchaseOrders/{purchaseOrderId}/lineItems"]["get"]
+    update:
+      x-speakeasy-name-override: retrievePurchaseOrderLineItems
+    x-speakeasy-metadata:
+      after: sdk.accounting.retrievePurchaseOrderLineItems()
+      before: sdk.accounting.getPurchaseOrderLineItems()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/journals"]["get"]
+    update:
+      x-speakeasy-name-override: fetchJournals
+    x-speakeasy-metadata:
+      after: sdk.accounting.fetchJournals()
+      before: sdk.accounting.getJournals()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/passThrough"]["post"]
+    update:
+      x-speakeasy-name-override: createPassThrough
+    x-speakeasy-metadata:
+      after: sdk.accounting.createPassThrough()
+      before: sdk.accounting.createPassThroughRequest()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/bills/{billId}/document"]["get"]
+    update:
+      x-speakeasy-name-override: fetchBillDocument
+    x-speakeasy-metadata:
+      after: sdk.accounting.fetchBillDocument()
+      before: sdk.accounting.getBillDocument()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/units"]["get"]
+    update:
+      x-speakeasy-name-override: fetchUnits
+    x-speakeasy-metadata:
+      after: sdk.accounting.fetchUnits()
+      before: sdk.accounting.getUnits()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/invoices/{invoiceId}"]["patch"]
+    update:
+      x-speakeasy-name-override: amendInvoice
+    x-speakeasy-metadata:
+      after: sdk.accounting.amendInvoice()
+      before: sdk.accounting.patchInvoice()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/bills/{billId}"]["put"]
+    update:
+      x-speakeasy-group: bills
+      x-speakeasy-name-override: update
+    x-speakeasy-metadata:
+      after: sdk.bills.update()
+      before: sdk.accounting.updateBill()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/customers/{contactId}"]["get"]
+    update:
+      x-speakeasy-name-override: fetchCustomer
+    x-speakeasy-metadata:
+      after: sdk.accounting.fetchCustomer()
+      before: sdk.accounting.getCustomer()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/v2/contacts/{contactId}"]["patch"]
+    update:
+      x-speakeasy-group: accounting.v2.contacts
+      x-speakeasy-name-override: update
+    x-speakeasy-metadata:
+      after: sdk.accounting.v2.contacts.update()
+      before: sdk.accounting-v2.patchContactV2()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/offers/{offerId}"]["get"]
+    update:
+      x-speakeasy-name-override: fetchOffer
+    x-speakeasy-metadata:
+      after: sdk.accounting.fetchOffer()
+      before: sdk.accounting.getOffer()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/vendorCredits/{vendorCreditId}"]["delete"]
+    update:
+      x-speakeasy-group: vendorCredits
+      x-speakeasy-name-override: delete
+    x-speakeasy-metadata:
+      after: sdk.vendorCredits.delete()
+      before: sdk.accounting.deleteVendorCredit()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/journalEntries"]["post"]
+    update:
+      x-speakeasy-name-override: addJournalEntry
+    x-speakeasy-metadata:
+      after: sdk.accounting.addJournalEntry()
+      before: sdk.accounting.createJournalEntry()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/suppliers"]["post"]
+    update:
+      x-speakeasy-name-override: addSupplier
+    x-speakeasy-metadata:
+      after: sdk.accounting.addSupplier()
+      before: sdk.accounting.createSupplier()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/bankAccounts"]["post"]
+    update:
+      x-speakeasy-name-override: addBankAccount
+    x-speakeasy-metadata:
+      after: sdk.accounting.addBankAccount()
+      before: sdk.accounting.createBankAccount()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/suppliers/{contactId}"]["get"]
+    update:
+      x-speakeasy-name-override: fetchSupplier
+    x-speakeasy-metadata:
+      after: sdk.accounting.fetchSupplier()
+      before: sdk.accounting.getSupplier()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/accounts/{accountId}"]["get"]
+    update:
+      x-speakeasy-name-override: retrieveAccount
+    x-speakeasy-metadata:
+      after: sdk.accounting.retrieveAccount()
+      before: sdk.accounting.getAccount()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/items/{itemId}"]["get"]
+    update:
+      x-speakeasy-name-override: fetchItem
+    x-speakeasy-metadata:
+      after: sdk.accounting.fetchItem()
+      before: sdk.accounting.getItem()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/journalEntries/bulk"]["post"]
+    update:
+      x-speakeasy-group: journalEntries
+      x-speakeasy-name-override: createBulk
+    x-speakeasy-metadata:
+      after: sdk.journalEntries.createBulk()
+      before: sdk.accounting.createJournalEntries()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/journalEntries/{journalEntryId}"]["get"]
+    update:
+      x-speakeasy-name-override: fetchJournalEntry
+    x-speakeasy-metadata:
+      after: sdk.accounting.fetchJournalEntry()
+      before: sdk.accounting.getJournalEntry()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/v2/contacts/{contactId}"]["get"]
+    update:
+      x-speakeasy-group: contactsV2
+      x-speakeasy-name-override: get
+    x-speakeasy-metadata:
+      after: sdk.contactsV2.get()
+      before: sdk.accounting-v2.getContactV2()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/v2/contacts/{contactId}"]["put"]
+    update:
+      x-speakeasy-name-override: updateContact
+    x-speakeasy-metadata:
+      after: sdk.accounting-v2.updateContact()
+      before: sdk.accounting-v2.putContactV2()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/projects"]["post"]
+    update:
+      x-speakeasy-name-override: addProject
+    x-speakeasy-metadata:
+      after: sdk.accounting.addProject()
+      before: sdk.accounting.createProject()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/customers/{contactId}"]["patch"]
+    update:
+      x-speakeasy-name-override: amendCustomer
+    x-speakeasy-metadata:
+      after: sdk.accounting.amendCustomer()
+      before: sdk.accounting.patchCustomers()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/customers"]["get"]
+    update:
+      x-speakeasy-name-override: fetchCustomers
+    x-speakeasy-metadata:
+      after: sdk.accounting.fetchCustomers()
+      before: sdk.accounting.getCustomers()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/invoices/{invoiceId}/lineItems"]["get"]
+    update:
+      x-speakeasy-name-override: retrieveInvoiceLineItems
+    x-speakeasy-metadata:
+      after: sdk.accounting.retrieveInvoiceLineItems()
+      before: sdk.accounting.getLineItems()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/offers/{offerId}/lineItems"]["get"]
+    update:
+      x-speakeasy-name-override: fetchOfferLineItems
+    x-speakeasy-metadata:
+      after: sdk.accounting.fetchOfferLineItems()
+      before: sdk.accounting.getOfferLineItems()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/offers/{offerId}/lineItems/{lineItemId}"]["get"]
+    update:
+      x-speakeasy-name-override: retrieveOfferLineItem
+    x-speakeasy-metadata:
+      after: sdk.accounting.retrieveOfferLineItem()
+      before: sdk.accounting.getOfferLineItem()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/items"]["get"]
+    update:
+      x-speakeasy-name-override: retrieveItems
+    x-speakeasy-metadata:
+      after: sdk.accounting.retrieveItems()
+      before: sdk.accounting.getItems()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/openItems"]["get"]
+    update:
+      x-speakeasy-name-override: retrieveOpenItems
+    x-speakeasy-metadata:
+      after: sdk.accounting.retrieveOpenItems()
+      before: sdk.accounting.getOpenItems()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/v2/contacts"]["get"]
+    update:
+      x-speakeasy-group: contactsV2
+      x-speakeasy-name-override: list
+    x-speakeasy-metadata:
+      after: sdk.contactsV2.list()
+      before: sdk.accounting-v2.getContactsV2()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/salesOrders/{salesOrderId}/lineItems"]["get"]
+    update:
+      x-speakeasy-name-override: listSalesOrderLineItems
+    x-speakeasy-metadata:
+      after: sdk.accounting.listSalesOrderLineItems()
+      before: sdk.accounting.getSalesOrderLines()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/dimensions"]["get"]
+    update:
+      x-speakeasy-name-override: retrieveDimensions
+    x-speakeasy-metadata:
+      after: sdk.accounting.retrieveDimensions()
+      before: sdk.accounting.getDimensions()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/trialBalance"]["get"]
+    update:
+      x-speakeasy-name-override: fetchTrialBalance
+    x-speakeasy-metadata:
+      after: sdk.accounting.fetchTrialBalance()
+      before: sdk.accounting.getTrialBalance()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/user/user-info"]["get"]
+    update:
+      x-speakeasy-name-override: getInfo
+    x-speakeasy-metadata:
+      after: sdk.user.getInfo()
+      before: sdk.user.getUserInfo()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/salesOrders"]["get"]
+    update:
+      x-speakeasy-name-override: listSalesOrders
+    x-speakeasy-metadata:
+      after: sdk.accounting.listSalesOrders()
+      before: sdk.accounting.getSalesOrders()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/bankAccounts/{bankAccountId}"]["get"]
+    update:
+      x-speakeasy-name-override: fetchBankAccount
+    x-speakeasy-metadata:
+      after: sdk.accounting.fetchBankAccount()
+      before: sdk.accounting.getBankAccount()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/contacts/bulk"]["post"]
+    update:
+      x-speakeasy-name-override: createContactsBulk
+    x-speakeasy-metadata:
+      after: sdk.accounting.createContactsBulk()
+      before: sdk.accounting.createContacts()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/bookings"]["post"]
+    update:
+      x-speakeasy-name-override: addBooking
+    x-speakeasy-metadata:
+      after: sdk.accounting.addBooking()
+      before: sdk.accounting.createBookings()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/invoices/{invoiceId}"]["get"]
+    update:
+      x-speakeasy-name-override: fetchInvoice
+    x-speakeasy-metadata:
+      after: sdk.accounting.fetchInvoice()
+      before: sdk.accounting.getInvoice()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/items"]["post"]
+    update:
+      x-speakeasy-group: items
+      x-speakeasy-name-override: create
+    x-speakeasy-metadata:
+      after: sdk.items.create()
+      before: sdk.accounting.createItem()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/invoices/{invoiceId}/lineItems/{lineItemId}"]["patch"]
+    update:
+      x-speakeasy-group: accounting.invoices
+      x-speakeasy-name-override: updateLineItem
+    x-speakeasy-metadata:
+      after: sdk.accounting.invoices.updateLineItem()
+      before: sdk.accounting.patchLineItem()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/bankAccounts"]["get"]
+    update:
+      x-speakeasy-name-override: retrieveBankAccounts
+    x-speakeasy-metadata:
+      after: sdk.accounting.retrieveBankAccounts()
+      before: sdk.accounting.getBankAccounts()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/files"]["post"]
+    update:
+      x-speakeasy-name-override: uploadFile
+    x-speakeasy-metadata:
+      after: sdk.accounting.uploadFile()
+      before: sdk.accounting.postFile()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/invoices/{invoiceId}/document"]["get"]
+    update:
+      x-speakeasy-name-override: fetchInvoiceDocument
+    x-speakeasy-metadata:
+      after: sdk.accounting.fetchInvoiceDocument()
+      before: sdk.accounting.getInvoiceDocument()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/purchaseOrders/{purchaseOrderId}/lineItems/{lineItemId}"]["get"]
+    update:
+      x-speakeasy-name-override: retrievePurchaseOrderLineItem
+    x-speakeasy-metadata:
+      after: sdk.accounting.retrievePurchaseOrderLineItem()
+      before: sdk.accounting.getPurchaseOrderLineItem()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/invoices/{invoiceId}/lineItems/{lineItemId}"]["get"]
+    update:
+      x-speakeasy-name-override: retrieveInvoiceLineItem
+    x-speakeasy-metadata:
+      after: sdk.accounting.retrieveInvoiceLineItem()
+      before: sdk.accounting.getLineItem()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/contacts/{contactId}"]["put"]
+    update:
+      x-speakeasy-name-override: replaceContact
+    x-speakeasy-metadata:
+      after: sdk.accounting.replaceContact()
+      before: sdk.accounting.putContact()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/taxRates"]["get"]
+    update:
+      x-speakeasy-name-override: retrieveTaxRates
+    x-speakeasy-metadata:
+      after: sdk.accounting.retrieveTaxRates()
+      before: sdk.accounting.getTaxRates()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/offers/{offerId}/document"]["get"]
+    update:
+      x-speakeasy-group: offers
+      x-speakeasy-name-override: getDocument
+    x-speakeasy-metadata:
+      after: sdk.offers.getDocument()
+      before: sdk.accounting.getOfferDocument()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/v2/contacts"]["post"]
+    update:
+      x-speakeasy-group: accountingV2
+      x-speakeasy-name-override: createContact
+    x-speakeasy-metadata:
+      after: sdk.accountingV2.createContact()
+      before: sdk.accounting-v2.createContactV2()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/vendorCredits/{vendorCreditId}"]["put"]
+    update:
+      x-speakeasy-name-override: modifyVendorCredit
+    x-speakeasy-metadata:
+      after: sdk.accounting.modifyVendorCredit()
+      before: sdk.accounting.updateVendorCredit()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/goodsReceipts/{goodsReceiptId}/lineItems/{lineItemId}"]["get"]
+    update:
+      x-speakeasy-group: goodsReceipts
+      x-speakeasy-name-override: getLineItem
+    x-speakeasy-metadata:
+      after: sdk.goodsReceipts.getLineItem()
+      before: sdk.accounting.getGoodsReceiptLineItem()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/invoices"]["get"]
+    update:
+      x-speakeasy-name-override: retrieveInvoices
+    x-speakeasy-metadata:
+      after: sdk.accounting.retrieveInvoices()
+      before: sdk.accounting.getInvoices()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/bookingProposals/{bookingProposalId}"]["get"]
+    update:
+      x-speakeasy-name-override: retrieveBookingProposal
+    x-speakeasy-metadata:
+      after: sdk.accounting.retrieveBookingProposal()
+      before: sdk.accounting.getBookingProposal()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/fiscalYears/{fiscalYearId}"]["get"]
+    update:
+      x-speakeasy-group: fiscalYears
+      x-speakeasy-name-override: get
+    x-speakeasy-metadata:
+      after: sdk.fiscalYears.get()
+      before: sdk.accounting.getFiscalYear()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/suppliers/{contactId}"]["patch"]
+    update:
+      x-speakeasy-name-override: amendSupplier
+    x-speakeasy-metadata:
+      after: sdk.accounting.amendSupplier()
+      before: sdk.accounting.patchSupplier()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/accounts"]["post"]
+    update:
+      x-speakeasy-name-override: addAccount
+    x-speakeasy-metadata:
+      after: sdk.accounting.addAccount()
+      before: sdk.accounting.createAccount()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/creditNotes/{creditNoteId}"]["get"]
+    update:
+      x-speakeasy-name-override: fetchCreditNote
+    x-speakeasy-metadata:
+      after: sdk.accounting.fetchCreditNote()
+      before: sdk.accounting.getCreditNote()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/journalEntries/{journalEntryId}/Attachments"]["get"]
+    update:
+      x-speakeasy-group: accounting.journalEntries
+      x-speakeasy-name-override: getAttachments
+    x-speakeasy-metadata:
+      after: sdk.accounting.journalEntries.getAttachments()
+      before: sdk.accounting.getJournalEntryAttachments()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/accounts"]["get"]
+    update:
+      x-speakeasy-name-override: retrieveAccounts
+    x-speakeasy-metadata:
+      after: sdk.accounting.retrieveAccounts()
+      before: sdk.accounting.getAccounts()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/bills/{billId}/lineItems/{lineItemId}"]["put"]
+    update:
+      x-speakeasy-name-override: modifyBillLineItem
+    x-speakeasy-metadata:
+      after: sdk.accounting.modifyBillLineItem()
+      before: sdk.accounting.updateBillLineItem()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/suppliers"]["get"]
+    update:
+      x-speakeasy-name-override: retrieveSuppliers
+    x-speakeasy-metadata:
+      after: sdk.accounting.retrieveSuppliers()
+      before: sdk.accounting.getSuppliers()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/payments/{paymentId}"]["delete"]
+    update:
+      x-speakeasy-name-override: removePayment
+    x-speakeasy-metadata:
+      after: sdk.accounting.removePayment()
+      before: sdk.accounting.deletePayment()
+      created_at: 1774360648014
+      type: method-name
+  - target: $["paths"]["/accounting/v2/bookingProposals"]["post"]
+    update:
+      x-speakeasy-group: accountingV2
+      x-speakeasy-name-override: createBookingProposal
+    x-speakeasy-metadata:
+      after: sdk.accountingV2.createBookingProposal()
+      before: sdk.accounting-v2.createBookingProposalV2()
+      created_at: 1774360648015
+      type: method-name
+  - target: $["paths"]["/accounting/paymentTerms"]["post"]
+    update:
+      x-speakeasy-name-override: addPaymentTerm
+    x-speakeasy-metadata:
+      after: sdk.accounting.addPaymentTerm()
+      before: sdk.accounting.createPaymentTerm()
+      created_at: 1774360648015
+      type: method-name
+  - target: $["paths"]["/accounting/invoices"]["post"]
+    update:
+      x-speakeasy-name-override: addInvoice
+    x-speakeasy-metadata:
+      after: sdk.accounting.addInvoice()
+      before: sdk.accounting.createInvoice()
+      created_at: 1774360648015
+      type: method-name
+  - target: $["paths"]["/accounting/bills"]["get"]
+    update:
+      x-speakeasy-name-override: fetchBills
+    x-speakeasy-metadata:
+      after: sdk.accounting.fetchBills()
+      before: sdk.accounting.getBills()
+      created_at: 1774360648015
+      type: method-name
+  - target: $["paths"]["/accounting/expenses"]["post"]
+    update:
+      x-speakeasy-name-override: addExpense
+    x-speakeasy-metadata:
+      after: sdk.accounting.addExpense()
+      before: sdk.accounting.createExpense()
+      created_at: 1774360648015
+      type: method-name
+  - target: $["paths"]["/accounting/offers"]["get"]
+    update:
+      x-speakeasy-name-override: fetchOffers
+    x-speakeasy-metadata:
+      after: sdk.accounting.fetchOffers()
+      before: sdk.accounting.getOffers()
+      created_at: 1774360648015
+      type: method-name
+  - target: $["paths"]["/accounting/bills/{billId}/lineItems"]["get"]
+    update:
+      x-speakeasy-group: bills
+      x-speakeasy-name-override: getLineItems
+    x-speakeasy-metadata:
+      after: sdk.bills.getLineItems()
+      before: sdk.accounting.getBillLineItems()
+      created_at: 1774360648015
+      type: method-name
+  - target: $["paths"]["/accounting/contacts"]["post"]
+    update:
+      x-speakeasy-name-override: addContact
+    x-speakeasy-metadata:
+      after: sdk.accounting.addContact()
+      before: sdk.accounting.createContact()
+      created_at: 1774360648015
+      type: method-name
+  - target: $["paths"]["/accounting/payments"]["post"]
+    update:
+      x-speakeasy-name-override: addPayment
+    x-speakeasy-metadata:
+      after: sdk.accounting.addPayment()
+      before: sdk.accounting.createPayment()
+      created_at: 1774360648015
+      type: method-name
+  - target: $["paths"]["/accounting/contacts/{contactId}"]["get"]
+    update:
+      x-speakeasy-name-override: fetchContact
+    x-speakeasy-metadata:
+      after: sdk.accounting.fetchContact()
+      before: sdk.accounting.getContact()
+      created_at: 1774360648015
+      type: method-name
+  - target: $["paths"]["/accounting/purchaseOrders/{purchaseOrderId}"]["get"]
+    update:
+      x-speakeasy-name-override: fetchPurchaseOrder
+    x-speakeasy-metadata:
+      after: sdk.accounting.fetchPurchaseOrder()
+      before: sdk.accounting.getPurchaseOrder()
+      created_at: 1774360648015
+      type: method-name
+  - target: $["paths"]["/accounting/v2/dimensions"]["get"]
+    update:
+      x-speakeasy-name-override: obtainDimensions
+    x-speakeasy-metadata:
+      after: sdk.accounting-v2.obtainDimensions()
+      before: sdk.accounting-v2.getDimensionsV2()
+      created_at: 1774360648015
+      type: method-name
+  - target: $["paths"]["/accounting/bills"]["post"]
+    update:
+      x-speakeasy-name-override: addBill
+    x-speakeasy-metadata:
+      after: sdk.accounting.addBill()
+      before: sdk.accounting.createBill()
+      created_at: 1774360648015
+      type: method-name
+  - target: $["paths"]["/accounting/bookingProposals/{bookingProposalId}/document"]["get"]
+    update:
+      x-speakeasy-name-override: fetchBookingProposalDocument
+    x-speakeasy-metadata:
+      after: sdk.accounting.fetchBookingProposalDocument()
+      before: sdk.accounting.getBookingProposalDocument()
+      created_at: 1774360648015
+      type: method-name
+  - target: $["paths"]["/accounting/invoices/{invoiceId}/lineItems"]["post"]
+    update:
+      x-speakeasy-name-override: addInvoiceLineItem
+    x-speakeasy-metadata:
+      after: sdk.accounting.addInvoiceLineItem()
+      before: sdk.accounting.createLineItem()
+      created_at: 1774360648015
+      type: method-name
+  - target: $["paths"]["/accounting/bills/{billId}"]["delete"]
+    update:
+      x-speakeasy-name-override: removeBill
+    x-speakeasy-metadata:
+      after: sdk.accounting.removeBill()
+      before: sdk.accounting.deleteBill()
+      created_at: 1774360648015
+      type: method-name
+  - target: $["paths"]["/accounting/vendorCredits"]["get"]
+    update:
+      x-speakeasy-name-override: retrieveVendorCredits
+    x-speakeasy-metadata:
+      after: sdk.accounting.retrieveVendorCredits()
+      before: sdk.accounting.getVendorCredits()
+      created_at: 1774360648015
+      type: method-name
+  - target: $["paths"]["/accounting/expenses/{expenseId}"]["get"]
+    update:
+      x-speakeasy-name-override: fetchExpense
+    x-speakeasy-metadata:
+      after: sdk.accounting.fetchExpense()
+      before: sdk.accounting.getExpense()
+      created_at: 1774360648015
+      type: method-name
+  - target: $["paths"]["/accounting/files/documentExtensions"]["get"]
+    update:
+      x-speakeasy-group: files
+    x-speakeasy-metadata:
+      after: sdk.files.getDocumentExtensions()
+      before: sdk.accounting.getDocumentExtensions()
+      created_at: 1774360648015
+      type: method-name
+  - target: $["paths"]["/accounting/payments"]["get"]
+    update:
+      x-speakeasy-name-override: retrievePayments
+    x-speakeasy-metadata:
+      after: sdk.accounting.retrievePayments()
+      before: sdk.accounting.getPayments()
+      created_at: 1774360648015
+      type: method-name
+  - target: $["paths"]["/accounting/goodsReceipts/{goodsReceiptId}"]["get"]
+    update:
+      x-speakeasy-name-override: retrieveGoodsReceipt
+    x-speakeasy-metadata:
+      after: sdk.accounting.retrieveGoodsReceipt()
+      before: sdk.accounting.getGoodsReceipt()
+      created_at: 1774360648015
+      type: method-name
+  - target: $["paths"]["/accounting/salesOrders"]["post"]
+    update:
+      x-speakeasy-name-override: addSalesOrder
+    x-speakeasy-metadata:
+      after: sdk.accounting.addSalesOrder()
+      before: sdk.accounting.createSalesOrder()
+      created_at: 1774360648016
+      type: method-name
+  - target: $["paths"]["/accounting/expenses"]["get"]
+    update:
+      x-speakeasy-name-override: fetchExpenses
+    x-speakeasy-metadata:
+      after: sdk.accounting.fetchExpenses()
+      before: sdk.accounting.getExpenses()
+      created_at: 1774360648016
+      type: method-name
+  - target: $["paths"]["/accounting/batch/contacts"]["post"]
+    update:
+      x-speakeasy-name-override: batchAddContacts
+    x-speakeasy-metadata:
+      after: sdk.accounting.batchAddContacts()
+      before: sdk.accounting.createContactsV1()
+      created_at: 1774360648016
+      type: method-name
+  - target: $["paths"]["/accounting/v2/dimensions/{dimension}"]["get"]
+    update:
+      x-speakeasy-group: accounting.v2
+      x-speakeasy-name-override: getDimension
+    x-speakeasy-metadata:
+      after: sdk.accounting.v2.getDimension()
+      before: sdk.accounting-v2.getDimensionsByDimension()
+      created_at: 1774360648016
+      type: method-name
+  - target: $["paths"]["/accounting/journalEntries"]["get"]
+    update:
+      x-speakeasy-name-override: listJournalEntries
+    x-speakeasy-metadata:
+      after: sdk.accounting.listJournalEntries()
+      before: sdk.accounting.getJournalEntries()
+      created_at: 1774360648016
+      type: method-name
+  - target: $["paths"]["/accounting/event-subscriptions/{eventSubscriptionId}"]["delete"]
+    update:
+      x-speakeasy-name-override: removeEventSubscription
+    x-speakeasy-metadata:
+      after: sdk.accounting.removeEventSubscription()
+      before: sdk.accounting.deleteEventSubscriptions()
+      created_at: 1774360648016
+      type: method-name
+  - target: $["paths"]["/accounting/offers"]["post"]
+    update:
+      x-speakeasy-name-override: addOffer
+    x-speakeasy-metadata:
+      after: sdk.accounting.addOffer()
+      before: sdk.accounting.createOffer()
+      created_at: 1774360648016
+      type: method-name
+  - target: $["paths"]["/accounting/bills/{billId}"]["get"]
+    update:
+      x-speakeasy-name-override: fetchBill
+    x-speakeasy-metadata:
+      after: sdk.accounting.fetchBill()
+      before: sdk.accounting.getBill()
+      created_at: 1774360648016
+      type: method-name
+  - target: $["paths"]["/accounting/projects/{projectId}"]["get"]
+    update:
+      x-speakeasy-name-override: fetchProject
+    x-speakeasy-metadata:
+      after: sdk.accounting.fetchProject()
+      before: sdk.accounting.getProject()
+      created_at: 1774360648016
+      type: method-name
+  - target: $["paths"]["/accounting/bookingProposals"]["get"]
+    update:
+      x-speakeasy-name-override: listBookingProposals
+    x-speakeasy-metadata:
+      after: sdk.accounting.listBookingProposals()
+      before: sdk.accounting.getBookingProposals()
+      created_at: 1774360648016
+      type: method-name
+  - target: $["paths"]["/accounting/suppliers/{contactId}"]["put"]
+    update:
+      x-speakeasy-name-override: modifySupplier
+    x-speakeasy-metadata:
+      after: sdk.accounting.modifySupplier()
+      before: sdk.accounting.updateSupplier()
+      created_at: 1774360648016
+      type: method-name
+  - target: $["paths"]["/accounting/payments/{paymentId}"]["get"]
+    update:
+      x-speakeasy-name-override: fetchPayment
+    x-speakeasy-metadata:
+      after: sdk.accounting.fetchPayment()
+      before: sdk.accounting.getPayment()
+      created_at: 1774360648016
+      type: method-name
+  - target: $["paths"]["/accounting/event-subscriptions"]["post"]
+    update:
+      x-speakeasy-name-override: addEventSubscription
+    x-speakeasy-metadata:
+      after: sdk.accounting.addEventSubscription()
+      before: sdk.accounting.createEventSubscriptions()
+      created_at: 1774360648016
+      type: method-name
+  - target: $["paths"]["/accounting/items/{itemId}"]["patch"]
+    update:
+      x-speakeasy-group: items
+      x-speakeasy-name-override: modify
+    x-speakeasy-metadata:
+      after: sdk.items.modify()
+      before: sdk.accounting.patchItem()
+      created_at: 1774360648016
+      type: method-name
+  - target: $["paths"]["/accounting/salesOrders/{salesOrderId}"]["get"]
+    update:
+      x-speakeasy-name-override: fetchSalesOrder
+    x-speakeasy-metadata:
+      after: sdk.accounting.fetchSalesOrder()
+      before: sdk.accounting.getSalesOrder()
+      created_at: 1774360648016
+      type: method-name
+  - target: $["paths"]["/accounting/contacts/{contactId}"]["patch"]
+    update:
+      x-speakeasy-group: contacts
+      x-speakeasy-name-override: patch
+    x-speakeasy-metadata:
+      after: sdk.contacts.patch()
+      before: sdk.accounting.patchContact()
+      created_at: 1774360648016
+      type: method-name
+  - target: $["paths"]["/accounting/files/documentTypes"]["get"]
+    update:
+      x-speakeasy-name-override: fetchDocumentTypes
+    x-speakeasy-metadata:
+      after: sdk.accounting.fetchDocumentTypes()
+      before: sdk.accounting.getDocumentTypes()
+      created_at: 1774360648016
+      type: method-name
+  - target: $["paths"]["/accounting/paymentTerms/{paymentTermId}"]["get"]
+    update:
+      x-speakeasy-name-override: fetchPaymentTerm
+    x-speakeasy-metadata:
+      after: sdk.accounting.fetchPaymentTerm()
+      before: sdk.accounting.getPaymentTerm()
+      created_at: 1774360648016
+      type: method-name

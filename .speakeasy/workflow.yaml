@@ -1,0 +1,27 @@
+workflowVersion: 1.0.0
+speakeasyVersion: latest
+sources:
+    Maesn unified API:
+        inputs:
+            - location: https://unified-backend-prod.azurewebsites.net/api-json
+            - location: https://unified-backend-prod.azurewebsites.net/api/auth-json
+            - location: https://unified-backend-prod.azurewebsites.net/api/events-json
+            - location: https://unified-backend-prod.azurewebsites.net/api/webhooks-json
+            - location: https://unified-backend-prod.azurewebsites.net/api/health-json
+            - location: https://unified-backend-prod.azurewebsites.net/api/tenants-json
+        overlays:
+            - location: .speakeasy/speakeasy-modifications-overlay.yaml
+            - location: .speakeasy/auth-security-overlay.yaml
+        output: .speakeasy/out.openapi.yaml
+        registry:
+            location: registry.speakeasyapi.dev/test-qpg/myworkspace/maesn-unified-api
+targets:
+    maesn:
+        target: typescript
+        source: Maesn unified API
+        codeSamples:
+            registry:
+                location: registry.speakeasyapi.dev/test-qpg/myworkspace/maesn-unified-api-typescript-code-samples
+            labelOverride:
+                fixedValue: Typescript (SDK)
+            blocking: false

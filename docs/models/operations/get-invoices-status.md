@@ -1,0 +1,15 @@
+# GetInvoicesStatus
+
+## Example Usage
+
+```typescript
+import { GetInvoicesStatus } from "maesn/models/operations";
+
+let value: GetInvoicesStatus = "VOIDED";
+```
+
+## Values
+
+```typescript
+"DRAFT" | "CORRECTIVE" | "SUBMITTED" | "DOCUMENT_CREATED" | "OPEN" | "PARTIALLY_PAID" | "PAID" | "PARTIALLY_OVERDUE" | "OVERDUE" | "VOIDED"
+```

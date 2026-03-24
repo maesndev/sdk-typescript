@@ -1,0 +1,39 @@
+speakeasyVersion: 1.758.0
+sources:
+    Maesn unified API:
+        sourceNamespace: maesn-unified-api
+        sourceRevisionDigest: sha256:4413da15f31919f69ed948249462e23fd6d77ecf4fb401f663d8eb63a4732df9
+        sourceBlobDigest: sha256:45b019168ac07d16451d1c9a2a138a010aec7f087f2c20a4f87d4a70212b0482
+        tags:
+            - latest
+            - "1.0"
+targets:
+    maesn:
+        source: Maesn unified API
+        sourceNamespace: maesn-unified-api
+        sourceRevisionDigest: sha256:4413da15f31919f69ed948249462e23fd6d77ecf4fb401f663d8eb63a4732df9
+        sourceBlobDigest: sha256:45b019168ac07d16451d1c9a2a138a010aec7f087f2c20a4f87d4a70212b0482
+        codeSamplesNamespace: maesn-unified-api-typescript-code-samples
+        codeSamplesRevisionDigest: sha256:4ea85c35ac6e4401e2223d68a694b9d8cd052008bcd1f01f0f8ea746d512a0b6
+workflow:
+    workflowVersion: 1.0.0
+    speakeasyVersion: latest
+    sources:
+        Maesn unified API:
+            inputs:
+                - location: https://unified-backend-prod.azurewebsites.net/api-json
+            overlays:
+                - location: .speakeasy/speakeasy-modifications-overlay.yaml
+            output: .speakeasy/out.openapi.yaml
+            registry:
+                location: registry.speakeasyapi.dev/test-qpg/myworkspace/maesn-unified-api
+    targets:
+        maesn:
+            target: typescript
+            source: Maesn unified API
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/test-qpg/myworkspace/maesn-unified-api-typescript-code-samples
+                labelOverride:
+                    fixedValue: Typescript (SDK)
+                blocking: false

@@ -1,0 +1,33 @@
+overlay: 1.0.0
+x-speakeasy-jsonpath: rfc9535
+info:
+  title: Auth Global Security Overlay
+  version: 0.0.1
+actions:
+  # Define X-API-KEY and X-ACCOUNT-KEY as global security schemes
+  - target: $["components"]
+    update:
+      securitySchemes:
+        apiKey:
+          type: apiKey
+          in: header
+          name: X-API-KEY
+          description: API key for authentication
+        accountKey:
+          type: apiKey
+          in: header
+          name: X-ACCOUNT-KEY
+          description: Account key for tenant-specific operations
+
+  # Add as global security (applies to all operations)
+  - target: $
+    update:
+      security:
+        - apiKey: []
+          accountKey: []
+
+  # Remove per-operation parameters since they're now handled globally
+  - target: $["paths"][*][*]["parameters"][?(@["name"] == "X-API-KEY")]
+    remove: true
+  - target: $["paths"][*][*]["parameters"][?(@["name"] == "X-ACCOUNT-KEY")]
+    remove: true

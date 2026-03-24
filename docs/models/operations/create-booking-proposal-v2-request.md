@@ -1,0 +1,20 @@
+# CreateBookingProposalV2Request
+
+## Example Usage
+
+```typescript
+import { CreateBookingProposalV2Request } from "maesn/models/operations";
+
+let value: CreateBookingProposalV2Request = {
+  body: {},
+};
+```
+
+## Fields
+
+| Field                                                                                                               | Type                                                                                                                | Required                                                                                                            | Description                                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| `companyId`                                                                                                         | *string*                                                                                                            | :heavy_minus_sign:                                                                                                  | N/A                                                                                                                 |
+| `xApiKey`                                                                                                           | *string*                                                                                                            | :heavy_minus_sign:                                                                                                  | API key                                                                                                             |
+| `xAccountKey`                                                                                                       | *string*                                                                                                            | :heavy_minus_sign:                                                                                                  | Account key                                                                                                         |
+| `body`                                                                                                              | [operations.CreateBookingProposalV2RequestBody](../../models/operations/create-booking-proposal-v2-request-body.md) | :heavy_check_mark:                                                                                                  | N/A                                                                                                                 |
