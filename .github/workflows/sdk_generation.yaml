@@ -15,8 +15,6 @@ permissions:
       set_version:
         description: optionally set a specific SDK version
         type: string
-  schedule:
-    - cron: 0 0 * * *
   pull_request:
     types:
       - labeled
