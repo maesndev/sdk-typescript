@@ -20,5 +20,3 @@ let value: GetItemsRequest = {};
 | `rawData`          | *boolean*          | :heavy_minus_sign: | N/A                |
 | `type`             | *string*           | :heavy_minus_sign: | N/A                |
 | `itemNumber`       | *string*           | :heavy_minus_sign: | N/A                |
-| `xApiKey`          | *string*           | :heavy_minus_sign: | API key            |
-| `xAccountKey`      | *string*           | :heavy_minus_sign: | Account key        |

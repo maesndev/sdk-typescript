@@ -878,12 +878,10 @@ export class Accounting extends ClientSDK {
   }
 
   async getProfile(
-    request?: operations.GetProfileRequest | undefined,
     options?: RequestOptions,
   ): Promise<void> {
     return unwrapAsync(accountingGetProfile(
       this,
-      request,
       options,
     ));
   }

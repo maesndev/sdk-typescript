@@ -3,7 +3,6 @@
  */
 
 import * as z from "zod/v4-mini";
-import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { blobLikeSchema } from "../../types/blobs.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
@@ -28,14 +27,6 @@ export type PostFileRequestBody = {
 
 export type PostFileRequest = {
   companyId?: string | undefined;
-  /**
-   * API key
-   */
-  xApiKey?: string | undefined;
-  /**
-   * Account key
-   */
-  xAccountKey?: string | undefined;
   body: PostFileRequestBody;
 };
 
@@ -114,8 +105,6 @@ export function postFileRequestBodyToJSON(
 /** @internal */
 export type PostFileRequest$Outbound = {
   companyId?: string | undefined;
-  "X-API-KEY"?: string | undefined;
-  "X-ACCOUNT-KEY"?: string | undefined;
   body: PostFileRequestBody$Outbound;
 };
 
@@ -123,20 +112,10 @@ export type PostFileRequest$Outbound = {
 export const PostFileRequest$outboundSchema: z.ZodMiniType<
   PostFileRequest$Outbound,
   PostFileRequest
-> = z.pipe(
-  z.object({
-    companyId: z.optional(z.string()),
-    xApiKey: z.optional(z.string()),
-    xAccountKey: z.optional(z.string()),
-    body: z.lazy(() => PostFileRequestBody$outboundSchema),
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      xApiKey: "X-API-KEY",
-      xAccountKey: "X-ACCOUNT-KEY",
-    });
-  }),
-);
+> = z.object({
+  companyId: z.optional(z.string()),
+  body: z.lazy(() => PostFileRequestBody$outboundSchema),
+});
 
 export function postFileRequestToJSON(
   postFileRequest: PostFileRequest,

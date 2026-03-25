@@ -3,7 +3,6 @@
  */
 
 import * as z from "zod/v4-mini";
-import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -19,14 +18,6 @@ export type GetCustomersRequest = {
   email?: string | undefined;
   name?: string | undefined;
   number?: string | undefined;
-  /**
-   * API key
-   */
-  xApiKey?: string | undefined;
-  /**
-   * Account key
-   */
-  xAccountKey?: string | undefined;
 };
 
 export type GetCustomersErrors = {};
@@ -51,35 +42,23 @@ export type GetCustomersRequest$Outbound = {
   email?: string | undefined;
   name?: string | undefined;
   number?: string | undefined;
-  "X-API-KEY"?: string | undefined;
-  "X-ACCOUNT-KEY"?: string | undefined;
 };
 
 /** @internal */
 export const GetCustomersRequest$outboundSchema: z.ZodMiniType<
   GetCustomersRequest$Outbound,
   GetCustomersRequest
-> = z.pipe(
-  z.object({
-    page: z.optional(z.number()),
-    limit: z.optional(z.number()),
-    lastModifiedAt: z.optional(z.string()),
-    environmentName: z.optional(z.string()),
-    companyId: z.optional(z.string()),
-    rawData: z.optional(z.boolean()),
-    email: z.optional(z.string()),
-    name: z.optional(z.string()),
-    number: z.optional(z.string()),
-    xApiKey: z.optional(z.string()),
-    xAccountKey: z.optional(z.string()),
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      xApiKey: "X-API-KEY",
-      xAccountKey: "X-ACCOUNT-KEY",
-    });
-  }),
-);
+> = z.object({
+  page: z.optional(z.number()),
+  limit: z.optional(z.number()),
+  lastModifiedAt: z.optional(z.string()),
+  environmentName: z.optional(z.string()),
+  companyId: z.optional(z.string()),
+  rawData: z.optional(z.boolean()),
+  email: z.optional(z.string()),
+  name: z.optional(z.string()),
+  number: z.optional(z.string()),
+});
 
 export function getCustomersRequestToJSON(
   getCustomersRequest: GetCustomersRequest,

@@ -3,7 +3,6 @@
  */
 
 import * as z from "zod/v4-mini";
-import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -11,14 +10,6 @@ import * as models from "../index.js";
 
 export type CreateContactsRequest = {
   companyId?: string | undefined;
-  /**
-   * API key
-   */
-  xApiKey?: string | undefined;
-  /**
-   * Account key
-   */
-  xAccountKey?: string | undefined;
   body: models.CreateContactByBatchMetaDataDto;
 };
 
@@ -36,8 +27,6 @@ export type CreateContactsResponse = {
 /** @internal */
 export type CreateContactsRequest$Outbound = {
   companyId?: string | undefined;
-  "X-API-KEY"?: string | undefined;
-  "X-ACCOUNT-KEY"?: string | undefined;
   body: models.CreateContactByBatchMetaDataDto$Outbound;
 };
 
@@ -45,20 +34,10 @@ export type CreateContactsRequest$Outbound = {
 export const CreateContactsRequest$outboundSchema: z.ZodMiniType<
   CreateContactsRequest$Outbound,
   CreateContactsRequest
-> = z.pipe(
-  z.object({
-    companyId: z.optional(z.string()),
-    xApiKey: z.optional(z.string()),
-    xAccountKey: z.optional(z.string()),
-    body: models.CreateContactByBatchMetaDataDto$outboundSchema,
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      xApiKey: "X-API-KEY",
-      xAccountKey: "X-ACCOUNT-KEY",
-    });
-  }),
-);
+> = z.object({
+  companyId: z.optional(z.string()),
+  body: models.CreateContactByBatchMetaDataDto$outboundSchema,
+});
 
 export function createContactsRequestToJSON(
   createContactsRequest: CreateContactsRequest,

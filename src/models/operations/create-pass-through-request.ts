@@ -3,7 +3,6 @@
  */
 
 import * as z from "zod/v4-mini";
-import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -12,14 +11,6 @@ import * as models from "../index.js";
 export type CreatePassThroughRequestRequest = {
   environmentName?: string | undefined;
   companyId?: string | undefined;
-  /**
-   * API key
-   */
-  xApiKey?: string | undefined;
-  /**
-   * Account key
-   */
-  xAccountKey?: string | undefined;
   body: models.CreatePassThroughRequestDto;
 };
 
@@ -40,8 +31,6 @@ export type CreatePassThroughRequestResponse = {
 export type CreatePassThroughRequestRequest$Outbound = {
   environmentName?: string | undefined;
   companyId?: string | undefined;
-  "X-API-KEY"?: string | undefined;
-  "X-ACCOUNT-KEY"?: string | undefined;
   body: models.CreatePassThroughRequestDto$Outbound;
 };
 
@@ -49,21 +38,11 @@ export type CreatePassThroughRequestRequest$Outbound = {
 export const CreatePassThroughRequestRequest$outboundSchema: z.ZodMiniType<
   CreatePassThroughRequestRequest$Outbound,
   CreatePassThroughRequestRequest
-> = z.pipe(
-  z.object({
-    environmentName: z.optional(z.string()),
-    companyId: z.optional(z.string()),
-    xApiKey: z.optional(z.string()),
-    xAccountKey: z.optional(z.string()),
-    body: models.CreatePassThroughRequestDto$outboundSchema,
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      xApiKey: "X-API-KEY",
-      xAccountKey: "X-ACCOUNT-KEY",
-    });
-  }),
-);
+> = z.object({
+  environmentName: z.optional(z.string()),
+  companyId: z.optional(z.string()),
+  body: models.CreatePassThroughRequestDto$outboundSchema,
+});
 
 export function createPassThroughRequestRequestToJSON(
   createPassThroughRequestRequest: CreatePassThroughRequestRequest,

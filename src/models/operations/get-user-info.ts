@@ -3,22 +3,10 @@
  */
 
 import * as z from "zod/v4-mini";
-import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
-
-export type GetUserInfoRequest = {
-  /**
-   * API key
-   */
-  xApiKey?: string | undefined;
-  /**
-   * Account key
-   */
-  xAccountKey?: string | undefined;
-};
 
 export type GetUserInfoErrors = {};
 
@@ -30,37 +18,6 @@ export type GetUserInfoResponse = {
   errors: GetUserInfoErrors;
   rawData: GetUserInfoRawData;
 };
-
-/** @internal */
-export type GetUserInfoRequest$Outbound = {
-  "X-API-KEY"?: string | undefined;
-  "X-ACCOUNT-KEY"?: string | undefined;
-};
-
-/** @internal */
-export const GetUserInfoRequest$outboundSchema: z.ZodMiniType<
-  GetUserInfoRequest$Outbound,
-  GetUserInfoRequest
-> = z.pipe(
-  z.object({
-    xApiKey: z.optional(z.string()),
-    xAccountKey: z.optional(z.string()),
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      xApiKey: "X-API-KEY",
-      xAccountKey: "X-ACCOUNT-KEY",
-    });
-  }),
-);
-
-export function getUserInfoRequestToJSON(
-  getUserInfoRequest: GetUserInfoRequest,
-): string {
-  return JSON.stringify(
-    GetUserInfoRequest$outboundSchema.parse(getUserInfoRequest),
-  );
-}
 
 /** @internal */
 export const GetUserInfoErrors$inboundSchema: z.ZodMiniType<

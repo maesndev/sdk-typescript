@@ -6,10 +6,16 @@ import * as z from "zod/v4-mini";
 import { dlv } from "./dlv.js";
 
 export interface Env {
+  MAESN_API_KEY?: string | undefined;
+  MAESN_ACCOUNT_KEY?: string | undefined;
+
   MAESN_DEBUG?: boolean | undefined;
 }
 
 export const envSchema: z.ZodMiniType<Env, unknown> = z.object({
+  MAESN_API_KEY: z.optional(z.string()),
+  MAESN_ACCOUNT_KEY: z.optional(z.string()),
+
   MAESN_DEBUG: z.optional(z.coerce.boolean()),
 });
 

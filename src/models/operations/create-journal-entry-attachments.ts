@@ -3,7 +3,6 @@
  */
 
 import * as z from "zod/v4-mini";
-import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { blobLikeSchema } from "../../types/blobs.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
@@ -21,14 +20,6 @@ export type CreateJournalEntryAttachmentsRequestBody = {
 
 export type CreateJournalEntryAttachmentsRequest = {
   journalEntryId: string;
-  /**
-   * API key
-   */
-  xApiKey?: string | undefined;
-  /**
-   * Account key
-   */
-  xAccountKey?: string | undefined;
   body: CreateJournalEntryAttachmentsRequestBody;
 };
 
@@ -106,8 +97,6 @@ export function createJournalEntryAttachmentsRequestBodyToJSON(
 /** @internal */
 export type CreateJournalEntryAttachmentsRequest$Outbound = {
   journalEntryId: string;
-  "X-API-KEY"?: string | undefined;
-  "X-ACCOUNT-KEY"?: string | undefined;
   body: CreateJournalEntryAttachmentsRequestBody$Outbound;
 };
 
@@ -115,20 +104,10 @@ export type CreateJournalEntryAttachmentsRequest$Outbound = {
 export const CreateJournalEntryAttachmentsRequest$outboundSchema: z.ZodMiniType<
   CreateJournalEntryAttachmentsRequest$Outbound,
   CreateJournalEntryAttachmentsRequest
-> = z.pipe(
-  z.object({
-    journalEntryId: z.string(),
-    xApiKey: z.optional(z.string()),
-    xAccountKey: z.optional(z.string()),
-    body: z.lazy(() => CreateJournalEntryAttachmentsRequestBody$outboundSchema),
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      xApiKey: "X-API-KEY",
-      xAccountKey: "X-ACCOUNT-KEY",
-    });
-  }),
-);
+> = z.object({
+  journalEntryId: z.string(),
+  body: z.lazy(() => CreateJournalEntryAttachmentsRequestBody$outboundSchema),
+});
 
 export function createJournalEntryAttachmentsRequestToJSON(
   createJournalEntryAttachmentsRequest: CreateJournalEntryAttachmentsRequest,

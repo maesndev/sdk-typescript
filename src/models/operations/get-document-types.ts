@@ -3,7 +3,6 @@
  */
 
 import * as z from "zod/v4-mini";
-import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -11,14 +10,6 @@ import * as models from "../index.js";
 
 export type GetDocumentTypesRequest = {
   companyId?: string | undefined;
-  /**
-   * API key
-   */
-  xApiKey?: string | undefined;
-  /**
-   * Account key
-   */
-  xAccountKey?: string | undefined;
 };
 
 export type GetDocumentTypesErrors = {};
@@ -35,27 +26,15 @@ export type GetDocumentTypesResponse = {
 /** @internal */
 export type GetDocumentTypesRequest$Outbound = {
   companyId?: string | undefined;
-  "X-API-KEY"?: string | undefined;
-  "X-ACCOUNT-KEY"?: string | undefined;
 };
 
 /** @internal */
 export const GetDocumentTypesRequest$outboundSchema: z.ZodMiniType<
   GetDocumentTypesRequest$Outbound,
   GetDocumentTypesRequest
-> = z.pipe(
-  z.object({
-    companyId: z.optional(z.string()),
-    xApiKey: z.optional(z.string()),
-    xAccountKey: z.optional(z.string()),
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      xApiKey: "X-API-KEY",
-      xAccountKey: "X-ACCOUNT-KEY",
-    });
-  }),
-);
+> = z.object({
+  companyId: z.optional(z.string()),
+});
 
 export function getDocumentTypesRequestToJSON(
   getDocumentTypesRequest: GetDocumentTypesRequest,

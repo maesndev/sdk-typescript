@@ -3,7 +3,6 @@
  */
 
 import * as z from "zod/v4-mini";
-import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
@@ -64,14 +63,6 @@ export type GetBillsRequest = {
   rawData?: boolean | undefined;
   orderField?: GetBillsOrderField | undefined;
   orderDir?: GetBillsOrderDir | undefined;
-  /**
-   * API key
-   */
-  xApiKey?: string | undefined;
-  /**
-   * Account key
-   */
-  xAccountKey?: string | undefined;
 };
 
 export type GetBillsErrors = {};
@@ -117,36 +108,24 @@ export type GetBillsRequest$Outbound = {
   rawData?: boolean | undefined;
   orderField?: string | undefined;
   orderDir?: string | undefined;
-  "X-API-KEY"?: string | undefined;
-  "X-ACCOUNT-KEY"?: string | undefined;
 };
 
 /** @internal */
 export const GetBillsRequest$outboundSchema: z.ZodMiniType<
   GetBillsRequest$Outbound,
   GetBillsRequest
-> = z.pipe(
-  z.object({
-    page: z.optional(z.number()),
-    limit: z.optional(z.number()),
-    lastModifiedAt: z.optional(z.string()),
-    environmentName: z.optional(z.string()),
-    companyId: z.optional(z.string()),
-    status: z.optional(GetBillsStatus$outboundSchema),
-    paymentStatus: z.optional(GetBillsPaymentStatus$outboundSchema),
-    rawData: z.optional(z.boolean()),
-    orderField: z.optional(GetBillsOrderField$outboundSchema),
-    orderDir: z.optional(GetBillsOrderDir$outboundSchema),
-    xApiKey: z.optional(z.string()),
-    xAccountKey: z.optional(z.string()),
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      xApiKey: "X-API-KEY",
-      xAccountKey: "X-ACCOUNT-KEY",
-    });
-  }),
-);
+> = z.object({
+  page: z.optional(z.number()),
+  limit: z.optional(z.number()),
+  lastModifiedAt: z.optional(z.string()),
+  environmentName: z.optional(z.string()),
+  companyId: z.optional(z.string()),
+  status: z.optional(GetBillsStatus$outboundSchema),
+  paymentStatus: z.optional(GetBillsPaymentStatus$outboundSchema),
+  rawData: z.optional(z.boolean()),
+  orderField: z.optional(GetBillsOrderField$outboundSchema),
+  orderDir: z.optional(GetBillsOrderDir$outboundSchema),
+});
 
 export function getBillsRequestToJSON(
   getBillsRequest: GetBillsRequest,

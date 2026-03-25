@@ -3,7 +3,6 @@
  */
 
 import * as z from "zod/v4-mini";
-import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -20,14 +19,6 @@ export type GetOpenItemsRequest = {
   accountNumber?: string | undefined;
   documentNumber?: string | undefined;
   type?: string | undefined;
-  /**
-   * API key
-   */
-  xApiKey?: string | undefined;
-  /**
-   * Account key
-   */
-  xAccountKey?: string | undefined;
 };
 
 export type GetOpenItemsErrors = {};
@@ -53,36 +44,24 @@ export type GetOpenItemsRequest$Outbound = {
   accountNumber?: string | undefined;
   documentNumber?: string | undefined;
   type?: string | undefined;
-  "X-API-KEY"?: string | undefined;
-  "X-ACCOUNT-KEY"?: string | undefined;
 };
 
 /** @internal */
 export const GetOpenItemsRequest$outboundSchema: z.ZodMiniType<
   GetOpenItemsRequest$Outbound,
   GetOpenItemsRequest
-> = z.pipe(
-  z.object({
-    page: z.optional(z.number()),
-    limit: z.optional(z.number()),
-    lastModifiedAt: z.optional(z.string()),
-    environmentName: z.optional(z.string()),
-    companyId: z.optional(z.string()),
-    rawData: z.optional(z.boolean()),
-    fiscalYear: z.optional(z.number()),
-    accountNumber: z.optional(z.string()),
-    documentNumber: z.optional(z.string()),
-    type: z.optional(z.string()),
-    xApiKey: z.optional(z.string()),
-    xAccountKey: z.optional(z.string()),
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      xApiKey: "X-API-KEY",
-      xAccountKey: "X-ACCOUNT-KEY",
-    });
-  }),
-);
+> = z.object({
+  page: z.optional(z.number()),
+  limit: z.optional(z.number()),
+  lastModifiedAt: z.optional(z.string()),
+  environmentName: z.optional(z.string()),
+  companyId: z.optional(z.string()),
+  rawData: z.optional(z.boolean()),
+  fiscalYear: z.optional(z.number()),
+  accountNumber: z.optional(z.string()),
+  documentNumber: z.optional(z.string()),
+  type: z.optional(z.string()),
+});
 
 export function getOpenItemsRequestToJSON(
   getOpenItemsRequest: GetOpenItemsRequest,

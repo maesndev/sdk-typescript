@@ -3,7 +3,6 @@
  */
 
 import * as z from "zod/v4-mini";
-import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -14,14 +13,6 @@ export type GetAsyncTaskInfoRequest = {
   companyId?: string | undefined;
   page?: number | undefined;
   limit?: number | undefined;
-  /**
-   * API key
-   */
-  xApiKey?: string | undefined;
-  /**
-   * Account key
-   */
-  xAccountKey?: string | undefined;
 };
 
 export type GetAsyncTaskInfoErrors = {};
@@ -41,30 +32,18 @@ export type GetAsyncTaskInfoRequest$Outbound = {
   companyId?: string | undefined;
   page?: number | undefined;
   limit?: number | undefined;
-  "X-API-KEY"?: string | undefined;
-  "X-ACCOUNT-KEY"?: string | undefined;
 };
 
 /** @internal */
 export const GetAsyncTaskInfoRequest$outboundSchema: z.ZodMiniType<
   GetAsyncTaskInfoRequest$Outbound,
   GetAsyncTaskInfoRequest
-> = z.pipe(
-  z.object({
-    taskId: z.string(),
-    companyId: z.optional(z.string()),
-    page: z.optional(z.number()),
-    limit: z.optional(z.number()),
-    xApiKey: z.optional(z.string()),
-    xAccountKey: z.optional(z.string()),
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      xApiKey: "X-API-KEY",
-      xAccountKey: "X-ACCOUNT-KEY",
-    });
-  }),
-);
+> = z.object({
+  taskId: z.string(),
+  companyId: z.optional(z.string()),
+  page: z.optional(z.number()),
+  limit: z.optional(z.number()),
+});
 
 export function getAsyncTaskInfoRequestToJSON(
   getAsyncTaskInfoRequest: GetAsyncTaskInfoRequest,

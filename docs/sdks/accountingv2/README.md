@@ -19,6 +19,10 @@ import { Maesn } from "maesn";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
 });
 
 async function run() {
@@ -44,6 +48,10 @@ import { accountingV2CreateBookingProposal } from "maesn/funcs/accounting-v2-cre
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
 });
 
 async function run() {
@@ -90,6 +98,10 @@ import { Maesn } from "maesn";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
 });
 
 async function run() {
@@ -138,6 +150,10 @@ import { accountingV2CreateContact } from "maesn/funcs/accounting-v2-create-cont
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
 });
 
 async function run() {
@@ -207,6 +223,10 @@ import { Maesn } from "maesn";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
 });
 
 async function run() {
@@ -251,6 +271,10 @@ import { accountingV2UpdateContact } from "maesn/funcs/accounting-v2-update-cont
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
 });
 
 async function run() {
@@ -316,6 +340,10 @@ import { Maesn } from "maesn";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
 });
 
 async function run() {
@@ -339,6 +367,10 @@ import { accountingV2ObtainDimensions } from "maesn/funcs/accounting-v2-obtain-d
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
 });
 
 async function run() {

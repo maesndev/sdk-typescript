@@ -3,7 +3,6 @@
  */
 
 import * as z from "zod/v4-mini";
-import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -14,14 +13,6 @@ export type PatchLineItemRequest = {
   lineItemId: string;
   environmentName?: string | undefined;
   companyId?: string | undefined;
-  /**
-   * API key
-   */
-  xApiKey?: string | undefined;
-  /**
-   * Account key
-   */
-  xAccountKey?: string | undefined;
   body: models.PatchLineItemRequestDto;
 };
 
@@ -42,8 +33,6 @@ export type PatchLineItemRequest$Outbound = {
   lineItemId: string;
   environmentName?: string | undefined;
   companyId?: string | undefined;
-  "X-API-KEY"?: string | undefined;
-  "X-ACCOUNT-KEY"?: string | undefined;
   body: models.PatchLineItemRequestDto$Outbound;
 };
 
@@ -51,23 +40,13 @@ export type PatchLineItemRequest$Outbound = {
 export const PatchLineItemRequest$outboundSchema: z.ZodMiniType<
   PatchLineItemRequest$Outbound,
   PatchLineItemRequest
-> = z.pipe(
-  z.object({
-    invoiceId: z.string(),
-    lineItemId: z.string(),
-    environmentName: z.optional(z.string()),
-    companyId: z.optional(z.string()),
-    xApiKey: z.optional(z.string()),
-    xAccountKey: z.optional(z.string()),
-    body: models.PatchLineItemRequestDto$outboundSchema,
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      xApiKey: "X-API-KEY",
-      xAccountKey: "X-ACCOUNT-KEY",
-    });
-  }),
-);
+> = z.object({
+  invoiceId: z.string(),
+  lineItemId: z.string(),
+  environmentName: z.optional(z.string()),
+  companyId: z.optional(z.string()),
+  body: models.PatchLineItemRequestDto$outboundSchema,
+});
 
 export function patchLineItemRequestToJSON(
   patchLineItemRequest: PatchLineItemRequest,

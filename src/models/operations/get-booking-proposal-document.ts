@@ -3,7 +3,6 @@
  */
 
 import * as z from "zod/v4-mini";
-import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -11,14 +10,6 @@ import * as models from "../index.js";
 
 export type GetBookingProposalDocumentRequest = {
   bookingProposalId: string;
-  /**
-   * API key
-   */
-  xApiKey?: string | undefined;
-  /**
-   * Account key
-   */
-  xAccountKey?: string | undefined;
 };
 
 export type GetBookingProposalDocumentErrors = {};
@@ -35,27 +26,15 @@ export type GetBookingProposalDocumentResponse = {
 /** @internal */
 export type GetBookingProposalDocumentRequest$Outbound = {
   bookingProposalId: string;
-  "X-API-KEY"?: string | undefined;
-  "X-ACCOUNT-KEY"?: string | undefined;
 };
 
 /** @internal */
 export const GetBookingProposalDocumentRequest$outboundSchema: z.ZodMiniType<
   GetBookingProposalDocumentRequest$Outbound,
   GetBookingProposalDocumentRequest
-> = z.pipe(
-  z.object({
-    bookingProposalId: z.string(),
-    xApiKey: z.optional(z.string()),
-    xAccountKey: z.optional(z.string()),
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      xApiKey: "X-API-KEY",
-      xAccountKey: "X-ACCOUNT-KEY",
-    });
-  }),
-);
+> = z.object({
+  bookingProposalId: z.string(),
+});
 
 export function getBookingProposalDocumentRequestToJSON(
   getBookingProposalDocumentRequest: GetBookingProposalDocumentRequest,

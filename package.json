@@ -1,6 +1,6 @@
 {
   "name": "maesn",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "Speakeasy",
   "type": "module",
   "main": "./esm/index.js",
@@ -43,6 +43,10 @@
     }
   },
   "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maesndev/sdk-typescript.git"
+  },
   "scripts": {
     "lint": "oxlint --max-warnings=0 --deny-warnings 'src/**/*.{ts,tsx}'",
     "build": "tsgo",

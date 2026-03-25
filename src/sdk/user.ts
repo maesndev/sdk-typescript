@@ -9,12 +9,10 @@ import { unwrapAsync } from "../types/fp.js";
 
 export class User extends ClientSDK {
   async getInfo(
-    request?: operations.GetUserInfoRequest | undefined,
     options?: RequestOptions,
   ): Promise<operations.GetUserInfoResponse> {
     return unwrapAsync(userGetInfo(
       this,
-      request,
       options,
     ));
   }

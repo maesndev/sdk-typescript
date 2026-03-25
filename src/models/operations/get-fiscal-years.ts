@@ -3,7 +3,6 @@
  */
 
 import * as z from "zod/v4-mini";
-import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -13,14 +12,6 @@ export type GetFiscalYearsRequest = {
   environmentName?: string | undefined;
   companyId?: string | undefined;
   rawData?: boolean | undefined;
-  /**
-   * API key
-   */
-  xApiKey?: string | undefined;
-  /**
-   * Account key
-   */
-  xAccountKey?: string | undefined;
 };
 
 export type GetFiscalYearsErrors = {};
@@ -39,29 +30,17 @@ export type GetFiscalYearsRequest$Outbound = {
   environmentName?: string | undefined;
   companyId?: string | undefined;
   rawData?: boolean | undefined;
-  "X-API-KEY"?: string | undefined;
-  "X-ACCOUNT-KEY"?: string | undefined;
 };
 
 /** @internal */
 export const GetFiscalYearsRequest$outboundSchema: z.ZodMiniType<
   GetFiscalYearsRequest$Outbound,
   GetFiscalYearsRequest
-> = z.pipe(
-  z.object({
-    environmentName: z.optional(z.string()),
-    companyId: z.optional(z.string()),
-    rawData: z.optional(z.boolean()),
-    xApiKey: z.optional(z.string()),
-    xAccountKey: z.optional(z.string()),
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      xApiKey: "X-API-KEY",
-      xAccountKey: "X-ACCOUNT-KEY",
-    });
-  }),
-);
+> = z.object({
+  environmentName: z.optional(z.string()),
+  companyId: z.optional(z.string()),
+  rawData: z.optional(z.boolean()),
+});
 
 export function getFiscalYearsRequestToJSON(
   getFiscalYearsRequest: GetFiscalYearsRequest,
