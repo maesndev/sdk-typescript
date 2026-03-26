@@ -19,6 +19,9 @@ targets:
     maesn:
         target: typescript
         source: Maesn unified API
+        publish:
+            npm:
+                token: $npm_token
         codeSamples:
             registry:
                 location: registry.speakeasyapi.dev/test-qpg/myworkspace/maesn-unified-api-typescript-code-samples

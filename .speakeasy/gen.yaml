@@ -40,7 +40,9 @@ typescript:
     dependencies: {}
     devDependencies: {}
     peerDependencies: {}
-  additionalPackageJSON: {}
+  additionalPackageJSON:
+    publishConfig:
+      access: restricted
   additionalScripts: {}
   alwaysIncludeInboundAndOutbound: false
   author: Speakeasy
@@ -80,7 +82,7 @@ typescript:
   moduleFormat: esm
   multipartArrayFormat: standard
   outputModelSuffix: output
-  packageName: maesn
+  packageName: "@maesn/typescript-sdk"
   preApplyUnionDiscriminators: true
   preserveModelFieldNames: false
   responseFormat: flat
