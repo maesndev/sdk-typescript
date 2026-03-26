@@ -3,19 +3,15 @@
 ## Example Usage
 
 ```typescript
-import { InvoiceDimensionRequestDto } from "maesn/models";
+import { InvoiceDimensionRequestDto } from "@maesn/typescript-sdk/models";
 
-let value: InvoiceDimensionRequestDto = {
-  id: "<id>",
-  categoryName: "<value>",
-  name: "<value>",
-};
+let value: InvoiceDimensionRequestDto = {};
 ```
 
 ## Fields
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `id`               | *string*           | :heavy_check_mark: | N/A                |
-| `categoryName`     | *string*           | :heavy_check_mark: | N/A                |
-| `name`             | *string*           | :heavy_check_mark: | N/A                |
+| `id`               | *string*           | :heavy_minus_sign: | N/A                |
+| `categoryName`     | *string*           | :heavy_minus_sign: | N/A                |
+| `name`             | *string*           | :heavy_minus_sign: | N/A                |

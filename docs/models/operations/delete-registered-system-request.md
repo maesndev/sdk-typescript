@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { DeleteRegisteredSystemRequest } from "maesn/models/operations";
+import { DeleteRegisteredSystemRequest } from "@maesn/typescript-sdk/models/operations";
 
 let value: DeleteRegisteredSystemRequest = {
   targetSystem: "<value>",

@@ -19,12 +19,12 @@ export type OpenItemEntryResponseDtoDebitCreditIndicator = OpenEnum<
 >;
 
 export type OpenItemEntryResponseDto = {
-  amount: number;
-  currency: string;
-  debitCreditIndicator: OpenItemEntryResponseDtoDebitCreditIndicator;
-  description: string;
-  dueDate: string;
-  postingDate: string;
+  amount: number | null;
+  currency: string | null;
+  debitCreditIndicator: OpenItemEntryResponseDtoDebitCreditIndicator | null;
+  description: string | null;
+  dueDate: string | null;
+  postingDate: string | null;
 };
 
 /** @internal */
@@ -37,13 +37,14 @@ export const OpenItemEntryResponseDto$inboundSchema: z.ZodMiniType<
   OpenItemEntryResponseDto,
   unknown
 > = z.object({
-  amount: types.number(),
-  currency: types.string(),
-  debitCreditIndicator:
+  amount: types.nullable(types.number()),
+  currency: types.nullable(types.string()),
+  debitCreditIndicator: types.nullable(
     OpenItemEntryResponseDtoDebitCreditIndicator$inboundSchema,
-  description: types.string(),
-  dueDate: types.string(),
-  postingDate: types.string(),
+  ),
+  description: types.nullable(types.string()),
+  dueDate: types.nullable(types.string()),
+  postingDate: types.nullable(types.string()),
 });
 
 export function openItemEntryResponseDtoFromJSON(

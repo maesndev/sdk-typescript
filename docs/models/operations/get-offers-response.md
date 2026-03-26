@@ -3,41 +3,53 @@
 ## Example Usage
 
 ```typescript
-import { GetOffersResponse } from "maesn/models/operations";
+import { GetOffersResponse } from "@maesn/typescript-sdk/models/operations";
 
 let value: GetOffersResponse = {
-  meta: {
-    warnings: [
-      "<value 1>",
-      "<value 2>",
-    ],
-    pagination: {
-      total: 3438.77,
-      perPage: 5109.63,
-      currentPage: 2626.79,
-      totalPages: 3561.84,
-    },
-  },
   data: [
     {
       id: "<id>",
       addresses: [],
-      contactId: "<id>",
       createdDate: "<value>",
-      currency: "Denar",
-      lineItems: [],
+      currency: "East Caribbean Dollar",
+      lineItems: [
+        {
+          id: "<id>",
+          accountCode: "<value>",
+          accountId: "<id>",
+          createdDate: "<value>",
+          description: null,
+          itemId: "<id>",
+          name: "<value>",
+          quantity: 4394.36,
+          taxCode: "<value>",
+          taxRatePercentage: 6281.26,
+          taxType: "<value>",
+          type: "ITEM",
+          totalDiscountAmount: 2936.92,
+          totalDiscountPercentage: 2768.35,
+          totalGrossAmount: 2419.83,
+          totalNetAmount: 7148.04,
+          totalTaxAmount: null,
+          unitAmount: 9628.05,
+          unitDiscountAmount: 6093.33,
+          unitDiscountPercentage: 6742.69,
+          unitName: "<value>",
+          updatedDate: "<value>",
+        },
+      ],
       name: "<value>",
       offerDate: "<value>",
       offerNumber: "<value>",
       oneLineAddress: "<value>",
       reference: "<value>",
-      status: "DECLINED",
+      status: "VOIDED",
       taxText: "<value>",
-      totalDiscountAmount: 8443.53,
-      totalDiscountPercentage: 9423.08,
-      totalGrossAmount: 2862.95,
-      totalNetAmount: 5540.74,
-      totalTaxAmount: 9618.53,
+      totalDiscountAmount: 3893.29,
+      totalDiscountPercentage: 4850.17,
+      totalGrossAmount: 5793.19,
+      totalNetAmount: null,
+      totalTaxAmount: 6527.2,
       updatedDate: "<value>",
     },
   ],
@@ -50,7 +62,7 @@ let value: GetOffersResponse = {
 
 | Field                                                                         | Type                                                                          | Required                                                                      | Description                                                                   |
 | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| `meta`                                                                        | [models.MetaResponse](../../models/meta-response.md)                          | :heavy_check_mark:                                                            | N/A                                                                           |
+| `meta`                                                                        | [operations.GetOffersMeta](../../models/operations/get-offers-meta.md)        | :heavy_minus_sign:                                                            | N/A                                                                           |
 | `data`                                                                        | [models.OfferResponseDto](../../models/offer-response-dto.md)[]               | :heavy_check_mark:                                                            | N/A                                                                           |
 | `errors`                                                                      | [operations.GetOffersErrors](../../models/operations/get-offers-errors.md)    | :heavy_check_mark:                                                            | N/A                                                                           |
 | `rawData`                                                                     | [operations.GetOffersRawData](../../models/operations/get-offers-raw-data.md) | :heavy_check_mark:                                                            | N/A                                                                           |

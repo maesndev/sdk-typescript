@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { CreateJournalLineItemDebitCreditIndicator } from "maesn/models";
+import { CreateJournalLineItemDebitCreditIndicator } from "@maesn/typescript-sdk/models";
 
 let value: CreateJournalLineItemDebitCreditIndicator = "CREDIT";
 ```

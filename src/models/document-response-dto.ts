@@ -9,11 +9,11 @@ import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
 export type DocumentResponseDto = {
-  id: string;
-  base64Encoded: boolean;
-  content: string;
-  contentType: string;
-  fileName: string;
+  id: string | null;
+  base64Encoded: boolean | null;
+  content: string | null;
+  contentType: string | null;
+  fileName: string | null;
 };
 
 /** @internal */
@@ -21,11 +21,11 @@ export const DocumentResponseDto$inboundSchema: z.ZodMiniType<
   DocumentResponseDto,
   unknown
 > = z.object({
-  id: types.string(),
-  base64Encoded: types.boolean(),
-  content: types.string(),
-  contentType: types.string(),
-  fileName: types.string(),
+  id: types.nullable(types.string()),
+  base64Encoded: types.nullable(types.boolean()),
+  content: types.nullable(types.string()),
+  contentType: types.nullable(types.string()),
+  fileName: types.nullable(types.string()),
 });
 
 export function documentResponseDtoFromJSON(

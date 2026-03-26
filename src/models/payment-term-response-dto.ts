@@ -22,23 +22,29 @@ export type PaymentTermResponseDtoDueType = OpenEnum<
   typeof PaymentTermResponseDtoDueType
 >;
 
-export type PaymentTermResponseDtoUpdatedDate = {};
+export const PaymentMethod = {
+  Cash: "CASH",
+  BankTransfer: "BANK_TRANSFER",
+  PaymentServiceProvider: "PAYMENT_SERVICE_PROVIDER",
+  AutomaticBankWithdrawal: "AUTOMATIC_BANK_WITHDRAWAL",
+} as const;
+export type PaymentMethod = OpenEnum<typeof PaymentMethod>;
 
 export type PaymentTermResponseDto = {
-  id: string;
-  code: string;
-  createdDate: string;
-  description: string;
-  discountDays: number;
-  discountDays2: number;
-  discountPercentage: number;
-  discountPercentage2: number;
-  discountPeriods: Array<DiscountPeriodResponse>;
-  dueType: PaymentTermResponseDtoDueType;
-  name: string;
-  paymentDays: number;
-  paymentMethod: string;
-  updatedDate: PaymentTermResponseDtoUpdatedDate;
+  id: string | null;
+  code: string | null;
+  createdDate: string | null;
+  description: string | null;
+  discountDays: number | null;
+  discountDays2: number | null;
+  discountPercentage: number | null;
+  discountPercentage2: number | null;
+  discountPeriods: Array<DiscountPeriodResponse> | null;
+  dueType: PaymentTermResponseDtoDueType | null;
+  name: string | null;
+  paymentDays: number | null;
+  paymentMethod: PaymentMethod | null;
+  updatedDate: string | null;
 };
 
 /** @internal */
@@ -48,40 +54,32 @@ export const PaymentTermResponseDtoDueType$inboundSchema: z.ZodMiniType<
 > = openEnums.inboundSchema(PaymentTermResponseDtoDueType);
 
 /** @internal */
-export const PaymentTermResponseDtoUpdatedDate$inboundSchema: z.ZodMiniType<
-  PaymentTermResponseDtoUpdatedDate,
+export const PaymentMethod$inboundSchema: z.ZodMiniType<
+  PaymentMethod,
   unknown
-> = z.object({});
-
-export function paymentTermResponseDtoUpdatedDateFromJSON(
-  jsonString: string,
-): SafeParseResult<PaymentTermResponseDtoUpdatedDate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => PaymentTermResponseDtoUpdatedDate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'PaymentTermResponseDtoUpdatedDate' from JSON`,
-  );
-}
+> = openEnums.inboundSchema(PaymentMethod);
 
 /** @internal */
 export const PaymentTermResponseDto$inboundSchema: z.ZodMiniType<
   PaymentTermResponseDto,
   unknown
 > = z.object({
-  id: types.string(),
-  code: types.string(),
-  createdDate: types.string(),
-  description: types.string(),
-  discountDays: types.number(),
-  discountDays2: types.number(),
-  discountPercentage: types.number(),
-  discountPercentage2: types.number(),
-  discountPeriods: z.array(DiscountPeriodResponse$inboundSchema),
-  dueType: PaymentTermResponseDtoDueType$inboundSchema,
-  name: types.string(),
-  paymentDays: types.number(),
-  paymentMethod: types.string(),
-  updatedDate: z.lazy(() => PaymentTermResponseDtoUpdatedDate$inboundSchema),
+  id: types.nullable(types.string()),
+  code: types.nullable(types.string()),
+  createdDate: types.nullable(types.string()),
+  description: types.nullable(types.string()),
+  discountDays: types.nullable(types.number()),
+  discountDays2: types.nullable(types.number()),
+  discountPercentage: types.nullable(types.number()),
+  discountPercentage2: types.nullable(types.number()),
+  discountPeriods: types.nullable(
+    z.array(DiscountPeriodResponse$inboundSchema),
+  ),
+  dueType: types.nullable(PaymentTermResponseDtoDueType$inboundSchema),
+  name: types.nullable(types.string()),
+  paymentDays: types.nullable(types.number()),
+  paymentMethod: types.nullable(PaymentMethod$inboundSchema),
+  updatedDate: types.nullable(types.string()),
 });
 
 export function paymentTermResponseDtoFromJSON(

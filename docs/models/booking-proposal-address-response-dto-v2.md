@@ -3,12 +3,15 @@
 ## Example Usage
 
 ```typescript
-import { BookingProposalAddressResponseDtoV2 } from "maesn/models";
+import { BookingProposalAddressResponseDtoV2 } from "@maesn/typescript-sdk/models";
 
-let value: BookingProposalAddressResponseDtoV2 = {};
+let value: BookingProposalAddressResponseDtoV2 = {
+  city: "North Jabariview",
+};
 ```
 
 ## Fields
 
-| Field       | Type        | Required    | Description |
-| ----------- | ----------- | ----------- | ----------- |
+| Field              | Type               | Required           | Description        |
+| ------------------ | ------------------ | ------------------ | ------------------ |
+| `city`             | *string*           | :heavy_check_mark: | N/A                |

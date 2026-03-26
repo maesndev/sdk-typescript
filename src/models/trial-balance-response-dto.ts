@@ -4,40 +4,124 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../lib/schemas.js";
+import * as openEnums from "../types/enums.js";
+import { OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
-import { Balance, Balance$inboundSchema } from "./balance.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 import { MonthlyValue, MonthlyValue$inboundSchema } from "./monthly-value.js";
 
-export type TrialBalanceResponseDto = {
-  accountCode: string;
-  accountName: string;
-  accountNumber: string;
-  balance: Balance;
-  createdDate: string;
-  monthlyValues: Array<MonthlyValue>;
-  openingBalance: Balance;
-  totalCreditAmount: number;
-  totalDebitAmount: number;
-  updatedDate: string;
+export const TrialBalanceResponseDtoBalanceDebitCreditIndicator = {
+  Debit: "DEBIT",
+  Credit: "CREDIT",
+} as const;
+export type TrialBalanceResponseDtoBalanceDebitCreditIndicator = OpenEnum<
+  typeof TrialBalanceResponseDtoBalanceDebitCreditIndicator
+>;
+
+export type TrialBalanceResponseDtoBalance = {
+  amount: number | null;
+  debitCreditIndicator:
+    | TrialBalanceResponseDtoBalanceDebitCreditIndicator
+    | null;
 };
+
+export const OpeningBalanceDebitCreditIndicator = {
+  Debit: "DEBIT",
+  Credit: "CREDIT",
+} as const;
+export type OpeningBalanceDebitCreditIndicator = OpenEnum<
+  typeof OpeningBalanceDebitCreditIndicator
+>;
+
+export type OpeningBalance = {
+  amount: number | null;
+  debitCreditIndicator: OpeningBalanceDebitCreditIndicator | null;
+};
+
+export type TrialBalanceResponseDto = {
+  accountCode: string | null;
+  accountName: string | null;
+  accountNumber: string | null;
+  balance: TrialBalanceResponseDtoBalance | null;
+  createdDate: string | null;
+  monthlyValues: Array<MonthlyValue> | null;
+  openingBalance: OpeningBalance | null;
+  totalCreditAmount: number | null;
+  totalDebitAmount: number | null;
+  updatedDate: string | null;
+};
+
+/** @internal */
+export const TrialBalanceResponseDtoBalanceDebitCreditIndicator$inboundSchema:
+  z.ZodMiniType<TrialBalanceResponseDtoBalanceDebitCreditIndicator, unknown> =
+    openEnums.inboundSchema(TrialBalanceResponseDtoBalanceDebitCreditIndicator);
+
+/** @internal */
+export const TrialBalanceResponseDtoBalance$inboundSchema: z.ZodMiniType<
+  TrialBalanceResponseDtoBalance,
+  unknown
+> = z.object({
+  amount: types.nullable(types.number()),
+  debitCreditIndicator: types.nullable(
+    TrialBalanceResponseDtoBalanceDebitCreditIndicator$inboundSchema,
+  ),
+});
+
+export function trialBalanceResponseDtoBalanceFromJSON(
+  jsonString: string,
+): SafeParseResult<TrialBalanceResponseDtoBalance, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => TrialBalanceResponseDtoBalance$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TrialBalanceResponseDtoBalance' from JSON`,
+  );
+}
+
+/** @internal */
+export const OpeningBalanceDebitCreditIndicator$inboundSchema: z.ZodMiniType<
+  OpeningBalanceDebitCreditIndicator,
+  unknown
+> = openEnums.inboundSchema(OpeningBalanceDebitCreditIndicator);
+
+/** @internal */
+export const OpeningBalance$inboundSchema: z.ZodMiniType<
+  OpeningBalance,
+  unknown
+> = z.object({
+  amount: types.nullable(types.number()),
+  debitCreditIndicator: types.nullable(
+    OpeningBalanceDebitCreditIndicator$inboundSchema,
+  ),
+});
+
+export function openingBalanceFromJSON(
+  jsonString: string,
+): SafeParseResult<OpeningBalance, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => OpeningBalance$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'OpeningBalance' from JSON`,
+  );
+}
 
 /** @internal */
 export const TrialBalanceResponseDto$inboundSchema: z.ZodMiniType<
   TrialBalanceResponseDto,
   unknown
 > = z.object({
-  accountCode: types.string(),
-  accountName: types.string(),
-  accountNumber: types.string(),
-  balance: Balance$inboundSchema,
-  createdDate: types.string(),
-  monthlyValues: z.array(MonthlyValue$inboundSchema),
-  openingBalance: Balance$inboundSchema,
-  totalCreditAmount: types.number(),
-  totalDebitAmount: types.number(),
-  updatedDate: types.string(),
+  accountCode: types.nullable(types.string()),
+  accountName: types.nullable(types.string()),
+  accountNumber: types.nullable(types.string()),
+  balance: types.nullable(
+    z.lazy(() => TrialBalanceResponseDtoBalance$inboundSchema),
+  ),
+  createdDate: types.nullable(types.string()),
+  monthlyValues: types.nullable(z.array(MonthlyValue$inboundSchema)),
+  openingBalance: types.nullable(z.lazy(() => OpeningBalance$inboundSchema)),
+  totalCreditAmount: types.nullable(types.number()),
+  totalDebitAmount: types.nullable(types.number()),
+  updatedDate: types.nullable(types.string()),
 });
 
 export function trialBalanceResponseDtoFromJSON(

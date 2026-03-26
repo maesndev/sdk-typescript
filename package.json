@@ -1,7 +1,10 @@
 {
-  "name": "maesn",
-  "version": "0.2.0",
+  "name": "@maesn/typescript-sdk",
+  "version": "0.2.1",
   "author": "Speakeasy",
+  "publishConfig": {
+    "access": "restricted"
+  },
   "type": "module",
   "main": "./esm/index.js",
   "exports": {

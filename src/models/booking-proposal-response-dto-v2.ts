@@ -9,10 +9,6 @@ import { OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import {
-  BankAccountResponseCommonDtoV2,
-  BankAccountResponseCommonDtoV2$inboundSchema,
-} from "./bank-account-response-common-dto-v2.js";
-import {
   BookingProposalAddressResponseDtoV2,
   BookingProposalAddressResponseDtoV2$inboundSchema,
 } from "./booking-proposal-address-response-dto-v2.js";
@@ -20,11 +16,15 @@ import {
   BookingProposalLineItemResponseDtoV2,
   BookingProposalLineItemResponseDtoV2$inboundSchema,
 } from "./booking-proposal-line-item-response-dto-v2.js";
-import {
-  ContactResponseCommonDtoV2,
-  ContactResponseCommonDtoV2$inboundSchema,
-} from "./contact-response-common-dto-v2.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
+
+export type BookingProposalResponseDtoV2BankAccount = {
+  id: string | null;
+  bic: string | null;
+  code: string | null;
+  iban: string | null;
+  number: number | null;
+};
 
 export const BookingProposalResponseDtoV2BookingType = {
   Invoice: "INVOICE",
@@ -39,6 +39,12 @@ export const BookingProposalResponseDtoV2BookingType = {
 export type BookingProposalResponseDtoV2BookingType = OpenEnum<
   typeof BookingProposalResponseDtoV2BookingType
 >;
+
+export type Contact = {
+  id: string | null;
+  accountNumber: number | null;
+  name: string | null;
+};
 
 export const BookingProposalResponseDtoV2Status = {
   Draft: "DRAFT",
@@ -56,38 +62,81 @@ export type BookingProposalResponseDtoV2Status = OpenEnum<
 >;
 
 export type BookingProposalResponseDtoV2 = {
-  id: string;
-  addresses: Array<BookingProposalAddressResponseDtoV2>;
-  bankAccount: BankAccountResponseCommonDtoV2;
-  bookingProposalDate: string;
-  bookingType: BookingProposalResponseDtoV2BookingType;
-  contact: ContactResponseCommonDtoV2;
-  createdDate: string;
-  currency: string;
-  deliveryDate: string;
-  discountPaymentDate: string;
-  discountPaymentDate2: string;
-  dueDate: string;
-  files: Array<string>;
-  journalCode: string;
-  isPaymentOrder: boolean;
-  ledgerName: string;
-  lineItems: Array<BookingProposalLineItemResponseDtoV2>;
-  notes: string;
-  number: string;
-  orderId: string;
-  paidDate: string;
-  paymentTermId: string;
-  status: BookingProposalResponseDtoV2Status;
-  totalGrossAmount: number;
-  updatedDate: string;
-  vatId: string;
+  id: string | null;
+  addresses: Array<BookingProposalAddressResponseDtoV2> | null;
+  bankAccount: BookingProposalResponseDtoV2BankAccount | null;
+  bookingProposalDate: string | null;
+  bookingType: BookingProposalResponseDtoV2BookingType | null;
+  contact: Contact | null;
+  createdDate: string | null;
+  currency: string | null;
+  deliveryDate: string | null;
+  discountPaymentDate: string | null;
+  discountPaymentDate2: string | null;
+  dueDate: string | null;
+  files: Array<string> | null;
+  journalCode: string | null;
+  isPaymentOrder: boolean | null;
+  ledgerName: string | null;
+  lineItems: Array<BookingProposalLineItemResponseDtoV2> | null;
+  notes: string | null;
+  number: string | null;
+  orderId: string | null;
+  paidDate: string | null;
+  paymentTermId: string | null;
+  status: BookingProposalResponseDtoV2Status | null;
+  totalGrossAmount: number | null;
+  updatedDate: string | null;
+  vatId: string | null;
 };
+
+/** @internal */
+export const BookingProposalResponseDtoV2BankAccount$inboundSchema:
+  z.ZodMiniType<BookingProposalResponseDtoV2BankAccount, unknown> = z.object({
+    id: types.nullable(types.string()),
+    bic: types.nullable(types.string()),
+    code: types.nullable(types.string()),
+    iban: types.nullable(types.string()),
+    number: types.nullable(types.number()),
+  });
+
+export function bookingProposalResponseDtoV2BankAccountFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  BookingProposalResponseDtoV2BankAccount,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      BookingProposalResponseDtoV2BankAccount$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'BookingProposalResponseDtoV2BankAccount' from JSON`,
+  );
+}
 
 /** @internal */
 export const BookingProposalResponseDtoV2BookingType$inboundSchema:
   z.ZodMiniType<BookingProposalResponseDtoV2BookingType, unknown> = openEnums
     .inboundSchema(BookingProposalResponseDtoV2BookingType);
+
+/** @internal */
+export const Contact$inboundSchema: z.ZodMiniType<Contact, unknown> = z.object({
+  id: types.nullable(types.string()),
+  accountNumber: types.nullable(types.number()),
+  name: types.nullable(types.string()),
+});
+
+export function contactFromJSON(
+  jsonString: string,
+): SafeParseResult<Contact, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Contact$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Contact' from JSON`,
+  );
+}
 
 /** @internal */
 export const BookingProposalResponseDtoV2Status$inboundSchema: z.ZodMiniType<
@@ -100,32 +149,40 @@ export const BookingProposalResponseDtoV2$inboundSchema: z.ZodMiniType<
   BookingProposalResponseDtoV2,
   unknown
 > = z.object({
-  id: types.string(),
-  addresses: z.array(BookingProposalAddressResponseDtoV2$inboundSchema),
-  bankAccount: BankAccountResponseCommonDtoV2$inboundSchema,
-  bookingProposalDate: types.string(),
-  bookingType: BookingProposalResponseDtoV2BookingType$inboundSchema,
-  contact: ContactResponseCommonDtoV2$inboundSchema,
-  createdDate: types.string(),
-  currency: types.string(),
-  deliveryDate: types.string(),
-  discountPaymentDate: types.string(),
-  discountPaymentDate2: types.string(),
-  dueDate: types.string(),
-  files: z.array(types.string()),
-  journalCode: types.string(),
-  isPaymentOrder: types.boolean(),
-  ledgerName: types.string(),
-  lineItems: z.array(BookingProposalLineItemResponseDtoV2$inboundSchema),
-  notes: types.string(),
-  number: types.string(),
-  orderId: types.string(),
-  paidDate: types.string(),
-  paymentTermId: types.string(),
-  status: BookingProposalResponseDtoV2Status$inboundSchema,
-  totalGrossAmount: types.number(),
-  updatedDate: types.string(),
-  vatId: types.string(),
+  id: types.nullable(types.string()),
+  addresses: types.nullable(
+    z.array(BookingProposalAddressResponseDtoV2$inboundSchema),
+  ),
+  bankAccount: types.nullable(
+    z.lazy(() => BookingProposalResponseDtoV2BankAccount$inboundSchema),
+  ),
+  bookingProposalDate: types.nullable(types.string()),
+  bookingType: types.nullable(
+    BookingProposalResponseDtoV2BookingType$inboundSchema,
+  ),
+  contact: types.nullable(z.lazy(() => Contact$inboundSchema)),
+  createdDate: types.nullable(types.string()),
+  currency: types.nullable(types.string()),
+  deliveryDate: types.nullable(types.string()),
+  discountPaymentDate: types.nullable(types.string()),
+  discountPaymentDate2: types.nullable(types.string()),
+  dueDate: types.nullable(types.string()),
+  files: types.nullable(z.array(types.string())),
+  journalCode: types.nullable(types.string()),
+  isPaymentOrder: types.nullable(types.boolean()),
+  ledgerName: types.nullable(types.string()),
+  lineItems: types.nullable(
+    z.array(BookingProposalLineItemResponseDtoV2$inboundSchema),
+  ),
+  notes: types.nullable(types.string()),
+  number: types.nullable(types.string()),
+  orderId: types.nullable(types.string()),
+  paidDate: types.nullable(types.string()),
+  paymentTermId: types.nullable(types.string()),
+  status: types.nullable(BookingProposalResponseDtoV2Status$inboundSchema),
+  totalGrossAmount: types.nullable(types.number()),
+  updatedDate: types.nullable(types.string()),
+  vatId: types.nullable(types.string()),
 });
 
 export function bookingProposalResponseDtoV2FromJSON(

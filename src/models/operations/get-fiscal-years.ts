@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
@@ -14,15 +15,27 @@ export type GetFiscalYearsRequest = {
   rawData?: boolean | undefined;
 };
 
+export type GetFiscalYearsPagination = {
+  total: number;
+  perPage: number;
+  currentPage: number;
+  totalPages: number;
+};
+
+export type GetFiscalYearsMeta = {
+  warnings?: Array<string> | null | undefined;
+  pagination?: GetFiscalYearsPagination | null | undefined;
+};
+
 export type GetFiscalYearsErrors = {};
 
 export type GetFiscalYearsRawData = {};
 
 export type GetFiscalYearsResponse = {
-  meta: models.MetaResponse;
+  meta?: GetFiscalYearsMeta | null | undefined;
   data: Array<models.FiscalYearResponseDto>;
-  errors: GetFiscalYearsErrors;
-  rawData: GetFiscalYearsRawData;
+  errors: GetFiscalYearsErrors | null;
+  rawData: GetFiscalYearsRawData | null;
 };
 
 /** @internal */
@@ -47,6 +60,48 @@ export function getFiscalYearsRequestToJSON(
 ): string {
   return JSON.stringify(
     GetFiscalYearsRequest$outboundSchema.parse(getFiscalYearsRequest),
+  );
+}
+
+/** @internal */
+export const GetFiscalYearsPagination$inboundSchema: z.ZodMiniType<
+  GetFiscalYearsPagination,
+  unknown
+> = z.object({
+  total: types.number(),
+  perPage: types.number(),
+  currentPage: types.number(),
+  totalPages: types.number(),
+});
+
+export function getFiscalYearsPaginationFromJSON(
+  jsonString: string,
+): SafeParseResult<GetFiscalYearsPagination, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetFiscalYearsPagination$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetFiscalYearsPagination' from JSON`,
+  );
+}
+
+/** @internal */
+export const GetFiscalYearsMeta$inboundSchema: z.ZodMiniType<
+  GetFiscalYearsMeta,
+  unknown
+> = z.object({
+  warnings: z.optional(z.nullable(z.array(types.string()))),
+  pagination: z.optional(
+    z.nullable(z.lazy(() => GetFiscalYearsPagination$inboundSchema)),
+  ),
+});
+
+export function getFiscalYearsMetaFromJSON(
+  jsonString: string,
+): SafeParseResult<GetFiscalYearsMeta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetFiscalYearsMeta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetFiscalYearsMeta' from JSON`,
   );
 }
 
@@ -87,10 +142,10 @@ export const GetFiscalYearsResponse$inboundSchema: z.ZodMiniType<
   GetFiscalYearsResponse,
   unknown
 > = z.object({
-  meta: models.MetaResponse$inboundSchema,
+  meta: z.optional(z.nullable(z.lazy(() => GetFiscalYearsMeta$inboundSchema))),
   data: z.array(models.FiscalYearResponseDto$inboundSchema),
-  errors: z.lazy(() => GetFiscalYearsErrors$inboundSchema),
-  rawData: z.lazy(() => GetFiscalYearsRawData$inboundSchema),
+  errors: types.nullable(z.lazy(() => GetFiscalYearsErrors$inboundSchema)),
+  rawData: types.nullable(z.lazy(() => GetFiscalYearsRawData$inboundSchema)),
 });
 
 export function getFiscalYearsResponseFromJSON(

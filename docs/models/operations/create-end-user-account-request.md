@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { CreateEndUserAccountRequest } from "maesn/models/operations";
+import { CreateEndUserAccountRequest } from "@maesn/typescript-sdk/models/operations";
 
 let value: CreateEndUserAccountRequest = {
   targetSystem: "<value>",

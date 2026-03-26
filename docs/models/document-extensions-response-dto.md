@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { DocumentExtensionsResponseDto } from "maesn/models";
+import { DocumentExtensionsResponseDto } from "@maesn/typescript-sdk/models";
 
 let value: DocumentExtensionsResponseDto = {
   allowedFileExtensions: [

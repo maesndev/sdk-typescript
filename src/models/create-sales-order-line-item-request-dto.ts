@@ -5,40 +5,40 @@
 import * as z from "zod/v4-mini";
 
 export type CreateSalesOrderLineItemRequestDto = {
-  itemId: string;
-  description: string;
-  itemName: string;
-  quantity: number;
-  taxCode: string;
-  taxRatePercentage: number;
-  totalDiscountAmount: number;
-  totalDiscountPercentage: number;
-  totalGrossAmount: number;
-  totalNetAmount: number;
-  totalTaxAmount: number;
-  unitAmount: number;
-  unitDiscountAmount: number;
-  unitDiscountPercentage: number;
-  unitName: string;
+  itemId?: string | undefined;
+  description?: string | undefined;
+  itemName?: string | undefined;
+  quantity?: number | undefined;
+  taxCode?: string | undefined;
+  taxRatePercentage?: number | undefined;
+  totalDiscountAmount?: number | undefined;
+  totalDiscountPercentage?: number | undefined;
+  totalGrossAmount?: number | undefined;
+  totalNetAmount?: number | undefined;
+  totalTaxAmount?: number | undefined;
+  unitAmount?: number | undefined;
+  unitDiscountAmount?: number | undefined;
+  unitDiscountPercentage?: number | undefined;
+  unitName?: string | undefined;
 };
 
 /** @internal */
 export type CreateSalesOrderLineItemRequestDto$Outbound = {
-  itemId: string;
-  description: string;
-  itemName: string;
-  quantity: number;
-  taxCode: string;
-  taxRatePercentage: number;
-  totalDiscountAmount: number;
-  totalDiscountPercentage: number;
-  totalGrossAmount: number;
-  totalNetAmount: number;
-  totalTaxAmount: number;
-  unitAmount: number;
-  unitDiscountAmount: number;
-  unitDiscountPercentage: number;
-  unitName: string;
+  itemId?: string | undefined;
+  description?: string | undefined;
+  itemName?: string | undefined;
+  quantity?: number | undefined;
+  taxCode?: string | undefined;
+  taxRatePercentage?: number | undefined;
+  totalDiscountAmount?: number | undefined;
+  totalDiscountPercentage?: number | undefined;
+  totalGrossAmount?: number | undefined;
+  totalNetAmount?: number | undefined;
+  totalTaxAmount?: number | undefined;
+  unitAmount?: number | undefined;
+  unitDiscountAmount?: number | undefined;
+  unitDiscountPercentage?: number | undefined;
+  unitName?: string | undefined;
 };
 
 /** @internal */
@@ -46,21 +46,21 @@ export const CreateSalesOrderLineItemRequestDto$outboundSchema: z.ZodMiniType<
   CreateSalesOrderLineItemRequestDto$Outbound,
   CreateSalesOrderLineItemRequestDto
 > = z.object({
-  itemId: z.string(),
-  description: z.string(),
-  itemName: z.string(),
-  quantity: z.number(),
-  taxCode: z.string(),
-  taxRatePercentage: z.number(),
-  totalDiscountAmount: z.number(),
-  totalDiscountPercentage: z.number(),
-  totalGrossAmount: z.number(),
-  totalNetAmount: z.number(),
-  totalTaxAmount: z.number(),
-  unitAmount: z.number(),
-  unitDiscountAmount: z.number(),
-  unitDiscountPercentage: z.number(),
-  unitName: z.string(),
+  itemId: z.optional(z.string()),
+  description: z.optional(z.string()),
+  itemName: z.optional(z.string()),
+  quantity: z.optional(z.number()),
+  taxCode: z.optional(z.string()),
+  taxRatePercentage: z.optional(z.number()),
+  totalDiscountAmount: z.optional(z.number()),
+  totalDiscountPercentage: z.optional(z.number()),
+  totalGrossAmount: z.optional(z.number()),
+  totalNetAmount: z.optional(z.number()),
+  totalTaxAmount: z.optional(z.number()),
+  unitAmount: z.optional(z.number()),
+  unitDiscountAmount: z.optional(z.number()),
+  unitDiscountPercentage: z.optional(z.number()),
+  unitName: z.optional(z.string()),
 });
 
 export function createSalesOrderLineItemRequestDtoToJSON(

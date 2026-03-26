@@ -3,12 +3,12 @@
 ## Example Usage
 
 ```typescript
-import { DiscountPeriodResponse } from "maesn/models";
+import { DiscountPeriodResponse } from "@maesn/typescript-sdk/models";
 
 let value: DiscountPeriodResponse = {
   invoiceRange: "<value>",
   discountDeadline: "<value>",
-  discountDeadline2: "<value>",
+  discountDeadline2: null,
   paymentDeadline: "<value>",
 };
 ```

@@ -190,27 +190,27 @@ export const CreateExpenseDtoType = {
 export type CreateExpenseDtoType = ClosedEnum<typeof CreateExpenseDtoType>;
 
 export type CreateExpenseDto = {
-  id: string;
-  accountCode: string;
-  accountId: string;
-  accountNumber: number;
-  currency: CreateExpenseDtoCurrency;
-  customerId: string;
-  exchangeRate: string;
-  expenseLines: Array<ExpenseLineItem>;
-  description: string;
-  documentId: string;
-  journalCode: string;
-  ledgerName: string;
-  note: string;
-  paymentTermId: string;
-  paymentType: CreateExpenseDtoPaymentType;
-  supplierId: string;
-  type: CreateExpenseDtoType;
-  totalGrossAmount: number;
-  totalNetAmount: number;
-  totalTaxAmount: number;
-  transactionDate: string;
+  id?: string | undefined;
+  accountCode?: string | undefined;
+  accountId?: string | undefined;
+  accountNumber?: number | undefined;
+  currency?: CreateExpenseDtoCurrency | undefined;
+  customerId?: string | undefined;
+  exchangeRate?: string | undefined;
+  expenseLines?: Array<ExpenseLineItem> | undefined;
+  description?: string | undefined;
+  documentId?: string | undefined;
+  journalCode?: string | undefined;
+  ledgerName?: string | undefined;
+  note?: string | undefined;
+  paymentTermId?: string | undefined;
+  paymentType?: CreateExpenseDtoPaymentType | undefined;
+  supplierId?: string | undefined;
+  type?: CreateExpenseDtoType | undefined;
+  totalGrossAmount?: number | undefined;
+  totalNetAmount?: number | undefined;
+  totalTaxAmount?: number | undefined;
+  transactionDate?: string | undefined;
 };
 
 /** @internal */
@@ -230,27 +230,27 @@ export const CreateExpenseDtoType$outboundSchema: z.ZodMiniEnum<
 
 /** @internal */
 export type CreateExpenseDto$Outbound = {
-  id: string;
-  accountCode: string;
-  accountId: string;
-  accountNumber: number;
-  currency: string;
-  customerId: string;
-  exchangeRate: string;
-  expenseLines: Array<ExpenseLineItem$Outbound>;
-  description: string;
-  documentId: string;
-  journalCode: string;
-  ledgerName: string;
-  note: string;
-  paymentTermId: string;
-  paymentType: string;
-  supplierId: string;
-  type: string;
-  totalGrossAmount: number;
-  totalNetAmount: number;
-  totalTaxAmount: number;
-  transactionDate: string;
+  id?: string | undefined;
+  accountCode?: string | undefined;
+  accountId?: string | undefined;
+  accountNumber?: number | undefined;
+  currency?: string | undefined;
+  customerId?: string | undefined;
+  exchangeRate?: string | undefined;
+  expenseLines?: Array<ExpenseLineItem$Outbound> | undefined;
+  description?: string | undefined;
+  documentId?: string | undefined;
+  journalCode?: string | undefined;
+  ledgerName?: string | undefined;
+  note?: string | undefined;
+  paymentTermId?: string | undefined;
+  paymentType?: string | undefined;
+  supplierId?: string | undefined;
+  type?: string | undefined;
+  totalGrossAmount?: number | undefined;
+  totalNetAmount?: number | undefined;
+  totalTaxAmount?: number | undefined;
+  transactionDate?: string | undefined;
 };
 
 /** @internal */
@@ -258,27 +258,27 @@ export const CreateExpenseDto$outboundSchema: z.ZodMiniType<
   CreateExpenseDto$Outbound,
   CreateExpenseDto
 > = z.object({
-  id: z.string(),
-  accountCode: z.string(),
-  accountId: z.string(),
-  accountNumber: z.number(),
-  currency: CreateExpenseDtoCurrency$outboundSchema,
-  customerId: z.string(),
-  exchangeRate: z.string(),
-  expenseLines: z.array(ExpenseLineItem$outboundSchema),
-  description: z.string(),
-  documentId: z.string(),
-  journalCode: z.string(),
-  ledgerName: z.string(),
-  note: z.string(),
-  paymentTermId: z.string(),
-  paymentType: CreateExpenseDtoPaymentType$outboundSchema,
-  supplierId: z.string(),
-  type: CreateExpenseDtoType$outboundSchema,
-  totalGrossAmount: z.number(),
-  totalNetAmount: z.number(),
-  totalTaxAmount: z.number(),
-  transactionDate: z.string(),
+  id: z.optional(z.string()),
+  accountCode: z.optional(z.string()),
+  accountId: z.optional(z.string()),
+  accountNumber: z.optional(z.number()),
+  currency: z.optional(CreateExpenseDtoCurrency$outboundSchema),
+  customerId: z.optional(z.string()),
+  exchangeRate: z.optional(z.string()),
+  expenseLines: z.optional(z.array(ExpenseLineItem$outboundSchema)),
+  description: z.optional(z.string()),
+  documentId: z.optional(z.string()),
+  journalCode: z.optional(z.string()),
+  ledgerName: z.optional(z.string()),
+  note: z.optional(z.string()),
+  paymentTermId: z.optional(z.string()),
+  paymentType: z.optional(CreateExpenseDtoPaymentType$outboundSchema),
+  supplierId: z.optional(z.string()),
+  type: z.optional(CreateExpenseDtoType$outboundSchema),
+  totalGrossAmount: z.optional(z.number()),
+  totalNetAmount: z.optional(z.number()),
+  totalTaxAmount: z.optional(z.number()),
+  transactionDate: z.optional(z.string()),
 });
 
 export function createExpenseDtoToJSON(

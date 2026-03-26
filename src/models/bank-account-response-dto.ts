@@ -189,21 +189,21 @@ export type BankAccountResponseDtoStatus = OpenEnum<
 >;
 
 export type BankAccountResponseDto = {
-  id: string;
-  balance: number;
-  bankName: string;
-  bic: string;
-  createdDate: string;
-  currency: BankAccountResponseDtoCurrency;
-  description: string;
-  fileType: BankAccountResponseDtoFileType;
-  iban: string;
-  name: string;
-  number: string;
-  system: string;
-  status: BankAccountResponseDtoStatus;
-  type: string;
-  updatedDate: string;
+  id: string | null;
+  balance: number | null;
+  bankName: string | null;
+  bic: string | null;
+  createdDate: string | null;
+  currency: BankAccountResponseDtoCurrency | null;
+  description: string | null;
+  fileType: BankAccountResponseDtoFileType | null;
+  iban: string | null;
+  name: string | null;
+  number: string | null;
+  system: string | null;
+  status: BankAccountResponseDtoStatus | null;
+  type: string | null;
+  updatedDate: string | null;
 };
 
 /** @internal */
@@ -229,21 +229,21 @@ export const BankAccountResponseDto$inboundSchema: z.ZodMiniType<
   BankAccountResponseDto,
   unknown
 > = z.object({
-  id: types.string(),
-  balance: types.number(),
-  bankName: types.string(),
-  bic: types.string(),
-  createdDate: types.string(),
-  currency: BankAccountResponseDtoCurrency$inboundSchema,
-  description: types.string(),
-  fileType: BankAccountResponseDtoFileType$inboundSchema,
-  iban: types.string(),
-  name: types.string(),
-  number: types.string(),
-  system: types.string(),
-  status: BankAccountResponseDtoStatus$inboundSchema,
-  type: types.string(),
-  updatedDate: types.string(),
+  id: types.nullable(types.string()),
+  balance: types.nullable(types.number()),
+  bankName: types.nullable(types.string()),
+  bic: types.nullable(types.string()),
+  createdDate: types.nullable(types.string()),
+  currency: types.nullable(BankAccountResponseDtoCurrency$inboundSchema),
+  description: types.nullable(types.string()),
+  fileType: types.nullable(BankAccountResponseDtoFileType$inboundSchema),
+  iban: types.nullable(types.string()),
+  name: types.nullable(types.string()),
+  number: types.nullable(types.string()),
+  system: types.nullable(types.string()),
+  status: types.nullable(BankAccountResponseDtoStatus$inboundSchema),
+  type: types.nullable(types.string()),
+  updatedDate: types.nullable(types.string()),
 });
 
 export function bankAccountResponseDtoFromJSON(

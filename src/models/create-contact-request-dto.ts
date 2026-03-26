@@ -5,11 +5,6 @@
 import * as z from "zod/v4-mini";
 import { ClosedEnum } from "../types/enums.js";
 import {
-  ContactPerson,
-  ContactPerson$Outbound,
-  ContactPerson$outboundSchema,
-} from "./contact-person.js";
-import {
   CreateBankAccount,
   CreateBankAccount$Outbound,
   CreateBankAccount$outboundSchema,
@@ -20,15 +15,20 @@ import {
   CreateContactAddress$outboundSchema,
 } from "./create-contact-address.js";
 import {
-  EmailAddress,
-  EmailAddress$Outbound,
-  EmailAddress$outboundSchema,
-} from "./email-address.js";
+  CreateContactPerson,
+  CreateContactPerson$Outbound,
+  CreateContactPerson$outboundSchema,
+} from "./create-contact-person.js";
 import {
-  PhoneNumber,
-  PhoneNumber$Outbound,
-  PhoneNumber$outboundSchema,
-} from "./phone-number.js";
+  CreateEmailAddress,
+  CreateEmailAddress$Outbound,
+  CreateEmailAddress$outboundSchema,
+} from "./create-email-address.js";
+import {
+  CreatePhoneNumber,
+  CreatePhoneNumber$Outbound,
+  CreatePhoneNumber$outboundSchema,
+} from "./create-phone-number.js";
 
 export const CreateContactRequestDtoContactType = {
   ContactPerson: "CONTACT_PERSON",
@@ -48,18 +48,18 @@ export type CreateContactRequestDtoRole = ClosedEnum<
 >;
 
 export type CreateContactRequestDto = {
-  addresses: Array<CreateContactAddress>;
-  bankAccount: CreateBankAccount;
-  companyName: string;
-  contactPersons: Array<ContactPerson>;
+  addresses?: Array<CreateContactAddress> | undefined;
+  bankAccount?: CreateBankAccount | undefined;
+  companyName?: string | undefined;
+  contactPersons?: Array<CreateContactPerson> | undefined;
   contactType: CreateContactRequestDtoContactType;
-  documentId: string;
-  emailAddresses: Array<EmailAddress>;
-  number: string;
-  phoneNumbers: Array<PhoneNumber>;
-  projectId: string;
-  role: CreateContactRequestDtoRole;
-  vatId: string;
+  documentId?: string | undefined;
+  emailAddresses?: Array<CreateEmailAddress> | undefined;
+  number?: string | undefined;
+  phoneNumbers?: Array<CreatePhoneNumber> | undefined;
+  projectId?: string | undefined;
+  role?: CreateContactRequestDtoRole | undefined;
+  vatId?: string | undefined;
 };
 
 /** @internal */
@@ -74,18 +74,18 @@ export const CreateContactRequestDtoRole$outboundSchema: z.ZodMiniEnum<
 
 /** @internal */
 export type CreateContactRequestDto$Outbound = {
-  addresses: Array<CreateContactAddress$Outbound>;
-  bankAccount: CreateBankAccount$Outbound;
-  companyName: string;
-  contactPersons: Array<ContactPerson$Outbound>;
+  addresses?: Array<CreateContactAddress$Outbound> | undefined;
+  bankAccount?: CreateBankAccount$Outbound | undefined;
+  companyName?: string | undefined;
+  contactPersons?: Array<CreateContactPerson$Outbound> | undefined;
   contactType: string;
-  documentId: string;
-  emailAddresses: Array<EmailAddress$Outbound>;
-  number: string;
-  phoneNumbers: Array<PhoneNumber$Outbound>;
-  projectId: string;
-  role: string;
-  vatId: string;
+  documentId?: string | undefined;
+  emailAddresses?: Array<CreateEmailAddress$Outbound> | undefined;
+  number?: string | undefined;
+  phoneNumbers?: Array<CreatePhoneNumber$Outbound> | undefined;
+  projectId?: string | undefined;
+  role?: string | undefined;
+  vatId?: string | undefined;
 };
 
 /** @internal */
@@ -93,18 +93,18 @@ export const CreateContactRequestDto$outboundSchema: z.ZodMiniType<
   CreateContactRequestDto$Outbound,
   CreateContactRequestDto
 > = z.object({
-  addresses: z.array(CreateContactAddress$outboundSchema),
-  bankAccount: CreateBankAccount$outboundSchema,
-  companyName: z.string(),
-  contactPersons: z.array(ContactPerson$outboundSchema),
+  addresses: z.optional(z.array(CreateContactAddress$outboundSchema)),
+  bankAccount: z.optional(CreateBankAccount$outboundSchema),
+  companyName: z.optional(z.string()),
+  contactPersons: z.optional(z.array(CreateContactPerson$outboundSchema)),
   contactType: CreateContactRequestDtoContactType$outboundSchema,
-  documentId: z.string(),
-  emailAddresses: z.array(EmailAddress$outboundSchema),
-  number: z.string(),
-  phoneNumbers: z.array(PhoneNumber$outboundSchema),
-  projectId: z.string(),
-  role: CreateContactRequestDtoRole$outboundSchema,
-  vatId: z.string(),
+  documentId: z.optional(z.string()),
+  emailAddresses: z.optional(z.array(CreateEmailAddress$outboundSchema)),
+  number: z.optional(z.string()),
+  phoneNumbers: z.optional(z.array(CreatePhoneNumber$outboundSchema)),
+  projectId: z.optional(z.string()),
+  role: z.optional(CreateContactRequestDtoRole$outboundSchema),
+  vatId: z.optional(z.string()),
 });
 
 export function createContactRequestDtoToJSON(

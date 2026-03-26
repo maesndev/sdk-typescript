@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
@@ -14,15 +15,27 @@ export type GetOfferDocumentRequest = {
   companyId?: string | undefined;
 };
 
+export type GetOfferDocumentPagination = {
+  total: number;
+  perPage: number;
+  currentPage: number;
+  totalPages: number;
+};
+
+export type GetOfferDocumentMeta = {
+  warnings?: Array<string> | null | undefined;
+  pagination?: GetOfferDocumentPagination | null | undefined;
+};
+
 export type GetOfferDocumentErrors = {};
 
 export type GetOfferDocumentRawData = {};
 
 export type GetOfferDocumentResponse = {
-  meta: models.MetaResponse;
+  meta?: GetOfferDocumentMeta | null | undefined;
   data: models.DocumentResponseDto;
-  errors: GetOfferDocumentErrors;
-  rawData: GetOfferDocumentRawData;
+  errors: GetOfferDocumentErrors | null;
+  rawData: GetOfferDocumentRawData | null;
 };
 
 /** @internal */
@@ -47,6 +60,48 @@ export function getOfferDocumentRequestToJSON(
 ): string {
   return JSON.stringify(
     GetOfferDocumentRequest$outboundSchema.parse(getOfferDocumentRequest),
+  );
+}
+
+/** @internal */
+export const GetOfferDocumentPagination$inboundSchema: z.ZodMiniType<
+  GetOfferDocumentPagination,
+  unknown
+> = z.object({
+  total: types.number(),
+  perPage: types.number(),
+  currentPage: types.number(),
+  totalPages: types.number(),
+});
+
+export function getOfferDocumentPaginationFromJSON(
+  jsonString: string,
+): SafeParseResult<GetOfferDocumentPagination, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetOfferDocumentPagination$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetOfferDocumentPagination' from JSON`,
+  );
+}
+
+/** @internal */
+export const GetOfferDocumentMeta$inboundSchema: z.ZodMiniType<
+  GetOfferDocumentMeta,
+  unknown
+> = z.object({
+  warnings: z.optional(z.nullable(z.array(types.string()))),
+  pagination: z.optional(
+    z.nullable(z.lazy(() => GetOfferDocumentPagination$inboundSchema)),
+  ),
+});
+
+export function getOfferDocumentMetaFromJSON(
+  jsonString: string,
+): SafeParseResult<GetOfferDocumentMeta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetOfferDocumentMeta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetOfferDocumentMeta' from JSON`,
   );
 }
 
@@ -87,10 +142,12 @@ export const GetOfferDocumentResponse$inboundSchema: z.ZodMiniType<
   GetOfferDocumentResponse,
   unknown
 > = z.object({
-  meta: models.MetaResponse$inboundSchema,
+  meta: z.optional(
+    z.nullable(z.lazy(() => GetOfferDocumentMeta$inboundSchema)),
+  ),
   data: models.DocumentResponseDto$inboundSchema,
-  errors: z.lazy(() => GetOfferDocumentErrors$inboundSchema),
-  rawData: z.lazy(() => GetOfferDocumentRawData$inboundSchema),
+  errors: types.nullable(z.lazy(() => GetOfferDocumentErrors$inboundSchema)),
+  rawData: types.nullable(z.lazy(() => GetOfferDocumentRawData$inboundSchema)),
 });
 
 export function getOfferDocumentResponseFromJSON(

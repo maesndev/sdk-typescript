@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { Usage } from "maesn/models";
+import { Usage } from "@maesn/typescript-sdk/models";
 
 let value: Usage = "ALL";
 

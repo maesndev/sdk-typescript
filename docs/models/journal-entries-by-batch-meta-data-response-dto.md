@@ -3,14 +3,29 @@
 ## Example Usage
 
 ```typescript
-import { JournalEntriesByBatchMetaDataResponseDto } from "maesn/models";
+import { JournalEntriesByBatchMetaDataResponseDto } from "@maesn/typescript-sdk/models";
 
 let value: JournalEntriesByBatchMetaDataResponseDto = {
   id: "<id>",
-  accountNumberLength: 1245.22,
+  accountNumberLength: 5528.21,
   chartOfAccount: "<value>",
   createdDate: "<value>",
-  entries: [],
+  entries: [
+    {
+      id: "<id>",
+      accountId: "<id>",
+      accountingPeriodId: "<id>",
+      createdDate: "<value>",
+      currency: "XDR",
+      description: "inside rear dally and once tank farm qua",
+      documentId: "<id>",
+      files: [],
+      journalLineItems: [],
+      number: "<value>",
+      transactionDate: "<value>",
+      updatedDate: "<value>",
+    },
+  ],
   fiscalYearStartDate: "<value>",
   taskId: "<id>",
 };

@@ -198,20 +198,20 @@ export type AccountResponseDtoStatus = OpenEnum<
 >;
 
 export type AccountResponseDto = {
-  id: string;
-  balance: number;
-  class: AccountResponseDtoClass;
-  code: string;
-  createdDate: string;
-  currency: AccountResponseDtoCurrency;
-  debitCreditIndicator: AccountResponseDtoDebitCreditIndicator;
-  description: string;
-  name: string;
-  number: string;
-  parentAccountId: string;
-  status: AccountResponseDtoStatus;
-  type: string;
-  updatedDate: string;
+  id: string | null;
+  balance: number | null;
+  class: AccountResponseDtoClass | null;
+  code: string | null;
+  createdDate: string | null;
+  currency: AccountResponseDtoCurrency | null;
+  debitCreditIndicator: AccountResponseDtoDebitCreditIndicator | null;
+  description: string | null;
+  name: string | null;
+  number: string | null;
+  parentAccountId: string | null;
+  status: AccountResponseDtoStatus | null;
+  type: string | null;
+  updatedDate: string | null;
 };
 
 /** @internal */
@@ -242,20 +242,22 @@ export const AccountResponseDto$inboundSchema: z.ZodMiniType<
   AccountResponseDto,
   unknown
 > = z.object({
-  id: types.string(),
-  balance: types.number(),
-  class: AccountResponseDtoClass$inboundSchema,
-  code: types.string(),
-  createdDate: types.string(),
-  currency: AccountResponseDtoCurrency$inboundSchema,
-  debitCreditIndicator: AccountResponseDtoDebitCreditIndicator$inboundSchema,
-  description: types.string(),
-  name: types.string(),
-  number: types.string(),
-  parentAccountId: types.string(),
-  status: AccountResponseDtoStatus$inboundSchema,
-  type: types.string(),
-  updatedDate: types.string(),
+  id: types.nullable(types.string()),
+  balance: types.nullable(types.number()),
+  class: types.nullable(AccountResponseDtoClass$inboundSchema),
+  code: types.nullable(types.string()),
+  createdDate: types.nullable(types.string()),
+  currency: types.nullable(AccountResponseDtoCurrency$inboundSchema),
+  debitCreditIndicator: types.nullable(
+    AccountResponseDtoDebitCreditIndicator$inboundSchema,
+  ),
+  description: types.nullable(types.string()),
+  name: types.nullable(types.string()),
+  number: types.nullable(types.string()),
+  parentAccountId: types.nullable(types.string()),
+  status: types.nullable(AccountResponseDtoStatus$inboundSchema),
+  type: types.nullable(types.string()),
+  updatedDate: types.nullable(types.string()),
 });
 
 export function accountResponseDtoFromJSON(

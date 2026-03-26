@@ -272,12 +272,12 @@ export type CreateContactAddressType = ClosedEnum<
 >;
 
 export type CreateContactAddress = {
-  addressLine1: string;
-  addressLine2: string;
-  city: string;
-  countryCode: CreateContactAddressCountryCode;
-  postalCode: string;
-  type: CreateContactAddressType;
+  addressLine1?: string | undefined;
+  addressLine2?: string | undefined;
+  city?: string | undefined;
+  countryCode?: CreateContactAddressCountryCode | undefined;
+  postalCode?: string | undefined;
+  type?: CreateContactAddressType | undefined;
 };
 
 /** @internal */
@@ -292,12 +292,12 @@ export const CreateContactAddressType$outboundSchema: z.ZodMiniEnum<
 
 /** @internal */
 export type CreateContactAddress$Outbound = {
-  addressLine1: string;
-  addressLine2: string;
-  city: string;
-  countryCode: string;
-  postalCode: string;
-  type: string;
+  addressLine1?: string | undefined;
+  addressLine2?: string | undefined;
+  city?: string | undefined;
+  countryCode?: string | undefined;
+  postalCode?: string | undefined;
+  type?: string | undefined;
 };
 
 /** @internal */
@@ -305,12 +305,12 @@ export const CreateContactAddress$outboundSchema: z.ZodMiniType<
   CreateContactAddress$Outbound,
   CreateContactAddress
 > = z.object({
-  addressLine1: z.string(),
-  addressLine2: z.string(),
-  city: z.string(),
-  countryCode: CreateContactAddressCountryCode$outboundSchema,
-  postalCode: z.string(),
-  type: CreateContactAddressType$outboundSchema,
+  addressLine1: z.optional(z.string()),
+  addressLine2: z.optional(z.string()),
+  city: z.optional(z.string()),
+  countryCode: z.optional(CreateContactAddressCountryCode$outboundSchema),
+  postalCode: z.optional(z.string()),
+  type: z.optional(CreateContactAddressType$outboundSchema),
 });
 
 export function createContactAddressToJSON(

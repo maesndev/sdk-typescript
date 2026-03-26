@@ -3,25 +3,28 @@
 ## Example Usage
 
 ```typescript
-import { TransactionResponseDto } from "maesn/models";
+import { TransactionResponseDto } from "@maesn/typescript-sdk/models";
 
 let value: TransactionResponseDto = {
   id: "<id>",
   accountId: "<id>",
-  accountNumber: 3055.87,
-  amount: 6104.52,
-  bookingDate: "<value>",
+  accountNumber: null,
+  amount: 7353.2,
+  bookingDate: null,
   contact: "<value>",
-  currency: "BHD",
-  description: "unzip once junior amazing",
-  files: [],
+  currency: "GYD",
+  description:
+    "once junior amazing rationale in bookend whose outrank yowza reflate",
+  files: [
+    "<value 1>",
+  ],
   journalCode: "<value>",
   ledgerName: "<value>",
   reference: "<value>",
-  status: "DELETED",
+  status: "LINKED",
   taskId: "<id>",
-  taxRatePercentage: 2835.14,
-  type: "RECEIVE-OVERPAYMENT",
+  taxRatePercentage: 6899.49,
+  type: "RECEIVE",
   valueDate: "<value>",
 };
 ```

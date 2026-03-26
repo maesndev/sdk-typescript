@@ -3,11 +3,11 @@
 ## Example Usage
 
 ```typescript
-import { ContactByBatchMetaDataResponseDto } from "maesn/models";
+import { ContactByBatchMetaDataResponseDto } from "@maesn/typescript-sdk/models";
 
 let value: ContactByBatchMetaDataResponseDto = {
   id: "<id>",
-  accountNumberLength: 9934.97,
+  accountNumberLength: 1038.16,
   chartOfAccount: "<value>",
   createdDate: "<value>",
   entries: [],

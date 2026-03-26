@@ -3,30 +3,18 @@
 ## Example Usage
 
 ```typescript
-import { GetInvoiceDocumentResponse } from "maesn/models/operations";
+import { GetInvoiceDocumentResponse } from "@maesn/typescript-sdk/models/operations";
 
 let value: GetInvoiceDocumentResponse = {
-  meta: {
-    warnings: [
-      "<value 1>",
-      "<value 2>",
-    ],
-    pagination: {
-      total: 3438.77,
-      perPage: 5109.63,
-      currentPage: 2626.79,
-      totalPages: 3561.84,
-    },
-  },
   data: {
     id: "<id>",
-    base64Encoded: false,
+    base64Encoded: true,
     content: "<value>",
     contentType: "<value>",
     fileName: "example.file",
   },
   errors: {},
-  rawData: {},
+  rawData: null,
 };
 ```
 
@@ -34,7 +22,7 @@ let value: GetInvoiceDocumentResponse = {
 
 | Field                                                                                            | Type                                                                                             | Required                                                                                         | Description                                                                                      |
 | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `meta`                                                                                           | [models.MetaResponse](../../models/meta-response.md)                                             | :heavy_check_mark:                                                                               | N/A                                                                                              |
+| `meta`                                                                                           | [operations.GetInvoiceDocumentMeta](../../models/operations/get-invoice-document-meta.md)        | :heavy_minus_sign:                                                                               | N/A                                                                                              |
 | `data`                                                                                           | [models.DocumentResponseDto](../../models/document-response-dto.md)                              | :heavy_check_mark:                                                                               | N/A                                                                                              |
 | `errors`                                                                                         | [operations.GetInvoiceDocumentErrors](../../models/operations/get-invoice-document-errors.md)    | :heavy_check_mark:                                                                               | N/A                                                                                              |
 | `rawData`                                                                                        | [operations.GetInvoiceDocumentRawData](../../models/operations/get-invoice-document-raw-data.md) | :heavy_check_mark:                                                                               | N/A                                                                                              |

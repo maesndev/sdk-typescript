@@ -3,15 +3,13 @@
 ## Example Usage
 
 ```typescript
-import { PaymentLine } from "maesn/models";
+import { PaymentLine } from "@maesn/typescript-sdk/models";
 
 let value: PaymentLine = {
   accountId: "<id>",
-  amount: 8757.3,
+  amount: 278.6,
   contactName: "<value>",
-  customerId: "<id>",
-  description:
-    "unibody quit towards yum abandoned jovially likewise before knickers repeat",
+  description: "intently likely before vet enthusiastically tough aircraft",
   invoiceId: "<id>",
   supplierId: "<id>",
   paymentDate: "<value>",
@@ -25,7 +23,7 @@ let value: PaymentLine = {
 | `accountId`        | *string*           | :heavy_check_mark: | N/A                |
 | `amount`           | *number*           | :heavy_check_mark: | N/A                |
 | `contactName`      | *string*           | :heavy_check_mark: | N/A                |
-| `customerId`       | *string*           | :heavy_check_mark: | N/A                |
+| `customerId`       | *string*           | :heavy_minus_sign: | N/A                |
 | `description`      | *string*           | :heavy_check_mark: | N/A                |
 | `invoiceId`        | *string*           | :heavy_check_mark: | N/A                |
 | `supplierId`       | *string*           | :heavy_check_mark: | N/A                |

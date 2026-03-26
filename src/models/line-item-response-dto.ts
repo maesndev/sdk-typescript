@@ -12,82 +12,48 @@ import {
   InvoiceDimensionResponseDto$inboundSchema,
 } from "./invoice-dimension-response-dto.js";
 
-export type LineItemResponseDtoCreatedDate = {};
-
-export type LineItemResponseDtoUpdatedDate = {};
-
 export type LineItemResponseDto = {
-  lineItemId: string;
-  accountId: string;
-  createdDate: LineItemResponseDtoCreatedDate;
-  description: string;
-  dimensions: Array<InvoiceDimensionResponseDto>;
-  discountItemAmount: number;
-  discountItemPercentage: number;
-  grossAmount: number;
-  itemsAmount: number;
-  itemId: string;
-  name: string;
-  quantity: number;
-  taxCode: string;
-  taxRatePercentage: number;
-  unitAmount: number;
-  updatedDate: LineItemResponseDtoUpdatedDate;
+  lineItemId: string | null;
+  accountId: string | null;
+  createdDate: string | null;
+  description: string | null;
+  dimensions: Array<InvoiceDimensionResponseDto> | null;
+  discountItemAmount: number | null;
+  discountItemPercentage: number | null;
+  grossAmount: number | null;
+  itemsAmount: number | null;
+  itemId: string | null;
+  name: string | null;
+  quantity: number | null;
+  taxCode?: string | null | undefined;
+  taxRatePercentage: number | null;
+  unitAmount: number | null;
+  updatedDate: string | null;
 };
-
-/** @internal */
-export const LineItemResponseDtoCreatedDate$inboundSchema: z.ZodMiniType<
-  LineItemResponseDtoCreatedDate,
-  unknown
-> = z.object({});
-
-export function lineItemResponseDtoCreatedDateFromJSON(
-  jsonString: string,
-): SafeParseResult<LineItemResponseDtoCreatedDate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => LineItemResponseDtoCreatedDate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'LineItemResponseDtoCreatedDate' from JSON`,
-  );
-}
-
-/** @internal */
-export const LineItemResponseDtoUpdatedDate$inboundSchema: z.ZodMiniType<
-  LineItemResponseDtoUpdatedDate,
-  unknown
-> = z.object({});
-
-export function lineItemResponseDtoUpdatedDateFromJSON(
-  jsonString: string,
-): SafeParseResult<LineItemResponseDtoUpdatedDate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => LineItemResponseDtoUpdatedDate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'LineItemResponseDtoUpdatedDate' from JSON`,
-  );
-}
 
 /** @internal */
 export const LineItemResponseDto$inboundSchema: z.ZodMiniType<
   LineItemResponseDto,
   unknown
 > = z.object({
-  lineItemId: types.string(),
-  accountId: types.string(),
-  createdDate: z.lazy(() => LineItemResponseDtoCreatedDate$inboundSchema),
-  description: types.string(),
-  dimensions: z.array(InvoiceDimensionResponseDto$inboundSchema),
-  discountItemAmount: types.number(),
-  discountItemPercentage: types.number(),
-  grossAmount: types.number(),
-  itemsAmount: types.number(),
-  itemId: types.string(),
-  name: types.string(),
-  quantity: types.number(),
-  taxCode: types.string(),
-  taxRatePercentage: types.number(),
-  unitAmount: types.number(),
-  updatedDate: z.lazy(() => LineItemResponseDtoUpdatedDate$inboundSchema),
+  lineItemId: types.nullable(types.string()),
+  accountId: types.nullable(types.string()),
+  createdDate: types.nullable(types.string()),
+  description: types.nullable(types.string()),
+  dimensions: types.nullable(
+    z.array(InvoiceDimensionResponseDto$inboundSchema),
+  ),
+  discountItemAmount: types.nullable(types.number()),
+  discountItemPercentage: types.nullable(types.number()),
+  grossAmount: types.nullable(types.number()),
+  itemsAmount: types.nullable(types.number()),
+  itemId: types.nullable(types.string()),
+  name: types.nullable(types.string()),
+  quantity: types.nullable(types.number()),
+  taxCode: z.optional(z.nullable(types.string())),
+  taxRatePercentage: types.nullable(types.number()),
+  unitAmount: types.nullable(types.number()),
+  updatedDate: types.nullable(types.string()),
 });
 
 export function lineItemResponseDtoFromJSON(

@@ -3,45 +3,44 @@
 ## Example Usage
 
 ```typescript
-import { LineItemResponseDto } from "maesn/models";
+import { LineItemResponseDto } from "@maesn/typescript-sdk/models";
 
 let value: LineItemResponseDto = {
   lineItemId: "<id>",
   accountId: "<id>",
-  createdDate: {},
-  description: "zowie best-seller aircraft misfire whoa inside",
+  createdDate: "<value>",
+  description: "finally outset clone",
   dimensions: [],
-  discountItemAmount: 1897.07,
-  discountItemPercentage: 4176.38,
-  grossAmount: 6396.58,
-  itemsAmount: 7645.06,
+  discountItemAmount: 524.18,
+  discountItemPercentage: 5350.14,
+  grossAmount: null,
+  itemsAmount: 8917.02,
   itemId: "<id>",
   name: "<value>",
-  quantity: 8198.95,
-  taxCode: "<value>",
-  taxRatePercentage: 9564.03,
-  unitAmount: 2142.34,
-  updatedDate: {},
+  quantity: 9174.54,
+  taxRatePercentage: null,
+  unitAmount: 8890.53,
+  updatedDate: "<value>",
 };
 ```
 
 ## Fields
 
-| Field                                                                                     | Type                                                                                      | Required                                                                                  | Description                                                                               |
-| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| `lineItemId`                                                                              | *string*                                                                                  | :heavy_check_mark:                                                                        | N/A                                                                                       |
-| `accountId`                                                                               | *string*                                                                                  | :heavy_check_mark:                                                                        | N/A                                                                                       |
-| `createdDate`                                                                             | [models.LineItemResponseDtoCreatedDate](../models/line-item-response-dto-created-date.md) | :heavy_check_mark:                                                                        | N/A                                                                                       |
-| `description`                                                                             | *string*                                                                                  | :heavy_check_mark:                                                                        | N/A                                                                                       |
-| `dimensions`                                                                              | [models.InvoiceDimensionResponseDto](../models/invoice-dimension-response-dto.md)[]       | :heavy_check_mark:                                                                        | N/A                                                                                       |
-| `discountItemAmount`                                                                      | *number*                                                                                  | :heavy_check_mark:                                                                        | N/A                                                                                       |
-| `discountItemPercentage`                                                                  | *number*                                                                                  | :heavy_check_mark:                                                                        | N/A                                                                                       |
-| `grossAmount`                                                                             | *number*                                                                                  | :heavy_check_mark:                                                                        | N/A                                                                                       |
-| `itemsAmount`                                                                             | *number*                                                                                  | :heavy_check_mark:                                                                        | N/A                                                                                       |
-| `itemId`                                                                                  | *string*                                                                                  | :heavy_check_mark:                                                                        | N/A                                                                                       |
-| `name`                                                                                    | *string*                                                                                  | :heavy_check_mark:                                                                        | N/A                                                                                       |
-| `quantity`                                                                                | *number*                                                                                  | :heavy_check_mark:                                                                        | N/A                                                                                       |
-| `taxCode`                                                                                 | *string*                                                                                  | :heavy_check_mark:                                                                        | N/A                                                                                       |
-| `taxRatePercentage`                                                                       | *number*                                                                                  | :heavy_check_mark:                                                                        | N/A                                                                                       |
-| `unitAmount`                                                                              | *number*                                                                                  | :heavy_check_mark:                                                                        | N/A                                                                                       |
-| `updatedDate`                                                                             | [models.LineItemResponseDtoUpdatedDate](../models/line-item-response-dto-updated-date.md) | :heavy_check_mark:                                                                        | N/A                                                                                       |
+| Field                                                                               | Type                                                                                | Required                                                                            | Description                                                                         |
+| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `lineItemId`                                                                        | *string*                                                                            | :heavy_check_mark:                                                                  | N/A                                                                                 |
+| `accountId`                                                                         | *string*                                                                            | :heavy_check_mark:                                                                  | N/A                                                                                 |
+| `createdDate`                                                                       | *string*                                                                            | :heavy_check_mark:                                                                  | N/A                                                                                 |
+| `description`                                                                       | *string*                                                                            | :heavy_check_mark:                                                                  | N/A                                                                                 |
+| `dimensions`                                                                        | [models.InvoiceDimensionResponseDto](../models/invoice-dimension-response-dto.md)[] | :heavy_check_mark:                                                                  | N/A                                                                                 |
+| `discountItemAmount`                                                                | *number*                                                                            | :heavy_check_mark:                                                                  | N/A                                                                                 |
+| `discountItemPercentage`                                                            | *number*                                                                            | :heavy_check_mark:                                                                  | N/A                                                                                 |
+| `grossAmount`                                                                       | *number*                                                                            | :heavy_check_mark:                                                                  | N/A                                                                                 |
+| `itemsAmount`                                                                       | *number*                                                                            | :heavy_check_mark:                                                                  | N/A                                                                                 |
+| `itemId`                                                                            | *string*                                                                            | :heavy_check_mark:                                                                  | N/A                                                                                 |
+| `name`                                                                              | *string*                                                                            | :heavy_check_mark:                                                                  | N/A                                                                                 |
+| `quantity`                                                                          | *number*                                                                            | :heavy_check_mark:                                                                  | N/A                                                                                 |
+| `taxCode`                                                                           | *string*                                                                            | :heavy_minus_sign:                                                                  | N/A                                                                                 |
+| `taxRatePercentage`                                                                 | *number*                                                                            | :heavy_check_mark:                                                                  | N/A                                                                                 |
+| `unitAmount`                                                                        | *number*                                                                            | :heavy_check_mark:                                                                  | N/A                                                                                 |
+| `updatedDate`                                                                       | *string*                                                                            | :heavy_check_mark:                                                                  | N/A                                                                                 |

@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
@@ -51,15 +52,27 @@ export type GetVendorCreditsRequest = {
   rawData?: boolean | undefined;
 };
 
+export type GetVendorCreditsPagination = {
+  total: number;
+  perPage: number;
+  currentPage: number;
+  totalPages: number;
+};
+
+export type GetVendorCreditsMeta = {
+  warnings?: Array<string> | null | undefined;
+  pagination?: GetVendorCreditsPagination | null | undefined;
+};
+
 export type GetVendorCreditsErrors = {};
 
 export type GetVendorCreditsRawData = {};
 
 export type GetVendorCreditsResponse = {
-  meta: models.MetaResponse;
+  meta?: GetVendorCreditsMeta | null | undefined;
   data: Array<models.VendorCreditResponseDto>;
-  errors: GetVendorCreditsErrors;
-  rawData: GetVendorCreditsRawData;
+  errors: GetVendorCreditsErrors | null;
+  rawData: GetVendorCreditsRawData | null;
 };
 
 /** @internal */
@@ -108,6 +121,48 @@ export function getVendorCreditsRequestToJSON(
 }
 
 /** @internal */
+export const GetVendorCreditsPagination$inboundSchema: z.ZodMiniType<
+  GetVendorCreditsPagination,
+  unknown
+> = z.object({
+  total: types.number(),
+  perPage: types.number(),
+  currentPage: types.number(),
+  totalPages: types.number(),
+});
+
+export function getVendorCreditsPaginationFromJSON(
+  jsonString: string,
+): SafeParseResult<GetVendorCreditsPagination, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetVendorCreditsPagination$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetVendorCreditsPagination' from JSON`,
+  );
+}
+
+/** @internal */
+export const GetVendorCreditsMeta$inboundSchema: z.ZodMiniType<
+  GetVendorCreditsMeta,
+  unknown
+> = z.object({
+  warnings: z.optional(z.nullable(z.array(types.string()))),
+  pagination: z.optional(
+    z.nullable(z.lazy(() => GetVendorCreditsPagination$inboundSchema)),
+  ),
+});
+
+export function getVendorCreditsMetaFromJSON(
+  jsonString: string,
+): SafeParseResult<GetVendorCreditsMeta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetVendorCreditsMeta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetVendorCreditsMeta' from JSON`,
+  );
+}
+
+/** @internal */
 export const GetVendorCreditsErrors$inboundSchema: z.ZodMiniType<
   GetVendorCreditsErrors,
   unknown
@@ -144,10 +199,12 @@ export const GetVendorCreditsResponse$inboundSchema: z.ZodMiniType<
   GetVendorCreditsResponse,
   unknown
 > = z.object({
-  meta: models.MetaResponse$inboundSchema,
+  meta: z.optional(
+    z.nullable(z.lazy(() => GetVendorCreditsMeta$inboundSchema)),
+  ),
   data: z.array(models.VendorCreditResponseDto$inboundSchema),
-  errors: z.lazy(() => GetVendorCreditsErrors$inboundSchema),
-  rawData: z.lazy(() => GetVendorCreditsRawData$inboundSchema),
+  errors: types.nullable(z.lazy(() => GetVendorCreditsErrors$inboundSchema)),
+  rawData: types.nullable(z.lazy(() => GetVendorCreditsRawData$inboundSchema)),
 });
 
 export function getVendorCreditsResponseFromJSON(

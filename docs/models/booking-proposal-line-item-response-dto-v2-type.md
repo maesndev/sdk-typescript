@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { BookingProposalLineItemResponseDtoV2Type } from "maesn/models";
+import { BookingProposalLineItemResponseDtoV2Type } from "@maesn/typescript-sdk/models";
 
 let value: BookingProposalLineItemResponseDtoV2Type = "PRODUCT";
 

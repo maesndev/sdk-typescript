@@ -12,7 +12,7 @@
 
 <!-- UsageSnippet language="typescript" operationID="createBillLineItem" method="post" path="/accounting/bills/{billId}/lineItems" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -25,29 +25,7 @@ const maesn = new Maesn({
 async function run() {
   const result = await maesn.accounting.bills.addLineItem({
     billId: "<id>",
-    body: {
-      id: "<id>",
-      accountId: "<id>",
-      accountNumber: "<value>",
-      deferredEndDate: "<value>",
-      deferredStartDate: "<value>",
-      description: "scented truthfully on mid creak hmph huzzah warlike section",
-      dimensions: [],
-      itemId: "<id>",
-      itemName: "<value>",
-      quantity: 5032.18,
-      taxCode: "<value>",
-      taxRatePercentage: 3223.82,
-      totalDiscountAmount: 9726.16,
-      totalDiscountPercentage: 263.97,
-      totalGrossAmount: 8391.76,
-      totalNetAmount: 8035.68,
-      totalTaxAmount: 3841.55,
-      unitAmount: 5672.84,
-      unitDiscountAmount: 749.8,
-      unitDiscountPercentage: 1350.66,
-      unitName: "<value>",
-    },
+    body: {},
   });
 
   console.log(result);
@@ -61,8 +39,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingBillsAddLineItem } from "maesn/funcs/accounting-bills-add-line-item.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingBillsAddLineItem } from "@maesn/typescript-sdk/funcs/accounting-bills-add-line-item.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -77,29 +55,7 @@ const maesn = new MaesnCore({
 async function run() {
   const res = await accountingBillsAddLineItem(maesn, {
     billId: "<id>",
-    body: {
-      id: "<id>",
-      accountId: "<id>",
-      accountNumber: "<value>",
-      deferredEndDate: "<value>",
-      deferredStartDate: "<value>",
-      description: "scented truthfully on mid creak hmph huzzah warlike section",
-      dimensions: [],
-      itemId: "<id>",
-      itemName: "<value>",
-      quantity: 5032.18,
-      taxCode: "<value>",
-      taxRatePercentage: 3223.82,
-      totalDiscountAmount: 9726.16,
-      totalDiscountPercentage: 263.97,
-      totalGrossAmount: 8391.76,
-      totalNetAmount: 8035.68,
-      totalTaxAmount: 3841.55,
-      unitAmount: 5672.84,
-      unitDiscountAmount: 749.8,
-      unitDiscountPercentage: 1350.66,
-      unitName: "<value>",
-    },
+    body: {},
   });
   if (res.ok) {
     const { value: result } = res;

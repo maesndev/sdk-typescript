@@ -107,7 +107,7 @@
 
 <!-- UsageSnippet language="typescript" operationID="getAccount" method="get" path="/accounting/accounts/{accountId}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -133,8 +133,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingRetrieveAccount } from "maesn/funcs/accounting-retrieve-account.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingRetrieveAccount } from "@maesn/typescript-sdk/funcs/accounting-retrieve-account.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -186,7 +186,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getAccounts" method="get" path="/accounting/accounts" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -210,8 +210,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingRetrieveAccounts } from "maesn/funcs/accounting-retrieve-accounts.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingRetrieveAccounts } from "@maesn/typescript-sdk/funcs/accounting-retrieve-accounts.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -261,7 +261,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="createAccount" method="post" path="/accounting/accounts" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -273,18 +273,7 @@ const maesn = new Maesn({
 
 async function run() {
   const result = await maesn.accounting.addAccount({
-    body: {
-      balance: 8561.8,
-      class: "ASSET",
-      code: "<value>",
-      currency: "PGK",
-      description: "only zowie crossly preclude",
-      name: "<value>",
-      number: "<value>",
-      parentAccountId: "<id>",
-      status: "ACTIVE",
-      type: "STATISTICAL_CONSUMPTION",
-    },
+    body: {},
   });
 
   console.log(result);
@@ -298,8 +287,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingAddAccount } from "maesn/funcs/accounting-add-account.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingAddAccount } from "@maesn/typescript-sdk/funcs/accounting-add-account.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -313,18 +302,7 @@ const maesn = new MaesnCore({
 
 async function run() {
   const res = await accountingAddAccount(maesn, {
-    body: {
-      balance: 8561.8,
-      class: "ASSET",
-      code: "<value>",
-      currency: "PGK",
-      description: "only zowie crossly preclude",
-      name: "<value>",
-      number: "<value>",
-      parentAccountId: "<id>",
-      status: "ACTIVE",
-      type: "STATISTICAL_CONSUMPTION",
-    },
+    body: {},
   });
   if (res.ok) {
     const { value: result } = res;
@@ -362,7 +340,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getBankAccounts" method="get" path="/accounting/bankAccounts" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -386,8 +364,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingRetrieveBankAccounts } from "maesn/funcs/accounting-retrieve-bank-accounts.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingRetrieveBankAccounts } from "@maesn/typescript-sdk/funcs/accounting-retrieve-bank-accounts.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -437,7 +415,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="createBankAccount" method="post" path="/accounting/bankAccounts" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -449,20 +427,7 @@ const maesn = new Maesn({
 
 async function run() {
   const result = await maesn.accounting.addBankAccount({
-    body: {
-      balance: 703.54,
-      bankName: "<value>",
-      bic: "<value>",
-      currency: "LAK",
-      description: "despite summer unnecessarily often afterwards achieve sedately incandescence",
-      fileType: "MT940",
-      iban: "SA3080240431D1A282278275",
-      name: "<value>",
-      number: "<value>",
-      system: "<value>",
-      status: "ACTIVE",
-      type: "NON_CURRENT_LIABILITY",
-    },
+    body: {},
   });
 
   console.log(result);
@@ -476,8 +441,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingAddBankAccount } from "maesn/funcs/accounting-add-bank-account.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingAddBankAccount } from "@maesn/typescript-sdk/funcs/accounting-add-bank-account.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -491,20 +456,7 @@ const maesn = new MaesnCore({
 
 async function run() {
   const res = await accountingAddBankAccount(maesn, {
-    body: {
-      balance: 703.54,
-      bankName: "<value>",
-      bic: "<value>",
-      currency: "LAK",
-      description: "despite summer unnecessarily often afterwards achieve sedately incandescence",
-      fileType: "MT940",
-      iban: "SA3080240431D1A282278275",
-      name: "<value>",
-      number: "<value>",
-      system: "<value>",
-      status: "ACTIVE",
-      type: "NON_CURRENT_LIABILITY",
-    },
+    body: {},
   });
   if (res.ok) {
     const { value: result } = res;
@@ -542,7 +494,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getBankAccount" method="get" path="/accounting/bankAccounts/{bankAccountId}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -568,8 +520,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingFetchBankAccount } from "maesn/funcs/accounting-fetch-bank-account.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingFetchBankAccount } from "@maesn/typescript-sdk/funcs/accounting-fetch-bank-account.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -621,7 +573,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getDimensions" method="get" path="/accounting/dimensions" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -645,8 +597,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingRetrieveDimensions } from "maesn/funcs/accounting-retrieve-dimensions.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingRetrieveDimensions } from "@maesn/typescript-sdk/funcs/accounting-retrieve-dimensions.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -696,7 +648,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="createTransaction" method="post" path="/accounting/transactions" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -722,8 +674,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingRecordTransaction } from "maesn/funcs/accounting-record-transaction.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingRecordTransaction } from "@maesn/typescript-sdk/funcs/accounting-record-transaction.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -775,7 +727,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getCustomers" method="get" path="/accounting/customers" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -799,8 +751,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingFetchCustomers } from "maesn/funcs/accounting-fetch-customers.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingFetchCustomers } from "@maesn/typescript-sdk/funcs/accounting-fetch-customers.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -850,7 +802,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="createCustomer" method="post" path="/accounting/customers" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -863,40 +815,7 @@ const maesn = new Maesn({
 async function run() {
   const result = await maesn.accounting.createCustomer({
     body: {
-      addresses: [],
-      bankAccount: {
-        bic: "<value>",
-        holder: "<value>",
-        isMainAccount: true,
-        iban: "LU25377862T61M723A97",
-        name: "<value>",
-        sepa: true,
-      },
-      companyName: "Lind - Balistreri",
-      contactPersons: [
-        {
-          emailAddresses: [],
-          firstName: "Laurianne",
-          lastName: "Blick",
-          phoneNumbers: [
-            "<value 1>",
-          ],
-          salutation: "<value>",
-        },
-      ],
       contactType: "CONTACT_PERSON",
-      documentId: "<id>",
-      emailAddresses: [
-        {
-          email: "Reymundo17@yahoo.com",
-          type: "INVOICE",
-        },
-      ],
-      number: "<value>",
-      phoneNumbers: [],
-      projectId: "<id>",
-      role: "CONTACT",
-      vatId: "<id>",
     },
   });
 
@@ -911,8 +830,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingCreateCustomer } from "maesn/funcs/accounting-create-customer.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingCreateCustomer } from "@maesn/typescript-sdk/funcs/accounting-create-customer.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -927,40 +846,7 @@ const maesn = new MaesnCore({
 async function run() {
   const res = await accountingCreateCustomer(maesn, {
     body: {
-      addresses: [],
-      bankAccount: {
-        bic: "<value>",
-        holder: "<value>",
-        isMainAccount: true,
-        iban: "LU25377862T61M723A97",
-        name: "<value>",
-        sepa: true,
-      },
-      companyName: "Lind - Balistreri",
-      contactPersons: [
-        {
-          emailAddresses: [],
-          firstName: "Laurianne",
-          lastName: "Blick",
-          phoneNumbers: [
-            "<value 1>",
-          ],
-          salutation: "<value>",
-        },
-      ],
       contactType: "CONTACT_PERSON",
-      documentId: "<id>",
-      emailAddresses: [
-        {
-          email: "Reymundo17@yahoo.com",
-          type: "INVOICE",
-        },
-      ],
-      number: "<value>",
-      phoneNumbers: [],
-      projectId: "<id>",
-      role: "CONTACT",
-      vatId: "<id>",
     },
   });
   if (res.ok) {
@@ -999,7 +885,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getCustomer" method="get" path="/accounting/customers/{contactId}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -1025,8 +911,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingFetchCustomer } from "maesn/funcs/accounting-fetch-customer.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingFetchCustomer } from "@maesn/typescript-sdk/funcs/accounting-fetch-customer.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1078,7 +964,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="updateCustomer" method="put" path="/accounting/customers/{contactId}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -1092,30 +978,7 @@ async function run() {
   const result = await maesn.accounting.updateCustomer({
     contactId: "<id>",
     body: {
-      addresses: [],
-      bankAccount: {
-        bic: "<value>",
-        holder: "<value>",
-        isMainAccount: true,
-        iban: "AT163702108702070797",
-        name: "<value>",
-        sepa: true,
-      },
-      companyName: "Murphy, Hirthe and Cruickshank",
-      contactPersons: [],
       contactType: "COMPANY",
-      documentId: "<id>",
-      emailAddresses: [],
-      number: "<value>",
-      phoneNumbers: [
-        {
-          number: "<value>",
-          type: "SKYPE",
-        },
-      ],
-      projectId: "<id>",
-      role: "CONTACT",
-      vatId: "<id>",
     },
   });
 
@@ -1130,8 +993,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingUpdateCustomer } from "maesn/funcs/accounting-update-customer.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingUpdateCustomer } from "@maesn/typescript-sdk/funcs/accounting-update-customer.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1147,30 +1010,7 @@ async function run() {
   const res = await accountingUpdateCustomer(maesn, {
     contactId: "<id>",
     body: {
-      addresses: [],
-      bankAccount: {
-        bic: "<value>",
-        holder: "<value>",
-        isMainAccount: true,
-        iban: "AT163702108702070797",
-        name: "<value>",
-        sepa: true,
-      },
-      companyName: "Murphy, Hirthe and Cruickshank",
-      contactPersons: [],
       contactType: "COMPANY",
-      documentId: "<id>",
-      emailAddresses: [],
-      number: "<value>",
-      phoneNumbers: [
-        {
-          number: "<value>",
-          type: "SKYPE",
-        },
-      ],
-      projectId: "<id>",
-      role: "CONTACT",
-      vatId: "<id>",
     },
   });
   if (res.ok) {
@@ -1209,7 +1049,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="patchCustomers" method="patch" path="/accounting/customers/{contactId}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -1222,52 +1062,7 @@ const maesn = new Maesn({
 async function run() {
   const result = await maesn.accounting.amendCustomer({
     contactId: "<id>",
-    body: {
-      contactType: "CONTACT_PERSON",
-      companyName: "Lockman, Koch and Reilly",
-      contactPersons: [
-        {
-          emailAddresses: [],
-          firstName: "Louisa",
-          lastName: "McGlynn",
-          phoneNumbers: [
-            "<value 1>",
-            "<value 2>",
-            "<value 3>",
-          ],
-          salutation: "<value>",
-        },
-      ],
-      addresses: [
-        {
-          addressLine1: "69361 Aspen Close",
-          addressLine2: "-",
-          city: "Paramount",
-          countryCode: "TK",
-          postalCode: "90632-7148",
-          type: "PICKUP",
-        },
-      ],
-      emailAddresses: [
-        {
-          email: "Grady99@hotmail.com",
-          type: "OFFICE",
-        },
-      ],
-      phoneNumbers: [
-        {
-          number: "<value>",
-          type: "MOBILE",
-        },
-      ],
-      bankAccount: {
-        iban: "BG90LETP01786613716608",
-        bic: "<value>",
-        holder: "<value>",
-        sepa: true,
-      },
-      projectId: "<id>",
-    },
+    body: {},
   });
 
   console.log(result);
@@ -1281,8 +1076,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingAmendCustomer } from "maesn/funcs/accounting-amend-customer.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingAmendCustomer } from "@maesn/typescript-sdk/funcs/accounting-amend-customer.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1297,52 +1092,7 @@ const maesn = new MaesnCore({
 async function run() {
   const res = await accountingAmendCustomer(maesn, {
     contactId: "<id>",
-    body: {
-      contactType: "CONTACT_PERSON",
-      companyName: "Lockman, Koch and Reilly",
-      contactPersons: [
-        {
-          emailAddresses: [],
-          firstName: "Louisa",
-          lastName: "McGlynn",
-          phoneNumbers: [
-            "<value 1>",
-            "<value 2>",
-            "<value 3>",
-          ],
-          salutation: "<value>",
-        },
-      ],
-      addresses: [
-        {
-          addressLine1: "69361 Aspen Close",
-          addressLine2: "-",
-          city: "Paramount",
-          countryCode: "TK",
-          postalCode: "90632-7148",
-          type: "PICKUP",
-        },
-      ],
-      emailAddresses: [
-        {
-          email: "Grady99@hotmail.com",
-          type: "OFFICE",
-        },
-      ],
-      phoneNumbers: [
-        {
-          number: "<value>",
-          type: "MOBILE",
-        },
-      ],
-      bankAccount: {
-        iban: "BG90LETP01786613716608",
-        bic: "<value>",
-        holder: "<value>",
-        sepa: true,
-      },
-      projectId: "<id>",
-    },
+    body: {},
   });
   if (res.ok) {
     const { value: result } = res;
@@ -1380,7 +1130,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getSuppliers" method="get" path="/accounting/suppliers" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -1404,8 +1154,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingRetrieveSuppliers } from "maesn/funcs/accounting-retrieve-suppliers.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingRetrieveSuppliers } from "@maesn/typescript-sdk/funcs/accounting-retrieve-suppliers.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1455,7 +1205,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="createSupplier" method="post" path="/accounting/suppliers" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -1468,39 +1218,7 @@ const maesn = new Maesn({
 async function run() {
   const result = await maesn.accounting.addSupplier({
     body: {
-      addresses: [
-        {
-          addressLine1: "6302 Central Avenue",
-          addressLine2: "-",
-          city: "New Madisen",
-          countryCode: "IE",
-          postalCode: "37621-1977",
-          type: "WORK",
-        },
-      ],
-      bankAccount: {
-        bic: "<value>",
-        holder: "<value>",
-        isMainAccount: true,
-        iban: "IS405661803400080880010020",
-        name: "<value>",
-        sepa: false,
-      },
-      companyName: "Murphy LLC",
-      contactPersons: [],
       contactType: "COMPANY",
-      documentId: "<id>",
-      emailAddresses: [],
-      number: "<value>",
-      phoneNumbers: [
-        {
-          number: "<value>",
-          type: "SKYPE",
-        },
-      ],
-      projectId: "<id>",
-      role: "SUPPLIER",
-      vatId: "<id>",
     },
   });
 
@@ -1515,8 +1233,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingAddSupplier } from "maesn/funcs/accounting-add-supplier.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingAddSupplier } from "@maesn/typescript-sdk/funcs/accounting-add-supplier.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1531,39 +1249,7 @@ const maesn = new MaesnCore({
 async function run() {
   const res = await accountingAddSupplier(maesn, {
     body: {
-      addresses: [
-        {
-          addressLine1: "6302 Central Avenue",
-          addressLine2: "-",
-          city: "New Madisen",
-          countryCode: "IE",
-          postalCode: "37621-1977",
-          type: "WORK",
-        },
-      ],
-      bankAccount: {
-        bic: "<value>",
-        holder: "<value>",
-        isMainAccount: true,
-        iban: "IS405661803400080880010020",
-        name: "<value>",
-        sepa: false,
-      },
-      companyName: "Murphy LLC",
-      contactPersons: [],
       contactType: "COMPANY",
-      documentId: "<id>",
-      emailAddresses: [],
-      number: "<value>",
-      phoneNumbers: [
-        {
-          number: "<value>",
-          type: "SKYPE",
-        },
-      ],
-      projectId: "<id>",
-      role: "SUPPLIER",
-      vatId: "<id>",
     },
   });
   if (res.ok) {
@@ -1602,7 +1288,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getSupplier" method="get" path="/accounting/suppliers/{contactId}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -1628,8 +1314,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingFetchSupplier } from "maesn/funcs/accounting-fetch-supplier.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingFetchSupplier } from "@maesn/typescript-sdk/funcs/accounting-fetch-supplier.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1681,7 +1367,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="updateSupplier" method="put" path="/accounting/suppliers/{contactId}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -1695,39 +1381,7 @@ async function run() {
   const result = await maesn.accounting.modifySupplier({
     contactId: "<id>",
     body: {
-      addresses: [
-        {
-          addressLine1: "7522 Bins Avenue",
-          addressLine2: "-",
-          city: "National City",
-          countryCode: "RS",
-          postalCode: "22514-2574",
-          type: "BILLING",
-        },
-      ],
-      bankAccount: {
-        bic: "<value>",
-        holder: "<value>",
-        isMainAccount: true,
-        iban: "TL140693001201006031557",
-        name: "<value>",
-        sepa: true,
-      },
-      companyName: "Bergnaum Inc",
-      contactPersons: [],
       contactType: "CONTACT_PERSON",
-      documentId: "<id>",
-      emailAddresses: [
-        {
-          email: "Camille_Nader@hotmail.com",
-          type: "PRIVATE",
-        },
-      ],
-      number: "<value>",
-      phoneNumbers: [],
-      projectId: "<id>",
-      role: "CUSTOMER",
-      vatId: "<id>",
     },
   });
 
@@ -1742,8 +1396,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingModifySupplier } from "maesn/funcs/accounting-modify-supplier.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingModifySupplier } from "@maesn/typescript-sdk/funcs/accounting-modify-supplier.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1759,39 +1413,7 @@ async function run() {
   const res = await accountingModifySupplier(maesn, {
     contactId: "<id>",
     body: {
-      addresses: [
-        {
-          addressLine1: "7522 Bins Avenue",
-          addressLine2: "-",
-          city: "National City",
-          countryCode: "RS",
-          postalCode: "22514-2574",
-          type: "BILLING",
-        },
-      ],
-      bankAccount: {
-        bic: "<value>",
-        holder: "<value>",
-        isMainAccount: true,
-        iban: "TL140693001201006031557",
-        name: "<value>",
-        sepa: true,
-      },
-      companyName: "Bergnaum Inc",
-      contactPersons: [],
       contactType: "CONTACT_PERSON",
-      documentId: "<id>",
-      emailAddresses: [
-        {
-          email: "Camille_Nader@hotmail.com",
-          type: "PRIVATE",
-        },
-      ],
-      number: "<value>",
-      phoneNumbers: [],
-      projectId: "<id>",
-      role: "CUSTOMER",
-      vatId: "<id>",
     },
   });
   if (res.ok) {
@@ -1830,7 +1452,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="patchSupplier" method="patch" path="/accounting/suppliers/{contactId}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -1843,31 +1465,7 @@ const maesn = new Maesn({
 async function run() {
   const result = await maesn.accounting.amendSupplier({
     contactId: "<id>",
-    body: {
-      contactType: "COMPANY",
-      companyName: "Lehner Group",
-      contactPersons: [
-        {
-          emailAddresses: [],
-          firstName: "Jean",
-          lastName: "Stiedemann",
-          phoneNumbers: [
-            "<value 1>",
-          ],
-          salutation: "<value>",
-        },
-      ],
-      addresses: [],
-      emailAddresses: [],
-      phoneNumbers: [],
-      bankAccount: {
-        iban: "BH09HZUG8597921H253895",
-        bic: "<value>",
-        holder: "<value>",
-        sepa: false,
-      },
-      projectId: "<id>",
-    },
+    body: {},
   });
 
   console.log(result);
@@ -1881,8 +1479,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingAmendSupplier } from "maesn/funcs/accounting-amend-supplier.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingAmendSupplier } from "@maesn/typescript-sdk/funcs/accounting-amend-supplier.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1897,31 +1495,7 @@ const maesn = new MaesnCore({
 async function run() {
   const res = await accountingAmendSupplier(maesn, {
     contactId: "<id>",
-    body: {
-      contactType: "COMPANY",
-      companyName: "Lehner Group",
-      contactPersons: [
-        {
-          emailAddresses: [],
-          firstName: "Jean",
-          lastName: "Stiedemann",
-          phoneNumbers: [
-            "<value 1>",
-          ],
-          salutation: "<value>",
-        },
-      ],
-      addresses: [],
-      emailAddresses: [],
-      phoneNumbers: [],
-      bankAccount: {
-        iban: "BH09HZUG8597921H253895",
-        bic: "<value>",
-        holder: "<value>",
-        sepa: false,
-      },
-      projectId: "<id>",
-    },
+    body: {},
   });
   if (res.ok) {
     const { value: result } = res;
@@ -1959,7 +1533,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getContacts" method="get" path="/accounting/contacts" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -1983,8 +1557,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingGetContacts } from "maesn/funcs/accounting-get-contacts.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingGetContacts } from "@maesn/typescript-sdk/funcs/accounting-get-contacts.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2034,7 +1608,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="createContact" method="post" path="/accounting/contacts" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -2047,23 +1621,7 @@ const maesn = new Maesn({
 async function run() {
   const result = await maesn.accounting.addContact({
     body: {
-      id: "<id>",
-      addresses: [],
-      companyName: "Kessler and Sons",
-      contactPersons: [],
       contactType: "COMPANY",
-      emailAddresses: [
-        {
-          email: "Lawrence31@gmail.com",
-          type: "INVOICE",
-        },
-      ],
-      isCustomer: true,
-      isSupplier: true,
-      number: "<value>",
-      phoneNumbers: [],
-      projectId: "<id>",
-      website: "<value>",
     },
   });
 
@@ -2078,8 +1636,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingAddContact } from "maesn/funcs/accounting-add-contact.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingAddContact } from "@maesn/typescript-sdk/funcs/accounting-add-contact.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2094,23 +1652,7 @@ const maesn = new MaesnCore({
 async function run() {
   const res = await accountingAddContact(maesn, {
     body: {
-      id: "<id>",
-      addresses: [],
-      companyName: "Kessler and Sons",
-      contactPersons: [],
       contactType: "COMPANY",
-      emailAddresses: [
-        {
-          email: "Lawrence31@gmail.com",
-          type: "INVOICE",
-        },
-      ],
-      isCustomer: true,
-      isSupplier: true,
-      number: "<value>",
-      phoneNumbers: [],
-      projectId: "<id>",
-      website: "<value>",
     },
   });
   if (res.ok) {
@@ -2149,7 +1691,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getContact" method="get" path="/accounting/contacts/{contactId}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -2175,8 +1717,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingFetchContact } from "maesn/funcs/accounting-fetch-contact.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingFetchContact } from "@maesn/typescript-sdk/funcs/accounting-fetch-contact.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2228,7 +1770,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="putContact" method="put" path="/accounting/contacts/{contactId}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -2242,23 +1784,7 @@ async function run() {
   const result = await maesn.accounting.replaceContact({
     contactId: "<id>",
     body: {
-      id: "<id>",
-      addresses: [],
-      companyName: "Rolfson - Gerlach",
-      contactPersons: [],
       contactType: "COMPANY",
-      emailAddresses: [
-        {
-          email: "Sunny.Koch@gmail.com",
-          type: "OTHER",
-        },
-      ],
-      isCustomer: true,
-      isSupplier: false,
-      number: "<value>",
-      phoneNumbers: [],
-      projectId: "<id>",
-      website: "<value>",
     },
   });
 
@@ -2273,8 +1799,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingReplaceContact } from "maesn/funcs/accounting-replace-contact.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingReplaceContact } from "@maesn/typescript-sdk/funcs/accounting-replace-contact.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2290,23 +1816,7 @@ async function run() {
   const res = await accountingReplaceContact(maesn, {
     contactId: "<id>",
     body: {
-      id: "<id>",
-      addresses: [],
-      companyName: "Rolfson - Gerlach",
-      contactPersons: [],
       contactType: "COMPANY",
-      emailAddresses: [
-        {
-          email: "Sunny.Koch@gmail.com",
-          type: "OTHER",
-        },
-      ],
-      isCustomer: true,
-      isSupplier: false,
-      number: "<value>",
-      phoneNumbers: [],
-      projectId: "<id>",
-      website: "<value>",
     },
   });
   if (res.ok) {
@@ -2345,7 +1855,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="createContacts" method="post" path="/accounting/contacts/bulk" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -2424,8 +1934,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingCreateContactsBulk } from "maesn/funcs/accounting-create-contacts-bulk.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingCreateContactsBulk } from "@maesn/typescript-sdk/funcs/accounting-create-contacts-bulk.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2530,7 +2040,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="createContactsV1" method="post" path="/accounting/batch/contacts" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -2561,8 +2071,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingBatchAddContacts } from "maesn/funcs/accounting-batch-add-contacts.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingBatchAddContacts } from "@maesn/typescript-sdk/funcs/accounting-batch-add-contacts.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2619,7 +2129,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getInvoices" method="get" path="/accounting/invoices" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -2643,8 +2153,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingRetrieveInvoices } from "maesn/funcs/accounting-retrieve-invoices.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingRetrieveInvoices } from "@maesn/typescript-sdk/funcs/accounting-retrieve-invoices.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2694,7 +2204,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="createInvoice" method="post" path="/accounting/invoices" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -2707,41 +2217,8 @@ const maesn = new Maesn({
 async function run() {
   const result = await maesn.accounting.addInvoice({
     body: {
-      invoiceId: "<id>",
-      addresses: [
-        {
-          addressLine1: "42975 Haleigh Flat",
-          addressLine2: "-",
-          city: "North Kaseycester",
-          countryCode: "KG",
-          postalCode: "18386-8735",
-          type: "DELIVERY",
-        },
-      ],
-      contactId: "<id>",
-      currency: "Iceland Krona",
-      discountPercentage: 3686.22,
-      dueDate: "<value>",
-      fileId: "<id>",
-      grossTotalAmount: 2774.64,
       invoiceDate: "<value>",
-      invoiceNumber: "<value>",
-      invoiceType: "BILL",
-      journalCode: "<value>",
-      lineAmountTypes: "<value>",
       lineItems: [],
-      name: "<value>",
-      oneLineAddress: "<value>",
-      paidDate: "<value>",
-      paymentTermDuration: 3652.63,
-      paymentTermId: "<id>",
-      reference: "<value>",
-      shippingDate: "<value>",
-      shippingType: "NONE",
-      shippingEndDate: "<value>",
-      status: "PARTIALLY_PAID",
-      taxRule: "NET",
-      taxText: "<value>",
     },
   });
 
@@ -2756,8 +2233,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingAddInvoice } from "maesn/funcs/accounting-add-invoice.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingAddInvoice } from "@maesn/typescript-sdk/funcs/accounting-add-invoice.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2772,41 +2249,8 @@ const maesn = new MaesnCore({
 async function run() {
   const res = await accountingAddInvoice(maesn, {
     body: {
-      invoiceId: "<id>",
-      addresses: [
-        {
-          addressLine1: "42975 Haleigh Flat",
-          addressLine2: "-",
-          city: "North Kaseycester",
-          countryCode: "KG",
-          postalCode: "18386-8735",
-          type: "DELIVERY",
-        },
-      ],
-      contactId: "<id>",
-      currency: "Iceland Krona",
-      discountPercentage: 3686.22,
-      dueDate: "<value>",
-      fileId: "<id>",
-      grossTotalAmount: 2774.64,
       invoiceDate: "<value>",
-      invoiceNumber: "<value>",
-      invoiceType: "BILL",
-      journalCode: "<value>",
-      lineAmountTypes: "<value>",
       lineItems: [],
-      name: "<value>",
-      oneLineAddress: "<value>",
-      paidDate: "<value>",
-      paymentTermDuration: 3652.63,
-      paymentTermId: "<id>",
-      reference: "<value>",
-      shippingDate: "<value>",
-      shippingType: "NONE",
-      shippingEndDate: "<value>",
-      status: "PARTIALLY_PAID",
-      taxRule: "NET",
-      taxText: "<value>",
     },
   });
   if (res.ok) {
@@ -2845,7 +2289,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getInvoice" method="get" path="/accounting/invoices/{invoiceId}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -2871,8 +2315,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingFetchInvoice } from "maesn/funcs/accounting-fetch-invoice.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingFetchInvoice } from "@maesn/typescript-sdk/funcs/accounting-fetch-invoice.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2924,7 +2368,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="patchInvoice" method="patch" path="/accounting/invoices/{invoiceId}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -2937,32 +2381,7 @@ const maesn = new Maesn({
 async function run() {
   const result = await maesn.accounting.amendInvoice({
     invoiceId: "<id>",
-    body: {
-      invoiceId: "<id>",
-      contactId: "<id>",
-      name: "<value>",
-      reference: "<value>",
-      currency: "Canadian Dollar",
-      invoiceDate: "<value>",
-      journalCode: "<value>",
-      paymentTermId: "<id>",
-      fileId: "<id>",
-      status: "PARTIALLY_PAID",
-      invoiceType: "BILL",
-      oneLineAddress: "<value>",
-      addresses: [],
-      taxRule: "DEFAULT",
-      taxText: "<value>",
-      lineItems: [],
-      discountPercentage: 225.27,
-      shippingType: "SERVICEPERIOD",
-      shippingDate: "<value>",
-      shippingEndDate: "<value>",
-      lineAmountTypes: "NOTAX",
-      dueDate: "<value>",
-      paidDate: "<value>",
-      paymentTermDuration: 6916.25,
-    },
+    body: {},
   });
 
   console.log(result);
@@ -2976,8 +2395,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingAmendInvoice } from "maesn/funcs/accounting-amend-invoice.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingAmendInvoice } from "@maesn/typescript-sdk/funcs/accounting-amend-invoice.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2992,32 +2411,7 @@ const maesn = new MaesnCore({
 async function run() {
   const res = await accountingAmendInvoice(maesn, {
     invoiceId: "<id>",
-    body: {
-      invoiceId: "<id>",
-      contactId: "<id>",
-      name: "<value>",
-      reference: "<value>",
-      currency: "Canadian Dollar",
-      invoiceDate: "<value>",
-      journalCode: "<value>",
-      paymentTermId: "<id>",
-      fileId: "<id>",
-      status: "PARTIALLY_PAID",
-      invoiceType: "BILL",
-      oneLineAddress: "<value>",
-      addresses: [],
-      taxRule: "DEFAULT",
-      taxText: "<value>",
-      lineItems: [],
-      discountPercentage: 225.27,
-      shippingType: "SERVICEPERIOD",
-      shippingDate: "<value>",
-      shippingEndDate: "<value>",
-      lineAmountTypes: "NOTAX",
-      dueDate: "<value>",
-      paidDate: "<value>",
-      paymentTermDuration: 6916.25,
-    },
+    body: {},
   });
   if (res.ok) {
     const { value: result } = res;
@@ -3055,7 +2449,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getInvoiceDocument" method="get" path="/accounting/invoices/{invoiceId}/document" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -3081,8 +2475,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingFetchInvoiceDocument } from "maesn/funcs/accounting-fetch-invoice-document.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingFetchInvoiceDocument } from "@maesn/typescript-sdk/funcs/accounting-fetch-invoice-document.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -3134,7 +2528,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="postFile" method="post" path="/accounting/files" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -3168,8 +2562,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingUploadFile } from "maesn/funcs/accounting-upload-file.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingUploadFile } from "@maesn/typescript-sdk/funcs/accounting-upload-file.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -3229,7 +2623,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getDocumentTypes" method="get" path="/accounting/files/documentTypes" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -3253,8 +2647,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingFetchDocumentTypes } from "maesn/funcs/accounting-fetch-document-types.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingFetchDocumentTypes } from "@maesn/typescript-sdk/funcs/accounting-fetch-document-types.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -3304,7 +2698,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getAsyncTaskInfo" method="get" path="/accounting/asyncTask/{taskId}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -3330,8 +2724,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingGetAsyncTask } from "maesn/funcs/accounting-get-async-task.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingGetAsyncTask } from "@maesn/typescript-sdk/funcs/accounting-get-async-task.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -3383,7 +2777,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getItems" method="get" path="/accounting/items" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -3407,8 +2801,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingRetrieveItems } from "maesn/funcs/accounting-retrieve-items.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingRetrieveItems } from "@maesn/typescript-sdk/funcs/accounting-retrieve-items.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -3458,7 +2852,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getItem" method="get" path="/accounting/items/{itemId}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -3484,8 +2878,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingFetchItem } from "maesn/funcs/accounting-fetch-item.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingFetchItem } from "@maesn/typescript-sdk/funcs/accounting-fetch-item.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -3537,7 +2931,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getLineItems" method="get" path="/accounting/invoices/{invoiceId}/lineItems" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -3563,8 +2957,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingRetrieveInvoiceLineItems } from "maesn/funcs/accounting-retrieve-invoice-line-items.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingRetrieveInvoiceLineItems } from "@maesn/typescript-sdk/funcs/accounting-retrieve-invoice-line-items.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -3616,7 +3010,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="createLineItem" method="post" path="/accounting/invoices/{invoiceId}/lineItems" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -3630,27 +3024,7 @@ async function run() {
   const result = await maesn.accounting.addInvoiceLineItem({
     invoiceId: "<id>",
     body: {
-      accountCode: "<value>",
-      accountId: "<id>",
-      description: "pluck wherever next magnificent ew millet for absent",
-      dimensions: [
-        {
-          id: "<id>",
-          categoryName: "<value>",
-          name: "<value>",
-        },
-      ],
-      discountItemPercentage: 9896.72,
-      grossAmount: 356.93,
-      itemId: "<id>",
-      name: "<value>",
       quantity: 931.68,
-      taxCode: "<value>",
-      taxRatePercentage: 3707.03,
-      taxType: "<value>",
-      type: "<value>",
-      unitAmount: 1361.58,
-      unitName: "<value>",
     },
   });
 
@@ -3665,8 +3039,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingAddInvoiceLineItem } from "maesn/funcs/accounting-add-invoice-line-item.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingAddInvoiceLineItem } from "@maesn/typescript-sdk/funcs/accounting-add-invoice-line-item.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -3682,27 +3056,7 @@ async function run() {
   const res = await accountingAddInvoiceLineItem(maesn, {
     invoiceId: "<id>",
     body: {
-      accountCode: "<value>",
-      accountId: "<id>",
-      description: "pluck wherever next magnificent ew millet for absent",
-      dimensions: [
-        {
-          id: "<id>",
-          categoryName: "<value>",
-          name: "<value>",
-        },
-      ],
-      discountItemPercentage: 9896.72,
-      grossAmount: 356.93,
-      itemId: "<id>",
-      name: "<value>",
       quantity: 931.68,
-      taxCode: "<value>",
-      taxRatePercentage: 3707.03,
-      taxType: "<value>",
-      type: "<value>",
-      unitAmount: 1361.58,
-      unitName: "<value>",
     },
   });
   if (res.ok) {
@@ -3741,7 +3095,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getLineItem" method="get" path="/accounting/invoices/{invoiceId}/lineItems/{lineItemId}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -3768,8 +3122,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingRetrieveInvoiceLineItem } from "maesn/funcs/accounting-retrieve-invoice-line-item.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingRetrieveInvoiceLineItem } from "@maesn/typescript-sdk/funcs/accounting-retrieve-invoice-line-item.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -3822,7 +3176,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getJournals" method="get" path="/accounting/journals" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -3846,8 +3200,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingFetchJournals } from "maesn/funcs/accounting-fetch-journals.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingFetchJournals } from "@maesn/typescript-sdk/funcs/accounting-fetch-journals.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -3897,7 +3251,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getJournalEntries" method="get" path="/accounting/journalEntries" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -3921,8 +3275,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingListJournalEntries } from "maesn/funcs/accounting-list-journal-entries.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingListJournalEntries } from "@maesn/typescript-sdk/funcs/accounting-list-journal-entries.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -3972,7 +3326,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="createJournalEntry" method="post" path="/accounting/journalEntries" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -3998,8 +3352,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingAddJournalEntry } from "maesn/funcs/accounting-add-journal-entry.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingAddJournalEntry } from "@maesn/typescript-sdk/funcs/accounting-add-journal-entry.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -4051,7 +3405,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getJournalEntry" method="get" path="/accounting/journalEntries/{journalEntryId}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -4077,8 +3431,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingFetchJournalEntry } from "maesn/funcs/accounting-fetch-journal-entry.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingFetchJournalEntry } from "@maesn/typescript-sdk/funcs/accounting-fetch-journal-entry.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -4130,7 +3484,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="createJournalEntryAttachments" method="post" path="/accounting/journalEntries/{journalEntryId}/Attachments" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -4157,8 +3511,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingCreateJournalEntryAttachments } from "maesn/funcs/accounting-create-journal-entry-attachments.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingCreateJournalEntryAttachments } from "@maesn/typescript-sdk/funcs/accounting-create-journal-entry-attachments.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -4211,7 +3565,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getOffers" method="get" path="/accounting/offers" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -4235,8 +3589,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingFetchOffers } from "maesn/funcs/accounting-fetch-offers.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingFetchOffers } from "@maesn/typescript-sdk/funcs/accounting-fetch-offers.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -4286,7 +3640,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="createOffer" method="post" path="/accounting/offers" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -4309,43 +3663,8 @@ async function run() {
           type: "SELLING",
         },
       ],
-      contactId: "<id>",
       currency: "Ethiopian Birr",
-      lineItems: [
-        {
-          accountCode: "<value>",
-          accountId: "<id>",
-          description: "helplessly towards clamor hmph aw fumigate and",
-          itemId: "<id>",
-          name: "<value>",
-          quantity: 4545.56,
-          taxCode: "<value>",
-          taxRatePercentage: 1334.93,
-          taxType: "<value>",
-          type: "ITEM",
-          totalDiscountAmount: 200.15,
-          totalDiscountPercentage: 7823.01,
-          totalGrossAmount: 9228.49,
-          totalNetAmount: 996.84,
-          totalTaxAmount: 8491.69,
-          unitAmount: 1509.46,
-          unitDiscountAmount: 5094.14,
-          unitDiscountPercentage: 6160.87,
-          unitName: "<value>",
-        },
-      ],
-      name: "<value>",
       offerDate: "<value>",
-      offerNumber: "<value>",
-      oneLineAddress: "<value>",
-      reference: "<value>",
-      status: "EXPIRED",
-      taxText: "<value>",
-      totalDiscountAmount: 7097.98,
-      totalDiscountPercentage: 4784.75,
-      totalGrossAmount: 8705.35,
-      totalNetAmount: 1871.27,
-      totalTaxAmount: 9099.91,
     },
   });
 
@@ -4360,8 +3679,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingAddOffer } from "maesn/funcs/accounting-add-offer.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingAddOffer } from "@maesn/typescript-sdk/funcs/accounting-add-offer.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -4386,43 +3705,8 @@ async function run() {
           type: "SELLING",
         },
       ],
-      contactId: "<id>",
       currency: "Ethiopian Birr",
-      lineItems: [
-        {
-          accountCode: "<value>",
-          accountId: "<id>",
-          description: "helplessly towards clamor hmph aw fumigate and",
-          itemId: "<id>",
-          name: "<value>",
-          quantity: 4545.56,
-          taxCode: "<value>",
-          taxRatePercentage: 1334.93,
-          taxType: "<value>",
-          type: "ITEM",
-          totalDiscountAmount: 200.15,
-          totalDiscountPercentage: 7823.01,
-          totalGrossAmount: 9228.49,
-          totalNetAmount: 996.84,
-          totalTaxAmount: 8491.69,
-          unitAmount: 1509.46,
-          unitDiscountAmount: 5094.14,
-          unitDiscountPercentage: 6160.87,
-          unitName: "<value>",
-        },
-      ],
-      name: "<value>",
       offerDate: "<value>",
-      offerNumber: "<value>",
-      oneLineAddress: "<value>",
-      reference: "<value>",
-      status: "EXPIRED",
-      taxText: "<value>",
-      totalDiscountAmount: 7097.98,
-      totalDiscountPercentage: 4784.75,
-      totalGrossAmount: 8705.35,
-      totalNetAmount: 1871.27,
-      totalTaxAmount: 9099.91,
     },
   });
   if (res.ok) {
@@ -4461,7 +3745,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getOffer" method="get" path="/accounting/offers/{offerId}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -4487,8 +3771,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingFetchOffer } from "maesn/funcs/accounting-fetch-offer.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingFetchOffer } from "@maesn/typescript-sdk/funcs/accounting-fetch-offer.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -4540,7 +3824,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getOfferLineItems" method="get" path="/accounting/offers/{offerId}/lineItems" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -4566,8 +3850,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingFetchOfferLineItems } from "maesn/funcs/accounting-fetch-offer-line-items.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingFetchOfferLineItems } from "@maesn/typescript-sdk/funcs/accounting-fetch-offer-line-items.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -4619,7 +3903,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getOfferLineItem" method="get" path="/accounting/offers/{offerId}/lineItems/{lineItemId}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -4646,8 +3930,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingRetrieveOfferLineItem } from "maesn/funcs/accounting-retrieve-offer-line-item.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingRetrieveOfferLineItem } from "@maesn/typescript-sdk/funcs/accounting-retrieve-offer-line-item.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -4700,7 +3984,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="createExpense" method="post" path="/accounting/expenses" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -4726,8 +4010,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingAddExpense } from "maesn/funcs/accounting-add-expense.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingAddExpense } from "@maesn/typescript-sdk/funcs/accounting-add-expense.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -4779,7 +4063,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getExpenses" method="get" path="/accounting/expenses" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -4803,8 +4087,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingFetchExpenses } from "maesn/funcs/accounting-fetch-expenses.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingFetchExpenses } from "@maesn/typescript-sdk/funcs/accounting-fetch-expenses.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -4854,7 +4138,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getExpense" method="get" path="/accounting/expenses/{expenseId}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -4880,8 +4164,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingFetchExpense } from "maesn/funcs/accounting-fetch-expense.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingFetchExpense } from "@maesn/typescript-sdk/funcs/accounting-fetch-expense.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -4933,7 +4217,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getProjects" method="get" path="/accounting/projects" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -4957,8 +4241,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingGetProjects } from "maesn/funcs/accounting-get-projects.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingGetProjects } from "@maesn/typescript-sdk/funcs/accounting-get-projects.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -5008,7 +4292,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="createProject" method="post" path="/accounting/projects" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -5020,18 +4304,7 @@ const maesn = new Maesn({
 
 async function run() {
   const result = await maesn.accounting.addProject({
-    body: {
-      code: "<value>",
-      contactId: "<id>",
-      currency: "USD",
-      description: "accidentally per justly inconsequential amidst",
-      endDate: "<value>",
-      name: "<value>",
-      number: "<value>",
-      parentProjectId: "<id>",
-      status: "CLOSED",
-      startDate: "<value>",
-    },
+    body: {},
   });
 
   console.log(result);
@@ -5045,8 +4318,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingAddProject } from "maesn/funcs/accounting-add-project.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingAddProject } from "@maesn/typescript-sdk/funcs/accounting-add-project.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -5060,18 +4333,7 @@ const maesn = new MaesnCore({
 
 async function run() {
   const res = await accountingAddProject(maesn, {
-    body: {
-      code: "<value>",
-      contactId: "<id>",
-      currency: "USD",
-      description: "accidentally per justly inconsequential amidst",
-      endDate: "<value>",
-      name: "<value>",
-      number: "<value>",
-      parentProjectId: "<id>",
-      status: "CLOSED",
-      startDate: "<value>",
-    },
+    body: {},
   });
   if (res.ok) {
     const { value: result } = res;
@@ -5109,7 +4371,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getProject" method="get" path="/accounting/projects/{projectId}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -5135,8 +4397,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingFetchProject } from "maesn/funcs/accounting-fetch-project.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingFetchProject } from "@maesn/typescript-sdk/funcs/accounting-fetch-project.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -5188,7 +4450,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getSalesOrders" method="get" path="/accounting/salesOrders" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -5212,8 +4474,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingListSalesOrders } from "maesn/funcs/accounting-list-sales-orders.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingListSalesOrders } from "@maesn/typescript-sdk/funcs/accounting-list-sales-orders.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -5263,7 +4525,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="createSalesOrder" method="post" path="/accounting/salesOrders" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -5275,53 +4537,7 @@ const maesn = new Maesn({
 
 async function run() {
   const result = await maesn.accounting.addSalesOrder({
-    body: {
-      addresses: [
-        {
-          addressLine1: "896 Gulgowski Pass",
-          addressLine2: "-",
-          city: "Dickinsonland",
-          countryCode: "TF",
-          postalCode: "52370",
-          type: "BILLING",
-        },
-      ],
-      billingContactId: "<id>",
-      comment: "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
-      contactId: "<id>",
-      currency: "Rupiah",
-      deliveryDate: "<value>",
-      lineItems: [
-        {
-          itemId: "<id>",
-          description: "immediately daughter moisten the yet",
-          itemName: "<value>",
-          quantity: 6426.16,
-          taxCode: "<value>",
-          taxRatePercentage: 6708.7,
-          totalDiscountAmount: 7744.21,
-          totalDiscountPercentage: 8362.05,
-          totalGrossAmount: 2987.52,
-          totalNetAmount: 7986.89,
-          totalTaxAmount: 9981.01,
-          unitAmount: 227.06,
-          unitDiscountAmount: 3093.05,
-          unitDiscountPercentage: 5819.56,
-          unitName: "<value>",
-        },
-      ],
-      oneLineAddress: "<value>",
-      orderDate: "<value>",
-      projectId: "<id>",
-      shippingContactId: "<id>",
-      status: "DRAFT",
-      totalDiscountAmount: 8969.02,
-      totalDiscountPercentage: 9154.02,
-      totalGrossAmount: 5898.81,
-      totalNetAmount: 3350.26,
-      totalTaxAmount: 9404.22,
-      version: "<value>",
-    },
+    body: {},
   });
 
   console.log(result);
@@ -5335,8 +4551,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingAddSalesOrder } from "maesn/funcs/accounting-add-sales-order.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingAddSalesOrder } from "@maesn/typescript-sdk/funcs/accounting-add-sales-order.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -5350,53 +4566,7 @@ const maesn = new MaesnCore({
 
 async function run() {
   const res = await accountingAddSalesOrder(maesn, {
-    body: {
-      addresses: [
-        {
-          addressLine1: "896 Gulgowski Pass",
-          addressLine2: "-",
-          city: "Dickinsonland",
-          countryCode: "TF",
-          postalCode: "52370",
-          type: "BILLING",
-        },
-      ],
-      billingContactId: "<id>",
-      comment: "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
-      contactId: "<id>",
-      currency: "Rupiah",
-      deliveryDate: "<value>",
-      lineItems: [
-        {
-          itemId: "<id>",
-          description: "immediately daughter moisten the yet",
-          itemName: "<value>",
-          quantity: 6426.16,
-          taxCode: "<value>",
-          taxRatePercentage: 6708.7,
-          totalDiscountAmount: 7744.21,
-          totalDiscountPercentage: 8362.05,
-          totalGrossAmount: 2987.52,
-          totalNetAmount: 7986.89,
-          totalTaxAmount: 9981.01,
-          unitAmount: 227.06,
-          unitDiscountAmount: 3093.05,
-          unitDiscountPercentage: 5819.56,
-          unitName: "<value>",
-        },
-      ],
-      oneLineAddress: "<value>",
-      orderDate: "<value>",
-      projectId: "<id>",
-      shippingContactId: "<id>",
-      status: "DRAFT",
-      totalDiscountAmount: 8969.02,
-      totalDiscountPercentage: 9154.02,
-      totalGrossAmount: 5898.81,
-      totalNetAmount: 3350.26,
-      totalTaxAmount: 9404.22,
-      version: "<value>",
-    },
+    body: {},
   });
   if (res.ok) {
     const { value: result } = res;
@@ -5434,7 +4604,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getSalesOrder" method="get" path="/accounting/salesOrders/{salesOrderId}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -5460,8 +4630,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingFetchSalesOrder } from "maesn/funcs/accounting-fetch-sales-order.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingFetchSalesOrder } from "@maesn/typescript-sdk/funcs/accounting-fetch-sales-order.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -5513,7 +4683,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getSalesOrderLines" method="get" path="/accounting/salesOrders/{salesOrderId}/lineItems" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -5539,8 +4709,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingListSalesOrderLineItems } from "maesn/funcs/accounting-list-sales-order-line-items.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingListSalesOrderLineItems } from "@maesn/typescript-sdk/funcs/accounting-list-sales-order-line-items.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -5592,7 +4762,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getPaymentTerms" method="get" path="/accounting/paymentTerms" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -5616,8 +4786,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingGetPaymentTerms } from "maesn/funcs/accounting-get-payment-terms.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingGetPaymentTerms } from "@maesn/typescript-sdk/funcs/accounting-get-payment-terms.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -5667,7 +4837,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="createPaymentTerm" method="post" path="/accounting/paymentTerms" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -5679,19 +4849,7 @@ const maesn = new Maesn({
 
 async function run() {
   const result = await maesn.accounting.addPaymentTerm({
-    body: {
-      code: "<value>",
-      description: "per forenenst quizzically justly hard-to-find abnormally serialize",
-      discountDays: 289.02,
-      discountDays2: 2344.82,
-      discountPercentage: 2532.28,
-      discountPercentage2: 1425.74,
-      discountPeriods: [],
-      dueType: "DUE_IN_DAYS",
-      name: "<value>",
-      paymentDays: 7137.87,
-      paymentMethod: "<value>",
-    },
+    body: {},
   });
 
   console.log(result);
@@ -5705,8 +4863,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingAddPaymentTerm } from "maesn/funcs/accounting-add-payment-term.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingAddPaymentTerm } from "@maesn/typescript-sdk/funcs/accounting-add-payment-term.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -5720,19 +4878,7 @@ const maesn = new MaesnCore({
 
 async function run() {
   const res = await accountingAddPaymentTerm(maesn, {
-    body: {
-      code: "<value>",
-      description: "per forenenst quizzically justly hard-to-find abnormally serialize",
-      discountDays: 289.02,
-      discountDays2: 2344.82,
-      discountPercentage: 2532.28,
-      discountPercentage2: 1425.74,
-      discountPeriods: [],
-      dueType: "DUE_IN_DAYS",
-      name: "<value>",
-      paymentDays: 7137.87,
-      paymentMethod: "<value>",
-    },
+    body: {},
   });
   if (res.ok) {
     const { value: result } = res;
@@ -5770,7 +4916,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getPaymentTerm" method="get" path="/accounting/paymentTerms/{paymentTermId}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -5796,8 +4942,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingFetchPaymentTerm } from "maesn/funcs/accounting-fetch-payment-term.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingFetchPaymentTerm } from "@maesn/typescript-sdk/funcs/accounting-fetch-payment-term.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -5849,7 +4995,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getTaxRates" method="get" path="/accounting/taxRates" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -5873,8 +5019,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingRetrieveTaxRates } from "maesn/funcs/accounting-retrieve-tax-rates.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingRetrieveTaxRates } from "@maesn/typescript-sdk/funcs/accounting-retrieve-tax-rates.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -5924,7 +5070,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getTaxRate" method="get" path="/accounting/taxRates/{taxRateId}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -5950,8 +5096,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingFetchTaxRate } from "maesn/funcs/accounting-fetch-tax-rate.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingFetchTaxRate } from "@maesn/typescript-sdk/funcs/accounting-fetch-tax-rate.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -6003,7 +5149,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getPayments" method="get" path="/accounting/payments" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -6027,8 +5173,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingRetrievePayments } from "maesn/funcs/accounting-retrieve-payments.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingRetrievePayments } from "@maesn/typescript-sdk/funcs/accounting-retrieve-payments.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -6078,7 +5224,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="createPayment" method="post" path="/accounting/payments" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -6090,25 +5236,7 @@ const maesn = new Maesn({
 
 async function run() {
   const result = await maesn.accounting.addPayment({
-    body: {
-      currency: "Uganda Shilling",
-      documentType: "<value>",
-      exchangeRate: 9600.74,
-      journalCode: "<value>",
-      paymentType: "<value>",
-      paymentLines: [
-        {
-          accountId: "<id>",
-          amount: 3453.57,
-          contactName: "<value>",
-          customerId: "<id>",
-          description: "up justly psst like",
-          invoiceId: "<id>",
-          supplierId: "<id>",
-          paymentDate: "<value>",
-        },
-      ],
-    },
+    body: {},
   });
 
   console.log(result);
@@ -6122,8 +5250,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingAddPayment } from "maesn/funcs/accounting-add-payment.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingAddPayment } from "@maesn/typescript-sdk/funcs/accounting-add-payment.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -6137,25 +5265,7 @@ const maesn = new MaesnCore({
 
 async function run() {
   const res = await accountingAddPayment(maesn, {
-    body: {
-      currency: "Uganda Shilling",
-      documentType: "<value>",
-      exchangeRate: 9600.74,
-      journalCode: "<value>",
-      paymentType: "<value>",
-      paymentLines: [
-        {
-          accountId: "<id>",
-          amount: 3453.57,
-          contactName: "<value>",
-          customerId: "<id>",
-          description: "up justly psst like",
-          invoiceId: "<id>",
-          supplierId: "<id>",
-          paymentDate: "<value>",
-        },
-      ],
-    },
+    body: {},
   });
   if (res.ok) {
     const { value: result } = res;
@@ -6193,7 +5303,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getPayment" method="get" path="/accounting/payments/{paymentId}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -6219,8 +5329,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingFetchPayment } from "maesn/funcs/accounting-fetch-payment.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingFetchPayment } from "@maesn/typescript-sdk/funcs/accounting-fetch-payment.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -6272,7 +5382,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="deletePayment" method="delete" path="/accounting/payments/{paymentId}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -6298,8 +5408,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingRemovePayment } from "maesn/funcs/accounting-remove-payment.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingRemovePayment } from "@maesn/typescript-sdk/funcs/accounting-remove-payment.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -6351,7 +5461,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="createEventSubscriptions" method="post" path="/accounting/event-subscriptions" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -6380,8 +5490,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingAddEventSubscription } from "maesn/funcs/accounting-add-event-subscription.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingAddEventSubscription } from "@maesn/typescript-sdk/funcs/accounting-add-event-subscription.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -6436,7 +5546,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="deleteEventSubscriptions" method="delete" path="/accounting/event-subscriptions/{eventSubscriptionId}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -6462,8 +5572,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingRemoveEventSubscription } from "maesn/funcs/accounting-remove-event-subscription.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingRemoveEventSubscription } from "@maesn/typescript-sdk/funcs/accounting-remove-event-subscription.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -6515,7 +5625,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getProfile" method="get" path="/accounting/profile" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -6539,8 +5649,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingGetProfile } from "maesn/funcs/accounting-get-profile.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingGetProfile } from "@maesn/typescript-sdk/funcs/accounting-get-profile.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -6589,7 +5699,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="createPassThroughRequest" method="post" path="/accounting/passThrough" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -6604,9 +5714,6 @@ async function run() {
     body: {
       path: "/usr/bin",
       method: "DELETE",
-      headers: {},
-      body: {},
-      query: {},
     },
   });
 
@@ -6621,8 +5728,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingCreatePassThrough } from "maesn/funcs/accounting-create-pass-through.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingCreatePassThrough } from "@maesn/typescript-sdk/funcs/accounting-create-pass-through.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -6639,9 +5746,6 @@ async function run() {
     body: {
       path: "/usr/bin",
       method: "DELETE",
-      headers: {},
-      body: {},
-      query: {},
     },
   });
   if (res.ok) {
@@ -6680,7 +5784,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getBills" method="get" path="/accounting/bills" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -6704,8 +5808,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingFetchBills } from "maesn/funcs/accounting-fetch-bills.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingFetchBills } from "@maesn/typescript-sdk/funcs/accounting-fetch-bills.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -6755,7 +5859,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="createBill" method="post" path="/accounting/bills" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -6767,36 +5871,7 @@ const maesn = new Maesn({
 
 async function run() {
   const result = await maesn.accounting.addBill({
-    body: {
-      accountId: "<id>",
-      addresses: [],
-      billDate: "<value>",
-      billNumber: "<value>",
-      contactId: "<id>",
-      currency: "Swiss Franc",
-      deliveryDate: "<value>",
-      dueDate: "<value>",
-      fileId: "<id>",
-      journalCode: "<value>",
-      lineItems: [],
-      name: "<value>",
-      oneLineAddress: "<value>",
-      paidDate: {},
-      paymentTermCode: "<value>",
-      paymentStatus: "NO_OPEN_ITEM",
-      paymentDays: 7154.82,
-      reference: "<value>",
-      shippingDate: {},
-      shippingType: "SERVICE",
-      status: "DOCUMENT_CREATED",
-      taxRule: "NON_DOMESTIC_SERVICE",
-      taxText: "<value>",
-      totalDiscountAmount: 8874.81,
-      totalDiscountPercentage: 9973.49,
-      totalGrossAmount: 190.3,
-      totalNetAmount: 8970.07,
-      totalTaxAmount: 3778.44,
-    },
+    body: {},
   });
 
   console.log(result);
@@ -6810,8 +5885,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingAddBill } from "maesn/funcs/accounting-add-bill.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingAddBill } from "@maesn/typescript-sdk/funcs/accounting-add-bill.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -6825,36 +5900,7 @@ const maesn = new MaesnCore({
 
 async function run() {
   const res = await accountingAddBill(maesn, {
-    body: {
-      accountId: "<id>",
-      addresses: [],
-      billDate: "<value>",
-      billNumber: "<value>",
-      contactId: "<id>",
-      currency: "Swiss Franc",
-      deliveryDate: "<value>",
-      dueDate: "<value>",
-      fileId: "<id>",
-      journalCode: "<value>",
-      lineItems: [],
-      name: "<value>",
-      oneLineAddress: "<value>",
-      paidDate: {},
-      paymentTermCode: "<value>",
-      paymentStatus: "NO_OPEN_ITEM",
-      paymentDays: 7154.82,
-      reference: "<value>",
-      shippingDate: {},
-      shippingType: "SERVICE",
-      status: "DOCUMENT_CREATED",
-      taxRule: "NON_DOMESTIC_SERVICE",
-      taxText: "<value>",
-      totalDiscountAmount: 8874.81,
-      totalDiscountPercentage: 9973.49,
-      totalGrossAmount: 190.3,
-      totalNetAmount: 8970.07,
-      totalTaxAmount: 3778.44,
-    },
+    body: {},
   });
   if (res.ok) {
     const { value: result } = res;
@@ -6892,7 +5938,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getBill" method="get" path="/accounting/bills/{billId}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -6918,8 +5964,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingFetchBill } from "maesn/funcs/accounting-fetch-bill.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingFetchBill } from "@maesn/typescript-sdk/funcs/accounting-fetch-bill.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -6971,7 +6017,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="deleteBill" method="delete" path="/accounting/bills/{billId}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -6997,8 +6043,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingRemoveBill } from "maesn/funcs/accounting-remove-bill.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingRemoveBill } from "@maesn/typescript-sdk/funcs/accounting-remove-bill.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -7050,7 +6096,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getBillDocument" method="get" path="/accounting/bills/{billId}/document" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -7076,8 +6122,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingFetchBillDocument } from "maesn/funcs/accounting-fetch-bill-document.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingFetchBillDocument } from "@maesn/typescript-sdk/funcs/accounting-fetch-bill-document.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -7129,7 +6175,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="createBookingProposal" method="post" path="/accounting/bookingProposals" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -7155,8 +6201,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingCreateBookingProposal } from "maesn/funcs/accounting-create-booking-proposal.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingCreateBookingProposal } from "@maesn/typescript-sdk/funcs/accounting-create-booking-proposal.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -7208,7 +6254,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getBookingProposals" method="get" path="/accounting/bookingProposals" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -7232,8 +6278,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingListBookingProposals } from "maesn/funcs/accounting-list-booking-proposals.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingListBookingProposals } from "@maesn/typescript-sdk/funcs/accounting-list-booking-proposals.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -7283,7 +6329,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getBookingProposal" method="get" path="/accounting/bookingProposals/{bookingProposalId}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -7309,8 +6355,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingRetrieveBookingProposal } from "maesn/funcs/accounting-retrieve-booking-proposal.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingRetrieveBookingProposal } from "@maesn/typescript-sdk/funcs/accounting-retrieve-booking-proposal.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -7362,7 +6408,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getBookingProposalDocument" method="get" path="/accounting/bookingProposals/{bookingProposalId}/document" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -7388,8 +6434,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingFetchBookingProposalDocument } from "maesn/funcs/accounting-fetch-booking-proposal-document.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingFetchBookingProposalDocument } from "@maesn/typescript-sdk/funcs/accounting-fetch-booking-proposal-document.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -7441,7 +6487,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="createBookings" method="post" path="/accounting/bookings" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -7453,12 +6499,7 @@ const maesn = new Maesn({
 
 async function run() {
   const result = await maesn.accounting.addBooking({
-    body: {
-      accountNumberLength: 6411.73,
-      chartOfAccount: "SKR04",
-      entries: [],
-      fiscalYearStartDate: "<value>",
-    },
+    body: {},
   });
 
   console.log(result);
@@ -7472,8 +6513,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingAddBooking } from "maesn/funcs/accounting-add-booking.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingAddBooking } from "@maesn/typescript-sdk/funcs/accounting-add-booking.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -7487,12 +6528,7 @@ const maesn = new MaesnCore({
 
 async function run() {
   const res = await accountingAddBooking(maesn, {
-    body: {
-      accountNumberLength: 6411.73,
-      chartOfAccount: "SKR04",
-      entries: [],
-      fiscalYearStartDate: "<value>",
-    },
+    body: {},
   });
   if (res.ok) {
     const { value: result } = res;
@@ -7530,7 +6566,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getVendorCredits" method="get" path="/accounting/vendorCredits" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -7554,8 +6590,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingRetrieveVendorCredits } from "maesn/funcs/accounting-retrieve-vendor-credits.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingRetrieveVendorCredits } from "@maesn/typescript-sdk/funcs/accounting-retrieve-vendor-credits.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -7605,7 +6641,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="createVendorCredit" method="post" path="/accounting/vendorCredit" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -7618,63 +6654,6 @@ const maesn = new Maesn({
 async function run() {
   const result = await maesn.accounting.createVendorCredit({
     body: {
-      accountId: "<id>",
-      addresses: [
-        {
-          addressLine1: "861 Beech Drive",
-          addressLine2: "-",
-          city: "Palm Bay",
-          countryCode: "GA",
-          postalCode: "97113-7357",
-          type: "BILLING",
-        },
-      ],
-      contactId: "<id>",
-      currency: "Zambian Kwacha",
-      deliveryDate: "<value>",
-      dueDate: "<value>",
-      journalCode: "<value>",
-      lineItems: [
-        {
-          id: "<id>",
-          accountId: "<id>",
-          accountNumber: "<value>",
-          deferredEndDate: "<value>",
-          deferredStartDate: "<value>",
-          description: "parade behind whoa incidentally gloss what sate colorless mousse",
-          dimensions: [],
-          itemId: "<id>",
-          itemName: "<value>",
-          quantity: 2621.61,
-          taxCode: "<value>",
-          taxRatePercentage: 9944.31,
-          totalDiscountAmount: 7042.22,
-          totalDiscountPercentage: 791.91,
-          totalGrossAmount: 3497.47,
-          totalNetAmount: 982.03,
-          totalTaxAmount: 4647.65,
-          unitAmount: 763.74,
-          unitDiscountAmount: 4173.63,
-          unitDiscountPercentage: 9022.93,
-          unitName: "<value>",
-        },
-      ],
-      name: "<value>",
-      oneLineAddress: "<value>",
-      paidDate: {},
-      paymentStatus: "PENDING",
-      paymentDays: 5965.09,
-      reference: "<value>",
-      shippingDate: {},
-      shippingType: "DELIVERY_PERIOD",
-      status: "PARTIALLY_OVERDUE",
-      taxRule: "NON_DOMESTIC_SERVICE",
-      taxText: "<value>",
-      totalDiscountAmount: 6759.1,
-      totalDiscountPercentage: 8666.57,
-      totalGrossAmount: 7760.69,
-      totalNetAmount: 276.19,
-      totalTaxAmount: 3591,
       vendorCreditDate: "<value>",
       vendorCreditNumber: "<value>",
     },
@@ -7691,8 +6670,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingCreateVendorCredit } from "maesn/funcs/accounting-create-vendor-credit.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingCreateVendorCredit } from "@maesn/typescript-sdk/funcs/accounting-create-vendor-credit.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -7707,63 +6686,6 @@ const maesn = new MaesnCore({
 async function run() {
   const res = await accountingCreateVendorCredit(maesn, {
     body: {
-      accountId: "<id>",
-      addresses: [
-        {
-          addressLine1: "861 Beech Drive",
-          addressLine2: "-",
-          city: "Palm Bay",
-          countryCode: "GA",
-          postalCode: "97113-7357",
-          type: "BILLING",
-        },
-      ],
-      contactId: "<id>",
-      currency: "Zambian Kwacha",
-      deliveryDate: "<value>",
-      dueDate: "<value>",
-      journalCode: "<value>",
-      lineItems: [
-        {
-          id: "<id>",
-          accountId: "<id>",
-          accountNumber: "<value>",
-          deferredEndDate: "<value>",
-          deferredStartDate: "<value>",
-          description: "parade behind whoa incidentally gloss what sate colorless mousse",
-          dimensions: [],
-          itemId: "<id>",
-          itemName: "<value>",
-          quantity: 2621.61,
-          taxCode: "<value>",
-          taxRatePercentage: 9944.31,
-          totalDiscountAmount: 7042.22,
-          totalDiscountPercentage: 791.91,
-          totalGrossAmount: 3497.47,
-          totalNetAmount: 982.03,
-          totalTaxAmount: 4647.65,
-          unitAmount: 763.74,
-          unitDiscountAmount: 4173.63,
-          unitDiscountPercentage: 9022.93,
-          unitName: "<value>",
-        },
-      ],
-      name: "<value>",
-      oneLineAddress: "<value>",
-      paidDate: {},
-      paymentStatus: "PENDING",
-      paymentDays: 5965.09,
-      reference: "<value>",
-      shippingDate: {},
-      shippingType: "DELIVERY_PERIOD",
-      status: "PARTIALLY_OVERDUE",
-      taxRule: "NON_DOMESTIC_SERVICE",
-      taxText: "<value>",
-      totalDiscountAmount: 6759.1,
-      totalDiscountPercentage: 8666.57,
-      totalGrossAmount: 7760.69,
-      totalNetAmount: 276.19,
-      totalTaxAmount: 3591,
       vendorCreditDate: "<value>",
       vendorCreditNumber: "<value>",
     },
@@ -7804,7 +6726,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="updateVendorCredit" method="put" path="/accounting/vendorCredits/{vendorCreditId}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -7818,39 +6740,6 @@ async function run() {
   const result = await maesn.accounting.modifyVendorCredit({
     vendorCreditId: "<id>",
     body: {
-      accountId: "<id>",
-      addresses: [
-        {
-          addressLine1: "2914 Lancaster Road",
-          addressLine2: "-",
-          city: "Walkerborough",
-          countryCode: "CG",
-          postalCode: "17143",
-          type: "BILLING",
-        },
-      ],
-      contactId: "<id>",
-      currency: "Kip",
-      deliveryDate: "<value>",
-      dueDate: "<value>",
-      journalCode: "<value>",
-      lineItems: [],
-      name: "<value>",
-      oneLineAddress: "<value>",
-      paidDate: {},
-      paymentStatus: "PARTIAL_CANCELLATION",
-      paymentDays: 8588.89,
-      reference: "<value>",
-      shippingDate: {},
-      shippingType: "DELIVERY_PERIOD",
-      status: "OPEN",
-      taxRule: "EXPORT_SERVICE",
-      taxText: "<value>",
-      totalDiscountAmount: 8650.66,
-      totalDiscountPercentage: 9917.11,
-      totalGrossAmount: 8449.02,
-      totalNetAmount: 1897.58,
-      totalTaxAmount: 7505.06,
       vendorCreditDate: "<value>",
       vendorCreditNumber: "<value>",
     },
@@ -7867,8 +6756,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingModifyVendorCredit } from "maesn/funcs/accounting-modify-vendor-credit.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingModifyVendorCredit } from "@maesn/typescript-sdk/funcs/accounting-modify-vendor-credit.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -7884,39 +6773,6 @@ async function run() {
   const res = await accountingModifyVendorCredit(maesn, {
     vendorCreditId: "<id>",
     body: {
-      accountId: "<id>",
-      addresses: [
-        {
-          addressLine1: "2914 Lancaster Road",
-          addressLine2: "-",
-          city: "Walkerborough",
-          countryCode: "CG",
-          postalCode: "17143",
-          type: "BILLING",
-        },
-      ],
-      contactId: "<id>",
-      currency: "Kip",
-      deliveryDate: "<value>",
-      dueDate: "<value>",
-      journalCode: "<value>",
-      lineItems: [],
-      name: "<value>",
-      oneLineAddress: "<value>",
-      paidDate: {},
-      paymentStatus: "PARTIAL_CANCELLATION",
-      paymentDays: 8588.89,
-      reference: "<value>",
-      shippingDate: {},
-      shippingType: "DELIVERY_PERIOD",
-      status: "OPEN",
-      taxRule: "EXPORT_SERVICE",
-      taxText: "<value>",
-      totalDiscountAmount: 8650.66,
-      totalDiscountPercentage: 9917.11,
-      totalGrossAmount: 8449.02,
-      totalNetAmount: 1897.58,
-      totalTaxAmount: 7505.06,
       vendorCreditDate: "<value>",
       vendorCreditNumber: "<value>",
     },
@@ -7957,7 +6813,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="updateBillLineItem" method="put" path="/accounting/bills/{billId}/lineItems/{lineItemId}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -7971,34 +6827,7 @@ async function run() {
   const result = await maesn.accounting.modifyBillLineItem({
     billId: "<id>",
     lineItemId: "<id>",
-    body: {
-      id: "<id>",
-      accountId: "<id>",
-      accountNumber: "<value>",
-      deferredEndDate: "<value>",
-      deferredStartDate: "<value>",
-      description: "bandwidth astride hm impolite discontinue surprisingly navigate",
-      dimensions: [
-        {
-          name: "<value>",
-          categoryName: "<value>",
-        },
-      ],
-      itemId: "<id>",
-      itemName: "<value>",
-      quantity: 6276.63,
-      taxCode: "<value>",
-      taxRatePercentage: 9419.78,
-      totalDiscountAmount: 9294.19,
-      totalDiscountPercentage: 5782.96,
-      totalGrossAmount: 4978.69,
-      totalNetAmount: 9197.8,
-      totalTaxAmount: 409.45,
-      unitAmount: 8209.32,
-      unitDiscountAmount: 3427.31,
-      unitDiscountPercentage: 3142.63,
-      unitName: "<value>",
-    },
+    body: {},
   });
 
   console.log(result);
@@ -8012,8 +6841,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingModifyBillLineItem } from "maesn/funcs/accounting-modify-bill-line-item.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingModifyBillLineItem } from "@maesn/typescript-sdk/funcs/accounting-modify-bill-line-item.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -8029,34 +6858,7 @@ async function run() {
   const res = await accountingModifyBillLineItem(maesn, {
     billId: "<id>",
     lineItemId: "<id>",
-    body: {
-      id: "<id>",
-      accountId: "<id>",
-      accountNumber: "<value>",
-      deferredEndDate: "<value>",
-      deferredStartDate: "<value>",
-      description: "bandwidth astride hm impolite discontinue surprisingly navigate",
-      dimensions: [
-        {
-          name: "<value>",
-          categoryName: "<value>",
-        },
-      ],
-      itemId: "<id>",
-      itemName: "<value>",
-      quantity: 6276.63,
-      taxCode: "<value>",
-      taxRatePercentage: 9419.78,
-      totalDiscountAmount: 9294.19,
-      totalDiscountPercentage: 5782.96,
-      totalGrossAmount: 4978.69,
-      totalNetAmount: 9197.8,
-      totalTaxAmount: 409.45,
-      unitAmount: 8209.32,
-      unitDiscountAmount: 3427.31,
-      unitDiscountPercentage: 3142.63,
-      unitName: "<value>",
-    },
+    body: {},
   });
   if (res.ok) {
     const { value: result } = res;
@@ -8094,7 +6896,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getPurchaseOrder" method="get" path="/accounting/purchaseOrders/{purchaseOrderId}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -8120,8 +6922,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingFetchPurchaseOrder } from "maesn/funcs/accounting-fetch-purchase-order.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingFetchPurchaseOrder } from "@maesn/typescript-sdk/funcs/accounting-fetch-purchase-order.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -8173,7 +6975,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getPurchaseOrderLineItems" method="get" path="/accounting/purchaseOrders/{purchaseOrderId}/lineItems" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -8199,8 +7001,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingRetrievePurchaseOrderLineItems } from "maesn/funcs/accounting-retrieve-purchase-order-line-items.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingRetrievePurchaseOrderLineItems } from "@maesn/typescript-sdk/funcs/accounting-retrieve-purchase-order-line-items.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -8252,7 +7054,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getPurchaseOrderLineItem" method="get" path="/accounting/purchaseOrders/{purchaseOrderId}/lineItems/{lineItemId}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -8279,8 +7081,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingRetrievePurchaseOrderLineItem } from "maesn/funcs/accounting-retrieve-purchase-order-line-item.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingRetrievePurchaseOrderLineItem } from "@maesn/typescript-sdk/funcs/accounting-retrieve-purchase-order-line-item.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -8333,7 +7135,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getGoodsReceipts" method="get" path="/accounting/goodsReceipts" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -8357,8 +7159,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingGetGoodsReceipts } from "maesn/funcs/accounting-get-goods-receipts.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingGetGoodsReceipts } from "@maesn/typescript-sdk/funcs/accounting-get-goods-receipts.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -8408,7 +7210,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getGoodsReceipt" method="get" path="/accounting/goodsReceipts/{goodsReceiptId}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -8434,8 +7236,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingRetrieveGoodsReceipt } from "maesn/funcs/accounting-retrieve-goods-receipt.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingRetrieveGoodsReceipt } from "@maesn/typescript-sdk/funcs/accounting-retrieve-goods-receipt.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -8487,7 +7289,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getGoodsReceiptLineItems" method="get" path="/accounting/goodsReceipts/{goodsReceiptId}/lineItems" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -8513,8 +7315,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingRetrieveGoodsReceiptLineItems } from "maesn/funcs/accounting-retrieve-goods-receipt-line-items.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingRetrieveGoodsReceiptLineItems } from "@maesn/typescript-sdk/funcs/accounting-retrieve-goods-receipt-line-items.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -8566,7 +7368,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getUnits" method="get" path="/accounting/units" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -8590,8 +7392,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingFetchUnits } from "maesn/funcs/accounting-fetch-units.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingFetchUnits } from "@maesn/typescript-sdk/funcs/accounting-fetch-units.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -8641,7 +7443,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getOpenItems" method="get" path="/accounting/openItems" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -8665,8 +7467,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingRetrieveOpenItems } from "maesn/funcs/accounting-retrieve-open-items.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingRetrieveOpenItems } from "@maesn/typescript-sdk/funcs/accounting-retrieve-open-items.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -8716,7 +7518,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getTrialBalance" method="get" path="/accounting/trialBalance" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -8740,8 +7542,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingFetchTrialBalance } from "maesn/funcs/accounting-fetch-trial-balance.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingFetchTrialBalance } from "@maesn/typescript-sdk/funcs/accounting-fetch-trial-balance.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -8791,7 +7593,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getCreditNotes" method="get" path="/accounting/creditNotes" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -8815,8 +7617,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingListCreditNotes } from "maesn/funcs/accounting-list-credit-notes.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingListCreditNotes } from "@maesn/typescript-sdk/funcs/accounting-list-credit-notes.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -8866,7 +7668,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getCreditNote" method="get" path="/accounting/creditNotes/{creditNoteId}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -8892,8 +7694,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingFetchCreditNote } from "maesn/funcs/accounting-fetch-credit-note.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingFetchCreditNote } from "@maesn/typescript-sdk/funcs/accounting-fetch-credit-note.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -8945,7 +7747,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getFiscalYears" method="get" path="/accounting/fiscalYears" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -8969,8 +7771,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingGetFiscalYears } from "maesn/funcs/accounting-get-fiscal-years.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingGetFiscalYears } from "@maesn/typescript-sdk/funcs/accounting-get-fiscal-years.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.

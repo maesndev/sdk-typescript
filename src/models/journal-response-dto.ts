@@ -9,14 +9,14 @@ import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
 export type JournalResponseDto = {
-  id: string;
-  accountId: string;
-  code: string;
-  createdDate: string;
-  currency: string;
-  description: string;
-  type: string;
-  updatedDate: string;
+  id: string | null;
+  accountId: string | null;
+  code: string | null;
+  createdDate: string | null;
+  currency: string | null;
+  description: string | null;
+  type: string | null;
+  updatedDate: string | null;
 };
 
 /** @internal */
@@ -24,14 +24,14 @@ export const JournalResponseDto$inboundSchema: z.ZodMiniType<
   JournalResponseDto,
   unknown
 > = z.object({
-  id: types.string(),
-  accountId: types.string(),
-  code: types.string(),
-  createdDate: types.string(),
-  currency: types.string(),
-  description: types.string(),
-  type: types.string(),
-  updatedDate: types.string(),
+  id: types.nullable(types.string()),
+  accountId: types.nullable(types.string()),
+  code: types.nullable(types.string()),
+  createdDate: types.nullable(types.string()),
+  currency: types.nullable(types.string()),
+  description: types.nullable(types.string()),
+  type: types.nullable(types.string()),
+  updatedDate: types.nullable(types.string()),
 });
 
 export function journalResponseDtoFromJSON(

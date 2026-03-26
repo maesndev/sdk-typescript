@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
@@ -14,15 +15,27 @@ export type CreateBankAccountRequest = {
   body: models.CreateBankAccountRequestDto;
 };
 
+export type CreateBankAccountPagination = {
+  total: number;
+  perPage: number;
+  currentPage: number;
+  totalPages: number;
+};
+
+export type CreateBankAccountMeta = {
+  warnings?: Array<string> | null | undefined;
+  pagination?: CreateBankAccountPagination | null | undefined;
+};
+
 export type CreateBankAccountErrors = {};
 
 export type CreateBankAccountRawData = {};
 
 export type CreateBankAccountResponse = {
-  meta: models.MetaResponse;
+  meta?: CreateBankAccountMeta | null | undefined;
   data: models.BankAccountResponseDto;
-  errors: CreateBankAccountErrors;
-  rawData: CreateBankAccountRawData;
+  errors: CreateBankAccountErrors | null;
+  rawData: CreateBankAccountRawData | null;
 };
 
 /** @internal */
@@ -47,6 +60,48 @@ export function createBankAccountRequestToJSON(
 ): string {
   return JSON.stringify(
     CreateBankAccountRequest$outboundSchema.parse(createBankAccountRequest),
+  );
+}
+
+/** @internal */
+export const CreateBankAccountPagination$inboundSchema: z.ZodMiniType<
+  CreateBankAccountPagination,
+  unknown
+> = z.object({
+  total: types.number(),
+  perPage: types.number(),
+  currentPage: types.number(),
+  totalPages: types.number(),
+});
+
+export function createBankAccountPaginationFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateBankAccountPagination, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateBankAccountPagination$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateBankAccountPagination' from JSON`,
+  );
+}
+
+/** @internal */
+export const CreateBankAccountMeta$inboundSchema: z.ZodMiniType<
+  CreateBankAccountMeta,
+  unknown
+> = z.object({
+  warnings: z.optional(z.nullable(z.array(types.string()))),
+  pagination: z.optional(
+    z.nullable(z.lazy(() => CreateBankAccountPagination$inboundSchema)),
+  ),
+});
+
+export function createBankAccountMetaFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateBankAccountMeta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateBankAccountMeta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateBankAccountMeta' from JSON`,
   );
 }
 
@@ -87,10 +142,12 @@ export const CreateBankAccountResponse$inboundSchema: z.ZodMiniType<
   CreateBankAccountResponse,
   unknown
 > = z.object({
-  meta: models.MetaResponse$inboundSchema,
+  meta: z.optional(
+    z.nullable(z.lazy(() => CreateBankAccountMeta$inboundSchema)),
+  ),
   data: models.BankAccountResponseDto$inboundSchema,
-  errors: z.lazy(() => CreateBankAccountErrors$inboundSchema),
-  rawData: z.lazy(() => CreateBankAccountRawData$inboundSchema),
+  errors: types.nullable(z.lazy(() => CreateBankAccountErrors$inboundSchema)),
+  rawData: types.nullable(z.lazy(() => CreateBankAccountRawData$inboundSchema)),
 });
 
 export function createBankAccountResponseFromJSON(

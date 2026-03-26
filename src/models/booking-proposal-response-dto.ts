@@ -49,40 +49,40 @@ export type BookingProposalResponseDtoStatus = OpenEnum<
 >;
 
 export type BookingProposalResponseDto = {
-  id: string;
-  accountName: string;
-  addresses: Array<BookingProposalAddress>;
-  bankAccountId: string;
-  bankAccountNumber: number;
-  bankCode: string;
-  bic: string;
-  bookingProposalDate: string;
-  bookingType: BookingProposalResponseDtoBookingType;
-  contactAccountNumber: number;
-  contactId: string;
-  contactName: string;
-  createdDate: string;
-  currency: string;
-  deliveryDate: string;
-  discountPaymentDate: string;
-  discountPaymentDate2: string;
-  dueDate: string;
-  files: Array<string>;
-  journalCode: string;
-  iban: string;
-  isPaymentOrder: boolean;
-  ledgerName: string;
-  lineItems: Array<LineItemResponse>;
-  notes: string;
-  number: string;
-  orderId: string;
-  paidDate: string;
-  paymentTermsId: string;
-  status: BookingProposalResponseDtoStatus;
-  taskId: string;
-  totalGrossAmount: number;
-  updatedDate: string;
-  vatId: string;
+  id: string | null;
+  accountName: string | null;
+  addresses: Array<BookingProposalAddress> | null;
+  bankAccountId: string | null;
+  bankAccountNumber: number | null;
+  bankCode: string | null;
+  bic: string | null;
+  bookingProposalDate: string | null;
+  bookingType: BookingProposalResponseDtoBookingType | null;
+  contactAccountNumber: number | null;
+  contactId: string | null;
+  contactName: string | null;
+  createdDate: string | null;
+  currency: string | null;
+  deliveryDate: string | null;
+  discountPaymentDate: string | null;
+  discountPaymentDate2: string | null;
+  dueDate: string | null;
+  files: Array<string> | null;
+  journalCode: string | null;
+  iban: string | null;
+  isPaymentOrder: boolean | null;
+  ledgerName: string | null;
+  lineItems: Array<LineItemResponse> | null;
+  notes: string | null;
+  number: string | null;
+  orderId: string | null;
+  paidDate: string | null;
+  paymentTermsId: string | null;
+  status: BookingProposalResponseDtoStatus | null;
+  taskId: string | null;
+  totalGrossAmount: number | null;
+  updatedDate: string | null;
+  vatId: string | null;
 };
 
 /** @internal */
@@ -102,40 +102,42 @@ export const BookingProposalResponseDto$inboundSchema: z.ZodMiniType<
   BookingProposalResponseDto,
   unknown
 > = z.object({
-  id: types.string(),
-  accountName: types.string(),
-  addresses: z.array(BookingProposalAddress$inboundSchema),
-  bankAccountId: types.string(),
-  bankAccountNumber: types.number(),
-  bankCode: types.string(),
-  bic: types.string(),
-  bookingProposalDate: types.string(),
-  bookingType: BookingProposalResponseDtoBookingType$inboundSchema,
-  contactAccountNumber: types.number(),
-  contactId: types.string(),
-  contactName: types.string(),
-  createdDate: types.string(),
-  currency: types.string(),
-  deliveryDate: types.string(),
-  discountPaymentDate: types.string(),
-  discountPaymentDate2: types.string(),
-  dueDate: types.string(),
-  files: z.array(types.string()),
-  journalCode: types.string(),
-  iban: types.string(),
-  isPaymentOrder: types.boolean(),
-  ledgerName: types.string(),
-  lineItems: z.array(LineItemResponse$inboundSchema),
-  notes: types.string(),
-  number: types.string(),
-  orderId: types.string(),
-  paidDate: types.string(),
-  paymentTermsId: types.string(),
-  status: BookingProposalResponseDtoStatus$inboundSchema,
-  taskId: types.string(),
-  totalGrossAmount: types.number(),
-  updatedDate: types.string(),
-  vatId: types.string(),
+  id: types.nullable(types.string()),
+  accountName: types.nullable(types.string()),
+  addresses: types.nullable(z.array(BookingProposalAddress$inboundSchema)),
+  bankAccountId: types.nullable(types.string()),
+  bankAccountNumber: types.nullable(types.number()),
+  bankCode: types.nullable(types.string()),
+  bic: types.nullable(types.string()),
+  bookingProposalDate: types.nullable(types.string()),
+  bookingType: types.nullable(
+    BookingProposalResponseDtoBookingType$inboundSchema,
+  ),
+  contactAccountNumber: types.nullable(types.number()),
+  contactId: types.nullable(types.string()),
+  contactName: types.nullable(types.string()),
+  createdDate: types.nullable(types.string()),
+  currency: types.nullable(types.string()),
+  deliveryDate: types.nullable(types.string()),
+  discountPaymentDate: types.nullable(types.string()),
+  discountPaymentDate2: types.nullable(types.string()),
+  dueDate: types.nullable(types.string()),
+  files: types.nullable(z.array(types.string())),
+  journalCode: types.nullable(types.string()),
+  iban: types.nullable(types.string()),
+  isPaymentOrder: types.nullable(types.boolean()),
+  ledgerName: types.nullable(types.string()),
+  lineItems: types.nullable(z.array(LineItemResponse$inboundSchema)),
+  notes: types.nullable(types.string()),
+  number: types.nullable(types.string()),
+  orderId: types.nullable(types.string()),
+  paidDate: types.nullable(types.string()),
+  paymentTermsId: types.nullable(types.string()),
+  status: types.nullable(BookingProposalResponseDtoStatus$inboundSchema),
+  taskId: types.nullable(types.string()),
+  totalGrossAmount: types.nullable(types.number()),
+  updatedDate: types.nullable(types.string()),
+  vatId: types.nullable(types.string()),
 });
 
 export function bookingProposalResponseDtoFromJSON(

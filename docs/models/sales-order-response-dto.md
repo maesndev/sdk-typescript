@@ -3,39 +3,29 @@
 ## Example Usage
 
 ```typescript
-import { SalesOrderResponseDto } from "maesn/models";
+import { SalesOrderResponseDto } from "@maesn/typescript-sdk/models";
 
 let value: SalesOrderResponseDto = {
   id: "<id>",
-  addresses: [
-    {
-      addressLine1: "429 Walsh Tunnel",
-      addressLine2: "-",
-      city: "East Melyssa",
-      countryCode: "AE",
-      postalCode: "39193",
-      type: "SELLING",
-    },
-  ],
+  addresses: null,
   billingContactId: "<id>",
   comment:
-    "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
+    "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
   contactId: "<id>",
   createdDate: "<value>",
-  currency: "Peso Uruguayo",
+  currency: "Dobra",
   deliveryDate: "<value>",
   lineItems: [],
-  oneLineAddress: "<value>",
-  orderDate: "<value>",
+  orderDate: null,
   projectId: "<id>",
-  shippingContactId: "<id>",
-  status: "DRAFT",
+  shippingContactId: null,
+  status: "OPEN",
   taskId: "<id>",
-  totalDiscountAmount: 4434.31,
-  totalDiscountPercentage: 3511.34,
-  totalGrossAmount: 2886.79,
-  totalNetAmount: 7995.07,
-  totalTaxAmount: 9789.92,
+  totalDiscountAmount: 9876.8,
+  totalDiscountPercentage: 3789.05,
+  totalGrossAmount: 93.06,
+  totalNetAmount: 3568.42,
+  totalTaxAmount: 883.63,
   updatedDate: "<value>",
 };
 ```
@@ -53,7 +43,7 @@ let value: SalesOrderResponseDto = {
 | `currency`                                                                                | *string*                                                                                  | :heavy_check_mark:                                                                        | N/A                                                                                       |
 | `deliveryDate`                                                                            | *string*                                                                                  | :heavy_check_mark:                                                                        | N/A                                                                                       |
 | `lineItems`                                                                               | [models.SalesOrderLineItemResponseDto](../models/sales-order-line-item-response-dto.md)[] | :heavy_check_mark:                                                                        | N/A                                                                                       |
-| `oneLineAddress`                                                                          | *string*                                                                                  | :heavy_check_mark:                                                                        | N/A                                                                                       |
+| `oneLineAddress`                                                                          | *string*                                                                                  | :heavy_minus_sign:                                                                        | N/A                                                                                       |
 | `orderDate`                                                                               | *string*                                                                                  | :heavy_check_mark:                                                                        | N/A                                                                                       |
 | `projectId`                                                                               | *string*                                                                                  | :heavy_check_mark:                                                                        | N/A                                                                                       |
 | `shippingContactId`                                                                       | *string*                                                                                  | :heavy_check_mark:                                                                        | N/A                                                                                       |

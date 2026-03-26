@@ -194,31 +194,31 @@ export const ExpenseResponseDtoType = {
 export type ExpenseResponseDtoType = OpenEnum<typeof ExpenseResponseDtoType>;
 
 export type ExpenseResponseDto = {
-  id: string;
-  accountCode: string;
-  accountId: string;
-  accountNumber: number;
-  createdDate: string;
-  currency: ExpenseResponseDtoCurrency;
-  customerId: string;
-  description: string;
-  documentId: string;
-  exchangeRate: string;
-  expenseLines: Array<ExpenseLineItemResponse>;
-  files: Array<string>;
-  journalCode: string;
-  ledgerName: string;
-  note: string;
-  paymentTermId: string;
-  paymentType: ExpenseResponseDtoPaymentType;
-  supplierId: string;
-  taskId: string;
-  type: ExpenseResponseDtoType;
-  totalGrossAmount: number;
-  totalNetAmount: number;
-  totalTaxAmount: number;
-  transactionDate: string;
-  updatedDate: string;
+  id: string | null;
+  accountCode: string | null;
+  accountId: string | null;
+  accountNumber: number | null;
+  createdDate: string | null;
+  currency: ExpenseResponseDtoCurrency | null;
+  customerId: string | null;
+  description: string | null;
+  documentId: string | null;
+  exchangeRate: string | null;
+  expenseLines: Array<ExpenseLineItemResponse> | null;
+  files: Array<string> | null;
+  journalCode: string | null;
+  ledgerName: string | null;
+  note: string | null;
+  paymentTermId: string | null;
+  paymentType: ExpenseResponseDtoPaymentType | null;
+  supplierId: string | null;
+  taskId: string | null;
+  type: ExpenseResponseDtoType | null;
+  totalGrossAmount: number | null;
+  totalNetAmount: number | null;
+  totalTaxAmount: number | null;
+  transactionDate: string | null;
+  updatedDate: string | null;
 };
 
 /** @internal */
@@ -244,31 +244,31 @@ export const ExpenseResponseDto$inboundSchema: z.ZodMiniType<
   ExpenseResponseDto,
   unknown
 > = z.object({
-  id: types.string(),
-  accountCode: types.string(),
-  accountId: types.string(),
-  accountNumber: types.number(),
-  createdDate: types.string(),
-  currency: ExpenseResponseDtoCurrency$inboundSchema,
-  customerId: types.string(),
-  description: types.string(),
-  documentId: types.string(),
-  exchangeRate: types.string(),
-  expenseLines: z.array(ExpenseLineItemResponse$inboundSchema),
-  files: z.array(types.string()),
-  journalCode: types.string(),
-  ledgerName: types.string(),
-  note: types.string(),
-  paymentTermId: types.string(),
-  paymentType: ExpenseResponseDtoPaymentType$inboundSchema,
-  supplierId: types.string(),
-  taskId: types.string(),
-  type: ExpenseResponseDtoType$inboundSchema,
-  totalGrossAmount: types.number(),
-  totalNetAmount: types.number(),
-  totalTaxAmount: types.number(),
-  transactionDate: types.string(),
-  updatedDate: types.string(),
+  id: types.nullable(types.string()),
+  accountCode: types.nullable(types.string()),
+  accountId: types.nullable(types.string()),
+  accountNumber: types.nullable(types.number()),
+  createdDate: types.nullable(types.string()),
+  currency: types.nullable(ExpenseResponseDtoCurrency$inboundSchema),
+  customerId: types.nullable(types.string()),
+  description: types.nullable(types.string()),
+  documentId: types.nullable(types.string()),
+  exchangeRate: types.nullable(types.string()),
+  expenseLines: types.nullable(z.array(ExpenseLineItemResponse$inboundSchema)),
+  files: types.nullable(z.array(types.string())),
+  journalCode: types.nullable(types.string()),
+  ledgerName: types.nullable(types.string()),
+  note: types.nullable(types.string()),
+  paymentTermId: types.nullable(types.string()),
+  paymentType: types.nullable(ExpenseResponseDtoPaymentType$inboundSchema),
+  supplierId: types.nullable(types.string()),
+  taskId: types.nullable(types.string()),
+  type: types.nullable(ExpenseResponseDtoType$inboundSchema),
+  totalGrossAmount: types.nullable(types.number()),
+  totalNetAmount: types.nullable(types.number()),
+  totalTaxAmount: types.nullable(types.number()),
+  transactionDate: types.nullable(types.string()),
+  updatedDate: types.nullable(types.string()),
 });
 
 export function expenseResponseDtoFromJSON(

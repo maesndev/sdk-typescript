@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
@@ -18,15 +19,27 @@ export type GetTaxRatesRequest = {
   isActive?: boolean | undefined;
 };
 
+export type GetTaxRatesPagination = {
+  total: number;
+  perPage: number;
+  currentPage: number;
+  totalPages: number;
+};
+
+export type GetTaxRatesMeta = {
+  warnings?: Array<string> | null | undefined;
+  pagination?: GetTaxRatesPagination | null | undefined;
+};
+
 export type GetTaxRatesErrors = {};
 
 export type GetTaxRatesRawData = {};
 
 export type GetTaxRatesResponse = {
-  meta: models.MetaResponse;
+  meta?: GetTaxRatesMeta | null | undefined;
   data: Array<models.TaxRateResponseDto>;
-  errors: GetTaxRatesErrors;
-  rawData: GetTaxRatesRawData;
+  errors: GetTaxRatesErrors | null;
+  rawData: GetTaxRatesRawData | null;
 };
 
 /** @internal */
@@ -59,6 +72,48 @@ export function getTaxRatesRequestToJSON(
 ): string {
   return JSON.stringify(
     GetTaxRatesRequest$outboundSchema.parse(getTaxRatesRequest),
+  );
+}
+
+/** @internal */
+export const GetTaxRatesPagination$inboundSchema: z.ZodMiniType<
+  GetTaxRatesPagination,
+  unknown
+> = z.object({
+  total: types.number(),
+  perPage: types.number(),
+  currentPage: types.number(),
+  totalPages: types.number(),
+});
+
+export function getTaxRatesPaginationFromJSON(
+  jsonString: string,
+): SafeParseResult<GetTaxRatesPagination, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetTaxRatesPagination$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetTaxRatesPagination' from JSON`,
+  );
+}
+
+/** @internal */
+export const GetTaxRatesMeta$inboundSchema: z.ZodMiniType<
+  GetTaxRatesMeta,
+  unknown
+> = z.object({
+  warnings: z.optional(z.nullable(z.array(types.string()))),
+  pagination: z.optional(
+    z.nullable(z.lazy(() => GetTaxRatesPagination$inboundSchema)),
+  ),
+});
+
+export function getTaxRatesMetaFromJSON(
+  jsonString: string,
+): SafeParseResult<GetTaxRatesMeta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetTaxRatesMeta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetTaxRatesMeta' from JSON`,
   );
 }
 
@@ -99,10 +154,10 @@ export const GetTaxRatesResponse$inboundSchema: z.ZodMiniType<
   GetTaxRatesResponse,
   unknown
 > = z.object({
-  meta: models.MetaResponse$inboundSchema,
+  meta: z.optional(z.nullable(z.lazy(() => GetTaxRatesMeta$inboundSchema))),
   data: z.array(models.TaxRateResponseDto$inboundSchema),
-  errors: z.lazy(() => GetTaxRatesErrors$inboundSchema),
-  rawData: z.lazy(() => GetTaxRatesRawData$inboundSchema),
+  errors: types.nullable(z.lazy(() => GetTaxRatesErrors$inboundSchema)),
+  rawData: types.nullable(z.lazy(() => GetTaxRatesRawData$inboundSchema)),
 });
 
 export function getTaxRatesResponseFromJSON(

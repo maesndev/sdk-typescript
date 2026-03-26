@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { ProjectResponseDtoCurrency } from "maesn/models";
+import { ProjectResponseDtoCurrency } from "@maesn/typescript-sdk/models";
 
 let value: ProjectResponseDtoCurrency = "HRK";
 

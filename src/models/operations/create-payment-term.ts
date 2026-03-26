@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
@@ -13,15 +14,27 @@ export type CreatePaymentTermRequest = {
   body: models.CreatePaymentTermRequestDto;
 };
 
+export type CreatePaymentTermPagination = {
+  total: number;
+  perPage: number;
+  currentPage: number;
+  totalPages: number;
+};
+
+export type CreatePaymentTermMeta = {
+  warnings?: Array<string> | null | undefined;
+  pagination?: CreatePaymentTermPagination | null | undefined;
+};
+
 export type CreatePaymentTermErrors = {};
 
 export type CreatePaymentTermRawData = {};
 
 export type CreatePaymentTermResponse = {
-  meta: models.MetaResponse;
+  meta?: CreatePaymentTermMeta | null | undefined;
   data: models.PaymentTermResponseDto;
-  errors: CreatePaymentTermErrors;
-  rawData: CreatePaymentTermRawData;
+  errors: CreatePaymentTermErrors | null;
+  rawData: CreatePaymentTermRawData | null;
 };
 
 /** @internal */
@@ -44,6 +57,48 @@ export function createPaymentTermRequestToJSON(
 ): string {
   return JSON.stringify(
     CreatePaymentTermRequest$outboundSchema.parse(createPaymentTermRequest),
+  );
+}
+
+/** @internal */
+export const CreatePaymentTermPagination$inboundSchema: z.ZodMiniType<
+  CreatePaymentTermPagination,
+  unknown
+> = z.object({
+  total: types.number(),
+  perPage: types.number(),
+  currentPage: types.number(),
+  totalPages: types.number(),
+});
+
+export function createPaymentTermPaginationFromJSON(
+  jsonString: string,
+): SafeParseResult<CreatePaymentTermPagination, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreatePaymentTermPagination$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreatePaymentTermPagination' from JSON`,
+  );
+}
+
+/** @internal */
+export const CreatePaymentTermMeta$inboundSchema: z.ZodMiniType<
+  CreatePaymentTermMeta,
+  unknown
+> = z.object({
+  warnings: z.optional(z.nullable(z.array(types.string()))),
+  pagination: z.optional(
+    z.nullable(z.lazy(() => CreatePaymentTermPagination$inboundSchema)),
+  ),
+});
+
+export function createPaymentTermMetaFromJSON(
+  jsonString: string,
+): SafeParseResult<CreatePaymentTermMeta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreatePaymentTermMeta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreatePaymentTermMeta' from JSON`,
   );
 }
 
@@ -84,10 +139,12 @@ export const CreatePaymentTermResponse$inboundSchema: z.ZodMiniType<
   CreatePaymentTermResponse,
   unknown
 > = z.object({
-  meta: models.MetaResponse$inboundSchema,
+  meta: z.optional(
+    z.nullable(z.lazy(() => CreatePaymentTermMeta$inboundSchema)),
+  ),
   data: models.PaymentTermResponseDto$inboundSchema,
-  errors: z.lazy(() => CreatePaymentTermErrors$inboundSchema),
-  rawData: z.lazy(() => CreatePaymentTermRawData$inboundSchema),
+  errors: types.nullable(z.lazy(() => CreatePaymentTermErrors$inboundSchema)),
+  rawData: types.nullable(z.lazy(() => CreatePaymentTermRawData$inboundSchema)),
 });
 
 export function createPaymentTermResponseFromJSON(

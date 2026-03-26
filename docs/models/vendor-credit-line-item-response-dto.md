@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { VendorCreditLineItemResponseDto } from "maesn/models";
+import { VendorCreditLineItemResponseDto } from "@maesn/typescript-sdk/models";
 
 let value: VendorCreditLineItemResponseDto = {
   id: "<id>",
@@ -12,21 +12,21 @@ let value: VendorCreditLineItemResponseDto = {
   createdDate: "<value>",
   deferredEndDate: "<value>",
   deferredStartDate: "<value>",
-  description: "masticate calculus to vivaciously alive aw huzzah",
+  description: "calculus to vivaciously alive aw huzzah widow",
   dimensions: [],
   itemId: "<id>",
   itemName: "<value>",
-  quantity: 1593.71,
+  quantity: 7345.07,
   taxCode: "<value>",
-  taxRatePercentage: 5126.86,
-  totalDiscountAmount: 8391.95,
-  totalDiscountPercentage: 6621.52,
-  totalGrossAmount: 1994.48,
-  totalNetAmount: 9855.87,
-  totalTaxAmount: 9582.55,
-  unitAmount: 4877.79,
-  unitDiscountAmount: 9963.35,
-  unitDiscountPercentage: 4877.99,
+  taxRatePercentage: 904.06,
+  totalDiscountAmount: null,
+  totalDiscountPercentage: 7256.45,
+  totalGrossAmount: 7912.19,
+  totalNetAmount: 5797.93,
+  totalTaxAmount: 4477.84,
+  unitAmount: null,
+  unitDiscountAmount: 33.84,
+  unitDiscountPercentage: 923.19,
   unitName: "<value>",
   updatedDate: "<value>",
 };

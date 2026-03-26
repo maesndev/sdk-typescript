@@ -9,12 +9,12 @@ import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
 export type DimensionResponseDto = {
-  id: string;
-  categoryName: string;
-  createdDate: string;
-  name: string;
-  status: string;
-  updatedDate: string;
+  id: string | null;
+  categoryName: string | null;
+  createdDate: string | null;
+  name: string | null;
+  status: string | null;
+  updatedDate: string | null;
 };
 
 /** @internal */
@@ -22,12 +22,12 @@ export const DimensionResponseDto$inboundSchema: z.ZodMiniType<
   DimensionResponseDto,
   unknown
 > = z.object({
-  id: types.string(),
-  categoryName: types.string(),
-  createdDate: types.string(),
-  name: types.string(),
-  status: types.string(),
-  updatedDate: types.string(),
+  id: types.nullable(types.string()),
+  categoryName: types.nullable(types.string()),
+  createdDate: types.nullable(types.string()),
+  name: types.nullable(types.string()),
+  status: types.nullable(types.string()),
+  updatedDate: types.nullable(types.string()),
 });
 
 export function dimensionResponseDtoFromJSON(

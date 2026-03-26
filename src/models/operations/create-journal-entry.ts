@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
@@ -26,15 +27,27 @@ export type CreateJournalEntryRequest = {
   body: CreateJournalEntryRequestBody;
 };
 
+export type CreateJournalEntryPagination = {
+  total: number;
+  perPage: number;
+  currentPage: number;
+  totalPages: number;
+};
+
+export type CreateJournalEntryMeta = {
+  warnings?: Array<string> | null | undefined;
+  pagination?: CreateJournalEntryPagination | null | undefined;
+};
+
 export type CreateJournalEntryErrors = {};
 
 export type CreateJournalEntryRawData = {};
 
 export type CreateJournalEntryResponse = {
-  meta: models.MetaResponse;
-  data: Array<models.JournalEntryResponseDto>;
-  errors: CreateJournalEntryErrors;
-  rawData: CreateJournalEntryRawData;
+  meta?: CreateJournalEntryMeta | null | undefined;
+  data: models.JournalEntryResponseDto;
+  errors: CreateJournalEntryErrors | null;
+  rawData: CreateJournalEntryRawData | null;
 };
 
 /** @internal */
@@ -129,6 +142,48 @@ export function createJournalEntryRequestToJSON(
 }
 
 /** @internal */
+export const CreateJournalEntryPagination$inboundSchema: z.ZodMiniType<
+  CreateJournalEntryPagination,
+  unknown
+> = z.object({
+  total: types.number(),
+  perPage: types.number(),
+  currentPage: types.number(),
+  totalPages: types.number(),
+});
+
+export function createJournalEntryPaginationFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateJournalEntryPagination, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateJournalEntryPagination$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateJournalEntryPagination' from JSON`,
+  );
+}
+
+/** @internal */
+export const CreateJournalEntryMeta$inboundSchema: z.ZodMiniType<
+  CreateJournalEntryMeta,
+  unknown
+> = z.object({
+  warnings: z.optional(z.nullable(z.array(types.string()))),
+  pagination: z.optional(
+    z.nullable(z.lazy(() => CreateJournalEntryPagination$inboundSchema)),
+  ),
+});
+
+export function createJournalEntryMetaFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateJournalEntryMeta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateJournalEntryMeta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateJournalEntryMeta' from JSON`,
+  );
+}
+
+/** @internal */
 export const CreateJournalEntryErrors$inboundSchema: z.ZodMiniType<
   CreateJournalEntryErrors,
   unknown
@@ -165,10 +220,14 @@ export const CreateJournalEntryResponse$inboundSchema: z.ZodMiniType<
   CreateJournalEntryResponse,
   unknown
 > = z.object({
-  meta: models.MetaResponse$inboundSchema,
-  data: z.array(models.JournalEntryResponseDto$inboundSchema),
-  errors: z.lazy(() => CreateJournalEntryErrors$inboundSchema),
-  rawData: z.lazy(() => CreateJournalEntryRawData$inboundSchema),
+  meta: z.optional(
+    z.nullable(z.lazy(() => CreateJournalEntryMeta$inboundSchema)),
+  ),
+  data: models.JournalEntryResponseDto$inboundSchema,
+  errors: types.nullable(z.lazy(() => CreateJournalEntryErrors$inboundSchema)),
+  rawData: types.nullable(
+    z.lazy(() => CreateJournalEntryRawData$inboundSchema),
+  ),
 });
 
 export function createJournalEntryResponseFromJSON(

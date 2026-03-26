@@ -3,15 +3,10 @@
 ## Example Usage
 
 ```typescript
-import { CreateBookingsRequest } from "maesn/models/operations";
+import { CreateBookingsRequest } from "@maesn/typescript-sdk/models/operations";
 
 let value: CreateBookingsRequest = {
-  body: {
-    accountNumberLength: 3843.72,
-    chartOfAccount: "SKR03",
-    entries: [],
-    fiscalYearStartDate: "<value>",
-  },
+  body: {},
 };
 ```
 

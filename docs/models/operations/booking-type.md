@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { BookingType } from "maesn/models/operations";
+import { BookingType } from "@maesn/typescript-sdk/models/operations";
 
 let value: BookingType = "CREDIT_NOTE";
 ```

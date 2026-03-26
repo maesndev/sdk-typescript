@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { TransactionResponseDtoType } from "maesn/models";
+import { TransactionResponseDtoType } from "@maesn/typescript-sdk/models";
 
 let value: TransactionResponseDtoType = "RECEIVE-OVERPAYMENT";
 

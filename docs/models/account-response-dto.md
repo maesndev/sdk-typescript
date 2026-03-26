@@ -3,21 +3,21 @@
 ## Example Usage
 
 ```typescript
-import { AccountResponseDto } from "maesn/models";
+import { AccountResponseDto } from "@maesn/typescript-sdk/models";
 
 let value: AccountResponseDto = {
   id: "<id>",
-  balance: 1988.39,
-  class: "REVENUE",
+  balance: 1693.19,
+  class: null,
   code: "<value>",
   createdDate: "<value>",
-  currency: "CDF",
+  currency: "MKD",
   debitCreditIndicator: "DEBIT",
-  description: "drat jungle so intent except",
+  description: "jungle so intent except annual barring",
   name: "<value>",
   number: "<value>",
   parentAccountId: "<id>",
-  status: "ACTIVE",
+  status: "ARCHIVED",
   type: "<value>",
   updatedDate: "<value>",
 };

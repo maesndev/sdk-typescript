@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
@@ -12,15 +13,27 @@ export type GetDocumentExtensionsRequest = {
   companyId?: string | undefined;
 };
 
+export type GetDocumentExtensionsPagination = {
+  total: number;
+  perPage: number;
+  currentPage: number;
+  totalPages: number;
+};
+
+export type GetDocumentExtensionsMeta = {
+  warnings?: Array<string> | null | undefined;
+  pagination?: GetDocumentExtensionsPagination | null | undefined;
+};
+
 export type GetDocumentExtensionsErrors = {};
 
 export type GetDocumentExtensionsRawData = {};
 
 export type GetDocumentExtensionsResponse = {
-  meta: models.MetaResponse;
+  meta?: GetDocumentExtensionsMeta | null | undefined;
   data: models.DocumentExtensionsResponseDto;
-  errors: GetDocumentExtensionsErrors;
-  rawData: GetDocumentExtensionsRawData;
+  errors: GetDocumentExtensionsErrors | null;
+  rawData: GetDocumentExtensionsRawData | null;
 };
 
 /** @internal */
@@ -43,6 +56,48 @@ export function getDocumentExtensionsRequestToJSON(
     GetDocumentExtensionsRequest$outboundSchema.parse(
       getDocumentExtensionsRequest,
     ),
+  );
+}
+
+/** @internal */
+export const GetDocumentExtensionsPagination$inboundSchema: z.ZodMiniType<
+  GetDocumentExtensionsPagination,
+  unknown
+> = z.object({
+  total: types.number(),
+  perPage: types.number(),
+  currentPage: types.number(),
+  totalPages: types.number(),
+});
+
+export function getDocumentExtensionsPaginationFromJSON(
+  jsonString: string,
+): SafeParseResult<GetDocumentExtensionsPagination, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetDocumentExtensionsPagination$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetDocumentExtensionsPagination' from JSON`,
+  );
+}
+
+/** @internal */
+export const GetDocumentExtensionsMeta$inboundSchema: z.ZodMiniType<
+  GetDocumentExtensionsMeta,
+  unknown
+> = z.object({
+  warnings: z.optional(z.nullable(z.array(types.string()))),
+  pagination: z.optional(
+    z.nullable(z.lazy(() => GetDocumentExtensionsPagination$inboundSchema)),
+  ),
+});
+
+export function getDocumentExtensionsMetaFromJSON(
+  jsonString: string,
+): SafeParseResult<GetDocumentExtensionsMeta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetDocumentExtensionsMeta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetDocumentExtensionsMeta' from JSON`,
   );
 }
 
@@ -83,10 +138,16 @@ export const GetDocumentExtensionsResponse$inboundSchema: z.ZodMiniType<
   GetDocumentExtensionsResponse,
   unknown
 > = z.object({
-  meta: models.MetaResponse$inboundSchema,
+  meta: z.optional(
+    z.nullable(z.lazy(() => GetDocumentExtensionsMeta$inboundSchema)),
+  ),
   data: models.DocumentExtensionsResponseDto$inboundSchema,
-  errors: z.lazy(() => GetDocumentExtensionsErrors$inboundSchema),
-  rawData: z.lazy(() => GetDocumentExtensionsRawData$inboundSchema),
+  errors: types.nullable(
+    z.lazy(() => GetDocumentExtensionsErrors$inboundSchema),
+  ),
+  rawData: types.nullable(
+    z.lazy(() => GetDocumentExtensionsRawData$inboundSchema),
+  ),
 });
 
 export function getDocumentExtensionsResponseFromJSON(

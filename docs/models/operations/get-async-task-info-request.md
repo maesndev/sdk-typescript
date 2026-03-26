@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { GetAsyncTaskInfoRequest } from "maesn/models/operations";
+import { GetAsyncTaskInfoRequest } from "@maesn/typescript-sdk/models/operations";
 
 let value: GetAsyncTaskInfoRequest = {
   taskId: "<id>",

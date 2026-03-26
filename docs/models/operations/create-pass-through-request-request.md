@@ -3,15 +3,12 @@
 ## Example Usage
 
 ```typescript
-import { CreatePassThroughRequestRequest } from "maesn/models/operations";
+import { CreatePassThroughRequestRequest } from "@maesn/typescript-sdk/models/operations";
 
 let value: CreatePassThroughRequestRequest = {
   body: {
     path: "/usr/include",
     method: "DELETE",
-    headers: {},
-    body: {},
-    query: {},
   },
 };
 ```

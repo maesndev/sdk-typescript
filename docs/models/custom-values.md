@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { CustomValues } from "maesn/models";
+import { CustomValues } from "@maesn/typescript-sdk/models";
 
 let value: CustomValues = {
   key: "<key>",

@@ -15,7 +15,7 @@
 
 <!-- UsageSnippet language="typescript" operationID="createBookingProposalV2" method="post" path="/accounting/v2/bookingProposals" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -41,8 +41,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingV2CreateBookingProposal } from "maesn/funcs/accounting-v2-create-booking-proposal.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingV2CreateBookingProposal } from "@maesn/typescript-sdk/funcs/accounting-v2-create-booking-proposal.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -94,7 +94,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="createContactV2" method="post" path="/accounting/v2/contacts" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -107,28 +107,7 @@ const maesn = new Maesn({
 async function run() {
   const result = await maesn.accountingV2.createContact({
     body: {
-      id: "<id>",
-      addresses: [],
-      companyName: "Adams - Altenwerth",
-      contactPersons: [],
       contactType: "CONTACT_PERSON",
-      emailAddresses: [
-        {
-          email: "Karine91@hotmail.com",
-          type: "INVOICE",
-        },
-      ],
-      isCustomer: true,
-      isSupplier: true,
-      number: "<value>",
-      phoneNumbers: [
-        {
-          number: "<value>",
-          type: "WHATSAPP",
-        },
-      ],
-      projectId: "<id>",
-      website: "<value>",
     },
   });
 
@@ -143,8 +122,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingV2CreateContact } from "maesn/funcs/accounting-v2-create-contact.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingV2CreateContact } from "@maesn/typescript-sdk/funcs/accounting-v2-create-contact.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -159,28 +138,7 @@ const maesn = new MaesnCore({
 async function run() {
   const res = await accountingV2CreateContact(maesn, {
     body: {
-      id: "<id>",
-      addresses: [],
-      companyName: "Adams - Altenwerth",
-      contactPersons: [],
       contactType: "CONTACT_PERSON",
-      emailAddresses: [
-        {
-          email: "Karine91@hotmail.com",
-          type: "INVOICE",
-        },
-      ],
-      isCustomer: true,
-      isSupplier: true,
-      number: "<value>",
-      phoneNumbers: [
-        {
-          number: "<value>",
-          type: "WHATSAPP",
-        },
-      ],
-      projectId: "<id>",
-      website: "<value>",
     },
   });
   if (res.ok) {
@@ -219,7 +177,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="putContactV2" method="put" path="/accounting/v2/contacts/{contactId}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -233,23 +191,7 @@ async function run() {
   const result = await maesn.accountingV2.updateContact({
     contactId: "<id>",
     body: {
-      id: "<id>",
-      addresses: [],
-      companyName: "Rogahn, Cartwright and Waters",
-      contactPersons: [],
       contactType: "CONTACT_PERSON",
-      emailAddresses: [
-        {
-          email: "Kaleigh58@yahoo.com",
-          type: "OTHER",
-        },
-      ],
-      isCustomer: false,
-      isSupplier: true,
-      number: "<value>",
-      phoneNumbers: [],
-      projectId: "<id>",
-      website: "<value>",
     },
   });
 
@@ -264,8 +206,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingV2UpdateContact } from "maesn/funcs/accounting-v2-update-contact.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingV2UpdateContact } from "@maesn/typescript-sdk/funcs/accounting-v2-update-contact.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -281,23 +223,7 @@ async function run() {
   const res = await accountingV2UpdateContact(maesn, {
     contactId: "<id>",
     body: {
-      id: "<id>",
-      addresses: [],
-      companyName: "Rogahn, Cartwright and Waters",
-      contactPersons: [],
       contactType: "CONTACT_PERSON",
-      emailAddresses: [
-        {
-          email: "Kaleigh58@yahoo.com",
-          type: "OTHER",
-        },
-      ],
-      isCustomer: false,
-      isSupplier: true,
-      number: "<value>",
-      phoneNumbers: [],
-      projectId: "<id>",
-      website: "<value>",
     },
   });
   if (res.ok) {
@@ -336,7 +262,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getDimensionsV2" method="get" path="/accounting/v2/dimensions" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -360,8 +286,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingV2ObtainDimensions } from "maesn/funcs/accounting-v2-obtain-dimensions.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingV2ObtainDimensions } from "@maesn/typescript-sdk/funcs/accounting-v2-obtain-dimensions.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.

@@ -3,76 +3,49 @@
 ## Example Usage
 
 ```typescript
-import { BookingProposalResponseDtoV2 } from "maesn/models";
+import { BookingProposalResponseDtoV2 } from "@maesn/typescript-sdk/models";
 
 let value: BookingProposalResponseDtoV2 = {
   id: "<id>",
-  addresses: [],
+  addresses: [
+    {
+      city: "Lake Magdalen",
+    },
+  ],
   bankAccount: {
     id: "<id>",
     bic: "<value>",
     code: "<value>",
-    iban: "FR280058058028153IU9D5G1Q49",
-    number: 3558.3,
+    iban: null,
+    number: 4935.74,
   },
   bookingProposalDate: "<value>",
-  bookingType: "OTHER",
+  bookingType: "DOWN_PAYMENT",
   contact: {
     id: "<id>",
-    accountNumber: 549.02,
+    accountNumber: 6023.09,
     name: "<value>",
   },
   createdDate: "<value>",
-  currency: "Tugrik",
+  currency: "Algerian Dinar",
   deliveryDate: "<value>",
   discountPaymentDate: "<value>",
   discountPaymentDate2: "<value>",
   dueDate: "<value>",
   files: [
     "<value 1>",
-    "<value 2>",
   ],
   journalCode: "<value>",
-  isPaymentOrder: true,
-  ledgerName: "<value>",
-  lineItems: [
-    {
-      id: "<id>",
-      account: {
-        id: "<id>",
-        code: "<value>",
-        name: "<value>",
-        number: 6594.9,
-      },
-      createdDate: "<value>",
-      description: "developmental warp whenever whose footrest fooey oh",
-      dimensions: [
-        {
-          id: "<id>",
-          code: "<value>",
-          dimension: "<value>",
-          name: "<value>",
-        },
-      ],
-      discountAmount: 4643.4,
-      discountAmount2: 5667.37,
-      discountPercentage: 7583.84,
-      discountPercentage2: 1849.18,
-      taxCode: "<value>",
-      taxRatePercentage: 3247.36,
-      totalGrossAmount: 7042.1,
-      totalNetAmount: 3298.14,
-      type: "SERVICE",
-      updatedDate: "<value>",
-    },
-  ],
+  isPaymentOrder: false,
+  ledgerName: null,
+  lineItems: [],
   notes: "<value>",
   number: "<value>",
   orderId: "<id>",
-  paidDate: "<value>",
+  paidDate: null,
   paymentTermId: "<id>",
-  status: "PARTIALLY_PAID",
-  totalGrossAmount: 5443.53,
+  status: "PAID",
+  totalGrossAmount: 9545.21,
   updatedDate: "<value>",
   vatId: "<id>",
 };
@@ -84,10 +57,10 @@ let value: BookingProposalResponseDtoV2 = {
 | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
 | `id`                                                                                                         | *string*                                                                                                     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `addresses`                                                                                                  | [models.BookingProposalAddressResponseDtoV2](../models/booking-proposal-address-response-dto-v2.md)[]        | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
-| `bankAccount`                                                                                                | [models.BankAccountResponseCommonDtoV2](../models/bank-account-response-common-dto-v2.md)                    | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
+| `bankAccount`                                                                                                | [models.BookingProposalResponseDtoV2BankAccount](../models/booking-proposal-response-dto-v2-bank-account.md) | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `bookingProposalDate`                                                                                        | *string*                                                                                                     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `bookingType`                                                                                                | [models.BookingProposalResponseDtoV2BookingType](../models/booking-proposal-response-dto-v2-booking-type.md) | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
-| `contact`                                                                                                    | [models.ContactResponseCommonDtoV2](../models/contact-response-common-dto-v2.md)                             | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
+| `contact`                                                                                                    | [models.Contact](../models/contact.md)                                                                       | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `createdDate`                                                                                                | *string*                                                                                                     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `currency`                                                                                                   | *string*                                                                                                     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `deliveryDate`                                                                                               | *string*                                                                                                     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |

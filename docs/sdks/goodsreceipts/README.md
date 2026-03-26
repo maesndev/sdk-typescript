@@ -12,7 +12,7 @@
 
 <!-- UsageSnippet language="typescript" operationID="getGoodsReceiptLineItem" method="get" path="/accounting/goodsReceipts/{goodsReceiptId}/lineItems/{lineItemId}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -39,8 +39,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { goodsReceiptsGetLineItem } from "maesn/funcs/goods-receipts-get-line-item.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { goodsReceiptsGetLineItem } from "@maesn/typescript-sdk/funcs/goods-receipts-get-line-item.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.

@@ -3,32 +3,20 @@
 ## Example Usage
 
 ```typescript
-import { GetAsyncTaskInfoResponse } from "maesn/models/operations";
+import { GetAsyncTaskInfoResponse } from "@maesn/typescript-sdk/models/operations";
 
 let value: GetAsyncTaskInfoResponse = {
-  meta: {
-    warnings: [
-      "<value 1>",
-      "<value 2>",
-    ],
-    pagination: {
-      total: 3438.77,
-      perPage: 5109.63,
-      currentPage: 2626.79,
-      totalPages: 3561.84,
-    },
-  },
   data: {
     information: [
       {
         filename: "example.file",
         message: "<value>",
         timestamp: "<value>",
-        type: "<value>",
+        type: null,
       },
     ],
-    responseData: {},
-    status: "PARTIAL_SUCCESS",
+    responseData: "<value>",
+    status: "SUCCESS",
   },
   errors: {},
   rawData: {},
@@ -39,7 +27,7 @@ let value: GetAsyncTaskInfoResponse = {
 
 | Field                                                                                         | Type                                                                                          | Required                                                                                      | Description                                                                                   |
 | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `meta`                                                                                        | [models.MetaResponse](../../models/meta-response.md)                                          | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `meta`                                                                                        | [operations.GetAsyncTaskInfoMeta](../../models/operations/get-async-task-info-meta.md)        | :heavy_minus_sign:                                                                            | N/A                                                                                           |
 | `data`                                                                                        | [models.AsyncTaskResponseDto](../../models/async-task-response-dto.md)                        | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `errors`                                                                                      | [operations.GetAsyncTaskInfoErrors](../../models/operations/get-async-task-info-errors.md)    | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `rawData`                                                                                     | [operations.GetAsyncTaskInfoRawData](../../models/operations/get-async-task-info-raw-data.md) | :heavy_check_mark:                                                                            | N/A                                                                                           |

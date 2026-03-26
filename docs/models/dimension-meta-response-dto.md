@@ -3,11 +3,12 @@
 ## Example Usage
 
 ```typescript
-import { DimensionMetaResponseDto } from "maesn/models";
+import { DimensionMetaResponseDto } from "@maesn/typescript-sdk/models";
 
 let value: DimensionMetaResponseDto = {
-  description: "miserably up programme bitterly parody noteworthy",
-  dimension: "<value>",
+  description:
+    "quaintly enfold reporter keenly ack unripe inscribe kindheartedly",
+  dimension: null,
 };
 ```
 

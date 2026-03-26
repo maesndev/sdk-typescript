@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { TestRequest } from "maesn/models/operations";
+import { TestRequest } from "@maesn/typescript-sdk/models/operations";
 
 let value: TestRequest = {
   accountKey: "<value>",

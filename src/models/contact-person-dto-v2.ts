@@ -6,17 +6,23 @@ import * as z from "zod/v4-mini";
 import { safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
-import { EmailAddress, EmailAddress$inboundSchema } from "./email-address.js";
+import {
+  EmailAddressV2,
+  EmailAddressV2$inboundSchema,
+} from "./email-address-v2.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
-import { PhoneNumber, PhoneNumber$inboundSchema } from "./phone-number.js";
+import {
+  PhoneNumberV2,
+  PhoneNumberV2$inboundSchema,
+} from "./phone-number-v2.js";
 
 export type ContactPersonDtoV2 = {
-  id: string;
-  emailAddresses: Array<EmailAddress>;
-  firstName: string;
-  lastName: string;
-  phoneNumbers: Array<PhoneNumber>;
-  salutation: string;
+  id: string | null;
+  emailAddresses: Array<EmailAddressV2> | null;
+  firstName: string | null;
+  lastName: string | null;
+  phoneNumbers: Array<PhoneNumberV2> | null;
+  salutation: string | null;
 };
 
 /** @internal */
@@ -24,12 +30,12 @@ export const ContactPersonDtoV2$inboundSchema: z.ZodMiniType<
   ContactPersonDtoV2,
   unknown
 > = z.object({
-  id: types.string(),
-  emailAddresses: z.array(EmailAddress$inboundSchema),
-  firstName: types.string(),
-  lastName: types.string(),
-  phoneNumbers: z.array(PhoneNumber$inboundSchema),
-  salutation: types.string(),
+  id: types.nullable(types.string()),
+  emailAddresses: types.nullable(z.array(EmailAddressV2$inboundSchema)),
+  firstName: types.nullable(types.string()),
+  lastName: types.nullable(types.string()),
+  phoneNumbers: types.nullable(z.array(PhoneNumberV2$inboundSchema)),
+  salutation: types.nullable(types.string()),
 });
 
 export function contactPersonDtoV2FromJSON(

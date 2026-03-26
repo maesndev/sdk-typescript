@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
@@ -19,15 +20,27 @@ export type GetPaymentTermsRequest = {
   fiscalYearStartDate?: string | undefined;
 };
 
+export type GetPaymentTermsPagination = {
+  total: number;
+  perPage: number;
+  currentPage: number;
+  totalPages: number;
+};
+
+export type GetPaymentTermsMeta = {
+  warnings?: Array<string> | null | undefined;
+  pagination?: GetPaymentTermsPagination | null | undefined;
+};
+
 export type GetPaymentTermsErrors = {};
 
 export type GetPaymentTermsRawData = {};
 
 export type GetPaymentTermsResponse = {
-  meta: models.MetaResponse;
+  meta?: GetPaymentTermsMeta | null | undefined;
   data: Array<models.PaymentTermResponseDto>;
-  errors: GetPaymentTermsErrors;
-  rawData: GetPaymentTermsRawData;
+  errors: GetPaymentTermsErrors | null;
+  rawData: GetPaymentTermsRawData | null;
 };
 
 /** @internal */
@@ -62,6 +75,48 @@ export function getPaymentTermsRequestToJSON(
 ): string {
   return JSON.stringify(
     GetPaymentTermsRequest$outboundSchema.parse(getPaymentTermsRequest),
+  );
+}
+
+/** @internal */
+export const GetPaymentTermsPagination$inboundSchema: z.ZodMiniType<
+  GetPaymentTermsPagination,
+  unknown
+> = z.object({
+  total: types.number(),
+  perPage: types.number(),
+  currentPage: types.number(),
+  totalPages: types.number(),
+});
+
+export function getPaymentTermsPaginationFromJSON(
+  jsonString: string,
+): SafeParseResult<GetPaymentTermsPagination, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetPaymentTermsPagination$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetPaymentTermsPagination' from JSON`,
+  );
+}
+
+/** @internal */
+export const GetPaymentTermsMeta$inboundSchema: z.ZodMiniType<
+  GetPaymentTermsMeta,
+  unknown
+> = z.object({
+  warnings: z.optional(z.nullable(z.array(types.string()))),
+  pagination: z.optional(
+    z.nullable(z.lazy(() => GetPaymentTermsPagination$inboundSchema)),
+  ),
+});
+
+export function getPaymentTermsMetaFromJSON(
+  jsonString: string,
+): SafeParseResult<GetPaymentTermsMeta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetPaymentTermsMeta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetPaymentTermsMeta' from JSON`,
   );
 }
 
@@ -102,10 +157,10 @@ export const GetPaymentTermsResponse$inboundSchema: z.ZodMiniType<
   GetPaymentTermsResponse,
   unknown
 > = z.object({
-  meta: models.MetaResponse$inboundSchema,
+  meta: z.optional(z.nullable(z.lazy(() => GetPaymentTermsMeta$inboundSchema))),
   data: z.array(models.PaymentTermResponseDto$inboundSchema),
-  errors: z.lazy(() => GetPaymentTermsErrors$inboundSchema),
-  rawData: z.lazy(() => GetPaymentTermsRawData$inboundSchema),
+  errors: types.nullable(z.lazy(() => GetPaymentTermsErrors$inboundSchema)),
+  rawData: types.nullable(z.lazy(() => GetPaymentTermsRawData$inboundSchema)),
 });
 
 export function getPaymentTermsResponseFromJSON(

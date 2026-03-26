@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { PatchContactRequestDtoContactType } from "maesn/models";
+import { PatchContactRequestDtoContactType } from "@maesn/typescript-sdk/models";
 
 let value: PatchContactRequestDtoContactType = "COMPANY";
 ```

@@ -13,7 +13,7 @@
 
 <!-- UsageSnippet language="typescript" operationID="createItem" method="post" path="/accounting/items" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -25,22 +25,7 @@ const maesn = new Maesn({
 
 async function run() {
   const result = await maesn.items.create({
-    body: {
-      assetAccountId: "<id>",
-      expenseAccountId: "<id>",
-      incomeAccountId: "<id>",
-      inventoryStartDate: "<value>",
-      itemNumber: "<value>",
-      name: "<value>",
-      priceIncludesTax: false,
-      stockCount: 459.72,
-      taxCode: "<value>",
-      taxRatePercentage: 3028.82,
-      type: "SERVICE",
-      unitName: "METRE",
-      unitPurchasePrice: 7047.88,
-      unitSalesPrice: 6632.01,
-    },
+    body: {},
   });
 
   console.log(result);
@@ -54,8 +39,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { itemsCreate } from "maesn/funcs/items-create.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { itemsCreate } from "@maesn/typescript-sdk/funcs/items-create.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -69,22 +54,7 @@ const maesn = new MaesnCore({
 
 async function run() {
   const res = await itemsCreate(maesn, {
-    body: {
-      assetAccountId: "<id>",
-      expenseAccountId: "<id>",
-      incomeAccountId: "<id>",
-      inventoryStartDate: "<value>",
-      itemNumber: "<value>",
-      name: "<value>",
-      priceIncludesTax: false,
-      stockCount: 459.72,
-      taxCode: "<value>",
-      taxRatePercentage: 3028.82,
-      type: "SERVICE",
-      unitName: "METRE",
-      unitPurchasePrice: 7047.88,
-      unitSalesPrice: 6632.01,
-    },
+    body: {},
   });
   if (res.ok) {
     const { value: result } = res;
@@ -122,7 +92,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="patchItem" method="patch" path="/accounting/items/{itemId}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -135,16 +105,7 @@ const maesn = new Maesn({
 async function run() {
   const result = await maesn.items.modify({
     itemId: "<id>",
-    body: {
-      name: "<value>",
-      itemNumber: "<value>",
-      stockCount: 382.7,
-      type: "SERVICE",
-      unitName: "METRE",
-      unitPurchasePrice: 5310.49,
-      unitSalesPrice: 8532.44,
-      priceIncludesTax: true,
-    },
+    body: {},
   });
 
   console.log(result);
@@ -158,8 +119,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { itemsModify } from "maesn/funcs/items-modify.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { itemsModify } from "@maesn/typescript-sdk/funcs/items-modify.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -174,16 +135,7 @@ const maesn = new MaesnCore({
 async function run() {
   const res = await itemsModify(maesn, {
     itemId: "<id>",
-    body: {
-      name: "<value>",
-      itemNumber: "<value>",
-      stockCount: 382.7,
-      type: "SERVICE",
-      unitName: "METRE",
-      unitPurchasePrice: 5310.49,
-      unitSalesPrice: 8532.44,
-      priceIncludesTax: true,
-    },
+    body: {},
   });
   if (res.ok) {
     const { value: result } = res;

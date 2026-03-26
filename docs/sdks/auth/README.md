@@ -24,7 +24,7 @@
 
 <!-- UsageSnippet language="typescript" operationID="getEnvironments" method="get" path="/environments" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -48,8 +48,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { authGetEnvironments } from "maesn/funcs/auth-get-environments.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { authGetEnvironments } from "@maesn/typescript-sdk/funcs/auth-get-environments.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -98,7 +98,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getCompanies" method="get" path="/companies" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -122,8 +122,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { authGetCompanies } from "maesn/funcs/auth-get-companies.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { authGetCompanies } from "@maesn/typescript-sdk/funcs/auth-get-companies.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -173,7 +173,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getCompaniesFlow" method="get" path="/companiesFlow" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -197,8 +197,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { authGetCompaniesFlow } from "maesn/funcs/auth-get-companies-flow.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { authGetCompaniesFlow } from "@maesn/typescript-sdk/funcs/auth-get-companies-flow.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -248,7 +248,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getSubmitPage" method="get" path="/submit" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -274,8 +274,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { authGetSubmitPage } from "maesn/funcs/auth-get-submit-page.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { authGetSubmitPage } from "@maesn/typescript-sdk/funcs/auth-get-submit-page.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -327,7 +327,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="apiKeyConfirmation" method="post" path="/apiKeyConfirmation" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -351,8 +351,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { authApiKeyConfirmation } from "maesn/funcs/auth-api-key-confirmation.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { authApiKeyConfirmation } from "@maesn/typescript-sdk/funcs/auth-api-key-confirmation.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -401,7 +401,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="cancel" method="post" path="/cancel" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -425,8 +425,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { authCancel } from "maesn/funcs/auth-cancel.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { authCancel } from "@maesn/typescript-sdk/funcs/auth-cancel.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -475,7 +475,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="test" method="get" path="/test" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -501,8 +501,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { authTest } from "maesn/funcs/auth-test.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { authTest } from "@maesn/typescript-sdk/funcs/auth-test.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -554,7 +554,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="longToken" method="get" path="/longToken" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -578,8 +578,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { authLongToken } from "maesn/funcs/auth-long-token.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { authLongToken } from "@maesn/typescript-sdk/funcs/auth-long-token.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -629,7 +629,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getEnvironmentPage" method="get" path="/selections" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -656,8 +656,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { authGetEnvironmentPage } from "maesn/funcs/auth-get-environment-page.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { authGetEnvironmentPage } from "@maesn/typescript-sdk/funcs/auth-get-environment-page.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -710,7 +710,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="setEndUserSelections" method="post" path="/setEndUserSelections" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -738,8 +738,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { authSetEndUserSelections } from "maesn/funcs/auth-set-end-user-selections.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { authSetEndUserSelections } from "@maesn/typescript-sdk/funcs/auth-set-end-user-selections.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -793,7 +793,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="systemLoginUrl" method="get" path="/{TARGET_SYSTEM}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -819,8 +819,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { authSystemLoginUrl } from "maesn/funcs/auth-system-login-url.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { authSystemLoginUrl } from "@maesn/typescript-sdk/funcs/auth-system-login-url.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -872,7 +872,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="callback" method="get" path="/callback/{TARGET_SYSTEM}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -899,8 +899,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { authCallback } from "maesn/funcs/auth-callback.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { authCallback } from "@maesn/typescript-sdk/funcs/auth-callback.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -953,7 +953,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="createEndUserAccount" method="post" path="/accounts/{TARGET_SYSTEM}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -991,8 +991,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { authCreateEndUserAccount } from "maesn/funcs/auth-create-end-user-account.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { authCreateEndUserAccount } from "@maesn/typescript-sdk/funcs/auth-create-end-user-account.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.

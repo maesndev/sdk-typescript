@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
@@ -15,15 +16,27 @@ export type GetExpenseRequest = {
   rawData?: boolean | undefined;
 };
 
+export type GetExpensePagination = {
+  total: number;
+  perPage: number;
+  currentPage: number;
+  totalPages: number;
+};
+
+export type GetExpenseMeta = {
+  warnings?: Array<string> | null | undefined;
+  pagination?: GetExpensePagination | null | undefined;
+};
+
 export type GetExpenseErrors = {};
 
 export type GetExpenseRawData = {};
 
 export type GetExpenseResponse = {
-  meta: models.MetaResponse;
-  data: Array<models.ExpenseResponseDto>;
-  errors: GetExpenseErrors;
-  rawData: GetExpenseRawData;
+  meta?: GetExpenseMeta | null | undefined;
+  data: models.ExpenseResponseDto;
+  errors: GetExpenseErrors | null;
+  rawData: GetExpenseRawData | null;
 };
 
 /** @internal */
@@ -50,6 +63,48 @@ export function getExpenseRequestToJSON(
 ): string {
   return JSON.stringify(
     GetExpenseRequest$outboundSchema.parse(getExpenseRequest),
+  );
+}
+
+/** @internal */
+export const GetExpensePagination$inboundSchema: z.ZodMiniType<
+  GetExpensePagination,
+  unknown
+> = z.object({
+  total: types.number(),
+  perPage: types.number(),
+  currentPage: types.number(),
+  totalPages: types.number(),
+});
+
+export function getExpensePaginationFromJSON(
+  jsonString: string,
+): SafeParseResult<GetExpensePagination, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetExpensePagination$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetExpensePagination' from JSON`,
+  );
+}
+
+/** @internal */
+export const GetExpenseMeta$inboundSchema: z.ZodMiniType<
+  GetExpenseMeta,
+  unknown
+> = z.object({
+  warnings: z.optional(z.nullable(z.array(types.string()))),
+  pagination: z.optional(
+    z.nullable(z.lazy(() => GetExpensePagination$inboundSchema)),
+  ),
+});
+
+export function getExpenseMetaFromJSON(
+  jsonString: string,
+): SafeParseResult<GetExpenseMeta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetExpenseMeta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetExpenseMeta' from JSON`,
   );
 }
 
@@ -90,10 +145,10 @@ export const GetExpenseResponse$inboundSchema: z.ZodMiniType<
   GetExpenseResponse,
   unknown
 > = z.object({
-  meta: models.MetaResponse$inboundSchema,
-  data: z.array(models.ExpenseResponseDto$inboundSchema),
-  errors: z.lazy(() => GetExpenseErrors$inboundSchema),
-  rawData: z.lazy(() => GetExpenseRawData$inboundSchema),
+  meta: z.optional(z.nullable(z.lazy(() => GetExpenseMeta$inboundSchema))),
+  data: models.ExpenseResponseDto$inboundSchema,
+  errors: types.nullable(z.lazy(() => GetExpenseErrors$inboundSchema)),
+  rawData: types.nullable(z.lazy(() => GetExpenseRawData$inboundSchema)),
 });
 
 export function getExpenseResponseFromJSON(

@@ -15,10 +15,6 @@ import {
 } from "./bill-line-item-response-dto.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
-export type BillResponseDtoCreatedDate = {};
-
-export type BillResponseDtoPaidDate = {};
-
 export const BillResponseDtoPaymentStatus = {
   NoOpenItem: "NO_OPEN_ITEM",
   Pending: "PENDING",
@@ -35,8 +31,6 @@ export const BillResponseDtoPaymentStatus = {
 export type BillResponseDtoPaymentStatus = OpenEnum<
   typeof BillResponseDtoPaymentStatus
 >;
-
-export type BillResponseDtoShippingDate = {};
 
 export const BillResponseDtoShippingType = {
   Service: "SERVICE",
@@ -82,92 +76,44 @@ export const BillResponseDtoTaxRule = {
 export type BillResponseDtoTaxRule = OpenEnum<typeof BillResponseDtoTaxRule>;
 
 export type BillResponseDto = {
-  id: string;
-  accountId: string;
-  addresses: Array<Address>;
-  billDate: string;
-  billNumber: string;
-  contactId: string;
-  createdDate: BillResponseDtoCreatedDate;
-  currency: string;
-  deliveryDate: string;
-  dueDate: string;
-  fileId: string;
-  journalCode: string;
-  lineItems: Array<BillLineItemResponseDto>;
-  name: string;
-  oneLineAddress: string;
-  paidDate: BillResponseDtoPaidDate;
-  paymentTermCode: string;
-  paymentStatus: BillResponseDtoPaymentStatus;
-  paymentDays: number;
-  reference: string;
-  shippingDate: BillResponseDtoShippingDate;
-  shippingType: BillResponseDtoShippingType;
-  status: BillResponseDtoStatus;
-  taxRule: BillResponseDtoTaxRule;
-  taxText: string;
-  totalDiscountAmount: number;
-  totalDiscountPercentage: number;
-  totalGrossAmount: number;
-  totalNetAmount: number;
-  totalTaxAmount: number;
-  updatedDate: string;
+  id: string | null;
+  accountId: string | null;
+  addresses: Array<Address> | null;
+  billDate: string | null;
+  billNumber: string | null;
+  contactId: string | null;
+  createdDate: string | null;
+  currency: string | null;
+  deliveryDate: string | null;
+  dueDate: string | null;
+  fileId: string | null;
+  journalCode: string | null;
+  lineItems: Array<BillLineItemResponseDto> | null;
+  name: string | null;
+  oneLineAddress: string | null;
+  paidDate: string | null;
+  paymentTermCode: string | null;
+  paymentStatus: BillResponseDtoPaymentStatus | null;
+  paymentDays: number | null;
+  reference: string | null;
+  shippingDate: string | null;
+  shippingType: BillResponseDtoShippingType | null;
+  status: BillResponseDtoStatus | null;
+  taxRule: BillResponseDtoTaxRule | null;
+  taxText: string | null;
+  totalDiscountAmount: number | null;
+  totalDiscountPercentage: number | null;
+  totalGrossAmount: number | null;
+  totalNetAmount: number | null;
+  totalTaxAmount: number | null;
+  updatedDate: string | null;
 };
-
-/** @internal */
-export const BillResponseDtoCreatedDate$inboundSchema: z.ZodMiniType<
-  BillResponseDtoCreatedDate,
-  unknown
-> = z.object({});
-
-export function billResponseDtoCreatedDateFromJSON(
-  jsonString: string,
-): SafeParseResult<BillResponseDtoCreatedDate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => BillResponseDtoCreatedDate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'BillResponseDtoCreatedDate' from JSON`,
-  );
-}
-
-/** @internal */
-export const BillResponseDtoPaidDate$inboundSchema: z.ZodMiniType<
-  BillResponseDtoPaidDate,
-  unknown
-> = z.object({});
-
-export function billResponseDtoPaidDateFromJSON(
-  jsonString: string,
-): SafeParseResult<BillResponseDtoPaidDate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => BillResponseDtoPaidDate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'BillResponseDtoPaidDate' from JSON`,
-  );
-}
 
 /** @internal */
 export const BillResponseDtoPaymentStatus$inboundSchema: z.ZodMiniType<
   BillResponseDtoPaymentStatus,
   unknown
 > = openEnums.inboundSchema(BillResponseDtoPaymentStatus);
-
-/** @internal */
-export const BillResponseDtoShippingDate$inboundSchema: z.ZodMiniType<
-  BillResponseDtoShippingDate,
-  unknown
-> = z.object({});
-
-export function billResponseDtoShippingDateFromJSON(
-  jsonString: string,
-): SafeParseResult<BillResponseDtoShippingDate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => BillResponseDtoShippingDate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'BillResponseDtoShippingDate' from JSON`,
-  );
-}
 
 /** @internal */
 export const BillResponseDtoShippingType$inboundSchema: z.ZodMiniType<
@@ -192,37 +138,37 @@ export const BillResponseDto$inboundSchema: z.ZodMiniType<
   BillResponseDto,
   unknown
 > = z.object({
-  id: types.string(),
-  accountId: types.string(),
-  addresses: z.array(Address$inboundSchema),
-  billDate: types.string(),
-  billNumber: types.string(),
-  contactId: types.string(),
-  createdDate: z.lazy(() => BillResponseDtoCreatedDate$inboundSchema),
-  currency: types.string(),
-  deliveryDate: types.string(),
-  dueDate: types.string(),
-  fileId: types.string(),
-  journalCode: types.string(),
-  lineItems: z.array(BillLineItemResponseDto$inboundSchema),
-  name: types.string(),
-  oneLineAddress: types.string(),
-  paidDate: z.lazy(() => BillResponseDtoPaidDate$inboundSchema),
-  paymentTermCode: types.string(),
-  paymentStatus: BillResponseDtoPaymentStatus$inboundSchema,
-  paymentDays: types.number(),
-  reference: types.string(),
-  shippingDate: z.lazy(() => BillResponseDtoShippingDate$inboundSchema),
-  shippingType: BillResponseDtoShippingType$inboundSchema,
-  status: BillResponseDtoStatus$inboundSchema,
-  taxRule: BillResponseDtoTaxRule$inboundSchema,
-  taxText: types.string(),
-  totalDiscountAmount: types.number(),
-  totalDiscountPercentage: types.number(),
-  totalGrossAmount: types.number(),
-  totalNetAmount: types.number(),
-  totalTaxAmount: types.number(),
-  updatedDate: types.string(),
+  id: types.nullable(types.string()),
+  accountId: types.nullable(types.string()),
+  addresses: types.nullable(z.array(Address$inboundSchema)),
+  billDate: types.nullable(types.string()),
+  billNumber: types.nullable(types.string()),
+  contactId: types.nullable(types.string()),
+  createdDate: types.nullable(types.string()),
+  currency: types.nullable(types.string()),
+  deliveryDate: types.nullable(types.string()),
+  dueDate: types.nullable(types.string()),
+  fileId: types.nullable(types.string()),
+  journalCode: types.nullable(types.string()),
+  lineItems: types.nullable(z.array(BillLineItemResponseDto$inboundSchema)),
+  name: types.nullable(types.string()),
+  oneLineAddress: types.nullable(types.string()),
+  paidDate: types.nullable(types.string()),
+  paymentTermCode: types.nullable(types.string()),
+  paymentStatus: types.nullable(BillResponseDtoPaymentStatus$inboundSchema),
+  paymentDays: types.nullable(types.number()),
+  reference: types.nullable(types.string()),
+  shippingDate: types.nullable(types.string()),
+  shippingType: types.nullable(BillResponseDtoShippingType$inboundSchema),
+  status: types.nullable(BillResponseDtoStatus$inboundSchema),
+  taxRule: types.nullable(BillResponseDtoTaxRule$inboundSchema),
+  taxText: types.nullable(types.string()),
+  totalDiscountAmount: types.nullable(types.number()),
+  totalDiscountPercentage: types.nullable(types.number()),
+  totalGrossAmount: types.nullable(types.number()),
+  totalNetAmount: types.nullable(types.number()),
+  totalTaxAmount: types.nullable(types.number()),
+  updatedDate: types.nullable(types.string()),
 });
 
 export function billResponseDtoFromJSON(

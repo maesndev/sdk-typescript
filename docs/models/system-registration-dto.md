@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { SystemRegistrationDto } from "maesn/models";
+import { SystemRegistrationDto } from "@maesn/typescript-sdk/models";
 
 let value: SystemRegistrationDto = {
   targetSystem: "<value>",

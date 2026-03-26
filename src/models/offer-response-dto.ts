@@ -26,25 +26,25 @@ export const OfferResponseDtoStatus = {
 export type OfferResponseDtoStatus = OpenEnum<typeof OfferResponseDtoStatus>;
 
 export type OfferResponseDto = {
-  id: string;
-  addresses: Array<AddressOffer>;
-  contactId: string;
-  createdDate: string;
-  currency: string;
-  lineItems: Array<OfferLineItemResponseDto>;
-  name: string;
-  offerDate: string;
-  offerNumber: string;
-  oneLineAddress: string;
-  reference: string;
-  status: OfferResponseDtoStatus;
-  taxText: string;
-  totalDiscountAmount: number;
-  totalDiscountPercentage: number;
-  totalGrossAmount: number;
-  totalNetAmount: number;
-  totalTaxAmount: number;
-  updatedDate: string;
+  id: string | null;
+  addresses: Array<AddressOffer> | null;
+  contactId?: string | null | undefined;
+  createdDate: string | null;
+  currency: string | null;
+  lineItems: Array<OfferLineItemResponseDto> | null;
+  name: string | null;
+  offerDate: string | null;
+  offerNumber: string | null;
+  oneLineAddress: string | null;
+  reference: string | null;
+  status: OfferResponseDtoStatus | null;
+  taxText: string | null;
+  totalDiscountAmount: number | null;
+  totalDiscountPercentage: number | null;
+  totalGrossAmount: number | null;
+  totalNetAmount: number | null;
+  totalTaxAmount: number | null;
+  updatedDate: string | null;
 };
 
 /** @internal */
@@ -58,25 +58,25 @@ export const OfferResponseDto$inboundSchema: z.ZodMiniType<
   OfferResponseDto,
   unknown
 > = z.object({
-  id: types.string(),
-  addresses: z.array(AddressOffer$inboundSchema),
-  contactId: types.string(),
-  createdDate: types.string(),
-  currency: types.string(),
-  lineItems: z.array(OfferLineItemResponseDto$inboundSchema),
-  name: types.string(),
-  offerDate: types.string(),
-  offerNumber: types.string(),
-  oneLineAddress: types.string(),
-  reference: types.string(),
-  status: OfferResponseDtoStatus$inboundSchema,
-  taxText: types.string(),
-  totalDiscountAmount: types.number(),
-  totalDiscountPercentage: types.number(),
-  totalGrossAmount: types.number(),
-  totalNetAmount: types.number(),
-  totalTaxAmount: types.number(),
-  updatedDate: types.string(),
+  id: types.nullable(types.string()),
+  addresses: types.nullable(z.array(AddressOffer$inboundSchema)),
+  contactId: z.optional(z.nullable(types.string())),
+  createdDate: types.nullable(types.string()),
+  currency: types.nullable(types.string()),
+  lineItems: types.nullable(z.array(OfferLineItemResponseDto$inboundSchema)),
+  name: types.nullable(types.string()),
+  offerDate: types.nullable(types.string()),
+  offerNumber: types.nullable(types.string()),
+  oneLineAddress: types.nullable(types.string()),
+  reference: types.nullable(types.string()),
+  status: types.nullable(OfferResponseDtoStatus$inboundSchema),
+  taxText: types.nullable(types.string()),
+  totalDiscountAmount: types.nullable(types.number()),
+  totalDiscountPercentage: types.nullable(types.number()),
+  totalGrossAmount: types.nullable(types.number()),
+  totalNetAmount: types.nullable(types.number()),
+  totalTaxAmount: types.nullable(types.number()),
+  updatedDate: types.nullable(types.string()),
 });
 
 export function offerResponseDtoFromJSON(

@@ -3,33 +3,22 @@
 ## Example Usage
 
 ```typescript
-import { CreateProjectRequestDto } from "maesn/models";
+import { CreateProjectRequestDto } from "@maesn/typescript-sdk/models";
 
-let value: CreateProjectRequestDto = {
-  code: "<value>",
-  contactId: "<id>",
-  currency: "HNL",
-  description: "curse ack train",
-  endDate: "<value>",
-  name: "<value>",
-  number: "<value>",
-  parentProjectId: "<id>",
-  status: "ACTIVE",
-  startDate: "<value>",
-};
+let value: CreateProjectRequestDto = {};
 ```
 
 ## Fields
 
 | Field                                                                                      | Type                                                                                       | Required                                                                                   | Description                                                                                |
 | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `code`                                                                                     | *string*                                                                                   | :heavy_check_mark:                                                                         | N/A                                                                                        |
-| `contactId`                                                                                | *string*                                                                                   | :heavy_check_mark:                                                                         | N/A                                                                                        |
-| `currency`                                                                                 | [models.CreateProjectRequestDtoCurrency](../models/create-project-request-dto-currency.md) | :heavy_check_mark:                                                                         | N/A                                                                                        |
-| `description`                                                                              | *string*                                                                                   | :heavy_check_mark:                                                                         | N/A                                                                                        |
-| `endDate`                                                                                  | *string*                                                                                   | :heavy_check_mark:                                                                         | N/A                                                                                        |
-| `name`                                                                                     | *string*                                                                                   | :heavy_check_mark:                                                                         | N/A                                                                                        |
-| `number`                                                                                   | *string*                                                                                   | :heavy_check_mark:                                                                         | N/A                                                                                        |
-| `parentProjectId`                                                                          | *string*                                                                                   | :heavy_check_mark:                                                                         | N/A                                                                                        |
-| `status`                                                                                   | [models.CreateProjectRequestDtoStatus](../models/create-project-request-dto-status.md)     | :heavy_check_mark:                                                                         | N/A                                                                                        |
-| `startDate`                                                                                | *string*                                                                                   | :heavy_check_mark:                                                                         | N/A                                                                                        |
+| `code`                                                                                     | *string*                                                                                   | :heavy_minus_sign:                                                                         | N/A                                                                                        |
+| `contactId`                                                                                | *string*                                                                                   | :heavy_minus_sign:                                                                         | N/A                                                                                        |
+| `currency`                                                                                 | [models.CreateProjectRequestDtoCurrency](../models/create-project-request-dto-currency.md) | :heavy_minus_sign:                                                                         | N/A                                                                                        |
+| `description`                                                                              | *string*                                                                                   | :heavy_minus_sign:                                                                         | N/A                                                                                        |
+| `endDate`                                                                                  | *string*                                                                                   | :heavy_minus_sign:                                                                         | N/A                                                                                        |
+| `name`                                                                                     | *string*                                                                                   | :heavy_minus_sign:                                                                         | N/A                                                                                        |
+| `number`                                                                                   | *string*                                                                                   | :heavy_minus_sign:                                                                         | N/A                                                                                        |
+| `parentProjectId`                                                                          | *string*                                                                                   | :heavy_minus_sign:                                                                         | N/A                                                                                        |
+| `status`                                                                                   | [models.CreateProjectRequestDtoStatus](../models/create-project-request-dto-status.md)     | :heavy_minus_sign:                                                                         | N/A                                                                                        |
+| `startDate`                                                                                | *string*                                                                                   | :heavy_minus_sign:                                                                         | N/A                                                                                        |

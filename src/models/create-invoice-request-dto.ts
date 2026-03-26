@@ -5,10 +5,10 @@
 import * as z from "zod/v4-mini";
 import { ClosedEnum } from "../types/enums.js";
 import {
-  Address,
-  Address$Outbound,
-  Address$outboundSchema,
-} from "./address.js";
+  CreateAddress,
+  CreateAddress$Outbound,
+  CreateAddress$outboundSchema,
+} from "./create-address.js";
 import {
   CreateLineItemRequestDto,
   CreateLineItemRequestDto$Outbound,
@@ -72,32 +72,32 @@ export type CreateInvoiceRequestDtoTaxRule = ClosedEnum<
 >;
 
 export type CreateInvoiceRequestDto = {
-  invoiceId: string;
-  addresses: Array<Address>;
-  contactId: string;
-  currency: string;
-  discountPercentage: number;
-  dueDate: string;
-  fileId: string;
-  grossTotalAmount: number;
+  invoiceId?: string | undefined;
+  addresses?: Array<CreateAddress> | undefined;
+  contactId?: string | undefined;
+  currency?: string | undefined;
+  discountPercentage?: number | undefined;
+  dueDate?: string | undefined;
+  fileId?: string | undefined;
+  grossTotalAmount?: number | undefined;
   invoiceDate: string;
-  invoiceNumber: string;
-  invoiceType: CreateInvoiceRequestDtoInvoiceType;
-  journalCode: string;
-  lineAmountTypes: string;
+  invoiceNumber?: string | undefined;
+  invoiceType?: CreateInvoiceRequestDtoInvoiceType | undefined;
+  journalCode?: string | undefined;
+  lineAmountTypes?: string | undefined;
   lineItems: Array<CreateLineItemRequestDto>;
-  name: string;
-  oneLineAddress: string;
-  paidDate: string;
-  paymentTermDuration: number;
-  paymentTermId: string;
-  reference: string;
-  shippingDate: string;
-  shippingType: CreateInvoiceRequestDtoShippingType;
-  shippingEndDate: string;
-  status: CreateInvoiceRequestDtoStatus;
-  taxRule: CreateInvoiceRequestDtoTaxRule;
-  taxText: string;
+  name?: string | undefined;
+  oneLineAddress?: string | undefined;
+  paidDate?: string | undefined;
+  paymentTermDuration?: number | undefined;
+  paymentTermId?: string | undefined;
+  reference?: string | undefined;
+  shippingDate?: string | undefined;
+  shippingType?: CreateInvoiceRequestDtoShippingType | undefined;
+  shippingEndDate?: string | undefined;
+  status?: CreateInvoiceRequestDtoStatus | undefined;
+  taxRule?: CreateInvoiceRequestDtoTaxRule | undefined;
+  taxText?: string | undefined;
 };
 
 /** @internal */
@@ -122,32 +122,32 @@ export const CreateInvoiceRequestDtoTaxRule$outboundSchema: z.ZodMiniEnum<
 
 /** @internal */
 export type CreateInvoiceRequestDto$Outbound = {
-  invoiceId: string;
-  addresses: Array<Address$Outbound>;
-  contactId: string;
-  currency: string;
-  discountPercentage: number;
-  dueDate: string;
-  fileId: string;
-  grossTotalAmount: number;
+  invoiceId?: string | undefined;
+  addresses?: Array<CreateAddress$Outbound> | undefined;
+  contactId?: string | undefined;
+  currency?: string | undefined;
+  discountPercentage?: number | undefined;
+  dueDate?: string | undefined;
+  fileId?: string | undefined;
+  grossTotalAmount?: number | undefined;
   invoiceDate: string;
-  invoiceNumber: string;
-  invoiceType: string;
-  journalCode: string;
-  lineAmountTypes: string;
+  invoiceNumber?: string | undefined;
+  invoiceType?: string | undefined;
+  journalCode?: string | undefined;
+  lineAmountTypes?: string | undefined;
   lineItems: Array<CreateLineItemRequestDto$Outbound>;
-  name: string;
-  oneLineAddress: string;
-  paidDate: string;
-  paymentTermDuration: number;
-  paymentTermId: string;
-  reference: string;
-  shippingDate: string;
-  shippingType: string;
-  shippingEndDate: string;
-  status: string;
-  taxRule: string;
-  taxText: string;
+  name?: string | undefined;
+  oneLineAddress?: string | undefined;
+  paidDate?: string | undefined;
+  paymentTermDuration?: number | undefined;
+  paymentTermId?: string | undefined;
+  reference?: string | undefined;
+  shippingDate?: string | undefined;
+  shippingType?: string | undefined;
+  shippingEndDate?: string | undefined;
+  status?: string | undefined;
+  taxRule?: string | undefined;
+  taxText?: string | undefined;
 };
 
 /** @internal */
@@ -155,32 +155,32 @@ export const CreateInvoiceRequestDto$outboundSchema: z.ZodMiniType<
   CreateInvoiceRequestDto$Outbound,
   CreateInvoiceRequestDto
 > = z.object({
-  invoiceId: z.string(),
-  addresses: z.array(Address$outboundSchema),
-  contactId: z.string(),
-  currency: z.string(),
-  discountPercentage: z.number(),
-  dueDate: z.string(),
-  fileId: z.string(),
-  grossTotalAmount: z.number(),
+  invoiceId: z.optional(z.string()),
+  addresses: z.optional(z.array(CreateAddress$outboundSchema)),
+  contactId: z.optional(z.string()),
+  currency: z.optional(z.string()),
+  discountPercentage: z.optional(z.number()),
+  dueDate: z.optional(z.string()),
+  fileId: z.optional(z.string()),
+  grossTotalAmount: z.optional(z.number()),
   invoiceDate: z.string(),
-  invoiceNumber: z.string(),
-  invoiceType: CreateInvoiceRequestDtoInvoiceType$outboundSchema,
-  journalCode: z.string(),
-  lineAmountTypes: z.string(),
+  invoiceNumber: z.optional(z.string()),
+  invoiceType: z.optional(CreateInvoiceRequestDtoInvoiceType$outboundSchema),
+  journalCode: z.optional(z.string()),
+  lineAmountTypes: z.optional(z.string()),
   lineItems: z.array(CreateLineItemRequestDto$outboundSchema),
-  name: z.string(),
-  oneLineAddress: z.string(),
-  paidDate: z.string(),
-  paymentTermDuration: z.number(),
-  paymentTermId: z.string(),
-  reference: z.string(),
-  shippingDate: z.string(),
-  shippingType: CreateInvoiceRequestDtoShippingType$outboundSchema,
-  shippingEndDate: z.string(),
-  status: CreateInvoiceRequestDtoStatus$outboundSchema,
-  taxRule: CreateInvoiceRequestDtoTaxRule$outboundSchema,
-  taxText: z.string(),
+  name: z.optional(z.string()),
+  oneLineAddress: z.optional(z.string()),
+  paidDate: z.optional(z.string()),
+  paymentTermDuration: z.optional(z.number()),
+  paymentTermId: z.optional(z.string()),
+  reference: z.optional(z.string()),
+  shippingDate: z.optional(z.string()),
+  shippingType: z.optional(CreateInvoiceRequestDtoShippingType$outboundSchema),
+  shippingEndDate: z.optional(z.string()),
+  status: z.optional(CreateInvoiceRequestDtoStatus$outboundSchema),
+  taxRule: z.optional(CreateInvoiceRequestDtoTaxRule$outboundSchema),
+  taxText: z.optional(z.string()),
 });
 
 export function createInvoiceRequestDtoToJSON(

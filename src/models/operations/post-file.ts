@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { blobLikeSchema } from "../../types/blobs.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
@@ -30,15 +31,27 @@ export type PostFileRequest = {
   body: PostFileRequestBody;
 };
 
+export type PostFilePagination = {
+  total: number;
+  perPage: number;
+  currentPage: number;
+  totalPages: number;
+};
+
+export type PostFileMeta = {
+  warnings?: Array<string> | null | undefined;
+  pagination?: PostFilePagination | null | undefined;
+};
+
 export type PostFileErrors = {};
 
 export type PostFileRawData = {};
 
 export type PostFileResponse = {
-  meta: models.MetaResponse;
+  meta?: PostFileMeta | null | undefined;
   data: models.DocumentResponseDto;
-  errors: PostFileErrors;
-  rawData: PostFileRawData;
+  errors: PostFileErrors | null;
+  rawData: PostFileRawData | null;
 };
 
 /** @internal */
@@ -124,6 +137,46 @@ export function postFileRequestToJSON(
 }
 
 /** @internal */
+export const PostFilePagination$inboundSchema: z.ZodMiniType<
+  PostFilePagination,
+  unknown
+> = z.object({
+  total: types.number(),
+  perPage: types.number(),
+  currentPage: types.number(),
+  totalPages: types.number(),
+});
+
+export function postFilePaginationFromJSON(
+  jsonString: string,
+): SafeParseResult<PostFilePagination, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => PostFilePagination$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'PostFilePagination' from JSON`,
+  );
+}
+
+/** @internal */
+export const PostFileMeta$inboundSchema: z.ZodMiniType<PostFileMeta, unknown> =
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => PostFilePagination$inboundSchema)),
+    ),
+  });
+
+export function postFileMetaFromJSON(
+  jsonString: string,
+): SafeParseResult<PostFileMeta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => PostFileMeta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'PostFileMeta' from JSON`,
+  );
+}
+
+/** @internal */
 export const PostFileErrors$inboundSchema: z.ZodMiniType<
   PostFileErrors,
   unknown
@@ -160,10 +213,10 @@ export const PostFileResponse$inboundSchema: z.ZodMiniType<
   PostFileResponse,
   unknown
 > = z.object({
-  meta: models.MetaResponse$inboundSchema,
+  meta: z.optional(z.nullable(z.lazy(() => PostFileMeta$inboundSchema))),
   data: models.DocumentResponseDto$inboundSchema,
-  errors: z.lazy(() => PostFileErrors$inboundSchema),
-  rawData: z.lazy(() => PostFileRawData$inboundSchema),
+  errors: types.nullable(z.lazy(() => PostFileErrors$inboundSchema)),
+  rawData: types.nullable(z.lazy(() => PostFileRawData$inboundSchema)),
 });
 
 export function postFileResponseFromJSON(

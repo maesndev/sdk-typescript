@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
@@ -68,15 +69,27 @@ export type GetInvoicesRequest = {
   dueDateFrom?: string | undefined;
 };
 
+export type GetInvoicesPagination = {
+  total: number;
+  perPage: number;
+  currentPage: number;
+  totalPages: number;
+};
+
+export type GetInvoicesMeta = {
+  warnings?: Array<string> | null | undefined;
+  pagination?: GetInvoicesPagination | null | undefined;
+};
+
 export type GetInvoicesErrors = {};
 
 export type GetInvoicesRawData = {};
 
 export type GetInvoicesResponse = {
-  meta: models.MetaResponse;
+  meta?: GetInvoicesMeta | null | undefined;
   data: Array<models.InvoiceResponseDto>;
-  errors: GetInvoicesErrors;
-  rawData: GetInvoicesRawData;
+  errors: GetInvoicesErrors | null;
+  rawData: GetInvoicesRawData | null;
 };
 
 /** @internal */
@@ -141,6 +154,48 @@ export function getInvoicesRequestToJSON(
 }
 
 /** @internal */
+export const GetInvoicesPagination$inboundSchema: z.ZodMiniType<
+  GetInvoicesPagination,
+  unknown
+> = z.object({
+  total: types.number(),
+  perPage: types.number(),
+  currentPage: types.number(),
+  totalPages: types.number(),
+});
+
+export function getInvoicesPaginationFromJSON(
+  jsonString: string,
+): SafeParseResult<GetInvoicesPagination, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetInvoicesPagination$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetInvoicesPagination' from JSON`,
+  );
+}
+
+/** @internal */
+export const GetInvoicesMeta$inboundSchema: z.ZodMiniType<
+  GetInvoicesMeta,
+  unknown
+> = z.object({
+  warnings: z.optional(z.nullable(z.array(types.string()))),
+  pagination: z.optional(
+    z.nullable(z.lazy(() => GetInvoicesPagination$inboundSchema)),
+  ),
+});
+
+export function getInvoicesMetaFromJSON(
+  jsonString: string,
+): SafeParseResult<GetInvoicesMeta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetInvoicesMeta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetInvoicesMeta' from JSON`,
+  );
+}
+
+/** @internal */
 export const GetInvoicesErrors$inboundSchema: z.ZodMiniType<
   GetInvoicesErrors,
   unknown
@@ -177,10 +232,10 @@ export const GetInvoicesResponse$inboundSchema: z.ZodMiniType<
   GetInvoicesResponse,
   unknown
 > = z.object({
-  meta: models.MetaResponse$inboundSchema,
+  meta: z.optional(z.nullable(z.lazy(() => GetInvoicesMeta$inboundSchema))),
   data: z.array(models.InvoiceResponseDto$inboundSchema),
-  errors: z.lazy(() => GetInvoicesErrors$inboundSchema),
-  rawData: z.lazy(() => GetInvoicesRawData$inboundSchema),
+  errors: types.nullable(z.lazy(() => GetInvoicesErrors$inboundSchema)),
+  rawData: types.nullable(z.lazy(() => GetInvoicesRawData$inboundSchema)),
 });
 
 export function getInvoicesResponseFromJSON(

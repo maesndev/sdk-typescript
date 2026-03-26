@@ -3,24 +3,24 @@
 ## Example Usage
 
 ```typescript
-import { BookingEntryResponseDto } from "maesn/models";
+import { BookingEntryResponseDto } from "@maesn/typescript-sdk/models";
 
 let value: BookingEntryResponseDto = {
   id: "<id>",
-  accountNumber: 2672.82,
-  amount: 3273.87,
+  accountNumber: 7445.77,
+  amount: 3525.8,
   bookingDate: "<value>",
   bookingTaxCode: "<value>",
-  bookingType: "FINAL_INVOICE",
-  contraAccountNumber: 3355.13,
+  bookingType: "PARTIAL_INVOICE",
+  contraAccountNumber: 4500.77,
   dimension1: "<value>",
-  dimension2: "<value>",
-  currency: "HKD",
-  debitCreditIndicator: "DEBIT",
-  description: "if minus climb woot",
+  dimension2: null,
+  currency: "UZS",
+  debitCreditIndicator: null,
+  description: "beneath if past submitter in fooey if knottily tankful instead",
   documentNumber: "<value>",
   dueDate: "<value>",
-  fileId: "<id>",
+  fileId: null,
 };
 ```
 

@@ -22,21 +22,21 @@ export type PatchLineItemRequestType = ClosedEnum<
 
 export type PatchLineItemRequest = {
   lineItemId: string;
-  itemId: string;
-  unitName: string;
-  type: PatchLineItemRequestType;
-  quantity: number;
-  taxRatePercentage: number;
-  unitAmount: number;
-  grossAmount: number;
-  taxCode: string;
-  taxType: string;
-  description: string;
-  name: string;
-  accountCode: string;
-  accountId: string;
-  dimensions: Array<InvoiceDimensionRequestDto>;
-  discountItemPercentage: number;
+  itemId?: string | undefined;
+  unitName?: string | undefined;
+  type?: PatchLineItemRequestType | undefined;
+  quantity?: number | undefined;
+  taxRatePercentage?: number | undefined;
+  unitAmount?: number | undefined;
+  grossAmount?: number | undefined;
+  taxCode?: string | undefined;
+  taxType?: string | undefined;
+  description?: string | undefined;
+  name?: string | undefined;
+  accountCode?: string | undefined;
+  accountId?: string | undefined;
+  dimensions?: Array<InvoiceDimensionRequestDto> | undefined;
+  discountItemPercentage?: number | undefined;
 };
 
 /** @internal */
@@ -47,21 +47,21 @@ export const PatchLineItemRequestType$outboundSchema: z.ZodMiniEnum<
 /** @internal */
 export type PatchLineItemRequest$Outbound = {
   lineItemId: string;
-  itemId: string;
-  unitName: string;
-  type: string;
-  quantity: number;
-  taxRatePercentage: number;
-  unitAmount: number;
-  grossAmount: number;
-  taxCode: string;
-  taxType: string;
-  description: string;
-  name: string;
-  accountCode: string;
-  accountId: string;
-  dimensions: Array<InvoiceDimensionRequestDto$Outbound>;
-  discountItemPercentage: number;
+  itemId?: string | undefined;
+  unitName?: string | undefined;
+  type?: string | undefined;
+  quantity?: number | undefined;
+  taxRatePercentage?: number | undefined;
+  unitAmount?: number | undefined;
+  grossAmount?: number | undefined;
+  taxCode?: string | undefined;
+  taxType?: string | undefined;
+  description?: string | undefined;
+  name?: string | undefined;
+  accountCode?: string | undefined;
+  accountId?: string | undefined;
+  dimensions?: Array<InvoiceDimensionRequestDto$Outbound> | undefined;
+  discountItemPercentage?: number | undefined;
 };
 
 /** @internal */
@@ -70,21 +70,21 @@ export const PatchLineItemRequest$outboundSchema: z.ZodMiniType<
   PatchLineItemRequest
 > = z.object({
   lineItemId: z.string(),
-  itemId: z.string(),
-  unitName: z.string(),
-  type: PatchLineItemRequestType$outboundSchema,
-  quantity: z.number(),
-  taxRatePercentage: z.number(),
-  unitAmount: z.number(),
-  grossAmount: z.number(),
-  taxCode: z.string(),
-  taxType: z.string(),
-  description: z.string(),
-  name: z.string(),
-  accountCode: z.string(),
-  accountId: z.string(),
-  dimensions: z.array(InvoiceDimensionRequestDto$outboundSchema),
-  discountItemPercentage: z.number(),
+  itemId: z.optional(z.string()),
+  unitName: z.optional(z.string()),
+  type: z.optional(PatchLineItemRequestType$outboundSchema),
+  quantity: z.optional(z.number()),
+  taxRatePercentage: z.optional(z.number()),
+  unitAmount: z.optional(z.number()),
+  grossAmount: z.optional(z.number()),
+  taxCode: z.optional(z.string()),
+  taxType: z.optional(z.string()),
+  description: z.optional(z.string()),
+  name: z.optional(z.string()),
+  accountCode: z.optional(z.string()),
+  accountId: z.optional(z.string()),
+  dimensions: z.optional(z.array(InvoiceDimensionRequestDto$outboundSchema)),
+  discountItemPercentage: z.optional(z.number()),
 });
 
 export function patchLineItemRequestToJSON(

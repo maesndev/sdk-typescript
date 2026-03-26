@@ -8,14 +8,14 @@ import * as models from "../index.js";
 export type CreateWebhookRequest = {
   environmentName?: string | undefined;
   companyId?: string | undefined;
-  body: models.CreateWebhookRequestDto;
+  body: models.CreateAccountingWebhookRequestDto;
 };
 
 /** @internal */
 export type CreateWebhookRequest$Outbound = {
   environmentName?: string | undefined;
   companyId?: string | undefined;
-  body: models.CreateWebhookRequestDto$Outbound;
+  body: models.CreateAccountingWebhookRequestDto$Outbound;
 };
 
 /** @internal */
@@ -25,7 +25,7 @@ export const CreateWebhookRequest$outboundSchema: z.ZodMiniType<
 > = z.object({
   environmentName: z.optional(z.string()),
   companyId: z.optional(z.string()),
-  body: models.CreateWebhookRequestDto$outboundSchema,
+  body: models.CreateAccountingWebhookRequestDto$outboundSchema,
 });
 
 export function createWebhookRequestToJSON(

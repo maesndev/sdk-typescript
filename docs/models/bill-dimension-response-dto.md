@@ -3,11 +3,11 @@
 ## Example Usage
 
 ```typescript
-import { BillDimensionResponseDto } from "maesn/models";
+import { BillDimensionResponseDto } from "@maesn/typescript-sdk/models";
 
 let value: BillDimensionResponseDto = {
   name: "<value>",
-  categoryName: "<value>",
+  categoryName: null,
 };
 ```
 

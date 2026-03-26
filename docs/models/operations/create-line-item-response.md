@@ -3,22 +3,32 @@
 ## Example Usage
 
 ```typescript
-import { CreateLineItemResponse } from "maesn/models/operations";
+import { CreateLineItemResponse } from "@maesn/typescript-sdk/models/operations";
 
 let value: CreateLineItemResponse = {
-  meta: {
-    warnings: [
-      "<value 1>",
-      "<value 2>",
+  data: {
+    lineItemId: "<id>",
+    accountId: "<id>",
+    createdDate: "<value>",
+    description: "out kindly unselfish",
+    dimensions: [
+      {
+        id: "<id>",
+        categoryName: "<value>",
+        name: null,
+      },
     ],
-    pagination: {
-      total: 3438.77,
-      perPage: 5109.63,
-      currentPage: 2626.79,
-      totalPages: 3561.84,
-    },
+    discountItemAmount: 1433.15,
+    discountItemPercentage: 9792.95,
+    grossAmount: null,
+    itemsAmount: 3815.51,
+    itemId: "<id>",
+    name: "<value>",
+    quantity: 8444.65,
+    taxRatePercentage: null,
+    unitAmount: 7360.37,
+    updatedDate: "<value>",
   },
-  data: [],
   errors: {},
   rawData: {},
 };
@@ -28,7 +38,7 @@ let value: CreateLineItemResponse = {
 
 | Field                                                                                    | Type                                                                                     | Required                                                                                 | Description                                                                              |
 | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `meta`                                                                                   | [models.MetaResponse](../../models/meta-response.md)                                     | :heavy_check_mark:                                                                       | N/A                                                                                      |
-| `data`                                                                                   | [models.LineItemResponseDto](../../models/line-item-response-dto.md)[]                   | :heavy_check_mark:                                                                       | N/A                                                                                      |
+| `meta`                                                                                   | [operations.CreateLineItemMeta](../../models/operations/create-line-item-meta.md)        | :heavy_minus_sign:                                                                       | N/A                                                                                      |
+| `data`                                                                                   | [models.LineItemResponseDto](../../models/line-item-response-dto.md)                     | :heavy_check_mark:                                                                       | N/A                                                                                      |
 | `errors`                                                                                 | [operations.CreateLineItemErrors](../../models/operations/create-line-item-errors.md)    | :heavy_check_mark:                                                                       | N/A                                                                                      |
 | `rawData`                                                                                | [operations.CreateLineItemRawData](../../models/operations/create-line-item-raw-data.md) | :heavy_check_mark:                                                                       | N/A                                                                                      |

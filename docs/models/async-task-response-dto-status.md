@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { AsyncTaskResponseDtoStatus } from "maesn/models";
+import { AsyncTaskResponseDtoStatus } from "@maesn/typescript-sdk/models";
 
 let value: AsyncTaskResponseDtoStatus = "IN_PROGRESS";
 

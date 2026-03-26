@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { AddressOfferCountryCode } from "maesn/models";
+import { AddressOfferCountryCode } from "@maesn/typescript-sdk/models";
 
 let value: AddressOfferCountryCode = "LR";
 

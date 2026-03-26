@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
@@ -21,15 +22,27 @@ export type GetTrialBalanceRequest = {
   fiscalYearStartDate?: string | undefined;
 };
 
+export type GetTrialBalancePagination = {
+  total: number;
+  perPage: number;
+  currentPage: number;
+  totalPages: number;
+};
+
+export type GetTrialBalanceMeta = {
+  warnings?: Array<string> | null | undefined;
+  pagination?: GetTrialBalancePagination | null | undefined;
+};
+
 export type GetTrialBalanceErrors = {};
 
 export type GetTrialBalanceRawData = {};
 
 export type GetTrialBalanceResponse = {
-  meta: models.MetaResponse;
+  meta?: GetTrialBalanceMeta | null | undefined;
   data: Array<models.TrialBalanceResponseDto>;
-  errors: GetTrialBalanceErrors;
-  rawData: GetTrialBalanceRawData;
+  errors: GetTrialBalanceErrors | null;
+  rawData: GetTrialBalanceRawData | null;
 };
 
 /** @internal */
@@ -72,6 +85,48 @@ export function getTrialBalanceRequestToJSON(
 }
 
 /** @internal */
+export const GetTrialBalancePagination$inboundSchema: z.ZodMiniType<
+  GetTrialBalancePagination,
+  unknown
+> = z.object({
+  total: types.number(),
+  perPage: types.number(),
+  currentPage: types.number(),
+  totalPages: types.number(),
+});
+
+export function getTrialBalancePaginationFromJSON(
+  jsonString: string,
+): SafeParseResult<GetTrialBalancePagination, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetTrialBalancePagination$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetTrialBalancePagination' from JSON`,
+  );
+}
+
+/** @internal */
+export const GetTrialBalanceMeta$inboundSchema: z.ZodMiniType<
+  GetTrialBalanceMeta,
+  unknown
+> = z.object({
+  warnings: z.optional(z.nullable(z.array(types.string()))),
+  pagination: z.optional(
+    z.nullable(z.lazy(() => GetTrialBalancePagination$inboundSchema)),
+  ),
+});
+
+export function getTrialBalanceMetaFromJSON(
+  jsonString: string,
+): SafeParseResult<GetTrialBalanceMeta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetTrialBalanceMeta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetTrialBalanceMeta' from JSON`,
+  );
+}
+
+/** @internal */
 export const GetTrialBalanceErrors$inboundSchema: z.ZodMiniType<
   GetTrialBalanceErrors,
   unknown
@@ -108,10 +163,10 @@ export const GetTrialBalanceResponse$inboundSchema: z.ZodMiniType<
   GetTrialBalanceResponse,
   unknown
 > = z.object({
-  meta: models.MetaResponse$inboundSchema,
+  meta: z.optional(z.nullable(z.lazy(() => GetTrialBalanceMeta$inboundSchema))),
   data: z.array(models.TrialBalanceResponseDto$inboundSchema),
-  errors: z.lazy(() => GetTrialBalanceErrors$inboundSchema),
-  rawData: z.lazy(() => GetTrialBalanceRawData$inboundSchema),
+  errors: types.nullable(z.lazy(() => GetTrialBalanceErrors$inboundSchema)),
+  rawData: types.nullable(z.lazy(() => GetTrialBalanceRawData$inboundSchema)),
 });
 
 export function getTrialBalanceResponseFromJSON(

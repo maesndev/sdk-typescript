@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { ErrorT } from "maesn/models/operations";
+import { ErrorT } from "@maesn/typescript-sdk/models/operations";
 
 let value: ErrorT = {
   status: "<value>",

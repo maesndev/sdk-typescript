@@ -34,7 +34,7 @@ generation:
     generateNewTests: true
     skipResponseBodyAssertions: false
 typescript:
-  version: 0.2.0
+  version: 0.2.1
   acceptHeaderEnum: false
   additionalDependencies:
     dependencies: {}
@@ -82,7 +82,7 @@ typescript:
   moduleFormat: esm
   multipartArrayFormat: standard
   outputModelSuffix: output
-  packageName: "@maesn/typescript-sdk"
+  packageName: '@maesn/typescript-sdk'
   preApplyUnionDiscriminators: true
   preserveModelFieldNames: false
   responseFormat: flat

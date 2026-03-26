@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
@@ -15,15 +16,27 @@ export type UpdateBillRequest = {
   body: models.CreateBillRequestDto;
 };
 
+export type UpdateBillPagination = {
+  total: number;
+  perPage: number;
+  currentPage: number;
+  totalPages: number;
+};
+
+export type UpdateBillMeta = {
+  warnings?: Array<string> | null | undefined;
+  pagination?: UpdateBillPagination | null | undefined;
+};
+
 export type UpdateBillErrors = {};
 
 export type UpdateBillRawData = {};
 
 export type UpdateBillResponse = {
-  meta: models.MetaResponse;
+  meta?: UpdateBillMeta | null | undefined;
   data: models.BillResponseDto;
-  errors: UpdateBillErrors;
-  rawData: UpdateBillRawData;
+  errors: UpdateBillErrors | null;
+  rawData: UpdateBillRawData | null;
 };
 
 /** @internal */
@@ -50,6 +63,48 @@ export function updateBillRequestToJSON(
 ): string {
   return JSON.stringify(
     UpdateBillRequest$outboundSchema.parse(updateBillRequest),
+  );
+}
+
+/** @internal */
+export const UpdateBillPagination$inboundSchema: z.ZodMiniType<
+  UpdateBillPagination,
+  unknown
+> = z.object({
+  total: types.number(),
+  perPage: types.number(),
+  currentPage: types.number(),
+  totalPages: types.number(),
+});
+
+export function updateBillPaginationFromJSON(
+  jsonString: string,
+): SafeParseResult<UpdateBillPagination, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UpdateBillPagination$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UpdateBillPagination' from JSON`,
+  );
+}
+
+/** @internal */
+export const UpdateBillMeta$inboundSchema: z.ZodMiniType<
+  UpdateBillMeta,
+  unknown
+> = z.object({
+  warnings: z.optional(z.nullable(z.array(types.string()))),
+  pagination: z.optional(
+    z.nullable(z.lazy(() => UpdateBillPagination$inboundSchema)),
+  ),
+});
+
+export function updateBillMetaFromJSON(
+  jsonString: string,
+): SafeParseResult<UpdateBillMeta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UpdateBillMeta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UpdateBillMeta' from JSON`,
   );
 }
 
@@ -90,10 +145,10 @@ export const UpdateBillResponse$inboundSchema: z.ZodMiniType<
   UpdateBillResponse,
   unknown
 > = z.object({
-  meta: models.MetaResponse$inboundSchema,
+  meta: z.optional(z.nullable(z.lazy(() => UpdateBillMeta$inboundSchema))),
   data: models.BillResponseDto$inboundSchema,
-  errors: z.lazy(() => UpdateBillErrors$inboundSchema),
-  rawData: z.lazy(() => UpdateBillRawData$inboundSchema),
+  errors: types.nullable(z.lazy(() => UpdateBillErrors$inboundSchema)),
+  rawData: types.nullable(z.lazy(() => UpdateBillRawData$inboundSchema)),
 });
 
 export function updateBillResponseFromJSON(

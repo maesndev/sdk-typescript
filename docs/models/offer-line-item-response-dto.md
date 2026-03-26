@@ -3,30 +3,29 @@
 ## Example Usage
 
 ```typescript
-import { OfferLineItemResponseDto } from "maesn/models";
+import { OfferLineItemResponseDto } from "@maesn/typescript-sdk/models";
 
 let value: OfferLineItemResponseDto = {
   id: "<id>",
   accountCode: "<value>",
   accountId: "<id>",
   createdDate: "<value>",
-  description:
-    "oxidize searchingly other calculus eke proceed consequently knight",
+  description: "clear incidentally founder",
   itemId: "<id>",
   name: "<value>",
-  quantity: 7045.13,
+  quantity: 3103.37,
   taxCode: "<value>",
-  taxRatePercentage: 8669.35,
+  taxRatePercentage: 622.21,
   taxType: "<value>",
-  type: "RESOURCE",
-  totalDiscountAmount: 2838.97,
-  totalDiscountPercentage: 2847.98,
-  totalGrossAmount: 8120.23,
-  totalNetAmount: 3780.92,
-  totalTaxAmount: 9016.6,
-  unitAmount: 8589.6,
-  unitDiscountAmount: 2684.06,
-  unitDiscountPercentage: 8185.06,
+  type: "FIXED_ASSET",
+  totalDiscountAmount: 4313.14,
+  totalDiscountPercentage: 9286.18,
+  totalGrossAmount: 6372.22,
+  totalNetAmount: null,
+  totalTaxAmount: 1997.34,
+  unitAmount: 2974.6,
+  unitDiscountAmount: 1377.32,
+  unitDiscountPercentage: 2982.32,
   unitName: "<value>",
   updatedDate: "<value>",
 };

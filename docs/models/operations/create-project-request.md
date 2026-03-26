@@ -3,21 +3,10 @@
 ## Example Usage
 
 ```typescript
-import { CreateProjectRequest } from "maesn/models/operations";
+import { CreateProjectRequest } from "@maesn/typescript-sdk/models/operations";
 
 let value: CreateProjectRequest = {
-  body: {
-    code: "<value>",
-    contactId: "<id>",
-    currency: "YER",
-    description: "coop worthwhile huzzah spotless",
-    endDate: "<value>",
-    name: "<value>",
-    number: "<value>",
-    parentProjectId: "<id>",
-    status: "ACTIVE",
-    startDate: "<value>",
-  },
+  body: {},
 };
 ```
 

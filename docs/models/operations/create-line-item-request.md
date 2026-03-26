@@ -3,32 +3,12 @@
 ## Example Usage
 
 ```typescript
-import { CreateLineItemRequest } from "maesn/models/operations";
+import { CreateLineItemRequest } from "@maesn/typescript-sdk/models/operations";
 
 let value: CreateLineItemRequest = {
   invoiceId: "<id>",
   body: {
-    accountCode: "<value>",
-    accountId: "<id>",
-    description: "minor silky splendid gestate haze intermesh",
-    dimensions: [
-      {
-        id: "<id>",
-        categoryName: "<value>",
-        name: "<value>",
-      },
-    ],
-    discountItemPercentage: 3616.16,
-    grossAmount: 3638.49,
-    itemId: "<id>",
-    name: "<value>",
-    quantity: 8433.27,
-    taxCode: "<value>",
-    taxRatePercentage: 6265.76,
-    taxType: "<value>",
-    type: "<value>",
-    unitAmount: 413.75,
-    unitName: "<value>",
+    quantity: 4059.96,
   },
 };
 ```

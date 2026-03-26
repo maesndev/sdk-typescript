@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { GetFiscalYearRequest } from "maesn/models/operations";
+import { GetFiscalYearRequest } from "@maesn/typescript-sdk/models/operations";
 
 let value: GetFiscalYearRequest = {
   fiscalYearId: "<id>",

@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { CreateInvoiceRequestDtoStatus } from "maesn/models";
+import { CreateInvoiceRequestDtoStatus } from "@maesn/typescript-sdk/models";
 
 let value: CreateInvoiceRequestDtoStatus = "DRAFT";
 ```

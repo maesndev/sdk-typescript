@@ -9,9 +9,9 @@ import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
 export type InvoiceDimensionResponseDto = {
-  id: string;
-  categoryName: string;
-  name: string;
+  id: string | null;
+  categoryName: string | null;
+  name: string | null;
 };
 
 /** @internal */
@@ -19,9 +19,9 @@ export const InvoiceDimensionResponseDto$inboundSchema: z.ZodMiniType<
   InvoiceDimensionResponseDto,
   unknown
 > = z.object({
-  id: types.string(),
-  categoryName: types.string(),
-  name: types.string(),
+  id: types.nullable(types.string()),
+  categoryName: types.nullable(types.string()),
+  name: types.nullable(types.string()),
 });
 
 export function invoiceDimensionResponseDtoFromJSON(

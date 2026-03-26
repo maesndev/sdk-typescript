@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
@@ -12,15 +13,27 @@ export type GetBookingProposalDocumentRequest = {
   bookingProposalId: string;
 };
 
+export type GetBookingProposalDocumentPagination = {
+  total: number;
+  perPage: number;
+  currentPage: number;
+  totalPages: number;
+};
+
+export type GetBookingProposalDocumentMeta = {
+  warnings?: Array<string> | null | undefined;
+  pagination?: GetBookingProposalDocumentPagination | null | undefined;
+};
+
 export type GetBookingProposalDocumentErrors = {};
 
 export type GetBookingProposalDocumentRawData = {};
 
 export type GetBookingProposalDocumentResponse = {
-  meta: models.MetaResponse;
+  meta?: GetBookingProposalDocumentMeta | null | undefined;
   data: models.DocumentResponseDto;
-  errors: GetBookingProposalDocumentErrors;
-  rawData: GetBookingProposalDocumentRawData;
+  errors: GetBookingProposalDocumentErrors | null;
+  rawData: GetBookingProposalDocumentRawData | null;
 };
 
 /** @internal */
@@ -43,6 +56,51 @@ export function getBookingProposalDocumentRequestToJSON(
     GetBookingProposalDocumentRequest$outboundSchema.parse(
       getBookingProposalDocumentRequest,
     ),
+  );
+}
+
+/** @internal */
+export const GetBookingProposalDocumentPagination$inboundSchema: z.ZodMiniType<
+  GetBookingProposalDocumentPagination,
+  unknown
+> = z.object({
+  total: types.number(),
+  perPage: types.number(),
+  currentPage: types.number(),
+  totalPages: types.number(),
+});
+
+export function getBookingProposalDocumentPaginationFromJSON(
+  jsonString: string,
+): SafeParseResult<GetBookingProposalDocumentPagination, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      GetBookingProposalDocumentPagination$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetBookingProposalDocumentPagination' from JSON`,
+  );
+}
+
+/** @internal */
+export const GetBookingProposalDocumentMeta$inboundSchema: z.ZodMiniType<
+  GetBookingProposalDocumentMeta,
+  unknown
+> = z.object({
+  warnings: z.optional(z.nullable(z.array(types.string()))),
+  pagination: z.optional(
+    z.nullable(
+      z.lazy(() => GetBookingProposalDocumentPagination$inboundSchema),
+    ),
+  ),
+});
+
+export function getBookingProposalDocumentMetaFromJSON(
+  jsonString: string,
+): SafeParseResult<GetBookingProposalDocumentMeta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetBookingProposalDocumentMeta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetBookingProposalDocumentMeta' from JSON`,
   );
 }
 
@@ -83,10 +141,16 @@ export const GetBookingProposalDocumentResponse$inboundSchema: z.ZodMiniType<
   GetBookingProposalDocumentResponse,
   unknown
 > = z.object({
-  meta: models.MetaResponse$inboundSchema,
+  meta: z.optional(
+    z.nullable(z.lazy(() => GetBookingProposalDocumentMeta$inboundSchema)),
+  ),
   data: models.DocumentResponseDto$inboundSchema,
-  errors: z.lazy(() => GetBookingProposalDocumentErrors$inboundSchema),
-  rawData: z.lazy(() => GetBookingProposalDocumentRawData$inboundSchema),
+  errors: types.nullable(
+    z.lazy(() => GetBookingProposalDocumentErrors$inboundSchema),
+  ),
+  rawData: types.nullable(
+    z.lazy(() => GetBookingProposalDocumentRawData$inboundSchema),
+  ),
 });
 
 export function getBookingProposalDocumentResponseFromJSON(

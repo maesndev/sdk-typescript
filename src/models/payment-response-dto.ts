@@ -4,37 +4,54 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../lib/schemas.js";
+import * as openEnums from "../types/enums.js";
+import { OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 import { PaymentLine, PaymentLine$inboundSchema } from "./payment-line.js";
 
+export const PaymentResponseDtoDocumentType = {
+  Invoice: "INVOICE",
+  Bill: "BILL",
+  BookingProposal: "BOOKING_PROPOSAL",
+} as const;
+export type PaymentResponseDtoDocumentType = OpenEnum<
+  typeof PaymentResponseDtoDocumentType
+>;
+
 export type PaymentResponseDto = {
-  id: string;
-  currency: string;
-  createdDate: string;
-  documentType: string;
-  exchangeRate: number;
-  journalCode: string;
-  updatedDate: string;
-  paymentType: string;
-  paymentLines: Array<PaymentLine>;
+  id: string | null;
+  currency: string | null;
+  createdDate: string | null;
+  documentType: PaymentResponseDtoDocumentType | null;
+  exchangeRate: number | null;
+  journalCode: string | null;
+  updatedDate: string | null;
+  paymentType: string | null;
+  paymentLines: Array<PaymentLine> | null;
 };
+
+/** @internal */
+export const PaymentResponseDtoDocumentType$inboundSchema: z.ZodMiniType<
+  PaymentResponseDtoDocumentType,
+  unknown
+> = openEnums.inboundSchema(PaymentResponseDtoDocumentType);
 
 /** @internal */
 export const PaymentResponseDto$inboundSchema: z.ZodMiniType<
   PaymentResponseDto,
   unknown
 > = z.object({
-  id: types.string(),
-  currency: types.string(),
-  createdDate: types.string(),
-  documentType: types.string(),
-  exchangeRate: types.number(),
-  journalCode: types.string(),
-  updatedDate: types.string(),
-  paymentType: types.string(),
-  paymentLines: z.array(PaymentLine$inboundSchema),
+  id: types.nullable(types.string()),
+  currency: types.nullable(types.string()),
+  createdDate: types.nullable(types.string()),
+  documentType: types.nullable(PaymentResponseDtoDocumentType$inboundSchema),
+  exchangeRate: types.nullable(types.number()),
+  journalCode: types.nullable(types.string()),
+  updatedDate: types.nullable(types.string()),
+  paymentType: types.nullable(types.string()),
+  paymentLines: types.nullable(z.array(PaymentLine$inboundSchema)),
 });
 
 export function paymentResponseDtoFromJSON(

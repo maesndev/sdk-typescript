@@ -3,26 +3,25 @@
 ## Example Usage
 
 ```typescript
-import { GoodsReceiptResponseDto } from "maesn/models";
+import { GoodsReceiptResponseDto } from "@maesn/typescript-sdk/models";
 
 let value: GoodsReceiptResponseDto = {
   id: "<id>",
   comment:
-    "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
+    "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
   createdDate: "<value>",
-  description: "um boo phew versus tomorrow stealthily gadzooks plan whether",
+  description: null,
   lineItems: [
     {
       id: "<id>",
       createdDate: "<value>",
-      description:
-        "vastly reprimand uh-huh restfully unto quietly yieldingly recklessly insignificant",
+      description: "kielbasa sunbeam against",
       itemId: "<id>",
       itemName: "<value>",
       projectId: "<id>",
       purchaseOrderId: "<id>",
-      quantityOrdered: 7685.77,
-      quantityReceived: 725.02,
+      quantityOrdered: 9504.4,
+      quantityReceived: 1980.42,
       updatedDate: "<value>",
     },
   ],

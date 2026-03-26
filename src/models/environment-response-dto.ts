@@ -9,11 +9,11 @@ import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
 export type EnvironmentResponseDto = {
-  name: string;
-  type: string;
-  tenantId: string;
-  applicationFamily: string;
-  countryCode: string;
+  name: string | null;
+  type?: string | null | undefined;
+  tenantId?: string | null | undefined;
+  applicationFamily?: string | null | undefined;
+  countryCode?: string | null | undefined;
 };
 
 /** @internal */
@@ -21,11 +21,11 @@ export const EnvironmentResponseDto$inboundSchema: z.ZodMiniType<
   EnvironmentResponseDto,
   unknown
 > = z.object({
-  name: types.string(),
-  type: types.string(),
-  tenantId: types.string(),
-  applicationFamily: types.string(),
-  countryCode: types.string(),
+  name: types.nullable(types.string()),
+  type: z.optional(z.nullable(types.string())),
+  tenantId: z.optional(z.nullable(types.string())),
+  applicationFamily: z.optional(z.nullable(types.string())),
+  countryCode: z.optional(z.nullable(types.string())),
 });
 
 export function environmentResponseDtoFromJSON(

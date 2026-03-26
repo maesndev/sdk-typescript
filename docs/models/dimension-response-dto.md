@@ -3,13 +3,13 @@
 ## Example Usage
 
 ```typescript
-import { DimensionResponseDto } from "maesn/models";
+import { DimensionResponseDto } from "@maesn/typescript-sdk/models";
 
 let value: DimensionResponseDto = {
   id: "<id>",
   categoryName: "<value>",
   createdDate: "<value>",
-  name: "<value>",
+  name: null,
   status: "<value>",
   updatedDate: "<value>",
 };

@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
@@ -15,15 +16,27 @@ export type GetJournalEntryAttachmentByIdRequest = {
   companyId?: string | undefined;
 };
 
+export type GetJournalEntryAttachmentByIdPagination = {
+  total: number;
+  perPage: number;
+  currentPage: number;
+  totalPages: number;
+};
+
+export type GetJournalEntryAttachmentByIdMeta = {
+  warnings?: Array<string> | null | undefined;
+  pagination?: GetJournalEntryAttachmentByIdPagination | null | undefined;
+};
+
 export type GetJournalEntryAttachmentByIdErrors = {};
 
 export type GetJournalEntryAttachmentByIdRawData = {};
 
 export type GetJournalEntryAttachmentByIdResponse = {
-  meta: models.MetaResponse;
-  data: Array<models.JournalEntryResponseDto>;
-  errors: GetJournalEntryAttachmentByIdErrors;
-  rawData: GetJournalEntryAttachmentByIdRawData;
+  meta?: GetJournalEntryAttachmentByIdMeta | null | undefined;
+  data: models.JournalEntryResponseDto;
+  errors: GetJournalEntryAttachmentByIdErrors | null;
+  rawData: GetJournalEntryAttachmentByIdRawData | null;
 };
 
 /** @internal */
@@ -52,6 +65,54 @@ export function getJournalEntryAttachmentByIdRequestToJSON(
     GetJournalEntryAttachmentByIdRequest$outboundSchema.parse(
       getJournalEntryAttachmentByIdRequest,
     ),
+  );
+}
+
+/** @internal */
+export const GetJournalEntryAttachmentByIdPagination$inboundSchema:
+  z.ZodMiniType<GetJournalEntryAttachmentByIdPagination, unknown> = z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  });
+
+export function getJournalEntryAttachmentByIdPaginationFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  GetJournalEntryAttachmentByIdPagination,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      GetJournalEntryAttachmentByIdPagination$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'GetJournalEntryAttachmentByIdPagination' from JSON`,
+  );
+}
+
+/** @internal */
+export const GetJournalEntryAttachmentByIdMeta$inboundSchema: z.ZodMiniType<
+  GetJournalEntryAttachmentByIdMeta,
+  unknown
+> = z.object({
+  warnings: z.optional(z.nullable(z.array(types.string()))),
+  pagination: z.optional(
+    z.nullable(z.lazy(() =>
+      GetJournalEntryAttachmentByIdPagination$inboundSchema
+    )),
+  ),
+});
+
+export function getJournalEntryAttachmentByIdMetaFromJSON(
+  jsonString: string,
+): SafeParseResult<GetJournalEntryAttachmentByIdMeta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetJournalEntryAttachmentByIdMeta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetJournalEntryAttachmentByIdMeta' from JSON`,
   );
 }
 
@@ -94,10 +155,16 @@ export const GetJournalEntryAttachmentByIdResponse$inboundSchema: z.ZodMiniType<
   GetJournalEntryAttachmentByIdResponse,
   unknown
 > = z.object({
-  meta: models.MetaResponse$inboundSchema,
-  data: z.array(models.JournalEntryResponseDto$inboundSchema),
-  errors: z.lazy(() => GetJournalEntryAttachmentByIdErrors$inboundSchema),
-  rawData: z.lazy(() => GetJournalEntryAttachmentByIdRawData$inboundSchema),
+  meta: z.optional(
+    z.nullable(z.lazy(() => GetJournalEntryAttachmentByIdMeta$inboundSchema)),
+  ),
+  data: models.JournalEntryResponseDto$inboundSchema,
+  errors: types.nullable(
+    z.lazy(() => GetJournalEntryAttachmentByIdErrors$inboundSchema),
+  ),
+  rawData: types.nullable(
+    z.lazy(() => GetJournalEntryAttachmentByIdRawData$inboundSchema),
+  ),
 });
 
 export function getJournalEntryAttachmentByIdResponseFromJSON(

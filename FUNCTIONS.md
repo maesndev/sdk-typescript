@@ -19,8 +19,8 @@ specific category of applications.
 ## Example
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingRetrieveAccount } from "maesn/funcs/accounting-retrieve-account.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingRetrieveAccount } from "@maesn/typescript-sdk/funcs/accounting-retrieve-account.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.

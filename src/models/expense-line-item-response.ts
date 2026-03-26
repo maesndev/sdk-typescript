@@ -8,8 +8,8 @@ import * as openEnums from "../types/enums.js";
 import { OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
+import { Dimension, Dimension$inboundSchema } from "./dimension.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
-import { TaxRate, TaxRate$inboundSchema } from "./tax-rate.js";
 
 export const ExpenseLineItemResponseCurrency = {
   Aed: "AED",
@@ -173,22 +173,29 @@ export type ExpenseLineItemResponseCurrency = OpenEnum<
   typeof ExpenseLineItemResponseCurrency
 >;
 
+export type ExpenseLineItemResponseTaxRate = {
+  id: string | null;
+  code: string | null;
+  name: string | null;
+  taxRatePercentage: string | null;
+};
+
 export type ExpenseLineItemResponse = {
-  id: string;
-  accountCode: string;
-  accountId: string;
-  accountNumber: number;
-  createdDate: string;
-  currency: ExpenseLineItemResponseCurrency;
-  description: string;
-  dimensions: Array<string>;
-  documentNumber: string;
-  exchangeRate: number;
-  itemId: string;
-  taxRate: TaxRate;
-  totalGrossAmount: number;
-  totalNetAmount: number;
-  updatedDate: string;
+  id: string | null;
+  accountCode: string | null;
+  accountId: string | null;
+  accountNumber: number | null;
+  createdDate: string | null;
+  currency: ExpenseLineItemResponseCurrency | null;
+  description: string | null;
+  dimensions: Array<Dimension> | null;
+  documentNumber: string | null;
+  exchangeRate: number | null;
+  itemId: string | null;
+  taxRate: ExpenseLineItemResponseTaxRate | null;
+  totalGrossAmount: number | null;
+  totalNetAmount: number | null;
+  updatedDate: string | null;
 };
 
 /** @internal */
@@ -198,25 +205,48 @@ export const ExpenseLineItemResponseCurrency$inboundSchema: z.ZodMiniType<
 > = openEnums.inboundSchema(ExpenseLineItemResponseCurrency);
 
 /** @internal */
+export const ExpenseLineItemResponseTaxRate$inboundSchema: z.ZodMiniType<
+  ExpenseLineItemResponseTaxRate,
+  unknown
+> = z.object({
+  id: types.nullable(types.string()),
+  code: types.nullable(types.string()),
+  name: types.nullable(types.string()),
+  taxRatePercentage: types.nullable(types.string()),
+});
+
+export function expenseLineItemResponseTaxRateFromJSON(
+  jsonString: string,
+): SafeParseResult<ExpenseLineItemResponseTaxRate, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ExpenseLineItemResponseTaxRate$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ExpenseLineItemResponseTaxRate' from JSON`,
+  );
+}
+
+/** @internal */
 export const ExpenseLineItemResponse$inboundSchema: z.ZodMiniType<
   ExpenseLineItemResponse,
   unknown
 > = z.object({
-  id: types.string(),
-  accountCode: types.string(),
-  accountId: types.string(),
-  accountNumber: types.number(),
-  createdDate: types.string(),
-  currency: ExpenseLineItemResponseCurrency$inboundSchema,
-  description: types.string(),
-  dimensions: z.array(types.string()),
-  documentNumber: types.string(),
-  exchangeRate: types.number(),
-  itemId: types.string(),
-  taxRate: TaxRate$inboundSchema,
-  totalGrossAmount: types.number(),
-  totalNetAmount: types.number(),
-  updatedDate: types.string(),
+  id: types.nullable(types.string()),
+  accountCode: types.nullable(types.string()),
+  accountId: types.nullable(types.string()),
+  accountNumber: types.nullable(types.number()),
+  createdDate: types.nullable(types.string()),
+  currency: types.nullable(ExpenseLineItemResponseCurrency$inboundSchema),
+  description: types.nullable(types.string()),
+  dimensions: types.nullable(z.array(Dimension$inboundSchema)),
+  documentNumber: types.nullable(types.string()),
+  exchangeRate: types.nullable(types.number()),
+  itemId: types.nullable(types.string()),
+  taxRate: types.nullable(
+    z.lazy(() => ExpenseLineItemResponseTaxRate$inboundSchema),
+  ),
+  totalGrossAmount: types.nullable(types.number()),
+  totalNetAmount: types.nullable(types.number()),
+  updatedDate: types.nullable(types.string()),
 });
 
 export function expenseLineItemResponseFromJSON(

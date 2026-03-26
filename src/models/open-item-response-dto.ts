@@ -8,12 +8,24 @@ import * as openEnums from "../types/enums.js";
 import { OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
-import { Balance, Balance$inboundSchema } from "./balance.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 import {
   OpenItemEntryResponseDto,
   OpenItemEntryResponseDto$inboundSchema,
 } from "./open-item-entry-response-dto.js";
+
+export const OpenItemResponseDtoDebitCreditIndicator = {
+  Debit: "DEBIT",
+  Credit: "CREDIT",
+} as const;
+export type OpenItemResponseDtoDebitCreditIndicator = OpenEnum<
+  typeof OpenItemResponseDtoDebitCreditIndicator
+>;
+
+export type OpenBalance = {
+  amount: number | null;
+  debitCreditIndicator: OpenItemResponseDtoDebitCreditIndicator | null;
+};
 
 export const OpenItemResponseDtoType = {
   Bill: "BILL",
@@ -22,21 +34,45 @@ export const OpenItemResponseDtoType = {
 export type OpenItemResponseDtoType = OpenEnum<typeof OpenItemResponseDtoType>;
 
 export type OpenItemResponseDto = {
-  id: string;
-  accountId: string;
-  accountName: string;
-  accountNumber: string;
-  createdDate: string;
-  currency: string;
-  documentNumber: string;
-  entries: Array<OpenItemEntryResponseDto>;
-  openBalance: Balance;
-  postingDate: string;
-  totalCreditAmount: number;
-  totalDebitAmount: number;
-  type: OpenItemResponseDtoType;
-  updatedDate: string;
+  id: string | null;
+  accountId: string | null;
+  accountName: string | null;
+  accountNumber: string | null;
+  createdDate: string | null;
+  currency: string | null;
+  documentNumber: string | null;
+  entries: Array<OpenItemEntryResponseDto> | null;
+  openBalance: OpenBalance | null;
+  postingDate: string | null;
+  totalCreditAmount: number | null;
+  totalDebitAmount: number | null;
+  type: OpenItemResponseDtoType | null;
+  updatedDate: string | null;
 };
+
+/** @internal */
+export const OpenItemResponseDtoDebitCreditIndicator$inboundSchema:
+  z.ZodMiniType<OpenItemResponseDtoDebitCreditIndicator, unknown> = openEnums
+    .inboundSchema(OpenItemResponseDtoDebitCreditIndicator);
+
+/** @internal */
+export const OpenBalance$inboundSchema: z.ZodMiniType<OpenBalance, unknown> = z
+  .object({
+    amount: types.nullable(types.number()),
+    debitCreditIndicator: types.nullable(
+      OpenItemResponseDtoDebitCreditIndicator$inboundSchema,
+    ),
+  });
+
+export function openBalanceFromJSON(
+  jsonString: string,
+): SafeParseResult<OpenBalance, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => OpenBalance$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'OpenBalance' from JSON`,
+  );
+}
 
 /** @internal */
 export const OpenItemResponseDtoType$inboundSchema: z.ZodMiniType<
@@ -49,20 +85,20 @@ export const OpenItemResponseDto$inboundSchema: z.ZodMiniType<
   OpenItemResponseDto,
   unknown
 > = z.object({
-  id: types.string(),
-  accountId: types.string(),
-  accountName: types.string(),
-  accountNumber: types.string(),
-  createdDate: types.string(),
-  currency: types.string(),
-  documentNumber: types.string(),
-  entries: z.array(OpenItemEntryResponseDto$inboundSchema),
-  openBalance: Balance$inboundSchema,
-  postingDate: types.string(),
-  totalCreditAmount: types.number(),
-  totalDebitAmount: types.number(),
-  type: OpenItemResponseDtoType$inboundSchema,
-  updatedDate: types.string(),
+  id: types.nullable(types.string()),
+  accountId: types.nullable(types.string()),
+  accountName: types.nullable(types.string()),
+  accountNumber: types.nullable(types.string()),
+  createdDate: types.nullable(types.string()),
+  currency: types.nullable(types.string()),
+  documentNumber: types.nullable(types.string()),
+  entries: types.nullable(z.array(OpenItemEntryResponseDto$inboundSchema)),
+  openBalance: types.nullable(z.lazy(() => OpenBalance$inboundSchema)),
+  postingDate: types.nullable(types.string()),
+  totalCreditAmount: types.nullable(types.number()),
+  totalDebitAmount: types.nullable(types.number()),
+  type: types.nullable(OpenItemResponseDtoType$inboundSchema),
+  updatedDate: types.nullable(types.string()),
 });
 
 export function openItemResponseDtoFromJSON(

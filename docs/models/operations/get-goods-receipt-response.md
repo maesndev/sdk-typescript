@@ -3,28 +3,16 @@
 ## Example Usage
 
 ```typescript
-import { GetGoodsReceiptResponse } from "maesn/models/operations";
+import { GetGoodsReceiptResponse } from "@maesn/typescript-sdk/models/operations";
 
 let value: GetGoodsReceiptResponse = {
-  meta: {
-    warnings: [
-      "<value 1>",
-      "<value 2>",
-    ],
-    pagination: {
-      total: 3438.77,
-      perPage: 5109.63,
-      currentPage: 2626.79,
-      totalPages: 3561.84,
-    },
-  },
   data: {
     id: "<id>",
     comment:
-      "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
+      "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
     createdDate: "<value>",
-    description: "athwart gigantic into yum",
-    lineItems: [],
+    description: null,
+    lineItems: null,
     reference: "<value>",
     supplierId: "<id>",
     updatedDate: "<value>",
@@ -38,7 +26,7 @@ let value: GetGoodsReceiptResponse = {
 
 | Field                                                                                      | Type                                                                                       | Required                                                                                   | Description                                                                                |
 | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `meta`                                                                                     | [models.MetaResponse](../../models/meta-response.md)                                       | :heavy_check_mark:                                                                         | N/A                                                                                        |
+| `meta`                                                                                     | [operations.GetGoodsReceiptMeta](../../models/operations/get-goods-receipt-meta.md)        | :heavy_minus_sign:                                                                         | N/A                                                                                        |
 | `data`                                                                                     | [models.GoodsReceiptResponseDto](../../models/goods-receipt-response-dto.md)               | :heavy_check_mark:                                                                         | N/A                                                                                        |
 | `errors`                                                                                   | [operations.GetGoodsReceiptErrors](../../models/operations/get-goods-receipt-errors.md)    | :heavy_check_mark:                                                                         | N/A                                                                                        |
 | `rawData`                                                                                  | [operations.GetGoodsReceiptRawData](../../models/operations/get-goods-receipt-raw-data.md) | :heavy_check_mark:                                                                         | N/A                                                                                        |

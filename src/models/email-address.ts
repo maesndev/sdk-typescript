@@ -21,8 +21,8 @@ export const EmailAddressType = {
 export type EmailAddressType = OpenEnum<typeof EmailAddressType>;
 
 export type EmailAddress = {
-  email: string;
-  type: EmailAddressType;
+  email: string | null;
+  type: EmailAddressType | null;
 };
 
 /** @internal */
@@ -30,36 +30,14 @@ export const EmailAddressType$inboundSchema: z.ZodMiniType<
   EmailAddressType,
   unknown
 > = openEnums.inboundSchema(EmailAddressType);
-/** @internal */
-export const EmailAddressType$outboundSchema: z.ZodMiniType<
-  string,
-  EmailAddressType
-> = openEnums.outboundSchema(EmailAddressType);
 
 /** @internal */
 export const EmailAddress$inboundSchema: z.ZodMiniType<EmailAddress, unknown> =
   z.object({
-    email: types.string(),
-    type: EmailAddressType$inboundSchema,
+    email: types.nullable(types.string()),
+    type: types.nullable(EmailAddressType$inboundSchema),
   });
-/** @internal */
-export type EmailAddress$Outbound = {
-  email: string;
-  type: string;
-};
 
-/** @internal */
-export const EmailAddress$outboundSchema: z.ZodMiniType<
-  EmailAddress$Outbound,
-  EmailAddress
-> = z.object({
-  email: z.string(),
-  type: EmailAddressType$outboundSchema,
-});
-
-export function emailAddressToJSON(emailAddress: EmailAddress): string {
-  return JSON.stringify(EmailAddress$outboundSchema.parse(emailAddress));
-}
 export function emailAddressFromJSON(
   jsonString: string,
 ): SafeParseResult<EmailAddress, SDKValidationError> {

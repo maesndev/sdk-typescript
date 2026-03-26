@@ -5,18 +5,18 @@
 import * as z from "zod/v4-mini";
 
 export type DiscountPeriodRequest = {
-  invoiceRange: string;
-  discountDeadline: string;
-  discountDeadline2: string;
-  paymentDeadline: string;
+  invoiceRange?: string | undefined;
+  discountDeadline?: string | undefined;
+  discountDeadline2?: string | undefined;
+  paymentDeadline?: string | undefined;
 };
 
 /** @internal */
 export type DiscountPeriodRequest$Outbound = {
-  invoiceRange: string;
-  discountDeadline: string;
-  discountDeadline2: string;
-  paymentDeadline: string;
+  invoiceRange?: string | undefined;
+  discountDeadline?: string | undefined;
+  discountDeadline2?: string | undefined;
+  paymentDeadline?: string | undefined;
 };
 
 /** @internal */
@@ -24,10 +24,10 @@ export const DiscountPeriodRequest$outboundSchema: z.ZodMiniType<
   DiscountPeriodRequest$Outbound,
   DiscountPeriodRequest
 > = z.object({
-  invoiceRange: z.string(),
-  discountDeadline: z.string(),
-  discountDeadline2: z.string(),
-  paymentDeadline: z.string(),
+  invoiceRange: z.optional(z.string()),
+  discountDeadline: z.optional(z.string()),
+  discountDeadline2: z.optional(z.string()),
+  paymentDeadline: z.optional(z.string()),
 });
 
 export function discountPeriodRequestToJSON(

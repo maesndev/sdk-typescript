@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { Method } from "maesn/models";
+import { Method } from "@maesn/typescript-sdk/models";
 
 let value: Method = "POST";
 ```

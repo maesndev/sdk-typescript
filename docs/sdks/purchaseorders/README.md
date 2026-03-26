@@ -12,7 +12,7 @@
 
 <!-- UsageSnippet language="typescript" operationID="getPurchaseOrders" method="get" path="/accounting/purchaseOrders" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -36,8 +36,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { purchaseOrdersList } from "maesn/funcs/purchase-orders-list.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { purchaseOrdersList } from "@maesn/typescript-sdk/funcs/purchase-orders-list.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.

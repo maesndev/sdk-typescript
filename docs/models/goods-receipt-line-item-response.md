@@ -3,18 +3,18 @@
 ## Example Usage
 
 ```typescript
-import { GoodsReceiptLineItemResponse } from "maesn/models";
+import { GoodsReceiptLineItemResponse } from "@maesn/typescript-sdk/models";
 
 let value: GoodsReceiptLineItemResponse = {
-  id: "<id>",
+  id: null,
   createdDate: "<value>",
-  description: "yawn gadzooks um",
-  itemId: "<id>",
+  description: "perfectly dwell and tighten before er at gullible which",
+  itemId: null,
   itemName: "<value>",
   projectId: "<id>",
   purchaseOrderId: "<id>",
-  quantityOrdered: 6606.78,
-  quantityReceived: 1903.21,
+  quantityOrdered: 1386.35,
+  quantityReceived: 1476.54,
   updatedDate: "<value>",
 };
 ```

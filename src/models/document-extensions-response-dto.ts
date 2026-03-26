@@ -10,7 +10,7 @@ import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
 export type DocumentExtensionsResponseDto = {
-  allowedFileExtensions: Array<string>;
+  allowedFileExtensions: Array<string> | null;
 };
 
 /** @internal */
@@ -19,7 +19,7 @@ export const DocumentExtensionsResponseDto$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    allowed_file_extensions: z.array(types.string()),
+    allowed_file_extensions: types.nullable(z.array(types.string())),
   }),
   z.transform((v) => {
     return remap$(v, {

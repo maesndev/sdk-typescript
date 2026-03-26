@@ -22,10 +22,10 @@ export type CreateBookingsRequestDtoChartOfAccount = ClosedEnum<
 >;
 
 export type CreateBookingsRequestDto = {
-  accountNumberLength: number;
-  chartOfAccount: CreateBookingsRequestDtoChartOfAccount;
-  entries: Array<BookingEntryRequestDto>;
-  fiscalYearStartDate: string;
+  accountNumberLength?: number | undefined;
+  chartOfAccount?: CreateBookingsRequestDtoChartOfAccount | undefined;
+  entries?: Array<BookingEntryRequestDto> | undefined;
+  fiscalYearStartDate?: string | undefined;
 };
 
 /** @internal */
@@ -36,10 +36,10 @@ export const CreateBookingsRequestDtoChartOfAccount$outboundSchema:
 
 /** @internal */
 export type CreateBookingsRequestDto$Outbound = {
-  accountNumberLength: number;
-  chartOfAccount: string;
-  entries: Array<BookingEntryRequestDto$Outbound>;
-  fiscalYearStartDate: string;
+  accountNumberLength?: number | undefined;
+  chartOfAccount?: string | undefined;
+  entries?: Array<BookingEntryRequestDto$Outbound> | undefined;
+  fiscalYearStartDate?: string | undefined;
 };
 
 /** @internal */
@@ -47,10 +47,12 @@ export const CreateBookingsRequestDto$outboundSchema: z.ZodMiniType<
   CreateBookingsRequestDto$Outbound,
   CreateBookingsRequestDto
 > = z.object({
-  accountNumberLength: z.number(),
-  chartOfAccount: CreateBookingsRequestDtoChartOfAccount$outboundSchema,
-  entries: z.array(BookingEntryRequestDto$outboundSchema),
-  fiscalYearStartDate: z.string(),
+  accountNumberLength: z.optional(z.number()),
+  chartOfAccount: z.optional(
+    CreateBookingsRequestDtoChartOfAccount$outboundSchema,
+  ),
+  entries: z.optional(z.array(BookingEntryRequestDto$outboundSchema)),
+  fiscalYearStartDate: z.optional(z.string()),
 });
 
 export function createBookingsRequestDtoToJSON(

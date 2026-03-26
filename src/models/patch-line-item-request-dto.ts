@@ -16,19 +16,19 @@ export type PatchLineItemRequestDtoType = ClosedEnum<
 >;
 
 export type PatchLineItemRequestDto = {
-  accountCode: string;
-  description: string;
-  discountItemPercentage: number;
-  grossAmount: number;
-  itemId: string;
-  name: string;
-  quantity: number;
-  taxCode: string;
-  taxRatePercentage: number;
-  taxType: string;
-  type: PatchLineItemRequestDtoType;
-  unitAmount: number;
-  unitName: string;
+  accountCode?: string | undefined;
+  description?: string | undefined;
+  discountItemPercentage?: number | undefined;
+  grossAmount?: number | undefined;
+  itemId?: string | undefined;
+  name?: string | undefined;
+  quantity?: number | undefined;
+  taxCode?: string | undefined;
+  taxRatePercentage?: number | undefined;
+  taxType?: string | undefined;
+  type?: PatchLineItemRequestDtoType | undefined;
+  unitAmount?: number | undefined;
+  unitName?: string | undefined;
 };
 
 /** @internal */
@@ -38,19 +38,19 @@ export const PatchLineItemRequestDtoType$outboundSchema: z.ZodMiniEnum<
 
 /** @internal */
 export type PatchLineItemRequestDto$Outbound = {
-  accountCode: string;
-  description: string;
-  discountItemPercentage: number;
-  grossAmount: number;
-  itemId: string;
-  name: string;
-  quantity: number;
-  taxCode: string;
-  taxRatePercentage: number;
-  taxType: string;
-  type: string;
-  unitAmount: number;
-  unitName: string;
+  accountCode?: string | undefined;
+  description?: string | undefined;
+  discountItemPercentage?: number | undefined;
+  grossAmount?: number | undefined;
+  itemId?: string | undefined;
+  name?: string | undefined;
+  quantity?: number | undefined;
+  taxCode?: string | undefined;
+  taxRatePercentage?: number | undefined;
+  taxType?: string | undefined;
+  type?: string | undefined;
+  unitAmount?: number | undefined;
+  unitName?: string | undefined;
 };
 
 /** @internal */
@@ -58,19 +58,19 @@ export const PatchLineItemRequestDto$outboundSchema: z.ZodMiniType<
   PatchLineItemRequestDto$Outbound,
   PatchLineItemRequestDto
 > = z.object({
-  accountCode: z.string(),
-  description: z.string(),
-  discountItemPercentage: z.number(),
-  grossAmount: z.number(),
-  itemId: z.string(),
-  name: z.string(),
-  quantity: z.number(),
-  taxCode: z.string(),
-  taxRatePercentage: z.number(),
-  taxType: z.string(),
-  type: PatchLineItemRequestDtoType$outboundSchema,
-  unitAmount: z.number(),
-  unitName: z.string(),
+  accountCode: z.optional(z.string()),
+  description: z.optional(z.string()),
+  discountItemPercentage: z.optional(z.number()),
+  grossAmount: z.optional(z.number()),
+  itemId: z.optional(z.string()),
+  name: z.optional(z.string()),
+  quantity: z.optional(z.number()),
+  taxCode: z.optional(z.string()),
+  taxRatePercentage: z.optional(z.number()),
+  taxType: z.optional(z.string()),
+  type: z.optional(PatchLineItemRequestDtoType$outboundSchema),
+  unitAmount: z.optional(z.number()),
+  unitName: z.optional(z.string()),
 });
 
 export function patchLineItemRequestDtoToJSON(

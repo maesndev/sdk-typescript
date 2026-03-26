@@ -3,71 +3,57 @@
 ## Example Usage
 
 ```typescript
-import { PatchCustomersResponse } from "maesn/models/operations";
+import { PatchCustomersResponse } from "@maesn/typescript-sdk/models/operations";
 
 let value: PatchCustomersResponse = {
-  meta: {
-    warnings: [
-      "<value 1>",
-      "<value 2>",
-    ],
-    pagination: {
-      total: 3438.77,
-      perPage: 5109.63,
-      currentPage: 2626.79,
-      totalPages: 3561.84,
-    },
-  },
   data: {
     id: "<id>",
-    addresses: [],
-    accountNumber: 5053.75,
-    bankAccounts: [
+    addresses: [
       {
-        bic: "<value>",
-        holder: "<value>",
-        isMainAccount: false,
-        iban: "MU89SZBR0318029709085684057MSV",
-        name: "<value>",
-        sepa: true,
+        addressLine1: "62455 Fay Crossroad",
+        addressLine2: null,
+        city: "Hirambury",
+        countryCode: null,
+        postalCode: null,
+        type: "PRIVATE",
       },
     ],
-    companyName: "Gorczany - Hauck",
+    companyName: "Hauck - Nitzsche",
     contactPersons: [
       {
-        emailAddresses: [],
-        firstName: "Layla",
-        lastName: "Marks",
+        emailAddresses: [
+          {
+            email: "Queen25@gmail.com",
+            type: "INVOICE",
+          },
+        ],
+        firstName: "Name",
+        lastName: null,
         phoneNumbers: [
-          "<value 1>",
-          "<value 2>",
-          "<value 3>",
+          {
+            number: "<value>",
+            type: "OTHER",
+          },
         ],
         salutation: "<value>",
       },
     ],
-    contactType: "COMPANY",
+    contactType: "CONTACT_PERSON",
     documentId: "<id>",
     emailAddresses: [
       {
-        email: "Amira56@gmail.com",
-        type: "PRIVATE",
+        email: "Queen25@gmail.com",
+        type: "INVOICE",
       },
     ],
     number: "<value>",
-    phoneNumbers: [
-      {
-        number: "<value>",
-        type: "LANDLINE",
-      },
-    ],
+    phoneNumbers: [],
     projectId: "<id>",
-    role: "SUPPLIER",
+    role: "CUSTOMER",
     updatedDate: "<value>",
-    vatId: "<id>",
   },
   errors: {},
-  rawData: {},
+  rawData: null,
 };
 ```
 
@@ -75,7 +61,7 @@ let value: PatchCustomersResponse = {
 
 | Field                                                                                   | Type                                                                                    | Required                                                                                | Description                                                                             |
 | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| `meta`                                                                                  | [models.MetaResponse](../../models/meta-response.md)                                    | :heavy_check_mark:                                                                      | N/A                                                                                     |
+| `meta`                                                                                  | [operations.PatchCustomersMeta](../../models/operations/patch-customers-meta.md)        | :heavy_minus_sign:                                                                      | N/A                                                                                     |
 | `data`                                                                                  | [models.ContactResponseDto](../../models/contact-response-dto.md)                       | :heavy_check_mark:                                                                      | N/A                                                                                     |
 | `errors`                                                                                | [operations.PatchCustomersErrors](../../models/operations/patch-customers-errors.md)    | :heavy_check_mark:                                                                      | N/A                                                                                     |
 | `rawData`                                                                               | [operations.PatchCustomersRawData](../../models/operations/patch-customers-raw-data.md) | :heavy_check_mark:                                                                      | N/A                                                                                     |

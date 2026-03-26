@@ -3,30 +3,10 @@
 ## Example Usage
 
 ```typescript
-import { CreateSalesOrderRequest } from "maesn/models/operations";
+import { CreateSalesOrderRequest } from "@maesn/typescript-sdk/models/operations";
 
 let value: CreateSalesOrderRequest = {
-  body: {
-    addresses: [],
-    billingContactId: "<id>",
-    comment:
-      "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
-    contactId: "<id>",
-    currency: "Leone",
-    deliveryDate: "<value>",
-    lineItems: [],
-    oneLineAddress: "<value>",
-    orderDate: "<value>",
-    projectId: "<id>",
-    shippingContactId: "<id>",
-    status: "IN_REVIEW",
-    totalDiscountAmount: 2665.86,
-    totalDiscountPercentage: 2098.39,
-    totalGrossAmount: 53.67,
-    totalNetAmount: 7757.21,
-    totalTaxAmount: 6786.28,
-    version: "<value>",
-  },
+  body: {},
 };
 ```
 

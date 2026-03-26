@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { LongTokenRequest } from "maesn/models/operations";
+import { LongTokenRequest } from "@maesn/typescript-sdk/models/operations";
 
 let value: LongTokenRequest = {};
 ```

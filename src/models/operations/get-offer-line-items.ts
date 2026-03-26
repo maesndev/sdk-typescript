@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
@@ -18,15 +19,27 @@ export type GetOfferLineItemsRequest = {
   rawData?: boolean | undefined;
 };
 
+export type GetOfferLineItemsPagination = {
+  total: number;
+  perPage: number;
+  currentPage: number;
+  totalPages: number;
+};
+
+export type GetOfferLineItemsMeta = {
+  warnings?: Array<string> | null | undefined;
+  pagination?: GetOfferLineItemsPagination | null | undefined;
+};
+
 export type GetOfferLineItemsErrors = {};
 
 export type GetOfferLineItemsRawData = {};
 
 export type GetOfferLineItemsResponse = {
-  meta: models.MetaResponse;
+  meta?: GetOfferLineItemsMeta | null | undefined;
   data: Array<models.OfferLineItemResponseDto>;
-  errors: GetOfferLineItemsErrors;
-  rawData: GetOfferLineItemsRawData;
+  errors: GetOfferLineItemsErrors | null;
+  rawData: GetOfferLineItemsRawData | null;
 };
 
 /** @internal */
@@ -59,6 +72,48 @@ export function getOfferLineItemsRequestToJSON(
 ): string {
   return JSON.stringify(
     GetOfferLineItemsRequest$outboundSchema.parse(getOfferLineItemsRequest),
+  );
+}
+
+/** @internal */
+export const GetOfferLineItemsPagination$inboundSchema: z.ZodMiniType<
+  GetOfferLineItemsPagination,
+  unknown
+> = z.object({
+  total: types.number(),
+  perPage: types.number(),
+  currentPage: types.number(),
+  totalPages: types.number(),
+});
+
+export function getOfferLineItemsPaginationFromJSON(
+  jsonString: string,
+): SafeParseResult<GetOfferLineItemsPagination, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetOfferLineItemsPagination$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetOfferLineItemsPagination' from JSON`,
+  );
+}
+
+/** @internal */
+export const GetOfferLineItemsMeta$inboundSchema: z.ZodMiniType<
+  GetOfferLineItemsMeta,
+  unknown
+> = z.object({
+  warnings: z.optional(z.nullable(z.array(types.string()))),
+  pagination: z.optional(
+    z.nullable(z.lazy(() => GetOfferLineItemsPagination$inboundSchema)),
+  ),
+});
+
+export function getOfferLineItemsMetaFromJSON(
+  jsonString: string,
+): SafeParseResult<GetOfferLineItemsMeta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetOfferLineItemsMeta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetOfferLineItemsMeta' from JSON`,
   );
 }
 
@@ -99,10 +154,12 @@ export const GetOfferLineItemsResponse$inboundSchema: z.ZodMiniType<
   GetOfferLineItemsResponse,
   unknown
 > = z.object({
-  meta: models.MetaResponse$inboundSchema,
+  meta: z.optional(
+    z.nullable(z.lazy(() => GetOfferLineItemsMeta$inboundSchema)),
+  ),
   data: z.array(models.OfferLineItemResponseDto$inboundSchema),
-  errors: z.lazy(() => GetOfferLineItemsErrors$inboundSchema),
-  rawData: z.lazy(() => GetOfferLineItemsRawData$inboundSchema),
+  errors: types.nullable(z.lazy(() => GetOfferLineItemsErrors$inboundSchema)),
+  rawData: types.nullable(z.lazy(() => GetOfferLineItemsRawData$inboundSchema)),
 });
 
 export function getOfferLineItemsResponseFromJSON(

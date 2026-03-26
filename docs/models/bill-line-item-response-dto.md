@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { BillLineItemResponseDto } from "maesn/models";
+import { BillLineItemResponseDto } from "@maesn/typescript-sdk/models";
 
 let value: BillLineItemResponseDto = {
   id: "<id>",
@@ -12,21 +12,26 @@ let value: BillLineItemResponseDto = {
   createdDate: "<value>",
   deferredEndDate: "<value>",
   deferredStartDate: "<value>",
-  description: "fiercely fort bah during bah kick",
-  dimensions: [],
+  description: "fort bah during bah kick",
+  dimensions: [
+    {
+      name: "<value>",
+      categoryName: "<value>",
+    },
+  ],
   itemId: "<id>",
   itemName: "<value>",
-  quantity: 8180.74,
-  taxCode: "<value>",
-  taxRatePercentage: 4306.7,
-  totalDiscountAmount: 2460.32,
-  totalDiscountPercentage: 3854.17,
-  totalGrossAmount: 257.98,
-  totalNetAmount: 602.74,
-  totalTaxAmount: 9790.52,
-  unitAmount: 7510.8,
-  unitDiscountAmount: 4568.32,
-  unitDiscountPercentage: 2735.39,
+  quantity: 257.98,
+  taxCode: null,
+  taxRatePercentage: 7510.8,
+  totalDiscountAmount: 2735.39,
+  totalDiscountPercentage: 3029.15,
+  totalGrossAmount: 6234.4,
+  totalNetAmount: 5665.36,
+  totalTaxAmount: 6761.91,
+  unitAmount: null,
+  unitDiscountAmount: null,
+  unitDiscountPercentage: 3035.99,
   unitName: "<value>",
   updatedDate: "<value>",
 };

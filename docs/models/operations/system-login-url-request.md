@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { SystemLoginUrlRequest } from "maesn/models/operations";
+import { SystemLoginUrlRequest } from "@maesn/typescript-sdk/models/operations";
 
 let value: SystemLoginUrlRequest = {
   targetSystem: "<value>",

@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { BookingProposalLineItemResponseDtoV2 } from "maesn/models";
+import { BookingProposalLineItemResponseDtoV2 } from "@maesn/typescript-sdk/models";
 
 let value: BookingProposalLineItemResponseDtoV2 = {
   id: "<id>",
@@ -11,10 +11,10 @@ let value: BookingProposalLineItemResponseDtoV2 = {
     id: "<id>",
     code: "<value>",
     name: "<value>",
-    number: 6594.9,
+    number: 9138.81,
   },
   createdDate: "<value>",
-  description: "up minus certainly gee whoever",
+  description: "around ick relative following",
   dimensions: [
     {
       id: "<id>",
@@ -23,14 +23,14 @@ let value: BookingProposalLineItemResponseDtoV2 = {
       name: "<value>",
     },
   ],
-  discountAmount: 5306.46,
+  discountAmount: 7047.29,
   discountAmount2: 6308.36,
-  discountPercentage: 5347.73,
-  discountPercentage2: 3553.43,
+  discountPercentage: 3553.43,
+  discountPercentage2: 5747.79,
   taxCode: "<value>",
-  taxRatePercentage: 4343.78,
-  totalGrossAmount: 5747.79,
-  totalNetAmount: 6274.11,
+  taxRatePercentage: 3661.2,
+  totalGrossAmount: 807.6,
+  totalNetAmount: 3281.69,
   type: "PRODUCT",
   updatedDate: "<value>",
 };
@@ -41,7 +41,7 @@ let value: BookingProposalLineItemResponseDtoV2 = {
 | Field                                                                                                           | Type                                                                                                            | Required                                                                                                        | Description                                                                                                     |
 | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
 | `id`                                                                                                            | *string*                                                                                                        | :heavy_check_mark:                                                                                              | N/A                                                                                                             |
-| `account`                                                                                                       | [models.AccountResponseCommonDtoV2](../models/account-response-common-dto-v2.md)                                | :heavy_check_mark:                                                                                              | N/A                                                                                                             |
+| `account`                                                                                                       | [models.Account](../models/account.md)                                                                          | :heavy_check_mark:                                                                                              | N/A                                                                                                             |
 | `createdDate`                                                                                                   | *string*                                                                                                        | :heavy_check_mark:                                                                                              | N/A                                                                                                             |
 | `description`                                                                                                   | *string*                                                                                                        | :heavy_check_mark:                                                                                              | N/A                                                                                                             |
 | `dimensions`                                                                                                    | [models.DimensionResponseCommonDtoV2](../models/dimension-response-common-dto-v2.md)[]                          | :heavy_check_mark:                                                                                              | N/A                                                                                                             |

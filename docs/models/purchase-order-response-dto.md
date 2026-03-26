@@ -3,28 +3,51 @@
 ## Example Usage
 
 ```typescript
-import { PurchaseOrderResponseDto } from "maesn/models";
+import { PurchaseOrderResponseDto } from "@maesn/typescript-sdk/models";
 
 let value: PurchaseOrderResponseDto = {
-  id: "<id>",
-  addresses: [],
+  id: null,
+  addresses: [
+    {},
+  ],
   approvalDate: "<value>",
   comment:
-    "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
+    "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
   createdDate: "<value>",
-  currency: "MAD",
-  description: "disposer deserted disappointment which graceful nautical nor",
-  lineItems: [],
+  currency: "MXN",
+  description: "deserted disappointment which graceful nautical",
+  lineItems: [
+    {
+      id: "<id>",
+      itemId: "<id>",
+      createdDate: "<value>",
+      description: "zen zowie where before anti wearily",
+      itemName: "<value>",
+      quantity: 7516.64,
+      taxCode: "<value>",
+      taxRatePercentage: 1922.59,
+      totalDiscountAmount: 6117.6,
+      totalDiscountPercentage: 3161.7,
+      totalGrossAmount: 9740.85,
+      totalNetAmount: 3615.75,
+      totalTaxAmount: 980.25,
+      unitAmount: 8062.11,
+      unitDiscountAmount: null,
+      unitDiscountPercentage: 5376.51,
+      unitName: "<value>",
+      updatedDate: "<value>",
+    },
+  ],
   orderDate: "<value>",
   paymentTermId: "<id>",
-  reference: "<value>",
-  status: "<value>",
+  reference: null,
+  status: "CLOSED",
   supplierId: "<id>",
-  totalDiscountAmount: 4339.04,
-  totalDiscountPercentage: 6245.03,
-  totalGrossAmount: 6507.73,
-  totalNetAmount: 1847.36,
-  totalTaxAmount: 8152.57,
+  totalDiscountAmount: null,
+  totalDiscountPercentage: 7320.67,
+  totalGrossAmount: 5696.42,
+  totalNetAmount: 9018.05,
+  totalTaxAmount: 3118.75,
   updatedDate: "<value>",
 };
 ```
@@ -44,7 +67,7 @@ let value: PurchaseOrderResponseDto = {
 | `orderDate`                                                                                     | *string*                                                                                        | :heavy_check_mark:                                                                              | N/A                                                                                             |
 | `paymentTermId`                                                                                 | *string*                                                                                        | :heavy_check_mark:                                                                              | N/A                                                                                             |
 | `reference`                                                                                     | *string*                                                                                        | :heavy_check_mark:                                                                              | N/A                                                                                             |
-| `status`                                                                                        | *string*                                                                                        | :heavy_check_mark:                                                                              | N/A                                                                                             |
+| `status`                                                                                        | [models.PurchaseOrderResponseDtoStatus](../models/purchase-order-response-dto-status.md)        | :heavy_check_mark:                                                                              | N/A                                                                                             |
 | `supplierId`                                                                                    | *string*                                                                                        | :heavy_check_mark:                                                                              | N/A                                                                                             |
 | `totalDiscountAmount`                                                                           | *number*                                                                                        | :heavy_check_mark:                                                                              | N/A                                                                                             |
 | `totalDiscountPercentage`                                                                       | *number*                                                                                        | :heavy_check_mark:                                                                              | N/A                                                                                             |

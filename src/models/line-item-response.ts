@@ -17,26 +17,26 @@ export const LineItemResponseType = {
 export type LineItemResponseType = OpenEnum<typeof LineItemResponseType>;
 
 export type LineItemResponse = {
-  id: string;
-  accountCode: string;
-  accountId: string;
-  accountName: string;
-  accountNumber: number;
-  bookingTaxCode: string;
-  createdDate: string;
-  description: string;
-  dimension1: string;
-  dimension2: string;
-  discountAmount: number;
-  discountAmount2: number;
-  discountPercentage: number;
-  discountPercentage2: number;
-  taxCode: string;
-  taxRatePercentage: number;
-  totalGrossAmount: number;
-  totalNetAmount: number;
-  type: LineItemResponseType;
-  updatedDate: string;
+  id: string | null;
+  accountCode: string | null;
+  accountId: string | null;
+  accountName: string | null;
+  accountNumber: number | null;
+  bookingTaxCode: string | null;
+  createdDate: string | null;
+  description: string | null;
+  dimension1: string | null;
+  dimension2: string | null;
+  discountAmount: number | null;
+  discountAmount2: number | null;
+  discountPercentage: number | null;
+  discountPercentage2: number | null;
+  taxCode: string | null;
+  taxRatePercentage: number | null;
+  totalGrossAmount: number | null;
+  totalNetAmount: number | null;
+  type?: LineItemResponseType | null | undefined;
+  updatedDate: string | null;
 };
 
 /** @internal */
@@ -50,26 +50,26 @@ export const LineItemResponse$inboundSchema: z.ZodMiniType<
   LineItemResponse,
   unknown
 > = z.object({
-  id: types.string(),
-  accountCode: types.string(),
-  accountId: types.string(),
-  accountName: types.string(),
-  accountNumber: types.number(),
-  bookingTaxCode: types.string(),
-  createdDate: types.string(),
-  description: types.string(),
-  dimension1: types.string(),
-  dimension2: types.string(),
-  discountAmount: types.number(),
-  discountAmount2: types.number(),
-  discountPercentage: types.number(),
-  discountPercentage2: types.number(),
-  taxCode: types.string(),
-  taxRatePercentage: types.number(),
-  totalGrossAmount: types.number(),
-  totalNetAmount: types.number(),
-  type: LineItemResponseType$inboundSchema,
-  updatedDate: types.string(),
+  id: types.nullable(types.string()),
+  accountCode: types.nullable(types.string()),
+  accountId: types.nullable(types.string()),
+  accountName: types.nullable(types.string()),
+  accountNumber: types.nullable(types.number()),
+  bookingTaxCode: types.nullable(types.string()),
+  createdDate: types.nullable(types.string()),
+  description: types.nullable(types.string()),
+  dimension1: types.nullable(types.string()),
+  dimension2: types.nullable(types.string()),
+  discountAmount: types.nullable(types.number()),
+  discountAmount2: types.nullable(types.number()),
+  discountPercentage: types.nullable(types.number()),
+  discountPercentage2: types.nullable(types.number()),
+  taxCode: types.nullable(types.string()),
+  taxRatePercentage: types.nullable(types.number()),
+  totalGrossAmount: types.nullable(types.number()),
+  totalNetAmount: types.nullable(types.number()),
+  type: z.optional(z.nullable(LineItemResponseType$inboundSchema)),
+  updatedDate: types.nullable(types.string()),
 });
 
 export function lineItemResponseFromJSON(

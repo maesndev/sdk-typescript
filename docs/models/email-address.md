@@ -3,11 +3,11 @@
 ## Example Usage
 
 ```typescript
-import { EmailAddress } from "maesn/models";
+import { EmailAddress } from "@maesn/typescript-sdk/models";
 
 let value: EmailAddress = {
-  email: "Arlo_Sanford75@gmail.com",
-  type: "PRIVATE",
+  email: "Mike_McClure17@gmail.com",
+  type: "INVOICE",
 };
 ```
 

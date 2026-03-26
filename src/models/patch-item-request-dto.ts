@@ -40,14 +40,14 @@ export type PatchItemRequestDtoUnitName = ClosedEnum<
 >;
 
 export type PatchItemRequestDto = {
-  name: string;
-  itemNumber: string;
-  stockCount: number;
-  type: PatchItemRequestDtoType;
-  unitName: PatchItemRequestDtoUnitName;
-  unitPurchasePrice: number;
-  unitSalesPrice: number;
-  priceIncludesTax: boolean;
+  name?: string | undefined;
+  itemNumber?: string | undefined;
+  stockCount?: number | undefined;
+  type?: PatchItemRequestDtoType | undefined;
+  unitName?: PatchItemRequestDtoUnitName | undefined;
+  unitPurchasePrice?: number | undefined;
+  unitSalesPrice?: number | undefined;
+  priceIncludesTax?: boolean | undefined;
 };
 
 /** @internal */
@@ -62,14 +62,14 @@ export const PatchItemRequestDtoUnitName$outboundSchema: z.ZodMiniEnum<
 
 /** @internal */
 export type PatchItemRequestDto$Outbound = {
-  name: string;
-  itemNumber: string;
-  stockCount: number;
-  type: string;
-  unitName: string;
-  unitPurchasePrice: number;
-  unitSalesPrice: number;
-  priceIncludesTax: boolean;
+  name?: string | undefined;
+  itemNumber?: string | undefined;
+  stockCount?: number | undefined;
+  type?: string | undefined;
+  unitName?: string | undefined;
+  unitPurchasePrice?: number | undefined;
+  unitSalesPrice?: number | undefined;
+  priceIncludesTax?: boolean | undefined;
 };
 
 /** @internal */
@@ -77,14 +77,14 @@ export const PatchItemRequestDto$outboundSchema: z.ZodMiniType<
   PatchItemRequestDto$Outbound,
   PatchItemRequestDto
 > = z.object({
-  name: z.string(),
-  itemNumber: z.string(),
-  stockCount: z.number(),
-  type: PatchItemRequestDtoType$outboundSchema,
-  unitName: PatchItemRequestDtoUnitName$outboundSchema,
-  unitPurchasePrice: z.number(),
-  unitSalesPrice: z.number(),
-  priceIncludesTax: z.boolean(),
+  name: z.optional(z.string()),
+  itemNumber: z.optional(z.string()),
+  stockCount: z.optional(z.number()),
+  type: z.optional(PatchItemRequestDtoType$outboundSchema),
+  unitName: z.optional(PatchItemRequestDtoUnitName$outboundSchema),
+  unitPurchasePrice: z.optional(z.number()),
+  unitSalesPrice: z.optional(z.number()),
+  priceIncludesTax: z.optional(z.boolean()),
 });
 
 export function patchItemRequestDtoToJSON(

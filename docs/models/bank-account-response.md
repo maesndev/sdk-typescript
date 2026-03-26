@@ -3,15 +3,15 @@
 ## Example Usage
 
 ```typescript
-import { BankAccountResponse } from "maesn/models";
+import { BankAccountResponse } from "@maesn/typescript-sdk/models";
 
 let value: BankAccountResponse = {
   bic: "<value>",
   holder: "<value>",
   isMainAccount: false,
-  iban: "IS279207540050660070362853",
+  iban: "DK0907540050660072",
   name: "<value>",
-  sepa: true,
+  sepa: false,
 };
 ```
 

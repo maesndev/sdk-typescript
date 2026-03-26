@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { GetProjectRequest } from "maesn/models/operations";
+import { GetProjectRequest } from "@maesn/typescript-sdk/models/operations";
 
 let value: GetProjectRequest = {
   projectId: "<id>",

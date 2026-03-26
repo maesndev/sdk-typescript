@@ -254,18 +254,18 @@ export type CreateBankAccountRequestDtoType = ClosedEnum<
 >;
 
 export type CreateBankAccountRequestDto = {
-  balance: number;
-  bankName: string;
-  bic: string;
-  currency: CreateBankAccountRequestDtoCurrency;
-  description: string;
-  fileType: CreateBankAccountRequestDtoFileType;
-  iban: string;
-  name: string;
-  number: string;
-  system: string;
-  status: CreateBankAccountRequestDtoStatus;
-  type: CreateBankAccountRequestDtoType;
+  balance?: number | undefined;
+  bankName?: string | undefined;
+  bic?: string | undefined;
+  currency?: CreateBankAccountRequestDtoCurrency | undefined;
+  description?: string | undefined;
+  fileType?: CreateBankAccountRequestDtoFileType | undefined;
+  iban?: string | undefined;
+  name?: string | undefined;
+  number?: string | undefined;
+  system?: string | undefined;
+  status?: CreateBankAccountRequestDtoStatus | undefined;
+  type?: CreateBankAccountRequestDtoType | undefined;
 };
 
 /** @internal */
@@ -290,18 +290,18 @@ export const CreateBankAccountRequestDtoType$outboundSchema: z.ZodMiniEnum<
 
 /** @internal */
 export type CreateBankAccountRequestDto$Outbound = {
-  balance: number;
-  bankName: string;
-  bic: string;
-  currency: string;
-  description: string;
-  fileType: string;
-  iban: string;
-  name: string;
-  number: string;
-  system: string;
-  status: string;
-  type: string;
+  balance?: number | undefined;
+  bankName?: string | undefined;
+  bic?: string | undefined;
+  currency?: string | undefined;
+  description?: string | undefined;
+  fileType?: string | undefined;
+  iban?: string | undefined;
+  name?: string | undefined;
+  number?: string | undefined;
+  system?: string | undefined;
+  status?: string | undefined;
+  type?: string | undefined;
 };
 
 /** @internal */
@@ -309,18 +309,18 @@ export const CreateBankAccountRequestDto$outboundSchema: z.ZodMiniType<
   CreateBankAccountRequestDto$Outbound,
   CreateBankAccountRequestDto
 > = z.object({
-  balance: z.number(),
-  bankName: z.string(),
-  bic: z.string(),
-  currency: CreateBankAccountRequestDtoCurrency$outboundSchema,
-  description: z.string(),
-  fileType: CreateBankAccountRequestDtoFileType$outboundSchema,
-  iban: z.string(),
-  name: z.string(),
-  number: z.string(),
-  system: z.string(),
-  status: CreateBankAccountRequestDtoStatus$outboundSchema,
-  type: CreateBankAccountRequestDtoType$outboundSchema,
+  balance: z.optional(z.number()),
+  bankName: z.optional(z.string()),
+  bic: z.optional(z.string()),
+  currency: z.optional(CreateBankAccountRequestDtoCurrency$outboundSchema),
+  description: z.optional(z.string()),
+  fileType: z.optional(CreateBankAccountRequestDtoFileType$outboundSchema),
+  iban: z.optional(z.string()),
+  name: z.optional(z.string()),
+  number: z.optional(z.string()),
+  system: z.optional(z.string()),
+  status: z.optional(CreateBankAccountRequestDtoStatus$outboundSchema),
+  type: z.optional(CreateBankAccountRequestDtoType$outboundSchema),
 });
 
 export function createBankAccountRequestDtoToJSON(

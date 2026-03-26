@@ -3,51 +3,11 @@
 ## Example Usage
 
 ```typescript
-import { PatchCustomersRequest } from "maesn/models/operations";
+import { PatchCustomersRequest } from "@maesn/typescript-sdk/models/operations";
 
 let value: PatchCustomersRequest = {
   contactId: "<id>",
-  body: {
-    contactType: "COMPANY",
-    companyName: "Gerhold - Klocko",
-    contactPersons: [
-      {
-        emailAddresses: [],
-        firstName: "Layla",
-        lastName: "Marks",
-        phoneNumbers: [
-          "<value 1>",
-          "<value 2>",
-          "<value 3>",
-        ],
-        salutation: "<value>",
-      },
-    ],
-    addresses: [
-      {
-        addressLine1: "8125 Jeffery Park",
-        addressLine2: "-",
-        city: "Ameliabury",
-        countryCode: "CG",
-        postalCode: "45430",
-        type: "BILLING",
-      },
-    ],
-    emailAddresses: [],
-    phoneNumbers: [
-      {
-        number: "<value>",
-        type: "LANDLINE",
-      },
-    ],
-    bankAccount: {
-      iban: "XK760015004653009306",
-      bic: "<value>",
-      holder: "<value>",
-      sepa: true,
-    },
-    projectId: "<id>",
-  },
+  body: {},
 };
 ```
 

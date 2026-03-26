@@ -10,25 +10,25 @@ import {
   BankAccount$outboundSchema,
 } from "./bank-account.js";
 import {
-  ContactAddress,
-  ContactAddress$Outbound,
-  ContactAddress$outboundSchema,
-} from "./contact-address.js";
+  CreateEmailAddress,
+  CreateEmailAddress$Outbound,
+  CreateEmailAddress$outboundSchema,
+} from "./create-email-address.js";
 import {
-  ContactPerson,
-  ContactPerson$Outbound,
-  ContactPerson$outboundSchema,
-} from "./contact-person.js";
+  CreatePhoneNumber,
+  CreatePhoneNumber$Outbound,
+  CreatePhoneNumber$outboundSchema,
+} from "./create-phone-number.js";
 import {
-  EmailAddress,
-  EmailAddress$Outbound,
-  EmailAddress$outboundSchema,
-} from "./email-address.js";
+  PatchContactAddress,
+  PatchContactAddress$Outbound,
+  PatchContactAddress$outboundSchema,
+} from "./patch-contact-address.js";
 import {
-  PhoneNumber,
-  PhoneNumber$Outbound,
-  PhoneNumber$outboundSchema,
-} from "./phone-number.js";
+  PatchContactPerson,
+  PatchContactPerson$Outbound,
+  PatchContactPerson$outboundSchema,
+} from "./patch-contact-person.js";
 
 export const PatchContactRequestDtoContactType = {
   ContactPerson: "CONTACT_PERSON",
@@ -39,14 +39,14 @@ export type PatchContactRequestDtoContactType = ClosedEnum<
 >;
 
 export type PatchContactRequestDto = {
-  contactType: PatchContactRequestDtoContactType;
-  companyName: string;
-  contactPersons: Array<ContactPerson>;
-  addresses: Array<ContactAddress>;
-  emailAddresses: Array<EmailAddress>;
-  phoneNumbers: Array<PhoneNumber>;
-  bankAccount: BankAccount;
-  projectId: string;
+  contactType?: PatchContactRequestDtoContactType | undefined;
+  companyName?: string | undefined;
+  contactPersons?: Array<PatchContactPerson> | undefined;
+  addresses?: Array<PatchContactAddress> | undefined;
+  emailAddresses?: Array<CreateEmailAddress> | undefined;
+  phoneNumbers?: Array<CreatePhoneNumber> | undefined;
+  bankAccount?: BankAccount | undefined;
+  projectId?: string | undefined;
 };
 
 /** @internal */
@@ -56,14 +56,14 @@ export const PatchContactRequestDtoContactType$outboundSchema: z.ZodMiniEnum<
 
 /** @internal */
 export type PatchContactRequestDto$Outbound = {
-  contactType: string;
-  companyName: string;
-  contactPersons: Array<ContactPerson$Outbound>;
-  addresses: Array<ContactAddress$Outbound>;
-  emailAddresses: Array<EmailAddress$Outbound>;
-  phoneNumbers: Array<PhoneNumber$Outbound>;
-  bankAccount: BankAccount$Outbound;
-  projectId: string;
+  contactType?: string | undefined;
+  companyName?: string | undefined;
+  contactPersons?: Array<PatchContactPerson$Outbound> | undefined;
+  addresses?: Array<PatchContactAddress$Outbound> | undefined;
+  emailAddresses?: Array<CreateEmailAddress$Outbound> | undefined;
+  phoneNumbers?: Array<CreatePhoneNumber$Outbound> | undefined;
+  bankAccount?: BankAccount$Outbound | undefined;
+  projectId?: string | undefined;
 };
 
 /** @internal */
@@ -71,14 +71,14 @@ export const PatchContactRequestDto$outboundSchema: z.ZodMiniType<
   PatchContactRequestDto$Outbound,
   PatchContactRequestDto
 > = z.object({
-  contactType: PatchContactRequestDtoContactType$outboundSchema,
-  companyName: z.string(),
-  contactPersons: z.array(ContactPerson$outboundSchema),
-  addresses: z.array(ContactAddress$outboundSchema),
-  emailAddresses: z.array(EmailAddress$outboundSchema),
-  phoneNumbers: z.array(PhoneNumber$outboundSchema),
-  bankAccount: BankAccount$outboundSchema,
-  projectId: z.string(),
+  contactType: z.optional(PatchContactRequestDtoContactType$outboundSchema),
+  companyName: z.optional(z.string()),
+  contactPersons: z.optional(z.array(PatchContactPerson$outboundSchema)),
+  addresses: z.optional(z.array(PatchContactAddress$outboundSchema)),
+  emailAddresses: z.optional(z.array(CreateEmailAddress$outboundSchema)),
+  phoneNumbers: z.optional(z.array(CreatePhoneNumber$outboundSchema)),
+  bankAccount: z.optional(BankAccount$outboundSchema),
+  projectId: z.optional(z.string()),
 });
 
 export function patchContactRequestDtoToJSON(

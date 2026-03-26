@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { CreateEndUserRequestDto } from "maesn/models";
+import { CreateEndUserRequestDto } from "@maesn/typescript-sdk/models";
 
 let value: CreateEndUserRequestDto = {
   apiKey: "<value>",

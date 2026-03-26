@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { ContactResponseDtoV2ContactType } from "maesn/models";
+import { ContactResponseDtoV2ContactType } from "@maesn/typescript-sdk/models";
 
 let value: ContactResponseDtoV2ContactType = "UNDEFINED";
 

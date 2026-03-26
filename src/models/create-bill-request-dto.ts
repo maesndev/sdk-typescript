@@ -84,34 +84,34 @@ export type CreateBillRequestDtoTaxRule = ClosedEnum<
 >;
 
 export type CreateBillRequestDto = {
-  accountId: string;
-  addresses: Array<Address>;
-  billDate: string;
-  billNumber: string;
-  contactId: string;
-  currency: string;
-  deliveryDate: string;
-  dueDate: string;
-  fileId: string;
-  journalCode: string;
-  lineItems: Array<CreateBillLineItemRequestDto>;
-  name: string;
-  oneLineAddress: string;
-  paidDate: CreateBillRequestDtoPaidDate;
-  paymentTermCode: string;
-  paymentStatus: CreateBillRequestDtoPaymentStatus;
-  paymentDays: number;
-  reference: string;
-  shippingDate: CreateBillRequestDtoShippingDate;
-  shippingType: CreateBillRequestDtoShippingType;
-  status: CreateBillRequestDtoStatus;
-  taxRule: CreateBillRequestDtoTaxRule;
-  taxText: string;
-  totalDiscountAmount: number;
-  totalDiscountPercentage: number;
-  totalGrossAmount: number;
-  totalNetAmount: number;
-  totalTaxAmount: number;
+  accountId?: string | undefined;
+  addresses?: Array<Address> | undefined;
+  billDate?: string | undefined;
+  billNumber?: string | undefined;
+  contactId?: string | undefined;
+  currency?: string | undefined;
+  deliveryDate?: string | undefined;
+  dueDate?: string | undefined;
+  fileId?: string | undefined;
+  journalCode?: string | undefined;
+  lineItems?: Array<CreateBillLineItemRequestDto> | undefined;
+  name?: string | undefined;
+  oneLineAddress?: string | undefined;
+  paidDate?: CreateBillRequestDtoPaidDate | undefined;
+  paymentTermCode?: string | undefined;
+  paymentStatus?: CreateBillRequestDtoPaymentStatus | undefined;
+  paymentDays?: number | undefined;
+  reference?: string | undefined;
+  shippingDate?: CreateBillRequestDtoShippingDate | undefined;
+  shippingType?: CreateBillRequestDtoShippingType | undefined;
+  status?: CreateBillRequestDtoStatus | undefined;
+  taxRule?: CreateBillRequestDtoTaxRule | undefined;
+  taxText?: string | undefined;
+  totalDiscountAmount?: number | undefined;
+  totalDiscountPercentage?: number | undefined;
+  totalGrossAmount?: number | undefined;
+  totalNetAmount?: number | undefined;
+  totalTaxAmount?: number | undefined;
 };
 
 /** @internal */
@@ -174,34 +174,34 @@ export const CreateBillRequestDtoTaxRule$outboundSchema: z.ZodMiniEnum<
 
 /** @internal */
 export type CreateBillRequestDto$Outbound = {
-  accountId: string;
-  addresses: Array<Address$Outbound>;
-  billDate: string;
-  billNumber: string;
-  contactId: string;
-  currency: string;
-  deliveryDate: string;
-  dueDate: string;
-  fileId: string;
-  journalCode: string;
-  lineItems: Array<CreateBillLineItemRequestDto$Outbound>;
-  name: string;
-  oneLineAddress: string;
-  paidDate: CreateBillRequestDtoPaidDate$Outbound;
-  paymentTermCode: string;
-  paymentStatus: string;
-  paymentDays: number;
-  reference: string;
-  shippingDate: CreateBillRequestDtoShippingDate$Outbound;
-  shippingType: string;
-  status: string;
-  taxRule: string;
-  taxText: string;
-  totalDiscountAmount: number;
-  totalDiscountPercentage: number;
-  totalGrossAmount: number;
-  totalNetAmount: number;
-  totalTaxAmount: number;
+  accountId?: string | undefined;
+  addresses?: Array<Address$Outbound> | undefined;
+  billDate?: string | undefined;
+  billNumber?: string | undefined;
+  contactId?: string | undefined;
+  currency?: string | undefined;
+  deliveryDate?: string | undefined;
+  dueDate?: string | undefined;
+  fileId?: string | undefined;
+  journalCode?: string | undefined;
+  lineItems?: Array<CreateBillLineItemRequestDto$Outbound> | undefined;
+  name?: string | undefined;
+  oneLineAddress?: string | undefined;
+  paidDate?: CreateBillRequestDtoPaidDate$Outbound | undefined;
+  paymentTermCode?: string | undefined;
+  paymentStatus?: string | undefined;
+  paymentDays?: number | undefined;
+  reference?: string | undefined;
+  shippingDate?: CreateBillRequestDtoShippingDate$Outbound | undefined;
+  shippingType?: string | undefined;
+  status?: string | undefined;
+  taxRule?: string | undefined;
+  taxText?: string | undefined;
+  totalDiscountAmount?: number | undefined;
+  totalDiscountPercentage?: number | undefined;
+  totalGrossAmount?: number | undefined;
+  totalNetAmount?: number | undefined;
+  totalTaxAmount?: number | undefined;
 };
 
 /** @internal */
@@ -209,34 +209,38 @@ export const CreateBillRequestDto$outboundSchema: z.ZodMiniType<
   CreateBillRequestDto$Outbound,
   CreateBillRequestDto
 > = z.object({
-  accountId: z.string(),
-  addresses: z.array(Address$outboundSchema),
-  billDate: z.string(),
-  billNumber: z.string(),
-  contactId: z.string(),
-  currency: z.string(),
-  deliveryDate: z.string(),
-  dueDate: z.string(),
-  fileId: z.string(),
-  journalCode: z.string(),
-  lineItems: z.array(CreateBillLineItemRequestDto$outboundSchema),
-  name: z.string(),
-  oneLineAddress: z.string(),
-  paidDate: z.lazy(() => CreateBillRequestDtoPaidDate$outboundSchema),
-  paymentTermCode: z.string(),
-  paymentStatus: CreateBillRequestDtoPaymentStatus$outboundSchema,
-  paymentDays: z.number(),
-  reference: z.string(),
-  shippingDate: z.lazy(() => CreateBillRequestDtoShippingDate$outboundSchema),
-  shippingType: CreateBillRequestDtoShippingType$outboundSchema,
-  status: CreateBillRequestDtoStatus$outboundSchema,
-  taxRule: CreateBillRequestDtoTaxRule$outboundSchema,
-  taxText: z.string(),
-  totalDiscountAmount: z.number(),
-  totalDiscountPercentage: z.number(),
-  totalGrossAmount: z.number(),
-  totalNetAmount: z.number(),
-  totalTaxAmount: z.number(),
+  accountId: z.optional(z.string()),
+  addresses: z.optional(z.array(Address$outboundSchema)),
+  billDate: z.optional(z.string()),
+  billNumber: z.optional(z.string()),
+  contactId: z.optional(z.string()),
+  currency: z.optional(z.string()),
+  deliveryDate: z.optional(z.string()),
+  dueDate: z.optional(z.string()),
+  fileId: z.optional(z.string()),
+  journalCode: z.optional(z.string()),
+  lineItems: z.optional(z.array(CreateBillLineItemRequestDto$outboundSchema)),
+  name: z.optional(z.string()),
+  oneLineAddress: z.optional(z.string()),
+  paidDate: z.optional(
+    z.lazy(() => CreateBillRequestDtoPaidDate$outboundSchema),
+  ),
+  paymentTermCode: z.optional(z.string()),
+  paymentStatus: z.optional(CreateBillRequestDtoPaymentStatus$outboundSchema),
+  paymentDays: z.optional(z.number()),
+  reference: z.optional(z.string()),
+  shippingDate: z.optional(
+    z.lazy(() => CreateBillRequestDtoShippingDate$outboundSchema),
+  ),
+  shippingType: z.optional(CreateBillRequestDtoShippingType$outboundSchema),
+  status: z.optional(CreateBillRequestDtoStatus$outboundSchema),
+  taxRule: z.optional(CreateBillRequestDtoTaxRule$outboundSchema),
+  taxText: z.optional(z.string()),
+  totalDiscountAmount: z.optional(z.number()),
+  totalDiscountPercentage: z.optional(z.number()),
+  totalGrossAmount: z.optional(z.number()),
+  totalNetAmount: z.optional(z.number()),
+  totalTaxAmount: z.optional(z.number()),
 });
 
 export function createBillRequestDtoToJSON(

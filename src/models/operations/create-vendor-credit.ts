@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
@@ -14,15 +15,27 @@ export type CreateVendorCreditRequest = {
   body: models.CreateVendorCreditRequestDto;
 };
 
+export type CreateVendorCreditPagination = {
+  total: number;
+  perPage: number;
+  currentPage: number;
+  totalPages: number;
+};
+
+export type CreateVendorCreditMeta = {
+  warnings?: Array<string> | null | undefined;
+  pagination?: CreateVendorCreditPagination | null | undefined;
+};
+
 export type CreateVendorCreditErrors = {};
 
 export type CreateVendorCreditRawData = {};
 
 export type CreateVendorCreditResponse = {
-  meta: models.MetaResponse;
+  meta?: CreateVendorCreditMeta | null | undefined;
   data: models.VendorCreditResponseDto;
-  errors: CreateVendorCreditErrors;
-  rawData: CreateVendorCreditRawData;
+  errors: CreateVendorCreditErrors | null;
+  rawData: CreateVendorCreditRawData | null;
 };
 
 /** @internal */
@@ -47,6 +60,48 @@ export function createVendorCreditRequestToJSON(
 ): string {
   return JSON.stringify(
     CreateVendorCreditRequest$outboundSchema.parse(createVendorCreditRequest),
+  );
+}
+
+/** @internal */
+export const CreateVendorCreditPagination$inboundSchema: z.ZodMiniType<
+  CreateVendorCreditPagination,
+  unknown
+> = z.object({
+  total: types.number(),
+  perPage: types.number(),
+  currentPage: types.number(),
+  totalPages: types.number(),
+});
+
+export function createVendorCreditPaginationFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateVendorCreditPagination, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateVendorCreditPagination$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateVendorCreditPagination' from JSON`,
+  );
+}
+
+/** @internal */
+export const CreateVendorCreditMeta$inboundSchema: z.ZodMiniType<
+  CreateVendorCreditMeta,
+  unknown
+> = z.object({
+  warnings: z.optional(z.nullable(z.array(types.string()))),
+  pagination: z.optional(
+    z.nullable(z.lazy(() => CreateVendorCreditPagination$inboundSchema)),
+  ),
+});
+
+export function createVendorCreditMetaFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateVendorCreditMeta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateVendorCreditMeta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateVendorCreditMeta' from JSON`,
   );
 }
 
@@ -87,10 +142,14 @@ export const CreateVendorCreditResponse$inboundSchema: z.ZodMiniType<
   CreateVendorCreditResponse,
   unknown
 > = z.object({
-  meta: models.MetaResponse$inboundSchema,
+  meta: z.optional(
+    z.nullable(z.lazy(() => CreateVendorCreditMeta$inboundSchema)),
+  ),
   data: models.VendorCreditResponseDto$inboundSchema,
-  errors: z.lazy(() => CreateVendorCreditErrors$inboundSchema),
-  rawData: z.lazy(() => CreateVendorCreditRawData$inboundSchema),
+  errors: types.nullable(z.lazy(() => CreateVendorCreditErrors$inboundSchema)),
+  rawData: types.nullable(
+    z.lazy(() => CreateVendorCreditRawData$inboundSchema),
+  ),
 });
 
 export function createVendorCreditResponseFromJSON(

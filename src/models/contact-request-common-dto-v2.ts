@@ -5,16 +5,16 @@
 import * as z from "zod/v4-mini";
 
 export type ContactRequestCommonDtoV2 = {
-  id: string;
-  accountNumber: number;
-  name: string;
+  id?: string | undefined;
+  accountNumber?: number | undefined;
+  name?: string | undefined;
 };
 
 /** @internal */
 export type ContactRequestCommonDtoV2$Outbound = {
-  id: string;
-  accountNumber: number;
-  name: string;
+  id?: string | undefined;
+  accountNumber?: number | undefined;
+  name?: string | undefined;
 };
 
 /** @internal */
@@ -22,9 +22,9 @@ export const ContactRequestCommonDtoV2$outboundSchema: z.ZodMiniType<
   ContactRequestCommonDtoV2$Outbound,
   ContactRequestCommonDtoV2
 > = z.object({
-  id: z.string(),
-  accountNumber: z.number(),
-  name: z.string(),
+  id: z.optional(z.string()),
+  accountNumber: z.optional(z.number()),
+  name: z.optional(z.string()),
 });
 
 export function contactRequestCommonDtoV2ToJSON(

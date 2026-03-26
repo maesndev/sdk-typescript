@@ -19,17 +19,17 @@ export type CreatePaymentTermRequestDtoDueType = ClosedEnum<
 >;
 
 export type CreatePaymentTermRequestDto = {
-  code: string;
-  description: string;
-  discountDays: number;
-  discountDays2: number;
-  discountPercentage: number;
-  discountPercentage2: number;
-  discountPeriods: Array<DiscountPeriodRequest>;
-  dueType: CreatePaymentTermRequestDtoDueType;
-  name: string;
-  paymentDays: number;
-  paymentMethod: string;
+  code?: string | undefined;
+  description?: string | undefined;
+  discountDays?: number | undefined;
+  discountDays2?: number | undefined;
+  discountPercentage?: number | undefined;
+  discountPercentage2?: number | undefined;
+  discountPeriods?: Array<DiscountPeriodRequest> | undefined;
+  dueType?: CreatePaymentTermRequestDtoDueType | undefined;
+  name?: string | undefined;
+  paymentDays?: number | undefined;
+  paymentMethod?: string | undefined;
 };
 
 /** @internal */
@@ -39,17 +39,17 @@ export const CreatePaymentTermRequestDtoDueType$outboundSchema: z.ZodMiniEnum<
 
 /** @internal */
 export type CreatePaymentTermRequestDto$Outbound = {
-  code: string;
-  description: string;
-  discountDays: number;
-  discountDays2: number;
-  discountPercentage: number;
-  discountPercentage2: number;
-  discountPeriods: Array<DiscountPeriodRequest$Outbound>;
-  dueType: string;
-  name: string;
-  paymentDays: number;
-  paymentMethod: string;
+  code?: string | undefined;
+  description?: string | undefined;
+  discountDays?: number | undefined;
+  discountDays2?: number | undefined;
+  discountPercentage?: number | undefined;
+  discountPercentage2?: number | undefined;
+  discountPeriods?: Array<DiscountPeriodRequest$Outbound> | undefined;
+  dueType?: string | undefined;
+  name?: string | undefined;
+  paymentDays?: number | undefined;
+  paymentMethod?: string | undefined;
 };
 
 /** @internal */
@@ -57,17 +57,17 @@ export const CreatePaymentTermRequestDto$outboundSchema: z.ZodMiniType<
   CreatePaymentTermRequestDto$Outbound,
   CreatePaymentTermRequestDto
 > = z.object({
-  code: z.string(),
-  description: z.string(),
-  discountDays: z.number(),
-  discountDays2: z.number(),
-  discountPercentage: z.number(),
-  discountPercentage2: z.number(),
-  discountPeriods: z.array(DiscountPeriodRequest$outboundSchema),
-  dueType: CreatePaymentTermRequestDtoDueType$outboundSchema,
-  name: z.string(),
-  paymentDays: z.number(),
-  paymentMethod: z.string(),
+  code: z.optional(z.string()),
+  description: z.optional(z.string()),
+  discountDays: z.optional(z.number()),
+  discountDays2: z.optional(z.number()),
+  discountPercentage: z.optional(z.number()),
+  discountPercentage2: z.optional(z.number()),
+  discountPeriods: z.optional(z.array(DiscountPeriodRequest$outboundSchema)),
+  dueType: z.optional(CreatePaymentTermRequestDtoDueType$outboundSchema),
+  name: z.optional(z.string()),
+  paymentDays: z.optional(z.number()),
+  paymentMethod: z.optional(z.string()),
 });
 
 export function createPaymentTermRequestDtoToJSON(

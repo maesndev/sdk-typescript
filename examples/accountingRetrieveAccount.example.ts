@@ -5,13 +5,13 @@
 import dotenv from "dotenv";
 dotenv.config();
 /**
- * Example usage of the maesn SDK
+ * Example usage of the @maesn/typescript-sdk SDK
  *
  * To run this example from the examples directory:
  * npm run build && npx tsx accountingRetrieveAccount.example.ts
  */
 
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",

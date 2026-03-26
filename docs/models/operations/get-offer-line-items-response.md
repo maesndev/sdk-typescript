@@ -3,43 +3,32 @@
 ## Example Usage
 
 ```typescript
-import { GetOfferLineItemsResponse } from "maesn/models/operations";
+import { GetOfferLineItemsResponse } from "@maesn/typescript-sdk/models/operations";
 
 let value: GetOfferLineItemsResponse = {
-  meta: {
-    warnings: [
-      "<value 1>",
-      "<value 2>",
-    ],
-    pagination: {
-      total: 3438.77,
-      perPage: 5109.63,
-      currentPage: 2626.79,
-      totalPages: 3561.84,
-    },
-  },
   data: [
     {
       id: "<id>",
       accountCode: "<value>",
       accountId: "<id>",
       createdDate: "<value>",
-      description: "amongst round up communicate gah unless eek altruistic",
+      description:
+        "aw delirious punctuation calmly monthly usually likewise uh-huh",
       itemId: "<id>",
       name: "<value>",
-      quantity: 8850.6,
+      quantity: 2487.13,
       taxCode: "<value>",
-      taxRatePercentage: 6488.28,
+      taxRatePercentage: 8606.06,
       taxType: "<value>",
       type: "ITEM",
-      totalDiscountAmount: 4527.48,
-      totalDiscountPercentage: 8046.37,
-      totalGrossAmount: 3685.62,
-      totalNetAmount: 8710.16,
-      totalTaxAmount: 7578.76,
-      unitAmount: 2487.13,
-      unitDiscountAmount: 8336.02,
-      unitDiscountPercentage: 5107.77,
+      totalDiscountAmount: 5233.91,
+      totalDiscountPercentage: 1324.14,
+      totalGrossAmount: 3681.02,
+      totalNetAmount: 6925.94,
+      totalTaxAmount: 9373.18,
+      unitAmount: 7809.1,
+      unitDiscountAmount: 1640.74,
+      unitDiscountPercentage: 757.95,
       unitName: "<value>",
       updatedDate: "<value>",
     },
@@ -53,7 +42,7 @@ let value: GetOfferLineItemsResponse = {
 
 | Field                                                                                           | Type                                                                                            | Required                                                                                        | Description                                                                                     |
 | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `meta`                                                                                          | [models.MetaResponse](../../models/meta-response.md)                                            | :heavy_check_mark:                                                                              | N/A                                                                                             |
+| `meta`                                                                                          | [operations.GetOfferLineItemsMeta](../../models/operations/get-offer-line-items-meta.md)        | :heavy_minus_sign:                                                                              | N/A                                                                                             |
 | `data`                                                                                          | [models.OfferLineItemResponseDto](../../models/offer-line-item-response-dto.md)[]               | :heavy_check_mark:                                                                              | N/A                                                                                             |
 | `errors`                                                                                        | [operations.GetOfferLineItemsErrors](../../models/operations/get-offer-line-items-errors.md)    | :heavy_check_mark:                                                                              | N/A                                                                                             |
 | `rawData`                                                                                       | [operations.GetOfferLineItemsRawData](../../models/operations/get-offer-line-items-raw-data.md) | :heavy_check_mark:                                                                              | N/A                                                                                             |

@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
@@ -16,15 +17,27 @@ export type GetUnitsRequest = {
   rawData?: boolean | undefined;
 };
 
+export type GetUnitsPagination = {
+  total: number;
+  perPage: number;
+  currentPage: number;
+  totalPages: number;
+};
+
+export type GetUnitsMeta = {
+  warnings?: Array<string> | null | undefined;
+  pagination?: GetUnitsPagination | null | undefined;
+};
+
 export type GetUnitsErrors = {};
 
 export type GetUnitsRawData = {};
 
 export type GetUnitsResponse = {
-  meta: models.MetaResponse;
+  meta?: GetUnitsMeta | null | undefined;
   data: Array<models.UnitResponseDto>;
-  errors: GetUnitsErrors;
-  rawData: GetUnitsRawData;
+  errors: GetUnitsErrors | null;
+  rawData: GetUnitsRawData | null;
 };
 
 /** @internal */
@@ -52,6 +65,46 @@ export function getUnitsRequestToJSON(
   getUnitsRequest: GetUnitsRequest,
 ): string {
   return JSON.stringify(GetUnitsRequest$outboundSchema.parse(getUnitsRequest));
+}
+
+/** @internal */
+export const GetUnitsPagination$inboundSchema: z.ZodMiniType<
+  GetUnitsPagination,
+  unknown
+> = z.object({
+  total: types.number(),
+  perPage: types.number(),
+  currentPage: types.number(),
+  totalPages: types.number(),
+});
+
+export function getUnitsPaginationFromJSON(
+  jsonString: string,
+): SafeParseResult<GetUnitsPagination, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetUnitsPagination$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetUnitsPagination' from JSON`,
+  );
+}
+
+/** @internal */
+export const GetUnitsMeta$inboundSchema: z.ZodMiniType<GetUnitsMeta, unknown> =
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => GetUnitsPagination$inboundSchema)),
+    ),
+  });
+
+export function getUnitsMetaFromJSON(
+  jsonString: string,
+): SafeParseResult<GetUnitsMeta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetUnitsMeta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetUnitsMeta' from JSON`,
+  );
 }
 
 /** @internal */
@@ -91,10 +144,10 @@ export const GetUnitsResponse$inboundSchema: z.ZodMiniType<
   GetUnitsResponse,
   unknown
 > = z.object({
-  meta: models.MetaResponse$inboundSchema,
+  meta: z.optional(z.nullable(z.lazy(() => GetUnitsMeta$inboundSchema))),
   data: z.array(models.UnitResponseDto$inboundSchema),
-  errors: z.lazy(() => GetUnitsErrors$inboundSchema),
-  rawData: z.lazy(() => GetUnitsRawData$inboundSchema),
+  errors: types.nullable(z.lazy(() => GetUnitsErrors$inboundSchema)),
+  rawData: types.nullable(z.lazy(() => GetUnitsRawData$inboundSchema)),
 });
 
 export function getUnitsResponseFromJSON(

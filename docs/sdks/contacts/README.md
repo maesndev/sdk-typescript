@@ -12,7 +12,7 @@
 
 <!-- UsageSnippet language="typescript" operationID="patchContact" method="patch" path="/accounting/contacts/{contactId}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -26,18 +26,7 @@ async function run() {
   const result = await maesn.contacts.patch({
     contactId: "<id>",
     body: {
-      id: "<id>",
-      addresses: [],
-      companyName: "Tillman, Roob and Rohan",
-      contactPersons: [],
       contactType: "CONTACT_PERSON",
-      emailAddresses: [],
-      isCustomer: false,
-      isSupplier: false,
-      number: "<value>",
-      phoneNumbers: [],
-      projectId: "<id>",
-      website: "<value>",
     },
   });
 
@@ -52,8 +41,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { contactsPatch } from "maesn/funcs/contacts-patch.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { contactsPatch } from "@maesn/typescript-sdk/funcs/contacts-patch.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -69,18 +58,7 @@ async function run() {
   const res = await contactsPatch(maesn, {
     contactId: "<id>",
     body: {
-      id: "<id>",
-      addresses: [],
-      companyName: "Tillman, Roob and Rohan",
-      contactPersons: [],
       contactType: "CONTACT_PERSON",
-      emailAddresses: [],
-      isCustomer: false,
-      isSupplier: false,
-      number: "<value>",
-      phoneNumbers: [],
-      projectId: "<id>",
-      website: "<value>",
     },
   });
   if (res.ok) {

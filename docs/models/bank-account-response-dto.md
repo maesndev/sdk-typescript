@@ -3,18 +3,18 @@
 ## Example Usage
 
 ```typescript
-import { BankAccountResponseDto } from "maesn/models";
+import { BankAccountResponseDto } from "@maesn/typescript-sdk/models";
 
 let value: BankAccountResponseDto = {
   id: "<id>",
-  balance: 7843.73,
+  balance: 5395.59,
   bankName: "<value>",
   bic: "<value>",
   createdDate: "<value>",
-  currency: "JPY",
-  description: "boohoo ouch vice not upright overspend what",
+  currency: "IRR",
+  description: "ouch vice not upright",
   fileType: "CSV",
-  iban: "LI2002338T9839241M532",
+  iban: "RS36552090701138707637",
   name: "<value>",
   number: "<value>",
   system: "<value>",

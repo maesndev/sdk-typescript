@@ -9,12 +9,12 @@ import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
 export type BankAccountResponse = {
-  bic: string;
-  holder: string;
-  isMainAccount: boolean;
-  iban: string;
-  name: string;
-  sepa: boolean;
+  bic: string | null;
+  holder: string | null;
+  isMainAccount: boolean | null;
+  iban: string | null;
+  name: string | null;
+  sepa: boolean | null;
 };
 
 /** @internal */
@@ -22,12 +22,12 @@ export const BankAccountResponse$inboundSchema: z.ZodMiniType<
   BankAccountResponse,
   unknown
 > = z.object({
-  bic: types.string(),
-  holder: types.string(),
-  isMainAccount: types.boolean(),
-  iban: types.string(),
-  name: types.string(),
-  sepa: types.boolean(),
+  bic: types.nullable(types.string()),
+  holder: types.nullable(types.string()),
+  isMainAccount: types.nullable(types.boolean()),
+  iban: types.nullable(types.string()),
+  name: types.nullable(types.string()),
+  sepa: types.nullable(types.boolean()),
 });
 
 export function bankAccountResponseFromJSON(

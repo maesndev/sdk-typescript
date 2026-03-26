@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { CallbackRequest } from "maesn/models/operations";
+import { CallbackRequest } from "@maesn/typescript-sdk/models/operations";
 
 let value: CallbackRequest = {
   targetSystem: "<value>",

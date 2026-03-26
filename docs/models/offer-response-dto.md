@@ -3,28 +3,52 @@
 ## Example Usage
 
 ```typescript
-import { OfferResponseDto } from "maesn/models";
+import { OfferResponseDto } from "@maesn/typescript-sdk/models";
 
 let value: OfferResponseDto = {
   id: "<id>",
   addresses: [],
-  contactId: "<id>",
   createdDate: "<value>",
-  currency: "Rufiyaa",
-  lineItems: [],
+  currency: "Iranian Rial",
+  lineItems: [
+    {
+      id: "<id>",
+      accountCode: "<value>",
+      accountId: "<id>",
+      createdDate: "<value>",
+      description: null,
+      itemId: "<id>",
+      name: "<value>",
+      quantity: 4394.36,
+      taxCode: "<value>",
+      taxRatePercentage: 6281.26,
+      taxType: "<value>",
+      type: "ITEM",
+      totalDiscountAmount: 2936.92,
+      totalDiscountPercentage: 2768.35,
+      totalGrossAmount: 2419.83,
+      totalNetAmount: 7148.04,
+      totalTaxAmount: null,
+      unitAmount: 9628.05,
+      unitDiscountAmount: 6093.33,
+      unitDiscountPercentage: 6742.69,
+      unitName: "<value>",
+      updatedDate: "<value>",
+    },
+  ],
   name: "<value>",
   offerDate: "<value>",
   offerNumber: "<value>",
   oneLineAddress: "<value>",
   reference: "<value>",
-  status: "DECLINED",
+  status: "DRAFT",
   taxText: "<value>",
-  totalDiscountAmount: 1875.79,
-  totalDiscountPercentage: 4006.14,
-  totalGrossAmount: 5995.29,
-  totalNetAmount: 9579.52,
-  totalTaxAmount: 8240.6,
-  updatedDate: "<value>",
+  totalDiscountAmount: 2777.54,
+  totalDiscountPercentage: 2088.08,
+  totalGrossAmount: 1042.39,
+  totalNetAmount: 2487.12,
+  totalTaxAmount: 6604.86,
+  updatedDate: null,
 };
 ```
 
@@ -34,7 +58,7 @@ let value: OfferResponseDto = {
 | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
 | `id`                                                                           | *string*                                                                       | :heavy_check_mark:                                                             | N/A                                                                            |
 | `addresses`                                                                    | [models.AddressOffer](../models/address-offer.md)[]                            | :heavy_check_mark:                                                             | N/A                                                                            |
-| `contactId`                                                                    | *string*                                                                       | :heavy_check_mark:                                                             | N/A                                                                            |
+| `contactId`                                                                    | *string*                                                                       | :heavy_minus_sign:                                                             | N/A                                                                            |
 | `createdDate`                                                                  | *string*                                                                       | :heavy_check_mark:                                                             | N/A                                                                            |
 | `currency`                                                                     | *string*                                                                       | :heavy_check_mark:                                                             | N/A                                                                            |
 | `lineItems`                                                                    | [models.OfferLineItemResponseDto](../models/offer-line-item-response-dto.md)[] | :heavy_check_mark:                                                             | N/A                                                                            |

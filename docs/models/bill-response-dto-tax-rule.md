@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { BillResponseDtoTaxRule } from "maesn/models";
+import { BillResponseDtoTaxRule } from "@maesn/typescript-sdk/models";
 
 let value: BillResponseDtoTaxRule = "NET";
 

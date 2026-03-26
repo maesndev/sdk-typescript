@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { blobLikeSchema } from "../../types/blobs.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
@@ -23,15 +24,27 @@ export type CreateJournalEntryAttachmentsRequest = {
   body: CreateJournalEntryAttachmentsRequestBody;
 };
 
+export type CreateJournalEntryAttachmentsPagination = {
+  total: number;
+  perPage: number;
+  currentPage: number;
+  totalPages: number;
+};
+
+export type CreateJournalEntryAttachmentsMeta = {
+  warnings?: Array<string> | null | undefined;
+  pagination?: CreateJournalEntryAttachmentsPagination | null | undefined;
+};
+
 export type CreateJournalEntryAttachmentsErrors = {};
 
 export type CreateJournalEntryAttachmentsRawData = {};
 
 export type CreateJournalEntryAttachmentsResponse = {
-  meta: models.MetaResponse;
-  data: Array<models.JournalEntryResponseDto>;
-  errors: CreateJournalEntryAttachmentsErrors;
-  rawData: CreateJournalEntryAttachmentsRawData;
+  meta?: CreateJournalEntryAttachmentsMeta | null | undefined;
+  data: models.JournalEntryResponseDto;
+  errors: CreateJournalEntryAttachmentsErrors | null;
+  rawData: CreateJournalEntryAttachmentsRawData | null;
 };
 
 /** @internal */
@@ -120,6 +133,54 @@ export function createJournalEntryAttachmentsRequestToJSON(
 }
 
 /** @internal */
+export const CreateJournalEntryAttachmentsPagination$inboundSchema:
+  z.ZodMiniType<CreateJournalEntryAttachmentsPagination, unknown> = z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  });
+
+export function createJournalEntryAttachmentsPaginationFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  CreateJournalEntryAttachmentsPagination,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      CreateJournalEntryAttachmentsPagination$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'CreateJournalEntryAttachmentsPagination' from JSON`,
+  );
+}
+
+/** @internal */
+export const CreateJournalEntryAttachmentsMeta$inboundSchema: z.ZodMiniType<
+  CreateJournalEntryAttachmentsMeta,
+  unknown
+> = z.object({
+  warnings: z.optional(z.nullable(z.array(types.string()))),
+  pagination: z.optional(
+    z.nullable(z.lazy(() =>
+      CreateJournalEntryAttachmentsPagination$inboundSchema
+    )),
+  ),
+});
+
+export function createJournalEntryAttachmentsMetaFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateJournalEntryAttachmentsMeta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateJournalEntryAttachmentsMeta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateJournalEntryAttachmentsMeta' from JSON`,
+  );
+}
+
+/** @internal */
 export const CreateJournalEntryAttachmentsErrors$inboundSchema: z.ZodMiniType<
   CreateJournalEntryAttachmentsErrors,
   unknown
@@ -158,10 +219,16 @@ export const CreateJournalEntryAttachmentsResponse$inboundSchema: z.ZodMiniType<
   CreateJournalEntryAttachmentsResponse,
   unknown
 > = z.object({
-  meta: models.MetaResponse$inboundSchema,
-  data: z.array(models.JournalEntryResponseDto$inboundSchema),
-  errors: z.lazy(() => CreateJournalEntryAttachmentsErrors$inboundSchema),
-  rawData: z.lazy(() => CreateJournalEntryAttachmentsRawData$inboundSchema),
+  meta: z.optional(
+    z.nullable(z.lazy(() => CreateJournalEntryAttachmentsMeta$inboundSchema)),
+  ),
+  data: models.JournalEntryResponseDto$inboundSchema,
+  errors: types.nullable(
+    z.lazy(() => CreateJournalEntryAttachmentsErrors$inboundSchema),
+  ),
+  rawData: types.nullable(
+    z.lazy(() => CreateJournalEntryAttachmentsRawData$inboundSchema),
+  ),
 });
 
 export function createJournalEntryAttachmentsResponseFromJSON(

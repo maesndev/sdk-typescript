@@ -3,34 +3,32 @@
 ## Example Usage
 
 ```typescript
-import { CreatePaymentResponse } from "maesn/models/operations";
+import { CreatePaymentResponse } from "@maesn/typescript-sdk/models/operations";
 
 let value: CreatePaymentResponse = {
-  meta: {
-    warnings: [
-      "<value 1>",
-      "<value 2>",
-    ],
-    pagination: {
-      total: 3438.77,
-      perPage: 5109.63,
-      currentPage: 2626.79,
-      totalPages: 3561.84,
-    },
-  },
   data: {
     id: "<id>",
-    currency: "Belize Dollar",
+    currency: "Kenyan Shilling",
     createdDate: "<value>",
-    documentType: "<value>",
-    exchangeRate: 8386.09,
+    documentType: "BILL",
+    exchangeRate: 7650.33,
     journalCode: "<value>",
-    updatedDate: "<value>",
-    paymentType: "<value>",
-    paymentLines: [],
+    updatedDate: null,
+    paymentType: null,
+    paymentLines: [
+      {
+        accountId: "<id>",
+        amount: 5456.15,
+        contactName: "<value>",
+        description: "up ew productive",
+        invoiceId: "<id>",
+        supplierId: "<id>",
+        paymentDate: "<value>",
+      },
+    ],
   },
   errors: {},
-  rawData: {},
+  rawData: null,
 };
 ```
 
@@ -38,7 +36,7 @@ let value: CreatePaymentResponse = {
 
 | Field                                                                                 | Type                                                                                  | Required                                                                              | Description                                                                           |
 | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| `meta`                                                                                | [models.MetaResponse](../../models/meta-response.md)                                  | :heavy_check_mark:                                                                    | N/A                                                                                   |
+| `meta`                                                                                | [operations.CreatePaymentMeta](../../models/operations/create-payment-meta.md)        | :heavy_minus_sign:                                                                    | N/A                                                                                   |
 | `data`                                                                                | [models.PaymentResponseDto](../../models/payment-response-dto.md)                     | :heavy_check_mark:                                                                    | N/A                                                                                   |
 | `errors`                                                                              | [operations.CreatePaymentErrors](../../models/operations/create-payment-errors.md)    | :heavy_check_mark:                                                                    | N/A                                                                                   |
 | `rawData`                                                                             | [operations.CreatePaymentRawData](../../models/operations/create-payment-raw-data.md) | :heavy_check_mark:                                                                    | N/A                                                                                   |

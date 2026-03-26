@@ -9,8 +9,8 @@ import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
 export type VendorCreditDimensionResponseDto = {
-  name: string;
-  categoryName: string;
+  name: string | null;
+  categoryName: string | null;
 };
 
 /** @internal */
@@ -18,8 +18,8 @@ export const VendorCreditDimensionResponseDto$inboundSchema: z.ZodMiniType<
   VendorCreditDimensionResponseDto,
   unknown
 > = z.object({
-  name: types.string(),
-  categoryName: types.string(),
+  name: types.nullable(types.string()),
+  categoryName: types.nullable(types.string()),
 });
 
 export function vendorCreditDimensionResponseDtoFromJSON(

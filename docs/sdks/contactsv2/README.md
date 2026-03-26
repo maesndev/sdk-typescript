@@ -13,7 +13,7 @@
 
 <!-- UsageSnippet language="typescript" operationID="getContactsV2" method="get" path="/accounting/v2/contacts" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -37,8 +37,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { contactsV2List } from "maesn/funcs/contacts-v2-list.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { contactsV2List } from "@maesn/typescript-sdk/funcs/contacts-v2-list.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -88,7 +88,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getContactV2" method="get" path="/accounting/v2/contacts/{contactId}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -114,8 +114,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { contactsV2Get } from "maesn/funcs/contacts-v2-get.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { contactsV2Get } from "@maesn/typescript-sdk/funcs/contacts-v2-get.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.

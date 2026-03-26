@@ -14,7 +14,7 @@
 
 <!-- UsageSnippet language="typescript" operationID="handleCallback" method="post" path="/callback/{code}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -40,8 +40,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { eventsHandleCallback } from "maesn/funcs/events-handle-callback.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { eventsHandleCallback } from "@maesn/typescript-sdk/funcs/events-handle-callback.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -93,7 +93,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getCode" method="post" path="/key/{code}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -119,8 +119,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { eventsGetCode } from "maesn/funcs/events-get-code.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { eventsGetCode } from "@maesn/typescript-sdk/funcs/events-get-code.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -172,7 +172,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="handleConfigurationCallback" method="post" path="/configuration/callback/{code}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -198,8 +198,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { eventsHandleConfigurationCallback } from "maesn/funcs/events-handle-configuration-callback.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { eventsHandleConfigurationCallback } from "@maesn/typescript-sdk/funcs/events-handle-configuration-callback.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.

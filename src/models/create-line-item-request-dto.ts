@@ -10,40 +10,40 @@ import {
 } from "./invoice-dimension-request-dto.js";
 
 export type CreateLineItemRequestDto = {
-  accountCode: string;
-  accountId: string;
-  description: string;
-  dimensions: Array<InvoiceDimensionRequestDto>;
-  discountItemPercentage: number;
-  grossAmount: number;
-  itemId: string;
-  name: string;
+  accountCode?: string | undefined;
+  accountId?: string | undefined;
+  description?: string | undefined;
+  dimensions?: Array<InvoiceDimensionRequestDto> | undefined;
+  discountItemPercentage?: number | undefined;
+  grossAmount?: number | undefined;
+  itemId?: string | undefined;
+  name?: string | undefined;
   quantity: number;
-  taxCode: string;
-  taxRatePercentage: number;
-  taxType: string;
-  type: string;
-  unitAmount: number;
-  unitName: string;
+  taxCode?: string | undefined;
+  taxRatePercentage?: number | undefined;
+  taxType?: string | undefined;
+  type?: string | undefined;
+  unitAmount?: number | undefined;
+  unitName?: string | undefined;
 };
 
 /** @internal */
 export type CreateLineItemRequestDto$Outbound = {
-  accountCode: string;
-  accountId: string;
-  description: string;
-  dimensions: Array<InvoiceDimensionRequestDto$Outbound>;
-  discountItemPercentage: number;
-  grossAmount: number;
-  itemId: string;
-  name: string;
+  accountCode?: string | undefined;
+  accountId?: string | undefined;
+  description?: string | undefined;
+  dimensions?: Array<InvoiceDimensionRequestDto$Outbound> | undefined;
+  discountItemPercentage?: number | undefined;
+  grossAmount?: number | undefined;
+  itemId?: string | undefined;
+  name?: string | undefined;
   quantity: number;
-  taxCode: string;
-  taxRatePercentage: number;
-  taxType: string;
-  type: string;
-  unitAmount: number;
-  unitName: string;
+  taxCode?: string | undefined;
+  taxRatePercentage?: number | undefined;
+  taxType?: string | undefined;
+  type?: string | undefined;
+  unitAmount?: number | undefined;
+  unitName?: string | undefined;
 };
 
 /** @internal */
@@ -51,21 +51,21 @@ export const CreateLineItemRequestDto$outboundSchema: z.ZodMiniType<
   CreateLineItemRequestDto$Outbound,
   CreateLineItemRequestDto
 > = z.object({
-  accountCode: z.string(),
-  accountId: z.string(),
-  description: z.string(),
-  dimensions: z.array(InvoiceDimensionRequestDto$outboundSchema),
-  discountItemPercentage: z.number(),
-  grossAmount: z.number(),
-  itemId: z.string(),
-  name: z.string(),
+  accountCode: z.optional(z.string()),
+  accountId: z.optional(z.string()),
+  description: z.optional(z.string()),
+  dimensions: z.optional(z.array(InvoiceDimensionRequestDto$outboundSchema)),
+  discountItemPercentage: z.optional(z.number()),
+  grossAmount: z.optional(z.number()),
+  itemId: z.optional(z.string()),
+  name: z.optional(z.string()),
   quantity: z.number(),
-  taxCode: z.string(),
-  taxRatePercentage: z.number(),
-  taxType: z.string(),
-  type: z.string(),
-  unitAmount: z.number(),
-  unitName: z.string(),
+  taxCode: z.optional(z.string()),
+  taxRatePercentage: z.optional(z.number()),
+  taxType: z.optional(z.string()),
+  type: z.optional(z.string()),
+  unitAmount: z.optional(z.number()),
+  unitName: z.optional(z.string()),
 });
 
 export function createLineItemRequestDtoToJSON(

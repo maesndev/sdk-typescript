@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
@@ -14,15 +15,27 @@ export type CreateOfferRequest = {
   body: models.CreateOfferRequestDto;
 };
 
+export type CreateOfferPagination = {
+  total: number;
+  perPage: number;
+  currentPage: number;
+  totalPages: number;
+};
+
+export type CreateOfferMeta = {
+  warnings?: Array<string> | null | undefined;
+  pagination?: CreateOfferPagination | null | undefined;
+};
+
 export type CreateOfferErrors = {};
 
 export type CreateOfferRawData = {};
 
 export type CreateOfferResponse = {
-  meta: models.MetaResponse;
+  meta?: CreateOfferMeta | null | undefined;
   data: models.OfferResponseDto;
-  errors: CreateOfferErrors;
-  rawData: CreateOfferRawData;
+  errors: CreateOfferErrors | null;
+  rawData: CreateOfferRawData | null;
 };
 
 /** @internal */
@@ -47,6 +60,48 @@ export function createOfferRequestToJSON(
 ): string {
   return JSON.stringify(
     CreateOfferRequest$outboundSchema.parse(createOfferRequest),
+  );
+}
+
+/** @internal */
+export const CreateOfferPagination$inboundSchema: z.ZodMiniType<
+  CreateOfferPagination,
+  unknown
+> = z.object({
+  total: types.number(),
+  perPage: types.number(),
+  currentPage: types.number(),
+  totalPages: types.number(),
+});
+
+export function createOfferPaginationFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateOfferPagination, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateOfferPagination$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateOfferPagination' from JSON`,
+  );
+}
+
+/** @internal */
+export const CreateOfferMeta$inboundSchema: z.ZodMiniType<
+  CreateOfferMeta,
+  unknown
+> = z.object({
+  warnings: z.optional(z.nullable(z.array(types.string()))),
+  pagination: z.optional(
+    z.nullable(z.lazy(() => CreateOfferPagination$inboundSchema)),
+  ),
+});
+
+export function createOfferMetaFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateOfferMeta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateOfferMeta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateOfferMeta' from JSON`,
   );
 }
 
@@ -87,10 +142,10 @@ export const CreateOfferResponse$inboundSchema: z.ZodMiniType<
   CreateOfferResponse,
   unknown
 > = z.object({
-  meta: models.MetaResponse$inboundSchema,
+  meta: z.optional(z.nullable(z.lazy(() => CreateOfferMeta$inboundSchema))),
   data: models.OfferResponseDto$inboundSchema,
-  errors: z.lazy(() => CreateOfferErrors$inboundSchema),
-  rawData: z.lazy(() => CreateOfferRawData$inboundSchema),
+  errors: types.nullable(z.lazy(() => CreateOfferErrors$inboundSchema)),
+  rawData: types.nullable(z.lazy(() => CreateOfferRawData$inboundSchema)),
 });
 
 export function createOfferResponseFromJSON(

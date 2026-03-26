@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { ItemResponseDto } from "maesn/models";
+import { ItemResponseDto } from "@maesn/typescript-sdk/models";
 
 let value: ItemResponseDto = {
   id: "<id>",
@@ -15,13 +15,13 @@ let value: ItemResponseDto = {
   lastModifiedDate: "<value>",
   name: "<value>",
   priceIncludesTax: true,
-  stockCount: 7577.95,
+  stockCount: null,
   taxCode: "<value>",
-  taxRatePercentage: 4890.22,
+  taxRatePercentage: 9240.74,
   type: "SERVICE",
   unitName: "LITRE",
-  unitPurchasePrice: 3441.86,
-  unitSalesPrice: 6742.28,
+  unitPurchasePrice: 1226.15,
+  unitSalesPrice: 7169.79,
 };
 ```
 

@@ -12,7 +12,7 @@
 
 <!-- UsageSnippet language="typescript" operationID="getFiscalYear" method="get" path="/accounting/fiscalYears/{fiscalYearId}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -38,8 +38,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { fiscalYearsGet } from "maesn/funcs/fiscal-years-get.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { fiscalYearsGet } from "@maesn/typescript-sdk/funcs/fiscal-years-get.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.

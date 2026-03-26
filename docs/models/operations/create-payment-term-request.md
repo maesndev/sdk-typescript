@@ -3,29 +3,10 @@
 ## Example Usage
 
 ```typescript
-import { CreatePaymentTermRequest } from "maesn/models/operations";
+import { CreatePaymentTermRequest } from "@maesn/typescript-sdk/models/operations";
 
 let value: CreatePaymentTermRequest = {
-  body: {
-    code: "<value>",
-    description: "secret wearily crossly sans phooey tenant fork sophisticated",
-    discountDays: 8011.13,
-    discountDays2: 4885.24,
-    discountPercentage: 2710.64,
-    discountPercentage2: 1512.1,
-    discountPeriods: [
-      {
-        invoiceRange: "<value>",
-        discountDeadline: "<value>",
-        discountDeadline2: "<value>",
-        paymentDeadline: "<value>",
-      },
-    ],
-    dueType: "DUE_IN_DAYS",
-    name: "<value>",
-    paymentDays: 6191.69,
-    paymentMethod: "<value>",
-  },
+  body: {},
 };
 ```
 

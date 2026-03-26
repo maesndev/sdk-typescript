@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
@@ -12,15 +13,27 @@ export type GetCompaniesRequest = {
   environmentName?: string | undefined;
 };
 
+export type GetCompaniesPagination = {
+  total: number;
+  perPage: number;
+  currentPage: number;
+  totalPages: number;
+};
+
+export type GetCompaniesMeta = {
+  warnings?: Array<string> | null | undefined;
+  pagination?: GetCompaniesPagination | null | undefined;
+};
+
 export type GetCompaniesErrors = {};
 
 export type GetCompaniesRawData = {};
 
 export type GetCompaniesResponse = {
-  meta: models.MetaResponse;
+  meta?: GetCompaniesMeta | null | undefined;
   data: Array<models.CompanyResponseDto>;
-  errors: GetCompaniesErrors;
-  rawData: GetCompaniesRawData;
+  errors: GetCompaniesErrors | null;
+  rawData: GetCompaniesRawData | null;
 };
 
 /** @internal */
@@ -41,6 +54,48 @@ export function getCompaniesRequestToJSON(
 ): string {
   return JSON.stringify(
     GetCompaniesRequest$outboundSchema.parse(getCompaniesRequest),
+  );
+}
+
+/** @internal */
+export const GetCompaniesPagination$inboundSchema: z.ZodMiniType<
+  GetCompaniesPagination,
+  unknown
+> = z.object({
+  total: types.number(),
+  perPage: types.number(),
+  currentPage: types.number(),
+  totalPages: types.number(),
+});
+
+export function getCompaniesPaginationFromJSON(
+  jsonString: string,
+): SafeParseResult<GetCompaniesPagination, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetCompaniesPagination$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetCompaniesPagination' from JSON`,
+  );
+}
+
+/** @internal */
+export const GetCompaniesMeta$inboundSchema: z.ZodMiniType<
+  GetCompaniesMeta,
+  unknown
+> = z.object({
+  warnings: z.optional(z.nullable(z.array(types.string()))),
+  pagination: z.optional(
+    z.nullable(z.lazy(() => GetCompaniesPagination$inboundSchema)),
+  ),
+});
+
+export function getCompaniesMetaFromJSON(
+  jsonString: string,
+): SafeParseResult<GetCompaniesMeta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetCompaniesMeta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetCompaniesMeta' from JSON`,
   );
 }
 
@@ -81,10 +136,10 @@ export const GetCompaniesResponse$inboundSchema: z.ZodMiniType<
   GetCompaniesResponse,
   unknown
 > = z.object({
-  meta: models.MetaResponse$inboundSchema,
+  meta: z.optional(z.nullable(z.lazy(() => GetCompaniesMeta$inboundSchema))),
   data: z.array(models.CompanyResponseDto$inboundSchema),
-  errors: z.lazy(() => GetCompaniesErrors$inboundSchema),
-  rawData: z.lazy(() => GetCompaniesRawData$inboundSchema),
+  errors: types.nullable(z.lazy(() => GetCompaniesErrors$inboundSchema)),
+  rawData: types.nullable(z.lazy(() => GetCompaniesRawData$inboundSchema)),
 });
 
 export function getCompaniesResponseFromJSON(

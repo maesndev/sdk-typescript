@@ -5,7 +5,7 @@ The Health Check is not successful
 ## Example Usage
 
 ```typescript
-import { ServiceUnavailableError } from "maesn/models/errors";
+import { ServiceUnavailableError } from "@maesn/typescript-sdk/models/errors";
 
 // No examples available for this model
 ```

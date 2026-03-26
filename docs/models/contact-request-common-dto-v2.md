@@ -3,19 +3,15 @@
 ## Example Usage
 
 ```typescript
-import { ContactRequestCommonDtoV2 } from "maesn/models";
+import { ContactRequestCommonDtoV2 } from "@maesn/typescript-sdk/models";
 
-let value: ContactRequestCommonDtoV2 = {
-  id: "<id>",
-  accountNumber: 9350.42,
-  name: "<value>",
-};
+let value: ContactRequestCommonDtoV2 = {};
 ```
 
 ## Fields
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `id`               | *string*           | :heavy_check_mark: | N/A                |
-| `accountNumber`    | *number*           | :heavy_check_mark: | N/A                |
-| `name`             | *string*           | :heavy_check_mark: | N/A                |
+| `id`               | *string*           | :heavy_minus_sign: | N/A                |
+| `accountNumber`    | *number*           | :heavy_minus_sign: | N/A                |
+| `name`             | *string*           | :heavy_minus_sign: | N/A                |

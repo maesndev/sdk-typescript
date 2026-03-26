@@ -3,20 +3,20 @@
 ## Example Usage
 
 ```typescript
-import { ProjectResponseDto } from "maesn/models";
+import { ProjectResponseDto } from "@maesn/typescript-sdk/models";
 
 let value: ProjectResponseDto = {
   id: "<id>",
-  code: "<value>",
+  code: null,
   createdDate: "<value>",
   contactId: "<id>",
-  currency: "KWD",
-  description: "shadowy denitrify ew",
+  currency: "EGP",
+  description: "faithfully heavy impolite free so down pace coaxingly swiftly",
   endDate: "<value>",
   name: "<value>",
   number: "<value>",
   parentProjectId: "<id>",
-  status: "ACTIVE",
+  status: "CLOSED",
   startDate: "<value>",
   updatedDate: "<value>",
 };

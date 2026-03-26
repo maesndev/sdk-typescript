@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
@@ -15,15 +16,27 @@ export type PatchContactV2Request = {
   body: models.CreateContactRequestDtoV2;
 };
 
+export type PatchContactV2Pagination = {
+  total: number;
+  perPage: number;
+  currentPage: number;
+  totalPages: number;
+};
+
+export type PatchContactV2Meta = {
+  warnings?: Array<string> | null | undefined;
+  pagination?: PatchContactV2Pagination | null | undefined;
+};
+
 export type PatchContactV2Errors = {};
 
 export type PatchContactV2RawData = {};
 
 export type PatchContactV2Response = {
-  meta: models.MetaResponse;
+  meta?: PatchContactV2Meta | null | undefined;
   data: models.ContactResponseDtoV2;
-  errors: PatchContactV2Errors;
-  rawData: PatchContactV2RawData;
+  errors: PatchContactV2Errors | null;
+  rawData: PatchContactV2RawData | null;
 };
 
 /** @internal */
@@ -50,6 +63,48 @@ export function patchContactV2RequestToJSON(
 ): string {
   return JSON.stringify(
     PatchContactV2Request$outboundSchema.parse(patchContactV2Request),
+  );
+}
+
+/** @internal */
+export const PatchContactV2Pagination$inboundSchema: z.ZodMiniType<
+  PatchContactV2Pagination,
+  unknown
+> = z.object({
+  total: types.number(),
+  perPage: types.number(),
+  currentPage: types.number(),
+  totalPages: types.number(),
+});
+
+export function patchContactV2PaginationFromJSON(
+  jsonString: string,
+): SafeParseResult<PatchContactV2Pagination, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => PatchContactV2Pagination$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'PatchContactV2Pagination' from JSON`,
+  );
+}
+
+/** @internal */
+export const PatchContactV2Meta$inboundSchema: z.ZodMiniType<
+  PatchContactV2Meta,
+  unknown
+> = z.object({
+  warnings: z.optional(z.nullable(z.array(types.string()))),
+  pagination: z.optional(
+    z.nullable(z.lazy(() => PatchContactV2Pagination$inboundSchema)),
+  ),
+});
+
+export function patchContactV2MetaFromJSON(
+  jsonString: string,
+): SafeParseResult<PatchContactV2Meta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => PatchContactV2Meta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'PatchContactV2Meta' from JSON`,
   );
 }
 
@@ -90,10 +145,10 @@ export const PatchContactV2Response$inboundSchema: z.ZodMiniType<
   PatchContactV2Response,
   unknown
 > = z.object({
-  meta: models.MetaResponse$inboundSchema,
+  meta: z.optional(z.nullable(z.lazy(() => PatchContactV2Meta$inboundSchema))),
   data: models.ContactResponseDtoV2$inboundSchema,
-  errors: z.lazy(() => PatchContactV2Errors$inboundSchema),
-  rawData: z.lazy(() => PatchContactV2RawData$inboundSchema),
+  errors: types.nullable(z.lazy(() => PatchContactV2Errors$inboundSchema)),
+  rawData: types.nullable(z.lazy(() => PatchContactV2RawData$inboundSchema)),
 });
 
 export function patchContactV2ResponseFromJSON(

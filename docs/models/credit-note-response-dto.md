@@ -3,47 +3,28 @@
 ## Example Usage
 
 ```typescript
-import { CreditNoteResponseDto } from "maesn/models";
+import { CreditNoteResponseDto } from "@maesn/typescript-sdk/models";
 
 let value: CreditNoteResponseDto = {
-  id: "<id>",
-  addresses: [],
+  id: null,
+  addresses: [
+    {},
+  ],
   contactId: "<id>",
   createdDate: "<value>",
   creditNoteDate: "<value>",
-  creditNoteLines: [
-    {
-      id: "<id>",
-      createdDate: "<value>",
-      description: "segregate whoever decision nudge whose fragrant even",
-      itemId: "<id>",
-      itemName: "<value>",
-      quantity: 2003.9,
-      taxCode: "<value>",
-      taxRatePercentage: 8902.42,
-      totalDiscountAmount: 3033.59,
-      totalDiscountPercentage: 9674.25,
-      totalGrossAmount: 9006.47,
-      totalNetAmount: 2669.72,
-      totalTaxAmount: 815.48,
-      unitAmount: 8447.51,
-      unitDiscountAmount: 9784.31,
-      unitDiscountPercentage: 8251.52,
-      unitName: "<value>",
-      updatedDate: "<value>",
-    },
-  ],
-  creditNoteNumber: "<value>",
-  currency: "Colombian Peso",
-  paymentStatus: "PARTIAL_CANCELLATION",
+  creditNoteLines: [],
+  creditNoteNumber: null,
+  currency: "Danish Krone",
+  paymentStatus: "CANCELED",
   paymentTermId: "<id>",
   reference: "<value>",
-  status: "PAID",
-  totalDiscountAmount: 3538.3,
-  totalDiscountPercentage: 7777.6,
-  totalGrossAmount: 392.99,
-  totalNetAmount: 8571.57,
-  totalTaxAmount: 1524.63,
+  status: "VOIDED",
+  totalDiscountAmount: 9899.06,
+  totalDiscountPercentage: 3957.71,
+  totalGrossAmount: 5304.94,
+  totalNetAmount: 1831.02,
+  totalTaxAmount: 7011.77,
   updatedDate: "<value>",
 };
 ```

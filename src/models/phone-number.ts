@@ -24,8 +24,8 @@ export const PhoneNumberType = {
 export type PhoneNumberType = OpenEnum<typeof PhoneNumberType>;
 
 export type PhoneNumber = {
-  number: string;
-  type: PhoneNumberType;
+  number: string | null;
+  type: PhoneNumberType | null;
 };
 
 /** @internal */
@@ -33,36 +33,14 @@ export const PhoneNumberType$inboundSchema: z.ZodMiniType<
   PhoneNumberType,
   unknown
 > = openEnums.inboundSchema(PhoneNumberType);
-/** @internal */
-export const PhoneNumberType$outboundSchema: z.ZodMiniType<
-  string,
-  PhoneNumberType
-> = openEnums.outboundSchema(PhoneNumberType);
 
 /** @internal */
 export const PhoneNumber$inboundSchema: z.ZodMiniType<PhoneNumber, unknown> = z
   .object({
-    number: types.string(),
-    type: PhoneNumberType$inboundSchema,
+    number: types.nullable(types.string()),
+    type: types.nullable(PhoneNumberType$inboundSchema),
   });
-/** @internal */
-export type PhoneNumber$Outbound = {
-  number: string;
-  type: string;
-};
 
-/** @internal */
-export const PhoneNumber$outboundSchema: z.ZodMiniType<
-  PhoneNumber$Outbound,
-  PhoneNumber
-> = z.object({
-  number: z.string(),
-  type: PhoneNumberType$outboundSchema,
-});
-
-export function phoneNumberToJSON(phoneNumber: PhoneNumber): string {
-  return JSON.stringify(PhoneNumber$outboundSchema.parse(phoneNumber));
-}
 export function phoneNumberFromJSON(
   jsonString: string,
 ): SafeParseResult<PhoneNumber, SDKValidationError> {

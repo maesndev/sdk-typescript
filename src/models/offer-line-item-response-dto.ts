@@ -24,28 +24,28 @@ export type OfferLineItemResponseDtoType = OpenEnum<
 >;
 
 export type OfferLineItemResponseDto = {
-  id: string;
-  accountCode: string;
-  accountId: string;
-  createdDate: string;
-  description: string;
-  itemId: string;
-  name: string;
-  quantity: number;
-  taxCode: string;
-  taxRatePercentage: number;
-  taxType: string;
-  type: OfferLineItemResponseDtoType;
-  totalDiscountAmount: number;
-  totalDiscountPercentage: number;
-  totalGrossAmount: number;
-  totalNetAmount: number;
-  totalTaxAmount: number;
-  unitAmount: number;
-  unitDiscountAmount: number;
-  unitDiscountPercentage: number;
-  unitName: string;
-  updatedDate: string;
+  id: string | null;
+  accountCode: string | null;
+  accountId: string | null;
+  createdDate: string | null;
+  description: string | null;
+  itemId: string | null;
+  name: string | null;
+  quantity: number | null;
+  taxCode: string | null;
+  taxRatePercentage: number | null;
+  taxType: string | null;
+  type: OfferLineItemResponseDtoType | null;
+  totalDiscountAmount: number | null;
+  totalDiscountPercentage: number | null;
+  totalGrossAmount: number | null;
+  totalNetAmount: number | null;
+  totalTaxAmount: number | null;
+  unitAmount: number | null;
+  unitDiscountAmount: number | null;
+  unitDiscountPercentage: number | null;
+  unitName: string | null;
+  updatedDate: string | null;
 };
 
 /** @internal */
@@ -59,28 +59,28 @@ export const OfferLineItemResponseDto$inboundSchema: z.ZodMiniType<
   OfferLineItemResponseDto,
   unknown
 > = z.object({
-  id: types.string(),
-  accountCode: types.string(),
-  accountId: types.string(),
-  createdDate: types.string(),
-  description: types.string(),
-  itemId: types.string(),
-  name: types.string(),
-  quantity: types.number(),
-  taxCode: types.string(),
-  taxRatePercentage: types.number(),
-  taxType: types.string(),
-  type: OfferLineItemResponseDtoType$inboundSchema,
-  totalDiscountAmount: types.number(),
-  totalDiscountPercentage: types.number(),
-  totalGrossAmount: types.number(),
-  totalNetAmount: types.number(),
-  totalTaxAmount: types.number(),
-  unitAmount: types.number(),
-  unitDiscountAmount: types.number(),
-  unitDiscountPercentage: types.number(),
-  unitName: types.string(),
-  updatedDate: types.string(),
+  id: types.nullable(types.string()),
+  accountCode: types.nullable(types.string()),
+  accountId: types.nullable(types.string()),
+  createdDate: types.nullable(types.string()),
+  description: types.nullable(types.string()),
+  itemId: types.nullable(types.string()),
+  name: types.nullable(types.string()),
+  quantity: types.nullable(types.number()),
+  taxCode: types.nullable(types.string()),
+  taxRatePercentage: types.nullable(types.number()),
+  taxType: types.nullable(types.string()),
+  type: types.nullable(OfferLineItemResponseDtoType$inboundSchema),
+  totalDiscountAmount: types.nullable(types.number()),
+  totalDiscountPercentage: types.nullable(types.number()),
+  totalGrossAmount: types.nullable(types.number()),
+  totalNetAmount: types.nullable(types.number()),
+  totalTaxAmount: types.nullable(types.number()),
+  unitAmount: types.nullable(types.number()),
+  unitDiscountAmount: types.nullable(types.number()),
+  unitDiscountPercentage: types.nullable(types.number()),
+  unitName: types.nullable(types.string()),
+  updatedDate: types.nullable(types.string()),
 });
 
 export function offerLineItemResponseDtoFromJSON(

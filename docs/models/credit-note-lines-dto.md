@@ -3,26 +3,25 @@
 ## Example Usage
 
 ```typescript
-import { CreditNoteLinesDto } from "maesn/models";
+import { CreditNoteLinesDto } from "@maesn/typescript-sdk/models";
 
 let value: CreditNoteLinesDto = {
   id: "<id>",
-  createdDate: "<value>",
-  description:
-    "thoughtfully lace till pish cross frantically weary ouch consequently",
+  createdDate: null,
+  description: null,
   itemId: "<id>",
-  itemName: "<value>",
-  quantity: 2016.83,
+  itemName: null,
+  quantity: 3789.24,
   taxCode: "<value>",
-  taxRatePercentage: 5289.78,
-  totalDiscountAmount: 7700.76,
-  totalDiscountPercentage: 8331.34,
-  totalGrossAmount: 7369.96,
-  totalNetAmount: 7333.62,
-  totalTaxAmount: 7027.61,
-  unitAmount: 1574.8,
-  unitDiscountAmount: 4186.46,
-  unitDiscountPercentage: 672.51,
+  taxRatePercentage: 1229.23,
+  totalDiscountAmount: 5980.54,
+  totalDiscountPercentage: 8202.19,
+  totalGrossAmount: 5342.95,
+  totalNetAmount: 1148.71,
+  totalTaxAmount: 5983.5,
+  unitAmount: 6718.31,
+  unitDiscountAmount: 4980.38,
+  unitDiscountPercentage: null,
   unitName: "<value>",
   updatedDate: "<value>",
 };

@@ -181,19 +181,19 @@ export type ProjectResponseDtoStatus = OpenEnum<
 >;
 
 export type ProjectResponseDto = {
-  id: string;
-  code: string;
-  createdDate: string;
-  contactId: string;
-  currency: ProjectResponseDtoCurrency;
-  description: string;
-  endDate: string;
-  name: string;
-  number: string;
-  parentProjectId: string;
-  status: ProjectResponseDtoStatus;
-  startDate: string;
-  updatedDate: string;
+  id: string | null;
+  code: string | null;
+  createdDate: string | null;
+  contactId: string | null;
+  currency: ProjectResponseDtoCurrency | null;
+  description: string | null;
+  endDate: string | null;
+  name: string | null;
+  number: string | null;
+  parentProjectId: string | null;
+  status: ProjectResponseDtoStatus | null;
+  startDate: string | null;
+  updatedDate: string | null;
 };
 
 /** @internal */
@@ -213,19 +213,19 @@ export const ProjectResponseDto$inboundSchema: z.ZodMiniType<
   ProjectResponseDto,
   unknown
 > = z.object({
-  id: types.string(),
-  code: types.string(),
-  createdDate: types.string(),
-  contactId: types.string(),
-  currency: ProjectResponseDtoCurrency$inboundSchema,
-  description: types.string(),
-  endDate: types.string(),
-  name: types.string(),
-  number: types.string(),
-  parentProjectId: types.string(),
-  status: ProjectResponseDtoStatus$inboundSchema,
-  startDate: types.string(),
-  updatedDate: types.string(),
+  id: types.nullable(types.string()),
+  code: types.nullable(types.string()),
+  createdDate: types.nullable(types.string()),
+  contactId: types.nullable(types.string()),
+  currency: types.nullable(ProjectResponseDtoCurrency$inboundSchema),
+  description: types.nullable(types.string()),
+  endDate: types.nullable(types.string()),
+  name: types.nullable(types.string()),
+  number: types.nullable(types.string()),
+  parentProjectId: types.nullable(types.string()),
+  status: types.nullable(ProjectResponseDtoStatus$inboundSchema),
+  startDate: types.nullable(types.string()),
+  updatedDate: types.nullable(types.string()),
 });
 
 export function projectResponseDtoFromJSON(

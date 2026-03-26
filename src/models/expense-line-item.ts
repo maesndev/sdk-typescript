@@ -5,10 +5,15 @@
 import * as z from "zod/v4-mini";
 import { ClosedEnum } from "../types/enums.js";
 import {
-  TaxRate,
-  TaxRate$Outbound,
-  TaxRate$outboundSchema,
-} from "./tax-rate.js";
+  DimensionInput,
+  DimensionInput$Outbound,
+  DimensionInput$outboundSchema,
+} from "./dimension-input.js";
+import {
+  TaxRateInput,
+  TaxRateInput$Outbound,
+  TaxRateInput$outboundSchema,
+} from "./tax-rate-input.js";
 
 export const ExpenseLineItemCurrency = {
   Aed: "AED",
@@ -173,19 +178,19 @@ export type ExpenseLineItemCurrency = ClosedEnum<
 >;
 
 export type ExpenseLineItem = {
-  id: string;
-  accountCode: string;
-  accountId: string;
-  accountNumber: number;
-  currency: ExpenseLineItemCurrency;
-  description: string;
-  dimensions: Array<string>;
-  documentNumber: string;
-  exchangeRate: number;
-  itemId: string;
-  taxRate: TaxRate;
-  totalGrossAmount: number;
-  totalNetAmount: number;
+  id?: string | undefined;
+  accountCode?: string | undefined;
+  accountId?: string | undefined;
+  accountNumber?: number | undefined;
+  currency?: ExpenseLineItemCurrency | undefined;
+  description?: string | undefined;
+  dimensions?: Array<DimensionInput> | undefined;
+  documentNumber?: string | undefined;
+  exchangeRate?: number | undefined;
+  itemId?: string | undefined;
+  taxRate?: TaxRateInput | undefined;
+  totalGrossAmount?: number | undefined;
+  totalNetAmount?: number | undefined;
 };
 
 /** @internal */
@@ -195,19 +200,19 @@ export const ExpenseLineItemCurrency$outboundSchema: z.ZodMiniEnum<
 
 /** @internal */
 export type ExpenseLineItem$Outbound = {
-  id: string;
-  accountCode: string;
-  accountId: string;
-  accountNumber: number;
-  currency: string;
-  description: string;
-  dimensions: Array<string>;
-  documentNumber: string;
-  exchangeRate: number;
-  itemId: string;
-  taxRate: TaxRate$Outbound;
-  totalGrossAmount: number;
-  totalNetAmount: number;
+  id?: string | undefined;
+  accountCode?: string | undefined;
+  accountId?: string | undefined;
+  accountNumber?: number | undefined;
+  currency?: string | undefined;
+  description?: string | undefined;
+  dimensions?: Array<DimensionInput$Outbound> | undefined;
+  documentNumber?: string | undefined;
+  exchangeRate?: number | undefined;
+  itemId?: string | undefined;
+  taxRate?: TaxRateInput$Outbound | undefined;
+  totalGrossAmount?: number | undefined;
+  totalNetAmount?: number | undefined;
 };
 
 /** @internal */
@@ -215,19 +220,19 @@ export const ExpenseLineItem$outboundSchema: z.ZodMiniType<
   ExpenseLineItem$Outbound,
   ExpenseLineItem
 > = z.object({
-  id: z.string(),
-  accountCode: z.string(),
-  accountId: z.string(),
-  accountNumber: z.number(),
-  currency: ExpenseLineItemCurrency$outboundSchema,
-  description: z.string(),
-  dimensions: z.array(z.string()),
-  documentNumber: z.string(),
-  exchangeRate: z.number(),
-  itemId: z.string(),
-  taxRate: TaxRate$outboundSchema,
-  totalGrossAmount: z.number(),
-  totalNetAmount: z.number(),
+  id: z.optional(z.string()),
+  accountCode: z.optional(z.string()),
+  accountId: z.optional(z.string()),
+  accountNumber: z.optional(z.number()),
+  currency: z.optional(ExpenseLineItemCurrency$outboundSchema),
+  description: z.optional(z.string()),
+  dimensions: z.optional(z.array(DimensionInput$outboundSchema)),
+  documentNumber: z.optional(z.string()),
+  exchangeRate: z.optional(z.number()),
+  itemId: z.optional(z.string()),
+  taxRate: z.optional(TaxRateInput$outboundSchema),
+  totalGrossAmount: z.optional(z.number()),
+  totalNetAmount: z.optional(z.number()),
 });
 
 export function expenseLineItemToJSON(

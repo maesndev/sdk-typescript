@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { CreateOfferLineItemRequestDtoType } from "maesn/models";
+import { CreateOfferLineItemRequestDtoType } from "@maesn/typescript-sdk/models";
 
 let value: CreateOfferLineItemRequestDtoType = "CHARGE";
 ```

@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { GetTrialBalanceErrors } from "maesn/models/operations";
+import { GetTrialBalanceErrors } from "@maesn/typescript-sdk/models/operations";
 
 let value: GetTrialBalanceErrors = {};
 ```

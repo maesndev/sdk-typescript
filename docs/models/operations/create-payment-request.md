@@ -3,17 +3,10 @@
 ## Example Usage
 
 ```typescript
-import { CreatePaymentRequest } from "maesn/models/operations";
+import { CreatePaymentRequest } from "@maesn/typescript-sdk/models/operations";
 
 let value: CreatePaymentRequest = {
-  body: {
-    currency: "Tugrik",
-    documentType: "<value>",
-    exchangeRate: 5239.43,
-    journalCode: "<value>",
-    paymentType: "<value>",
-    paymentLines: [],
-  },
+  body: {},
 };
 ```
 

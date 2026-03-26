@@ -3,43 +3,31 @@
 ## Example Usage
 
 ```typescript
-import { PutContactResponse } from "maesn/models/operations";
+import { PutContactResponse } from "@maesn/typescript-sdk/models/operations";
 
 let value: PutContactResponse = {
-  meta: {
-    warnings: [
-      "<value 1>",
-      "<value 2>",
-    ],
-    pagination: {
-      total: 3438.77,
-      perPage: 5109.63,
-      currentPage: 2626.79,
-      totalPages: 3561.84,
-    },
-  },
   data: {
     id: "<id>",
     addresses: [],
-    companyName: "Harber - Corkery",
+    companyName: "Kuhn and Sons",
     contactPersons: [],
-    contactType: "COMPANY",
+    contactType: "UNDEFINED",
     createdDate: "<value>",
-    emailAddresses: [
+    emailAddresses: [],
+    isCustomer: false,
+    isSupplier: false,
+    number: "<value>",
+    phoneNumbers: [
       {
-        email: "Amira56@gmail.com",
+        number: "<value>",
         type: "PRIVATE",
       },
     ],
-    isCustomer: false,
-    isSupplier: true,
-    number: "<value>",
-    phoneNumbers: [],
     projectId: "<id>",
     updatedDate: "<value>",
     website: "<value>",
   },
-  errors: {},
+  errors: null,
   rawData: {},
 };
 ```
@@ -48,7 +36,7 @@ let value: PutContactResponse = {
 
 | Field                                                                           | Type                                                                            | Required                                                                        | Description                                                                     |
 | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| `meta`                                                                          | [models.MetaResponse](../../models/meta-response.md)                            | :heavy_check_mark:                                                              | N/A                                                                             |
+| `meta`                                                                          | [operations.PutContactMeta](../../models/operations/put-contact-meta.md)        | :heavy_minus_sign:                                                              | N/A                                                                             |
 | `data`                                                                          | [models.ContactResponseDtoV2](../../models/contact-response-dto-v2.md)          | :heavy_check_mark:                                                              | N/A                                                                             |
 | `errors`                                                                        | [operations.PutContactErrors](../../models/operations/put-contact-errors.md)    | :heavy_check_mark:                                                              | N/A                                                                             |
 | `rawData`                                                                       | [operations.PutContactRawData](../../models/operations/put-contact-raw-data.md) | :heavy_check_mark:                                                              | N/A                                                                             |

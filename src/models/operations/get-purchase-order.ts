@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
@@ -15,15 +16,27 @@ export type GetPurchaseOrderRequest = {
   rawData?: boolean | undefined;
 };
 
+export type GetPurchaseOrderPagination = {
+  total: number;
+  perPage: number;
+  currentPage: number;
+  totalPages: number;
+};
+
+export type GetPurchaseOrderMeta = {
+  warnings?: Array<string> | null | undefined;
+  pagination?: GetPurchaseOrderPagination | null | undefined;
+};
+
 export type GetPurchaseOrderErrors = {};
 
 export type GetPurchaseOrderRawData = {};
 
 export type GetPurchaseOrderResponse = {
-  meta: models.MetaResponse;
+  meta?: GetPurchaseOrderMeta | null | undefined;
   data: models.PurchaseOrderResponseDto;
-  errors: GetPurchaseOrderErrors;
-  rawData: GetPurchaseOrderRawData;
+  errors: GetPurchaseOrderErrors | null;
+  rawData: GetPurchaseOrderRawData | null;
 };
 
 /** @internal */
@@ -50,6 +63,48 @@ export function getPurchaseOrderRequestToJSON(
 ): string {
   return JSON.stringify(
     GetPurchaseOrderRequest$outboundSchema.parse(getPurchaseOrderRequest),
+  );
+}
+
+/** @internal */
+export const GetPurchaseOrderPagination$inboundSchema: z.ZodMiniType<
+  GetPurchaseOrderPagination,
+  unknown
+> = z.object({
+  total: types.number(),
+  perPage: types.number(),
+  currentPage: types.number(),
+  totalPages: types.number(),
+});
+
+export function getPurchaseOrderPaginationFromJSON(
+  jsonString: string,
+): SafeParseResult<GetPurchaseOrderPagination, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetPurchaseOrderPagination$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetPurchaseOrderPagination' from JSON`,
+  );
+}
+
+/** @internal */
+export const GetPurchaseOrderMeta$inboundSchema: z.ZodMiniType<
+  GetPurchaseOrderMeta,
+  unknown
+> = z.object({
+  warnings: z.optional(z.nullable(z.array(types.string()))),
+  pagination: z.optional(
+    z.nullable(z.lazy(() => GetPurchaseOrderPagination$inboundSchema)),
+  ),
+});
+
+export function getPurchaseOrderMetaFromJSON(
+  jsonString: string,
+): SafeParseResult<GetPurchaseOrderMeta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetPurchaseOrderMeta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetPurchaseOrderMeta' from JSON`,
   );
 }
 
@@ -90,10 +145,12 @@ export const GetPurchaseOrderResponse$inboundSchema: z.ZodMiniType<
   GetPurchaseOrderResponse,
   unknown
 > = z.object({
-  meta: models.MetaResponse$inboundSchema,
+  meta: z.optional(
+    z.nullable(z.lazy(() => GetPurchaseOrderMeta$inboundSchema)),
+  ),
   data: models.PurchaseOrderResponseDto$inboundSchema,
-  errors: z.lazy(() => GetPurchaseOrderErrors$inboundSchema),
-  rawData: z.lazy(() => GetPurchaseOrderRawData$inboundSchema),
+  errors: types.nullable(z.lazy(() => GetPurchaseOrderErrors$inboundSchema)),
+  rawData: types.nullable(z.lazy(() => GetPurchaseOrderRawData$inboundSchema)),
 });
 
 export function getPurchaseOrderResponseFromJSON(

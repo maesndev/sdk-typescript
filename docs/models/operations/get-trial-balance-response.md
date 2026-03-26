@@ -3,38 +3,34 @@
 ## Example Usage
 
 ```typescript
-import { GetTrialBalanceResponse } from "maesn/models/operations";
+import { GetTrialBalanceResponse } from "@maesn/typescript-sdk/models/operations";
 
 let value: GetTrialBalanceResponse = {
-  meta: {
-    warnings: [
-      "<value 1>",
-      "<value 2>",
-    ],
-    pagination: {
-      total: 3438.77,
-      perPage: 5109.63,
-      currentPage: 2626.79,
-      totalPages: 3561.84,
-    },
-  },
   data: [
     {
       accountCode: "<value>",
       accountName: "<value>",
-      accountNumber: "<value>",
+      accountNumber: null,
       balance: {
-        amount: 6397.3,
-        debitCreditIndicator: "DEBIT",
+        amount: 2115.48,
+        debitCreditIndicator: null,
       },
       createdDate: "<value>",
-      monthlyValues: [],
+      monthlyValues: [
+        {
+          month: null,
+          balance: {
+            amount: 6542,
+            debitCreditIndicator: null,
+          },
+        },
+      ],
       openingBalance: {
-        amount: 3501.58,
-        debitCreditIndicator: "CREDIT",
+        amount: null,
+        debitCreditIndicator: "DEBIT",
       },
-      totalCreditAmount: 2115.48,
-      totalDebitAmount: 296.14,
+      totalCreditAmount: 7668.05,
+      totalDebitAmount: 6052.39,
       updatedDate: "<value>",
     },
   ],
@@ -47,7 +43,7 @@ let value: GetTrialBalanceResponse = {
 
 | Field                                                                                      | Type                                                                                       | Required                                                                                   | Description                                                                                |
 | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `meta`                                                                                     | [models.MetaResponse](../../models/meta-response.md)                                       | :heavy_check_mark:                                                                         | N/A                                                                                        |
+| `meta`                                                                                     | [operations.GetTrialBalanceMeta](../../models/operations/get-trial-balance-meta.md)        | :heavy_minus_sign:                                                                         | N/A                                                                                        |
 | `data`                                                                                     | [models.TrialBalanceResponseDto](../../models/trial-balance-response-dto.md)[]             | :heavy_check_mark:                                                                         | N/A                                                                                        |
 | `errors`                                                                                   | [operations.GetTrialBalanceErrors](../../models/operations/get-trial-balance-errors.md)    | :heavy_check_mark:                                                                         | N/A                                                                                        |
 | `rawData`                                                                                  | [operations.GetTrialBalanceRawData](../../models/operations/get-trial-balance-raw-data.md) | :heavy_check_mark:                                                                         | N/A                                                                                        |

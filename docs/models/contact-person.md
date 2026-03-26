@@ -3,15 +3,12 @@
 ## Example Usage
 
 ```typescript
-import { ContactPerson } from "maesn/models";
+import { ContactPerson } from "@maesn/typescript-sdk/models";
 
 let value: ContactPerson = {
-  emailAddresses: [
-    "<value 1>",
-    "<value 2>",
-  ],
-  firstName: "Brandy",
-  lastName: "Wilderman",
+  emailAddresses: [],
+  firstName: "Vance",
+  lastName: null,
   phoneNumbers: [],
   salutation: "<value>",
 };
@@ -19,10 +16,10 @@ let value: ContactPerson = {
 
 ## Fields
 
-| Field              | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `emailAddresses`   | *string*[]         | :heavy_check_mark: | N/A                |
-| `firstName`        | *string*           | :heavy_check_mark: | N/A                |
-| `lastName`         | *string*           | :heavy_check_mark: | N/A                |
-| `phoneNumbers`     | *string*[]         | :heavy_check_mark: | N/A                |
-| `salutation`       | *string*           | :heavy_check_mark: | N/A                |
+| Field                                               | Type                                                | Required                                            | Description                                         |
+| --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- |
+| `emailAddresses`                                    | [models.EmailAddress](../models/email-address.md)[] | :heavy_check_mark:                                  | N/A                                                 |
+| `firstName`                                         | *string*                                            | :heavy_check_mark:                                  | N/A                                                 |
+| `lastName`                                          | *string*                                            | :heavy_check_mark:                                  | N/A                                                 |
+| `phoneNumbers`                                      | [models.PhoneNumber](../models/phone-number.md)[]   | :heavy_check_mark:                                  | N/A                                                 |
+| `salutation`                                        | *string*                                            | :heavy_check_mark:                                  | N/A                                                 |

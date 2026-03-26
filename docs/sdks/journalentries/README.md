@@ -12,7 +12,7 @@
 
 <!-- UsageSnippet language="typescript" operationID="createJournalEntries" method="post" path="/accounting/journalEntries/bulk" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -50,7 +50,7 @@ async function run() {
               debitCreditIndicator: "DEBIT",
               description: "thoughtfully blah membership nor dress gosh summarise vein",
               dimensions: [
-                "<value 1>",
+                {},
               ],
               discountAmount: 8088.09,
               documentNumber: "<value>",
@@ -89,8 +89,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { journalEntriesCreateBulk } from "maesn/funcs/journal-entries-create-bulk.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { journalEntriesCreateBulk } from "@maesn/typescript-sdk/funcs/journal-entries-create-bulk.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -130,7 +130,7 @@ async function run() {
               debitCreditIndicator: "DEBIT",
               description: "thoughtfully blah membership nor dress gosh summarise vein",
               dimensions: [
-                "<value 1>",
+                {},
               ],
               discountAmount: 8088.09,
               documentNumber: "<value>",

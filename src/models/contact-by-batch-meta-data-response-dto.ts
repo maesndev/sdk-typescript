@@ -13,13 +13,13 @@ import {
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
 export type ContactByBatchMetaDataResponseDto = {
-  id: string;
-  accountNumberLength: number;
-  chartOfAccount: string;
-  createdDate: string;
-  entries: Array<ContactResponseDto>;
-  fiscalYearStartDate: string;
-  taskId: string;
+  id: string | null;
+  accountNumberLength: number | null;
+  chartOfAccount: string | null;
+  createdDate: string | null;
+  entries: Array<ContactResponseDto> | null;
+  fiscalYearStartDate: string | null;
+  taskId: string | null;
 };
 
 /** @internal */
@@ -27,13 +27,13 @@ export const ContactByBatchMetaDataResponseDto$inboundSchema: z.ZodMiniType<
   ContactByBatchMetaDataResponseDto,
   unknown
 > = z.object({
-  id: types.string(),
-  accountNumberLength: types.number(),
-  chartOfAccount: types.string(),
-  createdDate: types.string(),
-  entries: z.array(ContactResponseDto$inboundSchema),
-  fiscalYearStartDate: types.string(),
-  taskId: types.string(),
+  id: types.nullable(types.string()),
+  accountNumberLength: types.nullable(types.number()),
+  chartOfAccount: types.nullable(types.string()),
+  createdDate: types.nullable(types.string()),
+  entries: types.nullable(z.array(ContactResponseDto$inboundSchema)),
+  fiscalYearStartDate: types.nullable(types.string()),
+  taskId: types.nullable(types.string()),
 });
 
 export function contactByBatchMetaDataResponseDtoFromJSON(

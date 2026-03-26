@@ -9,16 +9,16 @@ import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
 export type GoodsReceiptLineItemResponse = {
-  id: string;
-  createdDate: string;
-  description: string;
-  itemId: string;
-  itemName: string;
-  projectId: string;
-  purchaseOrderId: string;
-  quantityOrdered: number;
-  quantityReceived: number;
-  updatedDate: string;
+  id: string | null;
+  createdDate: string | null;
+  description: string | null;
+  itemId: string | null;
+  itemName: string | null;
+  projectId: string | null;
+  purchaseOrderId: string | null;
+  quantityOrdered: number | null;
+  quantityReceived: number | null;
+  updatedDate: string | null;
 };
 
 /** @internal */
@@ -26,16 +26,16 @@ export const GoodsReceiptLineItemResponse$inboundSchema: z.ZodMiniType<
   GoodsReceiptLineItemResponse,
   unknown
 > = z.object({
-  id: types.string(),
-  createdDate: types.string(),
-  description: types.string(),
-  itemId: types.string(),
-  itemName: types.string(),
-  projectId: types.string(),
-  purchaseOrderId: types.string(),
-  quantityOrdered: types.number(),
-  quantityReceived: types.number(),
-  updatedDate: types.string(),
+  id: types.nullable(types.string()),
+  createdDate: types.nullable(types.string()),
+  description: types.nullable(types.string()),
+  itemId: types.nullable(types.string()),
+  itemName: types.nullable(types.string()),
+  projectId: types.nullable(types.string()),
+  purchaseOrderId: types.nullable(types.string()),
+  quantityOrdered: types.nullable(types.number()),
+  quantityReceived: types.nullable(types.number()),
+  updatedDate: types.nullable(types.string()),
 });
 
 export function goodsReceiptLineItemResponseFromJSON(

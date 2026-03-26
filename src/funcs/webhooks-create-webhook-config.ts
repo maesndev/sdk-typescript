@@ -27,7 +27,7 @@ import { Result } from "../types/fp.js";
 
 export function webhooksCreateWebhookConfig(
   client: MaesnCore,
-  request: models.CreateWebhookRequestDto,
+  request: models.CreateAccountingWebhookRequestDto,
   options?: RequestOptions,
 ): APIPromise<
   Result<
@@ -51,7 +51,7 @@ export function webhooksCreateWebhookConfig(
 
 async function $do(
   client: MaesnCore,
-  request: models.CreateWebhookRequestDto,
+  request: models.CreateAccountingWebhookRequestDto,
   options?: RequestOptions,
 ): Promise<
   [
@@ -71,7 +71,8 @@ async function $do(
 > {
   const parsed = safeParse(
     request,
-    (value) => z.parse(models.CreateWebhookRequestDto$outboundSchema, value),
+    (value) =>
+      z.parse(models.CreateAccountingWebhookRequestDto$outboundSchema, value),
     "Input validation failed",
   );
   if (!parsed.ok) {

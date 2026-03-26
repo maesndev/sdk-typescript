@@ -26,7 +26,7 @@
 
 <!-- UsageSnippet language="typescript" operationID="systemRegistration" method="post" path="/register-system" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -60,8 +60,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { tenantsSystemRegistration } from "maesn/funcs/tenants-system-registration.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { tenantsSystemRegistration } from "@maesn/typescript-sdk/funcs/tenants-system-registration.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -121,7 +121,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="addCallbackUrl" method="post" path="/add-callback-urls" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -148,8 +148,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { tenantsAddCallbackUrl } from "maesn/funcs/tenants-add-callback-url.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { tenantsAddCallbackUrl } from "@maesn/typescript-sdk/funcs/tenants-add-callback-url.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -202,7 +202,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getEndUserList" method="get" path="/get-end-user-list" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -226,8 +226,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { tenantsGetEndUserList } from "maesn/funcs/tenants-get-end-user-list.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { tenantsGetEndUserList } from "@maesn/typescript-sdk/funcs/tenants-get-end-user-list.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -276,7 +276,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="countEndUsersBySystem" method="get" path="/count-end-users-by-system" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -300,8 +300,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { tenantsCountEndUsersBySystem } from "maesn/funcs/tenants-count-end-users-by-system.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { tenantsCountEndUsersBySystem } from "@maesn/typescript-sdk/funcs/tenants-count-end-users-by-system.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -350,7 +350,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="deleteEndUser" method="delete" path="/delete-end-user" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -374,8 +374,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { tenantsDeleteEndUser } from "maesn/funcs/tenants-delete-end-user.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { tenantsDeleteEndUser } from "@maesn/typescript-sdk/funcs/tenants-delete-end-user.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -424,7 +424,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getCallbackUrl" method="get" path="/get-callback-url" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -448,8 +448,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { tenantsGetCallbackUrl } from "maesn/funcs/tenants-get-callback-url.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { tenantsGetCallbackUrl } from "@maesn/typescript-sdk/funcs/tenants-get-callback-url.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -498,7 +498,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getRegisteredSystems" method="get" path="/get-registered-systems" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -522,8 +522,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { tenantsGetRegisteredSystems } from "maesn/funcs/tenants-get-registered-systems.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { tenantsGetRegisteredSystems } from "@maesn/typescript-sdk/funcs/tenants-get-registered-systems.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -572,7 +572,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getTargetSystemValues" method="get" path="/get-target-system-values" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -596,8 +596,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { tenantsGetTargetSystemValues } from "maesn/funcs/tenants-get-target-system-values.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { tenantsGetTargetSystemValues } from "@maesn/typescript-sdk/funcs/tenants-get-target-system-values.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -646,7 +646,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getTargetSystemRequirements" method="get" path="/get-target-system-requirements" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -670,8 +670,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { tenantsGetTargetSystemRequirements } from "maesn/funcs/tenants-get-target-system-requirements.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { tenantsGetTargetSystemRequirements } from "@maesn/typescript-sdk/funcs/tenants-get-target-system-requirements.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -720,7 +720,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getRegisteredSystemsMasked" method="get" path="/get-registered-systems-masked" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -744,8 +744,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { tenantsGetRegisteredSystemsMasked } from "maesn/funcs/tenants-get-registered-systems-masked.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { tenantsGetRegisteredSystemsMasked } from "@maesn/typescript-sdk/funcs/tenants-get-registered-systems-masked.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -794,7 +794,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="deleteRegisteredSystem" method="delete" path="/delete-registered-system/{targetSystem}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -820,8 +820,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { tenantsDeleteRegisteredSystem } from "maesn/funcs/tenants-delete-registered-system.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { tenantsDeleteRegisteredSystem } from "@maesn/typescript-sdk/funcs/tenants-delete-registered-system.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -873,7 +873,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getAllActiveEndUsers" method="get" path="/get-all-active-end-users" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -897,8 +897,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { tenantsGetAllActiveEndUsers } from "maesn/funcs/tenants-get-all-active-end-users.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { tenantsGetAllActiveEndUsers } from "@maesn/typescript-sdk/funcs/tenants-get-all-active-end-users.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -947,7 +947,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getSubmissionPageStyle" method="get" path="/get-submission-page-style" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -973,8 +973,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { tenantsGetSubmissionPageStyle } from "maesn/funcs/tenants-get-submission-page-style.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { tenantsGetSubmissionPageStyle } from "@maesn/typescript-sdk/funcs/tenants-get-submission-page-style.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1026,7 +1026,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="updateSubmissionPageStyle" method="post" path="/submission-page-style" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -1060,8 +1060,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { tenantsUpdateSubmissionPageStyle } from "maesn/funcs/tenants-update-submission-page-style.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { tenantsUpdateSubmissionPageStyle } from "@maesn/typescript-sdk/funcs/tenants-update-submission-page-style.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1121,7 +1121,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getSubmissionPageStyleByKey" method="get" path="/submission-page-style-by-key" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -1145,8 +1145,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { tenantsGetSubmissionPageStyleByKey } from "maesn/funcs/tenants-get-submission-page-style-by-key.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { tenantsGetSubmissionPageStyleByKey } from "@maesn/typescript-sdk/funcs/tenants-get-submission-page-style-by-key.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
