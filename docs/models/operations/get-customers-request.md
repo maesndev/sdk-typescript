@@ -21,5 +21,3 @@ let value: GetCustomersRequest = {};
 | `email`            | *string*           | :heavy_minus_sign: | N/A                |
 | `name`             | *string*           | :heavy_minus_sign: | N/A                |
 | `number`           | *string*           | :heavy_minus_sign: | N/A                |
-| `xApiKey`          | *string*           | :heavy_minus_sign: | API key            |
-| `xAccountKey`      | *string*           | :heavy_minus_sign: | Account key        |

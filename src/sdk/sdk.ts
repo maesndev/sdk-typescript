@@ -5,19 +5,24 @@
 import { ClientSDK } from "../lib/sdks.js";
 import { AccountingV2 } from "./accounting-v2.js";
 import { Accounting } from "./accounting.js";
+import { Auth } from "./auth.js";
 import { Bills } from "./bills.js";
 import { ContactsV2 } from "./contacts-v2.js";
 import { Contacts } from "./contacts.js";
+import { Events } from "./events.js";
 import { Files } from "./files.js";
 import { FiscalYears } from "./fiscal-years.js";
 import { GoodsReceipts } from "./goods-receipts.js";
+import { Health } from "./health.js";
 import { Items } from "./items.js";
 import { JournalEntries } from "./journal-entries.js";
 import { JournalEntryAttachments } from "./journal-entry-attachments.js";
 import { Offers } from "./offers.js";
 import { PurchaseOrders } from "./purchase-orders.js";
+import { Tenants } from "./tenants.js";
 import { User } from "./user.js";
 import { VendorCredits } from "./vendor-credits.js";
+import { Webhooks } from "./webhooks.js";
 
 export class Maesn extends ClientSDK {
   private _accounting?: Accounting;
@@ -95,5 +100,30 @@ export class Maesn extends ClientSDK {
   private _user?: User;
   get user(): User {
     return (this._user ??= new User(this._options));
+  }
+
+  private _auth?: Auth;
+  get auth(): Auth {
+    return (this._auth ??= new Auth(this._options));
+  }
+
+  private _events?: Events;
+  get events(): Events {
+    return (this._events ??= new Events(this._options));
+  }
+
+  private _webhooks?: Webhooks;
+  get webhooks(): Webhooks {
+    return (this._webhooks ??= new Webhooks(this._options));
+  }
+
+  private _health?: Health;
+  get health(): Health {
+    return (this._health ??= new Health(this._options));
+  }
+
+  private _tenants?: Tenants;
+  get tenants(): Tenants {
+    return (this._tenants ??= new Tenants(this._options));
   }
 }

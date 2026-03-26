@@ -3,7 +3,6 @@
  */
 
 import * as z from "zod/v4-mini";
-import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -22,14 +21,6 @@ export type CreateExpenseRequestBody = {
 export type CreateExpenseRequest = {
   environmentName?: string | undefined;
   companyId?: string | undefined;
-  /**
-   * API key
-   */
-  xApiKey?: string | undefined;
-  /**
-   * Account key
-   */
-  xAccountKey?: string | undefined;
   body: CreateExpenseRequestBody;
 };
 
@@ -99,8 +90,6 @@ export function createExpenseRequestBodyToJSON(
 export type CreateExpenseRequest$Outbound = {
   environmentName?: string | undefined;
   companyId?: string | undefined;
-  "X-API-KEY"?: string | undefined;
-  "X-ACCOUNT-KEY"?: string | undefined;
   body: CreateExpenseRequestBody$Outbound;
 };
 
@@ -108,21 +97,11 @@ export type CreateExpenseRequest$Outbound = {
 export const CreateExpenseRequest$outboundSchema: z.ZodMiniType<
   CreateExpenseRequest$Outbound,
   CreateExpenseRequest
-> = z.pipe(
-  z.object({
-    environmentName: z.optional(z.string()),
-    companyId: z.optional(z.string()),
-    xApiKey: z.optional(z.string()),
-    xAccountKey: z.optional(z.string()),
-    body: z.lazy(() => CreateExpenseRequestBody$outboundSchema),
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      xApiKey: "X-API-KEY",
-      xAccountKey: "X-ACCOUNT-KEY",
-    });
-  }),
-);
+> = z.object({
+  environmentName: z.optional(z.string()),
+  companyId: z.optional(z.string()),
+  body: z.lazy(() => CreateExpenseRequestBody$outboundSchema),
+});
 
 export function createExpenseRequestToJSON(
   createExpenseRequest: CreateExpenseRequest,

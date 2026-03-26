@@ -3,7 +3,6 @@
  */
 
 import * as z from "zod/v4-mini";
-import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -13,14 +12,6 @@ export type PatchCustomersRequest = {
   contactId: string;
   environmentName?: string | undefined;
   companyId?: string | undefined;
-  /**
-   * API key
-   */
-  xApiKey?: string | undefined;
-  /**
-   * Account key
-   */
-  xAccountKey?: string | undefined;
   body: models.PatchContactRequestDto;
 };
 
@@ -40,8 +31,6 @@ export type PatchCustomersRequest$Outbound = {
   contactId: string;
   environmentName?: string | undefined;
   companyId?: string | undefined;
-  "X-API-KEY"?: string | undefined;
-  "X-ACCOUNT-KEY"?: string | undefined;
   body: models.PatchContactRequestDto$Outbound;
 };
 
@@ -49,22 +38,12 @@ export type PatchCustomersRequest$Outbound = {
 export const PatchCustomersRequest$outboundSchema: z.ZodMiniType<
   PatchCustomersRequest$Outbound,
   PatchCustomersRequest
-> = z.pipe(
-  z.object({
-    contactId: z.string(),
-    environmentName: z.optional(z.string()),
-    companyId: z.optional(z.string()),
-    xApiKey: z.optional(z.string()),
-    xAccountKey: z.optional(z.string()),
-    body: models.PatchContactRequestDto$outboundSchema,
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      xApiKey: "X-API-KEY",
-      xAccountKey: "X-ACCOUNT-KEY",
-    });
-  }),
-);
+> = z.object({
+  contactId: z.string(),
+  environmentName: z.optional(z.string()),
+  companyId: z.optional(z.string()),
+  body: models.PatchContactRequestDto$outboundSchema,
+});
 
 export function patchCustomersRequestToJSON(
   patchCustomersRequest: PatchCustomersRequest,

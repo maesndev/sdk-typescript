@@ -3,47 +3,26 @@
  */
 
 import * as z from "zod/v4-mini";
-import { remap as remap$ } from "../../lib/primitives.js";
 
 export type DeletePaymentRequest = {
   paymentId: string;
   companyId?: string | undefined;
-  /**
-   * API key
-   */
-  xApiKey?: string | undefined;
-  /**
-   * Account key
-   */
-  xAccountKey?: string | undefined;
 };
 
 /** @internal */
 export type DeletePaymentRequest$Outbound = {
   paymentId: string;
   companyId?: string | undefined;
-  "X-API-KEY"?: string | undefined;
-  "X-ACCOUNT-KEY"?: string | undefined;
 };
 
 /** @internal */
 export const DeletePaymentRequest$outboundSchema: z.ZodMiniType<
   DeletePaymentRequest$Outbound,
   DeletePaymentRequest
-> = z.pipe(
-  z.object({
-    paymentId: z.string(),
-    companyId: z.optional(z.string()),
-    xApiKey: z.optional(z.string()),
-    xAccountKey: z.optional(z.string()),
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      xApiKey: "X-API-KEY",
-      xAccountKey: "X-ACCOUNT-KEY",
-    });
-  }),
-);
+> = z.object({
+  paymentId: z.string(),
+  companyId: z.optional(z.string()),
+});
 
 export function deletePaymentRequestToJSON(
   deletePaymentRequest: DeletePaymentRequest,

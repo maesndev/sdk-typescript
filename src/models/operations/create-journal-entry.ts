@@ -23,14 +23,6 @@ export type CreateJournalEntryRequestBody = {
 export type CreateJournalEntryRequest = {
   environmentName?: string | undefined;
   companyId?: string | undefined;
-  /**
-   * API key
-   */
-  xApiKey?: string | undefined;
-  /**
-   * Account key
-   */
-  xAccountKey?: string | undefined;
   body: CreateJournalEntryRequestBody;
 };
 
@@ -115,8 +107,6 @@ export function createJournalEntryRequestBodyToJSON(
 export type CreateJournalEntryRequest$Outbound = {
   environmentName?: string | undefined;
   companyId?: string | undefined;
-  "X-API-KEY"?: string | undefined;
-  "X-ACCOUNT-KEY"?: string | undefined;
   body: CreateJournalEntryRequestBody$Outbound;
 };
 
@@ -124,21 +114,11 @@ export type CreateJournalEntryRequest$Outbound = {
 export const CreateJournalEntryRequest$outboundSchema: z.ZodMiniType<
   CreateJournalEntryRequest$Outbound,
   CreateJournalEntryRequest
-> = z.pipe(
-  z.object({
-    environmentName: z.optional(z.string()),
-    companyId: z.optional(z.string()),
-    xApiKey: z.optional(z.string()),
-    xAccountKey: z.optional(z.string()),
-    body: z.lazy(() => CreateJournalEntryRequestBody$outboundSchema),
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      xApiKey: "X-API-KEY",
-      xAccountKey: "X-ACCOUNT-KEY",
-    });
-  }),
-);
+> = z.object({
+  environmentName: z.optional(z.string()),
+  companyId: z.optional(z.string()),
+  body: z.lazy(() => CreateJournalEntryRequestBody$outboundSchema),
+});
 
 export function createJournalEntryRequestToJSON(
   createJournalEntryRequest: CreateJournalEntryRequest,

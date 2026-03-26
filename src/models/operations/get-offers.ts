@@ -3,7 +3,6 @@
  */
 
 import * as z from "zod/v4-mini";
-import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
@@ -28,14 +27,6 @@ export type GetOffersRequest = {
   companyId?: string | undefined;
   status?: GetOffersStatus | undefined;
   rawData?: boolean | undefined;
-  /**
-   * API key
-   */
-  xApiKey?: string | undefined;
-  /**
-   * Account key
-   */
-  xAccountKey?: string | undefined;
 };
 
 export type GetOffersErrors = {};
@@ -63,33 +54,21 @@ export type GetOffersRequest$Outbound = {
   companyId?: string | undefined;
   status?: string | undefined;
   rawData?: boolean | undefined;
-  "X-API-KEY"?: string | undefined;
-  "X-ACCOUNT-KEY"?: string | undefined;
 };
 
 /** @internal */
 export const GetOffersRequest$outboundSchema: z.ZodMiniType<
   GetOffersRequest$Outbound,
   GetOffersRequest
-> = z.pipe(
-  z.object({
-    page: z.optional(z.number()),
-    limit: z.optional(z.number()),
-    lastModifiedAt: z.optional(z.string()),
-    environmentName: z.optional(z.string()),
-    companyId: z.optional(z.string()),
-    status: z.optional(GetOffersStatus$outboundSchema),
-    rawData: z.optional(z.boolean()),
-    xApiKey: z.optional(z.string()),
-    xAccountKey: z.optional(z.string()),
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      xApiKey: "X-API-KEY",
-      xAccountKey: "X-ACCOUNT-KEY",
-    });
-  }),
-);
+> = z.object({
+  page: z.optional(z.number()),
+  limit: z.optional(z.number()),
+  lastModifiedAt: z.optional(z.string()),
+  environmentName: z.optional(z.string()),
+  companyId: z.optional(z.string()),
+  status: z.optional(GetOffersStatus$outboundSchema),
+  rawData: z.optional(z.boolean()),
+});
 
 export function getOffersRequestToJSON(
   getOffersRequest: GetOffersRequest,

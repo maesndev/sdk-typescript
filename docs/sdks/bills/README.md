@@ -17,6 +17,10 @@ import { Maesn } from "maesn";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
 });
 
 async function run() {
@@ -81,6 +85,10 @@ import { billsUpdate } from "maesn/funcs/bills-update.js";
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
 });
 
 async function run() {
@@ -166,6 +174,10 @@ import { Maesn } from "maesn";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
 });
 
 async function run() {
@@ -191,6 +203,10 @@ import { billsGetLineItems } from "maesn/funcs/bills-get-line-items.js";
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
 });
 
 async function run() {

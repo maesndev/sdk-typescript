@@ -20,5 +20,3 @@ let value: GetJournalEntriesRequest = {};
 | `rawData`             | *boolean*             | :heavy_minus_sign:    | N/A                   |
 | `fiscalYear`          | *number*              | :heavy_minus_sign:    | N/A                   |
 | `fiscalYearStartDate` | *string*              | :heavy_minus_sign:    | N/A                   |
-| `xApiKey`             | *string*              | :heavy_minus_sign:    | API key               |
-| `xAccountKey`         | *string*              | :heavy_minus_sign:    | Account key           |

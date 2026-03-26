@@ -18,5 +18,3 @@ let value: GetAsyncTaskInfoRequest = {
 | `companyId`        | *string*           | :heavy_minus_sign: | N/A                |
 | `page`             | *number*           | :heavy_minus_sign: | N/A                |
 | `limit`            | *number*           | :heavy_minus_sign: | N/A                |
-| `xApiKey`          | *string*           | :heavy_minus_sign: | API key            |
-| `xAccountKey`      | *string*           | :heavy_minus_sign: | Account key        |

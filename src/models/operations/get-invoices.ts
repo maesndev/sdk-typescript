@@ -3,7 +3,6 @@
  */
 
 import * as z from "zod/v4-mini";
-import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
@@ -67,14 +66,6 @@ export type GetInvoicesRequest = {
   orderField?: GetInvoicesOrderField | undefined;
   orderDir?: GetInvoicesOrderDir | undefined;
   dueDateFrom?: string | undefined;
-  /**
-   * API key
-   */
-  xApiKey?: string | undefined;
-  /**
-   * Account key
-   */
-  xAccountKey?: string | undefined;
 };
 
 export type GetInvoicesErrors = {};
@@ -121,37 +112,25 @@ export type GetInvoicesRequest$Outbound = {
   orderField?: string | undefined;
   orderDir?: string | undefined;
   dueDateFrom?: string | undefined;
-  "X-API-KEY"?: string | undefined;
-  "X-ACCOUNT-KEY"?: string | undefined;
 };
 
 /** @internal */
 export const GetInvoicesRequest$outboundSchema: z.ZodMiniType<
   GetInvoicesRequest$Outbound,
   GetInvoicesRequest
-> = z.pipe(
-  z.object({
-    page: z.optional(z.number()),
-    limit: z.optional(z.number()),
-    lastModifiedAt: z.optional(z.string()),
-    environmentName: z.optional(z.string()),
-    companyId: z.optional(z.string()),
-    status: z.optional(GetInvoicesStatus$outboundSchema),
-    paymentStatus: z.optional(GetInvoicesPaymentStatus$outboundSchema),
-    rawData: z.optional(z.boolean()),
-    orderField: z.optional(GetInvoicesOrderField$outboundSchema),
-    orderDir: z.optional(GetInvoicesOrderDir$outboundSchema),
-    dueDateFrom: z.optional(z.string()),
-    xApiKey: z.optional(z.string()),
-    xAccountKey: z.optional(z.string()),
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      xApiKey: "X-API-KEY",
-      xAccountKey: "X-ACCOUNT-KEY",
-    });
-  }),
-);
+> = z.object({
+  page: z.optional(z.number()),
+  limit: z.optional(z.number()),
+  lastModifiedAt: z.optional(z.string()),
+  environmentName: z.optional(z.string()),
+  companyId: z.optional(z.string()),
+  status: z.optional(GetInvoicesStatus$outboundSchema),
+  paymentStatus: z.optional(GetInvoicesPaymentStatus$outboundSchema),
+  rawData: z.optional(z.boolean()),
+  orderField: z.optional(GetInvoicesOrderField$outboundSchema),
+  orderDir: z.optional(GetInvoicesOrderDir$outboundSchema),
+  dueDateFrom: z.optional(z.string()),
+});
 
 export function getInvoicesRequestToJSON(
   getInvoicesRequest: GetInvoicesRequest,

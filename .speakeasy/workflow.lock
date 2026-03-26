@@ -1,9 +1,9 @@
-speakeasyVersion: 1.758.0
+speakeasyVersion: 1.759.2
 sources:
     Maesn unified API:
         sourceNamespace: maesn-unified-api
-        sourceRevisionDigest: sha256:4413da15f31919f69ed948249462e23fd6d77ecf4fb401f663d8eb63a4732df9
-        sourceBlobDigest: sha256:45b019168ac07d16451d1c9a2a138a010aec7f087f2c20a4f87d4a70212b0482
+        sourceRevisionDigest: sha256:3c1928d4e1423e7e127ca05b6f8e0112e67a87096b18fd87e435c33268c1a6a8
+        sourceBlobDigest: sha256:4e346f3ded8549406b876368f1fe5e24807dc200eecce3d09c5ebcb6df748288
         tags:
             - latest
             - "1.0"
@@ -11,10 +11,10 @@ targets:
     maesn:
         source: Maesn unified API
         sourceNamespace: maesn-unified-api
-        sourceRevisionDigest: sha256:4413da15f31919f69ed948249462e23fd6d77ecf4fb401f663d8eb63a4732df9
-        sourceBlobDigest: sha256:45b019168ac07d16451d1c9a2a138a010aec7f087f2c20a4f87d4a70212b0482
+        sourceRevisionDigest: sha256:3c1928d4e1423e7e127ca05b6f8e0112e67a87096b18fd87e435c33268c1a6a8
+        sourceBlobDigest: sha256:4e346f3ded8549406b876368f1fe5e24807dc200eecce3d09c5ebcb6df748288
         codeSamplesNamespace: maesn-unified-api-typescript-code-samples
-        codeSamplesRevisionDigest: sha256:4ea85c35ac6e4401e2223d68a694b9d8cd052008bcd1f01f0f8ea746d512a0b6
+        codeSamplesRevisionDigest: sha256:85f36d6d737b0e3fddc08a3490d83aa795691ff8dcc5004a852dfb455dd8ed4a
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
@@ -22,8 +22,14 @@ workflow:
         Maesn unified API:
             inputs:
                 - location: https://unified-backend-prod.azurewebsites.net/api-json
+                - location: https://unified-backend-prod.azurewebsites.net/api/auth-json
+                - location: https://unified-backend-prod.azurewebsites.net/api/events-json
+                - location: https://unified-backend-prod.azurewebsites.net/api/webhooks-json
+                - location: https://unified-backend-prod.azurewebsites.net/api/health-json
+                - location: https://unified-backend-prod.azurewebsites.net/api/tenants-json
             overlays:
                 - location: .speakeasy/speakeasy-modifications-overlay.yaml
+                - location: .speakeasy/auth-security-overlay.yaml
             output: .speakeasy/out.openapi.yaml
             registry:
                 location: registry.speakeasyapi.dev/test-qpg/myworkspace/maesn-unified-api

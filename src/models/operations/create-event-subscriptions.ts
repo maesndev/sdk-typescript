@@ -3,27 +3,16 @@
  */
 
 import * as z from "zod/v4-mini";
-import { remap as remap$ } from "../../lib/primitives.js";
 import * as models from "../index.js";
 
 export type CreateEventSubscriptionsRequest = {
   companyId?: string | undefined;
-  /**
-   * API key
-   */
-  xApiKey?: string | undefined;
-  /**
-   * Account key
-   */
-  xAccountKey?: string | undefined;
   body: models.CreateEventSubscriptionRequestDto;
 };
 
 /** @internal */
 export type CreateEventSubscriptionsRequest$Outbound = {
   companyId?: string | undefined;
-  "X-API-KEY"?: string | undefined;
-  "X-ACCOUNT-KEY"?: string | undefined;
   body: models.CreateEventSubscriptionRequestDto$Outbound;
 };
 
@@ -31,20 +20,10 @@ export type CreateEventSubscriptionsRequest$Outbound = {
 export const CreateEventSubscriptionsRequest$outboundSchema: z.ZodMiniType<
   CreateEventSubscriptionsRequest$Outbound,
   CreateEventSubscriptionsRequest
-> = z.pipe(
-  z.object({
-    companyId: z.optional(z.string()),
-    xApiKey: z.optional(z.string()),
-    xAccountKey: z.optional(z.string()),
-    body: models.CreateEventSubscriptionRequestDto$outboundSchema,
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      xApiKey: "X-API-KEY",
-      xAccountKey: "X-ACCOUNT-KEY",
-    });
-  }),
-);
+> = z.object({
+  companyId: z.optional(z.string()),
+  body: models.CreateEventSubscriptionRequestDto$outboundSchema,
+});
 
 export function createEventSubscriptionsRequestToJSON(
   createEventSubscriptionsRequest: CreateEventSubscriptionsRequest,

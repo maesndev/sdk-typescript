@@ -3,7 +3,6 @@
  */
 
 import * as z from "zod/v4-mini";
-import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
@@ -67,14 +66,6 @@ export type GetBookingProposalsRequest = {
   rawData?: boolean | undefined;
   orderField?: GetBookingProposalsOrderField | undefined;
   orderDir?: GetBookingProposalsOrderDir | undefined;
-  /**
-   * API key
-   */
-  xApiKey?: string | undefined;
-  /**
-   * Account key
-   */
-  xAccountKey?: string | undefined;
 };
 
 export type GetBookingProposalsErrors = {};
@@ -119,36 +110,24 @@ export type GetBookingProposalsRequest$Outbound = {
   rawData?: boolean | undefined;
   orderField?: string | undefined;
   orderDir?: string | undefined;
-  "X-API-KEY"?: string | undefined;
-  "X-ACCOUNT-KEY"?: string | undefined;
 };
 
 /** @internal */
 export const GetBookingProposalsRequest$outboundSchema: z.ZodMiniType<
   GetBookingProposalsRequest$Outbound,
   GetBookingProposalsRequest
-> = z.pipe(
-  z.object({
-    page: z.optional(z.number()),
-    limit: z.optional(z.number()),
-    lastModifiedAt: z.optional(z.string()),
-    environmentName: z.optional(z.string()),
-    companyId: z.optional(z.string()),
-    bookingType: z.optional(BookingType$outboundSchema),
-    status: z.optional(GetBookingProposalsStatus$outboundSchema),
-    rawData: z.optional(z.boolean()),
-    orderField: z.optional(GetBookingProposalsOrderField$outboundSchema),
-    orderDir: z.optional(GetBookingProposalsOrderDir$outboundSchema),
-    xApiKey: z.optional(z.string()),
-    xAccountKey: z.optional(z.string()),
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      xApiKey: "X-API-KEY",
-      xAccountKey: "X-ACCOUNT-KEY",
-    });
-  }),
-);
+> = z.object({
+  page: z.optional(z.number()),
+  limit: z.optional(z.number()),
+  lastModifiedAt: z.optional(z.string()),
+  environmentName: z.optional(z.string()),
+  companyId: z.optional(z.string()),
+  bookingType: z.optional(BookingType$outboundSchema),
+  status: z.optional(GetBookingProposalsStatus$outboundSchema),
+  rawData: z.optional(z.boolean()),
+  orderField: z.optional(GetBookingProposalsOrderField$outboundSchema),
+  orderDir: z.optional(GetBookingProposalsOrderDir$outboundSchema),
+});
 
 export function getBookingProposalsRequestToJSON(
   getBookingProposalsRequest: GetBookingProposalsRequest,

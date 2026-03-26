@@ -13,7 +13,12 @@ Developer-friendly & type-safe Typescript SDK specifically catered to leverage *
 <!-- Start Summary [summary] -->
 ## Summary
 
-Maesn unified API: The Maesn unified API description
+Maesn unified API Tenants: The Maesn unified API description
+The Maesn unified API auth description
+The Maesn unified API events description
+The Maesn unified API webhooks description
+The Maesn unified API health description
+The Maesn unified API tenant description
 <!-- End Summary [summary] -->
 
 <!-- Start Table of Contents [toc] -->
@@ -23,6 +28,7 @@ Maesn unified API: The Maesn unified API description
   * [SDK Installation](#sdk-installation)
   * [Requirements](#requirements)
   * [SDK Example Usage](#sdk-example-usage)
+  * [Authentication](#authentication)
   * [Available Resources and Operations](#available-resources-and-operations)
   * [Standalone functions](#standalone-functions)
   * [File uploads](#file-uploads)
@@ -48,25 +54,25 @@ The SDK can be installed with either [npm](https://www.npmjs.com/), [pnpm](https
 ### NPM
 
 ```bash
-npm add <UNSET>
+npm add https://github.com/maesndev/sdk-typescript
 ```
 
 ### PNPM
 
 ```bash
-pnpm add <UNSET>
+pnpm add https://github.com/maesndev/sdk-typescript
 ```
 
 ### Bun
 
 ```bash
-bun add <UNSET>
+bun add https://github.com/maesndev/sdk-typescript
 ```
 
 ### Yarn
 
 ```bash
-yarn add <UNSET>
+yarn add https://github.com/maesndev/sdk-typescript
 ```
 
 > [!NOTE]
@@ -90,6 +96,10 @@ import { Maesn } from "maesn";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
 });
 
 async function run() {
@@ -104,6 +114,43 @@ run();
 
 ```
 <!-- End SDK Example Usage [usage] -->
+
+<!-- Start Authentication [security] -->
+## Authentication
+
+### Per-Client Security Schemes
+
+This SDK supports the following security schemes globally:
+
+| Name         | Type   | Scheme  | Environment Variable |
+| ------------ | ------ | ------- | -------------------- |
+| `apiKey`     | apiKey | API key | `MAESN_API_KEY`      |
+| `accountKey` | apiKey | API key | `MAESN_ACCOUNT_KEY`  |
+
+You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. The selected scheme will be used by default to authenticate with the API for all operations that support it. For example:
+```typescript
+import { Maesn } from "maesn";
+
+const maesn = new Maesn({
+  serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
+});
+
+async function run() {
+  const result = await maesn.accounting.retrieveAccount({
+    accountId: "<id>",
+  });
+
+  console.log(result);
+}
+
+run();
+
+```
+<!-- End Authentication [security] -->
 
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
@@ -237,6 +284,22 @@ run();
 * [updateContact](docs/sdks/accountingv2/README.md#updatecontact)
 * [obtainDimensions](docs/sdks/accountingv2/README.md#obtaindimensions)
 
+### [Auth](docs/sdks/auth/README.md)
+
+* [getEnvironments](docs/sdks/auth/README.md#getenvironments)
+* [getCompanies](docs/sdks/auth/README.md#getcompanies)
+* [getCompaniesFlow](docs/sdks/auth/README.md#getcompaniesflow)
+* [getSubmitPage](docs/sdks/auth/README.md#getsubmitpage)
+* [apiKeyConfirmation](docs/sdks/auth/README.md#apikeyconfirmation)
+* [cancel](docs/sdks/auth/README.md#cancel)
+* [test](docs/sdks/auth/README.md#test)
+* [longToken](docs/sdks/auth/README.md#longtoken)
+* [getEnvironmentPage](docs/sdks/auth/README.md#getenvironmentpage)
+* [setEndUserSelections](docs/sdks/auth/README.md#setenduserselections)
+* [systemLoginUrl](docs/sdks/auth/README.md#systemloginurl)
+* [callback](docs/sdks/auth/README.md#callback)
+* [createEndUserAccount](docs/sdks/auth/README.md#createenduseraccount)
+
 ### [Bills](docs/sdks/bills/README.md)
 
 * [update](docs/sdks/bills/README.md#update)
@@ -251,6 +314,12 @@ run();
 * [list](docs/sdks/contactsv2/README.md#list)
 * [get](docs/sdks/contactsv2/README.md#get)
 
+### [Events](docs/sdks/events/README.md)
+
+* [handleCallback](docs/sdks/events/README.md#handlecallback)
+* [getCode](docs/sdks/events/README.md#getcode)
+* [handleConfigurationCallback](docs/sdks/events/README.md#handleconfigurationcallback)
+
 ### [Files](docs/sdks/files/README.md)
 
 * [getDocumentExtensions](docs/sdks/files/README.md#getdocumentextensions)
@@ -262,6 +331,11 @@ run();
 ### [GoodsReceipts](docs/sdks/goodsreceipts/README.md)
 
 * [getLineItem](docs/sdks/goodsreceipts/README.md#getlineitem)
+
+### [Health](docs/sdks/health/README.md)
+
+* [check](docs/sdks/health/README.md#check) - Health check
+* [details](docs/sdks/health/README.md#details) - Detailed health check
 
 ### [Items](docs/sdks/items/README.md)
 
@@ -284,6 +358,24 @@ run();
 
 * [list](docs/sdks/purchaseorders/README.md#list)
 
+### [Tenants](docs/sdks/tenants/README.md)
+
+* [systemRegistration](docs/sdks/tenants/README.md#systemregistration)
+* [addCallbackUrl](docs/sdks/tenants/README.md#addcallbackurl)
+* [getEndUserList](docs/sdks/tenants/README.md#getenduserlist)
+* [countEndUsersBySystem](docs/sdks/tenants/README.md#countendusersbysystem)
+* [deleteEndUser](docs/sdks/tenants/README.md#deleteenduser)
+* [getCallbackUrl](docs/sdks/tenants/README.md#getcallbackurl)
+* [getRegisteredSystems](docs/sdks/tenants/README.md#getregisteredsystems)
+* [getTargetSystemValues](docs/sdks/tenants/README.md#gettargetsystemvalues)
+* [getTargetSystemRequirements](docs/sdks/tenants/README.md#gettargetsystemrequirements)
+* [getRegisteredSystemsMasked](docs/sdks/tenants/README.md#getregisteredsystemsmasked)
+* [deleteRegisteredSystem](docs/sdks/tenants/README.md#deleteregisteredsystem)
+* [getAllActiveEndUsers](docs/sdks/tenants/README.md#getallactiveendusers)
+* [getSubmissionPageStyle](docs/sdks/tenants/README.md#getsubmissionpagestyle)
+* [updateSubmissionPageStyle](docs/sdks/tenants/README.md#updatesubmissionpagestyle)
+* [getSubmissionPageStyleByKey](docs/sdks/tenants/README.md#getsubmissionpagestylebykey)
+
 ### [User](docs/sdks/user/README.md)
 
 * [getInfo](docs/sdks/user/README.md#getinfo)
@@ -291,6 +383,17 @@ run();
 ### [VendorCredits](docs/sdks/vendorcredits/README.md)
 
 * [delete](docs/sdks/vendorcredits/README.md#delete)
+
+### [Webhooks](docs/sdks/webhooks/README.md)
+
+* [createWebhookEndUser](docs/sdks/webhooks/README.md#createwebhookenduser)
+* [createWebHookTenant](docs/sdks/webhooks/README.md#createwebhooktenant)
+* [deleteWebhookEndUser](docs/sdks/webhooks/README.md#deletewebhookenduser)
+* [deleteWebhookTenant](docs/sdks/webhooks/README.md#deletewebhooktenant)
+* [createWebhookConfig](docs/sdks/webhooks/README.md#createwebhookconfig)
+* [createWebhook](docs/sdks/webhooks/README.md#createwebhook)
+* [deleteWebhook](docs/sdks/webhooks/README.md#deletewebhook)
+* [getWebhooks](docs/sdks/webhooks/README.md#getwebhooks)
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
@@ -415,22 +518,63 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`accountingV2GetDimension`](docs/sdks/v2/README.md#getdimension)
 - [`accountingV2ObtainDimensions`](docs/sdks/accountingv2/README.md#obtaindimensions)
 - [`accountingV2UpdateContact`](docs/sdks/accountingv2/README.md#updatecontact)
+- [`authApiKeyConfirmation`](docs/sdks/auth/README.md#apikeyconfirmation)
+- [`authCallback`](docs/sdks/auth/README.md#callback)
+- [`authCancel`](docs/sdks/auth/README.md#cancel)
+- [`authCreateEndUserAccount`](docs/sdks/auth/README.md#createenduseraccount)
+- [`authGetCompanies`](docs/sdks/auth/README.md#getcompanies)
+- [`authGetCompaniesFlow`](docs/sdks/auth/README.md#getcompaniesflow)
+- [`authGetEnvironmentPage`](docs/sdks/auth/README.md#getenvironmentpage)
+- [`authGetEnvironments`](docs/sdks/auth/README.md#getenvironments)
+- [`authGetSubmitPage`](docs/sdks/auth/README.md#getsubmitpage)
+- [`authLongToken`](docs/sdks/auth/README.md#longtoken)
+- [`authSetEndUserSelections`](docs/sdks/auth/README.md#setenduserselections)
+- [`authSystemLoginUrl`](docs/sdks/auth/README.md#systemloginurl)
+- [`authTest`](docs/sdks/auth/README.md#test)
 - [`billsGetLineItems`](docs/sdks/bills/README.md#getlineitems)
 - [`billsUpdate`](docs/sdks/bills/README.md#update)
 - [`contactsPatch`](docs/sdks/contacts/README.md#patch)
 - [`contactsV2Get`](docs/sdks/contactsv2/README.md#get)
 - [`contactsV2List`](docs/sdks/contactsv2/README.md#list)
+- [`eventsGetCode`](docs/sdks/events/README.md#getcode)
+- [`eventsHandleCallback`](docs/sdks/events/README.md#handlecallback)
+- [`eventsHandleConfigurationCallback`](docs/sdks/events/README.md#handleconfigurationcallback)
 - [`filesGetDocumentExtensions`](docs/sdks/files/README.md#getdocumentextensions)
 - [`fiscalYearsGet`](docs/sdks/fiscalyears/README.md#get)
 - [`goodsReceiptsGetLineItem`](docs/sdks/goodsreceipts/README.md#getlineitem)
+- [`healthCheck`](docs/sdks/health/README.md#check) - Health check
+- [`healthDetails`](docs/sdks/health/README.md#details) - Detailed health check
 - [`itemsCreate`](docs/sdks/items/README.md#create)
 - [`itemsModify`](docs/sdks/items/README.md#modify)
 - [`journalEntriesCreateBulk`](docs/sdks/journalentries/README.md#createbulk)
 - [`journalEntryAttachmentsGetById`](docs/sdks/journalentryattachments/README.md#getbyid)
 - [`offersGetDocument`](docs/sdks/offers/README.md#getdocument)
 - [`purchaseOrdersList`](docs/sdks/purchaseorders/README.md#list)
+- [`tenantsAddCallbackUrl`](docs/sdks/tenants/README.md#addcallbackurl)
+- [`tenantsCountEndUsersBySystem`](docs/sdks/tenants/README.md#countendusersbysystem)
+- [`tenantsDeleteEndUser`](docs/sdks/tenants/README.md#deleteenduser)
+- [`tenantsDeleteRegisteredSystem`](docs/sdks/tenants/README.md#deleteregisteredsystem)
+- [`tenantsGetAllActiveEndUsers`](docs/sdks/tenants/README.md#getallactiveendusers)
+- [`tenantsGetCallbackUrl`](docs/sdks/tenants/README.md#getcallbackurl)
+- [`tenantsGetEndUserList`](docs/sdks/tenants/README.md#getenduserlist)
+- [`tenantsGetRegisteredSystems`](docs/sdks/tenants/README.md#getregisteredsystems)
+- [`tenantsGetRegisteredSystemsMasked`](docs/sdks/tenants/README.md#getregisteredsystemsmasked)
+- [`tenantsGetSubmissionPageStyle`](docs/sdks/tenants/README.md#getsubmissionpagestyle)
+- [`tenantsGetSubmissionPageStyleByKey`](docs/sdks/tenants/README.md#getsubmissionpagestylebykey)
+- [`tenantsGetTargetSystemRequirements`](docs/sdks/tenants/README.md#gettargetsystemrequirements)
+- [`tenantsGetTargetSystemValues`](docs/sdks/tenants/README.md#gettargetsystemvalues)
+- [`tenantsSystemRegistration`](docs/sdks/tenants/README.md#systemregistration)
+- [`tenantsUpdateSubmissionPageStyle`](docs/sdks/tenants/README.md#updatesubmissionpagestyle)
 - [`userGetInfo`](docs/sdks/user/README.md#getinfo)
 - [`vendorCreditsDelete`](docs/sdks/vendorcredits/README.md#delete)
+- [`webhooksCreateWebhook`](docs/sdks/webhooks/README.md#createwebhook)
+- [`webhooksCreateWebhookConfig`](docs/sdks/webhooks/README.md#createwebhookconfig)
+- [`webhooksCreateWebhookEndUser`](docs/sdks/webhooks/README.md#createwebhookenduser)
+- [`webhooksCreateWebHookTenant`](docs/sdks/webhooks/README.md#createwebhooktenant)
+- [`webhooksDeleteWebhook`](docs/sdks/webhooks/README.md#deletewebhook)
+- [`webhooksDeleteWebhookEndUser`](docs/sdks/webhooks/README.md#deletewebhookenduser)
+- [`webhooksDeleteWebhookTenant`](docs/sdks/webhooks/README.md#deletewebhooktenant)
+- [`webhooksGetWebhooks`](docs/sdks/webhooks/README.md#getwebhooks)
 
 </details>
 <!-- End Standalone functions [standalone-funcs] -->
@@ -454,6 +598,10 @@ import { Maesn } from "maesn";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
 });
 
 async function run() {
@@ -480,6 +628,10 @@ import { Maesn } from "maesn";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
 });
 
 async function run() {
@@ -521,6 +673,10 @@ const maesn = new Maesn({
     },
     retryConnectionErrors: false,
   },
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
 });
 
 async function run() {
@@ -541,13 +697,14 @@ run();
 
 [`MaesnError`](./src/models/errors/maesn-error.ts) is the base class for all HTTP error responses. It has the following properties:
 
-| Property            | Type       | Description                                            |
-| ------------------- | ---------- | ------------------------------------------------------ |
-| `error.message`     | `string`   | Error message                                          |
-| `error.statusCode`  | `number`   | HTTP response status code eg `404`                     |
-| `error.headers`     | `Headers`  | HTTP response headers                                  |
-| `error.body`        | `string`   | HTTP body. Can be empty string if no body is returned. |
-| `error.rawResponse` | `Response` | Raw HTTP response                                      |
+| Property            | Type       | Description                                                                             |
+| ------------------- | ---------- | --------------------------------------------------------------------------------------- |
+| `error.message`     | `string`   | Error message                                                                           |
+| `error.statusCode`  | `number`   | HTTP response status code eg `404`                                                      |
+| `error.headers`     | `Headers`  | HTTP response headers                                                                   |
+| `error.body`        | `string`   | HTTP body. Can be empty string if no body is returned.                                  |
+| `error.rawResponse` | `Response` | Raw HTTP response                                                                       |
+| `error.data$`       |            | Optional. Some errors may contain structured data. [See Error Classes](#error-classes). |
 
 ### Example
 ```typescript
@@ -556,21 +713,30 @@ import * as errors from "maesn/models/errors";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
 });
 
 async function run() {
   try {
-    const result = await maesn.accounting.retrieveAccount({
-      accountId: "<id>",
-    });
-
-    console.log(result);
+    await maesn.health.details();
   } catch (error) {
+    // The base class for HTTP error responses
     if (error instanceof errors.MaesnError) {
       console.log(error.message);
       console.log(error.statusCode);
       console.log(error.body);
       console.log(error.headers);
+
+      // Depending on the method different errors may be thrown
+      if (error instanceof errors.ServiceUnavailableError) {
+        console.log(error.data$.status); // string
+        console.log(error.data$.info); // { [k: string]: Info }
+        console.log(error.data$.error); // { [k: string]: ErrorT }
+        console.log(error.data$.details); // { [k: string]: Details }
+      }
     }
   }
 }
@@ -583,7 +749,7 @@ run();
 **Primary error:**
 * [`MaesnError`](./src/models/errors/maesn-error.ts): The base class for HTTP error responses.
 
-<details><summary>Less common errors (6)</summary>
+<details><summary>Less common errors (7)</summary>
 
 <br />
 
@@ -596,9 +762,12 @@ run();
 
 
 **Inherit from [`MaesnError`](./src/models/errors/maesn-error.ts)**:
+* [`ServiceUnavailableError`](./src/models/errors/service-unavailable-error.ts): The Health Check is not successful. Status code `503`. Applicable to 1 of 162 methods.*
 * [`ResponseValidationError`](./src/models/errors/response-validation-error.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>
+
+\* Check [the method documentation](#available-resources-and-operations) to see if the error is applicable.
 <!-- End Error Handling [errors] -->
 
 <!-- Start Custom HTTP Client [http-client] -->

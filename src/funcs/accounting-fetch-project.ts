@@ -9,6 +9,7 @@ import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
+import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
 import {
   ConnectionError,
@@ -85,7 +86,6 @@ async function $do(
       charEncoding: "percent",
     }),
   };
-
   const path = pathToFunc("/accounting/projects/{projectId}")(pathParams);
 
   const query = encodeFormQuery({
@@ -96,15 +96,10 @@ async function $do(
 
   const headers = new Headers(compactMap({
     Accept: "application/json",
-    "X-ACCOUNT-KEY": encodeSimple("X-ACCOUNT-KEY", payload["X-ACCOUNT-KEY"], {
-      explode: false,
-      charEncoding: "none",
-    }),
-    "X-API-KEY": encodeSimple("X-API-KEY", payload["X-API-KEY"], {
-      explode: false,
-      charEncoding: "none",
-    }),
   }));
+
+  const securityInput = await extractSecurity(client._options.security);
+  const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
     options: client._options,
@@ -112,9 +107,9 @@ async function $do(
     operationID: "getProject",
     oAuth2Scopes: null,
 
-    resolvedSecurity: null,
+    resolvedSecurity: requestSecurity,
 
-    securitySource: null,
+    securitySource: client._options.security,
     retryConfig: options?.retries
       || client._options.retryConfig
       || { strategy: "none" },
@@ -122,6 +117,7 @@ async function $do(
   };
 
   const requestRes = client._createRequest(context, {
+    security: requestSecurity,
     method: "GET",
     baseURL: options?.serverURL,
     path: path,

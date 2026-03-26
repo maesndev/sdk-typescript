@@ -3,47 +3,26 @@
  */
 
 import * as z from "zod/v4-mini";
-import { remap as remap$ } from "../../lib/primitives.js";
 
 export type DeleteEventSubscriptionsRequest = {
   eventSubscriptionId: string;
   companyId?: string | undefined;
-  /**
-   * API key
-   */
-  xApiKey?: string | undefined;
-  /**
-   * Account key
-   */
-  xAccountKey?: string | undefined;
 };
 
 /** @internal */
 export type DeleteEventSubscriptionsRequest$Outbound = {
   eventSubscriptionId: string;
   companyId?: string | undefined;
-  "X-API-KEY"?: string | undefined;
-  "X-ACCOUNT-KEY"?: string | undefined;
 };
 
 /** @internal */
 export const DeleteEventSubscriptionsRequest$outboundSchema: z.ZodMiniType<
   DeleteEventSubscriptionsRequest$Outbound,
   DeleteEventSubscriptionsRequest
-> = z.pipe(
-  z.object({
-    eventSubscriptionId: z.string(),
-    companyId: z.optional(z.string()),
-    xApiKey: z.optional(z.string()),
-    xAccountKey: z.optional(z.string()),
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      xApiKey: "X-API-KEY",
-      xAccountKey: "X-ACCOUNT-KEY",
-    });
-  }),
-);
+> = z.object({
+  eventSubscriptionId: z.string(),
+  companyId: z.optional(z.string()),
+});
 
 export function deleteEventSubscriptionsRequestToJSON(
   deleteEventSubscriptionsRequest: DeleteEventSubscriptionsRequest,

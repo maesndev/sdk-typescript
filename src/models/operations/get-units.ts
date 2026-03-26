@@ -3,7 +3,6 @@
  */
 
 import * as z from "zod/v4-mini";
-import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -15,14 +14,6 @@ export type GetUnitsRequest = {
   environmentName?: string | undefined;
   companyId?: string | undefined;
   rawData?: boolean | undefined;
-  /**
-   * API key
-   */
-  xApiKey?: string | undefined;
-  /**
-   * Account key
-   */
-  xAccountKey?: string | undefined;
 };
 
 export type GetUnitsErrors = {};
@@ -43,31 +34,19 @@ export type GetUnitsRequest$Outbound = {
   environmentName?: string | undefined;
   companyId?: string | undefined;
   rawData?: boolean | undefined;
-  "X-API-KEY"?: string | undefined;
-  "X-ACCOUNT-KEY"?: string | undefined;
 };
 
 /** @internal */
 export const GetUnitsRequest$outboundSchema: z.ZodMiniType<
   GetUnitsRequest$Outbound,
   GetUnitsRequest
-> = z.pipe(
-  z.object({
-    page: z.optional(z.number()),
-    limit: z.optional(z.number()),
-    environmentName: z.optional(z.string()),
-    companyId: z.optional(z.string()),
-    rawData: z.optional(z.boolean()),
-    xApiKey: z.optional(z.string()),
-    xAccountKey: z.optional(z.string()),
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      xApiKey: "X-API-KEY",
-      xAccountKey: "X-ACCOUNT-KEY",
-    });
-  }),
-);
+> = z.object({
+  page: z.optional(z.number()),
+  limit: z.optional(z.number()),
+  environmentName: z.optional(z.string()),
+  companyId: z.optional(z.string()),
+  rawData: z.optional(z.boolean()),
+});
 
 export function getUnitsRequestToJSON(
   getUnitsRequest: GetUnitsRequest,

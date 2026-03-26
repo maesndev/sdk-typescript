@@ -3,7 +3,6 @@
  */
 
 import * as z from "zod/v4-mini";
-import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -13,14 +12,6 @@ export type UpdateBillLineItemRequest = {
   billId: string;
   lineItemId: string;
   companyId?: string | undefined;
-  /**
-   * API key
-   */
-  xApiKey?: string | undefined;
-  /**
-   * Account key
-   */
-  xAccountKey?: string | undefined;
   body: models.CreateBillLineItemRequestDto;
 };
 
@@ -40,8 +31,6 @@ export type UpdateBillLineItemRequest$Outbound = {
   billId: string;
   lineItemId: string;
   companyId?: string | undefined;
-  "X-API-KEY"?: string | undefined;
-  "X-ACCOUNT-KEY"?: string | undefined;
   body: models.CreateBillLineItemRequestDto$Outbound;
 };
 
@@ -49,22 +38,12 @@ export type UpdateBillLineItemRequest$Outbound = {
 export const UpdateBillLineItemRequest$outboundSchema: z.ZodMiniType<
   UpdateBillLineItemRequest$Outbound,
   UpdateBillLineItemRequest
-> = z.pipe(
-  z.object({
-    billId: z.string(),
-    lineItemId: z.string(),
-    companyId: z.optional(z.string()),
-    xApiKey: z.optional(z.string()),
-    xAccountKey: z.optional(z.string()),
-    body: models.CreateBillLineItemRequestDto$outboundSchema,
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      xApiKey: "X-API-KEY",
-      xAccountKey: "X-ACCOUNT-KEY",
-    });
-  }),
-);
+> = z.object({
+  billId: z.string(),
+  lineItemId: z.string(),
+  companyId: z.optional(z.string()),
+  body: models.CreateBillLineItemRequestDto$outboundSchema,
+});
 
 export function updateBillLineItemRequestToJSON(
   updateBillLineItemRequest: UpdateBillLineItemRequest,

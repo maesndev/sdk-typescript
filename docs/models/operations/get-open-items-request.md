@@ -22,5 +22,3 @@ let value: GetOpenItemsRequest = {};
 | `accountNumber`    | *string*           | :heavy_minus_sign: | N/A                |
 | `documentNumber`   | *string*           | :heavy_minus_sign: | N/A                |
 | `type`             | *string*           | :heavy_minus_sign: | N/A                |
-| `xApiKey`          | *string*           | :heavy_minus_sign: | API key            |
-| `xAccountKey`      | *string*           | :heavy_minus_sign: | Account key        |

@@ -3,7 +3,6 @@
  */
 
 import * as z from "zod/v4-mini";
-import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -12,14 +11,6 @@ import * as models from "../index.js";
 export type UpdateCustomerRequest = {
   contactId: string;
   companyId?: string | undefined;
-  /**
-   * API key
-   */
-  xApiKey?: string | undefined;
-  /**
-   * Account key
-   */
-  xAccountKey?: string | undefined;
   body: models.CreateContactRequestDto;
 };
 
@@ -38,8 +29,6 @@ export type UpdateCustomerResponse = {
 export type UpdateCustomerRequest$Outbound = {
   contactId: string;
   companyId?: string | undefined;
-  "X-API-KEY"?: string | undefined;
-  "X-ACCOUNT-KEY"?: string | undefined;
   body: models.CreateContactRequestDto$Outbound;
 };
 
@@ -47,21 +36,11 @@ export type UpdateCustomerRequest$Outbound = {
 export const UpdateCustomerRequest$outboundSchema: z.ZodMiniType<
   UpdateCustomerRequest$Outbound,
   UpdateCustomerRequest
-> = z.pipe(
-  z.object({
-    contactId: z.string(),
-    companyId: z.optional(z.string()),
-    xApiKey: z.optional(z.string()),
-    xAccountKey: z.optional(z.string()),
-    body: models.CreateContactRequestDto$outboundSchema,
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      xApiKey: "X-API-KEY",
-      xAccountKey: "X-ACCOUNT-KEY",
-    });
-  }),
-);
+> = z.object({
+  contactId: z.string(),
+  companyId: z.optional(z.string()),
+  body: models.CreateContactRequestDto$outboundSchema,
+});
 
 export function updateCustomerRequestToJSON(
   updateCustomerRequest: UpdateCustomerRequest,
