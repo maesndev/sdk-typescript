@@ -3,22 +3,40 @@
 ## Example Usage
 
 ```typescript
-import { GetExpenseResponse } from "maesn/models/operations";
+import { GetExpenseResponse } from "@maesn/typescript-sdk/models/operations";
 
 let value: GetExpenseResponse = {
-  meta: {
-    warnings: [
+  data: {
+    id: "<id>",
+    accountCode: "<value>",
+    accountId: "<id>",
+    accountNumber: 2055.72,
+    createdDate: "<value>",
+    currency: "JOD",
+    customerId: "<id>",
+    description: "astride what whether innocent reckless near mmm versus",
+    documentId: "<id>",
+    exchangeRate: "<value>",
+    expenseLines: [],
+    files: [
       "<value 1>",
       "<value 2>",
+      "<value 3>",
     ],
-    pagination: {
-      total: 3438.77,
-      perPage: 5109.63,
-      currentPage: 2626.79,
-      totalPages: 3561.84,
-    },
+    journalCode: "<value>",
+    ledgerName: null,
+    note: "<value>",
+    paymentTermId: null,
+    paymentType: "CREDIT",
+    supplierId: "<id>",
+    taskId: "<id>",
+    type: "REFUND",
+    totalGrossAmount: 1789.38,
+    totalNetAmount: 5283.48,
+    totalTaxAmount: 6721.36,
+    transactionDate: "<value>",
+    updatedDate: "<value>",
   },
-  data: [],
   errors: {},
   rawData: {},
 };
@@ -28,7 +46,7 @@ let value: GetExpenseResponse = {
 
 | Field                                                                           | Type                                                                            | Required                                                                        | Description                                                                     |
 | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| `meta`                                                                          | [models.MetaResponse](../../models/meta-response.md)                            | :heavy_check_mark:                                                              | N/A                                                                             |
-| `data`                                                                          | [models.ExpenseResponseDto](../../models/expense-response-dto.md)[]             | :heavy_check_mark:                                                              | N/A                                                                             |
+| `meta`                                                                          | [operations.GetExpenseMeta](../../models/operations/get-expense-meta.md)        | :heavy_minus_sign:                                                              | N/A                                                                             |
+| `data`                                                                          | [models.ExpenseResponseDto](../../models/expense-response-dto.md)               | :heavy_check_mark:                                                              | N/A                                                                             |
 | `errors`                                                                        | [operations.GetExpenseErrors](../../models/operations/get-expense-errors.md)    | :heavy_check_mark:                                                              | N/A                                                                             |
 | `rawData`                                                                       | [operations.GetExpenseRawData](../../models/operations/get-expense-raw-data.md) | :heavy_check_mark:                                                              | N/A                                                                             |

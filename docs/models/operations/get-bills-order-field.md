@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { GetBillsOrderField } from "maesn/models/operations";
+import { GetBillsOrderField } from "@maesn/typescript-sdk/models/operations";
 
 let value: GetBillsOrderField = "createdDate";
 ```

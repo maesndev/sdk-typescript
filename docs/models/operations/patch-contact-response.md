@@ -3,44 +3,32 @@
 ## Example Usage
 
 ```typescript
-import { PatchContactResponse } from "maesn/models/operations";
+import { PatchContactResponse } from "@maesn/typescript-sdk/models/operations";
 
 let value: PatchContactResponse = {
-  meta: {
-    warnings: [
-      "<value 1>",
-      "<value 2>",
-    ],
-    pagination: {
-      total: 3438.77,
-      perPage: 5109.63,
-      currentPage: 2626.79,
-      totalPages: 3561.84,
-    },
-  },
   data: {
     id: "<id>",
     addresses: [],
-    companyName: "Harber - Corkery",
+    companyName: "Kuhn and Sons",
     contactPersons: [],
-    contactType: "COMPANY",
+    contactType: "UNDEFINED",
     createdDate: "<value>",
-    emailAddresses: [
+    emailAddresses: [],
+    isCustomer: false,
+    isSupplier: false,
+    number: "<value>",
+    phoneNumbers: [
       {
-        email: "Amira56@gmail.com",
+        number: "<value>",
         type: "PRIVATE",
       },
     ],
-    isCustomer: false,
-    isSupplier: true,
-    number: "<value>",
-    phoneNumbers: [],
     projectId: "<id>",
     updatedDate: "<value>",
     website: "<value>",
   },
   errors: {},
-  rawData: {},
+  rawData: null,
 };
 ```
 
@@ -48,7 +36,7 @@ let value: PatchContactResponse = {
 
 | Field                                                                               | Type                                                                                | Required                                                                            | Description                                                                         |
 | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| `meta`                                                                              | [models.MetaResponse](../../models/meta-response.md)                                | :heavy_check_mark:                                                                  | N/A                                                                                 |
+| `meta`                                                                              | [operations.PatchContactMeta](../../models/operations/patch-contact-meta.md)        | :heavy_minus_sign:                                                                  | N/A                                                                                 |
 | `data`                                                                              | [models.ContactResponseDtoV2](../../models/contact-response-dto-v2.md)              | :heavy_check_mark:                                                                  | N/A                                                                                 |
 | `errors`                                                                            | [operations.PatchContactErrors](../../models/operations/patch-contact-errors.md)    | :heavy_check_mark:                                                                  | N/A                                                                                 |
 | `rawData`                                                                           | [operations.PatchContactRawData](../../models/operations/patch-contact-raw-data.md) | :heavy_check_mark:                                                                  | N/A                                                                                 |

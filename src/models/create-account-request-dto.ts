@@ -257,16 +257,16 @@ export type CreateAccountRequestDtoType = ClosedEnum<
 >;
 
 export type CreateAccountRequestDto = {
-  balance: number;
-  class: CreateAccountRequestDtoClass;
-  code: string;
-  currency: CreateAccountRequestDtoCurrency;
-  description: string;
-  name: string;
-  number: string;
-  parentAccountId: string;
-  status: CreateAccountRequestDtoStatus;
-  type: CreateAccountRequestDtoType;
+  balance?: number | undefined;
+  class?: CreateAccountRequestDtoClass | undefined;
+  code?: string | undefined;
+  currency?: CreateAccountRequestDtoCurrency | undefined;
+  description?: string | undefined;
+  name?: string | undefined;
+  number?: string | undefined;
+  parentAccountId?: string | undefined;
+  status?: CreateAccountRequestDtoStatus | undefined;
+  type?: CreateAccountRequestDtoType | undefined;
 };
 
 /** @internal */
@@ -291,16 +291,16 @@ export const CreateAccountRequestDtoType$outboundSchema: z.ZodMiniEnum<
 
 /** @internal */
 export type CreateAccountRequestDto$Outbound = {
-  balance: number;
-  class: string;
-  code: string;
-  currency: string;
-  description: string;
-  name: string;
-  number: string;
-  parentAccountId: string;
-  status: string;
-  type: string;
+  balance?: number | undefined;
+  class?: string | undefined;
+  code?: string | undefined;
+  currency?: string | undefined;
+  description?: string | undefined;
+  name?: string | undefined;
+  number?: string | undefined;
+  parentAccountId?: string | undefined;
+  status?: string | undefined;
+  type?: string | undefined;
 };
 
 /** @internal */
@@ -308,16 +308,16 @@ export const CreateAccountRequestDto$outboundSchema: z.ZodMiniType<
   CreateAccountRequestDto$Outbound,
   CreateAccountRequestDto
 > = z.object({
-  balance: z.number(),
-  class: CreateAccountRequestDtoClass$outboundSchema,
-  code: z.string(),
-  currency: CreateAccountRequestDtoCurrency$outboundSchema,
-  description: z.string(),
-  name: z.string(),
-  number: z.string(),
-  parentAccountId: z.string(),
-  status: CreateAccountRequestDtoStatus$outboundSchema,
-  type: CreateAccountRequestDtoType$outboundSchema,
+  balance: z.optional(z.number()),
+  class: z.optional(CreateAccountRequestDtoClass$outboundSchema),
+  code: z.optional(z.string()),
+  currency: z.optional(CreateAccountRequestDtoCurrency$outboundSchema),
+  description: z.optional(z.string()),
+  name: z.optional(z.string()),
+  number: z.optional(z.string()),
+  parentAccountId: z.optional(z.string()),
+  status: z.optional(CreateAccountRequestDtoStatus$outboundSchema),
+  type: z.optional(CreateAccountRequestDtoType$outboundSchema),
 });
 
 export function createAccountRequestDtoToJSON(

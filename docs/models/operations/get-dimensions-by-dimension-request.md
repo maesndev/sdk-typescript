@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { GetDimensionsByDimensionRequest } from "maesn/models/operations";
+import { GetDimensionsByDimensionRequest } from "@maesn/typescript-sdk/models/operations";
 
 let value: GetDimensionsByDimensionRequest = {
   dimension: "<value>",

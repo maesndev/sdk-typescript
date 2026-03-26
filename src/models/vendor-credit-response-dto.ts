@@ -15,10 +15,6 @@ import {
   VendorCreditLineItemResponseDto$inboundSchema,
 } from "./vendor-credit-line-item-response-dto.js";
 
-export type VendorCreditResponseDtoCreatedDate = {};
-
-export type VendorCreditResponseDtoPaidDate = {};
-
 export const VendorCreditResponseDtoPaymentStatus = {
   NoOpenItem: "NO_OPEN_ITEM",
   Pending: "PENDING",
@@ -35,8 +31,6 @@ export const VendorCreditResponseDtoPaymentStatus = {
 export type VendorCreditResponseDtoPaymentStatus = OpenEnum<
   typeof VendorCreditResponseDtoPaymentStatus
 >;
-
-export type VendorCreditResponseDtoShippingDate = {};
 
 export const VendorCreditResponseDtoShippingType = {
   Service: "SERVICE",
@@ -86,94 +80,44 @@ export type VendorCreditResponseDtoTaxRule = OpenEnum<
 >;
 
 export type VendorCreditResponseDto = {
-  id: string;
-  accountId: string;
-  addresses: Array<Address>;
-  contactId: string;
-  createdDate: VendorCreditResponseDtoCreatedDate;
-  currency: string;
-  deliveryDate: string;
-  dueDate: string;
-  fileId: string;
-  journalCode: string;
-  lineItems: Array<VendorCreditLineItemResponseDto>;
-  name: string;
-  oneLineAddress: string;
-  paidDate: VendorCreditResponseDtoPaidDate;
-  paymentTermId: string;
-  paymentStatus: VendorCreditResponseDtoPaymentStatus;
-  paymentDays: number;
-  reference: string;
-  shippingDate: VendorCreditResponseDtoShippingDate;
-  shippingType: VendorCreditResponseDtoShippingType;
-  status: VendorCreditResponseDtoStatus;
-  taxRule: VendorCreditResponseDtoTaxRule;
-  taxText: string;
-  totalDiscountAmount: number;
-  totalDiscountPercentage: number;
-  totalGrossAmount: number;
-  totalNetAmount: number;
-  totalTaxAmount: number;
-  updatedDate: string;
-  vendorCreditDate: string;
-  vendorCreditNumber: string;
+  id: string | null;
+  accountId: string | null;
+  addresses: Array<Address> | null;
+  contactId: string | null;
+  createdDate: string | null;
+  currency: string | null;
+  deliveryDate: string | null;
+  dueDate: string | null;
+  fileId: string | null;
+  journalCode: string | null;
+  lineItems: Array<VendorCreditLineItemResponseDto> | null;
+  name: string | null;
+  oneLineAddress: string | null;
+  paidDate: string | null;
+  paymentTermId: string | null;
+  paymentStatus: VendorCreditResponseDtoPaymentStatus | null;
+  paymentDays: number | null;
+  reference: string | null;
+  shippingDate: string | null;
+  shippingType: VendorCreditResponseDtoShippingType | null;
+  status: VendorCreditResponseDtoStatus | null;
+  taxRule: VendorCreditResponseDtoTaxRule | null;
+  taxText: string | null;
+  totalDiscountAmount: number | null;
+  totalDiscountPercentage: number | null;
+  totalGrossAmount: number | null;
+  totalNetAmount: number | null;
+  totalTaxAmount: number | null;
+  updatedDate: string | null;
+  vendorCreditDate: string | null;
+  vendorCreditNumber: string | null;
 };
-
-/** @internal */
-export const VendorCreditResponseDtoCreatedDate$inboundSchema: z.ZodMiniType<
-  VendorCreditResponseDtoCreatedDate,
-  unknown
-> = z.object({});
-
-export function vendorCreditResponseDtoCreatedDateFromJSON(
-  jsonString: string,
-): SafeParseResult<VendorCreditResponseDtoCreatedDate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      VendorCreditResponseDtoCreatedDate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'VendorCreditResponseDtoCreatedDate' from JSON`,
-  );
-}
-
-/** @internal */
-export const VendorCreditResponseDtoPaidDate$inboundSchema: z.ZodMiniType<
-  VendorCreditResponseDtoPaidDate,
-  unknown
-> = z.object({});
-
-export function vendorCreditResponseDtoPaidDateFromJSON(
-  jsonString: string,
-): SafeParseResult<VendorCreditResponseDtoPaidDate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => VendorCreditResponseDtoPaidDate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'VendorCreditResponseDtoPaidDate' from JSON`,
-  );
-}
 
 /** @internal */
 export const VendorCreditResponseDtoPaymentStatus$inboundSchema: z.ZodMiniType<
   VendorCreditResponseDtoPaymentStatus,
   unknown
 > = openEnums.inboundSchema(VendorCreditResponseDtoPaymentStatus);
-
-/** @internal */
-export const VendorCreditResponseDtoShippingDate$inboundSchema: z.ZodMiniType<
-  VendorCreditResponseDtoShippingDate,
-  unknown
-> = z.object({});
-
-export function vendorCreditResponseDtoShippingDateFromJSON(
-  jsonString: string,
-): SafeParseResult<VendorCreditResponseDtoShippingDate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      VendorCreditResponseDtoShippingDate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'VendorCreditResponseDtoShippingDate' from JSON`,
-  );
-}
 
 /** @internal */
 export const VendorCreditResponseDtoShippingType$inboundSchema: z.ZodMiniType<
@@ -198,37 +142,43 @@ export const VendorCreditResponseDto$inboundSchema: z.ZodMiniType<
   VendorCreditResponseDto,
   unknown
 > = z.object({
-  id: types.string(),
-  accountId: types.string(),
-  addresses: z.array(Address$inboundSchema),
-  contactId: types.string(),
-  createdDate: z.lazy(() => VendorCreditResponseDtoCreatedDate$inboundSchema),
-  currency: types.string(),
-  deliveryDate: types.string(),
-  dueDate: types.string(),
-  fileId: types.string(),
-  journalCode: types.string(),
-  lineItems: z.array(VendorCreditLineItemResponseDto$inboundSchema),
-  name: types.string(),
-  oneLineAddress: types.string(),
-  paidDate: z.lazy(() => VendorCreditResponseDtoPaidDate$inboundSchema),
-  paymentTermId: types.string(),
-  paymentStatus: VendorCreditResponseDtoPaymentStatus$inboundSchema,
-  paymentDays: types.number(),
-  reference: types.string(),
-  shippingDate: z.lazy(() => VendorCreditResponseDtoShippingDate$inboundSchema),
-  shippingType: VendorCreditResponseDtoShippingType$inboundSchema,
-  status: VendorCreditResponseDtoStatus$inboundSchema,
-  taxRule: VendorCreditResponseDtoTaxRule$inboundSchema,
-  taxText: types.string(),
-  totalDiscountAmount: types.number(),
-  totalDiscountPercentage: types.number(),
-  totalGrossAmount: types.number(),
-  totalNetAmount: types.number(),
-  totalTaxAmount: types.number(),
-  updatedDate: types.string(),
-  vendorCreditDate: types.string(),
-  vendorCreditNumber: types.string(),
+  id: types.nullable(types.string()),
+  accountId: types.nullable(types.string()),
+  addresses: types.nullable(z.array(Address$inboundSchema)),
+  contactId: types.nullable(types.string()),
+  createdDate: types.nullable(types.string()),
+  currency: types.nullable(types.string()),
+  deliveryDate: types.nullable(types.string()),
+  dueDate: types.nullable(types.string()),
+  fileId: types.nullable(types.string()),
+  journalCode: types.nullable(types.string()),
+  lineItems: types.nullable(
+    z.array(VendorCreditLineItemResponseDto$inboundSchema),
+  ),
+  name: types.nullable(types.string()),
+  oneLineAddress: types.nullable(types.string()),
+  paidDate: types.nullable(types.string()),
+  paymentTermId: types.nullable(types.string()),
+  paymentStatus: types.nullable(
+    VendorCreditResponseDtoPaymentStatus$inboundSchema,
+  ),
+  paymentDays: types.nullable(types.number()),
+  reference: types.nullable(types.string()),
+  shippingDate: types.nullable(types.string()),
+  shippingType: types.nullable(
+    VendorCreditResponseDtoShippingType$inboundSchema,
+  ),
+  status: types.nullable(VendorCreditResponseDtoStatus$inboundSchema),
+  taxRule: types.nullable(VendorCreditResponseDtoTaxRule$inboundSchema),
+  taxText: types.nullable(types.string()),
+  totalDiscountAmount: types.nullable(types.number()),
+  totalDiscountPercentage: types.nullable(types.number()),
+  totalGrossAmount: types.nullable(types.number()),
+  totalNetAmount: types.nullable(types.number()),
+  totalTaxAmount: types.nullable(types.number()),
+  updatedDate: types.nullable(types.string()),
+  vendorCreditDate: types.nullable(types.string()),
+  vendorCreditNumber: types.nullable(types.string()),
 });
 
 export function vendorCreditResponseDtoFromJSON(

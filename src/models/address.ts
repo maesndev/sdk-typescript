@@ -270,12 +270,12 @@ export const AddressType = {
 export type AddressType = OpenEnum<typeof AddressType>;
 
 export type Address = {
-  addressLine1: string;
-  addressLine2: string;
-  city: string;
-  countryCode: AddressCountryCode;
-  postalCode: string;
-  type: AddressType;
+  addressLine1?: string | null | undefined;
+  addressLine2?: string | null | undefined;
+  city?: string | null | undefined;
+  countryCode?: AddressCountryCode | null | undefined;
+  postalCode?: string | null | undefined;
+  type?: AddressType | null | undefined;
 };
 
 /** @internal */
@@ -298,32 +298,32 @@ export const AddressType$outboundSchema: z.ZodMiniType<string, AddressType> =
 
 /** @internal */
 export const Address$inboundSchema: z.ZodMiniType<Address, unknown> = z.object({
-  addressLine1: types.string(),
-  addressLine2: types.string(),
-  city: types.string(),
-  countryCode: AddressCountryCode$inboundSchema,
-  postalCode: types.string(),
-  type: AddressType$inboundSchema,
+  addressLine1: z.optional(z.nullable(types.string())),
+  addressLine2: z.optional(z.nullable(types.string())),
+  city: z.optional(z.nullable(types.string())),
+  countryCode: z.optional(z.nullable(AddressCountryCode$inboundSchema)),
+  postalCode: z.optional(z.nullable(types.string())),
+  type: z.optional(z.nullable(AddressType$inboundSchema)),
 });
 /** @internal */
 export type Address$Outbound = {
-  addressLine1: string;
-  addressLine2: string;
-  city: string;
-  countryCode: string;
-  postalCode: string;
-  type: string;
+  addressLine1?: string | null | undefined;
+  addressLine2?: string | null | undefined;
+  city?: string | null | undefined;
+  countryCode?: string | null | undefined;
+  postalCode?: string | null | undefined;
+  type?: string | null | undefined;
 };
 
 /** @internal */
 export const Address$outboundSchema: z.ZodMiniType<Address$Outbound, Address> =
   z.object({
-    addressLine1: z.string(),
-    addressLine2: z.string(),
-    city: z.string(),
-    countryCode: AddressCountryCode$outboundSchema,
-    postalCode: z.string(),
-    type: AddressType$outboundSchema,
+    addressLine1: z.optional(z.nullable(z.string())),
+    addressLine2: z.optional(z.nullable(z.string())),
+    city: z.optional(z.nullable(z.string())),
+    countryCode: z.optional(z.nullable(AddressCountryCode$outboundSchema)),
+    postalCode: z.optional(z.nullable(z.string())),
+    type: z.optional(z.nullable(AddressType$outboundSchema)),
   });
 
 export function addressToJSON(address: Address): string {

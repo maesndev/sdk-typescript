@@ -4,21 +4,62 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../lib/schemas.js";
+import * as openEnums from "../types/enums.js";
+import { OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
-import { Balance, Balance$inboundSchema } from "./balance.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
-export type MonthlyValue = {
-  month: number;
-  balance: Balance;
+export const MonthlyValueDebitCreditIndicator = {
+  Debit: "DEBIT",
+  Credit: "CREDIT",
+} as const;
+export type MonthlyValueDebitCreditIndicator = OpenEnum<
+  typeof MonthlyValueDebitCreditIndicator
+>;
+
+export type MonthlyValueBalance = {
+  amount: number | null;
+  debitCreditIndicator: MonthlyValueDebitCreditIndicator | null;
 };
+
+export type MonthlyValue = {
+  month: number | null;
+  balance: MonthlyValueBalance | null;
+};
+
+/** @internal */
+export const MonthlyValueDebitCreditIndicator$inboundSchema: z.ZodMiniType<
+  MonthlyValueDebitCreditIndicator,
+  unknown
+> = openEnums.inboundSchema(MonthlyValueDebitCreditIndicator);
+
+/** @internal */
+export const MonthlyValueBalance$inboundSchema: z.ZodMiniType<
+  MonthlyValueBalance,
+  unknown
+> = z.object({
+  amount: types.nullable(types.number()),
+  debitCreditIndicator: types.nullable(
+    MonthlyValueDebitCreditIndicator$inboundSchema,
+  ),
+});
+
+export function monthlyValueBalanceFromJSON(
+  jsonString: string,
+): SafeParseResult<MonthlyValueBalance, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => MonthlyValueBalance$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'MonthlyValueBalance' from JSON`,
+  );
+}
 
 /** @internal */
 export const MonthlyValue$inboundSchema: z.ZodMiniType<MonthlyValue, unknown> =
   z.object({
-    month: types.number(),
-    balance: Balance$inboundSchema,
+    month: types.nullable(types.number()),
+    balance: types.nullable(z.lazy(() => MonthlyValueBalance$inboundSchema)),
   });
 
 export function monthlyValueFromJSON(

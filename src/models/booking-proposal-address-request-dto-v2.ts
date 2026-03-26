@@ -4,16 +4,22 @@
 
 import * as z from "zod/v4-mini";
 
-export type BookingProposalAddressRequestDtoV2 = {};
+export type BookingProposalAddressRequestDtoV2 = {
+  city?: string | undefined;
+};
 
 /** @internal */
-export type BookingProposalAddressRequestDtoV2$Outbound = {};
+export type BookingProposalAddressRequestDtoV2$Outbound = {
+  city?: string | undefined;
+};
 
 /** @internal */
 export const BookingProposalAddressRequestDtoV2$outboundSchema: z.ZodMiniType<
   BookingProposalAddressRequestDtoV2$Outbound,
   BookingProposalAddressRequestDtoV2
-> = z.object({});
+> = z.object({
+  city: z.optional(z.string()),
+});
 
 export function bookingProposalAddressRequestDtoV2ToJSON(
   bookingProposalAddressRequestDtoV2: BookingProposalAddressRequestDtoV2,

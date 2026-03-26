@@ -3,32 +3,64 @@
 ## Example Usage
 
 ```typescript
-import { ExpenseResponseDto } from "maesn/models";
+import { ExpenseResponseDto } from "@maesn/typescript-sdk/models";
 
 let value: ExpenseResponseDto = {
   id: "<id>",
   accountCode: "<value>",
   accountId: "<id>",
-  accountNumber: 6832.39,
+  accountNumber: 1972.27,
   createdDate: "<value>",
-  currency: "MUR",
+  currency: "GTQ",
   customerId: "<id>",
-  description: "than yahoo ignorance silt dimly ugh abnormally likewise more",
+  description: "boldly broadly parched",
   documentId: "<id>",
-  exchangeRate: "<value>",
-  expenseLines: [],
-  files: [],
+  exchangeRate: null,
+  expenseLines: [
+    {
+      id: "<id>",
+      accountCode: "<value>",
+      accountId: "<id>",
+      accountNumber: 8184.99,
+      createdDate: "<value>",
+      currency: "CRC",
+      description:
+        "however airline bran briskly elegant micromanage gazebo upbeat morning",
+      dimensions: [
+        {
+          id: "<id>",
+          categoryName: "<value>",
+          name: "<value>",
+        },
+      ],
+      documentNumber: "<value>",
+      exchangeRate: 5986.84,
+      itemId: "<id>",
+      taxRate: {
+        id: "<id>",
+        code: "<value>",
+        name: null,
+        taxRatePercentage: "<value>",
+      },
+      totalGrossAmount: 2525.53,
+      totalNetAmount: 5320.75,
+      updatedDate: "<value>",
+    },
+  ],
+  files: [
+    "<value 1>",
+  ],
   journalCode: "<value>",
   ledgerName: "<value>",
   note: "<value>",
   paymentTermId: "<id>",
-  paymentType: "CREDIT",
+  paymentType: null,
   supplierId: "<id>",
   taskId: "<id>",
   type: "EXPENSE",
-  totalGrossAmount: 7223.55,
-  totalNetAmount: 9831.61,
-  totalTaxAmount: 574.1,
+  totalGrossAmount: 6948.88,
+  totalNetAmount: null,
+  totalTaxAmount: 3254.09,
   transactionDate: "<value>",
   updatedDate: "<value>",
 };

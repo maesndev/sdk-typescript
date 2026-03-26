@@ -3,15 +3,15 @@
 ## Example Usage
 
 ```typescript
-import { ContactAddress } from "maesn/models";
+import { ContactAddress } from "@maesn/typescript-sdk/models";
 
 let value: ContactAddress = {
-  addressLine1: "513 Homenick Glen",
+  addressLine1: "2343 Donnie Circles",
   addressLine2: "-",
-  city: "North Blaise",
-  countryCode: "PF",
-  postalCode: "85036-0715",
-  type: "DELIVERY",
+  city: "Sengerstead",
+  countryCode: null,
+  postalCode: "07152-6141",
+  type: "BILLING",
 };
 ```
 

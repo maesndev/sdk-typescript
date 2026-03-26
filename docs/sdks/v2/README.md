@@ -12,7 +12,7 @@
 
 <!-- UsageSnippet language="typescript" operationID="getDimensionsByDimension" method="get" path="/accounting/v2/dimensions/{dimension}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -38,8 +38,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingV2GetDimension } from "maesn/funcs/accounting-v2-get-dimension.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingV2GetDimension } from "@maesn/typescript-sdk/funcs/accounting-v2-get-dimension.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.

@@ -10,10 +10,10 @@ import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
 export type UserInfoResponseDto = {
-  id: string;
-  accountId: string;
-  familyName: string;
-  name: string;
+  id: string | null;
+  accountId: string | null;
+  familyName: string | null;
+  name: string | null;
 };
 
 /** @internal */
@@ -22,10 +22,10 @@ export const UserInfoResponseDto$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    id: types.string(),
-    account_id: types.string(),
-    family_name: types.string(),
-    name: types.string(),
+    id: types.nullable(types.string()),
+    account_id: types.nullable(types.string()),
+    family_name: types.nullable(types.string()),
+    name: types.nullable(types.string()),
   }),
   z.transform((v) => {
     return remap$(v, {

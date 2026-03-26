@@ -3,44 +3,25 @@
 ## Example Usage
 
 ```typescript
-import { GetJournalEntriesResponse } from "maesn/models/operations";
+import { GetJournalEntriesResponse } from "@maesn/typescript-sdk/models/operations";
 
 let value: GetJournalEntriesResponse = {
-  meta: {
-    warnings: [
-      "<value 1>",
-      "<value 2>",
-    ],
-    pagination: {
-      total: 3438.77,
-      perPage: 5109.63,
-      currentPage: 2626.79,
-      totalPages: 3561.84,
-    },
-  },
   data: [
     {
       id: "<id>",
       accountId: "<id>",
-      accountingPeriodId: "<id>",
+      accountingPeriodId: null,
       createdDate: "<value>",
-      currency: "CHF",
-      debitCreditIndicator: "DEBIT",
-      deliveryDate: "<value>",
-      description: "revoke mutate austere",
+      currency: "TND",
+      description:
+        "knottily stunning poorly rigid near duh for wriggler knight offensively",
       documentId: "<id>",
-      dueDate: "<value>",
-      exchangeRate: "<value>",
-      files: [],
-      isProvisional: true,
-      journalCode: "<value>",
-      journalLineItems: [
+      files: [
         "<value 1>",
         "<value 2>",
       ],
-      journalType: "<value>",
+      journalLineItems: [],
       number: "<value>",
-      taxAssignmentDate: "<value>",
       transactionDate: "<value>",
       updatedDate: "<value>",
     },
@@ -54,7 +35,7 @@ let value: GetJournalEntriesResponse = {
 
 | Field                                                                                          | Type                                                                                           | Required                                                                                       | Description                                                                                    |
 | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `meta`                                                                                         | [models.MetaResponse](../../models/meta-response.md)                                           | :heavy_check_mark:                                                                             | N/A                                                                                            |
+| `meta`                                                                                         | [operations.GetJournalEntriesMeta](../../models/operations/get-journal-entries-meta.md)        | :heavy_minus_sign:                                                                             | N/A                                                                                            |
 | `data`                                                                                         | [models.JournalEntryResponseDto](../../models/journal-entry-response-dto.md)[]                 | :heavy_check_mark:                                                                             | N/A                                                                                            |
 | `errors`                                                                                       | [operations.GetJournalEntriesErrors](../../models/operations/get-journal-entries-errors.md)    | :heavy_check_mark:                                                                             | N/A                                                                                            |
 | `rawData`                                                                                      | [operations.GetJournalEntriesRawData](../../models/operations/get-journal-entries-raw-data.md) | :heavy_check_mark:                                                                             | N/A                                                                                            |

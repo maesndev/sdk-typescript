@@ -10,8 +10,6 @@ import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
-export type TaxRateResponseDtoCreatedDate = {};
-
 export const TaxRateResponseDtoType = {
   Inclusive: "INCLUSIVE",
   Exclusive: "EXCLUSIVE",
@@ -19,8 +17,6 @@ export const TaxRateResponseDtoType = {
   ZeroTax: "ZERO_TAX",
 } as const;
 export type TaxRateResponseDtoType = OpenEnum<typeof TaxRateResponseDtoType>;
-
-export type TaxRateResponseDtoUpdatedDate = {};
 
 export const Usage = {
   Invoice: "INVOICE",
@@ -32,54 +28,22 @@ export const Usage = {
 export type Usage = OpenEnum<typeof Usage>;
 
 export type TaxRateResponseDto = {
-  id: string;
-  code: string;
-  createdDate: TaxRateResponseDtoCreatedDate;
-  description: string;
-  name: string;
-  percentage: number;
-  type: TaxRateResponseDtoType;
-  updatedDate: TaxRateResponseDtoUpdatedDate;
-  usage: Usage;
+  id: string | null;
+  code: string | null;
+  createdDate: string | null;
+  description: string | null;
+  name: string | null;
+  percentage: number | null;
+  type: TaxRateResponseDtoType | null;
+  updatedDate: string | null;
+  usage: Usage | null;
 };
-
-/** @internal */
-export const TaxRateResponseDtoCreatedDate$inboundSchema: z.ZodMiniType<
-  TaxRateResponseDtoCreatedDate,
-  unknown
-> = z.object({});
-
-export function taxRateResponseDtoCreatedDateFromJSON(
-  jsonString: string,
-): SafeParseResult<TaxRateResponseDtoCreatedDate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => TaxRateResponseDtoCreatedDate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'TaxRateResponseDtoCreatedDate' from JSON`,
-  );
-}
 
 /** @internal */
 export const TaxRateResponseDtoType$inboundSchema: z.ZodMiniType<
   TaxRateResponseDtoType,
   unknown
 > = openEnums.inboundSchema(TaxRateResponseDtoType);
-
-/** @internal */
-export const TaxRateResponseDtoUpdatedDate$inboundSchema: z.ZodMiniType<
-  TaxRateResponseDtoUpdatedDate,
-  unknown
-> = z.object({});
-
-export function taxRateResponseDtoUpdatedDateFromJSON(
-  jsonString: string,
-): SafeParseResult<TaxRateResponseDtoUpdatedDate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => TaxRateResponseDtoUpdatedDate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'TaxRateResponseDtoUpdatedDate' from JSON`,
-  );
-}
 
 /** @internal */
 export const Usage$inboundSchema: z.ZodMiniType<Usage, unknown> = openEnums
@@ -90,15 +54,15 @@ export const TaxRateResponseDto$inboundSchema: z.ZodMiniType<
   TaxRateResponseDto,
   unknown
 > = z.object({
-  id: types.string(),
-  code: types.string(),
-  createdDate: z.lazy(() => TaxRateResponseDtoCreatedDate$inboundSchema),
-  description: types.string(),
-  name: types.string(),
-  percentage: types.number(),
-  type: TaxRateResponseDtoType$inboundSchema,
-  updatedDate: z.lazy(() => TaxRateResponseDtoUpdatedDate$inboundSchema),
-  usage: Usage$inboundSchema,
+  id: types.nullable(types.string()),
+  code: types.nullable(types.string()),
+  createdDate: types.nullable(types.string()),
+  description: types.nullable(types.string()),
+  name: types.nullable(types.string()),
+  percentage: types.nullable(types.number()),
+  type: types.nullable(TaxRateResponseDtoType$inboundSchema),
+  updatedDate: types.nullable(types.string()),
+  usage: types.nullable(Usage$inboundSchema),
 });
 
 export function taxRateResponseDtoFromJSON(

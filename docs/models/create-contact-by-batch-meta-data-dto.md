@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { CreateContactByBatchMetaDataDto } from "maesn/models";
+import { CreateContactByBatchMetaDataDto } from "@maesn/typescript-sdk/models";
 
 let value: CreateContactByBatchMetaDataDto = {
   accountNumberLength: 9374.86,

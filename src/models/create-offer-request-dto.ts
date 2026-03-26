@@ -29,21 +29,21 @@ export type CreateOfferRequestDtoStatus = ClosedEnum<
 
 export type CreateOfferRequestDto = {
   addresses: Array<AddressOffer>;
-  contactId: string;
+  contactId?: string | undefined;
   currency: string;
-  lineItems: Array<CreateOfferLineItemRequestDto>;
-  name: string;
+  lineItems?: Array<CreateOfferLineItemRequestDto> | undefined;
+  name?: string | undefined;
   offerDate: string;
-  offerNumber: string;
-  oneLineAddress: string;
-  reference: string;
-  status: CreateOfferRequestDtoStatus;
-  taxText: string;
-  totalDiscountAmount: number;
-  totalDiscountPercentage: number;
-  totalGrossAmount: number;
-  totalNetAmount: number;
-  totalTaxAmount: number;
+  offerNumber?: string | undefined;
+  oneLineAddress?: string | undefined;
+  reference?: string | undefined;
+  status?: CreateOfferRequestDtoStatus | undefined;
+  taxText?: string | undefined;
+  totalDiscountAmount?: number | undefined;
+  totalDiscountPercentage?: number | undefined;
+  totalGrossAmount?: number | undefined;
+  totalNetAmount?: number | undefined;
+  totalTaxAmount?: number | undefined;
 };
 
 /** @internal */
@@ -54,21 +54,21 @@ export const CreateOfferRequestDtoStatus$outboundSchema: z.ZodMiniEnum<
 /** @internal */
 export type CreateOfferRequestDto$Outbound = {
   addresses: Array<AddressOffer$Outbound>;
-  contactId: string;
+  contactId?: string | undefined;
   currency: string;
-  lineItems: Array<CreateOfferLineItemRequestDto$Outbound>;
-  name: string;
+  lineItems?: Array<CreateOfferLineItemRequestDto$Outbound> | undefined;
+  name?: string | undefined;
   offerDate: string;
-  offerNumber: string;
-  oneLineAddress: string;
-  reference: string;
-  status: string;
-  taxText: string;
-  totalDiscountAmount: number;
-  totalDiscountPercentage: number;
-  totalGrossAmount: number;
-  totalNetAmount: number;
-  totalTaxAmount: number;
+  offerNumber?: string | undefined;
+  oneLineAddress?: string | undefined;
+  reference?: string | undefined;
+  status?: string | undefined;
+  taxText?: string | undefined;
+  totalDiscountAmount?: number | undefined;
+  totalDiscountPercentage?: number | undefined;
+  totalGrossAmount?: number | undefined;
+  totalNetAmount?: number | undefined;
+  totalTaxAmount?: number | undefined;
 };
 
 /** @internal */
@@ -77,21 +77,21 @@ export const CreateOfferRequestDto$outboundSchema: z.ZodMiniType<
   CreateOfferRequestDto
 > = z.object({
   addresses: z.array(AddressOffer$outboundSchema),
-  contactId: z.string(),
+  contactId: z.optional(z.string()),
   currency: z.string(),
-  lineItems: z.array(CreateOfferLineItemRequestDto$outboundSchema),
-  name: z.string(),
+  lineItems: z.optional(z.array(CreateOfferLineItemRequestDto$outboundSchema)),
+  name: z.optional(z.string()),
   offerDate: z.string(),
-  offerNumber: z.string(),
-  oneLineAddress: z.string(),
-  reference: z.string(),
-  status: CreateOfferRequestDtoStatus$outboundSchema,
-  taxText: z.string(),
-  totalDiscountAmount: z.number(),
-  totalDiscountPercentage: z.number(),
-  totalGrossAmount: z.number(),
-  totalNetAmount: z.number(),
-  totalTaxAmount: z.number(),
+  offerNumber: z.optional(z.string()),
+  oneLineAddress: z.optional(z.string()),
+  reference: z.optional(z.string()),
+  status: z.optional(CreateOfferRequestDtoStatus$outboundSchema),
+  taxText: z.optional(z.string()),
+  totalDiscountAmount: z.optional(z.number()),
+  totalDiscountPercentage: z.optional(z.number()),
+  totalGrossAmount: z.optional(z.number()),
+  totalNetAmount: z.optional(z.number()),
+  totalTaxAmount: z.optional(z.number()),
 });
 
 export function createOfferRequestDtoToJSON(

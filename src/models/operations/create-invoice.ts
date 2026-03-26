@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
@@ -14,15 +15,27 @@ export type CreateInvoiceRequest = {
   body: models.CreateInvoiceRequestDto;
 };
 
+export type CreateInvoicePagination = {
+  total: number;
+  perPage: number;
+  currentPage: number;
+  totalPages: number;
+};
+
+export type CreateInvoiceMeta = {
+  warnings?: Array<string> | null | undefined;
+  pagination?: CreateInvoicePagination | null | undefined;
+};
+
 export type CreateInvoiceErrors = {};
 
 export type CreateInvoiceRawData = {};
 
 export type CreateInvoiceResponse = {
-  meta: models.MetaResponse;
+  meta?: CreateInvoiceMeta | null | undefined;
   data: models.InvoiceResponseDto;
-  errors: CreateInvoiceErrors;
-  rawData: CreateInvoiceRawData;
+  errors: CreateInvoiceErrors | null;
+  rawData: CreateInvoiceRawData | null;
 };
 
 /** @internal */
@@ -47,6 +60,48 @@ export function createInvoiceRequestToJSON(
 ): string {
   return JSON.stringify(
     CreateInvoiceRequest$outboundSchema.parse(createInvoiceRequest),
+  );
+}
+
+/** @internal */
+export const CreateInvoicePagination$inboundSchema: z.ZodMiniType<
+  CreateInvoicePagination,
+  unknown
+> = z.object({
+  total: types.number(),
+  perPage: types.number(),
+  currentPage: types.number(),
+  totalPages: types.number(),
+});
+
+export function createInvoicePaginationFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateInvoicePagination, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateInvoicePagination$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateInvoicePagination' from JSON`,
+  );
+}
+
+/** @internal */
+export const CreateInvoiceMeta$inboundSchema: z.ZodMiniType<
+  CreateInvoiceMeta,
+  unknown
+> = z.object({
+  warnings: z.optional(z.nullable(z.array(types.string()))),
+  pagination: z.optional(
+    z.nullable(z.lazy(() => CreateInvoicePagination$inboundSchema)),
+  ),
+});
+
+export function createInvoiceMetaFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateInvoiceMeta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateInvoiceMeta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateInvoiceMeta' from JSON`,
   );
 }
 
@@ -87,10 +142,10 @@ export const CreateInvoiceResponse$inboundSchema: z.ZodMiniType<
   CreateInvoiceResponse,
   unknown
 > = z.object({
-  meta: models.MetaResponse$inboundSchema,
+  meta: z.optional(z.nullable(z.lazy(() => CreateInvoiceMeta$inboundSchema))),
   data: models.InvoiceResponseDto$inboundSchema,
-  errors: z.lazy(() => CreateInvoiceErrors$inboundSchema),
-  rawData: z.lazy(() => CreateInvoiceRawData$inboundSchema),
+  errors: types.nullable(z.lazy(() => CreateInvoiceErrors$inboundSchema)),
+  rawData: types.nullable(z.lazy(() => CreateInvoiceRawData$inboundSchema)),
 });
 
 export function createInvoiceResponseFromJSON(

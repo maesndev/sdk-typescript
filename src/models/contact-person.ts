@@ -6,14 +6,16 @@ import * as z from "zod/v4-mini";
 import { safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
+import { EmailAddress, EmailAddress$inboundSchema } from "./email-address.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
+import { PhoneNumber, PhoneNumber$inboundSchema } from "./phone-number.js";
 
 export type ContactPerson = {
-  emailAddresses: Array<string>;
-  firstName: string;
-  lastName: string;
-  phoneNumbers: Array<string>;
-  salutation: string;
+  emailAddresses: Array<EmailAddress> | null;
+  firstName: string | null;
+  lastName: string | null;
+  phoneNumbers: Array<PhoneNumber> | null;
+  salutation: string | null;
 };
 
 /** @internal */
@@ -21,36 +23,13 @@ export const ContactPerson$inboundSchema: z.ZodMiniType<
   ContactPerson,
   unknown
 > = z.object({
-  emailAddresses: z.array(types.string()),
-  firstName: types.string(),
-  lastName: types.string(),
-  phoneNumbers: z.array(types.string()),
-  salutation: types.string(),
-});
-/** @internal */
-export type ContactPerson$Outbound = {
-  emailAddresses: Array<string>;
-  firstName: string;
-  lastName: string;
-  phoneNumbers: Array<string>;
-  salutation: string;
-};
-
-/** @internal */
-export const ContactPerson$outboundSchema: z.ZodMiniType<
-  ContactPerson$Outbound,
-  ContactPerson
-> = z.object({
-  emailAddresses: z.array(z.string()),
-  firstName: z.string(),
-  lastName: z.string(),
-  phoneNumbers: z.array(z.string()),
-  salutation: z.string(),
+  emailAddresses: types.nullable(z.array(EmailAddress$inboundSchema)),
+  firstName: types.nullable(types.string()),
+  lastName: types.nullable(types.string()),
+  phoneNumbers: types.nullable(z.array(PhoneNumber$inboundSchema)),
+  salutation: types.nullable(types.string()),
 });
 
-export function contactPersonToJSON(contactPerson: ContactPerson): string {
-  return JSON.stringify(ContactPerson$outboundSchema.parse(contactPerson));
-}
 export function contactPersonFromJSON(
   jsonString: string,
 ): SafeParseResult<ContactPerson, SDKValidationError> {

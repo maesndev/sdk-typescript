@@ -5,20 +5,20 @@
 import * as z from "zod/v4-mini";
 
 export type BankAccountRequestCommonDtoV2 = {
-  id: string;
-  bic: string;
-  code: string;
-  iban: string;
-  number: number;
+  id?: string | undefined;
+  bic?: string | undefined;
+  code?: string | undefined;
+  iban?: string | undefined;
+  number?: number | undefined;
 };
 
 /** @internal */
 export type BankAccountRequestCommonDtoV2$Outbound = {
-  id: string;
-  bic: string;
-  code: string;
-  iban: string;
-  number: number;
+  id?: string | undefined;
+  bic?: string | undefined;
+  code?: string | undefined;
+  iban?: string | undefined;
+  number?: number | undefined;
 };
 
 /** @internal */
@@ -26,11 +26,11 @@ export const BankAccountRequestCommonDtoV2$outboundSchema: z.ZodMiniType<
   BankAccountRequestCommonDtoV2$Outbound,
   BankAccountRequestCommonDtoV2
 > = z.object({
-  id: z.string(),
-  bic: z.string(),
-  code: z.string(),
-  iban: z.string(),
-  number: z.number(),
+  id: z.optional(z.string()),
+  bic: z.optional(z.string()),
+  code: z.optional(z.string()),
+  iban: z.optional(z.string()),
+  number: z.optional(z.number()),
 });
 
 export function bankAccountRequestCommonDtoV2ToJSON(

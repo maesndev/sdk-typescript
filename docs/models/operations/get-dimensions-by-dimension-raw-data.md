@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { GetDimensionsByDimensionRawData } from "maesn/models/operations";
+import { GetDimensionsByDimensionRawData } from "@maesn/typescript-sdk/models/operations";
 
 let value: GetDimensionsByDimensionRawData = {};
 ```

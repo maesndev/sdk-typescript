@@ -3,31 +3,10 @@
 ## Example Usage
 
 ```typescript
-import { PatchLineItemRequest } from "maesn/models";
+import { PatchLineItemRequest } from "@maesn/typescript-sdk/models";
 
 let value: PatchLineItemRequest = {
   lineItemId: "<id>",
-  itemId: "<id>",
-  unitName: "<value>",
-  type: "TEXT",
-  quantity: 9503.94,
-  taxRatePercentage: 1919.78,
-  unitAmount: 3883.73,
-  grossAmount: 2088.78,
-  taxCode: "<value>",
-  taxType: "<value>",
-  description: "unnaturally at yahoo fireplace",
-  name: "<value>",
-  accountCode: "<value>",
-  accountId: "<id>",
-  dimensions: [
-    {
-      id: "<id>",
-      categoryName: "<value>",
-      name: "<value>",
-    },
-  ],
-  discountItemPercentage: 9430.13,
 };
 ```
 
@@ -36,18 +15,18 @@ let value: PatchLineItemRequest = {
 | Field                                                                             | Type                                                                              | Required                                                                          | Description                                                                       |
 | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | `lineItemId`                                                                      | *string*                                                                          | :heavy_check_mark:                                                                | N/A                                                                               |
-| `itemId`                                                                          | *string*                                                                          | :heavy_check_mark:                                                                | N/A                                                                               |
-| `unitName`                                                                        | *string*                                                                          | :heavy_check_mark:                                                                | N/A                                                                               |
-| `type`                                                                            | [models.PatchLineItemRequestType](../models/patch-line-item-request-type.md)      | :heavy_check_mark:                                                                | N/A                                                                               |
-| `quantity`                                                                        | *number*                                                                          | :heavy_check_mark:                                                                | N/A                                                                               |
-| `taxRatePercentage`                                                               | *number*                                                                          | :heavy_check_mark:                                                                | N/A                                                                               |
-| `unitAmount`                                                                      | *number*                                                                          | :heavy_check_mark:                                                                | N/A                                                                               |
-| `grossAmount`                                                                     | *number*                                                                          | :heavy_check_mark:                                                                | N/A                                                                               |
-| `taxCode`                                                                         | *string*                                                                          | :heavy_check_mark:                                                                | N/A                                                                               |
-| `taxType`                                                                         | *string*                                                                          | :heavy_check_mark:                                                                | N/A                                                                               |
-| `description`                                                                     | *string*                                                                          | :heavy_check_mark:                                                                | N/A                                                                               |
-| `name`                                                                            | *string*                                                                          | :heavy_check_mark:                                                                | N/A                                                                               |
-| `accountCode`                                                                     | *string*                                                                          | :heavy_check_mark:                                                                | N/A                                                                               |
-| `accountId`                                                                       | *string*                                                                          | :heavy_check_mark:                                                                | N/A                                                                               |
-| `dimensions`                                                                      | [models.InvoiceDimensionRequestDto](../models/invoice-dimension-request-dto.md)[] | :heavy_check_mark:                                                                | N/A                                                                               |
-| `discountItemPercentage`                                                          | *number*                                                                          | :heavy_check_mark:                                                                | N/A                                                                               |
+| `itemId`                                                                          | *string*                                                                          | :heavy_minus_sign:                                                                | N/A                                                                               |
+| `unitName`                                                                        | *string*                                                                          | :heavy_minus_sign:                                                                | N/A                                                                               |
+| `type`                                                                            | [models.PatchLineItemRequestType](../models/patch-line-item-request-type.md)      | :heavy_minus_sign:                                                                | N/A                                                                               |
+| `quantity`                                                                        | *number*                                                                          | :heavy_minus_sign:                                                                | N/A                                                                               |
+| `taxRatePercentage`                                                               | *number*                                                                          | :heavy_minus_sign:                                                                | N/A                                                                               |
+| `unitAmount`                                                                      | *number*                                                                          | :heavy_minus_sign:                                                                | N/A                                                                               |
+| `grossAmount`                                                                     | *number*                                                                          | :heavy_minus_sign:                                                                | N/A                                                                               |
+| `taxCode`                                                                         | *string*                                                                          | :heavy_minus_sign:                                                                | N/A                                                                               |
+| `taxType`                                                                         | *string*                                                                          | :heavy_minus_sign:                                                                | N/A                                                                               |
+| `description`                                                                     | *string*                                                                          | :heavy_minus_sign:                                                                | N/A                                                                               |
+| `name`                                                                            | *string*                                                                          | :heavy_minus_sign:                                                                | N/A                                                                               |
+| `accountCode`                                                                     | *string*                                                                          | :heavy_minus_sign:                                                                | N/A                                                                               |
+| `accountId`                                                                       | *string*                                                                          | :heavy_minus_sign:                                                                | N/A                                                                               |
+| `dimensions`                                                                      | [models.InvoiceDimensionRequestDto](../models/invoice-dimension-request-dto.md)[] | :heavy_minus_sign:                                                                | N/A                                                                               |
+| `discountItemPercentage`                                                          | *number*                                                                          | :heavy_minus_sign:                                                                | N/A                                                                               |

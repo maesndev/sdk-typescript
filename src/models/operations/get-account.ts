@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
@@ -15,15 +16,27 @@ export type GetAccountRequest = {
   rawData?: boolean | undefined;
 };
 
+export type GetAccountPagination = {
+  total: number;
+  perPage: number;
+  currentPage: number;
+  totalPages: number;
+};
+
+export type GetAccountMeta = {
+  warnings?: Array<string> | null | undefined;
+  pagination?: GetAccountPagination | null | undefined;
+};
+
 export type GetAccountErrors = {};
 
 export type GetAccountRawData = {};
 
 export type GetAccountResponse = {
-  meta: models.MetaResponse;
+  meta?: GetAccountMeta | null | undefined;
   data: models.AccountResponseDto;
-  errors: GetAccountErrors;
-  rawData: GetAccountRawData;
+  errors: GetAccountErrors | null;
+  rawData: GetAccountRawData | null;
 };
 
 /** @internal */
@@ -50,6 +63,48 @@ export function getAccountRequestToJSON(
 ): string {
   return JSON.stringify(
     GetAccountRequest$outboundSchema.parse(getAccountRequest),
+  );
+}
+
+/** @internal */
+export const GetAccountPagination$inboundSchema: z.ZodMiniType<
+  GetAccountPagination,
+  unknown
+> = z.object({
+  total: types.number(),
+  perPage: types.number(),
+  currentPage: types.number(),
+  totalPages: types.number(),
+});
+
+export function getAccountPaginationFromJSON(
+  jsonString: string,
+): SafeParseResult<GetAccountPagination, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetAccountPagination$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetAccountPagination' from JSON`,
+  );
+}
+
+/** @internal */
+export const GetAccountMeta$inboundSchema: z.ZodMiniType<
+  GetAccountMeta,
+  unknown
+> = z.object({
+  warnings: z.optional(z.nullable(z.array(types.string()))),
+  pagination: z.optional(
+    z.nullable(z.lazy(() => GetAccountPagination$inboundSchema)),
+  ),
+});
+
+export function getAccountMetaFromJSON(
+  jsonString: string,
+): SafeParseResult<GetAccountMeta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetAccountMeta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetAccountMeta' from JSON`,
   );
 }
 
@@ -90,10 +145,10 @@ export const GetAccountResponse$inboundSchema: z.ZodMiniType<
   GetAccountResponse,
   unknown
 > = z.object({
-  meta: models.MetaResponse$inboundSchema,
+  meta: z.optional(z.nullable(z.lazy(() => GetAccountMeta$inboundSchema))),
   data: models.AccountResponseDto$inboundSchema,
-  errors: z.lazy(() => GetAccountErrors$inboundSchema),
-  rawData: z.lazy(() => GetAccountRawData$inboundSchema),
+  errors: types.nullable(z.lazy(() => GetAccountErrors$inboundSchema)),
+  rawData: types.nullable(z.lazy(() => GetAccountRawData$inboundSchema)),
 });
 
 export function getAccountResponseFromJSON(

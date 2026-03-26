@@ -15,7 +15,7 @@ Returns 200 if the service is up.
 
 <!-- UsageSnippet language="typescript" operationID="check" method="get" path="/#5" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -39,8 +39,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { healthCheck } from "maesn/funcs/health-check.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { healthCheck } from "@maesn/typescript-sdk/funcs/health-check.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -91,7 +91,7 @@ Returns database connectivity status. Requires admin token.
 
 <!-- UsageSnippet language="typescript" operationID="details" method="get" path="/details" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -115,8 +115,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { healthDetails } from "maesn/funcs/health-details.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { healthDetails } from "@maesn/typescript-sdk/funcs/health-details.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.

@@ -5,18 +5,18 @@
 import * as z from "zod/v4-mini";
 
 export type AccountRequestCommonDtoV2 = {
-  id: string;
-  code: string;
-  name: string;
-  number: number;
+  id?: string | undefined;
+  code?: string | undefined;
+  name?: string | undefined;
+  number?: number | undefined;
 };
 
 /** @internal */
 export type AccountRequestCommonDtoV2$Outbound = {
-  id: string;
-  code: string;
-  name: string;
-  number: number;
+  id?: string | undefined;
+  code?: string | undefined;
+  name?: string | undefined;
+  number?: number | undefined;
 };
 
 /** @internal */
@@ -24,10 +24,10 @@ export const AccountRequestCommonDtoV2$outboundSchema: z.ZodMiniType<
   AccountRequestCommonDtoV2$Outbound,
   AccountRequestCommonDtoV2
 > = z.object({
-  id: z.string(),
-  code: z.string(),
-  name: z.string(),
-  number: z.number(),
+  id: z.optional(z.string()),
+  code: z.optional(z.string()),
+  name: z.optional(z.string()),
+  number: z.optional(z.number()),
 });
 
 export function accountRequestCommonDtoV2ToJSON(

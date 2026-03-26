@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { VedorCreditDimensionRequestDto } from "maesn/models";
+import { VedorCreditDimensionRequestDto } from "@maesn/typescript-sdk/models";
 
 let value: VedorCreditDimensionRequestDto = {
   name: "<value>",

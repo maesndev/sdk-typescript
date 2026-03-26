@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
@@ -15,15 +16,27 @@ export type UpdateVendorCreditRequest = {
   body: models.CreateVendorCreditRequestDto;
 };
 
+export type UpdateVendorCreditPagination = {
+  total: number;
+  perPage: number;
+  currentPage: number;
+  totalPages: number;
+};
+
+export type UpdateVendorCreditMeta = {
+  warnings?: Array<string> | null | undefined;
+  pagination?: UpdateVendorCreditPagination | null | undefined;
+};
+
 export type UpdateVendorCreditErrors = {};
 
 export type UpdateVendorCreditRawData = {};
 
 export type UpdateVendorCreditResponse = {
-  meta: models.MetaResponse;
+  meta?: UpdateVendorCreditMeta | null | undefined;
   data: models.BillResponseDto;
-  errors: UpdateVendorCreditErrors;
-  rawData: UpdateVendorCreditRawData;
+  errors: UpdateVendorCreditErrors | null;
+  rawData: UpdateVendorCreditRawData | null;
 };
 
 /** @internal */
@@ -50,6 +63,48 @@ export function updateVendorCreditRequestToJSON(
 ): string {
   return JSON.stringify(
     UpdateVendorCreditRequest$outboundSchema.parse(updateVendorCreditRequest),
+  );
+}
+
+/** @internal */
+export const UpdateVendorCreditPagination$inboundSchema: z.ZodMiniType<
+  UpdateVendorCreditPagination,
+  unknown
+> = z.object({
+  total: types.number(),
+  perPage: types.number(),
+  currentPage: types.number(),
+  totalPages: types.number(),
+});
+
+export function updateVendorCreditPaginationFromJSON(
+  jsonString: string,
+): SafeParseResult<UpdateVendorCreditPagination, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UpdateVendorCreditPagination$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UpdateVendorCreditPagination' from JSON`,
+  );
+}
+
+/** @internal */
+export const UpdateVendorCreditMeta$inboundSchema: z.ZodMiniType<
+  UpdateVendorCreditMeta,
+  unknown
+> = z.object({
+  warnings: z.optional(z.nullable(z.array(types.string()))),
+  pagination: z.optional(
+    z.nullable(z.lazy(() => UpdateVendorCreditPagination$inboundSchema)),
+  ),
+});
+
+export function updateVendorCreditMetaFromJSON(
+  jsonString: string,
+): SafeParseResult<UpdateVendorCreditMeta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UpdateVendorCreditMeta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UpdateVendorCreditMeta' from JSON`,
   );
 }
 
@@ -90,10 +145,14 @@ export const UpdateVendorCreditResponse$inboundSchema: z.ZodMiniType<
   UpdateVendorCreditResponse,
   unknown
 > = z.object({
-  meta: models.MetaResponse$inboundSchema,
+  meta: z.optional(
+    z.nullable(z.lazy(() => UpdateVendorCreditMeta$inboundSchema)),
+  ),
   data: models.BillResponseDto$inboundSchema,
-  errors: z.lazy(() => UpdateVendorCreditErrors$inboundSchema),
-  rawData: z.lazy(() => UpdateVendorCreditRawData$inboundSchema),
+  errors: types.nullable(z.lazy(() => UpdateVendorCreditErrors$inboundSchema)),
+  rawData: types.nullable(
+    z.lazy(() => UpdateVendorCreditRawData$inboundSchema),
+  ),
 });
 
 export function updateVendorCreditResponseFromJSON(

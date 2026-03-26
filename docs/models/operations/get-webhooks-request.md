@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { GetWebhooksRequest } from "maesn/models/operations";
+import { GetWebhooksRequest } from "@maesn/typescript-sdk/models/operations";
 
 let value: GetWebhooksRequest = {};
 ```

@@ -3,26 +3,25 @@
 ## Example Usage
 
 ```typescript
-import { SalesOrderLineItemResponseDto } from "maesn/models";
+import { SalesOrderLineItemResponseDto } from "@maesn/typescript-sdk/models";
 
 let value: SalesOrderLineItemResponseDto = {
   id: "<id>",
   itemId: "<id>",
   createdDate: "<value>",
-  description:
-    "wonderfully calmly inasmuch celsius gadzooks lest quietly mantua duh however",
-  itemName: "<value>",
-  quantity: 4677.99,
+  description: "shovel nor represent",
+  itemName: null,
+  quantity: 1298.82,
   taxCode: "<value>",
-  taxRatePercentage: 6617.19,
-  totalDiscountAmount: 6485.29,
-  totalDiscountPercentage: 5833.9,
-  totalGrossAmount: 8560.48,
-  totalNetAmount: 4415.76,
-  totalTaxAmount: 1539.09,
-  unitAmount: 2126.95,
-  unitDiscountAmount: 6539.95,
-  unitDiscountPercentage: 8156.79,
+  taxRatePercentage: 1729.53,
+  totalDiscountAmount: 1078.58,
+  totalDiscountPercentage: 6582.59,
+  totalGrossAmount: 9807.58,
+  totalNetAmount: 8814.41,
+  totalTaxAmount: 4255.96,
+  unitAmount: 223.77,
+  unitDiscountAmount: 4754.92,
+  unitDiscountPercentage: 7562.4,
   unitName: "<value>",
   updatedDate: "<value>",
 };

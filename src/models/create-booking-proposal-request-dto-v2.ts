@@ -41,28 +41,28 @@ export type CreateBookingProposalRequestDtoV2Status = ClosedEnum<
 >;
 
 export type CreateBookingProposalRequestDtoV2 = {
-  id: string;
-  addresses: Array<BookingProposalAddressRequestDtoV2>;
-  bankAccount: BankAccountRequestCommonDtoV2;
-  bookingProposalDate: string;
-  contact: ContactRequestCommonDtoV2;
-  currency: string;
-  deliveryDate: string;
-  discountPaymentDate: string;
-  discountPaymentDate2: string;
-  dueDate: string;
-  journalCode: string;
-  isPaymentOrder: boolean;
-  ledgerName: string;
-  lineItems: Array<BookingProposalLineItemRequestDtoV2>;
-  notes: string;
-  number: string;
-  orderId: string;
-  paidDate: string;
-  paymentTermId: string;
-  status: CreateBookingProposalRequestDtoV2Status;
-  totalGrossAmount: number;
-  vatId: string;
+  id?: string | undefined;
+  addresses?: Array<BookingProposalAddressRequestDtoV2> | undefined;
+  bankAccount?: BankAccountRequestCommonDtoV2 | undefined;
+  bookingProposalDate?: string | undefined;
+  contact?: ContactRequestCommonDtoV2 | undefined;
+  currency?: string | undefined;
+  deliveryDate?: string | undefined;
+  discountPaymentDate?: string | undefined;
+  discountPaymentDate2?: string | undefined;
+  dueDate?: string | undefined;
+  journalCode?: string | undefined;
+  isPaymentOrder?: boolean | undefined;
+  ledgerName?: string | undefined;
+  lineItems?: Array<BookingProposalLineItemRequestDtoV2> | undefined;
+  notes?: string | undefined;
+  number?: string | undefined;
+  orderId?: string | undefined;
+  paidDate?: string | undefined;
+  paymentTermId?: string | undefined;
+  status?: CreateBookingProposalRequestDtoV2Status | undefined;
+  totalGrossAmount?: number | undefined;
+  vatId?: string | undefined;
 };
 
 /** @internal */
@@ -73,28 +73,28 @@ export const CreateBookingProposalRequestDtoV2Status$outboundSchema:
 
 /** @internal */
 export type CreateBookingProposalRequestDtoV2$Outbound = {
-  id: string;
-  addresses: Array<BookingProposalAddressRequestDtoV2$Outbound>;
-  bankAccount: BankAccountRequestCommonDtoV2$Outbound;
-  bookingProposalDate: string;
-  contact: ContactRequestCommonDtoV2$Outbound;
-  currency: string;
-  deliveryDate: string;
-  discountPaymentDate: string;
-  discountPaymentDate2: string;
-  dueDate: string;
-  journalCode: string;
-  isPaymentOrder: boolean;
-  ledgerName: string;
-  lineItems: Array<BookingProposalLineItemRequestDtoV2$Outbound>;
-  notes: string;
-  number: string;
-  orderId: string;
-  paidDate: string;
-  paymentTermId: string;
-  status: string;
-  totalGrossAmount: number;
-  vatId: string;
+  id?: string | undefined;
+  addresses?: Array<BookingProposalAddressRequestDtoV2$Outbound> | undefined;
+  bankAccount?: BankAccountRequestCommonDtoV2$Outbound | undefined;
+  bookingProposalDate?: string | undefined;
+  contact?: ContactRequestCommonDtoV2$Outbound | undefined;
+  currency?: string | undefined;
+  deliveryDate?: string | undefined;
+  discountPaymentDate?: string | undefined;
+  discountPaymentDate2?: string | undefined;
+  dueDate?: string | undefined;
+  journalCode?: string | undefined;
+  isPaymentOrder?: boolean | undefined;
+  ledgerName?: string | undefined;
+  lineItems?: Array<BookingProposalLineItemRequestDtoV2$Outbound> | undefined;
+  notes?: string | undefined;
+  number?: string | undefined;
+  orderId?: string | undefined;
+  paidDate?: string | undefined;
+  paymentTermId?: string | undefined;
+  status?: string | undefined;
+  totalGrossAmount?: number | undefined;
+  vatId?: string | undefined;
 };
 
 /** @internal */
@@ -102,28 +102,32 @@ export const CreateBookingProposalRequestDtoV2$outboundSchema: z.ZodMiniType<
   CreateBookingProposalRequestDtoV2$Outbound,
   CreateBookingProposalRequestDtoV2
 > = z.object({
-  id: z.string(),
-  addresses: z.array(BookingProposalAddressRequestDtoV2$outboundSchema),
-  bankAccount: BankAccountRequestCommonDtoV2$outboundSchema,
-  bookingProposalDate: z.string(),
-  contact: ContactRequestCommonDtoV2$outboundSchema,
-  currency: z.string(),
-  deliveryDate: z.string(),
-  discountPaymentDate: z.string(),
-  discountPaymentDate2: z.string(),
-  dueDate: z.string(),
-  journalCode: z.string(),
-  isPaymentOrder: z.boolean(),
-  ledgerName: z.string(),
-  lineItems: z.array(BookingProposalLineItemRequestDtoV2$outboundSchema),
-  notes: z.string(),
-  number: z.string(),
-  orderId: z.string(),
-  paidDate: z.string(),
-  paymentTermId: z.string(),
-  status: CreateBookingProposalRequestDtoV2Status$outboundSchema,
-  totalGrossAmount: z.number(),
-  vatId: z.string(),
+  id: z.optional(z.string()),
+  addresses: z.optional(
+    z.array(BookingProposalAddressRequestDtoV2$outboundSchema),
+  ),
+  bankAccount: z.optional(BankAccountRequestCommonDtoV2$outboundSchema),
+  bookingProposalDate: z.optional(z.string()),
+  contact: z.optional(ContactRequestCommonDtoV2$outboundSchema),
+  currency: z.optional(z.string()),
+  deliveryDate: z.optional(z.string()),
+  discountPaymentDate: z.optional(z.string()),
+  discountPaymentDate2: z.optional(z.string()),
+  dueDate: z.optional(z.string()),
+  journalCode: z.optional(z.string()),
+  isPaymentOrder: z.optional(z.boolean()),
+  ledgerName: z.optional(z.string()),
+  lineItems: z.optional(
+    z.array(BookingProposalLineItemRequestDtoV2$outboundSchema),
+  ),
+  notes: z.optional(z.string()),
+  number: z.optional(z.string()),
+  orderId: z.optional(z.string()),
+  paidDate: z.optional(z.string()),
+  paymentTermId: z.optional(z.string()),
+  status: z.optional(CreateBookingProposalRequestDtoV2Status$outboundSchema),
+  totalGrossAmount: z.optional(z.number()),
+  vatId: z.optional(z.string()),
 });
 
 export function createBookingProposalRequestDtoV2ToJSON(

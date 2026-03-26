@@ -9,27 +9,27 @@ import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
 export type PaymentLine = {
-  accountId: string;
-  amount: number;
-  contactName: string;
-  customerId: string;
-  description: string;
-  invoiceId: string;
-  supplierId: string;
-  paymentDate: string;
+  accountId: string | null;
+  amount: number | null;
+  contactName: string | null;
+  customerId?: string | null | undefined;
+  description: string | null;
+  invoiceId: string | null;
+  supplierId: string | null;
+  paymentDate: string | null;
 };
 
 /** @internal */
 export const PaymentLine$inboundSchema: z.ZodMiniType<PaymentLine, unknown> = z
   .object({
-    accountId: types.string(),
-    amount: types.number(),
-    contactName: types.string(),
-    customerId: types.string(),
-    description: types.string(),
-    invoiceId: types.string(),
-    supplierId: types.string(),
-    paymentDate: types.string(),
+    accountId: types.nullable(types.string()),
+    amount: types.nullable(types.number()),
+    contactName: types.nullable(types.string()),
+    customerId: z.optional(z.nullable(types.string())),
+    description: types.nullable(types.string()),
+    invoiceId: types.nullable(types.string()),
+    supplierId: types.nullable(types.string()),
+    paymentDate: types.nullable(types.string()),
   });
 
 export function paymentLineFromJSON(

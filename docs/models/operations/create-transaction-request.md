@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { CreateTransactionRequest } from "maesn/models/operations";
+import { CreateTransactionRequest } from "@maesn/typescript-sdk/models/operations";
 
 let value: CreateTransactionRequest = {
   body: {},

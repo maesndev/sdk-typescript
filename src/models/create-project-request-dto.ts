@@ -176,16 +176,16 @@ export type CreateProjectRequestDtoStatus = ClosedEnum<
 >;
 
 export type CreateProjectRequestDto = {
-  code: string;
-  contactId: string;
-  currency: CreateProjectRequestDtoCurrency;
-  description: string;
-  endDate: string;
-  name: string;
-  number: string;
-  parentProjectId: string;
-  status: CreateProjectRequestDtoStatus;
-  startDate: string;
+  code?: string | undefined;
+  contactId?: string | undefined;
+  currency?: CreateProjectRequestDtoCurrency | undefined;
+  description?: string | undefined;
+  endDate?: string | undefined;
+  name?: string | undefined;
+  number?: string | undefined;
+  parentProjectId?: string | undefined;
+  status?: CreateProjectRequestDtoStatus | undefined;
+  startDate?: string | undefined;
 };
 
 /** @internal */
@@ -200,16 +200,16 @@ export const CreateProjectRequestDtoStatus$outboundSchema: z.ZodMiniEnum<
 
 /** @internal */
 export type CreateProjectRequestDto$Outbound = {
-  code: string;
-  contactId: string;
-  currency: string;
-  description: string;
-  endDate: string;
-  name: string;
-  number: string;
-  parentProjectId: string;
-  status: string;
-  startDate: string;
+  code?: string | undefined;
+  contactId?: string | undefined;
+  currency?: string | undefined;
+  description?: string | undefined;
+  endDate?: string | undefined;
+  name?: string | undefined;
+  number?: string | undefined;
+  parentProjectId?: string | undefined;
+  status?: string | undefined;
+  startDate?: string | undefined;
 };
 
 /** @internal */
@@ -217,16 +217,16 @@ export const CreateProjectRequestDto$outboundSchema: z.ZodMiniType<
   CreateProjectRequestDto$Outbound,
   CreateProjectRequestDto
 > = z.object({
-  code: z.string(),
-  contactId: z.string(),
-  currency: CreateProjectRequestDtoCurrency$outboundSchema,
-  description: z.string(),
-  endDate: z.string(),
-  name: z.string(),
-  number: z.string(),
-  parentProjectId: z.string(),
-  status: CreateProjectRequestDtoStatus$outboundSchema,
-  startDate: z.string(),
+  code: z.optional(z.string()),
+  contactId: z.optional(z.string()),
+  currency: z.optional(CreateProjectRequestDtoCurrency$outboundSchema),
+  description: z.optional(z.string()),
+  endDate: z.optional(z.string()),
+  name: z.optional(z.string()),
+  number: z.optional(z.string()),
+  parentProjectId: z.optional(z.string()),
+  status: z.optional(CreateProjectRequestDtoStatus$outboundSchema),
+  startDate: z.optional(z.string()),
 });
 
 export function createProjectRequestDtoToJSON(

@@ -8,16 +8,41 @@ import { safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
-import { Subscription, Subscription$inboundSchema } from "./subscription.js";
+
+export type Subscription = {
+  id: string | null;
+  name?: string | null | undefined;
+  status?: string | null | undefined;
+  active?: boolean | null | undefined;
+};
 
 export type CompanyResponseDto = {
-  id: string;
-  name: string;
-  environmentId: string;
-  clientNumber: number;
-  consultantNumber: number;
-  subscription: Subscription;
+  id: string | null;
+  name?: string | null | undefined;
+  environmentId?: string | null | undefined;
+  clientNumber?: number | null | undefined;
+  consultantNumber?: number | null | undefined;
+  subscription?: Subscription | null | undefined;
 };
+
+/** @internal */
+export const Subscription$inboundSchema: z.ZodMiniType<Subscription, unknown> =
+  z.object({
+    id: types.nullable(types.string()),
+    name: z.optional(z.nullable(types.string())),
+    status: z.optional(z.nullable(types.string())),
+    active: z.optional(z.nullable(types.boolean())),
+  });
+
+export function subscriptionFromJSON(
+  jsonString: string,
+): SafeParseResult<Subscription, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Subscription$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Subscription' from JSON`,
+  );
+}
 
 /** @internal */
 export const CompanyResponseDto$inboundSchema: z.ZodMiniType<
@@ -25,12 +50,14 @@ export const CompanyResponseDto$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    id: types.string(),
-    name: types.string(),
-    environmentId: types.string(),
-    client_number: types.number(),
-    consultant_number: types.number(),
-    subscription: Subscription$inboundSchema,
+    id: types.nullable(types.string()),
+    name: z.optional(z.nullable(types.string())),
+    environmentId: z.optional(z.nullable(types.string())),
+    client_number: z.optional(z.nullable(types.number())),
+    consultant_number: z.optional(z.nullable(types.number())),
+    subscription: z.optional(
+      z.nullable(z.lazy(() => Subscription$inboundSchema)),
+    ),
   }),
   z.transform((v) => {
     return remap$(v, {

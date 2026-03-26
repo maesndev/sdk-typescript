@@ -9,6 +9,10 @@ import { OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
+import {
+  JournalLineItem,
+  JournalLineItem$inboundSchema,
+} from "./journal-line-item.js";
 
 export const JournalEntryResponseDtoCurrency = {
   Aed: "AED",
@@ -181,26 +185,29 @@ export type JournalEntryResponseDtoDebitCreditIndicator = OpenEnum<
 >;
 
 export type JournalEntryResponseDto = {
-  id: string;
-  accountId: string;
-  accountingPeriodId: string;
-  createdDate: string;
-  currency: JournalEntryResponseDtoCurrency;
-  debitCreditIndicator: JournalEntryResponseDtoDebitCreditIndicator;
-  deliveryDate: string;
-  description: string;
-  documentId: string;
-  dueDate: string;
-  exchangeRate: string;
-  files: Array<string>;
-  isProvisional: boolean;
-  journalCode: string;
-  journalLineItems: Array<string>;
-  journalType: string;
-  number: string;
-  taxAssignmentDate: string;
-  transactionDate: string;
-  updatedDate: string;
+  id: string | null;
+  accountId: string | null;
+  accountingPeriodId: string | null;
+  createdDate: string | null;
+  currency: JournalEntryResponseDtoCurrency | null;
+  debitCreditIndicator?:
+    | JournalEntryResponseDtoDebitCreditIndicator
+    | null
+    | undefined;
+  deliveryDate?: string | null | undefined;
+  description: string | null;
+  documentId: string | null;
+  dueDate?: string | null | undefined;
+  exchangeRate?: string | null | undefined;
+  files: Array<string> | null;
+  isProvisional?: boolean | null | undefined;
+  journalCode?: string | null | undefined;
+  journalLineItems: Array<JournalLineItem> | null;
+  journalType?: string | null | undefined;
+  number: string | null;
+  taxAssignmentDate?: string | null | undefined;
+  transactionDate: string | null;
+  updatedDate: string | null;
 };
 
 /** @internal */
@@ -219,27 +226,28 @@ export const JournalEntryResponseDto$inboundSchema: z.ZodMiniType<
   JournalEntryResponseDto,
   unknown
 > = z.object({
-  id: types.string(),
-  accountId: types.string(),
-  accountingPeriodId: types.string(),
-  createdDate: types.string(),
-  currency: JournalEntryResponseDtoCurrency$inboundSchema,
-  debitCreditIndicator:
-    JournalEntryResponseDtoDebitCreditIndicator$inboundSchema,
-  deliveryDate: types.string(),
-  description: types.string(),
-  documentId: types.string(),
-  dueDate: types.string(),
-  exchangeRate: types.string(),
-  files: z.array(types.string()),
-  isProvisional: types.boolean(),
-  journalCode: types.string(),
-  journalLineItems: z.array(types.string()),
-  journalType: types.string(),
-  number: types.string(),
-  taxAssignmentDate: types.string(),
-  transactionDate: types.string(),
-  updatedDate: types.string(),
+  id: types.nullable(types.string()),
+  accountId: types.nullable(types.string()),
+  accountingPeriodId: types.nullable(types.string()),
+  createdDate: types.nullable(types.string()),
+  currency: types.nullable(JournalEntryResponseDtoCurrency$inboundSchema),
+  debitCreditIndicator: z.optional(
+    z.nullable(JournalEntryResponseDtoDebitCreditIndicator$inboundSchema),
+  ),
+  deliveryDate: z.optional(z.nullable(types.string())),
+  description: types.nullable(types.string()),
+  documentId: types.nullable(types.string()),
+  dueDate: z.optional(z.nullable(types.string())),
+  exchangeRate: z.optional(z.nullable(types.string())),
+  files: types.nullable(z.array(types.string())),
+  isProvisional: z.optional(z.nullable(types.boolean())),
+  journalCode: z.optional(z.nullable(types.string())),
+  journalLineItems: types.nullable(z.array(JournalLineItem$inboundSchema)),
+  journalType: z.optional(z.nullable(types.string())),
+  number: types.nullable(types.string()),
+  taxAssignmentDate: z.optional(z.nullable(types.string())),
+  transactionDate: types.nullable(types.string()),
+  updatedDate: types.nullable(types.string()),
 });
 
 export function journalEntryResponseDtoFromJSON(

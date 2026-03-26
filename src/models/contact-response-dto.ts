@@ -41,21 +41,21 @@ export const ContactResponseDtoRole = {
 export type ContactResponseDtoRole = OpenEnum<typeof ContactResponseDtoRole>;
 
 export type ContactResponseDto = {
-  id: string;
-  addresses: Array<ContactAddress>;
-  accountNumber: number;
-  bankAccounts: Array<BankAccountResponse>;
-  companyName: string;
-  contactPersons: Array<ContactPerson>;
-  contactType: ContactResponseDtoContactType;
-  documentId: string;
-  emailAddresses: Array<EmailAddress>;
-  number: string;
-  phoneNumbers: Array<PhoneNumber>;
-  projectId: string;
-  role: ContactResponseDtoRole;
-  updatedDate: string;
-  vatId: string;
+  id: string | null;
+  addresses: Array<ContactAddress> | null;
+  accountNumber?: number | null | undefined;
+  bankAccounts?: Array<BankAccountResponse> | null | undefined;
+  companyName: string | null;
+  contactPersons: Array<ContactPerson> | null;
+  contactType: ContactResponseDtoContactType | null;
+  documentId: string | null;
+  emailAddresses: Array<EmailAddress> | null;
+  number: string | null;
+  phoneNumbers: Array<PhoneNumber> | null;
+  projectId: string | null;
+  role: ContactResponseDtoRole | null;
+  updatedDate: string | null;
+  vatId?: string | null | undefined;
 };
 
 /** @internal */
@@ -75,21 +75,23 @@ export const ContactResponseDto$inboundSchema: z.ZodMiniType<
   ContactResponseDto,
   unknown
 > = z.object({
-  id: types.string(),
-  addresses: z.array(ContactAddress$inboundSchema),
-  accountNumber: types.number(),
-  bankAccounts: z.array(BankAccountResponse$inboundSchema),
-  companyName: types.string(),
-  contactPersons: z.array(ContactPerson$inboundSchema),
-  contactType: ContactResponseDtoContactType$inboundSchema,
-  documentId: types.string(),
-  emailAddresses: z.array(EmailAddress$inboundSchema),
-  number: types.string(),
-  phoneNumbers: z.array(PhoneNumber$inboundSchema),
-  projectId: types.string(),
-  role: ContactResponseDtoRole$inboundSchema,
-  updatedDate: types.string(),
-  vatId: types.string(),
+  id: types.nullable(types.string()),
+  addresses: types.nullable(z.array(ContactAddress$inboundSchema)),
+  accountNumber: z.optional(z.nullable(types.number())),
+  bankAccounts: z.optional(
+    z.nullable(z.array(BankAccountResponse$inboundSchema)),
+  ),
+  companyName: types.nullable(types.string()),
+  contactPersons: types.nullable(z.array(ContactPerson$inboundSchema)),
+  contactType: types.nullable(ContactResponseDtoContactType$inboundSchema),
+  documentId: types.nullable(types.string()),
+  emailAddresses: types.nullable(z.array(EmailAddress$inboundSchema)),
+  number: types.nullable(types.string()),
+  phoneNumbers: types.nullable(z.array(PhoneNumber$inboundSchema)),
+  projectId: types.nullable(types.string()),
+  role: types.nullable(ContactResponseDtoRole$inboundSchema),
+  updatedDate: types.nullable(types.string()),
+  vatId: z.optional(z.nullable(types.string())),
 });
 
 export function contactResponseDtoFromJSON(

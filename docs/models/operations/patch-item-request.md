@@ -3,20 +3,11 @@
 ## Example Usage
 
 ```typescript
-import { PatchItemRequest } from "maesn/models/operations";
+import { PatchItemRequest } from "@maesn/typescript-sdk/models/operations";
 
 let value: PatchItemRequest = {
   itemId: "<id>",
-  body: {
-    name: "<value>",
-    itemNumber: "<value>",
-    stockCount: 9770.3,
-    type: "SERVICE",
-    unitName: "STÜCK",
-    unitPurchasePrice: 8884.67,
-    unitSalesPrice: 8802.04,
-    priceIncludesTax: true,
-  },
+  body: {},
 };
 ```
 

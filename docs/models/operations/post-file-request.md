@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { PostFileRequest } from "maesn/models/operations";
+import { PostFileRequest } from "@maesn/typescript-sdk/models/operations";
 
 // No examples available for this model
 ```

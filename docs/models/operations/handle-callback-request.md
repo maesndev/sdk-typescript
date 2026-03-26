@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { HandleCallbackRequest } from "maesn/models/operations";
+import { HandleCallbackRequest } from "@maesn/typescript-sdk/models/operations";
 
 let value: HandleCallbackRequest = {
   code: "<value>",

@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { DeleteWebhookTenantRequest } from "maesn/models/operations";
+import { DeleteWebhookTenantRequest } from "@maesn/typescript-sdk/models/operations";
 
 let value: DeleteWebhookTenantRequest = {
   webhookId: "<id>",

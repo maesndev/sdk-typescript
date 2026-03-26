@@ -9,10 +9,10 @@ import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
 export type DimensionResponseCommonDtoV2 = {
-  id: string;
-  code: string;
-  dimension: string;
-  name: string;
+  id: string | null;
+  code: string | null;
+  dimension: string | null;
+  name: string | null;
 };
 
 /** @internal */
@@ -20,10 +20,10 @@ export const DimensionResponseCommonDtoV2$inboundSchema: z.ZodMiniType<
   DimensionResponseCommonDtoV2,
   unknown
 > = z.object({
-  id: types.string(),
-  code: types.string(),
-  dimension: types.string(),
-  name: types.string(),
+  id: types.nullable(types.string()),
+  code: types.nullable(types.string()),
+  dimension: types.nullable(types.string()),
+  name: types.nullable(types.string()),
 });
 
 export function dimensionResponseCommonDtoV2FromJSON(

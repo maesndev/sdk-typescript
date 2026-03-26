@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { GetUnitsErrors } from "maesn/models/operations";
+import { GetUnitsErrors } from "@maesn/typescript-sdk/models/operations";
 
 let value: GetUnitsErrors = {};
 ```

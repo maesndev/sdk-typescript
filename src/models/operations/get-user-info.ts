@@ -5,19 +5,74 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
+
+export type GetUserInfoPagination = {
+  total: number;
+  perPage: number;
+  currentPage: number;
+  totalPages: number;
+};
+
+export type GetUserInfoMeta = {
+  warnings?: Array<string> | null | undefined;
+  pagination?: GetUserInfoPagination | null | undefined;
+};
 
 export type GetUserInfoErrors = {};
 
 export type GetUserInfoRawData = {};
 
 export type GetUserInfoResponse = {
-  meta: models.MetaResponse;
+  meta?: GetUserInfoMeta | null | undefined;
   data: models.UserInfoResponseDto;
-  errors: GetUserInfoErrors;
-  rawData: GetUserInfoRawData;
+  errors: GetUserInfoErrors | null;
+  rawData: GetUserInfoRawData | null;
 };
+
+/** @internal */
+export const GetUserInfoPagination$inboundSchema: z.ZodMiniType<
+  GetUserInfoPagination,
+  unknown
+> = z.object({
+  total: types.number(),
+  perPage: types.number(),
+  currentPage: types.number(),
+  totalPages: types.number(),
+});
+
+export function getUserInfoPaginationFromJSON(
+  jsonString: string,
+): SafeParseResult<GetUserInfoPagination, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetUserInfoPagination$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetUserInfoPagination' from JSON`,
+  );
+}
+
+/** @internal */
+export const GetUserInfoMeta$inboundSchema: z.ZodMiniType<
+  GetUserInfoMeta,
+  unknown
+> = z.object({
+  warnings: z.optional(z.nullable(z.array(types.string()))),
+  pagination: z.optional(
+    z.nullable(z.lazy(() => GetUserInfoPagination$inboundSchema)),
+  ),
+});
+
+export function getUserInfoMetaFromJSON(
+  jsonString: string,
+): SafeParseResult<GetUserInfoMeta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetUserInfoMeta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetUserInfoMeta' from JSON`,
+  );
+}
 
 /** @internal */
 export const GetUserInfoErrors$inboundSchema: z.ZodMiniType<
@@ -56,10 +111,10 @@ export const GetUserInfoResponse$inboundSchema: z.ZodMiniType<
   GetUserInfoResponse,
   unknown
 > = z.object({
-  meta: models.MetaResponse$inboundSchema,
+  meta: z.optional(z.nullable(z.lazy(() => GetUserInfoMeta$inboundSchema))),
   data: models.UserInfoResponseDto$inboundSchema,
-  errors: z.lazy(() => GetUserInfoErrors$inboundSchema),
-  rawData: z.lazy(() => GetUserInfoRawData$inboundSchema),
+  errors: types.nullable(z.lazy(() => GetUserInfoErrors$inboundSchema)),
+  rawData: types.nullable(z.lazy(() => GetUserInfoRawData$inboundSchema)),
 });
 
 export function getUserInfoResponseFromJSON(

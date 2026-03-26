@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
@@ -17,15 +18,27 @@ export type GetJournalsRequest = {
   rawData?: boolean | undefined;
 };
 
+export type GetJournalsPagination = {
+  total: number;
+  perPage: number;
+  currentPage: number;
+  totalPages: number;
+};
+
+export type GetJournalsMeta = {
+  warnings?: Array<string> | null | undefined;
+  pagination?: GetJournalsPagination | null | undefined;
+};
+
 export type GetJournalsErrors = {};
 
 export type GetJournalsRawData = {};
 
 export type GetJournalsResponse = {
-  meta: models.MetaResponse;
+  meta?: GetJournalsMeta | null | undefined;
   data: Array<models.JournalResponseDto>;
-  errors: GetJournalsErrors;
-  rawData: GetJournalsRawData;
+  errors: GetJournalsErrors | null;
+  rawData: GetJournalsRawData | null;
 };
 
 /** @internal */
@@ -56,6 +69,48 @@ export function getJournalsRequestToJSON(
 ): string {
   return JSON.stringify(
     GetJournalsRequest$outboundSchema.parse(getJournalsRequest),
+  );
+}
+
+/** @internal */
+export const GetJournalsPagination$inboundSchema: z.ZodMiniType<
+  GetJournalsPagination,
+  unknown
+> = z.object({
+  total: types.number(),
+  perPage: types.number(),
+  currentPage: types.number(),
+  totalPages: types.number(),
+});
+
+export function getJournalsPaginationFromJSON(
+  jsonString: string,
+): SafeParseResult<GetJournalsPagination, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetJournalsPagination$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetJournalsPagination' from JSON`,
+  );
+}
+
+/** @internal */
+export const GetJournalsMeta$inboundSchema: z.ZodMiniType<
+  GetJournalsMeta,
+  unknown
+> = z.object({
+  warnings: z.optional(z.nullable(z.array(types.string()))),
+  pagination: z.optional(
+    z.nullable(z.lazy(() => GetJournalsPagination$inboundSchema)),
+  ),
+});
+
+export function getJournalsMetaFromJSON(
+  jsonString: string,
+): SafeParseResult<GetJournalsMeta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetJournalsMeta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetJournalsMeta' from JSON`,
   );
 }
 
@@ -96,10 +151,10 @@ export const GetJournalsResponse$inboundSchema: z.ZodMiniType<
   GetJournalsResponse,
   unknown
 > = z.object({
-  meta: models.MetaResponse$inboundSchema,
+  meta: z.optional(z.nullable(z.lazy(() => GetJournalsMeta$inboundSchema))),
   data: z.array(models.JournalResponseDto$inboundSchema),
-  errors: z.lazy(() => GetJournalsErrors$inboundSchema),
-  rawData: z.lazy(() => GetJournalsRawData$inboundSchema),
+  errors: types.nullable(z.lazy(() => GetJournalsErrors$inboundSchema)),
+  rawData: types.nullable(z.lazy(() => GetJournalsRawData$inboundSchema)),
 });
 
 export function getJournalsResponseFromJSON(

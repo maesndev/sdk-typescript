@@ -41,22 +41,22 @@ export const ItemResponseDtoUnitName = {
 export type ItemResponseDtoUnitName = OpenEnum<typeof ItemResponseDtoUnitName>;
 
 export type ItemResponseDto = {
-  id: string;
-  assetAccountId: string;
-  expenseAccountId: string;
-  incomeAccountId: string;
-  inventoryStartDate: string;
-  itemNumber: string;
-  lastModifiedDate: string;
-  name: string;
-  priceIncludesTax: boolean;
-  stockCount: number;
-  taxCode: string;
-  taxRatePercentage: number;
-  type: ItemResponseDtoType;
-  unitName: ItemResponseDtoUnitName;
-  unitPurchasePrice: number;
-  unitSalesPrice: number;
+  id: string | null;
+  assetAccountId: string | null;
+  expenseAccountId: string | null;
+  incomeAccountId: string | null;
+  inventoryStartDate: string | null;
+  itemNumber: string | null;
+  lastModifiedDate: string | null;
+  name: string | null;
+  priceIncludesTax: boolean | null;
+  stockCount: number | null;
+  taxCode: string | null;
+  taxRatePercentage: number | null;
+  type: ItemResponseDtoType | null;
+  unitName: ItemResponseDtoUnitName | null;
+  unitPurchasePrice: number | null;
+  unitSalesPrice: number | null;
 };
 
 /** @internal */
@@ -76,22 +76,22 @@ export const ItemResponseDto$inboundSchema: z.ZodMiniType<
   ItemResponseDto,
   unknown
 > = z.object({
-  id: types.string(),
-  assetAccountId: types.string(),
-  expenseAccountId: types.string(),
-  incomeAccountId: types.string(),
-  inventoryStartDate: types.string(),
-  itemNumber: types.string(),
-  lastModifiedDate: types.string(),
-  name: types.string(),
-  priceIncludesTax: types.boolean(),
-  stockCount: types.number(),
-  taxCode: types.string(),
-  taxRatePercentage: types.number(),
-  type: ItemResponseDtoType$inboundSchema,
-  unitName: ItemResponseDtoUnitName$inboundSchema,
-  unitPurchasePrice: types.number(),
-  unitSalesPrice: types.number(),
+  id: types.nullable(types.string()),
+  assetAccountId: types.nullable(types.string()),
+  expenseAccountId: types.nullable(types.string()),
+  incomeAccountId: types.nullable(types.string()),
+  inventoryStartDate: types.nullable(types.string()),
+  itemNumber: types.nullable(types.string()),
+  lastModifiedDate: types.nullable(types.string()),
+  name: types.nullable(types.string()),
+  priceIncludesTax: types.nullable(types.boolean()),
+  stockCount: types.nullable(types.number()),
+  taxCode: types.nullable(types.string()),
+  taxRatePercentage: types.nullable(types.number()),
+  type: types.nullable(ItemResponseDtoType$inboundSchema),
+  unitName: types.nullable(ItemResponseDtoUnitName$inboundSchema),
+  unitPurchasePrice: types.nullable(types.number()),
+  unitSalesPrice: types.nullable(types.number()),
 });
 
 export function itemResponseDtoFromJSON(

@@ -3,25 +3,10 @@
 ## Example Usage
 
 ```typescript
-import { CreateItemRequest } from "maesn/models/operations";
+import { CreateItemRequest } from "@maesn/typescript-sdk/models/operations";
 
 let value: CreateItemRequest = {
-  body: {
-    assetAccountId: "<id>",
-    expenseAccountId: "<id>",
-    incomeAccountId: "<id>",
-    inventoryStartDate: "<value>",
-    itemNumber: "<value>",
-    name: "<value>",
-    priceIncludesTax: true,
-    stockCount: 5489.99,
-    taxCode: "<value>",
-    taxRatePercentage: 4503.78,
-    type: "SERVICE",
-    unitName: "KILOGRAM",
-    unitPurchasePrice: 7678.2,
-    unitSalesPrice: 9663.3,
-  },
+  body: {},
 };
 ```
 

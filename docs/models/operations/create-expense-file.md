@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { CreateExpenseFile } from "maesn/models/operations";
+import { CreateExpenseFile } from "@maesn/typescript-sdk/models/operations";
 
 // No examples available for this model
 ```

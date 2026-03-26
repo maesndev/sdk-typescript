@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { PostFileErrors } from "maesn/models/operations";
+import { PostFileErrors } from "@maesn/typescript-sdk/models/operations";
 
 let value: PostFileErrors = {};
 ```

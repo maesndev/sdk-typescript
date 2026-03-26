@@ -3,25 +3,18 @@
 ## Example Usage
 
 ```typescript
-import { CreateContactAddress } from "maesn/models";
+import { CreateContactAddress } from "@maesn/typescript-sdk/models";
 
-let value: CreateContactAddress = {
-  addressLine1: "846 Jerde Union",
-  addressLine2: "-",
-  city: "Ullrichstead",
-  countryCode: "ZW",
-  postalCode: "56006-1064",
-  type: "PRIVATE",
-};
+let value: CreateContactAddress = {};
 ```
 
 ## Fields
 
 | Field                                                                                      | Type                                                                                       | Required                                                                                   | Description                                                                                |
 | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `addressLine1`                                                                             | *string*                                                                                   | :heavy_check_mark:                                                                         | N/A                                                                                        |
-| `addressLine2`                                                                             | *string*                                                                                   | :heavy_check_mark:                                                                         | N/A                                                                                        |
-| `city`                                                                                     | *string*                                                                                   | :heavy_check_mark:                                                                         | N/A                                                                                        |
-| `countryCode`                                                                              | [models.CreateContactAddressCountryCode](../models/create-contact-address-country-code.md) | :heavy_check_mark:                                                                         | N/A                                                                                        |
-| `postalCode`                                                                               | *string*                                                                                   | :heavy_check_mark:                                                                         | N/A                                                                                        |
-| `type`                                                                                     | [models.CreateContactAddressType](../models/create-contact-address-type.md)                | :heavy_check_mark:                                                                         | N/A                                                                                        |
+| `addressLine1`                                                                             | *string*                                                                                   | :heavy_minus_sign:                                                                         | N/A                                                                                        |
+| `addressLine2`                                                                             | *string*                                                                                   | :heavy_minus_sign:                                                                         | N/A                                                                                        |
+| `city`                                                                                     | *string*                                                                                   | :heavy_minus_sign:                                                                         | N/A                                                                                        |
+| `countryCode`                                                                              | [models.CreateContactAddressCountryCode](../models/create-contact-address-country-code.md) | :heavy_minus_sign:                                                                         | N/A                                                                                        |
+| `postalCode`                                                                               | *string*                                                                                   | :heavy_minus_sign:                                                                         | N/A                                                                                        |
+| `type`                                                                                     | [models.CreateContactAddressType](../models/create-contact-address-type.md)                | :heavy_minus_sign:                                                                         | N/A                                                                                        |

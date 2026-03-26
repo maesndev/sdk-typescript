@@ -191,21 +191,21 @@ export type BookingEntryResponseDtoDebitCreditIndicator = OpenEnum<
 >;
 
 export type BookingEntryResponseDto = {
-  id: string;
-  accountNumber: number;
-  amount: number;
-  bookingDate: string;
-  bookingTaxCode: string;
-  bookingType: BookingEntryResponseDtoBookingType;
-  contraAccountNumber: number;
-  dimension1: string;
-  dimension2: string;
-  currency: BookingEntryResponseDtoCurrency;
-  debitCreditIndicator: BookingEntryResponseDtoDebitCreditIndicator;
-  description: string;
-  documentNumber: string;
-  dueDate: string;
-  fileId: string;
+  id: string | null;
+  accountNumber: number | null;
+  amount: number | null;
+  bookingDate: string | null;
+  bookingTaxCode: string | null;
+  bookingType: BookingEntryResponseDtoBookingType | null;
+  contraAccountNumber: number | null;
+  dimension1: string | null;
+  dimension2: string | null;
+  currency: BookingEntryResponseDtoCurrency | null;
+  debitCreditIndicator: BookingEntryResponseDtoDebitCreditIndicator | null;
+  description: string | null;
+  documentNumber: string | null;
+  dueDate: string | null;
+  fileId: string | null;
 };
 
 /** @internal */
@@ -230,22 +230,23 @@ export const BookingEntryResponseDto$inboundSchema: z.ZodMiniType<
   BookingEntryResponseDto,
   unknown
 > = z.object({
-  id: types.string(),
-  accountNumber: types.number(),
-  amount: types.number(),
-  bookingDate: types.string(),
-  bookingTaxCode: types.string(),
-  bookingType: BookingEntryResponseDtoBookingType$inboundSchema,
-  contraAccountNumber: types.number(),
-  dimension1: types.string(),
-  dimension2: types.string(),
-  currency: BookingEntryResponseDtoCurrency$inboundSchema,
-  debitCreditIndicator:
+  id: types.nullable(types.string()),
+  accountNumber: types.nullable(types.number()),
+  amount: types.nullable(types.number()),
+  bookingDate: types.nullable(types.string()),
+  bookingTaxCode: types.nullable(types.string()),
+  bookingType: types.nullable(BookingEntryResponseDtoBookingType$inboundSchema),
+  contraAccountNumber: types.nullable(types.number()),
+  dimension1: types.nullable(types.string()),
+  dimension2: types.nullable(types.string()),
+  currency: types.nullable(BookingEntryResponseDtoCurrency$inboundSchema),
+  debitCreditIndicator: types.nullable(
     BookingEntryResponseDtoDebitCreditIndicator$inboundSchema,
-  description: types.string(),
-  documentNumber: types.string(),
-  dueDate: types.string(),
-  fileId: types.string(),
+  ),
+  description: types.nullable(types.string()),
+  documentNumber: types.nullable(types.string()),
+  dueDate: types.nullable(types.string()),
+  fileId: types.nullable(types.string()),
 });
 
 export function bookingEntryResponseDtoFromJSON(

@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { CreateBookingProposalRequestDtoV2Status } from "maesn/models";
+import { CreateBookingProposalRequestDtoV2Status } from "@maesn/typescript-sdk/models";
 
 let value: CreateBookingProposalRequestDtoV2Status = "OVERDUE";
 ```

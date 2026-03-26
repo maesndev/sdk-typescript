@@ -5,18 +5,18 @@
 import * as z from "zod/v4-mini";
 
 export type BankAccount = {
-  iban: string;
-  bic: string;
-  holder: string;
-  sepa: boolean;
+  iban?: string | undefined;
+  bic?: string | undefined;
+  holder?: string | undefined;
+  sepa?: boolean | undefined;
 };
 
 /** @internal */
 export type BankAccount$Outbound = {
-  iban: string;
-  bic: string;
-  holder: string;
-  sepa: boolean;
+  iban?: string | undefined;
+  bic?: string | undefined;
+  holder?: string | undefined;
+  sepa?: boolean | undefined;
 };
 
 /** @internal */
@@ -24,10 +24,10 @@ export const BankAccount$outboundSchema: z.ZodMiniType<
   BankAccount$Outbound,
   BankAccount
 > = z.object({
-  iban: z.string(),
-  bic: z.string(),
-  holder: z.string(),
-  sepa: z.boolean(),
+  iban: z.optional(z.string()),
+  bic: z.optional(z.string()),
+  holder: z.optional(z.string()),
+  sepa: z.optional(z.boolean()),
 });
 
 export function bankAccountToJSON(bankAccount: BankAccount): string {

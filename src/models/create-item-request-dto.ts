@@ -40,20 +40,20 @@ export type CreateItemRequestDtoUnitName = ClosedEnum<
 >;
 
 export type CreateItemRequestDto = {
-  assetAccountId: string;
-  expenseAccountId: string;
-  incomeAccountId: string;
-  inventoryStartDate: string;
-  itemNumber: string;
-  name: string;
-  priceIncludesTax: boolean;
-  stockCount: number;
-  taxCode: string;
-  taxRatePercentage: number;
-  type: CreateItemRequestDtoType;
-  unitName: CreateItemRequestDtoUnitName;
-  unitPurchasePrice: number;
-  unitSalesPrice: number;
+  assetAccountId?: string | undefined;
+  expenseAccountId?: string | undefined;
+  incomeAccountId?: string | undefined;
+  inventoryStartDate?: string | undefined;
+  itemNumber?: string | undefined;
+  name?: string | undefined;
+  priceIncludesTax?: boolean | undefined;
+  stockCount?: number | undefined;
+  taxCode?: string | undefined;
+  taxRatePercentage?: number | undefined;
+  type?: CreateItemRequestDtoType | undefined;
+  unitName?: CreateItemRequestDtoUnitName | undefined;
+  unitPurchasePrice?: number | undefined;
+  unitSalesPrice?: number | undefined;
 };
 
 /** @internal */
@@ -68,20 +68,20 @@ export const CreateItemRequestDtoUnitName$outboundSchema: z.ZodMiniEnum<
 
 /** @internal */
 export type CreateItemRequestDto$Outbound = {
-  assetAccountId: string;
-  expenseAccountId: string;
-  incomeAccountId: string;
-  inventoryStartDate: string;
-  itemNumber: string;
-  name: string;
-  priceIncludesTax: boolean;
-  stockCount: number;
-  taxCode: string;
-  taxRatePercentage: number;
-  type: string;
-  unitName: string;
-  unitPurchasePrice: number;
-  unitSalesPrice: number;
+  assetAccountId?: string | undefined;
+  expenseAccountId?: string | undefined;
+  incomeAccountId?: string | undefined;
+  inventoryStartDate?: string | undefined;
+  itemNumber?: string | undefined;
+  name?: string | undefined;
+  priceIncludesTax?: boolean | undefined;
+  stockCount?: number | undefined;
+  taxCode?: string | undefined;
+  taxRatePercentage?: number | undefined;
+  type?: string | undefined;
+  unitName?: string | undefined;
+  unitPurchasePrice?: number | undefined;
+  unitSalesPrice?: number | undefined;
 };
 
 /** @internal */
@@ -89,20 +89,20 @@ export const CreateItemRequestDto$outboundSchema: z.ZodMiniType<
   CreateItemRequestDto$Outbound,
   CreateItemRequestDto
 > = z.object({
-  assetAccountId: z.string(),
-  expenseAccountId: z.string(),
-  incomeAccountId: z.string(),
-  inventoryStartDate: z.string(),
-  itemNumber: z.string(),
-  name: z.string(),
-  priceIncludesTax: z.boolean(),
-  stockCount: z.number(),
-  taxCode: z.string(),
-  taxRatePercentage: z.number(),
-  type: CreateItemRequestDtoType$outboundSchema,
-  unitName: CreateItemRequestDtoUnitName$outboundSchema,
-  unitPurchasePrice: z.number(),
-  unitSalesPrice: z.number(),
+  assetAccountId: z.optional(z.string()),
+  expenseAccountId: z.optional(z.string()),
+  incomeAccountId: z.optional(z.string()),
+  inventoryStartDate: z.optional(z.string()),
+  itemNumber: z.optional(z.string()),
+  name: z.optional(z.string()),
+  priceIncludesTax: z.optional(z.boolean()),
+  stockCount: z.optional(z.number()),
+  taxCode: z.optional(z.string()),
+  taxRatePercentage: z.optional(z.number()),
+  type: z.optional(CreateItemRequestDtoType$outboundSchema),
+  unitName: z.optional(CreateItemRequestDtoUnitName$outboundSchema),
+  unitPurchasePrice: z.optional(z.number()),
+  unitSalesPrice: z.optional(z.number()),
 });
 
 export function createItemRequestDtoToJSON(

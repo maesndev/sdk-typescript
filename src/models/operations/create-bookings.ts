@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
@@ -13,15 +14,27 @@ export type CreateBookingsRequest = {
   body: models.CreateBookingsRequestDto;
 };
 
+export type CreateBookingsPagination = {
+  total: number;
+  perPage: number;
+  currentPage: number;
+  totalPages: number;
+};
+
+export type CreateBookingsMeta = {
+  warnings?: Array<string> | null | undefined;
+  pagination?: CreateBookingsPagination | null | undefined;
+};
+
 export type CreateBookingsErrors = {};
 
 export type CreateBookingsRawData = {};
 
 export type CreateBookingsResponse = {
-  meta: models.MetaResponse;
+  meta?: CreateBookingsMeta | null | undefined;
   data: models.BookingsResponseDto;
-  errors: CreateBookingsErrors;
-  rawData: CreateBookingsRawData;
+  errors: CreateBookingsErrors | null;
+  rawData: CreateBookingsRawData | null;
 };
 
 /** @internal */
@@ -44,6 +57,48 @@ export function createBookingsRequestToJSON(
 ): string {
   return JSON.stringify(
     CreateBookingsRequest$outboundSchema.parse(createBookingsRequest),
+  );
+}
+
+/** @internal */
+export const CreateBookingsPagination$inboundSchema: z.ZodMiniType<
+  CreateBookingsPagination,
+  unknown
+> = z.object({
+  total: types.number(),
+  perPage: types.number(),
+  currentPage: types.number(),
+  totalPages: types.number(),
+});
+
+export function createBookingsPaginationFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateBookingsPagination, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateBookingsPagination$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateBookingsPagination' from JSON`,
+  );
+}
+
+/** @internal */
+export const CreateBookingsMeta$inboundSchema: z.ZodMiniType<
+  CreateBookingsMeta,
+  unknown
+> = z.object({
+  warnings: z.optional(z.nullable(z.array(types.string()))),
+  pagination: z.optional(
+    z.nullable(z.lazy(() => CreateBookingsPagination$inboundSchema)),
+  ),
+});
+
+export function createBookingsMetaFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateBookingsMeta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateBookingsMeta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateBookingsMeta' from JSON`,
   );
 }
 
@@ -84,10 +139,10 @@ export const CreateBookingsResponse$inboundSchema: z.ZodMiniType<
   CreateBookingsResponse,
   unknown
 > = z.object({
-  meta: models.MetaResponse$inboundSchema,
+  meta: z.optional(z.nullable(z.lazy(() => CreateBookingsMeta$inboundSchema))),
   data: models.BookingsResponseDto$inboundSchema,
-  errors: z.lazy(() => CreateBookingsErrors$inboundSchema),
-  rawData: z.lazy(() => CreateBookingsRawData$inboundSchema),
+  errors: types.nullable(z.lazy(() => CreateBookingsErrors$inboundSchema)),
+  rawData: types.nullable(z.lazy(() => CreateBookingsRawData$inboundSchema)),
 });
 
 export function createBookingsResponseFromJSON(

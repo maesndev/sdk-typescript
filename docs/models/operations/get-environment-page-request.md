@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { GetEnvironmentPageRequest } from "maesn/models/operations";
+import { GetEnvironmentPageRequest } from "@maesn/typescript-sdk/models/operations";
 
 let value: GetEnvironmentPageRequest = {
   state: "Illinois",

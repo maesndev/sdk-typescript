@@ -3,49 +3,54 @@
 ## Example Usage
 
 ```typescript
-import { CreateOfferResponse } from "maesn/models/operations";
+import { CreateOfferResponse } from "@maesn/typescript-sdk/models/operations";
 
 let value: CreateOfferResponse = {
-  meta: {
-    warnings: [
-      "<value 1>",
-      "<value 2>",
-    ],
-    pagination: {
-      total: 3438.77,
-      perPage: 5109.63,
-      currentPage: 2626.79,
-      totalPages: 3561.84,
-    },
-  },
   data: {
     id: "<id>",
     addresses: [
+      {},
+    ],
+    createdDate: "<value>",
+    currency: "Trinidad and Tobago Dollar",
+    lineItems: [
       {
-        addressLine1: "64389 W 3rd Street",
-        addressLine2: "-",
-        city: "Pflugerville",
-        countryCode: "FO",
-        postalCode: "33874",
-        type: "DELIVERY",
+        id: "<id>",
+        accountCode: "<value>",
+        accountId: "<id>",
+        createdDate: "<value>",
+        description: null,
+        itemId: "<id>",
+        name: "<value>",
+        quantity: 4394.36,
+        taxCode: "<value>",
+        taxRatePercentage: 6281.26,
+        taxType: "<value>",
+        type: "ITEM",
+        totalDiscountAmount: 2936.92,
+        totalDiscountPercentage: 2768.35,
+        totalGrossAmount: 2419.83,
+        totalNetAmount: 7148.04,
+        totalTaxAmount: null,
+        unitAmount: 9628.05,
+        unitDiscountAmount: 6093.33,
+        unitDiscountPercentage: 6742.69,
+        unitName: "<value>",
+        updatedDate: "<value>",
       },
     ],
-    contactId: "<id>",
-    createdDate: "<value>",
-    currency: "Cordoba Oro",
-    lineItems: [],
     name: "<value>",
     offerDate: "<value>",
     offerNumber: "<value>",
     oneLineAddress: "<value>",
-    reference: "<value>",
-    status: "DRAFT",
+    reference: null,
+    status: "ACCEPTED",
     taxText: "<value>",
-    totalDiscountAmount: 5115.24,
-    totalDiscountPercentage: 5411.49,
-    totalGrossAmount: 1091.52,
-    totalNetAmount: 5580.03,
-    totalTaxAmount: 9709.05,
+    totalDiscountAmount: 4666.69,
+    totalDiscountPercentage: 6225.51,
+    totalGrossAmount: null,
+    totalNetAmount: null,
+    totalTaxAmount: 5411.49,
     updatedDate: "<value>",
   },
   errors: {},
@@ -57,7 +62,7 @@ let value: CreateOfferResponse = {
 
 | Field                                                                             | Type                                                                              | Required                                                                          | Description                                                                       |
 | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| `meta`                                                                            | [models.MetaResponse](../../models/meta-response.md)                              | :heavy_check_mark:                                                                | N/A                                                                               |
+| `meta`                                                                            | [operations.CreateOfferMeta](../../models/operations/create-offer-meta.md)        | :heavy_minus_sign:                                                                | N/A                                                                               |
 | `data`                                                                            | [models.OfferResponseDto](../../models/offer-response-dto.md)                     | :heavy_check_mark:                                                                | N/A                                                                               |
 | `errors`                                                                          | [operations.CreateOfferErrors](../../models/operations/create-offer-errors.md)    | :heavy_check_mark:                                                                | N/A                                                                               |
 | `rawData`                                                                         | [operations.CreateOfferRawData](../../models/operations/create-offer-raw-data.md) | :heavy_check_mark:                                                                | N/A                                                                               |

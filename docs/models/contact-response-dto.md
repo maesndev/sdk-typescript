@@ -3,38 +3,21 @@
 ## Example Usage
 
 ```typescript
-import { ContactResponseDto } from "maesn/models";
+import { ContactResponseDto } from "@maesn/typescript-sdk/models";
 
 let value: ContactResponseDto = {
   id: "<id>",
-  addresses: [
-    {
-      addressLine1: "8125 Jeffery Park",
-      addressLine2: "-",
-      city: "Ameliabury",
-      countryCode: "CG",
-      postalCode: "45430",
-      type: "BILLING",
-    },
-  ],
-  accountNumber: 2628.54,
-  bankAccounts: [],
-  companyName: "Weimann - Stehr",
+  addresses: [],
+  companyName: "Stehr, Hermann and Kautzer",
   contactPersons: [],
-  contactType: "COMPANY",
-  documentId: "<id>",
-  emailAddresses: [
-    {
-      email: "Amira56@gmail.com",
-      type: "PRIVATE",
-    },
-  ],
+  contactType: "UNDEFINED",
+  documentId: null,
+  emailAddresses: [],
   number: "<value>",
   phoneNumbers: [],
   projectId: "<id>",
-  role: "CUSTOMER",
+  role: "CONTACT",
   updatedDate: "<value>",
-  vatId: "<id>",
 };
 ```
 
@@ -44,8 +27,8 @@ let value: ContactResponseDto = {
 | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
 | `id`                                                                                   | *string*                                                                               | :heavy_check_mark:                                                                     | N/A                                                                                    |
 | `addresses`                                                                            | [models.ContactAddress](../models/contact-address.md)[]                                | :heavy_check_mark:                                                                     | N/A                                                                                    |
-| `accountNumber`                                                                        | *number*                                                                               | :heavy_check_mark:                                                                     | N/A                                                                                    |
-| `bankAccounts`                                                                         | [models.BankAccountResponse](../models/bank-account-response.md)[]                     | :heavy_check_mark:                                                                     | N/A                                                                                    |
+| `accountNumber`                                                                        | *number*                                                                               | :heavy_minus_sign:                                                                     | N/A                                                                                    |
+| `bankAccounts`                                                                         | [models.BankAccountResponse](../models/bank-account-response.md)[]                     | :heavy_minus_sign:                                                                     | N/A                                                                                    |
 | `companyName`                                                                          | *string*                                                                               | :heavy_check_mark:                                                                     | N/A                                                                                    |
 | `contactPersons`                                                                       | [models.ContactPerson](../models/contact-person.md)[]                                  | :heavy_check_mark:                                                                     | N/A                                                                                    |
 | `contactType`                                                                          | [models.ContactResponseDtoContactType](../models/contact-response-dto-contact-type.md) | :heavy_check_mark:                                                                     | N/A                                                                                    |
@@ -56,4 +39,4 @@ let value: ContactResponseDto = {
 | `projectId`                                                                            | *string*                                                                               | :heavy_check_mark:                                                                     | N/A                                                                                    |
 | `role`                                                                                 | [models.ContactResponseDtoRole](../models/contact-response-dto-role.md)                | :heavy_check_mark:                                                                     | N/A                                                                                    |
 | `updatedDate`                                                                          | *string*                                                                               | :heavy_check_mark:                                                                     | N/A                                                                                    |
-| `vatId`                                                                                | *string*                                                                               | :heavy_check_mark:                                                                     | N/A                                                                                    |
+| `vatId`                                                                                | *string*                                                                               | :heavy_minus_sign:                                                                     | N/A                                                                                    |

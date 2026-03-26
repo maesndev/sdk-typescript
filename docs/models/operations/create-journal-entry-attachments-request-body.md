@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { CreateJournalEntryAttachmentsRequestBody } from "maesn/models/operations";
+import { CreateJournalEntryAttachmentsRequestBody } from "@maesn/typescript-sdk/models/operations";
 
 // No examples available for this model
 ```

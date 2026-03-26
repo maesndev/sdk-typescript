@@ -3,40 +3,27 @@
 ## Example Usage
 
 ```typescript
-import { GetPurchaseOrderLineItemsResponse } from "maesn/models/operations";
+import { GetPurchaseOrderLineItemsResponse } from "@maesn/typescript-sdk/models/operations";
 
 let value: GetPurchaseOrderLineItemsResponse = {
-  meta: {
-    warnings: [
-      "<value 1>",
-      "<value 2>",
-    ],
-    pagination: {
-      total: 3438.77,
-      perPage: 5109.63,
-      currentPage: 2626.79,
-      totalPages: 3561.84,
-    },
-  },
   data: [
     {
       id: "<id>",
       itemId: "<id>",
       createdDate: "<value>",
-      description:
-        "supposing likewise geez recklessly before oily hourly amid needily zowie",
-      itemName: "<value>",
-      quantity: 3448.91,
+      description: null,
+      itemName: null,
+      quantity: 1805.76,
       taxCode: "<value>",
-      taxRatePercentage: 995.56,
-      totalDiscountAmount: 9296.23,
-      totalDiscountPercentage: 7464.34,
-      totalGrossAmount: 3023.94,
-      totalNetAmount: 1347.36,
-      totalTaxAmount: 7381.7,
-      unitAmount: 8637.54,
-      unitDiscountAmount: 1107.11,
-      unitDiscountPercentage: 9589.99,
+      taxRatePercentage: 9314.4,
+      totalDiscountAmount: 4661.33,
+      totalDiscountPercentage: 481.18,
+      totalGrossAmount: 3070.84,
+      totalNetAmount: 908.82,
+      totalTaxAmount: null,
+      unitAmount: 6997.08,
+      unitDiscountAmount: 4374.06,
+      unitDiscountPercentage: 6811.34,
       unitName: "<value>",
       updatedDate: "<value>",
     },
@@ -50,7 +37,7 @@ let value: GetPurchaseOrderLineItemsResponse = {
 
 | Field                                                                                                            | Type                                                                                                             | Required                                                                                                         | Description                                                                                                      |
 | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| `meta`                                                                                                           | [models.MetaResponse](../../models/meta-response.md)                                                             | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
+| `meta`                                                                                                           | [operations.GetPurchaseOrderLineItemsMeta](../../models/operations/get-purchase-order-line-items-meta.md)        | :heavy_minus_sign:                                                                                               | N/A                                                                                                              |
 | `data`                                                                                                           | [models.PurchaseOrderLineItemResponseDto](../../models/purchase-order-line-item-response-dto.md)[]               | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
 | `errors`                                                                                                         | [operations.GetPurchaseOrderLineItemsErrors](../../models/operations/get-purchase-order-line-items-errors.md)    | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
 | `rawData`                                                                                                        | [operations.GetPurchaseOrderLineItemsRawData](../../models/operations/get-purchase-order-line-items-raw-data.md) | :heavy_check_mark:                                                                                               | N/A                                                                                                              |

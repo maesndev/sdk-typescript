@@ -3,59 +3,63 @@
 ## Example Usage
 
 ```typescript
-import { CreateInvoiceResponse } from "maesn/models/operations";
+import { CreateInvoiceResponse } from "@maesn/typescript-sdk/models/operations";
 
 let value: CreateInvoiceResponse = {
-  meta: {
-    warnings: [
-      "<value 1>",
-      "<value 2>",
-    ],
-    pagination: {
-      total: 3438.77,
-      perPage: 5109.63,
-      currentPage: 2626.79,
-      totalPages: 3561.84,
-    },
-  },
   data: {
     invoiceId: "<id>",
     addresses: [
-      {
-        addressLine1: "429 Walsh Tunnel",
-        addressLine2: "-",
-        city: "East Melyssa",
-        countryCode: "AE",
-        postalCode: "39193",
-        type: "SELLING",
-      },
+      {},
     ],
     contactId: "<id>",
-    createdDate: {},
-    currency: "Czech Koruna",
-    discountAmount: 8606.74,
-    dueDate: {},
-    fileId: "<id>",
-    invoiceDate: {},
+    createdDate: "<value>",
+    currency: "Congolese Franc",
+    discountAmount: 3702.79,
+    dueDate: "<value>",
+    invoiceDate: "<value>",
     invoiceNumber: "<value>",
-    invoiceType: "BILL",
+    invoiceType: "STANDARD",
     journalCode: "<value>",
-    lineAmountTypes: "NOTAX",
-    lineItems: [],
+    lineAmountTypes: "EXCLUSIVE",
+    lineItems: [
+      {
+        lineItemId: "<id>",
+        accountId: "<id>",
+        createdDate: "<value>",
+        description: "diligently odd ah zowie even avow wilt stealthily",
+        dimensions: [
+          {
+            id: "<id>",
+            categoryName: "<value>",
+            name: null,
+          },
+        ],
+        discountItemAmount: 2836.31,
+        discountItemPercentage: 6807.55,
+        grossAmount: 805.04,
+        itemsAmount: 4417.2,
+        itemId: "<id>",
+        name: "<value>",
+        quantity: 985.86,
+        taxRatePercentage: 688.21,
+        unitAmount: 2381.59,
+        updatedDate: "<value>",
+      },
+    ],
     name: "<value>",
     oneLineAddress: "<value>",
-    paidDate: {},
+    paidDate: "<value>",
     paymentStatus: "PENDING",
-    paymentTermDuration: 5586.05,
+    paymentTermDuration: 6692.63,
     paymentTermId: "<id>",
-    reference: "<value>",
-    shippingDate: {},
-    status: "DOCUMENT_CREATED",
-    sumNetAmount: 6822.71,
-    taxRule: "OSS_GOODS",
-    totalAmount: 5210.96,
-    totalTaxAmount: 3349.61,
-    updatedDate: {},
+    reference: null,
+    shippingDate: "<value>",
+    status: "OVERDUE",
+    sumNetAmount: 7325.9,
+    taxRule: null,
+    totalAmount: 9987.02,
+    totalTaxAmount: 1923.54,
+    updatedDate: "<value>",
   },
   errors: {},
   rawData: {},
@@ -66,7 +70,7 @@ let value: CreateInvoiceResponse = {
 
 | Field                                                                                 | Type                                                                                  | Required                                                                              | Description                                                                           |
 | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| `meta`                                                                                | [models.MetaResponse](../../models/meta-response.md)                                  | :heavy_check_mark:                                                                    | N/A                                                                                   |
+| `meta`                                                                                | [operations.CreateInvoiceMeta](../../models/operations/create-invoice-meta.md)        | :heavy_minus_sign:                                                                    | N/A                                                                                   |
 | `data`                                                                                | [models.InvoiceResponseDto](../../models/invoice-response-dto.md)                     | :heavy_check_mark:                                                                    | N/A                                                                                   |
 | `errors`                                                                              | [operations.CreateInvoiceErrors](../../models/operations/create-invoice-errors.md)    | :heavy_check_mark:                                                                    | N/A                                                                                   |
 | `rawData`                                                                             | [operations.CreateInvoiceRawData](../../models/operations/create-invoice-raw-data.md) | :heavy_check_mark:                                                                    | N/A                                                                                   |

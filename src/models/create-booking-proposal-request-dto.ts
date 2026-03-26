@@ -15,68 +15,68 @@ import {
 } from "./line-item-request.js";
 
 export type CreateBookingProposalRequestDto = {
-  id: string;
-  accountName: string;
-  addresses: Array<BookingProposalAddress>;
-  bankAccountId: string;
-  bankAccountNumber: number;
-  bankCode: string;
-  bic: string;
+  id?: string | undefined;
+  accountName?: string | undefined;
+  addresses?: Array<BookingProposalAddress> | undefined;
+  bankAccountId?: string | undefined;
+  bankAccountNumber?: number | undefined;
+  bankCode?: string | undefined;
+  bic?: string | undefined;
   bookingProposalDate: string;
-  contactAccountNumber: number;
-  contactId: string;
-  contactName: string;
-  currency: string;
-  deliveryDate: string;
-  discountPaymentDate: string;
-  discountPaymentDate2: string;
-  dueDate: string;
-  journalCode: string;
-  iban: string;
-  isPaymentOrder: boolean;
-  ledgerName: string;
+  contactAccountNumber?: number | undefined;
+  contactId?: string | undefined;
+  contactName?: string | undefined;
+  currency?: string | undefined;
+  deliveryDate?: string | undefined;
+  discountPaymentDate?: string | undefined;
+  discountPaymentDate2?: string | undefined;
+  dueDate?: string | undefined;
+  journalCode?: string | undefined;
+  iban?: string | undefined;
+  isPaymentOrder?: boolean | undefined;
+  ledgerName?: string | undefined;
   lineItems: Array<LineItemRequest>;
-  notes: string;
-  number: string;
-  orderId: string;
-  paidDate: string;
-  paymentTermsId: string;
-  status: string;
-  totalGrossAmount: number;
-  vatId: string;
+  notes?: string | undefined;
+  number?: string | undefined;
+  orderId?: string | undefined;
+  paidDate?: string | undefined;
+  paymentTermsId?: string | undefined;
+  status?: string | undefined;
+  totalGrossAmount?: number | undefined;
+  vatId?: string | undefined;
 };
 
 /** @internal */
 export type CreateBookingProposalRequestDto$Outbound = {
-  id: string;
-  accountName: string;
-  addresses: Array<BookingProposalAddress$Outbound>;
-  bankAccountId: string;
-  bankAccountNumber: number;
-  bankCode: string;
-  bic: string;
+  id?: string | undefined;
+  accountName?: string | undefined;
+  addresses?: Array<BookingProposalAddress$Outbound> | undefined;
+  bankAccountId?: string | undefined;
+  bankAccountNumber?: number | undefined;
+  bankCode?: string | undefined;
+  bic?: string | undefined;
   bookingProposalDate: string;
-  contactAccountNumber: number;
-  contactId: string;
-  contactName: string;
-  currency: string;
-  deliveryDate: string;
-  discountPaymentDate: string;
-  discountPaymentDate2: string;
-  dueDate: string;
-  journalCode: string;
-  iban: string;
-  isPaymentOrder: boolean;
-  ledgerName: string;
+  contactAccountNumber?: number | undefined;
+  contactId?: string | undefined;
+  contactName?: string | undefined;
+  currency?: string | undefined;
+  deliveryDate?: string | undefined;
+  discountPaymentDate?: string | undefined;
+  discountPaymentDate2?: string | undefined;
+  dueDate?: string | undefined;
+  journalCode?: string | undefined;
+  iban?: string | undefined;
+  isPaymentOrder?: boolean | undefined;
+  ledgerName?: string | undefined;
   lineItems: Array<LineItemRequest$Outbound>;
-  notes: string;
-  number: string;
-  orderId: string;
-  paidDate: string;
-  paymentTermsId: string;
-  status: string;
-  totalGrossAmount: number;
-  vatId: string;
+  notes?: string | undefined;
+  number?: string | undefined;
+  orderId?: string | undefined;
+  paidDate?: string | undefined;
+  paymentTermsId?: string | undefined;
+  status?: string | undefined;
+  totalGrossAmount?: number | undefined;
+  vatId?: string | undefined;
 };
 
 /** @internal */
@@ -84,35 +84,35 @@ export const CreateBookingProposalRequestDto$outboundSchema: z.ZodMiniType<
   CreateBookingProposalRequestDto$Outbound,
   CreateBookingProposalRequestDto
 > = z.object({
-  id: z.string(),
-  accountName: z.string(),
-  addresses: z.array(BookingProposalAddress$outboundSchema),
-  bankAccountId: z.string(),
-  bankAccountNumber: z.number(),
-  bankCode: z.string(),
-  bic: z.string(),
+  id: z.optional(z.string()),
+  accountName: z.optional(z.string()),
+  addresses: z.optional(z.array(BookingProposalAddress$outboundSchema)),
+  bankAccountId: z.optional(z.string()),
+  bankAccountNumber: z.optional(z.number()),
+  bankCode: z.optional(z.string()),
+  bic: z.optional(z.string()),
   bookingProposalDate: z.string(),
-  contactAccountNumber: z.number(),
-  contactId: z.string(),
-  contactName: z.string(),
-  currency: z.string(),
-  deliveryDate: z.string(),
-  discountPaymentDate: z.string(),
-  discountPaymentDate2: z.string(),
-  dueDate: z.string(),
-  journalCode: z.string(),
-  iban: z.string(),
-  isPaymentOrder: z.boolean(),
-  ledgerName: z.string(),
+  contactAccountNumber: z.optional(z.number()),
+  contactId: z.optional(z.string()),
+  contactName: z.optional(z.string()),
+  currency: z.optional(z.string()),
+  deliveryDate: z.optional(z.string()),
+  discountPaymentDate: z.optional(z.string()),
+  discountPaymentDate2: z.optional(z.string()),
+  dueDate: z.optional(z.string()),
+  journalCode: z.optional(z.string()),
+  iban: z.optional(z.string()),
+  isPaymentOrder: z.optional(z.boolean()),
+  ledgerName: z.optional(z.string()),
   lineItems: z.array(LineItemRequest$outboundSchema),
-  notes: z.string(),
-  number: z.string(),
-  orderId: z.string(),
-  paidDate: z.string(),
-  paymentTermsId: z.string(),
-  status: z.string(),
-  totalGrossAmount: z.number(),
-  vatId: z.string(),
+  notes: z.optional(z.string()),
+  number: z.optional(z.string()),
+  orderId: z.optional(z.string()),
+  paidDate: z.optional(z.string()),
+  paymentTermsId: z.optional(z.string()),
+  status: z.optional(z.string()),
+  totalGrossAmount: z.optional(z.number()),
+  vatId: z.optional(z.string()),
 });
 
 export function createBookingProposalRequestDtoToJSON(

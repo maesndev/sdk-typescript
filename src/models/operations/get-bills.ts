@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
@@ -65,15 +66,27 @@ export type GetBillsRequest = {
   orderDir?: GetBillsOrderDir | undefined;
 };
 
+export type GetBillsPagination = {
+  total: number;
+  perPage: number;
+  currentPage: number;
+  totalPages: number;
+};
+
+export type GetBillsMeta = {
+  warnings?: Array<string> | null | undefined;
+  pagination?: GetBillsPagination | null | undefined;
+};
+
 export type GetBillsErrors = {};
 
 export type GetBillsRawData = {};
 
 export type GetBillsResponse = {
-  meta: models.MetaResponse;
+  meta?: GetBillsMeta | null | undefined;
   data: Array<models.BillResponseDto>;
-  errors: GetBillsErrors;
-  rawData: GetBillsRawData;
+  errors: GetBillsErrors | null;
+  rawData: GetBillsRawData | null;
 };
 
 /** @internal */
@@ -134,6 +147,46 @@ export function getBillsRequestToJSON(
 }
 
 /** @internal */
+export const GetBillsPagination$inboundSchema: z.ZodMiniType<
+  GetBillsPagination,
+  unknown
+> = z.object({
+  total: types.number(),
+  perPage: types.number(),
+  currentPage: types.number(),
+  totalPages: types.number(),
+});
+
+export function getBillsPaginationFromJSON(
+  jsonString: string,
+): SafeParseResult<GetBillsPagination, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetBillsPagination$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetBillsPagination' from JSON`,
+  );
+}
+
+/** @internal */
+export const GetBillsMeta$inboundSchema: z.ZodMiniType<GetBillsMeta, unknown> =
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => GetBillsPagination$inboundSchema)),
+    ),
+  });
+
+export function getBillsMetaFromJSON(
+  jsonString: string,
+): SafeParseResult<GetBillsMeta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetBillsMeta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetBillsMeta' from JSON`,
+  );
+}
+
+/** @internal */
 export const GetBillsErrors$inboundSchema: z.ZodMiniType<
   GetBillsErrors,
   unknown
@@ -170,10 +223,10 @@ export const GetBillsResponse$inboundSchema: z.ZodMiniType<
   GetBillsResponse,
   unknown
 > = z.object({
-  meta: models.MetaResponse$inboundSchema,
+  meta: z.optional(z.nullable(z.lazy(() => GetBillsMeta$inboundSchema))),
   data: z.array(models.BillResponseDto$inboundSchema),
-  errors: z.lazy(() => GetBillsErrors$inboundSchema),
-  rawData: z.lazy(() => GetBillsRawData$inboundSchema),
+  errors: types.nullable(z.lazy(() => GetBillsErrors$inboundSchema)),
+  rawData: types.nullable(z.lazy(() => GetBillsRawData$inboundSchema)),
 });
 
 export function getBillsResponseFromJSON(

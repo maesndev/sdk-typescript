@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { CreatePassThroughRequestRawData } from "maesn/models/operations";
+import { CreatePassThroughRequestRawData } from "@maesn/typescript-sdk/models/operations";
 
 let value: CreatePassThroughRequestRawData = {};
 ```

@@ -3,12 +3,12 @@
 ## Example Usage
 
 ```typescript
-import { UserInfoResponseDto } from "maesn/models";
+import { UserInfoResponseDto } from "@maesn/typescript-sdk/models";
 
 let value: UserInfoResponseDto = {
   id: "<id>",
   accountId: "<id>",
-  familyName: "<value>",
+  familyName: null,
   name: "<value>",
 };
 ```

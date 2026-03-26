@@ -275,12 +275,12 @@ export const ContactAddressType = {
 export type ContactAddressType = OpenEnum<typeof ContactAddressType>;
 
 export type ContactAddress = {
-  addressLine1: string;
-  addressLine2: string;
-  city: string;
-  countryCode: ContactAddressCountryCode;
-  postalCode: string;
-  type: ContactAddressType;
+  addressLine1: string | null;
+  addressLine2: string | null;
+  city: string | null;
+  countryCode: ContactAddressCountryCode | null;
+  postalCode: string | null;
+  type: ContactAddressType | null;
 };
 
 /** @internal */
@@ -288,61 +288,26 @@ export const ContactAddressCountryCode$inboundSchema: z.ZodMiniType<
   ContactAddressCountryCode,
   unknown
 > = openEnums.inboundSchema(ContactAddressCountryCode);
-/** @internal */
-export const ContactAddressCountryCode$outboundSchema: z.ZodMiniType<
-  string,
-  ContactAddressCountryCode
-> = openEnums.outboundSchema(ContactAddressCountryCode);
 
 /** @internal */
 export const ContactAddressType$inboundSchema: z.ZodMiniType<
   ContactAddressType,
   unknown
 > = openEnums.inboundSchema(ContactAddressType);
-/** @internal */
-export const ContactAddressType$outboundSchema: z.ZodMiniType<
-  string,
-  ContactAddressType
-> = openEnums.outboundSchema(ContactAddressType);
 
 /** @internal */
 export const ContactAddress$inboundSchema: z.ZodMiniType<
   ContactAddress,
   unknown
 > = z.object({
-  addressLine1: types.string(),
-  addressLine2: types.string(),
-  city: types.string(),
-  countryCode: ContactAddressCountryCode$inboundSchema,
-  postalCode: types.string(),
-  type: ContactAddressType$inboundSchema,
-});
-/** @internal */
-export type ContactAddress$Outbound = {
-  addressLine1: string;
-  addressLine2: string;
-  city: string;
-  countryCode: string;
-  postalCode: string;
-  type: string;
-};
-
-/** @internal */
-export const ContactAddress$outboundSchema: z.ZodMiniType<
-  ContactAddress$Outbound,
-  ContactAddress
-> = z.object({
-  addressLine1: z.string(),
-  addressLine2: z.string(),
-  city: z.string(),
-  countryCode: ContactAddressCountryCode$outboundSchema,
-  postalCode: z.string(),
-  type: ContactAddressType$outboundSchema,
+  addressLine1: types.nullable(types.string()),
+  addressLine2: types.nullable(types.string()),
+  city: types.nullable(types.string()),
+  countryCode: types.nullable(ContactAddressCountryCode$inboundSchema),
+  postalCode: types.nullable(types.string()),
+  type: types.nullable(ContactAddressType$inboundSchema),
 });
 
-export function contactAddressToJSON(contactAddress: ContactAddress): string {
-  return JSON.stringify(ContactAddress$outboundSchema.parse(contactAddress));
-}
 export function contactAddressFromJSON(
   jsonString: string,
 ): SafeParseResult<ContactAddress, SDKValidationError> {

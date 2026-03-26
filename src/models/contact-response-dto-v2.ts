@@ -9,16 +9,22 @@ import { OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import {
-  ContactAddress,
-  ContactAddress$inboundSchema,
-} from "./contact-address.js";
+  ContactAddressV2,
+  ContactAddressV2$inboundSchema,
+} from "./contact-address-v2.js";
 import {
   ContactPersonDtoV2,
   ContactPersonDtoV2$inboundSchema,
 } from "./contact-person-dto-v2.js";
-import { EmailAddress, EmailAddress$inboundSchema } from "./email-address.js";
+import {
+  EmailAddressV2,
+  EmailAddressV2$inboundSchema,
+} from "./email-address-v2.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
-import { PhoneNumber, PhoneNumber$inboundSchema } from "./phone-number.js";
+import {
+  PhoneNumberV2,
+  PhoneNumberV2$inboundSchema,
+} from "./phone-number-v2.js";
 
 export const ContactResponseDtoV2ContactType = {
   ContactPerson: "CONTACT_PERSON",
@@ -30,20 +36,20 @@ export type ContactResponseDtoV2ContactType = OpenEnum<
 >;
 
 export type ContactResponseDtoV2 = {
-  id: string;
-  addresses: Array<ContactAddress>;
-  companyName: string;
-  contactPersons: Array<ContactPersonDtoV2>;
-  contactType: ContactResponseDtoV2ContactType;
-  createdDate: string;
-  emailAddresses: Array<EmailAddress>;
-  isCustomer: boolean;
-  isSupplier: boolean;
-  number: string;
-  phoneNumbers: Array<PhoneNumber>;
-  projectId: string;
-  updatedDate: string;
-  website: string;
+  id: string | null;
+  addresses: Array<ContactAddressV2> | null;
+  companyName: string | null;
+  contactPersons: Array<ContactPersonDtoV2> | null;
+  contactType: ContactResponseDtoV2ContactType | null;
+  createdDate: string | null;
+  emailAddresses: Array<EmailAddressV2> | null;
+  isCustomer: boolean | null;
+  isSupplier: boolean | null;
+  number: string | null;
+  phoneNumbers: Array<PhoneNumberV2> | null;
+  projectId: string | null;
+  updatedDate: string | null;
+  website: string | null;
 };
 
 /** @internal */
@@ -57,20 +63,20 @@ export const ContactResponseDtoV2$inboundSchema: z.ZodMiniType<
   ContactResponseDtoV2,
   unknown
 > = z.object({
-  id: types.string(),
-  addresses: z.array(ContactAddress$inboundSchema),
-  companyName: types.string(),
-  contactPersons: z.array(ContactPersonDtoV2$inboundSchema),
-  contactType: ContactResponseDtoV2ContactType$inboundSchema,
-  createdDate: types.string(),
-  emailAddresses: z.array(EmailAddress$inboundSchema),
-  isCustomer: types.boolean(),
-  isSupplier: types.boolean(),
-  number: types.string(),
-  phoneNumbers: z.array(PhoneNumber$inboundSchema),
-  projectId: types.string(),
-  updatedDate: types.string(),
-  website: types.string(),
+  id: types.nullable(types.string()),
+  addresses: types.nullable(z.array(ContactAddressV2$inboundSchema)),
+  companyName: types.nullable(types.string()),
+  contactPersons: types.nullable(z.array(ContactPersonDtoV2$inboundSchema)),
+  contactType: types.nullable(ContactResponseDtoV2ContactType$inboundSchema),
+  createdDate: types.nullable(types.string()),
+  emailAddresses: types.nullable(z.array(EmailAddressV2$inboundSchema)),
+  isCustomer: types.nullable(types.boolean()),
+  isSupplier: types.nullable(types.boolean()),
+  number: types.nullable(types.string()),
+  phoneNumbers: types.nullable(z.array(PhoneNumberV2$inboundSchema)),
+  projectId: types.nullable(types.string()),
+  updatedDate: types.nullable(types.string()),
+  website: types.nullable(types.string()),
 });
 
 export function contactResponseDtoV2FromJSON(

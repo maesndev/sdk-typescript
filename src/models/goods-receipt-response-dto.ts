@@ -13,14 +13,14 @@ import {
 } from "./goods-receipt-line-item-response.js";
 
 export type GoodsReceiptResponseDto = {
-  id: string;
-  comment: string;
-  createdDate: string;
-  description: string;
-  lineItems: Array<GoodsReceiptLineItemResponse>;
-  reference: string;
-  supplierId: string;
-  updatedDate: string;
+  id: string | null;
+  comment: string | null;
+  createdDate: string | null;
+  description: string | null;
+  lineItems: Array<GoodsReceiptLineItemResponse> | null;
+  reference: string | null;
+  supplierId: string | null;
+  updatedDate: string | null;
 };
 
 /** @internal */
@@ -28,14 +28,16 @@ export const GoodsReceiptResponseDto$inboundSchema: z.ZodMiniType<
   GoodsReceiptResponseDto,
   unknown
 > = z.object({
-  id: types.string(),
-  comment: types.string(),
-  createdDate: types.string(),
-  description: types.string(),
-  lineItems: z.array(GoodsReceiptLineItemResponse$inboundSchema),
-  reference: types.string(),
-  supplierId: types.string(),
-  updatedDate: types.string(),
+  id: types.nullable(types.string()),
+  comment: types.nullable(types.string()),
+  createdDate: types.nullable(types.string()),
+  description: types.nullable(types.string()),
+  lineItems: types.nullable(
+    z.array(GoodsReceiptLineItemResponse$inboundSchema),
+  ),
+  reference: types.nullable(types.string()),
+  supplierId: types.nullable(types.string()),
+  updatedDate: types.nullable(types.string()),
 });
 
 export function goodsReceiptResponseDtoFromJSON(

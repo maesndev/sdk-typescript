@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
@@ -23,15 +24,27 @@ export type CreateTransactionRequest = {
   body: CreateTransactionRequestBody;
 };
 
+export type CreateTransactionPagination = {
+  total: number;
+  perPage: number;
+  currentPage: number;
+  totalPages: number;
+};
+
+export type CreateTransactionMeta = {
+  warnings?: Array<string> | null | undefined;
+  pagination?: CreateTransactionPagination | null | undefined;
+};
+
 export type CreateTransactionErrors = {};
 
 export type CreateTransactionRawData = {};
 
 export type CreateTransactionResponse = {
-  meta: models.MetaResponse;
+  meta?: CreateTransactionMeta | null | undefined;
   data: models.TransactionResponseDto;
-  errors: CreateTransactionErrors;
-  rawData: CreateTransactionRawData;
+  errors: CreateTransactionErrors | null;
+  rawData: CreateTransactionRawData | null;
 };
 
 /** @internal */
@@ -113,6 +126,48 @@ export function createTransactionRequestToJSON(
 }
 
 /** @internal */
+export const CreateTransactionPagination$inboundSchema: z.ZodMiniType<
+  CreateTransactionPagination,
+  unknown
+> = z.object({
+  total: types.number(),
+  perPage: types.number(),
+  currentPage: types.number(),
+  totalPages: types.number(),
+});
+
+export function createTransactionPaginationFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateTransactionPagination, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateTransactionPagination$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateTransactionPagination' from JSON`,
+  );
+}
+
+/** @internal */
+export const CreateTransactionMeta$inboundSchema: z.ZodMiniType<
+  CreateTransactionMeta,
+  unknown
+> = z.object({
+  warnings: z.optional(z.nullable(z.array(types.string()))),
+  pagination: z.optional(
+    z.nullable(z.lazy(() => CreateTransactionPagination$inboundSchema)),
+  ),
+});
+
+export function createTransactionMetaFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateTransactionMeta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateTransactionMeta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateTransactionMeta' from JSON`,
+  );
+}
+
+/** @internal */
 export const CreateTransactionErrors$inboundSchema: z.ZodMiniType<
   CreateTransactionErrors,
   unknown
@@ -149,10 +204,12 @@ export const CreateTransactionResponse$inboundSchema: z.ZodMiniType<
   CreateTransactionResponse,
   unknown
 > = z.object({
-  meta: models.MetaResponse$inboundSchema,
+  meta: z.optional(
+    z.nullable(z.lazy(() => CreateTransactionMeta$inboundSchema)),
+  ),
   data: models.TransactionResponseDto$inboundSchema,
-  errors: z.lazy(() => CreateTransactionErrors$inboundSchema),
-  rawData: z.lazy(() => CreateTransactionRawData$inboundSchema),
+  errors: types.nullable(z.lazy(() => CreateTransactionErrors$inboundSchema)),
+  rawData: types.nullable(z.lazy(() => CreateTransactionRawData$inboundSchema)),
 });
 
 export function createTransactionResponseFromJSON(

@@ -3,15 +3,15 @@
 ## Example Usage
 
 ```typescript
-import { OpenItemEntryResponseDto } from "maesn/models";
+import { OpenItemEntryResponseDto } from "@maesn/typescript-sdk/models";
 
 let value: OpenItemEntryResponseDto = {
-  amount: 6484.68,
-  currency: "Seychelles Rupee",
-  debitCreditIndicator: "DEBIT",
-  description: "likable jacket gruesome whistle boohoo ick yum",
+  amount: 7435.56,
+  currency: "Moroccan Dirham",
+  debitCreditIndicator: "CREDIT",
+  description: "molasses platypus midst famously jaggedly",
   dueDate: "<value>",
-  postingDate: "<value>",
+  postingDate: null,
 };
 ```
 

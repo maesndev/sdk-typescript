@@ -49,24 +49,24 @@ export type CreditNoteResponseDtoStatus = OpenEnum<
 >;
 
 export type CreditNoteResponseDto = {
-  id: string;
-  addresses: Array<Address>;
-  contactId: string;
-  createdDate: string;
-  creditNoteDate: string;
-  creditNoteLines: Array<CreditNoteLinesDto>;
-  creditNoteNumber: string;
-  currency: string;
-  paymentStatus: CreditNoteResponseDtoPaymentStatus;
-  paymentTermId: string;
-  reference: string;
-  status: CreditNoteResponseDtoStatus;
-  totalDiscountAmount: number;
-  totalDiscountPercentage: number;
-  totalGrossAmount: number;
-  totalNetAmount: number;
-  totalTaxAmount: number;
-  updatedDate: string;
+  id: string | null;
+  addresses: Array<Address> | null;
+  contactId: string | null;
+  createdDate: string | null;
+  creditNoteDate: string | null;
+  creditNoteLines: Array<CreditNoteLinesDto> | null;
+  creditNoteNumber: string | null;
+  currency: string | null;
+  paymentStatus: CreditNoteResponseDtoPaymentStatus | null;
+  paymentTermId: string | null;
+  reference: string | null;
+  status: CreditNoteResponseDtoStatus | null;
+  totalDiscountAmount: number | null;
+  totalDiscountPercentage: number | null;
+  totalGrossAmount: number | null;
+  totalNetAmount: number | null;
+  totalTaxAmount: number | null;
+  updatedDate: string | null;
 };
 
 /** @internal */
@@ -86,24 +86,26 @@ export const CreditNoteResponseDto$inboundSchema: z.ZodMiniType<
   CreditNoteResponseDto,
   unknown
 > = z.object({
-  id: types.string(),
-  addresses: z.array(Address$inboundSchema),
-  contactId: types.string(),
-  createdDate: types.string(),
-  creditNoteDate: types.string(),
-  creditNoteLines: z.array(CreditNoteLinesDto$inboundSchema),
-  creditNoteNumber: types.string(),
-  currency: types.string(),
-  paymentStatus: CreditNoteResponseDtoPaymentStatus$inboundSchema,
-  paymentTermId: types.string(),
-  reference: types.string(),
-  status: CreditNoteResponseDtoStatus$inboundSchema,
-  totalDiscountAmount: types.number(),
-  totalDiscountPercentage: types.number(),
-  totalGrossAmount: types.number(),
-  totalNetAmount: types.number(),
-  totalTaxAmount: types.number(),
-  updatedDate: types.string(),
+  id: types.nullable(types.string()),
+  addresses: types.nullable(z.array(Address$inboundSchema)),
+  contactId: types.nullable(types.string()),
+  createdDate: types.nullable(types.string()),
+  creditNoteDate: types.nullable(types.string()),
+  creditNoteLines: types.nullable(z.array(CreditNoteLinesDto$inboundSchema)),
+  creditNoteNumber: types.nullable(types.string()),
+  currency: types.nullable(types.string()),
+  paymentStatus: types.nullable(
+    CreditNoteResponseDtoPaymentStatus$inboundSchema,
+  ),
+  paymentTermId: types.nullable(types.string()),
+  reference: types.nullable(types.string()),
+  status: types.nullable(CreditNoteResponseDtoStatus$inboundSchema),
+  totalDiscountAmount: types.nullable(types.number()),
+  totalDiscountPercentage: types.nullable(types.number()),
+  totalGrossAmount: types.nullable(types.number()),
+  totalNetAmount: types.nullable(types.number()),
+  totalTaxAmount: types.nullable(types.number()),
+  updatedDate: types.nullable(types.string()),
 });
 
 export function creditNoteResponseDtoFromJSON(

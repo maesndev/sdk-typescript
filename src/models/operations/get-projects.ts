@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
@@ -17,15 +18,27 @@ export type GetProjectsRequest = {
   rawData?: boolean | undefined;
 };
 
+export type GetProjectsPagination = {
+  total: number;
+  perPage: number;
+  currentPage: number;
+  totalPages: number;
+};
+
+export type GetProjectsMeta = {
+  warnings?: Array<string> | null | undefined;
+  pagination?: GetProjectsPagination | null | undefined;
+};
+
 export type GetProjectsErrors = {};
 
 export type GetProjectsRawData = {};
 
 export type GetProjectsResponse = {
-  meta: models.MetaResponse;
+  meta?: GetProjectsMeta | null | undefined;
   data: Array<models.ProjectResponseDto>;
-  errors: GetProjectsErrors;
-  rawData: GetProjectsRawData;
+  errors: GetProjectsErrors | null;
+  rawData: GetProjectsRawData | null;
 };
 
 /** @internal */
@@ -56,6 +69,48 @@ export function getProjectsRequestToJSON(
 ): string {
   return JSON.stringify(
     GetProjectsRequest$outboundSchema.parse(getProjectsRequest),
+  );
+}
+
+/** @internal */
+export const GetProjectsPagination$inboundSchema: z.ZodMiniType<
+  GetProjectsPagination,
+  unknown
+> = z.object({
+  total: types.number(),
+  perPage: types.number(),
+  currentPage: types.number(),
+  totalPages: types.number(),
+});
+
+export function getProjectsPaginationFromJSON(
+  jsonString: string,
+): SafeParseResult<GetProjectsPagination, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetProjectsPagination$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetProjectsPagination' from JSON`,
+  );
+}
+
+/** @internal */
+export const GetProjectsMeta$inboundSchema: z.ZodMiniType<
+  GetProjectsMeta,
+  unknown
+> = z.object({
+  warnings: z.optional(z.nullable(z.array(types.string()))),
+  pagination: z.optional(
+    z.nullable(z.lazy(() => GetProjectsPagination$inboundSchema)),
+  ),
+});
+
+export function getProjectsMetaFromJSON(
+  jsonString: string,
+): SafeParseResult<GetProjectsMeta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetProjectsMeta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetProjectsMeta' from JSON`,
   );
 }
 
@@ -96,10 +151,10 @@ export const GetProjectsResponse$inboundSchema: z.ZodMiniType<
   GetProjectsResponse,
   unknown
 > = z.object({
-  meta: models.MetaResponse$inboundSchema,
+  meta: z.optional(z.nullable(z.lazy(() => GetProjectsMeta$inboundSchema))),
   data: z.array(models.ProjectResponseDto$inboundSchema),
-  errors: z.lazy(() => GetProjectsErrors$inboundSchema),
-  rawData: z.lazy(() => GetProjectsRawData$inboundSchema),
+  errors: types.nullable(z.lazy(() => GetProjectsErrors$inboundSchema)),
+  rawData: types.nullable(z.lazy(() => GetProjectsRawData$inboundSchema)),
 });
 
 export function getProjectsResponseFromJSON(

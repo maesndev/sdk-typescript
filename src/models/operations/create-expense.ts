@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
@@ -24,15 +25,27 @@ export type CreateExpenseRequest = {
   body: CreateExpenseRequestBody;
 };
 
+export type CreateExpensePagination = {
+  total: number;
+  perPage: number;
+  currentPage: number;
+  totalPages: number;
+};
+
+export type CreateExpenseMeta = {
+  warnings?: Array<string> | null | undefined;
+  pagination?: CreateExpensePagination | null | undefined;
+};
+
 export type CreateExpenseErrors = {};
 
 export type CreateExpenseRawData = {};
 
 export type CreateExpenseResponse = {
-  meta: models.MetaResponse;
+  meta?: CreateExpenseMeta | null | undefined;
   data: models.ExpenseResponseDto;
-  errors: CreateExpenseErrors;
-  rawData: CreateExpenseRawData;
+  errors: CreateExpenseErrors | null;
+  rawData: CreateExpenseRawData | null;
 };
 
 /** @internal */
@@ -112,6 +125,48 @@ export function createExpenseRequestToJSON(
 }
 
 /** @internal */
+export const CreateExpensePagination$inboundSchema: z.ZodMiniType<
+  CreateExpensePagination,
+  unknown
+> = z.object({
+  total: types.number(),
+  perPage: types.number(),
+  currentPage: types.number(),
+  totalPages: types.number(),
+});
+
+export function createExpensePaginationFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateExpensePagination, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateExpensePagination$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateExpensePagination' from JSON`,
+  );
+}
+
+/** @internal */
+export const CreateExpenseMeta$inboundSchema: z.ZodMiniType<
+  CreateExpenseMeta,
+  unknown
+> = z.object({
+  warnings: z.optional(z.nullable(z.array(types.string()))),
+  pagination: z.optional(
+    z.nullable(z.lazy(() => CreateExpensePagination$inboundSchema)),
+  ),
+});
+
+export function createExpenseMetaFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateExpenseMeta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateExpenseMeta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateExpenseMeta' from JSON`,
+  );
+}
+
+/** @internal */
 export const CreateExpenseErrors$inboundSchema: z.ZodMiniType<
   CreateExpenseErrors,
   unknown
@@ -148,10 +203,10 @@ export const CreateExpenseResponse$inboundSchema: z.ZodMiniType<
   CreateExpenseResponse,
   unknown
 > = z.object({
-  meta: models.MetaResponse$inboundSchema,
+  meta: z.optional(z.nullable(z.lazy(() => CreateExpenseMeta$inboundSchema))),
   data: models.ExpenseResponseDto$inboundSchema,
-  errors: z.lazy(() => CreateExpenseErrors$inboundSchema),
-  rawData: z.lazy(() => CreateExpenseRawData$inboundSchema),
+  errors: types.nullable(z.lazy(() => CreateExpenseErrors$inboundSchema)),
+  rawData: types.nullable(z.lazy(() => CreateExpenseRawData$inboundSchema)),
 });
 
 export function createExpenseResponseFromJSON(

@@ -19,7 +19,7 @@
 
 <!-- UsageSnippet language="typescript" operationID="createWebhookEndUser" method="post" path="/user" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -33,9 +33,6 @@ async function run() {
   await maesn.webhooks.createWebhookEndUser({
     body: {
       callbackUrl: "https://oddball-subsidy.com/",
-      eventType: "<value>",
-      resource: "<value>",
-      targetSystem: "<value>",
     },
   });
 
@@ -50,8 +47,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { webhooksCreateWebhookEndUser } from "maesn/funcs/webhooks-create-webhook-end-user.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { webhooksCreateWebhookEndUser } from "@maesn/typescript-sdk/funcs/webhooks-create-webhook-end-user.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -67,9 +64,6 @@ async function run() {
   const res = await webhooksCreateWebhookEndUser(maesn, {
     body: {
       callbackUrl: "https://oddball-subsidy.com/",
-      eventType: "<value>",
-      resource: "<value>",
-      targetSystem: "<value>",
     },
   });
   if (res.ok) {
@@ -108,7 +102,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="createWebHookTenant" method="post" path="/tenant" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -121,9 +115,6 @@ const maesn = new Maesn({
 async function run() {
   await maesn.webhooks.createWebHookTenant({
     callbackUrl: "https://sneaky-omelet.org/",
-    eventType: "<value>",
-    resource: "<value>",
-    targetSystem: "<value>",
   });
 
 
@@ -137,8 +128,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { webhooksCreateWebHookTenant } from "maesn/funcs/webhooks-create-web-hook-tenant.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { webhooksCreateWebHookTenant } from "@maesn/typescript-sdk/funcs/webhooks-create-web-hook-tenant.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -153,9 +144,6 @@ const maesn = new MaesnCore({
 async function run() {
   const res = await webhooksCreateWebHookTenant(maesn, {
     callbackUrl: "https://sneaky-omelet.org/",
-    eventType: "<value>",
-    resource: "<value>",
-    targetSystem: "<value>",
   });
   if (res.ok) {
     const { value: result } = res;
@@ -172,7 +160,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [models.CreateWebhookRequestDto](../../models/create-webhook-request-dto.md)                                                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [models.CreateAccountingWebhookRequestDto](../../models/create-accounting-webhook-request-dto.md)                                                                              | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -193,7 +181,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="deleteWebhookEndUser" method="delete" path="/user/{webhookId}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -219,8 +207,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { webhooksDeleteWebhookEndUser } from "maesn/funcs/webhooks-delete-webhook-end-user.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { webhooksDeleteWebhookEndUser } from "@maesn/typescript-sdk/funcs/webhooks-delete-webhook-end-user.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -272,7 +260,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="deleteWebhookTenant" method="delete" path="/tenant/{webhookId}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -298,8 +286,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { webhooksDeleteWebhookTenant } from "maesn/funcs/webhooks-delete-webhook-tenant.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { webhooksDeleteWebhookTenant } from "@maesn/typescript-sdk/funcs/webhooks-delete-webhook-tenant.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -351,7 +339,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="createWebhookConfig" method="post" path="/config" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -364,9 +352,6 @@ const maesn = new Maesn({
 async function run() {
   await maesn.webhooks.createWebhookConfig({
     callbackUrl: "https://willing-haircut.info",
-    eventType: "<value>",
-    resource: "<value>",
-    targetSystem: "<value>",
   });
 
 
@@ -380,8 +365,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { webhooksCreateWebhookConfig } from "maesn/funcs/webhooks-create-webhook-config.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { webhooksCreateWebhookConfig } from "@maesn/typescript-sdk/funcs/webhooks-create-webhook-config.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -396,9 +381,6 @@ const maesn = new MaesnCore({
 async function run() {
   const res = await webhooksCreateWebhookConfig(maesn, {
     callbackUrl: "https://willing-haircut.info",
-    eventType: "<value>",
-    resource: "<value>",
-    targetSystem: "<value>",
   });
   if (res.ok) {
     const { value: result } = res;
@@ -415,7 +397,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [models.CreateWebhookRequestDto](../../models/create-webhook-request-dto.md)                                                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [models.CreateAccountingWebhookRequestDto](../../models/create-accounting-webhook-request-dto.md)                                                                              | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -436,7 +418,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="createWebhook" method="post" path="/" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -450,9 +432,6 @@ async function run() {
   await maesn.webhooks.createWebhook({
     body: {
       callbackUrl: "https://experienced-sailor.biz/",
-      eventType: "<value>",
-      resource: "<value>",
-      targetSystem: "<value>",
     },
   });
 
@@ -467,8 +446,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { webhooksCreateWebhook } from "maesn/funcs/webhooks-create-webhook.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { webhooksCreateWebhook } from "@maesn/typescript-sdk/funcs/webhooks-create-webhook.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -484,9 +463,6 @@ async function run() {
   const res = await webhooksCreateWebhook(maesn, {
     body: {
       callbackUrl: "https://experienced-sailor.biz/",
-      eventType: "<value>",
-      resource: "<value>",
-      targetSystem: "<value>",
     },
   });
   if (res.ok) {
@@ -525,7 +501,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="deleteWebhook" method="delete" path="/{webhookId}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -551,8 +527,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { webhooksDeleteWebhook } from "maesn/funcs/webhooks-delete-webhook.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { webhooksDeleteWebhook } from "@maesn/typescript-sdk/funcs/webhooks-delete-webhook.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -604,7 +580,7 @@ run();
 
 <!-- UsageSnippet language="typescript" operationID="getWebhooks" method="get" path="/#4" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -628,8 +604,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { webhooksGetWebhooks } from "maesn/funcs/webhooks-get-webhooks.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { webhooksGetWebhooks } from "@maesn/typescript-sdk/funcs/webhooks-get-webhooks.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.

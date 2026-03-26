@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
@@ -14,6 +15,18 @@ export type CreatePassThroughRequestRequest = {
   body: models.CreatePassThroughRequestDto;
 };
 
+export type CreatePassThroughRequestPagination = {
+  total: number;
+  perPage: number;
+  currentPage: number;
+  totalPages: number;
+};
+
+export type CreatePassThroughRequestMeta = {
+  warnings?: Array<string> | null | undefined;
+  pagination?: CreatePassThroughRequestPagination | null | undefined;
+};
+
 export type Data = {};
 
 export type CreatePassThroughRequestErrors = {};
@@ -21,10 +34,10 @@ export type CreatePassThroughRequestErrors = {};
 export type CreatePassThroughRequestRawData = {};
 
 export type CreatePassThroughRequestResponse = {
-  meta: models.MetaResponse;
+  meta?: CreatePassThroughRequestMeta | null | undefined;
   data: Data;
-  errors: CreatePassThroughRequestErrors;
-  rawData: CreatePassThroughRequestRawData;
+  errors: CreatePassThroughRequestErrors | null;
+  rawData: CreatePassThroughRequestRawData | null;
 };
 
 /** @internal */
@@ -51,6 +64,49 @@ export function createPassThroughRequestRequestToJSON(
     CreatePassThroughRequestRequest$outboundSchema.parse(
       createPassThroughRequestRequest,
     ),
+  );
+}
+
+/** @internal */
+export const CreatePassThroughRequestPagination$inboundSchema: z.ZodMiniType<
+  CreatePassThroughRequestPagination,
+  unknown
+> = z.object({
+  total: types.number(),
+  perPage: types.number(),
+  currentPage: types.number(),
+  totalPages: types.number(),
+});
+
+export function createPassThroughRequestPaginationFromJSON(
+  jsonString: string,
+): SafeParseResult<CreatePassThroughRequestPagination, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      CreatePassThroughRequestPagination$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreatePassThroughRequestPagination' from JSON`,
+  );
+}
+
+/** @internal */
+export const CreatePassThroughRequestMeta$inboundSchema: z.ZodMiniType<
+  CreatePassThroughRequestMeta,
+  unknown
+> = z.object({
+  warnings: z.optional(z.nullable(z.array(types.string()))),
+  pagination: z.optional(
+    z.nullable(z.lazy(() => CreatePassThroughRequestPagination$inboundSchema)),
+  ),
+});
+
+export function createPassThroughRequestMetaFromJSON(
+  jsonString: string,
+): SafeParseResult<CreatePassThroughRequestMeta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreatePassThroughRequestMeta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreatePassThroughRequestMeta' from JSON`,
   );
 }
 
@@ -104,10 +160,16 @@ export const CreatePassThroughRequestResponse$inboundSchema: z.ZodMiniType<
   CreatePassThroughRequestResponse,
   unknown
 > = z.object({
-  meta: models.MetaResponse$inboundSchema,
+  meta: z.optional(
+    z.nullable(z.lazy(() => CreatePassThroughRequestMeta$inboundSchema)),
+  ),
   data: z.lazy(() => Data$inboundSchema),
-  errors: z.lazy(() => CreatePassThroughRequestErrors$inboundSchema),
-  rawData: z.lazy(() => CreatePassThroughRequestRawData$inboundSchema),
+  errors: types.nullable(
+    z.lazy(() => CreatePassThroughRequestErrors$inboundSchema),
+  ),
+  rawData: types.nullable(
+    z.lazy(() => CreatePassThroughRequestRawData$inboundSchema),
+  ),
 });
 
 export function createPassThroughRequestResponseFromJSON(

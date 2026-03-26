@@ -147,7 +147,7 @@ paths:
             schema:
               $ref: '#/components/schemas/CreateAccountRequestDto'
       responses:
-        "200":
+        "201":
           description: ""
           content:
             application/json:
@@ -236,7 +236,7 @@ paths:
             schema:
               $ref: '#/components/schemas/CreateBankAccountRequestDto'
       responses:
-        "200":
+        "201":
           description: ""
           content:
             application/json:
@@ -367,7 +367,7 @@ paths:
                 transaction:
                   $ref: '#/components/schemas/CreateTransactionRequestDto'
       responses:
-        "200":
+        "201":
           description: ""
           content:
             application/json:
@@ -471,7 +471,7 @@ paths:
             schema:
               $ref: '#/components/schemas/CreateContactRequestDto'
       responses:
-        "200":
+        "201":
           description: ""
           content:
             application/json:
@@ -682,7 +682,7 @@ paths:
             schema:
               $ref: '#/components/schemas/CreateContactRequestDto'
       responses:
-        "200":
+        "201":
           description: ""
           content:
             application/json:
@@ -879,7 +879,7 @@ paths:
             schema:
               $ref: '#/components/schemas/CreateContactRequestDtoV2'
       responses:
-        "200":
+        "201":
           description: ""
           content:
             application/json:
@@ -1023,7 +1023,7 @@ paths:
             schema:
               $ref: '#/components/schemas/CreateContactByBatchMetaDataDto'
       responses:
-        "200":
+        "201":
           description: ""
           content:
             application/json:
@@ -1052,7 +1052,7 @@ paths:
             schema:
               $ref: '#/components/schemas/CreateContactByBatchMetaDataDto'
       responses:
-        "200":
+        "201":
           description: ""
           content:
             application/json:
@@ -1197,7 +1197,7 @@ paths:
             schema:
               $ref: '#/components/schemas/CreateInvoiceRequestDto'
       responses:
-        "200":
+        "201":
           description: ""
           content:
             application/json:
@@ -1360,7 +1360,7 @@ paths:
                   type: string
                   example: Id of the reference object (bill or invoice id).
       responses:
-        "200":
+        "201":
           description: ""
           content:
             application/json:
@@ -1551,7 +1551,7 @@ paths:
             schema:
               $ref: '#/components/schemas/CreateItemRequestDto'
       responses:
-        "200":
+        "201":
           description: ""
           content:
             application/json:
@@ -1560,9 +1560,7 @@ paths:
                   - $ref: '#/components/schemas/BaseResponseDto'
                   - properties:
                       data:
-                        type: array
-                        items:
-                          $ref: '#/components/schemas/ItemResponseDto'
+                        $ref: '#/components/schemas/ItemResponseDto'
       tags:
         - accounting
       x-speakeasy-group: items
@@ -1641,9 +1639,7 @@ paths:
                   - $ref: '#/components/schemas/BaseResponseDto'
                   - properties:
                       data:
-                        type: array
-                        items:
-                          $ref: '#/components/schemas/ItemResponseDto'
+                        $ref: '#/components/schemas/ItemResponseDto'
       tags:
         - accounting
       x-speakeasy-group: items
@@ -1734,7 +1730,7 @@ paths:
             schema:
               $ref: '#/components/schemas/CreateLineItemRequestDto'
       responses:
-        "200":
+        "201":
           description: ""
           content:
             application/json:
@@ -1743,8 +1739,7 @@ paths:
                   - $ref: '#/components/schemas/BaseResponseDto'
                   - properties:
                       data:
-                        items:
-                          $ref: '#/components/schemas/LineItemResponseDto'
+                        $ref: '#/components/schemas/LineItemResponseDto'
       tags:
         - accounting
       x-speakeasy-name-override: addInvoiceLineItem
@@ -1787,8 +1782,7 @@ paths:
                   - $ref: '#/components/schemas/BaseResponseDto'
                   - properties:
                       data:
-                        items:
-                          $ref: '#/components/schemas/LineItemResponseDto'
+                        $ref: '#/components/schemas/LineItemResponseDto'
       tags:
         - accounting
       x-speakeasy-name-override: retrieveInvoiceLineItem
@@ -1831,8 +1825,7 @@ paths:
                   - $ref: '#/components/schemas/BaseResponseDto'
                   - properties:
                       data:
-                        items:
-                          $ref: '#/components/schemas/LineItemResponseDto'
+                        $ref: '#/components/schemas/LineItemResponseDto'
       tags:
         - accounting
       x-speakeasy-group: accounting.invoices
@@ -1991,7 +1984,7 @@ paths:
                 journal_entry:
                   $ref: '#/components/schemas/CreateJournalEntryRequestDto'
       responses:
-        "200":
+        "201":
           description: ""
           content:
             application/json:
@@ -2000,8 +1993,7 @@ paths:
                   - $ref: '#/components/schemas/BaseResponseDto'
                   - properties:
                       data:
-                        items:
-                          $ref: '#/components/schemas/JournalEntryResponseDto'
+                        $ref: '#/components/schemas/JournalEntryResponseDto'
       tags:
         - accounting
       x-speakeasy-name-override: addJournalEntry
@@ -2044,8 +2036,7 @@ paths:
                   - $ref: '#/components/schemas/BaseResponseDto'
                   - properties:
                       data:
-                        items:
-                          $ref: '#/components/schemas/JournalEntryResponseDto'
+                        $ref: '#/components/schemas/JournalEntryResponseDto'
       tags:
         - accounting
       x-speakeasy-name-override: fetchJournalEntry
@@ -2065,7 +2056,7 @@ paths:
             schema:
               $ref: '#/components/schemas/CreateJournalEntriesByBatchMetaDataDto'
       responses:
-        "200":
+        "201":
           description: ""
           content:
             application/json:
@@ -2108,6 +2099,7 @@ paths:
                   - $ref: '#/components/schemas/BaseResponseDto'
                   - properties:
                       data:
+                        type: array
                         items:
                           $ref: '#/components/schemas/JournalEntryResponseDto'
       tags:
@@ -2133,7 +2125,7 @@ paths:
                   type: string
                   format: binary
       responses:
-        "200":
+        "201":
           description: ""
           content:
             application/json:
@@ -2142,8 +2134,7 @@ paths:
                   - $ref: '#/components/schemas/BaseResponseDto'
                   - properties:
                       data:
-                        items:
-                          $ref: '#/components/schemas/JournalEntryResponseDto'
+                        $ref: '#/components/schemas/JournalEntryResponseDto'
       tags:
         - accounting
   /accounting/journalEntries/{journalEntryId}/Attachments/{attachmentId}:
@@ -2180,8 +2171,7 @@ paths:
                   - $ref: '#/components/schemas/BaseResponseDto'
                   - properties:
                       data:
-                        items:
-                          $ref: '#/components/schemas/JournalEntryResponseDto'
+                        $ref: '#/components/schemas/JournalEntryResponseDto'
       tags:
         - accounting
       x-speakeasy-group: journalEntryAttachments
@@ -2274,7 +2264,7 @@ paths:
             schema:
               $ref: '#/components/schemas/CreateOfferRequestDto'
       responses:
-        "200":
+        "201":
           description: ""
           content:
             application/json:
@@ -2425,8 +2415,7 @@ paths:
                   - $ref: '#/components/schemas/BaseResponseDto'
                   - properties:
                       data:
-                        items:
-                          $ref: '#/components/schemas/OfferLineItemResponseDto'
+                        $ref: '#/components/schemas/OfferLineItemResponseDto'
       tags:
         - accounting
       x-speakeasy-name-override: retrieveOfferLineItem
@@ -2493,7 +2482,7 @@ paths:
                 expense:
                   $ref: '#/components/schemas/CreateExpenseDto'
       responses:
-        "200":
+        "201":
           description: ""
           content:
             application/json:
@@ -2590,8 +2579,7 @@ paths:
                   - $ref: '#/components/schemas/BaseResponseDto'
                   - properties:
                       data:
-                        items:
-                          $ref: '#/components/schemas/ExpenseResponseDto'
+                        $ref: '#/components/schemas/ExpenseResponseDto'
       tags:
         - accounting
       x-speakeasy-name-override: fetchExpense
@@ -2670,7 +2658,7 @@ paths:
             schema:
               $ref: '#/components/schemas/CreateProjectRequestDto'
       responses:
-        "200":
+        "201":
           description: ""
           content:
             application/json:
@@ -2808,7 +2796,7 @@ paths:
             schema:
               $ref: '#/components/schemas/CreateSalesOrderRequestDto'
       responses:
-        "200":
+        "201":
           description: ""
           content:
             application/json:
@@ -2855,8 +2843,7 @@ paths:
                   - $ref: '#/components/schemas/BaseResponseDto'
                   - properties:
                       data:
-                        items:
-                          $ref: '#/components/schemas/SalesOrderResponseDto'
+                        $ref: '#/components/schemas/SalesOrderResponseDto'
       tags:
         - accounting
       x-speakeasy-name-override: fetchSalesOrder
@@ -3001,7 +2988,7 @@ paths:
             schema:
               $ref: '#/components/schemas/CreatePaymentTermRequestDto'
       responses:
-        "200":
+        "201":
           description: ""
           content:
             application/json:
@@ -3227,7 +3214,7 @@ paths:
             schema:
               $ref: '#/components/schemas/CreatePaymentRequestDto'
       responses:
-        "200":
+        "201":
           description: ""
           content:
             application/json:
@@ -3363,7 +3350,7 @@ paths:
             schema:
               $ref: '#/components/schemas/CreatePassThroughRequestDto'
       responses:
-        "200":
+        "201":
           description: ""
           content:
             application/json:
@@ -3503,7 +3490,7 @@ paths:
             schema:
               $ref: '#/components/schemas/CreateBillRequestDto'
       responses:
-        "200":
+        "201":
           description: ""
           content:
             application/json:
@@ -3550,8 +3537,7 @@ paths:
                   - $ref: '#/components/schemas/BaseResponseDto'
                   - properties:
                       data:
-                        items:
-                          $ref: '#/components/schemas/BillResponseDto'
+                        $ref: '#/components/schemas/BillResponseDto'
       tags:
         - accounting
       x-speakeasy-name-override: fetchBill
@@ -3676,7 +3662,7 @@ paths:
                     register:
                       type: string
       responses:
-        "200":
+        "201":
           description: ""
           content:
             application/json:
@@ -3825,8 +3811,7 @@ paths:
                   - $ref: '#/components/schemas/BaseResponseDto'
                   - properties:
                       data:
-                        items:
-                          $ref: '#/components/schemas/BookingProposalResponseDto'
+                        $ref: '#/components/schemas/BookingProposalResponseDto'
       tags:
         - accounting
       x-speakeasy-name-override: retrieveBookingProposal
@@ -3869,7 +3854,7 @@ paths:
             schema:
               $ref: '#/components/schemas/CreateBookingsRequestDto'
       responses:
-        "200":
+        "201":
           description: ""
           content:
             application/json:
@@ -3965,6 +3950,7 @@ paths:
                   - $ref: '#/components/schemas/BaseResponseDto'
                   - properties:
                       data:
+                        type: array
                         items:
                           $ref: '#/components/schemas/VendorCreditResponseDto'
       tags:
@@ -3991,7 +3977,7 @@ paths:
             schema:
               $ref: '#/components/schemas/CreateVendorCreditRequestDto'
       responses:
-        "200":
+        "201":
           description: ""
           content:
             application/json:
@@ -4123,7 +4109,7 @@ paths:
             schema:
               $ref: '#/components/schemas/CreateBillLineItemRequestDto'
       responses:
-        "200":
+        "201":
           description: ""
           content:
             application/json:
@@ -4359,8 +4345,7 @@ paths:
                   - $ref: '#/components/schemas/BaseResponseDto'
                   - properties:
                       data:
-                        items:
-                          $ref: '#/components/schemas/PurchaseOrderLineItemResponseDto'
+                        $ref: '#/components/schemas/PurchaseOrderLineItemResponseDto'
       tags:
         - accounting
       x-speakeasy-name-override: retrievePurchaseOrderLineItem
@@ -4541,8 +4526,7 @@ paths:
                   - $ref: '#/components/schemas/BaseResponseDto'
                   - properties:
                       data:
-                        items:
-                          $ref: '#/components/schemas/GoodsReceiptLineItemResponse'
+                        $ref: '#/components/schemas/GoodsReceiptLineItemResponse'
       tags:
         - accounting
       x-speakeasy-group: goodsReceipts
@@ -5635,7 +5619,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateWebhookRequestDto'
+              $ref: '#/components/schemas/CreateAccountingWebhookRequestDto'
         required: true
       responses:
         "201":
@@ -5650,7 +5634,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateWebhookRequestDto'
+              $ref: '#/components/schemas/CreateAccountingWebhookRequestDto'
         required: true
       responses:
         "201":
@@ -5703,7 +5687,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateWebhookRequestDto'
+              $ref: '#/components/schemas/CreateAccountingWebhookRequestDto'
         required: true
       responses:
         "201":
@@ -5728,7 +5712,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateWebhookRequestDto'
+              $ref: '#/components/schemas/CreateAccountingWebhookRequestDto'
         required: true
       responses:
         "201":
@@ -6043,8 +6027,10 @@ components:
       properties:
         id:
           type: string
+          nullable: true
         balance:
           type: number
+          nullable: true
         class:
           type: string
           enum:
@@ -6053,10 +6039,13 @@ components:
             - EXPENSE
             - LIABILITY
             - REVENUE
+          nullable: true
         code:
           type: string
+          nullable: true
         createdDate:
           type: string
+          nullable: true
         currency:
           type: string
           enum:
@@ -6216,28 +6205,37 @@ components:
             - ZAR
             - ZMK
             - ZWR
+          nullable: true
         debitCreditIndicator:
           type: string
           enum:
             - DEBIT
             - CREDIT
+          nullable: true
         description:
           type: string
+          nullable: true
         name:
           type: string
+          nullable: true
         number:
           type: string
+          nullable: true
         parentAccountId:
           type: string
+          nullable: true
         status:
           type: string
           enum:
             - ACTIVE
             - ARCHIVED
+          nullable: true
         type:
           type: string
+          nullable: true
         updatedDate:
           type: string
+          nullable: true
       required:
         - id
         - balance
@@ -6258,10 +6256,13 @@ components:
       properties:
         addressLine1:
           type: string
+          nullable: true
         addressLine2:
           type: string
+          nullable: true
         city:
           type: string
+          nullable: true
         countryCode:
           type: string
           enum:
@@ -6513,8 +6514,10 @@ components:
             - ZA
             - ZM
             - ZW
+          nullable: true
         postalCode:
           type: string
+          nullable: true
         type:
           type: string
           enum:
@@ -6524,6 +6527,7 @@ components:
             - PRIVATE
             - WORK
             - PICKUP
+          nullable: true
       required:
         - addressLine1
         - addressLine2
@@ -6536,16 +6540,22 @@ components:
       properties:
         bic:
           type: string
+          nullable: true
         holder:
           type: string
+          nullable: true
         isMainAccount:
           type: boolean
+          nullable: true
         iban:
           type: string
+          nullable: true
         name:
           type: string
+          nullable: true
         sepa:
           type: boolean
+          nullable: true
       required:
         - bic
         - holder
@@ -6553,34 +6563,12 @@ components:
         - iban
         - name
         - sepa
-    ContactPerson:
-      type: object
-      properties:
-        emailAddresses:
-          type: array
-          items:
-            type: string
-        firstName:
-          type: string
-        lastName:
-          type: string
-        phoneNumbers:
-          type: array
-          items:
-            type: string
-        salutation:
-          type: string
-      required:
-        - emailAddresses
-        - firstName
-        - lastName
-        - phoneNumbers
-        - salutation
     EmailAddress:
       type: object
       properties:
         email:
           type: string
+          nullable: true
         type:
           type: string
           enum:
@@ -6590,6 +6578,7 @@ components:
             - INVOICE
             - PAYMENT
             - OTHER
+          nullable: true
       required:
         - email
         - type
@@ -6598,6 +6587,7 @@ components:
       properties:
         number:
           type: string
+          nullable: true
         type:
           type: string
           enum:
@@ -6610,27 +6600,62 @@ components:
             - SKYPE
             - WHATSAPP
             - OTHER
+          nullable: true
       required:
         - number
         - type
+    ContactPerson:
+      type: object
+      properties:
+        emailAddresses:
+          nullable: true
+          type: array
+          items:
+            $ref: '#/components/schemas/EmailAddress'
+        firstName:
+          type: string
+          nullable: true
+        lastName:
+          type: string
+          nullable: true
+        phoneNumbers:
+          nullable: true
+          type: array
+          items:
+            $ref: '#/components/schemas/PhoneNumber'
+        salutation:
+          type: string
+          nullable: true
+      required:
+        - emailAddresses
+        - firstName
+        - lastName
+        - phoneNumbers
+        - salutation
     ContactResponseDto:
       type: object
       properties:
         id:
           type: string
+          nullable: true
         addresses:
+          nullable: true
           type: array
           items:
             $ref: '#/components/schemas/ContactAddress'
         accountNumber:
           type: number
+          nullable: true
         bankAccounts:
+          nullable: true
           type: array
           items:
             $ref: '#/components/schemas/BankAccountResponse'
         companyName:
           type: string
+          nullable: true
         contactPersons:
+          nullable: true
           type: array
           items:
             $ref: '#/components/schemas/ContactPerson'
@@ -6640,35 +6665,42 @@ components:
             - CONTACT_PERSON
             - COMPANY
             - UNDEFINED
+          nullable: true
         documentId:
           type: string
+          nullable: true
         emailAddresses:
+          nullable: true
           type: array
           items:
             $ref: '#/components/schemas/EmailAddress'
         number:
           type: string
+          nullable: true
         phoneNumbers:
+          nullable: true
           type: array
           items:
             $ref: '#/components/schemas/PhoneNumber'
         projectId:
           type: string
+          nullable: true
         role:
           type: string
           enum:
             - SUPPLIER
             - CUSTOMER
             - CONTACT
+          nullable: true
         updatedDate:
           type: string
+          nullable: true
         vatId:
           type: string
+          nullable: true
       required:
         - id
         - addresses
-        - accountNumber
-        - bankAccounts
         - companyName
         - contactPersons
         - contactType
@@ -6679,16 +6711,18 @@ components:
         - projectId
         - role
         - updatedDate
-        - vatId
     Address:
       type: object
       properties:
         addressLine1:
           type: string
+          nullable: true
         addressLine2:
           type: string
+          nullable: true
         city:
           type: string
+          nullable: true
         countryCode:
           type: string
           enum:
@@ -6940,30 +6974,29 @@ components:
             - ZA
             - ZM
             - ZW
+          nullable: true
         postalCode:
           type: string
+          nullable: true
         type:
           type: string
           enum:
             - BILLING
             - DELIVERY
             - SELLING
-      required:
-        - addressLine1
-        - addressLine2
-        - city
-        - countryCode
-        - postalCode
-        - type
+          nullable: true
     InvoiceDimensionResponseDto:
       type: object
       properties:
         id:
           type: string
+          nullable: true
         categoryName:
           type: string
+          nullable: true
         name:
           type: string
+          nullable: true
       required:
         - id
         - categoryName
@@ -6973,38 +7006,54 @@ components:
       properties:
         lineItemId:
           type: string
+          nullable: true
         accountId:
           type: string
+          nullable: true
         createdDate:
-          type: object
+          type: string
+          nullable: true
         description:
           type: string
+          nullable: true
         dimensions:
+          nullable: true
           type: array
           items:
             $ref: '#/components/schemas/InvoiceDimensionResponseDto'
         discountItemAmount:
           type: number
+          nullable: true
         discountItemPercentage:
           type: number
+          nullable: true
         grossAmount:
           type: number
+          nullable: true
         itemsAmount:
           type: number
+          nullable: true
         itemId:
           type: string
+          nullable: true
         name:
           type: string
+          nullable: true
         quantity:
           type: number
+          nullable: true
         taxCode:
           type: string
+          nullable: true
         taxRatePercentage:
           type: number
+          nullable: true
         unitAmount:
           type: number
+          nullable: true
         updatedDate:
-          type: object
+          type: string
+          nullable: true
       required:
         - lineItemId
         - accountId
@@ -7018,7 +7067,6 @@ components:
         - itemId
         - name
         - quantity
-        - taxCode
         - taxRatePercentage
         - unitAmount
         - updatedDate
@@ -7027,49 +7075,66 @@ components:
       properties:
         invoiceId:
           type: string
+          nullable: true
         addresses:
+          nullable: true
           type: array
           items:
             $ref: '#/components/schemas/Address'
         contactId:
           type: string
+          nullable: true
         createdDate:
-          type: object
+          type: string
+          nullable: true
         currency:
           type: string
+          nullable: true
         discountAmount:
           type: number
+          nullable: true
         dueDate:
-          type: object
+          type: string
+          nullable: true
         fileId:
           type: string
+          nullable: true
         invoiceDate:
-          type: object
+          type: string
+          nullable: true
         invoiceNumber:
           type: string
+          nullable: true
         invoiceType:
           type: string
           enum:
             - STANDARD
             - BILL
+          nullable: true
         journalCode:
           type: string
+          nullable: true
         lineAmountTypes:
           type: string
           enum:
             - EXCLUSIVE
             - INCLUSIVE
             - NOTAX
+          nullable: true
         lineItems:
+          nullable: true
           type: array
           items:
             $ref: '#/components/schemas/LineItemResponseDto'
         name:
           type: string
+          nullable: true
         oneLineAddress:
           type: string
+          nullable: true
         paidDate:
-          type: object
+          type: string
+          nullable: true
         paymentStatus:
           type: string
           enum:
@@ -7084,14 +7149,19 @@ components:
             - PARTIAL_CANCELLATION
             - CANCELED
             - UNKNOWN
+          nullable: true
         paymentTermDuration:
           type: number
+          nullable: true
         paymentTermId:
           type: string
+          nullable: true
         reference:
           type: string
+          nullable: true
         shippingDate:
-          type: object
+          type: string
+          nullable: true
         status:
           type: string
           enum:
@@ -7105,8 +7175,10 @@ components:
             - PARTIALLY_OVERDUE
             - OVERDUE
             - VOIDED
+          nullable: true
         sumNetAmount:
           type: number
+          nullable: true
         taxRule:
           type: string
           enum:
@@ -7125,12 +7197,16 @@ components:
             - OSS_GOODS
             - OSS_ELECTRONIC_SERVICES
             - OSS_SERVICES
+          nullable: true
         totalAmount:
           type: number
+          nullable: true
         totalTaxAmount:
           type: number
+          nullable: true
         updatedDate:
-          type: object
+          type: string
+          nullable: true
       required:
         - invoiceId
         - addresses
@@ -7139,7 +7215,6 @@ components:
         - currency
         - discountAmount
         - dueDate
-        - fileId
         - invoiceDate
         - invoiceNumber
         - invoiceType
@@ -7180,27 +7255,30 @@ components:
       type: object
       properties:
         warnings:
+          nullable: true
           type: array
           items:
             type: string
         pagination:
-          $ref: '#/components/schemas/PaginationResponse'
-      required:
-        - warnings
-        - pagination
+          nullable: true
+          allOf:
+            - $ref: '#/components/schemas/PaginationResponse'
     BaseResponseDto:
       type: object
       properties:
         meta:
-          $ref: '#/components/schemas/MetaResponse'
+          nullable: true
+          allOf:
+            - $ref: '#/components/schemas/MetaResponse'
         data:
           type: object
         errors:
           type: object
+          nullable: true
         rawData:
           type: object
+          nullable: true
       required:
-        - meta
         - data
         - errors
         - rawData
@@ -7209,14 +7287,19 @@ components:
       properties:
         id:
           type: string
+          nullable: true
         base64Encoded:
           type: boolean
+          nullable: true
         content:
           type: string
+          nullable: true
         contentType:
           type: string
+          nullable: true
         fileName:
           type: string
+          nullable: true
       required:
         - id
         - base64Encoded
@@ -7228,33 +7311,46 @@ components:
       properties:
         id:
           type: string
+          nullable: true
         assetAccountId:
           type: string
+          nullable: true
         expenseAccountId:
           type: string
+          nullable: true
         incomeAccountId:
           type: string
+          nullable: true
         inventoryStartDate:
           type: string
+          nullable: true
         itemNumber:
           type: string
+          nullable: true
         lastModifiedDate:
           type: string
+          nullable: true
         name:
           type: string
+          nullable: true
         priceIncludesTax:
           type: boolean
+          nullable: true
         stockCount:
           type: number
+          nullable: true
         taxCode:
           type: string
+          nullable: true
         taxRatePercentage:
           type: number
+          nullable: true
         type:
           type: string
           enum:
             - PRODUCT
             - SERVICE
+          nullable: true
         unitName:
           type: string
           enum:
@@ -7278,10 +7374,13 @@ components:
             - SQUARE_METRE
             - TONNE
             - UNIT
+          nullable: true
         unitPurchasePrice:
           type: number
+          nullable: true
         unitSalesPrice:
           type: number
+          nullable: true
       required:
         - id
         - assetAccountId
@@ -7304,16 +7403,22 @@ components:
       properties:
         accountLength:
           type: number
+          nullable: true
         fiscalYear:
           type: string
+          nullable: true
         hasPermission:
           type: boolean
+          nullable: true
         jobId:
           type: string
+          nullable: true
         message:
           type: string
+          nullable: true
         postingMonth:
           type: string
+          nullable: true
       required:
         - accountLength
         - fiscalYear
@@ -7326,8 +7431,10 @@ components:
       properties:
         name:
           type: string
+          nullable: true
         category:
           type: string
+          nullable: true
       required:
         - name
         - category
@@ -7335,6 +7442,7 @@ components:
       type: object
       properties:
         allowed_file_extensions:
+          nullable: true
           type: array
           items:
             type: string
@@ -7345,8 +7453,10 @@ components:
       properties:
         name:
           type: string
+          nullable: true
         categoryName:
           type: string
+          nullable: true
       required:
         - name
         - categoryName
@@ -7355,52 +7465,75 @@ components:
       properties:
         id:
           type: string
+          nullable: true
         accountId:
           type: string
+          nullable: true
         accountNumber:
           type: string
+          nullable: true
         createdDate:
           type: string
+          nullable: true
         deferredEndDate:
           type: string
+          nullable: true
         deferredStartDate:
           type: string
+          nullable: true
         description:
           type: string
+          nullable: true
         dimensions:
+          nullable: true
           type: array
           items:
             $ref: '#/components/schemas/BillDimensionResponseDto'
         itemId:
           type: string
+          nullable: true
         itemName:
           type: string
+          nullable: true
         quantity:
           type: number
+          nullable: true
         taxCode:
           type: string
+          nullable: true
         taxRatePercentage:
           type: number
+          nullable: true
         totalDiscountAmount:
           type: number
+          nullable: true
         totalDiscountPercentage:
           type: number
+          nullable: true
         totalGrossAmount:
           type: number
+          nullable: true
         totalNetAmount:
           type: number
+          nullable: true
         totalTaxAmount:
           type: number
+          nullable: true
         unitAmount:
           type: number
+          nullable: true
         unitDiscountAmount:
           type: number
+          nullable: true
         unitDiscountPercentage:
           type: number
+          nullable: true
         unitName:
           type: string
+          nullable: true
         updatedDate:
           type: string
+          nullable: true
       required:
         - id
         - accountId
@@ -7430,42 +7563,59 @@ components:
       properties:
         id:
           type: string
+          nullable: true
         accountId:
           type: string
+          nullable: true
         addresses:
+          nullable: true
           type: array
           items:
             $ref: '#/components/schemas/Address'
         billDate:
           type: string
+          nullable: true
         billNumber:
           type: string
+          nullable: true
         contactId:
           type: string
+          nullable: true
         createdDate:
-          type: object
+          type: string
+          nullable: true
         currency:
           type: string
+          nullable: true
         deliveryDate:
           type: string
+          nullable: true
         dueDate:
           type: string
+          nullable: true
         fileId:
           type: string
+          nullable: true
         journalCode:
           type: string
+          nullable: true
         lineItems:
+          nullable: true
           type: array
           items:
             $ref: '#/components/schemas/BillLineItemResponseDto'
         name:
           type: string
+          nullable: true
         oneLineAddress:
           type: string
+          nullable: true
         paidDate:
-          type: object
+          type: string
+          nullable: true
         paymentTermCode:
           type: string
+          nullable: true
         paymentStatus:
           type: string
           enum:
@@ -7480,12 +7630,16 @@ components:
             - PARTIAL_CANCELLATION
             - CANCELED
             - UNKNOWN
+          nullable: true
         paymentDays:
           type: number
+          nullable: true
         reference:
           type: string
+          nullable: true
         shippingDate:
-          type: object
+          type: string
+          nullable: true
         shippingType:
           type: string
           enum:
@@ -7493,6 +7647,7 @@ components:
             - SERVICE_PERIOD
             - DELIVERY
             - DELIVERY_PERIOD
+          nullable: true
         status:
           type: string
           enum:
@@ -7506,6 +7661,7 @@ components:
             - PARTIALLY_OVERDUE
             - OVERDUE
             - VOIDED
+          nullable: true
         taxRule:
           type: string
           enum:
@@ -7524,20 +7680,28 @@ components:
             - OSS_GOODS
             - OSS_ELECTRONIC_SERVICES
             - OSS_SERVICES
+          nullable: true
         taxText:
           type: string
+          nullable: true
         totalDiscountAmount:
           type: number
+          nullable: true
         totalDiscountPercentage:
           type: number
+          nullable: true
         totalGrossAmount:
           type: number
+          nullable: true
         totalNetAmount:
           type: number
+          nullable: true
         totalTaxAmount:
           type: number
+          nullable: true
         updatedDate:
           type: string
+          nullable: true
       required:
         - id
         - accountId
@@ -7570,17 +7734,63 @@ components:
         - totalNetAmount
         - totalTaxAmount
         - updatedDate
-    JournalEntryResponseDto:
+    Dimension:
       type: object
       properties:
         id:
           type: string
+          nullable: true
+        categoryName:
+          type: string
+          nullable: true
+        code:
+          type: string
+          nullable: true
+        name:
+          type: string
+          nullable: true
+      required:
+        - id
+        - categoryName
+        - name
+    TaxRate:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: true
+        code:
+          type: string
+          nullable: true
+        name:
+          type: string
+          nullable: true
+        taxRatePercentage:
+          type: string
+          nullable: true
+      required:
+        - id
+        - code
+        - name
+        - taxRatePercentage
+    JournalLineItem:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: true
+        accountCode:
+          type: string
+          nullable: true
         accountId:
           type: string
-        accountingPeriodId:
-          type: string
+          nullable: true
+        accountNumber:
+          type: number
+          nullable: true
         createdDate:
           type: string
+          nullable: true
         currency:
           type: string
           enum:
@@ -7740,65 +7950,326 @@ components:
             - ZAR
             - ZMK
             - ZWR
+          nullable: true
+        customerId:
+          type: string
+          nullable: true
         debitCreditIndicator:
           type: string
           enum:
             - DEBIT
             - CREDIT
-        deliveryDate:
-          type: string
+          nullable: true
         description:
           type: string
+          nullable: true
+        dimensions:
+          nullable: true
+          type: array
+          items:
+            $ref: '#/components/schemas/Dimension'
+        discountAmount:
+          type: number
+          nullable: true
+        documentNumber:
+          type: string
+          nullable: true
+        exchangeRate:
+          type: number
+          nullable: true
+        supplierId:
+          type: string
+          nullable: true
+        taxRate:
+          nullable: true
+          allOf:
+            - $ref: '#/components/schemas/TaxRate'
+        thirdPartyCode:
+          type: string
+          nullable: true
+        totalGrossAmount:
+          type: number
+          nullable: true
+        totalNetAmount:
+          type: number
+          nullable: true
+        totalTaxAmount:
+          type: number
+          nullable: true
+        updatedDate:
+          type: string
+          nullable: true
+      required:
+        - id
+        - accountCode
+        - accountId
+        - createdDate
+        - currency
+        - customerId
+        - debitCreditIndicator
+        - description
+        - dimensions
+        - documentNumber
+        - exchangeRate
+        - supplierId
+        - taxRate
+        - thirdPartyCode
+        - totalGrossAmount
+        - totalNetAmount
+        - totalTaxAmount
+        - updatedDate
+    JournalEntryResponseDto:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: true
+        accountId:
+          type: string
+          nullable: true
+        accountingPeriodId:
+          type: string
+          nullable: true
+        createdDate:
+          type: string
+          nullable: true
+        currency:
+          type: string
+          enum:
+            - AED
+            - AFN
+            - ALL
+            - AMD
+            - ANG
+            - AOA
+            - ARS
+            - AUD
+            - AWG
+            - AZN
+            - BAM
+            - BBD
+            - BDT
+            - BGN
+            - BHD
+            - BIF
+            - BMD
+            - BND
+            - BOB
+            - BRL
+            - BSD
+            - BTN
+            - BWP
+            - BYR
+            - BZD
+            - CAD
+            - CDF
+            - CHF
+            - CLP
+            - CNY
+            - COP
+            - CRC
+            - CUC
+            - CVE
+            - CZK
+            - DJF
+            - DKK
+            - DOP
+            - DZD
+            - EEK
+            - EGP
+            - ERN
+            - ETB
+            - EUR
+            - FJD
+            - FKP
+            - GBP
+            - GEL
+            - GHS
+            - GIP
+            - GMD
+            - GNF
+            - GQE
+            - GTQ
+            - GYD
+            - HKD
+            - HNL
+            - HRK
+            - HTG
+            - HUF
+            - IDR
+            - ILS
+            - INR
+            - IQD
+            - IRR
+            - ISK
+            - JMD
+            - JOD
+            - JPY
+            - KES
+            - KGS
+            - KHR
+            - KMF
+            - KPW
+            - KRW
+            - KWD
+            - KYD
+            - KZT
+            - LAK
+            - LBP
+            - LKR
+            - LRD
+            - LSL
+            - LTL
+            - LVL
+            - LYD
+            - MAD
+            - MDL
+            - MGA
+            - MKD
+            - MMK
+            - MNT
+            - MOP
+            - MRO
+            - MUR
+            - MVR
+            - MWK
+            - MXN
+            - MYR
+            - MZM
+            - NAD
+            - NGN
+            - NIO
+            - NOK
+            - NPR
+            - NZD
+            - OMR
+            - PAB
+            - PEN
+            - PGK
+            - PHP
+            - PKR
+            - PLN
+            - PYG
+            - QAR
+            - RON
+            - RSD
+            - RUB
+            - SAR
+            - SBD
+            - SCR
+            - SDG
+            - SEK
+            - SGD
+            - SHP
+            - SLL
+            - SOS
+            - SRD
+            - SYP
+            - SZL
+            - THB
+            - TJS
+            - TMT
+            - TND
+            - TRY
+            - TTD
+            - TWD
+            - TZS
+            - UAH
+            - UGX
+            - USD
+            - UYU
+            - UZS
+            - VEB
+            - VND
+            - VUV
+            - WST
+            - XAF
+            - XCD
+            - XDR
+            - XOF
+            - XPF
+            - YER
+            - ZAR
+            - ZMK
+            - ZWR
+          nullable: true
+        debitCreditIndicator:
+          type: string
+          enum:
+            - DEBIT
+            - CREDIT
+          nullable: true
+        deliveryDate:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
         documentId:
           type: string
+          nullable: true
         dueDate:
           type: string
+          nullable: true
         exchangeRate:
           type: string
+          nullable: true
         files:
+          nullable: true
           type: array
           items:
             type: string
         isProvisional:
           type: boolean
+          nullable: true
         journalCode:
           type: string
+          nullable: true
         journalLineItems:
+          nullable: true
           type: array
           items:
-            type: string
+            $ref: '#/components/schemas/JournalLineItem'
         journalType:
           type: string
+          nullable: true
         number:
           type: string
+          nullable: true
         taxAssignmentDate:
           type: string
+          nullable: true
         transactionDate:
           type: string
+          nullable: true
         updatedDate:
           type: string
+          nullable: true
       required:
         - id
         - accountId
         - accountingPeriodId
         - createdDate
         - currency
-        - debitCreditIndicator
-        - deliveryDate
         - description
         - documentId
-        - dueDate
-        - exchangeRate
         - files
-        - isProvisional
-        - journalCode
         - journalLineItems
-        - journalType
         - number
-        - taxAssignmentDate
         - transactionDate
         - updatedDate
-    TaxRate:
+    DimensionInput:
+      type: object
+      properties:
+        id:
+          type: string
+        categoryName:
+          type: string
+        code:
+          type: string
+        name:
+          type: string
+    TaxRateInput:
       type: object
       properties:
         id:
@@ -7809,11 +8280,6 @@ components:
           type: string
         taxRatePercentage:
           type: string
-      required:
-        - id
-        - code
-        - name
-        - taxRatePercentage
     CreateJournalLineItem:
       type: object
       properties:
@@ -7994,7 +8460,7 @@ components:
         dimensions:
           type: array
           items:
-            type: string
+            $ref: '#/components/schemas/DimensionInput'
         discountAmount:
           type: number
         documentNumber:
@@ -8004,7 +8470,7 @@ components:
         supplierId:
           type: string
         taxRate:
-          $ref: '#/components/schemas/TaxRate'
+          $ref: '#/components/schemas/TaxRateInput'
         thirdPartyCode:
           type: string
         totalGrossAmount:
@@ -8013,24 +8479,6 @@ components:
           type: number
         totalTaxAmount:
           type: number
-      required:
-        - accountCode
-        - accountId
-        - accountNumber
-        - currency
-        - customerId
-        - debitCreditIndicator
-        - description
-        - dimensions
-        - discountAmount
-        - documentNumber
-        - exchangeRate
-        - supplierId
-        - taxRate
-        - thirdPartyCode
-        - totalGrossAmount
-        - totalNetAmount
-        - totalTaxAmount
     CreateJournalEntryRequestDto:
       type: object
       properties:
@@ -8228,32 +8676,18 @@ components:
           type: string
         transactionDate:
           type: string
-      required:
-        - accountId
-        - accountingPeriodId
-        - currency
-        - debitCreditIndicator
-        - deliveryDate
-        - description
-        - documentId
-        - dueDate
-        - exchangeRate
-        - isProvisional
-        - journalCode
-        - journalLineItems
-        - journalType
-        - number
-        - taxAssignmentDate
-        - transactionDate
     AddressOffer:
       type: object
       properties:
         addressLine1:
           type: string
+          nullable: true
         addressLine2:
           type: string
+          nullable: true
         city:
           type: string
+          nullable: true
         countryCode:
           type: string
           enum:
@@ -8505,46 +8939,53 @@ components:
             - ZA
             - ZM
             - ZW
+          nullable: true
         postalCode:
           type: string
+          nullable: true
         type:
           type: string
           enum:
             - BILLING
             - DELIVERY
             - SELLING
-      required:
-        - addressLine1
-        - addressLine2
-        - city
-        - countryCode
-        - postalCode
-        - type
+          nullable: true
     OfferLineItemResponseDto:
       type: object
       properties:
         id:
           type: string
+          nullable: true
         accountCode:
           type: string
+          nullable: true
         accountId:
           type: string
+          nullable: true
         createdDate:
           type: string
+          nullable: true
         description:
           type: string
+          nullable: true
         itemId:
           type: string
+          nullable: true
         name:
           type: string
+          nullable: true
         quantity:
           type: number
+          nullable: true
         taxCode:
           type: string
+          nullable: true
         taxRatePercentage:
           type: number
+          nullable: true
         taxType:
           type: string
+          nullable: true
         type:
           type: string
           enum:
@@ -8555,26 +8996,37 @@ components:
             - VALUE
             - FIXED_ASSET
             - CHARGE
+          nullable: true
         totalDiscountAmount:
           type: number
+          nullable: true
         totalDiscountPercentage:
           type: number
+          nullable: true
         totalGrossAmount:
           type: number
+          nullable: true
         totalNetAmount:
           type: number
+          nullable: true
         totalTaxAmount:
           type: number
+          nullable: true
         unitAmount:
           type: number
+          nullable: true
         unitDiscountAmount:
           type: number
+          nullable: true
         unitDiscountPercentage:
           type: number
+          nullable: true
         unitName:
           type: string
+          nullable: true
         updatedDate:
           type: string
+          nullable: true
       required:
         - id
         - accountCode
@@ -8603,30 +9055,41 @@ components:
       properties:
         id:
           type: string
+          nullable: true
         addresses:
+          nullable: true
           type: array
           items:
             $ref: '#/components/schemas/AddressOffer'
         contactId:
           type: string
+          nullable: true
         createdDate:
           type: string
+          nullable: true
         currency:
           type: string
+          nullable: true
         lineItems:
+          nullable: true
           type: array
           items:
             $ref: '#/components/schemas/OfferLineItemResponseDto'
         name:
           type: string
+          nullable: true
         offerDate:
           type: string
+          nullable: true
         offerNumber:
           type: string
+          nullable: true
         oneLineAddress:
           type: string
+          nullable: true
         reference:
           type: string
+          nullable: true
         status:
           type: string
           enum:
@@ -8636,24 +9099,31 @@ components:
             - EXPIRED
             - VOIDED
             - DECLINED
+          nullable: true
         taxText:
           type: string
+          nullable: true
         totalDiscountAmount:
           type: number
+          nullable: true
         totalDiscountPercentage:
           type: number
+          nullable: true
         totalGrossAmount:
           type: number
+          nullable: true
         totalNetAmount:
           type: number
+          nullable: true
         totalTaxAmount:
           type: number
+          nullable: true
         updatedDate:
           type: string
+          nullable: true
       required:
         - id
         - addresses
-        - contactId
         - createdDate
         - currency
         - lineItems
@@ -8787,21 +9257,8 @@ components:
           type: number
       required:
         - addresses
-        - contactId
         - currency
-        - lineItems
-        - name
         - offerDate
-        - offerNumber
-        - oneLineAddress
-        - reference
-        - status
-        - taxText
-        - totalDiscountAmount
-        - totalDiscountPercentage
-        - totalGrossAmount
-        - totalNetAmount
-        - totalTaxAmount
     ExpenseLineItem:
       type: object
       properties:
@@ -8977,7 +9434,7 @@ components:
         dimensions:
           type: array
           items:
-            type: string
+            $ref: '#/components/schemas/DimensionInput'
         documentNumber:
           type: string
         exchangeRate:
@@ -8985,25 +9442,11 @@ components:
         itemId:
           type: string
         taxRate:
-          $ref: '#/components/schemas/TaxRate'
+          $ref: '#/components/schemas/TaxRateInput'
         totalGrossAmount:
           type: number
         totalNetAmount:
           type: number
-      required:
-        - id
-        - accountCode
-        - accountId
-        - accountNumber
-        - currency
-        - description
-        - dimensions
-        - documentNumber
-        - exchangeRate
-        - itemId
-        - taxRate
-        - totalGrossAmount
-        - totalNetAmount
     CreateExpenseDto:
       type: object
       properties:
@@ -9217,41 +9660,24 @@ components:
           type: number
         transactionDate:
           type: string
-      required:
-        - id
-        - accountCode
-        - accountId
-        - accountNumber
-        - currency
-        - customerId
-        - exchangeRate
-        - expenseLines
-        - description
-        - documentId
-        - journalCode
-        - ledgerName
-        - note
-        - paymentTermId
-        - paymentType
-        - supplierId
-        - type
-        - totalGrossAmount
-        - totalNetAmount
-        - totalTaxAmount
-        - transactionDate
     ExpenseLineItemResponse:
       type: object
       properties:
         id:
           type: string
+          nullable: true
         accountCode:
           type: string
+          nullable: true
         accountId:
           type: string
+          nullable: true
         accountNumber:
           type: number
+          nullable: true
         createdDate:
           type: string
+          nullable: true
         currency:
           type: string
           enum:
@@ -9411,26 +9837,37 @@ components:
             - ZAR
             - ZMK
             - ZWR
+          nullable: true
         description:
           type: string
+          nullable: true
         dimensions:
+          nullable: true
           type: array
           items:
-            type: string
+            $ref: '#/components/schemas/Dimension'
         documentNumber:
           type: string
+          nullable: true
         exchangeRate:
           type: number
+          nullable: true
         itemId:
           type: string
+          nullable: true
         taxRate:
-          $ref: '#/components/schemas/TaxRate'
+          nullable: true
+          allOf:
+            - $ref: '#/components/schemas/TaxRate'
         totalGrossAmount:
           type: number
+          nullable: true
         totalNetAmount:
           type: number
+          nullable: true
         updatedDate:
           type: string
+          nullable: true
       required:
         - id
         - accountCode
@@ -9452,14 +9889,19 @@ components:
       properties:
         id:
           type: string
+          nullable: true
         accountCode:
           type: string
+          nullable: true
         accountId:
           type: string
+          nullable: true
         accountNumber:
           type: number
+          nullable: true
         createdDate:
           type: string
+          nullable: true
         currency:
           type: string
           enum:
@@ -9619,30 +10061,41 @@ components:
             - ZAR
             - ZMK
             - ZWR
+          nullable: true
         customerId:
           type: string
+          nullable: true
         description:
           type: string
+          nullable: true
         documentId:
           type: string
+          nullable: true
         exchangeRate:
           type: string
+          nullable: true
         expenseLines:
+          nullable: true
           type: array
           items:
             $ref: '#/components/schemas/ExpenseLineItemResponse'
         files:
+          nullable: true
           type: array
           items:
             type: string
         journalCode:
           type: string
+          nullable: true
         ledgerName:
           type: string
+          nullable: true
         note:
           type: string
+          nullable: true
         paymentTermId:
           type: string
+          nullable: true
         paymentType:
           type: string
           enum:
@@ -9651,25 +10104,34 @@ components:
             - CREDIT_CARD
             - CREDIT
             - COLLECTION
+          nullable: true
         supplierId:
           type: string
+          nullable: true
         taskId:
           type: string
+          nullable: true
         type:
           type: string
           enum:
             - EXPENSE
             - REFUND
+          nullable: true
         totalGrossAmount:
           type: number
+          nullable: true
         totalNetAmount:
           type: number
+          nullable: true
         totalTaxAmount:
           type: number
+          nullable: true
         transactionDate:
           type: string
+          nullable: true
         updatedDate:
           type: string
+          nullable: true
       required:
         - id
         - accountCode
@@ -9701,12 +10163,16 @@ components:
       properties:
         id:
           type: string
+          nullable: true
         code:
           type: string
+          nullable: true
         createdDate:
           type: string
+          nullable: true
         contactId:
           type: string
+          nullable: true
         currency:
           type: string
           enum:
@@ -9866,25 +10332,34 @@ components:
             - ZAR
             - ZMK
             - ZWR
+          nullable: true
         description:
           type: string
+          nullable: true
         endDate:
           type: string
+          nullable: true
         name:
           type: string
+          nullable: true
         number:
           type: string
+          nullable: true
         parentProjectId:
           type: string
+          nullable: true
         status:
           type: string
           enum:
             - ACTIVE
             - CLOSED
+          nullable: true
         startDate:
           type: string
+          nullable: true
         updatedDate:
           type: string
+          nullable: true
       required:
         - id
         - code
@@ -10082,56 +10557,63 @@ components:
             - CLOSED
         startDate:
           type: string
-      required:
-        - code
-        - contactId
-        - currency
-        - description
-        - endDate
-        - name
-        - number
-        - parentProjectId
-        - status
-        - startDate
     SalesOrderLineItemResponseDto:
       type: object
       properties:
         id:
           type: string
+          nullable: true
         itemId:
           type: string
+          nullable: true
         createdDate:
           type: string
+          nullable: true
         description:
           type: string
+          nullable: true
         itemName:
           type: string
+          nullable: true
         quantity:
           type: number
+          nullable: true
         taxCode:
           type: string
+          nullable: true
         taxRatePercentage:
           type: number
+          nullable: true
         totalDiscountAmount:
           type: number
+          nullable: true
         totalDiscountPercentage:
           type: number
+          nullable: true
         totalGrossAmount:
           type: number
+          nullable: true
         totalNetAmount:
           type: number
+          nullable: true
         totalTaxAmount:
           type: number
+          nullable: true
         unitAmount:
           type: number
+          nullable: true
         unitDiscountAmount:
           type: number
+          nullable: true
         unitDiscountPercentage:
           type: number
+          nullable: true
         unitName:
           type: string
+          nullable: true
         updatedDate:
           type: string
+          nullable: true
       required:
         - id
         - itemId
@@ -10156,34 +10638,47 @@ components:
       properties:
         id:
           type: string
+          nullable: true
         addresses:
+          nullable: true
           type: array
           items:
             $ref: '#/components/schemas/Address'
         billingContactId:
           type: string
+          nullable: true
         comment:
           type: string
+          nullable: true
         contactId:
           type: string
+          nullable: true
         createdDate:
           type: string
+          nullable: true
         currency:
           type: string
+          nullable: true
         deliveryDate:
           type: string
+          nullable: true
         lineItems:
+          nullable: true
           type: array
           items:
             $ref: '#/components/schemas/SalesOrderLineItemResponseDto'
         oneLineAddress:
           type: string
+          nullable: true
         orderDate:
           type: string
+          nullable: true
         projectId:
           type: string
+          nullable: true
         shippingContactId:
           type: string
+          nullable: true
         status:
           type: string
           enum:
@@ -10192,20 +10687,28 @@ components:
             - OPEN
             - CLOSED
             - VOIDED
+          nullable: true
         taskId:
           type: string
+          nullable: true
         totalDiscountAmount:
           type: number
+          nullable: true
         totalDiscountPercentage:
           type: number
+          nullable: true
         totalGrossAmount:
           type: number
+          nullable: true
         totalNetAmount:
           type: number
+          nullable: true
         totalTaxAmount:
           type: number
+          nullable: true
         updatedDate:
           type: string
+          nullable: true
       required:
         - id
         - addresses
@@ -10216,7 +10719,6 @@ components:
         - currency
         - deliveryDate
         - lineItems
-        - oneLineAddress
         - orderDate
         - projectId
         - shippingContactId
@@ -10261,22 +10763,6 @@ components:
           type: number
         unitName:
           type: string
-      required:
-        - itemId
-        - description
-        - itemName
-        - quantity
-        - taxCode
-        - taxRatePercentage
-        - totalDiscountAmount
-        - totalDiscountPercentage
-        - totalGrossAmount
-        - totalNetAmount
-        - totalTaxAmount
-        - unitAmount
-        - unitDiscountAmount
-        - unitDiscountPercentage
-        - unitName
     CreateSalesOrderRequestDto:
       type: object
       properties:
@@ -10326,36 +10812,21 @@ components:
           type: number
         version:
           type: string
-      required:
-        - addresses
-        - billingContactId
-        - comment
-        - contactId
-        - currency
-        - deliveryDate
-        - lineItems
-        - oneLineAddress
-        - orderDate
-        - projectId
-        - shippingContactId
-        - status
-        - totalDiscountAmount
-        - totalDiscountPercentage
-        - totalGrossAmount
-        - totalNetAmount
-        - totalTaxAmount
-        - version
     InformationResponseDto:
       type: object
       properties:
         filename:
           type: string
+          nullable: true
         message:
           type: string
+          nullable: true
         timestamp:
           type: string
+          nullable: true
         type:
           type: string
+          nullable: true
       required:
         - filename
         - message
@@ -10365,11 +10836,13 @@ components:
       type: object
       properties:
         information:
+          nullable: true
           type: array
           items:
             $ref: '#/components/schemas/InformationResponseDto'
         responseData:
-          type: object
+          type: string
+          nullable: true
         status:
           type: string
           enum:
@@ -10382,6 +10855,7 @@ components:
             - CANCELLED_SUCCESSFULLY
             - CANCEL_FAILED
             - DELETED
+          nullable: true
       required:
         - information
         - responseData
@@ -10408,24 +10882,27 @@ components:
       required:
         - path
         - method
-        - headers
-        - body
-        - query
     TransactionResponseDto:
       type: object
       properties:
         id:
           type: string
+          nullable: true
         accountId:
           type: string
+          nullable: true
         accountNumber:
           type: number
+          nullable: true
         amount:
           type: number
+          nullable: true
         bookingDate:
           type: string
+          nullable: true
         contact:
           type: string
+          nullable: true
         currency:
           type: string
           enum:
@@ -10585,18 +11062,24 @@ components:
             - ZAR
             - ZMK
             - ZWR
+          nullable: true
         description:
           type: string
+          nullable: true
         files:
+          nullable: true
           type: array
           items:
             type: string
         journalCode:
           type: string
+          nullable: true
         ledgerName:
           type: string
+          nullable: true
         reference:
           type: string
+          nullable: true
         status:
           type: string
           enum:
@@ -10606,10 +11089,13 @@ components:
             - BOOKED
             - AUTHORISED
             - DELETED
+          nullable: true
         taskId:
           type: string
+          nullable: true
         taxRatePercentage:
           type: number
+          nullable: true
         type:
           type: string
           enum:
@@ -10621,8 +11107,10 @@ components:
             - SPEND-PREPAYMENT
             - RECEIVE-TRANSFER
             - SPEND-TRANSFER
+          nullable: true
         valueDate:
           type: string
+          nullable: true
       required:
         - id
         - accountId
@@ -10646,12 +11134,16 @@ components:
       properties:
         invoiceRange:
           type: string
+          nullable: true
         discountDeadline:
           type: string
+          nullable: true
         discountDeadline2:
           type: string
+          nullable: true
         paymentDeadline:
           type: string
+          nullable: true
       required:
         - invoiceRange
         - discountDeadline
@@ -10662,21 +11154,30 @@ components:
       properties:
         id:
           type: string
+          nullable: true
         code:
           type: string
+          nullable: true
         createdDate:
           type: string
+          nullable: true
         description:
           type: string
+          nullable: true
         discountDays:
           type: number
+          nullable: true
         discountDays2:
           type: number
+          nullable: true
         discountPercentage:
           type: number
+          nullable: true
         discountPercentage2:
           type: number
+          nullable: true
         discountPeriods:
+          nullable: true
           type: array
           items:
             $ref: '#/components/schemas/DiscountPeriodResponse'
@@ -10685,14 +11186,24 @@ components:
           enum:
             - DUE_IN_DAYS
             - DUE_AS_PERIOD
+          nullable: true
         name:
           type: string
+          nullable: true
         paymentDays:
           type: number
+          nullable: true
         paymentMethod:
           type: string
+          enum:
+            - CASH
+            - BANK_TRANSFER
+            - PAYMENT_SERVICE_PROVIDER
+            - AUTOMATIC_BANK_WITHDRAWAL
+          nullable: true
         updatedDate:
-          type: object
+          type: string
+          nullable: true
       required:
         - id
         - code
@@ -10713,16 +11224,22 @@ components:
       properties:
         id:
           type: string
+          nullable: true
         code:
           type: string
+          nullable: true
         createdDate:
-          type: object
+          type: string
+          nullable: true
         description:
           type: string
+          nullable: true
         name:
           type: string
+          nullable: true
         percentage:
           type: number
+          nullable: true
         type:
           type: string
           enum:
@@ -10730,8 +11247,10 @@ components:
             - EXCLUSIVE
             - NO_TAX
             - ZERO_TAX
+          nullable: true
         updatedDate:
-          type: object
+          type: string
+          nullable: true
         usage:
           type: string
           enum:
@@ -10740,6 +11259,7 @@ components:
             - JOURNAL_ENTRY
             - CASH
             - ALL
+          nullable: true
       required:
         - id
         - code
@@ -10755,16 +11275,22 @@ components:
       properties:
         id:
           type: string
+          nullable: true
         categoryName:
           type: string
+          nullable: true
         createdDate:
           type: string
+          nullable: true
         name:
           type: string
+          nullable: true
         status:
           type: string
+          nullable: true
         updatedDate:
           type: string
+          nullable: true
       required:
         - id
         - categoryName
@@ -10980,47 +11506,37 @@ components:
             - SPEND-TRANSFER
         valueDate:
           type: string
-      required:
-        - id
-        - accountId
-        - accountNumber
-        - amount
-        - bookingDate
-        - code
-        - contact
-        - currency
-        - description
-        - journalCode
-        - ledgerName
-        - reference
-        - status
-        - taxRatePercentage
-        - type
-        - valueDate
     PaymentLine:
       type: object
       properties:
         accountId:
           type: string
+          nullable: true
         amount:
           type: number
+          nullable: true
         contactName:
           type: string
+          nullable: true
         customerId:
           type: string
+          nullable: true
         description:
           type: string
+          nullable: true
         invoiceId:
           type: string
+          nullable: true
         supplierId:
           type: string
+          nullable: true
         paymentDate:
           type: string
+          nullable: true
       required:
         - accountId
         - amount
         - contactName
-        - customerId
         - description
         - invoiceId
         - supplierId
@@ -11030,21 +11546,34 @@ components:
       properties:
         id:
           type: string
+          nullable: true
         currency:
           type: string
+          nullable: true
         createdDate:
           type: string
+          nullable: true
         documentType:
           type: string
+          enum:
+            - INVOICE
+            - BILL
+            - BOOKING_PROPOSAL
+          nullable: true
         exchangeRate:
           type: number
+          nullable: true
         journalCode:
           type: string
+          nullable: true
         updatedDate:
           type: string
+          nullable: true
         paymentType:
           type: string
+          nullable: true
         paymentLines:
+          nullable: true
           type: array
           items:
             $ref: '#/components/schemas/PaymentLine'
@@ -11103,25 +11632,6 @@ components:
           enum:
             - GOODS
             - SERVICES
-      required:
-        - id
-        - accountCode
-        - accountId
-        - accountName
-        - accountNumber
-        - bookingTaxCode
-        - description
-        - dimension1
-        - dimension2
-        - discountAmount
-        - discountAmount2
-        - discountPercentage
-        - discountPercentage2
-        - taxCode
-        - taxRatePercentage
-        - totalGrossAmount
-        - totalNetAmount
-        - type
     CreateBookingProposalRequestDto:
       type: object
       properties:
@@ -11188,81 +11698,74 @@ components:
         vatId:
           type: string
       required:
-        - id
-        - accountName
-        - addresses
-        - bankAccountId
-        - bankAccountNumber
-        - bankCode
-        - bic
         - bookingProposalDate
-        - contactAccountNumber
-        - contactId
-        - contactName
-        - currency
-        - deliveryDate
-        - discountPaymentDate
-        - discountPaymentDate2
-        - dueDate
-        - journalCode
-        - iban
-        - isPaymentOrder
-        - ledgerName
         - lineItems
-        - notes
-        - number
-        - orderId
-        - paidDate
-        - paymentTermsId
-        - status
-        - totalGrossAmount
-        - vatId
     LineItemResponse:
       type: object
       properties:
         id:
           type: string
+          nullable: true
         accountCode:
           type: string
+          nullable: true
         accountId:
           type: string
+          nullable: true
         accountName:
           type: string
+          nullable: true
         accountNumber:
           type: number
+          nullable: true
         bookingTaxCode:
           type: string
+          nullable: true
         createdDate:
           type: string
+          nullable: true
         description:
           type: string
+          nullable: true
         dimension1:
           type: string
+          nullable: true
         dimension2:
           type: string
+          nullable: true
         discountAmount:
           type: number
+          nullable: true
         discountAmount2:
           type: number
+          nullable: true
         discountPercentage:
           type: number
+          nullable: true
         discountPercentage2:
           type: number
+          nullable: true
         taxCode:
           type: string
+          nullable: true
         taxRatePercentage:
           type: number
+          nullable: true
         totalGrossAmount:
           type: number
+          nullable: true
         totalNetAmount:
           type: number
+          nullable: true
         type:
           type: string
           enum:
             - GOODS
             - SERVICES
+          nullable: true
         updatedDate:
           type: string
+          nullable: true
       required:
         - id
         - accountCode
@@ -11282,29 +11785,36 @@ components:
         - taxRatePercentage
         - totalGrossAmount
         - totalNetAmount
-        - type
         - updatedDate
     BookingProposalResponseDto:
       type: object
       properties:
         id:
           type: string
+          nullable: true
         accountName:
           type: string
+          nullable: true
         addresses:
+          nullable: true
           type: array
           items:
             $ref: '#/components/schemas/BookingProposalAddress'
         bankAccountId:
           type: string
+          nullable: true
         bankAccountNumber:
           type: number
+          nullable: true
         bankCode:
           type: string
+          nullable: true
         bic:
           type: string
+          nullable: true
         bookingProposalDate:
           type: string
+          nullable: true
         bookingType:
           type: string
           enum:
@@ -11317,50 +11827,71 @@ components:
             - BILL_CREDIT_NOTE
             - DOWN_PAYMENT
             - OTHER
+          nullable: true
         contactAccountNumber:
           type: number
+          nullable: true
         contactId:
           type: string
+          nullable: true
         contactName:
           type: string
+          nullable: true
         createdDate:
           type: string
+          nullable: true
         currency:
           type: string
+          nullable: true
         deliveryDate:
           type: string
+          nullable: true
         discountPaymentDate:
           type: string
+          nullable: true
         discountPaymentDate2:
           type: string
+          nullable: true
         dueDate:
           type: string
+          nullable: true
         files:
+          nullable: true
           type: array
           items:
             type: string
         journalCode:
           type: string
+          nullable: true
         iban:
           type: string
+          nullable: true
         isPaymentOrder:
           type: boolean
+          nullable: true
         ledgerName:
           type: string
+          nullable: true
         lineItems:
+          nullable: true
           type: array
           items:
             $ref: '#/components/schemas/LineItemResponse'
         notes:
           type: string
+          nullable: true
         number:
           type: string
+          nullable: true
         orderId:
           type: string
+          nullable: true
         paidDate:
           type: string
+          nullable: true
         paymentTermsId:
           type: string
+          nullable: true
         status:
           type: string
           enum:
@@ -11373,14 +11904,19 @@ components:
             - VOIDED
             - DISPUTED
             - CANCELLED
+          nullable: true
         taskId:
           type: string
+          nullable: true
         totalGrossAmount:
           type: number
+          nullable: true
         updatedDate:
           type: string
+          nullable: true
         vatId:
           type: string
+          nullable: true
       required:
         - id
         - accountName
@@ -11597,7 +12133,6 @@ components:
         - amount
         - bookingDate
         - contraAccountNumber
-        - fileId
         - currency
         - purpose
         - reference
@@ -11606,14 +12141,19 @@ components:
       properties:
         accountNumber:
           type: number
+          nullable: true
         amount:
           type: number
+          nullable: true
         bookingDate:
           type: string
+          nullable: true
         contraAccountNumber:
           type: number
+          nullable: true
         fileId:
           type: string
+          nullable: true
         currency:
           type: string
           enum:
@@ -11773,18 +12313,21 @@ components:
             - ZAR
             - ZMK
             - ZWR
+          nullable: true
         purpose:
           type: string
+          nullable: true
         reference:
           type: string
+          nullable: true
         taskId:
           type: string
+          nullable: true
       required:
         - accountNumber
         - amount
         - bookingDate
         - contraAccountNumber
-        - fileId
         - currency
         - purpose
         - reference
@@ -11794,8 +12337,10 @@ components:
       properties:
         name:
           type: string
+          nullable: true
         categoryName:
           type: string
+          nullable: true
       required:
         - name
         - categoryName
@@ -11804,52 +12349,75 @@ components:
       properties:
         id:
           type: string
+          nullable: true
         accountId:
           type: string
+          nullable: true
         accountNumber:
           type: string
+          nullable: true
         createdDate:
           type: string
+          nullable: true
         deferredEndDate:
           type: string
+          nullable: true
         deferredStartDate:
           type: string
+          nullable: true
         description:
           type: string
+          nullable: true
         dimensions:
+          nullable: true
           type: array
           items:
             $ref: '#/components/schemas/VendorCreditDimensionResponseDto'
         itemId:
           type: string
+          nullable: true
         itemName:
           type: string
+          nullable: true
         quantity:
           type: number
+          nullable: true
         taxCode:
           type: string
+          nullable: true
         taxRatePercentage:
           type: number
+          nullable: true
         totalDiscountAmount:
           type: number
+          nullable: true
         totalDiscountPercentage:
           type: number
+          nullable: true
         totalGrossAmount:
           type: number
+          nullable: true
         totalNetAmount:
           type: number
+          nullable: true
         totalTaxAmount:
           type: number
+          nullable: true
         unitAmount:
           type: number
+          nullable: true
         unitDiscountAmount:
           type: number
+          nullable: true
         unitDiscountPercentage:
           type: number
+          nullable: true
         unitName:
           type: string
+          nullable: true
         updatedDate:
           type: string
+          nullable: true
       required:
         - id
         - accountId
@@ -11879,38 +12447,53 @@ components:
       properties:
         id:
           type: string
+          nullable: true
         accountId:
           type: string
+          nullable: true
         addresses:
+          nullable: true
           type: array
           items:
             $ref: '#/components/schemas/Address'
         contactId:
           type: string
+          nullable: true
         createdDate:
-          type: object
+          type: string
+          nullable: true
         currency:
           type: string
+          nullable: true
         deliveryDate:
           type: string
+          nullable: true
         dueDate:
           type: string
+          nullable: true
         fileId:
           type: string
+          nullable: true
         journalCode:
           type: string
+          nullable: true
         lineItems:
+          nullable: true
           type: array
           items:
             $ref: '#/components/schemas/VendorCreditLineItemResponseDto'
         name:
           type: string
+          nullable: true
         oneLineAddress:
           type: string
+          nullable: true
         paidDate:
-          type: object
+          type: string
+          nullable: true
         paymentTermId:
           type: string
+          nullable: true
         paymentStatus:
           type: string
           enum:
@@ -11925,12 +12508,16 @@ components:
             - PARTIAL_CANCELLATION
             - CANCELED
             - UNKNOWN
+          nullable: true
         paymentDays:
           type: number
+          nullable: true
         reference:
           type: string
+          nullable: true
         shippingDate:
-          type: object
+          type: string
+          nullable: true
         shippingType:
           type: string
           enum:
@@ -11938,6 +12525,7 @@ components:
             - SERVICE_PERIOD
             - DELIVERY
             - DELIVERY_PERIOD
+          nullable: true
         status:
           type: string
           enum:
@@ -11951,6 +12539,7 @@ components:
             - PARTIALLY_OVERDUE
             - OVERDUE
             - VOIDED
+          nullable: true
         taxRule:
           type: string
           enum:
@@ -11969,24 +12558,34 @@ components:
             - OSS_GOODS
             - OSS_ELECTRONIC_SERVICES
             - OSS_SERVICES
+          nullable: true
         taxText:
           type: string
+          nullable: true
         totalDiscountAmount:
           type: number
+          nullable: true
         totalDiscountPercentage:
           type: number
+          nullable: true
         totalGrossAmount:
           type: number
+          nullable: true
         totalNetAmount:
           type: number
+          nullable: true
         totalTaxAmount:
           type: number
+          nullable: true
         updatedDate:
           type: string
+          nullable: true
         vendorCreditDate:
           type: string
+          nullable: true
         vendorCreditNumber:
           type: string
+          nullable: true
       required:
         - id
         - accountId
@@ -12076,28 +12675,6 @@ components:
           type: number
         unitName:
           type: string
-      required:
-        - id
-        - accountId
-        - accountNumber
-        - deferredEndDate
-        - deferredStartDate
-        - description
-        - dimensions
-        - itemId
-        - itemName
-        - quantity
-        - taxCode
-        - taxRatePercentage
-        - totalDiscountAmount
-        - totalDiscountPercentage
-        - totalGrossAmount
-        - totalNetAmount
-        - totalTaxAmount
-        - unitAmount
-        - unitDiscountAmount
-        - unitDiscountPercentage
-        - unitName
     CreateVendorCreditRequestDto:
       type: object
       properties:
@@ -12202,30 +12779,6 @@ components:
         vendorCreditNumber:
           type: string
       required:
-        - accountId
-        - addresses
-        - contactId
-        - currency
-        - deliveryDate
-        - dueDate
-        - journalCode
-        - lineItems
-        - name
-        - oneLineAddress
-        - paidDate
-        - paymentStatus
-        - paymentDays
-        - reference
-        - shippingDate
-        - shippingType
-        - status
-        - taxRule
-        - taxText
-        - totalDiscountAmount
-        - totalDiscountPercentage
-        - totalGrossAmount
-        - totalNetAmount
-        - totalTaxAmount
         - vendorCreditDate
         - vendorCreditNumber
     BookingEntryRequestDto:
@@ -12424,21 +12977,6 @@ components:
           type: string
         fileId:
           type: string
-      required:
-        - accountNumber
-        - amount
-        - bookingDate
-        - bookingTaxCode
-        - bookingType
-        - contraAccountNumber
-        - dimension1
-        - dimension2
-        - currency
-        - debitCreditIndicator
-        - description
-        - documentNumber
-        - dueDate
-        - fileId
     CreateBookingsRequestDto:
       type: object
       properties:
@@ -12458,24 +12996,24 @@ components:
             $ref: '#/components/schemas/BookingEntryRequestDto'
         fiscalYearStartDate:
           type: string
-      required:
-        - accountNumberLength
-        - chartOfAccount
-        - entries
-        - fiscalYearStartDate
     BookingEntryResponseDto:
       type: object
       properties:
         id:
           type: string
+          nullable: true
         accountNumber:
           type: number
+          nullable: true
         amount:
           type: number
+          nullable: true
         bookingDate:
           type: string
+          nullable: true
         bookingTaxCode:
           type: string
+          nullable: true
         bookingType:
           type: string
           enum:
@@ -12483,12 +13021,16 @@ components:
             - ADVANCED_PAYMENT_RECEIVED
             - FINAL_INVOICE
             - OTHER
+          nullable: true
         contraAccountNumber:
           type: number
+          nullable: true
         dimension1:
           type: string
+          nullable: true
         dimension2:
           type: string
+          nullable: true
         currency:
           type: string
           enum:
@@ -12648,19 +13190,25 @@ components:
             - ZAR
             - ZMK
             - ZWR
+          nullable: true
         debitCreditIndicator:
           type: string
           enum:
             - DEBIT
             - CREDIT
+          nullable: true
         description:
           type: string
+          nullable: true
         documentNumber:
           type: string
+          nullable: true
         dueDate:
           type: string
+          nullable: true
         fileId:
           type: string
+          nullable: true
       required:
         - id
         - accountNumber
@@ -12682,8 +13230,10 @@ components:
       properties:
         id:
           type: string
+          nullable: true
         accountNumberLength:
           type: number
+          nullable: true
         chartOfAccount:
           type: string
           enum:
@@ -12692,16 +13242,21 @@ components:
             - SKR42
             - SKR51
             - SKR14
+          nullable: true
         createdDate:
           type: string
+          nullable: true
         entries:
+          nullable: true
           type: array
           items:
             $ref: '#/components/schemas/BookingEntryResponseDto'
         fiscalYearStartDate:
           type: string
+          nullable: true
         taskId:
           type: string
+          nullable: true
       required:
         - id
         - accountNumberLength
@@ -12715,20 +13270,28 @@ components:
       properties:
         id:
           type: string
+          nullable: true
         accountId:
           type: string
+          nullable: true
         code:
           type: string
+          nullable: true
         createdDate:
           type: string
+          nullable: true
         currency:
           type: string
+          nullable: true
         description:
           type: string
+          nullable: true
         type:
           type: string
+          nullable: true
         updatedDate:
           type: string
+          nullable: true
       required:
         - id
         - accountId
@@ -12743,20 +13306,27 @@ components:
       properties:
         id:
           type: string
+          nullable: true
         accountNumberLength:
           type: number
+          nullable: true
         chartOfAccount:
           type: string
+          nullable: true
         createdDate:
           type: string
+          nullable: true
         entries:
+          nullable: true
           type: array
           items:
             $ref: '#/components/schemas/ContactResponseDto'
         fiscalYearStartDate:
           type: string
+          nullable: true
         taskId:
           type: string
+          nullable: true
       required:
         - id
         - accountNumberLength
@@ -13036,13 +13606,6 @@ components:
             - PRIVATE
             - WORK
             - PICKUP
-      required:
-        - addressLine1
-        - addressLine2
-        - city
-        - countryCode
-        - postalCode
-        - type
     CreateBankAccount:
       type: object
       properties:
@@ -13058,13 +13621,6 @@ components:
           type: string
         sepa:
           type: boolean
-      required:
-        - bic
-        - holder
-        - isMainAccount
-        - iban
-        - name
-        - sepa
     CreateContactPersonV2:
       type: object
       properties:
@@ -13082,12 +13638,6 @@ components:
             $ref: '#/components/schemas/PhoneNumber'
         salutation:
           type: string
-      required:
-        - emailAddresses
-        - firstName
-        - lastName
-        - phoneNumbers
-        - salutation
     CreateContactRequestDtoV2:
       type: object
       properties:
@@ -13096,7 +13646,7 @@ components:
         addresses:
           type: array
           items:
-            $ref: '#/components/schemas/CreateContactAddress'
+            $ref: '#/components/schemas/CreateContactAddressV2'
         companyName:
           type: string
         contactPersons:
@@ -13112,7 +13662,7 @@ components:
         emailAddresses:
           type: array
           items:
-            $ref: '#/components/schemas/EmailAddress'
+            $ref: '#/components/schemas/EmailAddressV2'
         isCustomer:
           type: boolean
         isSupplier:
@@ -13122,24 +13672,13 @@ components:
         phoneNumbers:
           type: array
           items:
-            $ref: '#/components/schemas/PhoneNumber'
+            $ref: '#/components/schemas/PhoneNumberV2'
         projectId:
           type: string
         website:
           type: string
       required:
-        - id
-        - addresses
-        - companyName
-        - contactPersons
         - contactType
-        - emailAddresses
-        - isCustomer
-        - isSupplier
-        - number
-        - phoneNumbers
-        - projectId
-        - website
     CreateContactByBatchMetaDataDto:
       type: object
       properties:
@@ -13169,40 +13708,58 @@ components:
       properties:
         id:
           type: string
+          nullable: true
         itemId:
           type: string
+          nullable: true
         createdDate:
           type: string
+          nullable: true
         description:
           type: string
+          nullable: true
         itemName:
           type: string
+          nullable: true
         quantity:
           type: number
+          nullable: true
         taxCode:
           type: string
+          nullable: true
         taxRatePercentage:
           type: number
+          nullable: true
         totalDiscountAmount:
           type: number
+          nullable: true
         totalDiscountPercentage:
           type: number
+          nullable: true
         totalGrossAmount:
           type: number
+          nullable: true
         totalNetAmount:
           type: number
+          nullable: true
         totalTaxAmount:
           type: number
+          nullable: true
         unitAmount:
           type: number
+          nullable: true
         unitDiscountAmount:
           type: number
+          nullable: true
         unitDiscountPercentage:
           type: number
+          nullable: true
         unitName:
           type: string
+          nullable: true
         updatedDate:
           type: string
+          nullable: true
       required:
         - id
         - itemId
@@ -13227,16 +13784,21 @@ components:
       properties:
         id:
           type: string
+          nullable: true
         addresses:
+          nullable: true
           type: array
           items:
             $ref: '#/components/schemas/Address'
         approvalDate:
           type: string
+          nullable: true
         comment:
           type: string
+          nullable: true
         createdDate:
           type: string
+          nullable: true
         currency:
           type: string
           enum:
@@ -13396,34 +13958,53 @@ components:
             - ZAR
             - ZMK
             - ZWR
+          nullable: true
         description:
           type: string
+          nullable: true
         lineItems:
+          nullable: true
           type: array
           items:
             $ref: '#/components/schemas/PurchaseOrderLineItemResponseDto'
         orderDate:
           type: string
+          nullable: true
         paymentTermId:
           type: string
+          nullable: true
         reference:
           type: string
+          nullable: true
         status:
           type: string
+          enum:
+            - OPEN
+            - CLOSED
+            - PARTIALLY_FULFILLED
+            - CANCELED
+          nullable: true
         supplierId:
           type: string
+          nullable: true
         totalDiscountAmount:
           type: number
+          nullable: true
         totalDiscountPercentage:
           type: number
+          nullable: true
         totalGrossAmount:
           type: number
+          nullable: true
         totalNetAmount:
           type: number
+          nullable: true
         totalTaxAmount:
           type: number
+          nullable: true
         updatedDate:
           type: string
+          nullable: true
       required:
         - id
         - addresses
@@ -13473,20 +14054,27 @@ components:
       properties:
         id:
           type: string
+          nullable: true
         accountNumberLength:
           type: number
+          nullable: true
         chartOfAccount:
           type: string
+          nullable: true
         createdDate:
           type: string
+          nullable: true
         entries:
+          nullable: true
           type: array
           items:
             $ref: '#/components/schemas/JournalEntryResponseDto'
         fiscalYearStartDate:
           type: string
+          nullable: true
         taskId:
           type: string
+          nullable: true
       required:
         - id
         - accountNumberLength
@@ -13500,14 +14088,19 @@ components:
       properties:
         id:
           type: string
+          nullable: true
         balance:
           type: number
+          nullable: true
         bankName:
           type: string
+          nullable: true
         bic:
           type: string
+          nullable: true
         createdDate:
           type: string
+          nullable: true
         currency:
           type: string
           enum:
@@ -13667,30 +14260,40 @@ components:
             - ZAR
             - ZMK
             - ZWR
+          nullable: true
         description:
           type: string
+          nullable: true
         fileType:
           type: string
           enum:
             - CSV
             - MT940
+          nullable: true
         iban:
           type: string
+          nullable: true
         name:
           type: string
+          nullable: true
         number:
           type: string
+          nullable: true
         system:
           type: string
+          nullable: true
         status:
           type: string
           enum:
             - ACTIVE
             - ARCHIVED
+          nullable: true
         type:
           type: string
+          nullable: true
         updatedDate:
           type: string
+          nullable: true
       required:
         - id
         - balance
@@ -13962,42 +14565,39 @@ components:
             - YEAR_END_REFLECTION
             - INDIRECT_YEAR_END_COSTING
             - DIRECT_YEAR_END_COSTING
-      required:
-        - balance
-        - bankName
-        - bic
-        - currency
-        - description
-        - fileType
-        - iban
-        - name
-        - number
-        - system
-        - status
-        - type
     GoodsReceiptLineItemResponse:
       type: object
       properties:
         id:
           type: string
+          nullable: true
         createdDate:
           type: string
+          nullable: true
         description:
           type: string
+          nullable: true
         itemId:
           type: string
+          nullable: true
         itemName:
           type: string
+          nullable: true
         projectId:
           type: string
+          nullable: true
         purchaseOrderId:
           type: string
+          nullable: true
         quantityOrdered:
           type: number
+          nullable: true
         quantityReceived:
           type: number
+          nullable: true
         updatedDate:
           type: string
+          nullable: true
       required:
         - id
         - createdDate
@@ -14014,22 +14614,30 @@ components:
       properties:
         id:
           type: string
+          nullable: true
         comment:
           type: string
+          nullable: true
         createdDate:
           type: string
+          nullable: true
         description:
           type: string
+          nullable: true
         lineItems:
+          nullable: true
           type: array
           items:
             $ref: '#/components/schemas/GoodsReceiptLineItemResponse'
         reference:
           type: string
+          nullable: true
         supplierId:
           type: string
+          nullable: true
         updatedDate:
           type: string
+          nullable: true
       required:
         - id
         - comment
@@ -14044,12 +14652,16 @@ components:
       properties:
         id:
           type: string
+          nullable: true
         code:
           type: string
+          nullable: true
         description:
           type: string
+          nullable: true
         type:
           type: string
+          nullable: true
       required:
         - id
         - code
@@ -14066,11 +14678,6 @@ components:
           type: string
         paymentDeadline:
           type: string
-      required:
-        - invoiceRange
-        - discountDeadline
-        - discountDeadline2
-        - paymentDeadline
     CreatePaymentTermRequestDto:
       type: object
       properties:
@@ -14101,36 +14708,30 @@ components:
           type: number
         paymentMethod:
           type: string
-      required:
-        - code
-        - description
-        - discountDays
-        - discountDays2
-        - discountPercentage
-        - discountPercentage2
-        - discountPeriods
-        - dueType
-        - name
-        - paymentDays
-        - paymentMethod
     OpenItemEntryResponseDto:
       type: object
       properties:
         amount:
           type: number
+          nullable: true
         currency:
           type: string
+          nullable: true
         debitCreditIndicator:
           type: string
           enum:
             - DEBIT
             - CREDIT
+          nullable: true
         description:
           type: string
+          nullable: true
         dueDate:
           type: string
+          nullable: true
         postingDate:
           type: string
+          nullable: true
       required:
         - amount
         - currency
@@ -14143,11 +14744,13 @@ components:
       properties:
         amount:
           type: number
+          nullable: true
         debitCreditIndicator:
           type: string
           enum:
             - DEBIT
             - CREDIT
+          nullable: true
       required:
         - amount
         - debitCreditIndicator
@@ -14156,37 +14759,52 @@ components:
       properties:
         id:
           type: string
+          nullable: true
         accountId:
           type: string
+          nullable: true
         accountName:
           type: string
+          nullable: true
         accountNumber:
           type: string
+          nullable: true
         createdDate:
           type: string
+          nullable: true
         currency:
           type: string
+          nullable: true
         documentNumber:
           type: string
+          nullable: true
         entries:
+          nullable: true
           type: array
           items:
             $ref: '#/components/schemas/OpenItemEntryResponseDto'
         openBalance:
-          $ref: '#/components/schemas/Balance'
+          nullable: true
+          allOf:
+            - $ref: '#/components/schemas/Balance'
         postingDate:
           type: string
+          nullable: true
         totalCreditAmount:
           type: number
+          nullable: true
         totalDebitAmount:
           type: number
+          nullable: true
         type:
           type: string
           enum:
             - BILL
             - INVOICE
+          nullable: true
         updatedDate:
           type: string
+          nullable: true
       required:
         - id
         - accountId
@@ -14207,8 +14825,11 @@ components:
       properties:
         month:
           type: number
+          nullable: true
         balance:
-          $ref: '#/components/schemas/Balance'
+          nullable: true
+          allOf:
+            - $ref: '#/components/schemas/Balance'
       required:
         - month
         - balance
@@ -14217,26 +14838,38 @@ components:
       properties:
         accountCode:
           type: string
+          nullable: true
         accountName:
           type: string
+          nullable: true
         accountNumber:
           type: string
+          nullable: true
         balance:
-          $ref: '#/components/schemas/Balance'
+          nullable: true
+          allOf:
+            - $ref: '#/components/schemas/Balance'
         createdDate:
           type: string
+          nullable: true
         monthlyValues:
+          nullable: true
           type: array
           items:
             $ref: '#/components/schemas/MonthlyValue'
         openingBalance:
-          $ref: '#/components/schemas/Balance'
+          nullable: true
+          allOf:
+            - $ref: '#/components/schemas/Balance'
         totalCreditAmount:
           type: number
+          nullable: true
         totalDebitAmount:
           type: number
+          nullable: true
         updatedDate:
           type: string
+          nullable: true
       required:
         - accountCode
         - accountName
@@ -14253,40 +14886,58 @@ components:
       properties:
         id:
           type: string
+          nullable: true
         createdDate:
           type: string
+          nullable: true
         description:
           type: string
+          nullable: true
         itemId:
           type: string
+          nullable: true
         itemName:
           type: string
+          nullable: true
         quantity:
           type: number
+          nullable: true
         taxCode:
           type: string
+          nullable: true
         taxRatePercentage:
           type: number
+          nullable: true
         totalDiscountAmount:
           type: number
+          nullable: true
         totalDiscountPercentage:
           type: number
+          nullable: true
         totalGrossAmount:
           type: number
+          nullable: true
         totalNetAmount:
           type: number
+          nullable: true
         totalTaxAmount:
           type: number
+          nullable: true
         unitAmount:
           type: number
+          nullable: true
         unitDiscountAmount:
           type: number
+          nullable: true
         unitDiscountPercentage:
           type: number
+          nullable: true
         unitName:
           type: string
+          nullable: true
         updatedDate:
           type: string
+          nullable: true
       required:
         - id
         - createdDate
@@ -14311,24 +14962,32 @@ components:
       properties:
         id:
           type: string
+          nullable: true
         addresses:
+          nullable: true
           type: array
           items:
             $ref: '#/components/schemas/Address'
         contactId:
           type: string
+          nullable: true
         createdDate:
           type: string
+          nullable: true
         creditNoteDate:
           type: string
+          nullable: true
         creditNoteLines:
+          nullable: true
           type: array
           items:
             $ref: '#/components/schemas/CreditNoteLinesDto'
         creditNoteNumber:
           type: string
+          nullable: true
         currency:
           type: string
+          nullable: true
         paymentStatus:
           type: string
           enum:
@@ -14343,10 +15002,13 @@ components:
             - PARTIAL_CANCELLATION
             - CANCELED
             - UNKNOWN
+          nullable: true
         paymentTermId:
           type: string
+          nullable: true
         reference:
           type: string
+          nullable: true
         status:
           type: string
           enum:
@@ -14360,18 +15022,25 @@ components:
             - PARTIALLY_OVERDUE
             - OVERDUE
             - VOIDED
+          nullable: true
         totalDiscountAmount:
           type: number
+          nullable: true
         totalDiscountPercentage:
           type: number
+          nullable: true
         totalGrossAmount:
           type: number
+          nullable: true
         totalNetAmount:
           type: number
+          nullable: true
         totalTaxAmount:
           type: number
+          nullable: true
         updatedDate:
           type: string
+          nullable: true
       required:
         - id
         - addresses
@@ -14685,16 +15354,63 @@ components:
             - YEAR_END_REFLECTION
             - INDIRECT_YEAR_END_COSTING
             - DIRECT_YEAR_END_COSTING
+    CreateContactPerson:
+      type: object
+      properties:
+        emailAddresses:
+          type: array
+          items:
+            type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        phoneNumbers:
+          type: array
+          items:
+            type: string
+        salutation:
+          type: string
       required:
-        - balance
-        - class
-        - code
-        - currency
-        - description
-        - name
+        - emailAddresses
+        - firstName
+        - lastName
+    CreateEmailAddress:
+      type: object
+      properties:
+        email:
+          type: string
+        type:
+          type: string
+          enum:
+            - BUSINESS
+            - PRIVATE
+            - OFFICE
+            - INVOICE
+            - PAYMENT
+            - OTHER
+      required:
+        - email
+        - type
+    CreatePhoneNumber:
+      type: object
+      properties:
+        number:
+          type: string
+        type:
+          type: string
+          enum:
+            - BUSINESS
+            - MOBILE
+            - OFFICE
+            - FAX
+            - PRIVATE
+            - LANDLINE
+            - SKYPE
+            - WHATSAPP
+            - OTHER
+      required:
         - number
-        - parentAccountId
-        - status
         - type
     CreateContactRequestDto:
       type: object
@@ -14710,7 +15426,7 @@ components:
         contactPersons:
           type: array
           items:
-            $ref: '#/components/schemas/ContactPerson'
+            $ref: '#/components/schemas/CreateContactPerson'
         contactType:
           type: string
           enum:
@@ -14721,13 +15437,13 @@ components:
         emailAddresses:
           type: array
           items:
-            $ref: '#/components/schemas/EmailAddress'
+            $ref: '#/components/schemas/CreateEmailAddress'
         number:
           type: string
         phoneNumbers:
           type: array
           items:
-            $ref: '#/components/schemas/PhoneNumber'
+            $ref: '#/components/schemas/CreatePhoneNumber'
         projectId:
           type: string
         role:
@@ -14739,18 +15455,295 @@ components:
         vatId:
           type: string
       required:
-        - addresses
-        - bankAccount
-        - companyName
-        - contactPersons
         - contactType
-        - documentId
-        - emailAddresses
-        - number
-        - phoneNumbers
-        - projectId
-        - role
-        - vatId
+    PatchContactPerson:
+      type: object
+      properties:
+        salutation:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        emailAddresses:
+          type: array
+          items:
+            type: string
+        phoneNumbers:
+          type: array
+          items:
+            type: string
+    PatchContactAddress:
+      type: object
+      properties:
+        addressLine1:
+          type: string
+        addressLine2:
+          type: string
+        postalCode:
+          type: string
+        city:
+          type: string
+        countryCode:
+          type: string
+          enum:
+            - AD
+            - AE
+            - AF
+            - AG
+            - AI
+            - AL
+            - AM
+            - AO
+            - AQ
+            - AR
+            - AS
+            - AT
+            - AU
+            - AW
+            - AX
+            - AZ
+            - BA
+            - BB
+            - BD
+            - BE
+            - BF
+            - BG
+            - BH
+            - BI
+            - BJ
+            - BL
+            - BM
+            - BN
+            - BO
+            - BQ
+            - BR
+            - BS
+            - BT
+            - BV
+            - BW
+            - BY
+            - BZ
+            - CA
+            - CC
+            - CD
+            - CF
+            - CG
+            - CH
+            - CI
+            - CK
+            - CL
+            - CM
+            - CN
+            - CO
+            - CR
+            - CU
+            - CV
+            - CW
+            - CX
+            - CY
+            - CZ
+            - DE
+            - DJ
+            - DK
+            - DM
+            - DO
+            - DZ
+            - EC
+            - EE
+            - EG
+            - EH
+            - ER
+            - ES
+            - ET
+            - FI
+            - FJ
+            - FK
+            - FM
+            - FO
+            - FR
+            - GA
+            - GB
+            - GD
+            - GE
+            - GF
+            - GG
+            - GH
+            - GI
+            - GL
+            - GM
+            - GN
+            - GP
+            - GQ
+            - GR
+            - GS
+            - GT
+            - GU
+            - GW
+            - GY
+            - HK
+            - HM
+            - HN
+            - HR
+            - HT
+            - HU
+            - ID
+            - IE
+            - IL
+            - IM
+            - IN
+            - IO
+            - IQ
+            - IR
+            - IS
+            - IT
+            - JE
+            - JM
+            - JO
+            - JP
+            - KE
+            - KG
+            - KH
+            - KI
+            - KM
+            - KN
+            - KP
+            - KR
+            - KW
+            - KY
+            - KZ
+            - LA
+            - LB
+            - LC
+            - LI
+            - LK
+            - LR
+            - LS
+            - LT
+            - LU
+            - LV
+            - LY
+            - MA
+            - MC
+            - MD
+            - ME
+            - MF
+            - MG
+            - MH
+            - MK
+            - ML
+            - MM
+            - MN
+            - MO
+            - MP
+            - MQ
+            - MR
+            - MS
+            - MT
+            - MU
+            - MV
+            - MW
+            - MX
+            - MY
+            - MZ
+            - NA
+            - NC
+            - NE
+            - NF
+            - NG
+            - NI
+            - NL
+            - NO
+            - NP
+            - NR
+            - NU
+            - NZ
+            - OM
+            - PA
+            - PE
+            - PF
+            - PG
+            - PH
+            - PK
+            - PL
+            - PM
+            - PN
+            - PR
+            - PT
+            - PW
+            - PY
+            - QA
+            - RE
+            - RO
+            - RS
+            - RU
+            - RW
+            - SA
+            - SB
+            - SC
+            - SD
+            - SE
+            - SG
+            - SH
+            - SI
+            - SJ
+            - SK
+            - SL
+            - SM
+            - SN
+            - SO
+            - SR
+            - SS
+            - ST
+            - SV
+            - SX
+            - SY
+            - SZ
+            - TC
+            - TD
+            - TF
+            - TG
+            - TH
+            - TJ
+            - TK
+            - TL
+            - TM
+            - TN
+            - TO
+            - TR
+            - TT
+            - TV
+            - TW
+            - TZ
+            - UA
+            - UG
+            - UM
+            - US
+            - UY
+            - UZ
+            - VA
+            - VC
+            - VE
+            - VG
+            - VI
+            - VN
+            - VU
+            - WF
+            - WS
+            - YE
+            - YT
+            - ZA
+            - ZM
+            - ZW
+        type:
+          type: string
+          enum:
+            - BILLING
+            - DELIVERY
+            - EMPTY
+            - PRIVATE
+            - WORK
+            - PICKUP
     bankAccount:
       type: object
       properties:
@@ -14762,11 +15755,6 @@ components:
           type: string
         sepa:
           type: boolean
-      required:
-        - iban
-        - bic
-        - holder
-        - sepa
     PatchContactRequestDto:
       type: object
       properties:
@@ -14780,32 +15768,331 @@ components:
         contactPersons:
           type: array
           items:
-            $ref: '#/components/schemas/ContactPerson'
+            $ref: '#/components/schemas/PatchContactPerson'
         addresses:
           type: array
           items:
-            $ref: '#/components/schemas/ContactAddress'
+            $ref: '#/components/schemas/PatchContactAddress'
         emailAddresses:
           type: array
           items:
-            $ref: '#/components/schemas/EmailAddress'
+            $ref: '#/components/schemas/CreateEmailAddress'
         phoneNumbers:
           type: array
           items:
-            $ref: '#/components/schemas/PhoneNumber'
+            $ref: '#/components/schemas/CreatePhoneNumber'
         bankAccount:
           $ref: '#/components/schemas/bankAccount'
         projectId:
           type: string
+    CreateContactAddressV2:
+      type: object
+      properties:
+        addressLine1:
+          type: string
+        addressLine2:
+          type: string
+        city:
+          type: string
+        countryCode:
+          type: string
+          enum:
+            - AD
+            - AE
+            - AF
+            - AG
+            - AI
+            - AL
+            - AM
+            - AO
+            - AQ
+            - AR
+            - AS
+            - AT
+            - AU
+            - AW
+            - AX
+            - AZ
+            - BA
+            - BB
+            - BD
+            - BE
+            - BF
+            - BG
+            - BH
+            - BI
+            - BJ
+            - BL
+            - BM
+            - BN
+            - BO
+            - BQ
+            - BR
+            - BS
+            - BT
+            - BV
+            - BW
+            - BY
+            - BZ
+            - CA
+            - CC
+            - CD
+            - CF
+            - CG
+            - CH
+            - CI
+            - CK
+            - CL
+            - CM
+            - CN
+            - CO
+            - CR
+            - CU
+            - CV
+            - CW
+            - CX
+            - CY
+            - CZ
+            - DE
+            - DJ
+            - DK
+            - DM
+            - DO
+            - DZ
+            - EC
+            - EE
+            - EG
+            - EH
+            - ER
+            - ES
+            - ET
+            - FI
+            - FJ
+            - FK
+            - FM
+            - FO
+            - FR
+            - GA
+            - GB
+            - GD
+            - GE
+            - GF
+            - GG
+            - GH
+            - GI
+            - GL
+            - GM
+            - GN
+            - GP
+            - GQ
+            - GR
+            - GS
+            - GT
+            - GU
+            - GW
+            - GY
+            - HK
+            - HM
+            - HN
+            - HR
+            - HT
+            - HU
+            - ID
+            - IE
+            - IL
+            - IM
+            - IN
+            - IO
+            - IQ
+            - IR
+            - IS
+            - IT
+            - JE
+            - JM
+            - JO
+            - JP
+            - KE
+            - KG
+            - KH
+            - KI
+            - KM
+            - KN
+            - KP
+            - KR
+            - KW
+            - KY
+            - KZ
+            - LA
+            - LB
+            - LC
+            - LI
+            - LK
+            - LR
+            - LS
+            - LT
+            - LU
+            - LV
+            - LY
+            - MA
+            - MC
+            - MD
+            - ME
+            - MF
+            - MG
+            - MH
+            - MK
+            - ML
+            - MM
+            - MN
+            - MO
+            - MP
+            - MQ
+            - MR
+            - MS
+            - MT
+            - MU
+            - MV
+            - MW
+            - MX
+            - MY
+            - MZ
+            - NA
+            - NC
+            - NE
+            - NF
+            - NG
+            - NI
+            - NL
+            - NO
+            - NP
+            - NR
+            - NU
+            - NZ
+            - OM
+            - PA
+            - PE
+            - PF
+            - PG
+            - PH
+            - PK
+            - PL
+            - PM
+            - PN
+            - PR
+            - PT
+            - PW
+            - PY
+            - QA
+            - RE
+            - RO
+            - RS
+            - RU
+            - RW
+            - SA
+            - SB
+            - SC
+            - SD
+            - SE
+            - SG
+            - SH
+            - SI
+            - SJ
+            - SK
+            - SL
+            - SM
+            - SN
+            - SO
+            - SR
+            - SS
+            - ST
+            - SV
+            - SX
+            - SY
+            - SZ
+            - TC
+            - TD
+            - TF
+            - TG
+            - TH
+            - TJ
+            - TK
+            - TL
+            - TM
+            - TN
+            - TO
+            - TR
+            - TT
+            - TV
+            - TW
+            - TZ
+            - UA
+            - UG
+            - UM
+            - US
+            - UY
+            - UZ
+            - VA
+            - VC
+            - VE
+            - VG
+            - VI
+            - VN
+            - VU
+            - WF
+            - WS
+            - YE
+            - YT
+            - ZA
+            - ZM
+            - ZW
+        postalCode:
+          type: string
+        type:
+          type: string
+          enum:
+            - BILLING
+            - DELIVERY
+            - PRIVATE
+            - WORK
+            - PICKUP
+    EmailAddressV2:
+      type: object
+      properties:
+        email:
+          type: string
+          nullable: true
+        type:
+          type: string
+          enum:
+            - BUSINESS
+            - PRIVATE
+            - OFFICE
+            - INVOICE
+            - PAYMENT
+            - OTHER
+          nullable: true
       required:
-        - contactType
-        - companyName
-        - contactPersons
-        - addresses
-        - emailAddresses
-        - phoneNumbers
-        - bankAccount
-        - projectId
+        - email
+        - type
+    PhoneNumberV2:
+      type: object
+      properties:
+        number:
+          type: string
+          nullable: true
+        type:
+          type: string
+          enum:
+            - BUSINESS
+            - MOBILE
+            - OFFICE
+            - FAX
+            - PRIVATE
+            - OTHER
+          nullable: true
+      required:
+        - number
+        - type
     CreateContactPersonDtoV2:
       type: object
       properties:
@@ -14814,7 +16101,7 @@ components:
         emailAddresses:
           type: array
           items:
-            $ref: '#/components/schemas/EmailAddress'
+            $ref: '#/components/schemas/EmailAddressV2'
         firstName:
           type: string
         lastName:
@@ -14822,16 +16109,24 @@ components:
         phoneNumbers:
           type: array
           items:
-            $ref: '#/components/schemas/PhoneNumber'
+            $ref: '#/components/schemas/PhoneNumberV2'
         salutation:
           type: string
-      required:
-        - id
-        - emailAddresses
-        - firstName
-        - lastName
-        - phoneNumbers
-        - salutation
+    CreateAddress:
+      type: object
+      properties:
+        addressLine1:
+          type: string
+        addressLine2:
+          type: string
+        city:
+          type: string
+        postalCode:
+          type: string
+        countryCode:
+          type: string
+        type:
+          type: string
     InvoiceDimensionRequestDto:
       type: object
       properties:
@@ -14841,10 +16136,6 @@ components:
           type: string
         name:
           type: string
-      required:
-        - id
-        - categoryName
-        - name
     CreateLineItemRequestDto:
       type: object
       properties:
@@ -14881,21 +16172,7 @@ components:
         unitName:
           type: string
       required:
-        - accountCode
-        - accountId
-        - description
-        - dimensions
-        - discountItemPercentage
-        - grossAmount
-        - itemId
-        - name
         - quantity
-        - taxCode
-        - taxRatePercentage
-        - taxType
-        - type
-        - unitAmount
-        - unitName
     CreateInvoiceRequestDto:
       type: object
       properties:
@@ -14904,7 +16181,7 @@ components:
         addresses:
           type: array
           items:
-            $ref: '#/components/schemas/Address'
+            $ref: '#/components/schemas/CreateAddress'
         contactId:
           type: string
         currency:
@@ -14992,32 +16269,27 @@ components:
         taxText:
           type: string
       required:
-        - invoiceId
-        - addresses
-        - contactId
-        - currency
-        - discountPercentage
-        - dueDate
-        - fileId
-        - grossTotalAmount
         - invoiceDate
-        - invoiceNumber
-        - invoiceType
-        - journalCode
-        - lineAmountTypes
         - lineItems
-        - name
-        - oneLineAddress
-        - paidDate
-        - paymentTermDuration
-        - paymentTermId
-        - reference
-        - shippingDate
-        - shippingType
-        - shippingEndDate
-        - status
-        - taxRule
-        - taxText
+    PatchAddress:
+      type: object
+      properties:
+        addressLine1:
+          type: string
+        addressLine2:
+          type: string
+        city:
+          type: string
+        postalCode:
+          type: string
+        countryCode:
+          type: string
+        type:
+          type: string
+          enum:
+            - BILLING
+            - DELIVERY
+            - SELLING
     PatchLineItemRequest:
       type: object
       properties:
@@ -15062,21 +16334,6 @@ components:
           type: number
       required:
         - lineItemId
-        - itemId
-        - unitName
-        - type
-        - quantity
-        - taxRatePercentage
-        - unitAmount
-        - grossAmount
-        - taxCode
-        - taxType
-        - description
-        - name
-        - accountCode
-        - accountId
-        - dimensions
-        - discountItemPercentage
     PatchInvoiceRequestDto:
       type: object
       properties:
@@ -15117,7 +16374,7 @@ components:
         addresses:
           type: array
           items:
-            $ref: '#/components/schemas/Address'
+            $ref: '#/components/schemas/PatchAddress'
         taxRule:
           type: string
           enum:
@@ -15170,31 +16427,6 @@ components:
           type: string
         paymentTermDuration:
           type: number
-      required:
-        - invoiceId
-        - contactId
-        - name
-        - reference
-        - currency
-        - invoiceDate
-        - journalCode
-        - paymentTermId
-        - fileId
-        - status
-        - invoiceType
-        - oneLineAddress
-        - addresses
-        - taxRule
-        - taxText
-        - lineItems
-        - discountPercentage
-        - shippingType
-        - shippingDate
-        - shippingEndDate
-        - lineAmountTypes
-        - dueDate
-        - paidDate
-        - paymentTermDuration
     CreateItemRequestDto:
       type: object
       properties:
@@ -15250,21 +16482,6 @@ components:
           type: number
         unitSalesPrice:
           type: number
-      required:
-        - assetAccountId
-        - expenseAccountId
-        - incomeAccountId
-        - inventoryStartDate
-        - itemNumber
-        - name
-        - priceIncludesTax
-        - stockCount
-        - taxCode
-        - taxRatePercentage
-        - type
-        - unitName
-        - unitPurchasePrice
-        - unitSalesPrice
     PatchItemRequestDto:
       type: object
       properties:
@@ -15308,15 +16525,6 @@ components:
           type: number
         priceIncludesTax:
           type: boolean
-      required:
-        - name
-        - itemNumber
-        - stockCount
-        - type
-        - unitName
-        - unitPurchasePrice
-        - unitSalesPrice
-        - priceIncludesTax
     PatchLineItemRequestDto:
       type: object
       properties:
@@ -15351,20 +16559,6 @@ components:
           type: number
         unitName:
           type: string
-      required:
-        - accountCode
-        - description
-        - discountItemPercentage
-        - grossAmount
-        - itemId
-        - name
-        - quantity
-        - taxCode
-        - taxRatePercentage
-        - taxType
-        - type
-        - unitAmount
-        - unitName
     CreatePaymentLine:
       type: object
       properties:
@@ -15384,15 +16578,6 @@ components:
           type: string
         paymentDate:
           type: string
-      required:
-        - accountId
-        - amount
-        - contactName
-        - customerId
-        - description
-        - invoiceId
-        - supplierId
-        - paymentDate
     CreatePaymentRequestDto:
       type: object
       properties:
@@ -15400,6 +16585,10 @@ components:
           type: string
         documentType:
           type: string
+          enum:
+            - INVOICE
+            - BILL
+            - BOOKING_PROPOSAL
         exchangeRate:
           type: number
         journalCode:
@@ -15410,13 +16599,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/CreatePaymentLine'
-      required:
-        - currency
-        - documentType
-        - exchangeRate
-        - journalCode
-        - paymentType
-        - paymentLines
     CreateEventSubscriptionRequestDto:
       type: object
       properties:
@@ -15484,28 +16666,6 @@ components:
           type: number
         unitName:
           type: string
-      required:
-        - id
-        - accountId
-        - accountNumber
-        - deferredEndDate
-        - deferredStartDate
-        - description
-        - dimensions
-        - itemId
-        - itemName
-        - quantity
-        - taxCode
-        - taxRatePercentage
-        - totalDiscountAmount
-        - totalDiscountPercentage
-        - totalGrossAmount
-        - totalNetAmount
-        - totalTaxAmount
-        - unitAmount
-        - unitDiscountAmount
-        - unitDiscountPercentage
-        - unitName
     CreateBillRequestDto:
       type: object
       properties:
@@ -15613,42 +16773,15 @@ components:
           type: number
         totalTaxAmount:
           type: number
-      required:
-        - accountId
-        - addresses
-        - billDate
-        - billNumber
-        - contactId
-        - currency
-        - deliveryDate
-        - dueDate
-        - fileId
-        - journalCode
-        - lineItems
-        - name
-        - oneLineAddress
-        - paidDate
-        - paymentTermCode
-        - paymentStatus
-        - paymentDays
-        - reference
-        - shippingDate
-        - shippingType
-        - status
-        - taxRule
-        - taxText
-        - totalDiscountAmount
-        - totalDiscountPercentage
-        - totalGrossAmount
-        - totalNetAmount
-        - totalTaxAmount
     DimensionMetaResponseDto:
       type: object
       properties:
         description:
           type: string
+          nullable: true
         dimension:
           type: string
+          nullable: true
       required:
         - description
         - dimension
@@ -15657,20 +16790,28 @@ components:
       properties:
         id:
           type: string
+          nullable: true
         code:
           type: string
+          nullable: true
         createdDate:
           type: string
+          nullable: true
         description:
           type: string
+          nullable: true
         dimension:
           type: string
+          nullable: true
         name:
           type: string
+          nullable: true
         status:
           type: string
+          nullable: true
         updatedDate:
           type: string
+          nullable: true
       required:
         - id
         - code
@@ -15682,7 +16823,9 @@ components:
         - updatedDate
     BookingProposalAddressRequestDtoV2:
       type: object
-      properties: {}
+      properties:
+        city:
+          type: string
     BankAccountRequestCommonDtoV2:
       type: object
       properties:
@@ -15696,12 +16839,6 @@ components:
           type: string
         number:
           type: number
-      required:
-        - id
-        - bic
-        - code
-        - iban
-        - number
     ContactRequestCommonDtoV2:
       type: object
       properties:
@@ -15711,10 +16848,6 @@ components:
           type: number
         name:
           type: string
-      required:
-        - id
-        - accountNumber
-        - name
     AccountRequestCommonDtoV2:
       type: object
       properties:
@@ -15726,11 +16859,6 @@ components:
           type: string
         number:
           type: number
-      required:
-        - id
-        - code
-        - name
-        - number
     DimensionRequestCommonDtoV2:
       type: object
       properties:
@@ -15742,11 +16870,6 @@ components:
           type: string
         name:
           type: string
-      required:
-        - id
-        - code
-        - dimension
-        - name
     BookingProposalLineItemRequestDtoV2:
       type: object
       properties:
@@ -15781,20 +16904,6 @@ components:
           enum:
             - PRODUCT
             - SERVICE
-      required:
-        - id
-        - account
-        - description
-        - dimensions
-        - discountAmount
-        - discountAmount2
-        - discountPercentage
-        - discountPercentage2
-        - taxCode
-        - taxRatePercentage
-        - totalGrossAmount
-        - totalNetAmount
-        - type
     CreateBookingProposalRequestDtoV2:
       type: object
       properties:
@@ -15856,45 +16965,32 @@ components:
           type: number
         vatId:
           type: string
-      required:
-        - id
-        - addresses
-        - bankAccount
-        - bookingProposalDate
-        - contact
-        - currency
-        - deliveryDate
-        - discountPaymentDate
-        - discountPaymentDate2
-        - dueDate
-        - journalCode
-        - isPaymentOrder
-        - ledgerName
-        - lineItems
-        - notes
-        - number
-        - orderId
-        - paidDate
-        - paymentTermId
-        - status
-        - totalGrossAmount
-        - vatId
     BookingProposalAddressResponseDtoV2:
       type: object
-      properties: {}
+      properties:
+        city:
+          type: string
+          nullable: true
+      required:
+        - city
     BankAccountResponseCommonDtoV2:
       type: object
       properties:
         id:
           type: string
+          nullable: true
         bic:
           type: string
+          nullable: true
         code:
           type: string
+          nullable: true
         iban:
           type: string
+          nullable: true
         number:
           type: number
+          nullable: true
       required:
         - id
         - bic
@@ -15906,10 +17002,13 @@ components:
       properties:
         id:
           type: string
+          nullable: true
         accountNumber:
           type: number
+          nullable: true
         name:
           type: string
+          nullable: true
       required:
         - id
         - accountNumber
@@ -15919,12 +17018,16 @@ components:
       properties:
         id:
           type: string
+          nullable: true
         code:
           type: string
+          nullable: true
         name:
           type: string
+          nullable: true
         number:
           type: number
+          nullable: true
       required:
         - id
         - code
@@ -15935,12 +17038,16 @@ components:
       properties:
         id:
           type: string
+          nullable: true
         code:
           type: string
+          nullable: true
         dimension:
           type: string
+          nullable: true
         name:
           type: string
+          nullable: true
       required:
         - id
         - code
@@ -15951,39 +17058,55 @@ components:
       properties:
         id:
           type: string
+          nullable: true
         account:
-          $ref: '#/components/schemas/AccountResponseCommonDtoV2'
+          nullable: true
+          allOf:
+            - $ref: '#/components/schemas/AccountResponseCommonDtoV2'
         createdDate:
           type: string
+          nullable: true
         description:
           type: string
+          nullable: true
         dimensions:
+          nullable: true
           type: array
           items:
             $ref: '#/components/schemas/DimensionResponseCommonDtoV2'
         discountAmount:
           type: number
+          nullable: true
         discountAmount2:
           type: number
+          nullable: true
         discountPercentage:
           type: number
+          nullable: true
         discountPercentage2:
           type: number
+          nullable: true
         taxCode:
           type: string
+          nullable: true
         taxRatePercentage:
           type: number
+          nullable: true
         totalGrossAmount:
           type: number
+          nullable: true
         totalNetAmount:
           type: number
+          nullable: true
         type:
           type: string
           enum:
             - PRODUCT
             - SERVICE
+          nullable: true
         updatedDate:
           type: string
+          nullable: true
       required:
         - id
         - account
@@ -16005,14 +17128,19 @@ components:
       properties:
         id:
           type: string
+          nullable: true
         addresses:
+          nullable: true
           type: array
           items:
             $ref: '#/components/schemas/BookingProposalAddressResponseDtoV2'
         bankAccount:
-          $ref: '#/components/schemas/BankAccountResponseCommonDtoV2'
+          nullable: true
+          allOf:
+            - $ref: '#/components/schemas/BankAccountResponseCommonDtoV2'
         bookingProposalDate:
           type: string
+          nullable: true
         bookingType:
           type: string
           enum:
@@ -16024,44 +17152,63 @@ components:
             - EXPENSE
             - DOWN_PAYMENT
             - OTHER
+          nullable: true
         contact:
-          $ref: '#/components/schemas/ContactResponseCommonDtoV2'
+          nullable: true
+          allOf:
+            - $ref: '#/components/schemas/ContactResponseCommonDtoV2'
         createdDate:
           type: string
+          nullable: true
         currency:
           type: string
+          nullable: true
         deliveryDate:
           type: string
+          nullable: true
         discountPaymentDate:
           type: string
+          nullable: true
         discountPaymentDate2:
           type: string
+          nullable: true
         dueDate:
           type: string
+          nullable: true
         files:
+          nullable: true
           type: array
           items:
             type: string
         journalCode:
           type: string
+          nullable: true
         isPaymentOrder:
           type: boolean
+          nullable: true
         ledgerName:
           type: string
+          nullable: true
         lineItems:
+          nullable: true
           type: array
           items:
             $ref: '#/components/schemas/BookingProposalLineItemResponseDtoV2'
         notes:
           type: string
+          nullable: true
         number:
           type: string
+          nullable: true
         orderId:
           type: string
+          nullable: true
         paidDate:
           type: string
+          nullable: true
         paymentTermId:
           type: string
+          nullable: true
         status:
           type: string
           enum:
@@ -16074,12 +17221,16 @@ components:
             - VOIDED
             - DISPUTED
             - CANCELLED
+          nullable: true
         totalGrossAmount:
           type: number
+          nullable: true
         updatedDate:
           type: string
+          nullable: true
         vatId:
           type: string
+          nullable: true
       required:
         - id
         - addresses
@@ -16107,27 +17258,315 @@ components:
         - totalGrossAmount
         - updatedDate
         - vatId
+    ContactAddressV2:
+      type: object
+      properties:
+        addressLine1:
+          type: string
+          nullable: true
+        addressLine2:
+          type: string
+          nullable: true
+        city:
+          type: string
+          nullable: true
+        countryCode:
+          type: string
+          enum:
+            - AD
+            - AE
+            - AF
+            - AG
+            - AI
+            - AL
+            - AM
+            - AO
+            - AQ
+            - AR
+            - AS
+            - AT
+            - AU
+            - AW
+            - AX
+            - AZ
+            - BA
+            - BB
+            - BD
+            - BE
+            - BF
+            - BG
+            - BH
+            - BI
+            - BJ
+            - BL
+            - BM
+            - BN
+            - BO
+            - BQ
+            - BR
+            - BS
+            - BT
+            - BV
+            - BW
+            - BY
+            - BZ
+            - CA
+            - CC
+            - CD
+            - CF
+            - CG
+            - CH
+            - CI
+            - CK
+            - CL
+            - CM
+            - CN
+            - CO
+            - CR
+            - CU
+            - CV
+            - CW
+            - CX
+            - CY
+            - CZ
+            - DE
+            - DJ
+            - DK
+            - DM
+            - DO
+            - DZ
+            - EC
+            - EE
+            - EG
+            - EH
+            - ER
+            - ES
+            - ET
+            - FI
+            - FJ
+            - FK
+            - FM
+            - FO
+            - FR
+            - GA
+            - GB
+            - GD
+            - GE
+            - GF
+            - GG
+            - GH
+            - GI
+            - GL
+            - GM
+            - GN
+            - GP
+            - GQ
+            - GR
+            - GS
+            - GT
+            - GU
+            - GW
+            - GY
+            - HK
+            - HM
+            - HN
+            - HR
+            - HT
+            - HU
+            - ID
+            - IE
+            - IL
+            - IM
+            - IN
+            - IO
+            - IQ
+            - IR
+            - IS
+            - IT
+            - JE
+            - JM
+            - JO
+            - JP
+            - KE
+            - KG
+            - KH
+            - KI
+            - KM
+            - KN
+            - KP
+            - KR
+            - KW
+            - KY
+            - KZ
+            - LA
+            - LB
+            - LC
+            - LI
+            - LK
+            - LR
+            - LS
+            - LT
+            - LU
+            - LV
+            - LY
+            - MA
+            - MC
+            - MD
+            - ME
+            - MF
+            - MG
+            - MH
+            - MK
+            - ML
+            - MM
+            - MN
+            - MO
+            - MP
+            - MQ
+            - MR
+            - MS
+            - MT
+            - MU
+            - MV
+            - MW
+            - MX
+            - MY
+            - MZ
+            - NA
+            - NC
+            - NE
+            - NF
+            - NG
+            - NI
+            - NL
+            - NO
+            - NP
+            - NR
+            - NU
+            - NZ
+            - OM
+            - PA
+            - PE
+            - PF
+            - PG
+            - PH
+            - PK
+            - PL
+            - PM
+            - PN
+            - PR
+            - PT
+            - PW
+            - PY
+            - QA
+            - RE
+            - RO
+            - RS
+            - RU
+            - RW
+            - SA
+            - SB
+            - SC
+            - SD
+            - SE
+            - SG
+            - SH
+            - SI
+            - SJ
+            - SK
+            - SL
+            - SM
+            - SN
+            - SO
+            - SR
+            - SS
+            - ST
+            - SV
+            - SX
+            - SY
+            - SZ
+            - TC
+            - TD
+            - TF
+            - TG
+            - TH
+            - TJ
+            - TK
+            - TL
+            - TM
+            - TN
+            - TO
+            - TR
+            - TT
+            - TV
+            - TW
+            - TZ
+            - UA
+            - UG
+            - UM
+            - US
+            - UY
+            - UZ
+            - VA
+            - VC
+            - VE
+            - VG
+            - VI
+            - VN
+            - VU
+            - WF
+            - WS
+            - YE
+            - YT
+            - ZA
+            - ZM
+            - ZW
+          nullable: true
+        postalCode:
+          type: string
+          nullable: true
+        type:
+          type: string
+          enum:
+            - BILLING
+            - DELIVERY
+            - PRIVATE
+            - WORK
+            - PICKUP
+      required:
+        - addressLine1
+        - addressLine2
+        - city
+        - countryCode
+        - postalCode
+        - type
     ContactPersonDtoV2:
       type: object
       properties:
         id:
           type: string
+          nullable: true
         emailAddresses:
           default: []
+          nullable: true
           type: array
           items:
-            $ref: '#/components/schemas/EmailAddress'
+            $ref: '#/components/schemas/EmailAddressV2'
         firstName:
           type: string
+          nullable: true
         lastName:
           type: string
+          nullable: true
         phoneNumbers:
           default: []
+          nullable: true
           type: array
           items:
-            $ref: '#/components/schemas/PhoneNumber'
+            $ref: '#/components/schemas/PhoneNumberV2'
         salutation:
           type: string
+          nullable: true
       required:
         - id
         - emailAddresses
@@ -16140,15 +17579,19 @@ components:
       properties:
         id:
           type: string
+          nullable: true
         addresses:
           default: []
+          nullable: true
           type: array
           items:
-            $ref: '#/components/schemas/ContactAddress'
+            $ref: '#/components/schemas/ContactAddressV2'
         companyName:
           type: string
+          nullable: true
         contactPersons:
           default: []
+          nullable: true
           type: array
           items:
             $ref: '#/components/schemas/ContactPersonDtoV2'
@@ -16158,30 +17601,40 @@ components:
             - CONTACT_PERSON
             - COMPANY
             - UNDEFINED
+          nullable: true
         createdDate:
           type: string
+          nullable: true
         emailAddresses:
           default: []
+          nullable: true
           type: array
           items:
-            $ref: '#/components/schemas/EmailAddress'
+            $ref: '#/components/schemas/EmailAddressV2'
         isCustomer:
           type: boolean
+          nullable: true
         isSupplier:
           type: boolean
+          nullable: true
         number:
           type: string
+          nullable: true
         phoneNumbers:
           default: []
+          nullable: true
           type: array
           items:
-            $ref: '#/components/schemas/PhoneNumber'
+            $ref: '#/components/schemas/PhoneNumberV2'
         projectId:
           type: string
+          nullable: true
         updatedDate:
           type: string
+          nullable: true
         website:
           type: string
+          nullable: true
       required:
         - id
         - addresses
@@ -16202,12 +17655,16 @@ components:
       properties:
         id:
           type: string
+          nullable: true
         account_id:
           type: string
+          nullable: true
         family_name:
           type: string
+          nullable: true
         name:
           type: string
+          nullable: true
       required:
         - id
         - account_id
@@ -16218,58 +17675,62 @@ components:
       properties:
         name:
           type: string
+          nullable: true
         type:
           type: string
+          nullable: true
         tenantId:
           type: string
+          nullable: true
         applicationFamily:
           type: string
+          nullable: true
         countryCode:
           type: string
+          nullable: true
       required:
         - name
-        - type
-        - tenantId
-        - applicationFamily
-        - countryCode
     Subscription:
       type: object
       properties:
         id:
           type: string
+          nullable: true
         name:
           type: string
+          nullable: true
         status:
           type: string
+          nullable: true
         active:
           type: boolean
+          nullable: true
       required:
         - id
-        - name
-        - status
-        - active
     CompanyResponseDto:
       type: object
       properties:
         id:
           type: string
+          nullable: true
         name:
           type: string
+          nullable: true
         environmentId:
           type: string
+          nullable: true
         client_number:
           type: number
+          nullable: true
         consultant_number:
           type: number
+          nullable: true
         subscription:
-          $ref: '#/components/schemas/Subscription'
+          allOf:
+            - $ref: '#/components/schemas/Subscription'
+          nullable: true
       required:
         - id
-        - name
-        - environmentId
-        - client_number
-        - consultant_number
-        - subscription
     CreateEndUserRequestDto:
       type: object
       properties:
@@ -16304,7 +17765,7 @@ components:
         - tenantId
         - url
         - username
-    CreateWebhookRequestDto:
+    CreateAccountingWebhookRequestDto:
       type: object
       properties:
         callbackUrl:
@@ -16317,9 +17778,6 @@ components:
           type: string
       required:
         - callbackUrl
-        - eventType
-        - resource
-        - targetSystem
     CustomValues:
       type: object
       properties:

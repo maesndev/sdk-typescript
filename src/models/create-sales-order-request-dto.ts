@@ -27,24 +27,24 @@ export type CreateSalesOrderRequestDtoStatus = ClosedEnum<
 >;
 
 export type CreateSalesOrderRequestDto = {
-  addresses: Array<Address>;
-  billingContactId: string;
-  comment: string;
-  contactId: string;
-  currency: string;
-  deliveryDate: string;
-  lineItems: Array<CreateSalesOrderLineItemRequestDto>;
-  oneLineAddress: string;
-  orderDate: string;
-  projectId: string;
-  shippingContactId: string;
-  status: CreateSalesOrderRequestDtoStatus;
-  totalDiscountAmount: number;
-  totalDiscountPercentage: number;
-  totalGrossAmount: number;
-  totalNetAmount: number;
-  totalTaxAmount: number;
-  version: string;
+  addresses?: Array<Address> | undefined;
+  billingContactId?: string | undefined;
+  comment?: string | undefined;
+  contactId?: string | undefined;
+  currency?: string | undefined;
+  deliveryDate?: string | undefined;
+  lineItems?: Array<CreateSalesOrderLineItemRequestDto> | undefined;
+  oneLineAddress?: string | undefined;
+  orderDate?: string | undefined;
+  projectId?: string | undefined;
+  shippingContactId?: string | undefined;
+  status?: CreateSalesOrderRequestDtoStatus | undefined;
+  totalDiscountAmount?: number | undefined;
+  totalDiscountPercentage?: number | undefined;
+  totalGrossAmount?: number | undefined;
+  totalNetAmount?: number | undefined;
+  totalTaxAmount?: number | undefined;
+  version?: string | undefined;
 };
 
 /** @internal */
@@ -54,24 +54,24 @@ export const CreateSalesOrderRequestDtoStatus$outboundSchema: z.ZodMiniEnum<
 
 /** @internal */
 export type CreateSalesOrderRequestDto$Outbound = {
-  addresses: Array<Address$Outbound>;
-  billingContactId: string;
-  comment: string;
-  contactId: string;
-  currency: string;
-  deliveryDate: string;
-  lineItems: Array<CreateSalesOrderLineItemRequestDto$Outbound>;
-  oneLineAddress: string;
-  orderDate: string;
-  projectId: string;
-  shippingContactId: string;
-  status: string;
-  totalDiscountAmount: number;
-  totalDiscountPercentage: number;
-  totalGrossAmount: number;
-  totalNetAmount: number;
-  totalTaxAmount: number;
-  version: string;
+  addresses?: Array<Address$Outbound> | undefined;
+  billingContactId?: string | undefined;
+  comment?: string | undefined;
+  contactId?: string | undefined;
+  currency?: string | undefined;
+  deliveryDate?: string | undefined;
+  lineItems?: Array<CreateSalesOrderLineItemRequestDto$Outbound> | undefined;
+  oneLineAddress?: string | undefined;
+  orderDate?: string | undefined;
+  projectId?: string | undefined;
+  shippingContactId?: string | undefined;
+  status?: string | undefined;
+  totalDiscountAmount?: number | undefined;
+  totalDiscountPercentage?: number | undefined;
+  totalGrossAmount?: number | undefined;
+  totalNetAmount?: number | undefined;
+  totalTaxAmount?: number | undefined;
+  version?: string | undefined;
 };
 
 /** @internal */
@@ -79,24 +79,26 @@ export const CreateSalesOrderRequestDto$outboundSchema: z.ZodMiniType<
   CreateSalesOrderRequestDto$Outbound,
   CreateSalesOrderRequestDto
 > = z.object({
-  addresses: z.array(Address$outboundSchema),
-  billingContactId: z.string(),
-  comment: z.string(),
-  contactId: z.string(),
-  currency: z.string(),
-  deliveryDate: z.string(),
-  lineItems: z.array(CreateSalesOrderLineItemRequestDto$outboundSchema),
-  oneLineAddress: z.string(),
-  orderDate: z.string(),
-  projectId: z.string(),
-  shippingContactId: z.string(),
-  status: CreateSalesOrderRequestDtoStatus$outboundSchema,
-  totalDiscountAmount: z.number(),
-  totalDiscountPercentage: z.number(),
-  totalGrossAmount: z.number(),
-  totalNetAmount: z.number(),
-  totalTaxAmount: z.number(),
-  version: z.string(),
+  addresses: z.optional(z.array(Address$outboundSchema)),
+  billingContactId: z.optional(z.string()),
+  comment: z.optional(z.string()),
+  contactId: z.optional(z.string()),
+  currency: z.optional(z.string()),
+  deliveryDate: z.optional(z.string()),
+  lineItems: z.optional(
+    z.array(CreateSalesOrderLineItemRequestDto$outboundSchema),
+  ),
+  oneLineAddress: z.optional(z.string()),
+  orderDate: z.optional(z.string()),
+  projectId: z.optional(z.string()),
+  shippingContactId: z.optional(z.string()),
+  status: z.optional(CreateSalesOrderRequestDtoStatus$outboundSchema),
+  totalDiscountAmount: z.optional(z.number()),
+  totalDiscountPercentage: z.optional(z.number()),
+  totalGrossAmount: z.optional(z.number()),
+  totalNetAmount: z.optional(z.number()),
+  totalTaxAmount: z.optional(z.number()),
+  version: z.optional(z.string()),
 });
 
 export function createSalesOrderRequestDtoToJSON(

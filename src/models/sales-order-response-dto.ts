@@ -27,27 +27,27 @@ export type SalesOrderResponseDtoStatus = OpenEnum<
 >;
 
 export type SalesOrderResponseDto = {
-  id: string;
-  addresses: Array<Address>;
-  billingContactId: string;
-  comment: string;
-  contactId: string;
-  createdDate: string;
-  currency: string;
-  deliveryDate: string;
-  lineItems: Array<SalesOrderLineItemResponseDto>;
-  oneLineAddress: string;
-  orderDate: string;
-  projectId: string;
-  shippingContactId: string;
-  status: SalesOrderResponseDtoStatus;
-  taskId: string;
-  totalDiscountAmount: number;
-  totalDiscountPercentage: number;
-  totalGrossAmount: number;
-  totalNetAmount: number;
-  totalTaxAmount: number;
-  updatedDate: string;
+  id: string | null;
+  addresses: Array<Address> | null;
+  billingContactId: string | null;
+  comment: string | null;
+  contactId: string | null;
+  createdDate: string | null;
+  currency: string | null;
+  deliveryDate: string | null;
+  lineItems: Array<SalesOrderLineItemResponseDto> | null;
+  oneLineAddress?: string | null | undefined;
+  orderDate: string | null;
+  projectId: string | null;
+  shippingContactId: string | null;
+  status: SalesOrderResponseDtoStatus | null;
+  taskId: string | null;
+  totalDiscountAmount: number | null;
+  totalDiscountPercentage: number | null;
+  totalGrossAmount: number | null;
+  totalNetAmount: number | null;
+  totalTaxAmount: number | null;
+  updatedDate: string | null;
 };
 
 /** @internal */
@@ -61,27 +61,29 @@ export const SalesOrderResponseDto$inboundSchema: z.ZodMiniType<
   SalesOrderResponseDto,
   unknown
 > = z.object({
-  id: types.string(),
-  addresses: z.array(Address$inboundSchema),
-  billingContactId: types.string(),
-  comment: types.string(),
-  contactId: types.string(),
-  createdDate: types.string(),
-  currency: types.string(),
-  deliveryDate: types.string(),
-  lineItems: z.array(SalesOrderLineItemResponseDto$inboundSchema),
-  oneLineAddress: types.string(),
-  orderDate: types.string(),
-  projectId: types.string(),
-  shippingContactId: types.string(),
-  status: SalesOrderResponseDtoStatus$inboundSchema,
-  taskId: types.string(),
-  totalDiscountAmount: types.number(),
-  totalDiscountPercentage: types.number(),
-  totalGrossAmount: types.number(),
-  totalNetAmount: types.number(),
-  totalTaxAmount: types.number(),
-  updatedDate: types.string(),
+  id: types.nullable(types.string()),
+  addresses: types.nullable(z.array(Address$inboundSchema)),
+  billingContactId: types.nullable(types.string()),
+  comment: types.nullable(types.string()),
+  contactId: types.nullable(types.string()),
+  createdDate: types.nullable(types.string()),
+  currency: types.nullable(types.string()),
+  deliveryDate: types.nullable(types.string()),
+  lineItems: types.nullable(
+    z.array(SalesOrderLineItemResponseDto$inboundSchema),
+  ),
+  oneLineAddress: z.optional(z.nullable(types.string())),
+  orderDate: types.nullable(types.string()),
+  projectId: types.nullable(types.string()),
+  shippingContactId: types.nullable(types.string()),
+  status: types.nullable(SalesOrderResponseDtoStatus$inboundSchema),
+  taskId: types.nullable(types.string()),
+  totalDiscountAmount: types.nullable(types.number()),
+  totalDiscountPercentage: types.nullable(types.number()),
+  totalGrossAmount: types.nullable(types.number()),
+  totalNetAmount: types.nullable(types.number()),
+  totalTaxAmount: types.nullable(types.number()),
+  updatedDate: types.nullable(types.string()),
 });
 
 export function salesOrderResponseDtoFromJSON(

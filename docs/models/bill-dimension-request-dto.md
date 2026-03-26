@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { BillDimensionRequestDto } from "maesn/models";
+import { BillDimensionRequestDto } from "@maesn/typescript-sdk/models";
 
 let value: BillDimensionRequestDto = {
   name: "<value>",

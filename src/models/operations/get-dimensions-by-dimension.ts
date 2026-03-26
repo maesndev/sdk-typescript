@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
@@ -18,15 +19,27 @@ export type GetDimensionsByDimensionRequest = {
   rawData?: boolean | undefined;
 };
 
+export type GetDimensionsByDimensionPagination = {
+  total: number;
+  perPage: number;
+  currentPage: number;
+  totalPages: number;
+};
+
+export type GetDimensionsByDimensionMeta = {
+  warnings?: Array<string> | null | undefined;
+  pagination?: GetDimensionsByDimensionPagination | null | undefined;
+};
+
 export type GetDimensionsByDimensionErrors = {};
 
 export type GetDimensionsByDimensionRawData = {};
 
 export type GetDimensionsByDimensionResponse = {
-  meta: models.MetaResponse;
+  meta?: GetDimensionsByDimensionMeta | null | undefined;
   data: Array<models.DimensionMetaResponseDto>;
-  errors: GetDimensionsByDimensionErrors;
-  rawData: GetDimensionsByDimensionRawData;
+  errors: GetDimensionsByDimensionErrors | null;
+  rawData: GetDimensionsByDimensionRawData | null;
 };
 
 /** @internal */
@@ -61,6 +74,49 @@ export function getDimensionsByDimensionRequestToJSON(
     GetDimensionsByDimensionRequest$outboundSchema.parse(
       getDimensionsByDimensionRequest,
     ),
+  );
+}
+
+/** @internal */
+export const GetDimensionsByDimensionPagination$inboundSchema: z.ZodMiniType<
+  GetDimensionsByDimensionPagination,
+  unknown
+> = z.object({
+  total: types.number(),
+  perPage: types.number(),
+  currentPage: types.number(),
+  totalPages: types.number(),
+});
+
+export function getDimensionsByDimensionPaginationFromJSON(
+  jsonString: string,
+): SafeParseResult<GetDimensionsByDimensionPagination, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      GetDimensionsByDimensionPagination$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetDimensionsByDimensionPagination' from JSON`,
+  );
+}
+
+/** @internal */
+export const GetDimensionsByDimensionMeta$inboundSchema: z.ZodMiniType<
+  GetDimensionsByDimensionMeta,
+  unknown
+> = z.object({
+  warnings: z.optional(z.nullable(z.array(types.string()))),
+  pagination: z.optional(
+    z.nullable(z.lazy(() => GetDimensionsByDimensionPagination$inboundSchema)),
+  ),
+});
+
+export function getDimensionsByDimensionMetaFromJSON(
+  jsonString: string,
+): SafeParseResult<GetDimensionsByDimensionMeta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetDimensionsByDimensionMeta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetDimensionsByDimensionMeta' from JSON`,
   );
 }
 
@@ -101,10 +157,16 @@ export const GetDimensionsByDimensionResponse$inboundSchema: z.ZodMiniType<
   GetDimensionsByDimensionResponse,
   unknown
 > = z.object({
-  meta: models.MetaResponse$inboundSchema,
+  meta: z.optional(
+    z.nullable(z.lazy(() => GetDimensionsByDimensionMeta$inboundSchema)),
+  ),
   data: z.array(models.DimensionMetaResponseDto$inboundSchema),
-  errors: z.lazy(() => GetDimensionsByDimensionErrors$inboundSchema),
-  rawData: z.lazy(() => GetDimensionsByDimensionRawData$inboundSchema),
+  errors: types.nullable(
+    z.lazy(() => GetDimensionsByDimensionErrors$inboundSchema),
+  ),
+  rawData: types.nullable(
+    z.lazy(() => GetDimensionsByDimensionRawData$inboundSchema),
+  ),
 });
 
 export function getDimensionsByDimensionResponseFromJSON(

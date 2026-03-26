@@ -9,8 +9,8 @@ import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
 export type DimensionMetaResponseDto = {
-  description: string;
-  dimension: string;
+  description: string | null;
+  dimension: string | null;
 };
 
 /** @internal */
@@ -18,8 +18,8 @@ export const DimensionMetaResponseDto$inboundSchema: z.ZodMiniType<
   DimensionMetaResponseDto,
   unknown
 > = z.object({
-  description: types.string(),
-  dimension: types.string(),
+  description: types.nullable(types.string()),
+  dimension: types.nullable(types.string()),
 });
 
 export function dimensionMetaResponseDtoFromJSON(

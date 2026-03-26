@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
@@ -21,15 +22,27 @@ export type GetOpenItemsRequest = {
   type?: string | undefined;
 };
 
+export type GetOpenItemsPagination = {
+  total: number;
+  perPage: number;
+  currentPage: number;
+  totalPages: number;
+};
+
+export type GetOpenItemsMeta = {
+  warnings?: Array<string> | null | undefined;
+  pagination?: GetOpenItemsPagination | null | undefined;
+};
+
 export type GetOpenItemsErrors = {};
 
 export type GetOpenItemsRawData = {};
 
 export type GetOpenItemsResponse = {
-  meta: models.MetaResponse;
+  meta?: GetOpenItemsMeta | null | undefined;
   data: Array<models.OpenItemResponseDto>;
-  errors: GetOpenItemsErrors;
-  rawData: GetOpenItemsRawData;
+  errors: GetOpenItemsErrors | null;
+  rawData: GetOpenItemsRawData | null;
 };
 
 /** @internal */
@@ -72,6 +85,48 @@ export function getOpenItemsRequestToJSON(
 }
 
 /** @internal */
+export const GetOpenItemsPagination$inboundSchema: z.ZodMiniType<
+  GetOpenItemsPagination,
+  unknown
+> = z.object({
+  total: types.number(),
+  perPage: types.number(),
+  currentPage: types.number(),
+  totalPages: types.number(),
+});
+
+export function getOpenItemsPaginationFromJSON(
+  jsonString: string,
+): SafeParseResult<GetOpenItemsPagination, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetOpenItemsPagination$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetOpenItemsPagination' from JSON`,
+  );
+}
+
+/** @internal */
+export const GetOpenItemsMeta$inboundSchema: z.ZodMiniType<
+  GetOpenItemsMeta,
+  unknown
+> = z.object({
+  warnings: z.optional(z.nullable(z.array(types.string()))),
+  pagination: z.optional(
+    z.nullable(z.lazy(() => GetOpenItemsPagination$inboundSchema)),
+  ),
+});
+
+export function getOpenItemsMetaFromJSON(
+  jsonString: string,
+): SafeParseResult<GetOpenItemsMeta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetOpenItemsMeta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetOpenItemsMeta' from JSON`,
+  );
+}
+
+/** @internal */
 export const GetOpenItemsErrors$inboundSchema: z.ZodMiniType<
   GetOpenItemsErrors,
   unknown
@@ -108,10 +163,10 @@ export const GetOpenItemsResponse$inboundSchema: z.ZodMiniType<
   GetOpenItemsResponse,
   unknown
 > = z.object({
-  meta: models.MetaResponse$inboundSchema,
+  meta: z.optional(z.nullable(z.lazy(() => GetOpenItemsMeta$inboundSchema))),
   data: z.array(models.OpenItemResponseDto$inboundSchema),
-  errors: z.lazy(() => GetOpenItemsErrors$inboundSchema),
-  rawData: z.lazy(() => GetOpenItemsRawData$inboundSchema),
+  errors: types.nullable(z.lazy(() => GetOpenItemsErrors$inboundSchema)),
+  rawData: types.nullable(z.lazy(() => GetOpenItemsRawData$inboundSchema)),
 });
 
 export function getOpenItemsResponseFromJSON(

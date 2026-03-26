@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { GetSubmissionPageStyleRequest } from "maesn/models/operations";
+import { GetSubmissionPageStyleRequest } from "@maesn/typescript-sdk/models/operations";
 
 let value: GetSubmissionPageStyleRequest = {
   code: "<value>",

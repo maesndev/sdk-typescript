@@ -186,20 +186,20 @@ export type BookingEntryRequestDtoDebitCreditIndicator = ClosedEnum<
 >;
 
 export type BookingEntryRequestDto = {
-  accountNumber: number;
-  amount: number;
-  bookingDate: string;
-  bookingTaxCode: string;
-  bookingType: BookingEntryRequestDtoBookingType;
-  contraAccountNumber: number;
-  dimension1: string;
-  dimension2: string;
-  currency: BookingEntryRequestDtoCurrency;
-  debitCreditIndicator: BookingEntryRequestDtoDebitCreditIndicator;
-  description: string;
-  documentNumber: string;
-  dueDate: string;
-  fileId: string;
+  accountNumber?: number | undefined;
+  amount?: number | undefined;
+  bookingDate?: string | undefined;
+  bookingTaxCode?: string | undefined;
+  bookingType?: BookingEntryRequestDtoBookingType | undefined;
+  contraAccountNumber?: number | undefined;
+  dimension1?: string | undefined;
+  dimension2?: string | undefined;
+  currency?: BookingEntryRequestDtoCurrency | undefined;
+  debitCreditIndicator?: BookingEntryRequestDtoDebitCreditIndicator | undefined;
+  description?: string | undefined;
+  documentNumber?: string | undefined;
+  dueDate?: string | undefined;
+  fileId?: string | undefined;
 };
 
 /** @internal */
@@ -220,20 +220,20 @@ export const BookingEntryRequestDtoDebitCreditIndicator$outboundSchema:
 
 /** @internal */
 export type BookingEntryRequestDto$Outbound = {
-  accountNumber: number;
-  amount: number;
-  bookingDate: string;
-  bookingTaxCode: string;
-  bookingType: string;
-  contraAccountNumber: number;
-  dimension1: string;
-  dimension2: string;
-  currency: string;
-  debitCreditIndicator: string;
-  description: string;
-  documentNumber: string;
-  dueDate: string;
-  fileId: string;
+  accountNumber?: number | undefined;
+  amount?: number | undefined;
+  bookingDate?: string | undefined;
+  bookingTaxCode?: string | undefined;
+  bookingType?: string | undefined;
+  contraAccountNumber?: number | undefined;
+  dimension1?: string | undefined;
+  dimension2?: string | undefined;
+  currency?: string | undefined;
+  debitCreditIndicator?: string | undefined;
+  description?: string | undefined;
+  documentNumber?: string | undefined;
+  dueDate?: string | undefined;
+  fileId?: string | undefined;
 };
 
 /** @internal */
@@ -241,21 +241,22 @@ export const BookingEntryRequestDto$outboundSchema: z.ZodMiniType<
   BookingEntryRequestDto$Outbound,
   BookingEntryRequestDto
 > = z.object({
-  accountNumber: z.number(),
-  amount: z.number(),
-  bookingDate: z.string(),
-  bookingTaxCode: z.string(),
-  bookingType: BookingEntryRequestDtoBookingType$outboundSchema,
-  contraAccountNumber: z.number(),
-  dimension1: z.string(),
-  dimension2: z.string(),
-  currency: BookingEntryRequestDtoCurrency$outboundSchema,
-  debitCreditIndicator:
+  accountNumber: z.optional(z.number()),
+  amount: z.optional(z.number()),
+  bookingDate: z.optional(z.string()),
+  bookingTaxCode: z.optional(z.string()),
+  bookingType: z.optional(BookingEntryRequestDtoBookingType$outboundSchema),
+  contraAccountNumber: z.optional(z.number()),
+  dimension1: z.optional(z.string()),
+  dimension2: z.optional(z.string()),
+  currency: z.optional(BookingEntryRequestDtoCurrency$outboundSchema),
+  debitCreditIndicator: z.optional(
     BookingEntryRequestDtoDebitCreditIndicator$outboundSchema,
-  description: z.string(),
-  documentNumber: z.string(),
-  dueDate: z.string(),
-  fileId: z.string(),
+  ),
+  description: z.optional(z.string()),
+  documentNumber: z.optional(z.string()),
+  dueDate: z.optional(z.string()),
+  fileId: z.optional(z.string()),
 });
 
 export function bookingEntryRequestDtoToJSON(

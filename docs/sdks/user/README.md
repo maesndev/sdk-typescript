@@ -12,7 +12,7 @@
 
 <!-- UsageSnippet language="typescript" operationID="getUserInfo" method="get" path="/user/user-info" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -36,8 +36,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { userGetInfo } from "maesn/funcs/user-get-info.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { userGetInfo } from "@maesn/typescript-sdk/funcs/user-get-info.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.

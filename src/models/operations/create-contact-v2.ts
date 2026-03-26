@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
@@ -14,15 +15,27 @@ export type CreateContactV2Request = {
   body: models.CreateContactRequestDtoV2;
 };
 
+export type CreateContactV2Pagination = {
+  total: number;
+  perPage: number;
+  currentPage: number;
+  totalPages: number;
+};
+
+export type CreateContactV2Meta = {
+  warnings?: Array<string> | null | undefined;
+  pagination?: CreateContactV2Pagination | null | undefined;
+};
+
 export type CreateContactV2Errors = {};
 
 export type CreateContactV2RawData = {};
 
 export type CreateContactV2Response = {
-  meta: models.MetaResponse;
+  meta?: CreateContactV2Meta | null | undefined;
   data: models.ContactResponseDtoV2;
-  errors: CreateContactV2Errors;
-  rawData: CreateContactV2RawData;
+  errors: CreateContactV2Errors | null;
+  rawData: CreateContactV2RawData | null;
 };
 
 /** @internal */
@@ -47,6 +60,48 @@ export function createContactV2RequestToJSON(
 ): string {
   return JSON.stringify(
     CreateContactV2Request$outboundSchema.parse(createContactV2Request),
+  );
+}
+
+/** @internal */
+export const CreateContactV2Pagination$inboundSchema: z.ZodMiniType<
+  CreateContactV2Pagination,
+  unknown
+> = z.object({
+  total: types.number(),
+  perPage: types.number(),
+  currentPage: types.number(),
+  totalPages: types.number(),
+});
+
+export function createContactV2PaginationFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateContactV2Pagination, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateContactV2Pagination$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateContactV2Pagination' from JSON`,
+  );
+}
+
+/** @internal */
+export const CreateContactV2Meta$inboundSchema: z.ZodMiniType<
+  CreateContactV2Meta,
+  unknown
+> = z.object({
+  warnings: z.optional(z.nullable(z.array(types.string()))),
+  pagination: z.optional(
+    z.nullable(z.lazy(() => CreateContactV2Pagination$inboundSchema)),
+  ),
+});
+
+export function createContactV2MetaFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateContactV2Meta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateContactV2Meta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateContactV2Meta' from JSON`,
   );
 }
 
@@ -87,10 +142,10 @@ export const CreateContactV2Response$inboundSchema: z.ZodMiniType<
   CreateContactV2Response,
   unknown
 > = z.object({
-  meta: models.MetaResponse$inboundSchema,
+  meta: z.optional(z.nullable(z.lazy(() => CreateContactV2Meta$inboundSchema))),
   data: models.ContactResponseDtoV2$inboundSchema,
-  errors: z.lazy(() => CreateContactV2Errors$inboundSchema),
-  rawData: z.lazy(() => CreateContactV2RawData$inboundSchema),
+  errors: types.nullable(z.lazy(() => CreateContactV2Errors$inboundSchema)),
+  rawData: types.nullable(z.lazy(() => CreateContactV2RawData$inboundSchema)),
 });
 
 export function createContactV2ResponseFromJSON(

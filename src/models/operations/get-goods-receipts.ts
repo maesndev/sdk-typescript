@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
@@ -17,15 +18,27 @@ export type GetGoodsReceiptsRequest = {
   rawData?: boolean | undefined;
 };
 
+export type GetGoodsReceiptsPagination = {
+  total: number;
+  perPage: number;
+  currentPage: number;
+  totalPages: number;
+};
+
+export type GetGoodsReceiptsMeta = {
+  warnings?: Array<string> | null | undefined;
+  pagination?: GetGoodsReceiptsPagination | null | undefined;
+};
+
 export type GetGoodsReceiptsErrors = {};
 
 export type GetGoodsReceiptsRawData = {};
 
 export type GetGoodsReceiptsResponse = {
-  meta: models.MetaResponse;
+  meta?: GetGoodsReceiptsMeta | null | undefined;
   data: Array<models.GoodsReceiptResponseDto>;
-  errors: GetGoodsReceiptsErrors;
-  rawData: GetGoodsReceiptsRawData;
+  errors: GetGoodsReceiptsErrors | null;
+  rawData: GetGoodsReceiptsRawData | null;
 };
 
 /** @internal */
@@ -56,6 +69,48 @@ export function getGoodsReceiptsRequestToJSON(
 ): string {
   return JSON.stringify(
     GetGoodsReceiptsRequest$outboundSchema.parse(getGoodsReceiptsRequest),
+  );
+}
+
+/** @internal */
+export const GetGoodsReceiptsPagination$inboundSchema: z.ZodMiniType<
+  GetGoodsReceiptsPagination,
+  unknown
+> = z.object({
+  total: types.number(),
+  perPage: types.number(),
+  currentPage: types.number(),
+  totalPages: types.number(),
+});
+
+export function getGoodsReceiptsPaginationFromJSON(
+  jsonString: string,
+): SafeParseResult<GetGoodsReceiptsPagination, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetGoodsReceiptsPagination$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetGoodsReceiptsPagination' from JSON`,
+  );
+}
+
+/** @internal */
+export const GetGoodsReceiptsMeta$inboundSchema: z.ZodMiniType<
+  GetGoodsReceiptsMeta,
+  unknown
+> = z.object({
+  warnings: z.optional(z.nullable(z.array(types.string()))),
+  pagination: z.optional(
+    z.nullable(z.lazy(() => GetGoodsReceiptsPagination$inboundSchema)),
+  ),
+});
+
+export function getGoodsReceiptsMetaFromJSON(
+  jsonString: string,
+): SafeParseResult<GetGoodsReceiptsMeta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetGoodsReceiptsMeta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetGoodsReceiptsMeta' from JSON`,
   );
 }
 
@@ -96,10 +151,12 @@ export const GetGoodsReceiptsResponse$inboundSchema: z.ZodMiniType<
   GetGoodsReceiptsResponse,
   unknown
 > = z.object({
-  meta: models.MetaResponse$inboundSchema,
+  meta: z.optional(
+    z.nullable(z.lazy(() => GetGoodsReceiptsMeta$inboundSchema)),
+  ),
   data: z.array(models.GoodsReceiptResponseDto$inboundSchema),
-  errors: z.lazy(() => GetGoodsReceiptsErrors$inboundSchema),
-  rawData: z.lazy(() => GetGoodsReceiptsRawData$inboundSchema),
+  errors: types.nullable(z.lazy(() => GetGoodsReceiptsErrors$inboundSchema)),
+  rawData: types.nullable(z.lazy(() => GetGoodsReceiptsRawData$inboundSchema)),
 });
 
 export function getGoodsReceiptsResponseFromJSON(

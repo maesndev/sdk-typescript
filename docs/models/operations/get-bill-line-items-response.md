@@ -3,31 +3,19 @@
 ## Example Usage
 
 ```typescript
-import { GetBillLineItemsResponse } from "maesn/models/operations";
+import { GetBillLineItemsResponse } from "@maesn/typescript-sdk/models/operations";
 
 let value: GetBillLineItemsResponse = {
-  meta: {
-    warnings: [
-      "<value 1>",
-      "<value 2>",
-    ],
-    pagination: {
-      total: 3438.77,
-      perPage: 5109.63,
-      currentPage: 2626.79,
-      totalPages: 3561.84,
-    },
-  },
   data: [
     {
       id: "<id>",
-      accountId: "<id>",
+      accountId: null,
       accountNumber: "<value>",
       createdDate: "<value>",
       deferredEndDate: "<value>",
       deferredStartDate: "<value>",
       description:
-        "representation behind sedately anenst notwithstanding phooey diversity past",
+        "behind sedately anenst notwithstanding phooey diversity past aha",
       dimensions: [
         {
           name: "<value>",
@@ -36,17 +24,17 @@ let value: GetBillLineItemsResponse = {
       ],
       itemId: "<id>",
       itemName: "<value>",
-      quantity: 3634.11,
-      taxCode: "<value>",
-      taxRatePercentage: 3310.22,
-      totalDiscountAmount: 707.82,
-      totalDiscountPercentage: 4974.92,
-      totalGrossAmount: 5058.37,
-      totalNetAmount: 3913.59,
-      totalTaxAmount: 2698.72,
-      unitAmount: 9362.33,
-      unitDiscountAmount: 9954.84,
-      unitDiscountPercentage: 9564.66,
+      quantity: 972.26,
+      taxCode: null,
+      taxRatePercentage: 7368.09,
+      totalDiscountAmount: 6048.94,
+      totalDiscountPercentage: 7206.62,
+      totalGrossAmount: 7285.99,
+      totalNetAmount: 2328.6,
+      totalTaxAmount: 5246.18,
+      unitAmount: 7884.58,
+      unitDiscountAmount: 5739.68,
+      unitDiscountPercentage: 5524.06,
       unitName: "<value>",
       updatedDate: "<value>",
     },
@@ -60,7 +48,7 @@ let value: GetBillLineItemsResponse = {
 
 | Field                                                                                         | Type                                                                                          | Required                                                                                      | Description                                                                                   |
 | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `meta`                                                                                        | [models.MetaResponse](../../models/meta-response.md)                                          | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `meta`                                                                                        | [operations.GetBillLineItemsMeta](../../models/operations/get-bill-line-items-meta.md)        | :heavy_minus_sign:                                                                            | N/A                                                                                           |
 | `data`                                                                                        | [models.BillLineItemResponseDto](../../models/bill-line-item-response-dto.md)[]               | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `errors`                                                                                      | [operations.GetBillLineItemsErrors](../../models/operations/get-bill-line-items-errors.md)    | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `rawData`                                                                                     | [operations.GetBillLineItemsRawData](../../models/operations/get-bill-line-items-raw-data.md) | :heavy_check_mark:                                                                            | N/A                                                                                           |

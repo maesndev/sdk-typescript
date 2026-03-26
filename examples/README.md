@@ -1,6 +1,6 @@
-# maesn Examples
+# @maesn/typescript-sdk Examples
 
-This directory contains example scripts demonstrating how to use the maesn SDK.
+This directory contains example scripts demonstrating how to use the @maesn/typescript-sdk SDK.
 
 ## Prerequisites
 

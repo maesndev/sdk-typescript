@@ -194,22 +194,22 @@ export type CreateTransactionRequestDtoType = ClosedEnum<
 >;
 
 export type CreateTransactionRequestDto = {
-  id: string;
-  accountId: string;
-  accountNumber: number;
-  amount: number;
-  bookingDate: string;
-  code: string;
-  contact: string;
-  currency: CreateTransactionRequestDtoCurrency;
-  description: string;
-  journalCode: string;
-  ledgerName: string;
-  reference: string;
-  status: CreateTransactionRequestDtoStatus;
-  taxRatePercentage: number;
-  type: CreateTransactionRequestDtoType;
-  valueDate: string;
+  id?: string | undefined;
+  accountId?: string | undefined;
+  accountNumber?: number | undefined;
+  amount?: number | undefined;
+  bookingDate?: string | undefined;
+  code?: string | undefined;
+  contact?: string | undefined;
+  currency?: CreateTransactionRequestDtoCurrency | undefined;
+  description?: string | undefined;
+  journalCode?: string | undefined;
+  ledgerName?: string | undefined;
+  reference?: string | undefined;
+  status?: CreateTransactionRequestDtoStatus | undefined;
+  taxRatePercentage?: number | undefined;
+  type?: CreateTransactionRequestDtoType | undefined;
+  valueDate?: string | undefined;
 };
 
 /** @internal */
@@ -229,22 +229,22 @@ export const CreateTransactionRequestDtoType$outboundSchema: z.ZodMiniEnum<
 
 /** @internal */
 export type CreateTransactionRequestDto$Outbound = {
-  id: string;
-  accountId: string;
-  accountNumber: number;
-  amount: number;
-  bookingDate: string;
-  code: string;
-  contact: string;
-  currency: string;
-  description: string;
-  journalCode: string;
-  ledgerName: string;
-  reference: string;
-  status: string;
-  taxRatePercentage: number;
-  type: string;
-  valueDate: string;
+  id?: string | undefined;
+  accountId?: string | undefined;
+  accountNumber?: number | undefined;
+  amount?: number | undefined;
+  bookingDate?: string | undefined;
+  code?: string | undefined;
+  contact?: string | undefined;
+  currency?: string | undefined;
+  description?: string | undefined;
+  journalCode?: string | undefined;
+  ledgerName?: string | undefined;
+  reference?: string | undefined;
+  status?: string | undefined;
+  taxRatePercentage?: number | undefined;
+  type?: string | undefined;
+  valueDate?: string | undefined;
 };
 
 /** @internal */
@@ -252,22 +252,22 @@ export const CreateTransactionRequestDto$outboundSchema: z.ZodMiniType<
   CreateTransactionRequestDto$Outbound,
   CreateTransactionRequestDto
 > = z.object({
-  id: z.string(),
-  accountId: z.string(),
-  accountNumber: z.number(),
-  amount: z.number(),
-  bookingDate: z.string(),
-  code: z.string(),
-  contact: z.string(),
-  currency: CreateTransactionRequestDtoCurrency$outboundSchema,
-  description: z.string(),
-  journalCode: z.string(),
-  ledgerName: z.string(),
-  reference: z.string(),
-  status: CreateTransactionRequestDtoStatus$outboundSchema,
-  taxRatePercentage: z.number(),
-  type: CreateTransactionRequestDtoType$outboundSchema,
-  valueDate: z.string(),
+  id: z.optional(z.string()),
+  accountId: z.optional(z.string()),
+  accountNumber: z.optional(z.number()),
+  amount: z.optional(z.number()),
+  bookingDate: z.optional(z.string()),
+  code: z.optional(z.string()),
+  contact: z.optional(z.string()),
+  currency: z.optional(CreateTransactionRequestDtoCurrency$outboundSchema),
+  description: z.optional(z.string()),
+  journalCode: z.optional(z.string()),
+  ledgerName: z.optional(z.string()),
+  reference: z.optional(z.string()),
+  status: z.optional(CreateTransactionRequestDtoStatus$outboundSchema),
+  taxRatePercentage: z.optional(z.number()),
+  type: z.optional(CreateTransactionRequestDtoType$outboundSchema),
+  valueDate: z.optional(z.string()),
 });
 
 export function createTransactionRequestDtoToJSON(

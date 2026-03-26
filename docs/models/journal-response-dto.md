@@ -3,15 +3,15 @@
 ## Example Usage
 
 ```typescript
-import { JournalResponseDto } from "maesn/models";
+import { JournalResponseDto } from "@maesn/typescript-sdk/models";
 
 let value: JournalResponseDto = {
   id: "<id>",
   accountId: "<id>",
   code: "<value>",
   createdDate: "<value>",
-  currency: "Uganda Shilling",
-  description: "criminal avaricious besides unlike strident since",
+  currency: "Syrian Pound",
+  description: "waist shadowbox produce ugh executor completion proselytise",
   type: "<value>",
   updatedDate: "<value>",
 };

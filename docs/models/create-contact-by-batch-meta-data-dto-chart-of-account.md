@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { CreateContactByBatchMetaDataDtoChartOfAccount } from "maesn/models";
+import { CreateContactByBatchMetaDataDtoChartOfAccount } from "@maesn/typescript-sdk/models";
 
 let value: CreateContactByBatchMetaDataDtoChartOfAccount = "SKR51";
 ```

@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { CreateItemRequestDtoUnitName } from "maesn/models";
+import { CreateItemRequestDtoUnitName } from "@maesn/typescript-sdk/models";
 
 let value: CreateItemRequestDtoUnitName = "NIGHT";
 ```

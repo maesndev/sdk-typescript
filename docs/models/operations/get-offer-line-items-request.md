@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { GetOfferLineItemsRequest } from "maesn/models/operations";
+import { GetOfferLineItemsRequest } from "@maesn/typescript-sdk/models/operations";
 
 let value: GetOfferLineItemsRequest = {
   offerId: "<id>",

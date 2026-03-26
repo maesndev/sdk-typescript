@@ -3,29 +3,27 @@
 ## Example Usage
 
 ```typescript
-import { LineItemResponse } from "maesn/models";
+import { LineItemResponse } from "@maesn/typescript-sdk/models";
 
 let value: LineItemResponse = {
-  id: "<id>",
+  id: null,
   accountCode: "<value>",
   accountId: "<id>",
   accountName: "<value>",
-  accountNumber: 245.27,
+  accountNumber: 7712.93,
   bookingTaxCode: "<value>",
   createdDate: "<value>",
-  description:
-    "unselfish towards low owlishly strictly inasmuch concerned growing reward against",
-  dimension1: "<value>",
+  description: "decent drat yet weatherize brr promise mmm march",
+  dimension1: null,
   dimension2: "<value>",
-  discountAmount: 8343.77,
-  discountAmount2: 1511.36,
-  discountPercentage: 1370.99,
+  discountAmount: 7397.04,
+  discountAmount2: 872.79,
+  discountPercentage: 1511.36,
   discountPercentage2: 2254.26,
-  taxCode: "<value>",
-  taxRatePercentage: 136.92,
-  totalGrossAmount: 4249.39,
-  totalNetAmount: 2359.18,
-  type: "GOODS",
+  taxCode: null,
+  taxRatePercentage: 2359.18,
+  totalGrossAmount: 1988.5,
+  totalNetAmount: 7217.01,
   updatedDate: "<value>",
 };
 ```
@@ -52,5 +50,5 @@ let value: LineItemResponse = {
 | `taxRatePercentage`                                                 | *number*                                                            | :heavy_check_mark:                                                  | N/A                                                                 |
 | `totalGrossAmount`                                                  | *number*                                                            | :heavy_check_mark:                                                  | N/A                                                                 |
 | `totalNetAmount`                                                    | *number*                                                            | :heavy_check_mark:                                                  | N/A                                                                 |
-| `type`                                                              | [models.LineItemResponseType](../models/line-item-response-type.md) | :heavy_check_mark:                                                  | N/A                                                                 |
+| `type`                                                              | [models.LineItemResponseType](../models/line-item-response-type.md) | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `updatedDate`                                                       | *string*                                                            | :heavy_check_mark:                                                  | N/A                                                                 |

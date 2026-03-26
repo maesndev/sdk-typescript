@@ -3,53 +3,32 @@
 ## Example Usage
 
 ```typescript
-import { GetOpenItemsResponse } from "maesn/models/operations";
+import { GetOpenItemsResponse } from "@maesn/typescript-sdk/models/operations";
 
 let value: GetOpenItemsResponse = {
-  meta: {
-    warnings: [
-      "<value 1>",
-      "<value 2>",
-    ],
-    pagination: {
-      total: 3438.77,
-      perPage: 5109.63,
-      currentPage: 2626.79,
-      totalPages: 3561.84,
-    },
-  },
   data: [
     {
       id: "<id>",
       accountId: "<id>",
       accountName: "<value>",
       accountNumber: "<value>",
-      createdDate: "<value>",
-      currency: "Burundi Franc",
+      createdDate: null,
+      currency: "Namibia Dollar",
       documentNumber: "<value>",
-      entries: [
-        {
-          amount: 5250.91,
-          currency: "Balboa",
-          debitCreditIndicator: "DEBIT",
-          description: "variable swear wherever per ack jazz during with until",
-          dueDate: "<value>",
-          postingDate: "<value>",
-        },
-      ],
+      entries: [],
       openBalance: {
-        amount: 7475.92,
-        debitCreditIndicator: "DEBIT",
+        amount: 9260.14,
+        debitCreditIndicator: "CREDIT",
       },
       postingDate: "<value>",
-      totalCreditAmount: 2700.29,
-      totalDebitAmount: 485.03,
+      totalCreditAmount: 3154.92,
+      totalDebitAmount: null,
       type: "INVOICE",
       updatedDate: "<value>",
     },
   ],
   errors: {},
-  rawData: {},
+  rawData: null,
 };
 ```
 
@@ -57,7 +36,7 @@ let value: GetOpenItemsResponse = {
 
 | Field                                                                                | Type                                                                                 | Required                                                                             | Description                                                                          |
 | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `meta`                                                                               | [models.MetaResponse](../../models/meta-response.md)                                 | :heavy_check_mark:                                                                   | N/A                                                                                  |
+| `meta`                                                                               | [operations.GetOpenItemsMeta](../../models/operations/get-open-items-meta.md)        | :heavy_minus_sign:                                                                   | N/A                                                                                  |
 | `data`                                                                               | [models.OpenItemResponseDto](../../models/open-item-response-dto.md)[]               | :heavy_check_mark:                                                                   | N/A                                                                                  |
 | `errors`                                                                             | [operations.GetOpenItemsErrors](../../models/operations/get-open-items-errors.md)    | :heavy_check_mark:                                                                   | N/A                                                                                  |
 | `rawData`                                                                            | [operations.GetOpenItemsRawData](../../models/operations/get-open-items-raw-data.md) | :heavy_check_mark:                                                                   | N/A                                                                                  |

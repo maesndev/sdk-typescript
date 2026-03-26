@@ -10,52 +10,52 @@ import {
 } from "./bill-dimension-request-dto.js";
 
 export type CreateBillLineItemRequestDto = {
-  id: string;
-  accountId: string;
-  accountNumber: string;
-  deferredEndDate: string;
-  deferredStartDate: string;
-  description: string;
-  dimensions: Array<BillDimensionRequestDto>;
-  itemId: string;
-  itemName: string;
-  quantity: number;
-  taxCode: string;
-  taxRatePercentage: number;
-  totalDiscountAmount: number;
-  totalDiscountPercentage: number;
-  totalGrossAmount: number;
-  totalNetAmount: number;
-  totalTaxAmount: number;
-  unitAmount: number;
-  unitDiscountAmount: number;
-  unitDiscountPercentage: number;
-  unitName: string;
+  id?: string | undefined;
+  accountId?: string | undefined;
+  accountNumber?: string | undefined;
+  deferredEndDate?: string | undefined;
+  deferredStartDate?: string | undefined;
+  description?: string | undefined;
+  dimensions?: Array<BillDimensionRequestDto> | undefined;
+  itemId?: string | undefined;
+  itemName?: string | undefined;
+  quantity?: number | undefined;
+  taxCode?: string | undefined;
+  taxRatePercentage?: number | undefined;
+  totalDiscountAmount?: number | undefined;
+  totalDiscountPercentage?: number | undefined;
+  totalGrossAmount?: number | undefined;
+  totalNetAmount?: number | undefined;
+  totalTaxAmount?: number | undefined;
+  unitAmount?: number | undefined;
+  unitDiscountAmount?: number | undefined;
+  unitDiscountPercentage?: number | undefined;
+  unitName?: string | undefined;
 };
 
 /** @internal */
 export type CreateBillLineItemRequestDto$Outbound = {
-  id: string;
-  accountId: string;
-  accountNumber: string;
-  deferredEndDate: string;
-  deferredStartDate: string;
-  description: string;
-  dimensions: Array<BillDimensionRequestDto$Outbound>;
-  itemId: string;
-  itemName: string;
-  quantity: number;
-  taxCode: string;
-  taxRatePercentage: number;
-  totalDiscountAmount: number;
-  totalDiscountPercentage: number;
-  totalGrossAmount: number;
-  totalNetAmount: number;
-  totalTaxAmount: number;
-  unitAmount: number;
-  unitDiscountAmount: number;
-  unitDiscountPercentage: number;
-  unitName: string;
+  id?: string | undefined;
+  accountId?: string | undefined;
+  accountNumber?: string | undefined;
+  deferredEndDate?: string | undefined;
+  deferredStartDate?: string | undefined;
+  description?: string | undefined;
+  dimensions?: Array<BillDimensionRequestDto$Outbound> | undefined;
+  itemId?: string | undefined;
+  itemName?: string | undefined;
+  quantity?: number | undefined;
+  taxCode?: string | undefined;
+  taxRatePercentage?: number | undefined;
+  totalDiscountAmount?: number | undefined;
+  totalDiscountPercentage?: number | undefined;
+  totalGrossAmount?: number | undefined;
+  totalNetAmount?: number | undefined;
+  totalTaxAmount?: number | undefined;
+  unitAmount?: number | undefined;
+  unitDiscountAmount?: number | undefined;
+  unitDiscountPercentage?: number | undefined;
+  unitName?: string | undefined;
 };
 
 /** @internal */
@@ -63,27 +63,27 @@ export const CreateBillLineItemRequestDto$outboundSchema: z.ZodMiniType<
   CreateBillLineItemRequestDto$Outbound,
   CreateBillLineItemRequestDto
 > = z.object({
-  id: z.string(),
-  accountId: z.string(),
-  accountNumber: z.string(),
-  deferredEndDate: z.string(),
-  deferredStartDate: z.string(),
-  description: z.string(),
-  dimensions: z.array(BillDimensionRequestDto$outboundSchema),
-  itemId: z.string(),
-  itemName: z.string(),
-  quantity: z.number(),
-  taxCode: z.string(),
-  taxRatePercentage: z.number(),
-  totalDiscountAmount: z.number(),
-  totalDiscountPercentage: z.number(),
-  totalGrossAmount: z.number(),
-  totalNetAmount: z.number(),
-  totalTaxAmount: z.number(),
-  unitAmount: z.number(),
-  unitDiscountAmount: z.number(),
-  unitDiscountPercentage: z.number(),
-  unitName: z.string(),
+  id: z.optional(z.string()),
+  accountId: z.optional(z.string()),
+  accountNumber: z.optional(z.string()),
+  deferredEndDate: z.optional(z.string()),
+  deferredStartDate: z.optional(z.string()),
+  description: z.optional(z.string()),
+  dimensions: z.optional(z.array(BillDimensionRequestDto$outboundSchema)),
+  itemId: z.optional(z.string()),
+  itemName: z.optional(z.string()),
+  quantity: z.optional(z.number()),
+  taxCode: z.optional(z.string()),
+  taxRatePercentage: z.optional(z.number()),
+  totalDiscountAmount: z.optional(z.number()),
+  totalDiscountPercentage: z.optional(z.number()),
+  totalGrossAmount: z.optional(z.number()),
+  totalNetAmount: z.optional(z.number()),
+  totalTaxAmount: z.optional(z.number()),
+  unitAmount: z.optional(z.number()),
+  unitDiscountAmount: z.optional(z.number()),
+  unitDiscountPercentage: z.optional(z.number()),
+  unitName: z.optional(z.string()),
 });
 
 export function createBillLineItemRequestDtoToJSON(

@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { BookingEntryRequestDtoCurrency } from "maesn/models";
+import { BookingEntryRequestDtoCurrency } from "@maesn/typescript-sdk/models";
 
 let value: BookingEntryRequestDtoCurrency = "XAF";
 ```

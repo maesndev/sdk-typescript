@@ -177,26 +177,36 @@ export type PurchaseOrderResponseDtoCurrency = OpenEnum<
   typeof PurchaseOrderResponseDtoCurrency
 >;
 
+export const PurchaseOrderResponseDtoStatus = {
+  Open: "OPEN",
+  Closed: "CLOSED",
+  PartiallyFulfilled: "PARTIALLY_FULFILLED",
+  Canceled: "CANCELED",
+} as const;
+export type PurchaseOrderResponseDtoStatus = OpenEnum<
+  typeof PurchaseOrderResponseDtoStatus
+>;
+
 export type PurchaseOrderResponseDto = {
-  id: string;
-  addresses: Array<Address>;
-  approvalDate: string;
-  comment: string;
-  createdDate: string;
-  currency: PurchaseOrderResponseDtoCurrency;
-  description: string;
-  lineItems: Array<PurchaseOrderLineItemResponseDto>;
-  orderDate: string;
-  paymentTermId: string;
-  reference: string;
-  status: string;
-  supplierId: string;
-  totalDiscountAmount: number;
-  totalDiscountPercentage: number;
-  totalGrossAmount: number;
-  totalNetAmount: number;
-  totalTaxAmount: number;
-  updatedDate: string;
+  id: string | null;
+  addresses: Array<Address> | null;
+  approvalDate: string | null;
+  comment: string | null;
+  createdDate: string | null;
+  currency: PurchaseOrderResponseDtoCurrency | null;
+  description: string | null;
+  lineItems: Array<PurchaseOrderLineItemResponseDto> | null;
+  orderDate: string | null;
+  paymentTermId: string | null;
+  reference: string | null;
+  status: PurchaseOrderResponseDtoStatus | null;
+  supplierId: string | null;
+  totalDiscountAmount: number | null;
+  totalDiscountPercentage: number | null;
+  totalGrossAmount: number | null;
+  totalNetAmount: number | null;
+  totalTaxAmount: number | null;
+  updatedDate: string | null;
 };
 
 /** @internal */
@@ -206,29 +216,37 @@ export const PurchaseOrderResponseDtoCurrency$inboundSchema: z.ZodMiniType<
 > = openEnums.inboundSchema(PurchaseOrderResponseDtoCurrency);
 
 /** @internal */
+export const PurchaseOrderResponseDtoStatus$inboundSchema: z.ZodMiniType<
+  PurchaseOrderResponseDtoStatus,
+  unknown
+> = openEnums.inboundSchema(PurchaseOrderResponseDtoStatus);
+
+/** @internal */
 export const PurchaseOrderResponseDto$inboundSchema: z.ZodMiniType<
   PurchaseOrderResponseDto,
   unknown
 > = z.object({
-  id: types.string(),
-  addresses: z.array(Address$inboundSchema),
-  approvalDate: types.string(),
-  comment: types.string(),
-  createdDate: types.string(),
-  currency: PurchaseOrderResponseDtoCurrency$inboundSchema,
-  description: types.string(),
-  lineItems: z.array(PurchaseOrderLineItemResponseDto$inboundSchema),
-  orderDate: types.string(),
-  paymentTermId: types.string(),
-  reference: types.string(),
-  status: types.string(),
-  supplierId: types.string(),
-  totalDiscountAmount: types.number(),
-  totalDiscountPercentage: types.number(),
-  totalGrossAmount: types.number(),
-  totalNetAmount: types.number(),
-  totalTaxAmount: types.number(),
-  updatedDate: types.string(),
+  id: types.nullable(types.string()),
+  addresses: types.nullable(z.array(Address$inboundSchema)),
+  approvalDate: types.nullable(types.string()),
+  comment: types.nullable(types.string()),
+  createdDate: types.nullable(types.string()),
+  currency: types.nullable(PurchaseOrderResponseDtoCurrency$inboundSchema),
+  description: types.nullable(types.string()),
+  lineItems: types.nullable(
+    z.array(PurchaseOrderLineItemResponseDto$inboundSchema),
+  ),
+  orderDate: types.nullable(types.string()),
+  paymentTermId: types.nullable(types.string()),
+  reference: types.nullable(types.string()),
+  status: types.nullable(PurchaseOrderResponseDtoStatus$inboundSchema),
+  supplierId: types.nullable(types.string()),
+  totalDiscountAmount: types.nullable(types.number()),
+  totalDiscountPercentage: types.nullable(types.number()),
+  totalGrossAmount: types.nullable(types.number()),
+  totalNetAmount: types.nullable(types.number()),
+  totalTaxAmount: types.nullable(types.number()),
+  updatedDate: types.nullable(types.string()),
 });
 
 export function purchaseOrderResponseDtoFromJSON(

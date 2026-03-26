@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
@@ -14,15 +15,27 @@ export type CreateBillRequest = {
   body: models.CreateBillRequestDto;
 };
 
+export type CreateBillPagination = {
+  total: number;
+  perPage: number;
+  currentPage: number;
+  totalPages: number;
+};
+
+export type CreateBillMeta = {
+  warnings?: Array<string> | null | undefined;
+  pagination?: CreateBillPagination | null | undefined;
+};
+
 export type CreateBillErrors = {};
 
 export type CreateBillRawData = {};
 
 export type CreateBillResponse = {
-  meta: models.MetaResponse;
+  meta?: CreateBillMeta | null | undefined;
   data: models.BillResponseDto;
-  errors: CreateBillErrors;
-  rawData: CreateBillRawData;
+  errors: CreateBillErrors | null;
+  rawData: CreateBillRawData | null;
 };
 
 /** @internal */
@@ -47,6 +60,48 @@ export function createBillRequestToJSON(
 ): string {
   return JSON.stringify(
     CreateBillRequest$outboundSchema.parse(createBillRequest),
+  );
+}
+
+/** @internal */
+export const CreateBillPagination$inboundSchema: z.ZodMiniType<
+  CreateBillPagination,
+  unknown
+> = z.object({
+  total: types.number(),
+  perPage: types.number(),
+  currentPage: types.number(),
+  totalPages: types.number(),
+});
+
+export function createBillPaginationFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateBillPagination, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateBillPagination$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateBillPagination' from JSON`,
+  );
+}
+
+/** @internal */
+export const CreateBillMeta$inboundSchema: z.ZodMiniType<
+  CreateBillMeta,
+  unknown
+> = z.object({
+  warnings: z.optional(z.nullable(z.array(types.string()))),
+  pagination: z.optional(
+    z.nullable(z.lazy(() => CreateBillPagination$inboundSchema)),
+  ),
+});
+
+export function createBillMetaFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateBillMeta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateBillMeta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateBillMeta' from JSON`,
   );
 }
 
@@ -87,10 +142,10 @@ export const CreateBillResponse$inboundSchema: z.ZodMiniType<
   CreateBillResponse,
   unknown
 > = z.object({
-  meta: models.MetaResponse$inboundSchema,
+  meta: z.optional(z.nullable(z.lazy(() => CreateBillMeta$inboundSchema))),
   data: models.BillResponseDto$inboundSchema,
-  errors: z.lazy(() => CreateBillErrors$inboundSchema),
-  rawData: z.lazy(() => CreateBillRawData$inboundSchema),
+  errors: types.nullable(z.lazy(() => CreateBillErrors$inboundSchema)),
+  rawData: types.nullable(z.lazy(() => CreateBillRawData$inboundSchema)),
 });
 
 export function createBillResponseFromJSON(

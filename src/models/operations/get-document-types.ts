@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
@@ -12,15 +13,27 @@ export type GetDocumentTypesRequest = {
   companyId?: string | undefined;
 };
 
+export type GetDocumentTypesPagination = {
+  total: number;
+  perPage: number;
+  currentPage: number;
+  totalPages: number;
+};
+
+export type GetDocumentTypesMeta = {
+  warnings?: Array<string> | null | undefined;
+  pagination?: GetDocumentTypesPagination | null | undefined;
+};
+
 export type GetDocumentTypesErrors = {};
 
 export type GetDocumentTypesRawData = {};
 
 export type GetDocumentTypesResponse = {
-  meta: models.MetaResponse;
+  meta?: GetDocumentTypesMeta | null | undefined;
   data: Array<models.DocumentTypesResponseDto>;
-  errors: GetDocumentTypesErrors;
-  rawData: GetDocumentTypesRawData;
+  errors: GetDocumentTypesErrors | null;
+  rawData: GetDocumentTypesRawData | null;
 };
 
 /** @internal */
@@ -41,6 +54,48 @@ export function getDocumentTypesRequestToJSON(
 ): string {
   return JSON.stringify(
     GetDocumentTypesRequest$outboundSchema.parse(getDocumentTypesRequest),
+  );
+}
+
+/** @internal */
+export const GetDocumentTypesPagination$inboundSchema: z.ZodMiniType<
+  GetDocumentTypesPagination,
+  unknown
+> = z.object({
+  total: types.number(),
+  perPage: types.number(),
+  currentPage: types.number(),
+  totalPages: types.number(),
+});
+
+export function getDocumentTypesPaginationFromJSON(
+  jsonString: string,
+): SafeParseResult<GetDocumentTypesPagination, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetDocumentTypesPagination$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetDocumentTypesPagination' from JSON`,
+  );
+}
+
+/** @internal */
+export const GetDocumentTypesMeta$inboundSchema: z.ZodMiniType<
+  GetDocumentTypesMeta,
+  unknown
+> = z.object({
+  warnings: z.optional(z.nullable(z.array(types.string()))),
+  pagination: z.optional(
+    z.nullable(z.lazy(() => GetDocumentTypesPagination$inboundSchema)),
+  ),
+});
+
+export function getDocumentTypesMetaFromJSON(
+  jsonString: string,
+): SafeParseResult<GetDocumentTypesMeta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetDocumentTypesMeta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetDocumentTypesMeta' from JSON`,
   );
 }
 
@@ -81,10 +136,12 @@ export const GetDocumentTypesResponse$inboundSchema: z.ZodMiniType<
   GetDocumentTypesResponse,
   unknown
 > = z.object({
-  meta: models.MetaResponse$inboundSchema,
+  meta: z.optional(
+    z.nullable(z.lazy(() => GetDocumentTypesMeta$inboundSchema)),
+  ),
   data: z.array(models.DocumentTypesResponseDto$inboundSchema),
-  errors: z.lazy(() => GetDocumentTypesErrors$inboundSchema),
-  rawData: z.lazy(() => GetDocumentTypesRawData$inboundSchema),
+  errors: types.nullable(z.lazy(() => GetDocumentTypesErrors$inboundSchema)),
+  rawData: types.nullable(z.lazy(() => GetDocumentTypesRawData$inboundSchema)),
 });
 
 export function getDocumentTypesResponseFromJSON(

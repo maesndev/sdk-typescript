@@ -7,13 +7,12 @@ import { safeParse } from "../lib/schemas.js";
 import * as openEnums from "../types/enums.js";
 import { OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
+import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 import {
   InformationResponseDto,
   InformationResponseDto$inboundSchema,
 } from "./information-response-dto.js";
-
-export type ResponseData = {};
 
 export const AsyncTaskResponseDtoStatus = {
   Open: "OPEN",
@@ -31,24 +30,10 @@ export type AsyncTaskResponseDtoStatus = OpenEnum<
 >;
 
 export type AsyncTaskResponseDto = {
-  information: Array<InformationResponseDto>;
-  responseData: ResponseData;
-  status: AsyncTaskResponseDtoStatus;
+  information: Array<InformationResponseDto> | null;
+  responseData: string | null;
+  status: AsyncTaskResponseDtoStatus | null;
 };
-
-/** @internal */
-export const ResponseData$inboundSchema: z.ZodMiniType<ResponseData, unknown> =
-  z.object({});
-
-export function responseDataFromJSON(
-  jsonString: string,
-): SafeParseResult<ResponseData, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => ResponseData$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ResponseData' from JSON`,
-  );
-}
 
 /** @internal */
 export const AsyncTaskResponseDtoStatus$inboundSchema: z.ZodMiniType<
@@ -61,9 +46,9 @@ export const AsyncTaskResponseDto$inboundSchema: z.ZodMiniType<
   AsyncTaskResponseDto,
   unknown
 > = z.object({
-  information: z.array(InformationResponseDto$inboundSchema),
-  responseData: z.lazy(() => ResponseData$inboundSchema),
-  status: AsyncTaskResponseDtoStatus$inboundSchema,
+  information: types.nullable(z.array(InformationResponseDto$inboundSchema)),
+  responseData: types.nullable(types.string()),
+  status: types.nullable(AsyncTaskResponseDtoStatus$inboundSchema),
 });
 
 export function asyncTaskResponseDtoFromJSON(

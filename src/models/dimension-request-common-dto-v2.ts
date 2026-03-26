@@ -5,18 +5,18 @@
 import * as z from "zod/v4-mini";
 
 export type DimensionRequestCommonDtoV2 = {
-  id: string;
-  code: string;
-  dimension: string;
-  name: string;
+  id?: string | undefined;
+  code?: string | undefined;
+  dimension?: string | undefined;
+  name?: string | undefined;
 };
 
 /** @internal */
 export type DimensionRequestCommonDtoV2$Outbound = {
-  id: string;
-  code: string;
-  dimension: string;
-  name: string;
+  id?: string | undefined;
+  code?: string | undefined;
+  dimension?: string | undefined;
+  name?: string | undefined;
 };
 
 /** @internal */
@@ -24,10 +24,10 @@ export const DimensionRequestCommonDtoV2$outboundSchema: z.ZodMiniType<
   DimensionRequestCommonDtoV2$Outbound,
   DimensionRequestCommonDtoV2
 > = z.object({
-  id: z.string(),
-  code: z.string(),
-  dimension: z.string(),
-  name: z.string(),
+  id: z.optional(z.string()),
+  code: z.optional(z.string()),
+  dimension: z.optional(z.string()),
+  name: z.optional(z.string()),
 });
 
 export function dimensionRequestCommonDtoV2ToJSON(

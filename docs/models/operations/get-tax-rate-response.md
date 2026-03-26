@@ -3,33 +3,21 @@
 ## Example Usage
 
 ```typescript
-import { GetTaxRateResponse } from "maesn/models/operations";
+import { GetTaxRateResponse } from "@maesn/typescript-sdk/models/operations";
 
 let value: GetTaxRateResponse = {
-  meta: {
-    warnings: [
-      "<value 1>",
-      "<value 2>",
-    ],
-    pagination: {
-      total: 3438.77,
-      perPage: 5109.63,
-      currentPage: 2626.79,
-      totalPages: 3561.84,
-    },
-  },
   data: {
     id: "<id>",
     code: "<value>",
-    createdDate: {},
-    description: "primary to or provided yuck pale male",
+    createdDate: "<value>",
+    description: "likewise ouch excluding astride worriedly nasalise ick far",
     name: "<value>",
-    percentage: 292,
+    percentage: 5469.19,
     type: "ZERO_TAX",
-    updatedDate: {},
+    updatedDate: "<value>",
     usage: "ALL",
   },
-  errors: {},
+  errors: null,
   rawData: {},
 };
 ```
@@ -38,7 +26,7 @@ let value: GetTaxRateResponse = {
 
 | Field                                                                            | Type                                                                             | Required                                                                         | Description                                                                      |
 | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `meta`                                                                           | [models.MetaResponse](../../models/meta-response.md)                             | :heavy_check_mark:                                                               | N/A                                                                              |
+| `meta`                                                                           | [operations.GetTaxRateMeta](../../models/operations/get-tax-rate-meta.md)        | :heavy_minus_sign:                                                               | N/A                                                                              |
 | `data`                                                                           | [models.TaxRateResponseDto](../../models/tax-rate-response-dto.md)               | :heavy_check_mark:                                                               | N/A                                                                              |
 | `errors`                                                                         | [operations.GetTaxRateErrors](../../models/operations/get-tax-rate-errors.md)    | :heavy_check_mark:                                                               | N/A                                                                              |
 | `rawData`                                                                        | [operations.GetTaxRateRawData](../../models/operations/get-tax-rate-raw-data.md) | :heavy_check_mark:                                                               | N/A                                                                              |

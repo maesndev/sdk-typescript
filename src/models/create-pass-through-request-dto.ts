@@ -23,9 +23,9 @@ export type Query = {};
 export type CreatePassThroughRequestDto = {
   path: string;
   method: Method;
-  headers: Headers;
-  body: Body;
-  query: Query;
+  headers?: Headers | undefined;
+  body?: Body | undefined;
+  query?: Query | undefined;
 };
 
 /** @internal */
@@ -71,9 +71,9 @@ export function queryToJSON(query: Query): string {
 export type CreatePassThroughRequestDto$Outbound = {
   path: string;
   method: string;
-  headers: Headers$Outbound;
-  body: Body$Outbound;
-  query: Query$Outbound;
+  headers?: Headers$Outbound | undefined;
+  body?: Body$Outbound | undefined;
+  query?: Query$Outbound | undefined;
 };
 
 /** @internal */
@@ -83,9 +83,9 @@ export const CreatePassThroughRequestDto$outboundSchema: z.ZodMiniType<
 > = z.object({
   path: z.string(),
   method: Method$outboundSchema,
-  headers: z.lazy(() => Headers$outboundSchema),
-  body: z.lazy(() => Body$outboundSchema),
-  query: z.lazy(() => Query$outboundSchema),
+  headers: z.optional(z.lazy(() => Headers$outboundSchema)),
+  body: z.optional(z.lazy(() => Body$outboundSchema)),
+  query: z.optional(z.lazy(() => Query$outboundSchema)),
 });
 
 export function createPassThroughRequestDtoToJSON(

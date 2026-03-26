@@ -5,16 +5,16 @@
 import * as z from "zod/v4-mini";
 
 export type InvoiceDimensionRequestDto = {
-  id: string;
-  categoryName: string;
-  name: string;
+  id?: string | undefined;
+  categoryName?: string | undefined;
+  name?: string | undefined;
 };
 
 /** @internal */
 export type InvoiceDimensionRequestDto$Outbound = {
-  id: string;
-  categoryName: string;
-  name: string;
+  id?: string | undefined;
+  categoryName?: string | undefined;
+  name?: string | undefined;
 };
 
 /** @internal */
@@ -22,9 +22,9 @@ export const InvoiceDimensionRequestDto$outboundSchema: z.ZodMiniType<
   InvoiceDimensionRequestDto$Outbound,
   InvoiceDimensionRequestDto
 > = z.object({
-  id: z.string(),
-  categoryName: z.string(),
-  name: z.string(),
+  id: z.optional(z.string()),
+  categoryName: z.optional(z.string()),
+  name: z.optional(z.string()),
 });
 
 export function invoiceDimensionRequestDtoToJSON(

@@ -24,19 +24,19 @@ export type BookingProposalLineItemRequestDtoV2Type = ClosedEnum<
 >;
 
 export type BookingProposalLineItemRequestDtoV2 = {
-  id: string;
-  account: AccountRequestCommonDtoV2;
-  description: string;
-  dimensions: Array<DimensionRequestCommonDtoV2>;
-  discountAmount: number;
-  discountAmount2: number;
-  discountPercentage: number;
-  discountPercentage2: number;
-  taxCode: string;
-  taxRatePercentage: number;
-  totalGrossAmount: number;
-  totalNetAmount: number;
-  type: BookingProposalLineItemRequestDtoV2Type;
+  id?: string | undefined;
+  account?: AccountRequestCommonDtoV2 | undefined;
+  description?: string | undefined;
+  dimensions?: Array<DimensionRequestCommonDtoV2> | undefined;
+  discountAmount?: number | undefined;
+  discountAmount2?: number | undefined;
+  discountPercentage?: number | undefined;
+  discountPercentage2?: number | undefined;
+  taxCode?: string | undefined;
+  taxRatePercentage?: number | undefined;
+  totalGrossAmount?: number | undefined;
+  totalNetAmount?: number | undefined;
+  type?: BookingProposalLineItemRequestDtoV2Type | undefined;
 };
 
 /** @internal */
@@ -47,19 +47,19 @@ export const BookingProposalLineItemRequestDtoV2Type$outboundSchema:
 
 /** @internal */
 export type BookingProposalLineItemRequestDtoV2$Outbound = {
-  id: string;
-  account: AccountRequestCommonDtoV2$Outbound;
-  description: string;
-  dimensions: Array<DimensionRequestCommonDtoV2$Outbound>;
-  discountAmount: number;
-  discountAmount2: number;
-  discountPercentage: number;
-  discountPercentage2: number;
-  taxCode: string;
-  taxRatePercentage: number;
-  totalGrossAmount: number;
-  totalNetAmount: number;
-  type: string;
+  id?: string | undefined;
+  account?: AccountRequestCommonDtoV2$Outbound | undefined;
+  description?: string | undefined;
+  dimensions?: Array<DimensionRequestCommonDtoV2$Outbound> | undefined;
+  discountAmount?: number | undefined;
+  discountAmount2?: number | undefined;
+  discountPercentage?: number | undefined;
+  discountPercentage2?: number | undefined;
+  taxCode?: string | undefined;
+  taxRatePercentage?: number | undefined;
+  totalGrossAmount?: number | undefined;
+  totalNetAmount?: number | undefined;
+  type?: string | undefined;
 };
 
 /** @internal */
@@ -67,19 +67,19 @@ export const BookingProposalLineItemRequestDtoV2$outboundSchema: z.ZodMiniType<
   BookingProposalLineItemRequestDtoV2$Outbound,
   BookingProposalLineItemRequestDtoV2
 > = z.object({
-  id: z.string(),
-  account: AccountRequestCommonDtoV2$outboundSchema,
-  description: z.string(),
-  dimensions: z.array(DimensionRequestCommonDtoV2$outboundSchema),
-  discountAmount: z.number(),
-  discountAmount2: z.number(),
-  discountPercentage: z.number(),
-  discountPercentage2: z.number(),
-  taxCode: z.string(),
-  taxRatePercentage: z.number(),
-  totalGrossAmount: z.number(),
-  totalNetAmount: z.number(),
-  type: BookingProposalLineItemRequestDtoV2Type$outboundSchema,
+  id: z.optional(z.string()),
+  account: z.optional(AccountRequestCommonDtoV2$outboundSchema),
+  description: z.optional(z.string()),
+  dimensions: z.optional(z.array(DimensionRequestCommonDtoV2$outboundSchema)),
+  discountAmount: z.optional(z.number()),
+  discountAmount2: z.optional(z.number()),
+  discountPercentage: z.optional(z.number()),
+  discountPercentage2: z.optional(z.number()),
+  taxCode: z.optional(z.string()),
+  taxRatePercentage: z.optional(z.number()),
+  totalGrossAmount: z.optional(z.number()),
+  totalNetAmount: z.optional(z.number()),
+  type: z.optional(BookingProposalLineItemRequestDtoV2Type$outboundSchema),
 });
 
 export function bookingProposalLineItemRequestDtoV2ToJSON(

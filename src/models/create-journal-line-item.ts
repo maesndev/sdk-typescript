@@ -5,10 +5,15 @@
 import * as z from "zod/v4-mini";
 import { ClosedEnum } from "../types/enums.js";
 import {
-  TaxRate,
-  TaxRate$Outbound,
-  TaxRate$outboundSchema,
-} from "./tax-rate.js";
+  DimensionInput,
+  DimensionInput$Outbound,
+  DimensionInput$outboundSchema,
+} from "./dimension-input.js";
+import {
+  TaxRateInput,
+  TaxRateInput$Outbound,
+  TaxRateInput$outboundSchema,
+} from "./tax-rate-input.js";
 
 export const CreateJournalLineItemCurrency = {
   Aed: "AED",
@@ -181,23 +186,23 @@ export type CreateJournalLineItemDebitCreditIndicator = ClosedEnum<
 >;
 
 export type CreateJournalLineItem = {
-  accountCode: string;
-  accountId: string;
-  accountNumber: number;
-  currency: CreateJournalLineItemCurrency;
-  customerId: string;
-  debitCreditIndicator: CreateJournalLineItemDebitCreditIndicator;
-  description: string;
-  dimensions: Array<string>;
-  discountAmount: number;
-  documentNumber: string;
-  exchangeRate: string;
-  supplierId: string;
-  taxRate: TaxRate;
-  thirdPartyCode: string;
-  totalGrossAmount: number;
-  totalNetAmount: number;
-  totalTaxAmount: number;
+  accountCode?: string | undefined;
+  accountId?: string | undefined;
+  accountNumber?: number | undefined;
+  currency?: CreateJournalLineItemCurrency | undefined;
+  customerId?: string | undefined;
+  debitCreditIndicator?: CreateJournalLineItemDebitCreditIndicator | undefined;
+  description?: string | undefined;
+  dimensions?: Array<DimensionInput> | undefined;
+  discountAmount?: number | undefined;
+  documentNumber?: string | undefined;
+  exchangeRate?: string | undefined;
+  supplierId?: string | undefined;
+  taxRate?: TaxRateInput | undefined;
+  thirdPartyCode?: string | undefined;
+  totalGrossAmount?: number | undefined;
+  totalNetAmount?: number | undefined;
+  totalTaxAmount?: number | undefined;
 };
 
 /** @internal */
@@ -213,23 +218,23 @@ export const CreateJournalLineItemDebitCreditIndicator$outboundSchema:
 
 /** @internal */
 export type CreateJournalLineItem$Outbound = {
-  accountCode: string;
-  accountId: string;
-  accountNumber: number;
-  currency: string;
-  customerId: string;
-  debitCreditIndicator: string;
-  description: string;
-  dimensions: Array<string>;
-  discountAmount: number;
-  documentNumber: string;
-  exchangeRate: string;
-  supplierId: string;
-  taxRate: TaxRate$Outbound;
-  thirdPartyCode: string;
-  totalGrossAmount: number;
-  totalNetAmount: number;
-  totalTaxAmount: number;
+  accountCode?: string | undefined;
+  accountId?: string | undefined;
+  accountNumber?: number | undefined;
+  currency?: string | undefined;
+  customerId?: string | undefined;
+  debitCreditIndicator?: string | undefined;
+  description?: string | undefined;
+  dimensions?: Array<DimensionInput$Outbound> | undefined;
+  discountAmount?: number | undefined;
+  documentNumber?: string | undefined;
+  exchangeRate?: string | undefined;
+  supplierId?: string | undefined;
+  taxRate?: TaxRateInput$Outbound | undefined;
+  thirdPartyCode?: string | undefined;
+  totalGrossAmount?: number | undefined;
+  totalNetAmount?: number | undefined;
+  totalTaxAmount?: number | undefined;
 };
 
 /** @internal */
@@ -237,24 +242,25 @@ export const CreateJournalLineItem$outboundSchema: z.ZodMiniType<
   CreateJournalLineItem$Outbound,
   CreateJournalLineItem
 > = z.object({
-  accountCode: z.string(),
-  accountId: z.string(),
-  accountNumber: z.number(),
-  currency: CreateJournalLineItemCurrency$outboundSchema,
-  customerId: z.string(),
-  debitCreditIndicator:
+  accountCode: z.optional(z.string()),
+  accountId: z.optional(z.string()),
+  accountNumber: z.optional(z.number()),
+  currency: z.optional(CreateJournalLineItemCurrency$outboundSchema),
+  customerId: z.optional(z.string()),
+  debitCreditIndicator: z.optional(
     CreateJournalLineItemDebitCreditIndicator$outboundSchema,
-  description: z.string(),
-  dimensions: z.array(z.string()),
-  discountAmount: z.number(),
-  documentNumber: z.string(),
-  exchangeRate: z.string(),
-  supplierId: z.string(),
-  taxRate: TaxRate$outboundSchema,
-  thirdPartyCode: z.string(),
-  totalGrossAmount: z.number(),
-  totalNetAmount: z.number(),
-  totalTaxAmount: z.number(),
+  ),
+  description: z.optional(z.string()),
+  dimensions: z.optional(z.array(DimensionInput$outboundSchema)),
+  discountAmount: z.optional(z.number()),
+  documentNumber: z.optional(z.string()),
+  exchangeRate: z.optional(z.string()),
+  supplierId: z.optional(z.string()),
+  taxRate: z.optional(TaxRateInput$outboundSchema),
+  thirdPartyCode: z.optional(z.string()),
+  totalGrossAmount: z.optional(z.number()),
+  totalNetAmount: z.optional(z.number()),
+  totalTaxAmount: z.optional(z.number()),
 });
 
 export function createJournalLineItemToJSON(

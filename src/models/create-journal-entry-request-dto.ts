@@ -181,22 +181,24 @@ export type CreateJournalEntryRequestDtoDebitCreditIndicator = ClosedEnum<
 >;
 
 export type CreateJournalEntryRequestDto = {
-  accountId: string;
-  accountingPeriodId: string;
-  currency: CreateJournalEntryRequestDtoCurrency;
-  debitCreditIndicator: CreateJournalEntryRequestDtoDebitCreditIndicator;
-  deliveryDate: string;
-  description: string;
-  documentId: string;
-  dueDate: string;
-  exchangeRate: string;
-  isProvisional: boolean;
-  journalCode: string;
-  journalLineItems: Array<CreateJournalLineItem>;
-  journalType: string;
-  number: string;
-  taxAssignmentDate: string;
-  transactionDate: string;
+  accountId?: string | undefined;
+  accountingPeriodId?: string | undefined;
+  currency?: CreateJournalEntryRequestDtoCurrency | undefined;
+  debitCreditIndicator?:
+    | CreateJournalEntryRequestDtoDebitCreditIndicator
+    | undefined;
+  deliveryDate?: string | undefined;
+  description?: string | undefined;
+  documentId?: string | undefined;
+  dueDate?: string | undefined;
+  exchangeRate?: string | undefined;
+  isProvisional?: boolean | undefined;
+  journalCode?: string | undefined;
+  journalLineItems?: Array<CreateJournalLineItem> | undefined;
+  journalType?: string | undefined;
+  number?: string | undefined;
+  taxAssignmentDate?: string | undefined;
+  transactionDate?: string | undefined;
 };
 
 /** @internal */
@@ -211,22 +213,22 @@ export const CreateJournalEntryRequestDtoDebitCreditIndicator$outboundSchema:
 
 /** @internal */
 export type CreateJournalEntryRequestDto$Outbound = {
-  accountId: string;
-  accountingPeriodId: string;
-  currency: string;
-  debitCreditIndicator: string;
-  deliveryDate: string;
-  description: string;
-  documentId: string;
-  dueDate: string;
-  exchangeRate: string;
-  isProvisional: boolean;
-  journalCode: string;
-  journalLineItems: Array<CreateJournalLineItem$Outbound>;
-  journalType: string;
-  number: string;
-  taxAssignmentDate: string;
-  transactionDate: string;
+  accountId?: string | undefined;
+  accountingPeriodId?: string | undefined;
+  currency?: string | undefined;
+  debitCreditIndicator?: string | undefined;
+  deliveryDate?: string | undefined;
+  description?: string | undefined;
+  documentId?: string | undefined;
+  dueDate?: string | undefined;
+  exchangeRate?: string | undefined;
+  isProvisional?: boolean | undefined;
+  journalCode?: string | undefined;
+  journalLineItems?: Array<CreateJournalLineItem$Outbound> | undefined;
+  journalType?: string | undefined;
+  number?: string | undefined;
+  taxAssignmentDate?: string | undefined;
+  transactionDate?: string | undefined;
 };
 
 /** @internal */
@@ -234,23 +236,24 @@ export const CreateJournalEntryRequestDto$outboundSchema: z.ZodMiniType<
   CreateJournalEntryRequestDto$Outbound,
   CreateJournalEntryRequestDto
 > = z.object({
-  accountId: z.string(),
-  accountingPeriodId: z.string(),
-  currency: CreateJournalEntryRequestDtoCurrency$outboundSchema,
-  debitCreditIndicator:
+  accountId: z.optional(z.string()),
+  accountingPeriodId: z.optional(z.string()),
+  currency: z.optional(CreateJournalEntryRequestDtoCurrency$outboundSchema),
+  debitCreditIndicator: z.optional(
     CreateJournalEntryRequestDtoDebitCreditIndicator$outboundSchema,
-  deliveryDate: z.string(),
-  description: z.string(),
-  documentId: z.string(),
-  dueDate: z.string(),
-  exchangeRate: z.string(),
-  isProvisional: z.boolean(),
-  journalCode: z.string(),
-  journalLineItems: z.array(CreateJournalLineItem$outboundSchema),
-  journalType: z.string(),
-  number: z.string(),
-  taxAssignmentDate: z.string(),
-  transactionDate: z.string(),
+  ),
+  deliveryDate: z.optional(z.string()),
+  description: z.optional(z.string()),
+  documentId: z.optional(z.string()),
+  dueDate: z.optional(z.string()),
+  exchangeRate: z.optional(z.string()),
+  isProvisional: z.optional(z.boolean()),
+  journalCode: z.optional(z.string()),
+  journalLineItems: z.optional(z.array(CreateJournalLineItem$outboundSchema)),
+  journalType: z.optional(z.string()),
+  number: z.optional(z.string()),
+  taxAssignmentDate: z.optional(z.string()),
+  transactionDate: z.optional(z.string()),
 });
 
 export function createJournalEntryRequestDtoToJSON(

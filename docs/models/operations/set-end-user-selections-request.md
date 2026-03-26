@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { SetEndUserSelectionsRequest } from "maesn/models/operations";
+import { SetEndUserSelectionsRequest } from "@maesn/typescript-sdk/models/operations";
 
 let value: SetEndUserSelectionsRequest = {
   accountKey: "<value>",

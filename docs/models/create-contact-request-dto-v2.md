@@ -3,35 +3,10 @@
 ## Example Usage
 
 ```typescript
-import { CreateContactRequestDtoV2 } from "maesn/models";
+import { CreateContactRequestDtoV2 } from "@maesn/typescript-sdk/models";
 
 let value: CreateContactRequestDtoV2 = {
-  id: "<id>",
-  addresses: [
-    {
-      addressLine1: "321 McLaughlin Village",
-      addressLine2: "-",
-      city: "Lake Celiafield",
-      countryCode: "NA",
-      postalCode: "56972-1641",
-      type: "EMPTY",
-    },
-  ],
-  companyName: "Wilderman - Kovacek",
-  contactPersons: [],
   contactType: "UNDEFINED",
-  emailAddresses: [],
-  isCustomer: true,
-  isSupplier: false,
-  number: "<value>",
-  phoneNumbers: [
-    {
-      number: "<value>",
-      type: "LANDLINE",
-    },
-  ],
-  projectId: "<id>",
-  website: "<value>",
 };
 ```
 
@@ -39,15 +14,15 @@ let value: CreateContactRequestDtoV2 = {
 
 | Field                                                                                                  | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
 | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| `id`                                                                                                   | *string*                                                                                               | :heavy_check_mark:                                                                                     | N/A                                                                                                    |
-| `addresses`                                                                                            | [models.CreateContactAddress](../models/create-contact-address.md)[]                                   | :heavy_check_mark:                                                                                     | N/A                                                                                                    |
-| `companyName`                                                                                          | *string*                                                                                               | :heavy_check_mark:                                                                                     | N/A                                                                                                    |
-| `contactPersons`                                                                                       | [models.CreateContactPersonDtoV2](../models/create-contact-person-dto-v2.md)[]                         | :heavy_check_mark:                                                                                     | N/A                                                                                                    |
+| `id`                                                                                                   | *string*                                                                                               | :heavy_minus_sign:                                                                                     | N/A                                                                                                    |
+| `addresses`                                                                                            | [models.CreateContactAddressV2](../models/create-contact-address-v2.md)[]                              | :heavy_minus_sign:                                                                                     | N/A                                                                                                    |
+| `companyName`                                                                                          | *string*                                                                                               | :heavy_minus_sign:                                                                                     | N/A                                                                                                    |
+| `contactPersons`                                                                                       | [models.CreateContactPersonDtoV2](../models/create-contact-person-dto-v2.md)[]                         | :heavy_minus_sign:                                                                                     | N/A                                                                                                    |
 | `contactType`                                                                                          | [models.CreateContactRequestDtoV2ContactType](../models/create-contact-request-dto-v2-contact-type.md) | :heavy_check_mark:                                                                                     | N/A                                                                                                    |
-| `emailAddresses`                                                                                       | [models.EmailAddress](../models/email-address.md)[]                                                    | :heavy_check_mark:                                                                                     | N/A                                                                                                    |
-| `isCustomer`                                                                                           | *boolean*                                                                                              | :heavy_check_mark:                                                                                     | N/A                                                                                                    |
-| `isSupplier`                                                                                           | *boolean*                                                                                              | :heavy_check_mark:                                                                                     | N/A                                                                                                    |
-| `number`                                                                                               | *string*                                                                                               | :heavy_check_mark:                                                                                     | N/A                                                                                                    |
-| `phoneNumbers`                                                                                         | [models.PhoneNumber](../models/phone-number.md)[]                                                      | :heavy_check_mark:                                                                                     | N/A                                                                                                    |
-| `projectId`                                                                                            | *string*                                                                                               | :heavy_check_mark:                                                                                     | N/A                                                                                                    |
-| `website`                                                                                              | *string*                                                                                               | :heavy_check_mark:                                                                                     | N/A                                                                                                    |
+| `emailAddresses`                                                                                       | [models.EmailAddressV2](../models/email-address-v2.md)[]                                               | :heavy_minus_sign:                                                                                     | N/A                                                                                                    |
+| `isCustomer`                                                                                           | *boolean*                                                                                              | :heavy_minus_sign:                                                                                     | N/A                                                                                                    |
+| `isSupplier`                                                                                           | *boolean*                                                                                              | :heavy_minus_sign:                                                                                     | N/A                                                                                                    |
+| `number`                                                                                               | *string*                                                                                               | :heavy_minus_sign:                                                                                     | N/A                                                                                                    |
+| `phoneNumbers`                                                                                         | [models.PhoneNumberV2](../models/phone-number-v2.md)[]                                                 | :heavy_minus_sign:                                                                                     | N/A                                                                                                    |
+| `projectId`                                                                                            | *string*                                                                                               | :heavy_minus_sign:                                                                                     | N/A                                                                                                    |
+| `website`                                                                                              | *string*                                                                                               | :heavy_minus_sign:                                                                                     | N/A                                                                                                    |

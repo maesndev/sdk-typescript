@@ -3,20 +3,20 @@
 ## Example Usage
 
 ```typescript
-import { MonthlyValue } from "maesn/models";
+import { MonthlyValue } from "@maesn/typescript-sdk/models";
 
 let value: MonthlyValue = {
-  month: 5883.46,
+  month: 1173.56,
   balance: {
-    amount: 6397.3,
-    debitCreditIndicator: "DEBIT",
+    amount: 6542,
+    debitCreditIndicator: null,
   },
 };
 ```
 
 ## Fields
 
-| Field                                  | Type                                   | Required                               | Description                            |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| `month`                                | *number*                               | :heavy_check_mark:                     | N/A                                    |
-| `balance`                              | [models.Balance](../models/balance.md) | :heavy_check_mark:                     | N/A                                    |
+| Field                                                            | Type                                                             | Required                                                         | Description                                                      |
+| ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
+| `month`                                                          | *number*                                                         | :heavy_check_mark:                                               | N/A                                                              |
+| `balance`                                                        | [models.MonthlyValueBalance](../models/monthly-value-balance.md) | :heavy_check_mark:                                               | N/A                                                              |

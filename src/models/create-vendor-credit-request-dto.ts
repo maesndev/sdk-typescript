@@ -84,30 +84,30 @@ export type CreateVendorCreditRequestDtoTaxRule = ClosedEnum<
 >;
 
 export type CreateVendorCreditRequestDto = {
-  accountId: string;
-  addresses: Array<Address>;
-  contactId: string;
-  currency: string;
-  deliveryDate: string;
-  dueDate: string;
-  journalCode: string;
-  lineItems: Array<CreateVendorCreditLineItemRequestDto>;
-  name: string;
-  oneLineAddress: string;
-  paidDate: CreateVendorCreditRequestDtoPaidDate;
-  paymentStatus: CreateVendorCreditRequestDtoPaymentStatus;
-  paymentDays: number;
-  reference: string;
-  shippingDate: CreateVendorCreditRequestDtoShippingDate;
-  shippingType: CreateVendorCreditRequestDtoShippingType;
-  status: CreateVendorCreditRequestDtoStatus;
-  taxRule: CreateVendorCreditRequestDtoTaxRule;
-  taxText: string;
-  totalDiscountAmount: number;
-  totalDiscountPercentage: number;
-  totalGrossAmount: number;
-  totalNetAmount: number;
-  totalTaxAmount: number;
+  accountId?: string | undefined;
+  addresses?: Array<Address> | undefined;
+  contactId?: string | undefined;
+  currency?: string | undefined;
+  deliveryDate?: string | undefined;
+  dueDate?: string | undefined;
+  journalCode?: string | undefined;
+  lineItems?: Array<CreateVendorCreditLineItemRequestDto> | undefined;
+  name?: string | undefined;
+  oneLineAddress?: string | undefined;
+  paidDate?: CreateVendorCreditRequestDtoPaidDate | undefined;
+  paymentStatus?: CreateVendorCreditRequestDtoPaymentStatus | undefined;
+  paymentDays?: number | undefined;
+  reference?: string | undefined;
+  shippingDate?: CreateVendorCreditRequestDtoShippingDate | undefined;
+  shippingType?: CreateVendorCreditRequestDtoShippingType | undefined;
+  status?: CreateVendorCreditRequestDtoStatus | undefined;
+  taxRule?: CreateVendorCreditRequestDtoTaxRule | undefined;
+  taxText?: string | undefined;
+  totalDiscountAmount?: number | undefined;
+  totalDiscountPercentage?: number | undefined;
+  totalGrossAmount?: number | undefined;
+  totalNetAmount?: number | undefined;
+  totalTaxAmount?: number | undefined;
   vendorCreditDate: string;
   vendorCreditNumber: string;
 };
@@ -176,30 +176,30 @@ export const CreateVendorCreditRequestDtoTaxRule$outboundSchema: z.ZodMiniEnum<
 
 /** @internal */
 export type CreateVendorCreditRequestDto$Outbound = {
-  accountId: string;
-  addresses: Array<Address$Outbound>;
-  contactId: string;
-  currency: string;
-  deliveryDate: string;
-  dueDate: string;
-  journalCode: string;
-  lineItems: Array<CreateVendorCreditLineItemRequestDto$Outbound>;
-  name: string;
-  oneLineAddress: string;
-  paidDate: CreateVendorCreditRequestDtoPaidDate$Outbound;
-  paymentStatus: string;
-  paymentDays: number;
-  reference: string;
-  shippingDate: CreateVendorCreditRequestDtoShippingDate$Outbound;
-  shippingType: string;
-  status: string;
-  taxRule: string;
-  taxText: string;
-  totalDiscountAmount: number;
-  totalDiscountPercentage: number;
-  totalGrossAmount: number;
-  totalNetAmount: number;
-  totalTaxAmount: number;
+  accountId?: string | undefined;
+  addresses?: Array<Address$Outbound> | undefined;
+  contactId?: string | undefined;
+  currency?: string | undefined;
+  deliveryDate?: string | undefined;
+  dueDate?: string | undefined;
+  journalCode?: string | undefined;
+  lineItems?: Array<CreateVendorCreditLineItemRequestDto$Outbound> | undefined;
+  name?: string | undefined;
+  oneLineAddress?: string | undefined;
+  paidDate?: CreateVendorCreditRequestDtoPaidDate$Outbound | undefined;
+  paymentStatus?: string | undefined;
+  paymentDays?: number | undefined;
+  reference?: string | undefined;
+  shippingDate?: CreateVendorCreditRequestDtoShippingDate$Outbound | undefined;
+  shippingType?: string | undefined;
+  status?: string | undefined;
+  taxRule?: string | undefined;
+  taxText?: string | undefined;
+  totalDiscountAmount?: number | undefined;
+  totalDiscountPercentage?: number | undefined;
+  totalGrossAmount?: number | undefined;
+  totalNetAmount?: number | undefined;
+  totalTaxAmount?: number | undefined;
   vendorCreditDate: string;
   vendorCreditNumber: string;
 };
@@ -209,32 +209,40 @@ export const CreateVendorCreditRequestDto$outboundSchema: z.ZodMiniType<
   CreateVendorCreditRequestDto$Outbound,
   CreateVendorCreditRequestDto
 > = z.object({
-  accountId: z.string(),
-  addresses: z.array(Address$outboundSchema),
-  contactId: z.string(),
-  currency: z.string(),
-  deliveryDate: z.string(),
-  dueDate: z.string(),
-  journalCode: z.string(),
-  lineItems: z.array(CreateVendorCreditLineItemRequestDto$outboundSchema),
-  name: z.string(),
-  oneLineAddress: z.string(),
-  paidDate: z.lazy(() => CreateVendorCreditRequestDtoPaidDate$outboundSchema),
-  paymentStatus: CreateVendorCreditRequestDtoPaymentStatus$outboundSchema,
-  paymentDays: z.number(),
-  reference: z.string(),
-  shippingDate: z.lazy(() =>
-    CreateVendorCreditRequestDtoShippingDate$outboundSchema
+  accountId: z.optional(z.string()),
+  addresses: z.optional(z.array(Address$outboundSchema)),
+  contactId: z.optional(z.string()),
+  currency: z.optional(z.string()),
+  deliveryDate: z.optional(z.string()),
+  dueDate: z.optional(z.string()),
+  journalCode: z.optional(z.string()),
+  lineItems: z.optional(
+    z.array(CreateVendorCreditLineItemRequestDto$outboundSchema),
   ),
-  shippingType: CreateVendorCreditRequestDtoShippingType$outboundSchema,
-  status: CreateVendorCreditRequestDtoStatus$outboundSchema,
-  taxRule: CreateVendorCreditRequestDtoTaxRule$outboundSchema,
-  taxText: z.string(),
-  totalDiscountAmount: z.number(),
-  totalDiscountPercentage: z.number(),
-  totalGrossAmount: z.number(),
-  totalNetAmount: z.number(),
-  totalTaxAmount: z.number(),
+  name: z.optional(z.string()),
+  oneLineAddress: z.optional(z.string()),
+  paidDate: z.optional(
+    z.lazy(() => CreateVendorCreditRequestDtoPaidDate$outboundSchema),
+  ),
+  paymentStatus: z.optional(
+    CreateVendorCreditRequestDtoPaymentStatus$outboundSchema,
+  ),
+  paymentDays: z.optional(z.number()),
+  reference: z.optional(z.string()),
+  shippingDate: z.optional(
+    z.lazy(() => CreateVendorCreditRequestDtoShippingDate$outboundSchema),
+  ),
+  shippingType: z.optional(
+    CreateVendorCreditRequestDtoShippingType$outboundSchema,
+  ),
+  status: z.optional(CreateVendorCreditRequestDtoStatus$outboundSchema),
+  taxRule: z.optional(CreateVendorCreditRequestDtoTaxRule$outboundSchema),
+  taxText: z.optional(z.string()),
+  totalDiscountAmount: z.optional(z.number()),
+  totalDiscountPercentage: z.optional(z.number()),
+  totalGrossAmount: z.optional(z.number()),
+  totalNetAmount: z.optional(z.number()),
+  totalTaxAmount: z.optional(z.number()),
   vendorCreditDate: z.string(),
   vendorCreditNumber: z.string(),
 });

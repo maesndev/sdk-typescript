@@ -9,10 +9,10 @@ import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
 export type DiscountPeriodResponse = {
-  invoiceRange: string;
-  discountDeadline: string;
-  discountDeadline2: string;
-  paymentDeadline: string;
+  invoiceRange: string | null;
+  discountDeadline: string | null;
+  discountDeadline2: string | null;
+  paymentDeadline: string | null;
 };
 
 /** @internal */
@@ -20,10 +20,10 @@ export const DiscountPeriodResponse$inboundSchema: z.ZodMiniType<
   DiscountPeriodResponse,
   unknown
 > = z.object({
-  invoiceRange: types.string(),
-  discountDeadline: types.string(),
-  discountDeadline2: types.string(),
-  paymentDeadline: types.string(),
+  invoiceRange: types.nullable(types.string()),
+  discountDeadline: types.nullable(types.string()),
+  discountDeadline2: types.nullable(types.string()),
+  paymentDeadline: types.nullable(types.string()),
 });
 
 export function discountPeriodResponseFromJSON(

@@ -1,5 +1,5 @@
 {
-  "name": "maesn-examples",
+  "name": "@maesn/typescript-sdk-examples",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -13,6 +13,6 @@
     "tsx": "^4.19.2"
   },
   "dependencies": {
-    "maesn": "file:.."
+    "@maesn/typescript-sdk": "file:.."
   }
 }

@@ -9,14 +9,17 @@ import { OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import {
-  AccountResponseCommonDtoV2,
-  AccountResponseCommonDtoV2$inboundSchema,
-} from "./account-response-common-dto-v2.js";
-import {
   DimensionResponseCommonDtoV2,
   DimensionResponseCommonDtoV2$inboundSchema,
 } from "./dimension-response-common-dto-v2.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
+
+export type Account = {
+  id: string | null;
+  code: string | null;
+  name: string | null;
+  number: number | null;
+};
 
 export const BookingProposalLineItemResponseDtoV2Type = {
   Product: "PRODUCT",
@@ -27,22 +30,40 @@ export type BookingProposalLineItemResponseDtoV2Type = OpenEnum<
 >;
 
 export type BookingProposalLineItemResponseDtoV2 = {
-  id: string;
-  account: AccountResponseCommonDtoV2;
-  createdDate: string;
-  description: string;
-  dimensions: Array<DimensionResponseCommonDtoV2>;
-  discountAmount: number;
-  discountAmount2: number;
-  discountPercentage: number;
-  discountPercentage2: number;
-  taxCode: string;
-  taxRatePercentage: number;
-  totalGrossAmount: number;
-  totalNetAmount: number;
-  type: BookingProposalLineItemResponseDtoV2Type;
-  updatedDate: string;
+  id: string | null;
+  account: Account | null;
+  createdDate: string | null;
+  description: string | null;
+  dimensions: Array<DimensionResponseCommonDtoV2> | null;
+  discountAmount: number | null;
+  discountAmount2: number | null;
+  discountPercentage: number | null;
+  discountPercentage2: number | null;
+  taxCode: string | null;
+  taxRatePercentage: number | null;
+  totalGrossAmount: number | null;
+  totalNetAmount: number | null;
+  type: BookingProposalLineItemResponseDtoV2Type | null;
+  updatedDate: string | null;
 };
+
+/** @internal */
+export const Account$inboundSchema: z.ZodMiniType<Account, unknown> = z.object({
+  id: types.nullable(types.string()),
+  code: types.nullable(types.string()),
+  name: types.nullable(types.string()),
+  number: types.nullable(types.number()),
+});
+
+export function accountFromJSON(
+  jsonString: string,
+): SafeParseResult<Account, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Account$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Account' from JSON`,
+  );
+}
 
 /** @internal */
 export const BookingProposalLineItemResponseDtoV2Type$inboundSchema:
@@ -54,21 +75,23 @@ export const BookingProposalLineItemResponseDtoV2$inboundSchema: z.ZodMiniType<
   BookingProposalLineItemResponseDtoV2,
   unknown
 > = z.object({
-  id: types.string(),
-  account: AccountResponseCommonDtoV2$inboundSchema,
-  createdDate: types.string(),
-  description: types.string(),
-  dimensions: z.array(DimensionResponseCommonDtoV2$inboundSchema),
-  discountAmount: types.number(),
-  discountAmount2: types.number(),
-  discountPercentage: types.number(),
-  discountPercentage2: types.number(),
-  taxCode: types.string(),
-  taxRatePercentage: types.number(),
-  totalGrossAmount: types.number(),
-  totalNetAmount: types.number(),
-  type: BookingProposalLineItemResponseDtoV2Type$inboundSchema,
-  updatedDate: types.string(),
+  id: types.nullable(types.string()),
+  account: types.nullable(z.lazy(() => Account$inboundSchema)),
+  createdDate: types.nullable(types.string()),
+  description: types.nullable(types.string()),
+  dimensions: types.nullable(
+    z.array(DimensionResponseCommonDtoV2$inboundSchema),
+  ),
+  discountAmount: types.nullable(types.number()),
+  discountAmount2: types.nullable(types.number()),
+  discountPercentage: types.nullable(types.number()),
+  discountPercentage2: types.nullable(types.number()),
+  taxCode: types.nullable(types.string()),
+  taxRatePercentage: types.nullable(types.number()),
+  totalGrossAmount: types.nullable(types.number()),
+  totalNetAmount: types.nullable(types.number()),
+  type: types.nullable(BookingProposalLineItemResponseDtoV2Type$inboundSchema),
+  updatedDate: types.nullable(types.string()),
 });
 
 export function bookingProposalLineItemResponseDtoV2FromJSON(

@@ -28,7 +28,7 @@ export class Webhooks extends ClientSDK {
   }
 
   async createWebHookTenant(
-    request: models.CreateWebhookRequestDto,
+    request: models.CreateAccountingWebhookRequestDto,
     options?: RequestOptions,
   ): Promise<void> {
     return unwrapAsync(webhooksCreateWebHookTenant(
@@ -61,7 +61,7 @@ export class Webhooks extends ClientSDK {
   }
 
   async createWebhookConfig(
-    request: models.CreateWebhookRequestDto,
+    request: models.CreateAccountingWebhookRequestDto,
     options?: RequestOptions,
   ): Promise<void> {
     return unwrapAsync(webhooksCreateWebhookConfig(

@@ -12,24 +12,24 @@ export const LineItemRequestType = {
 export type LineItemRequestType = ClosedEnum<typeof LineItemRequestType>;
 
 export type LineItemRequest = {
-  id: string;
-  accountCode: string;
-  accountId: string;
-  accountName: string;
-  accountNumber: number;
-  bookingTaxCode: string;
-  description: string;
-  dimension1: string;
-  dimension2: string;
-  discountAmount: number;
-  discountAmount2: number;
-  discountPercentage: number;
-  discountPercentage2: number;
-  taxCode: string;
-  taxRatePercentage: number;
-  totalGrossAmount: number;
-  totalNetAmount: number;
-  type: LineItemRequestType;
+  id?: string | undefined;
+  accountCode?: string | undefined;
+  accountId?: string | undefined;
+  accountName?: string | undefined;
+  accountNumber?: number | undefined;
+  bookingTaxCode?: string | undefined;
+  description?: string | undefined;
+  dimension1?: string | undefined;
+  dimension2?: string | undefined;
+  discountAmount?: number | undefined;
+  discountAmount2?: number | undefined;
+  discountPercentage?: number | undefined;
+  discountPercentage2?: number | undefined;
+  taxCode?: string | undefined;
+  taxRatePercentage?: number | undefined;
+  totalGrossAmount?: number | undefined;
+  totalNetAmount?: number | undefined;
+  type?: LineItemRequestType | undefined;
 };
 
 /** @internal */
@@ -39,24 +39,24 @@ export const LineItemRequestType$outboundSchema: z.ZodMiniEnum<
 
 /** @internal */
 export type LineItemRequest$Outbound = {
-  id: string;
-  accountCode: string;
-  accountId: string;
-  accountName: string;
-  accountNumber: number;
-  bookingTaxCode: string;
-  description: string;
-  dimension1: string;
-  dimension2: string;
-  discountAmount: number;
-  discountAmount2: number;
-  discountPercentage: number;
-  discountPercentage2: number;
-  taxCode: string;
-  taxRatePercentage: number;
-  totalGrossAmount: number;
-  totalNetAmount: number;
-  type: string;
+  id?: string | undefined;
+  accountCode?: string | undefined;
+  accountId?: string | undefined;
+  accountName?: string | undefined;
+  accountNumber?: number | undefined;
+  bookingTaxCode?: string | undefined;
+  description?: string | undefined;
+  dimension1?: string | undefined;
+  dimension2?: string | undefined;
+  discountAmount?: number | undefined;
+  discountAmount2?: number | undefined;
+  discountPercentage?: number | undefined;
+  discountPercentage2?: number | undefined;
+  taxCode?: string | undefined;
+  taxRatePercentage?: number | undefined;
+  totalGrossAmount?: number | undefined;
+  totalNetAmount?: number | undefined;
+  type?: string | undefined;
 };
 
 /** @internal */
@@ -64,24 +64,24 @@ export const LineItemRequest$outboundSchema: z.ZodMiniType<
   LineItemRequest$Outbound,
   LineItemRequest
 > = z.object({
-  id: z.string(),
-  accountCode: z.string(),
-  accountId: z.string(),
-  accountName: z.string(),
-  accountNumber: z.number(),
-  bookingTaxCode: z.string(),
-  description: z.string(),
-  dimension1: z.string(),
-  dimension2: z.string(),
-  discountAmount: z.number(),
-  discountAmount2: z.number(),
-  discountPercentage: z.number(),
-  discountPercentage2: z.number(),
-  taxCode: z.string(),
-  taxRatePercentage: z.number(),
-  totalGrossAmount: z.number(),
-  totalNetAmount: z.number(),
-  type: LineItemRequestType$outboundSchema,
+  id: z.optional(z.string()),
+  accountCode: z.optional(z.string()),
+  accountId: z.optional(z.string()),
+  accountName: z.optional(z.string()),
+  accountNumber: z.optional(z.number()),
+  bookingTaxCode: z.optional(z.string()),
+  description: z.optional(z.string()),
+  dimension1: z.optional(z.string()),
+  dimension2: z.optional(z.string()),
+  discountAmount: z.optional(z.number()),
+  discountAmount2: z.optional(z.number()),
+  discountPercentage: z.optional(z.number()),
+  discountPercentage2: z.optional(z.number()),
+  taxCode: z.optional(z.string()),
+  taxRatePercentage: z.optional(z.number()),
+  totalGrossAmount: z.optional(z.number()),
+  totalNetAmount: z.optional(z.number()),
+  type: z.optional(LineItemRequestType$outboundSchema),
 });
 
 export function lineItemRequestToJSON(

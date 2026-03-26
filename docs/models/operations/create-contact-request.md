@@ -3,36 +3,11 @@
 ## Example Usage
 
 ```typescript
-import { CreateContactRequest } from "maesn/models/operations";
+import { CreateContactRequest } from "@maesn/typescript-sdk/models/operations";
 
 let value: CreateContactRequest = {
   body: {
-    id: "<id>",
-    addresses: [
-      {
-        addressLine1: "321 McLaughlin Village",
-        addressLine2: "-",
-        city: "Lake Celiafield",
-        countryCode: "NA",
-        postalCode: "56972-1641",
-        type: "EMPTY",
-      },
-    ],
-    companyName: "Watsica LLC",
-    contactPersons: [],
     contactType: "COMPANY",
-    emailAddresses: [],
-    isCustomer: true,
-    isSupplier: true,
-    number: "<value>",
-    phoneNumbers: [
-      {
-        number: "<value>",
-        type: "LANDLINE",
-      },
-    ],
-    projectId: "<id>",
-    website: "<value>",
   },
 };
 ```

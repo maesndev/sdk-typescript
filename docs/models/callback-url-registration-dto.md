@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { CallbackUrlRegistrationDto } from "maesn/models";
+import { CallbackUrlRegistrationDto } from "@maesn/typescript-sdk/models";
 
 let value: CallbackUrlRegistrationDto = {
   callbackUrl: "https://partial-attraction.name/",

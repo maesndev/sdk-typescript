@@ -3,25 +3,18 @@
 ## Example Usage
 
 ```typescript
-import { Address } from "maesn/models";
+import { Address } from "@maesn/typescript-sdk/models";
 
-let value: Address = {
-  addressLine1: "58408 Destini Parkways",
-  addressLine2: "-",
-  city: "St. Louis Park",
-  countryCode: "BF",
-  postalCode: "23641-9567",
-  type: "DELIVERY",
-};
+let value: Address = {};
 ```
 
 ## Fields
 
 | Field                                                          | Type                                                           | Required                                                       | Description                                                    |
 | -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- |
-| `addressLine1`                                                 | *string*                                                       | :heavy_check_mark:                                             | N/A                                                            |
-| `addressLine2`                                                 | *string*                                                       | :heavy_check_mark:                                             | N/A                                                            |
-| `city`                                                         | *string*                                                       | :heavy_check_mark:                                             | N/A                                                            |
-| `countryCode`                                                  | [models.AddressCountryCode](../models/address-country-code.md) | :heavy_check_mark:                                             | N/A                                                            |
-| `postalCode`                                                   | *string*                                                       | :heavy_check_mark:                                             | N/A                                                            |
-| `type`                                                         | [models.AddressType](../models/address-type.md)                | :heavy_check_mark:                                             | N/A                                                            |
+| `addressLine1`                                                 | *string*                                                       | :heavy_minus_sign:                                             | N/A                                                            |
+| `addressLine2`                                                 | *string*                                                       | :heavy_minus_sign:                                             | N/A                                                            |
+| `city`                                                         | *string*                                                       | :heavy_minus_sign:                                             | N/A                                                            |
+| `countryCode`                                                  | [models.AddressCountryCode](../models/address-country-code.md) | :heavy_minus_sign:                                             | N/A                                                            |
+| `postalCode`                                                   | *string*                                                       | :heavy_minus_sign:                                             | N/A                                                            |
+| `type`                                                         | [models.AddressType](../models/address-type.md)                | :heavy_minus_sign:                                             | N/A                                                            |

@@ -5,26 +5,26 @@
 import * as z from "zod/v4-mini";
 
 export type CreatePaymentLine = {
-  accountId: string;
-  amount: number;
-  contactName: string;
-  customerId: string;
-  description: string;
-  invoiceId: string;
-  supplierId: string;
-  paymentDate: string;
+  accountId?: string | undefined;
+  amount?: number | undefined;
+  contactName?: string | undefined;
+  customerId?: string | undefined;
+  description?: string | undefined;
+  invoiceId?: string | undefined;
+  supplierId?: string | undefined;
+  paymentDate?: string | undefined;
 };
 
 /** @internal */
 export type CreatePaymentLine$Outbound = {
-  accountId: string;
-  amount: number;
-  contactName: string;
-  customerId: string;
-  description: string;
-  invoiceId: string;
-  supplierId: string;
-  paymentDate: string;
+  accountId?: string | undefined;
+  amount?: number | undefined;
+  contactName?: string | undefined;
+  customerId?: string | undefined;
+  description?: string | undefined;
+  invoiceId?: string | undefined;
+  supplierId?: string | undefined;
+  paymentDate?: string | undefined;
 };
 
 /** @internal */
@@ -32,14 +32,14 @@ export const CreatePaymentLine$outboundSchema: z.ZodMiniType<
   CreatePaymentLine$Outbound,
   CreatePaymentLine
 > = z.object({
-  accountId: z.string(),
-  amount: z.number(),
-  contactName: z.string(),
-  customerId: z.string(),
-  description: z.string(),
-  invoiceId: z.string(),
-  supplierId: z.string(),
-  paymentDate: z.string(),
+  accountId: z.optional(z.string()),
+  amount: z.optional(z.number()),
+  contactName: z.optional(z.string()),
+  customerId: z.optional(z.string()),
+  description: z.optional(z.string()),
+  invoiceId: z.optional(z.string()),
+  supplierId: z.optional(z.string()),
+  paymentDate: z.optional(z.string()),
 });
 
 export function createPaymentLineToJSON(

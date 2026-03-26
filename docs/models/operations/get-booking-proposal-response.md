@@ -3,61 +3,67 @@
 ## Example Usage
 
 ```typescript
-import { GetBookingProposalResponse } from "maesn/models/operations";
+import { GetBookingProposalResponse } from "@maesn/typescript-sdk/models/operations";
 
 let value: GetBookingProposalResponse = {
-  meta: {
-    warnings: [
-      "<value 1>",
-      "<value 2>",
+  data: {
+    id: "<id>",
+    accountName: "<value>",
+    addresses: [],
+    bankAccountId: "<id>",
+    bankAccountNumber: 7234.15,
+    bankCode: "<value>",
+    bic: "<value>",
+    bookingProposalDate: "<value>",
+    bookingType: "INVOICE",
+    contactAccountNumber: 6103.32,
+    contactId: "<id>",
+    contactName: "<value>",
+    createdDate: "<value>",
+    currency: "Forint",
+    deliveryDate: "<value>",
+    discountPaymentDate: "<value>",
+    discountPaymentDate2: "<value>",
+    dueDate: "<value>",
+    files: null,
+    journalCode: "<value>",
+    iban: "BA885403852569640088",
+    isPaymentOrder: false,
+    ledgerName: "<value>",
+    lineItems: [
+      {
+        id: "<id>",
+        accountCode: "<value>",
+        accountId: null,
+        accountName: "<value>",
+        accountNumber: 6663.65,
+        bookingTaxCode: null,
+        createdDate: "<value>",
+        description: "card pfft catalog along geez but uh-huh hence wherever",
+        dimension1: "<value>",
+        dimension2: "<value>",
+        discountAmount: 9938.14,
+        discountAmount2: 23.26,
+        discountPercentage: 9085.21,
+        discountPercentage2: 4905.52,
+        taxCode: "<value>",
+        taxRatePercentage: 6524.29,
+        totalGrossAmount: 5480.15,
+        totalNetAmount: 4492.57,
+        updatedDate: "<value>",
+      },
     ],
-    pagination: {
-      total: 3438.77,
-      perPage: 5109.63,
-      currentPage: 2626.79,
-      totalPages: 3561.84,
-    },
+    notes: "<value>",
+    number: "<value>",
+    orderId: "<id>",
+    paidDate: "<value>",
+    paymentTermsId: "<id>",
+    status: "OPEN",
+    taskId: "<id>",
+    totalGrossAmount: null,
+    updatedDate: "<value>",
+    vatId: "<id>",
   },
-  data: [
-    {
-      id: "<id>",
-      accountName: "<value>",
-      addresses: [],
-      bankAccountId: "<id>",
-      bankAccountNumber: 5597.93,
-      bankCode: "<value>",
-      bic: "<value>",
-      bookingProposalDate: "<value>",
-      bookingType: "INVOICE",
-      contactAccountNumber: 7020.44,
-      contactId: "<id>",
-      contactName: "<value>",
-      createdDate: "<value>",
-      currency: "Czech Koruna",
-      deliveryDate: "<value>",
-      discountPaymentDate: "<value>",
-      discountPaymentDate2: "<value>",
-      dueDate: "<value>",
-      files: [
-        "<value 1>",
-      ],
-      journalCode: "<value>",
-      iban: "DK5220726123020435",
-      isPaymentOrder: true,
-      ledgerName: "<value>",
-      lineItems: [],
-      notes: "<value>",
-      number: "<value>",
-      orderId: "<id>",
-      paidDate: "<value>",
-      paymentTermsId: "<id>",
-      status: "VOIDED",
-      taskId: "<id>",
-      totalGrossAmount: 695.99,
-      updatedDate: "<value>",
-      vatId: "<id>",
-    },
-  ],
   errors: {},
   rawData: {},
 };
@@ -67,7 +73,7 @@ let value: GetBookingProposalResponse = {
 
 | Field                                                                                            | Type                                                                                             | Required                                                                                         | Description                                                                                      |
 | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `meta`                                                                                           | [models.MetaResponse](../../models/meta-response.md)                                             | :heavy_check_mark:                                                                               | N/A                                                                                              |
-| `data`                                                                                           | [models.BookingProposalResponseDto](../../models/booking-proposal-response-dto.md)[]             | :heavy_check_mark:                                                                               | N/A                                                                                              |
+| `meta`                                                                                           | [operations.GetBookingProposalMeta](../../models/operations/get-booking-proposal-meta.md)        | :heavy_minus_sign:                                                                               | N/A                                                                                              |
+| `data`                                                                                           | [models.BookingProposalResponseDto](../../models/booking-proposal-response-dto.md)               | :heavy_check_mark:                                                                               | N/A                                                                                              |
 | `errors`                                                                                         | [operations.GetBookingProposalErrors](../../models/operations/get-booking-proposal-errors.md)    | :heavy_check_mark:                                                                               | N/A                                                                                              |
 | `rawData`                                                                                        | [operations.GetBookingProposalRawData](../../models/operations/get-booking-proposal-raw-data.md) | :heavy_check_mark:                                                                               | N/A                                                                                              |

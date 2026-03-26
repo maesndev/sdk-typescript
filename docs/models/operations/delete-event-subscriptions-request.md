@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { DeleteEventSubscriptionsRequest } from "maesn/models/operations";
+import { DeleteEventSubscriptionsRequest } from "@maesn/typescript-sdk/models/operations";
 
 let value: DeleteEventSubscriptionsRequest = {
   eventSubscriptionId: "<id>",

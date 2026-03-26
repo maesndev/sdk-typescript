@@ -3,21 +3,16 @@
 ## Example Usage
 
 ```typescript
-import { BankAccount } from "maesn/models";
+import { BankAccount } from "@maesn/typescript-sdk/models";
 
-let value: BankAccount = {
-  iban: "LU06009HH90028414217",
-  bic: "<value>",
-  holder: "<value>",
-  sepa: false,
-};
+let value: BankAccount = {};
 ```
 
 ## Fields
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `iban`             | *string*           | :heavy_check_mark: | N/A                |
-| `bic`              | *string*           | :heavy_check_mark: | N/A                |
-| `holder`           | *string*           | :heavy_check_mark: | N/A                |
-| `sepa`             | *boolean*          | :heavy_check_mark: | N/A                |
+| `iban`             | *string*           | :heavy_minus_sign: | N/A                |
+| `bic`              | *string*           | :heavy_minus_sign: | N/A                |
+| `holder`           | *string*           | :heavy_minus_sign: | N/A                |
+| `sepa`             | *boolean*          | :heavy_minus_sign: | N/A                |

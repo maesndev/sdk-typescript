@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { CreateBookingProposalFile } from "maesn/models/operations";
+import { CreateBookingProposalFile } from "@maesn/typescript-sdk/models/operations";
 
 // No examples available for this model
 ```

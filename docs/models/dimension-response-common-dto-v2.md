@@ -3,13 +3,13 @@
 ## Example Usage
 
 ```typescript
-import { DimensionResponseCommonDtoV2 } from "maesn/models";
+import { DimensionResponseCommonDtoV2 } from "@maesn/typescript-sdk/models";
 
 let value: DimensionResponseCommonDtoV2 = {
   id: "<id>",
   code: "<value>",
   dimension: "<value>",
-  name: "<value>",
+  name: null,
 };
 ```
 

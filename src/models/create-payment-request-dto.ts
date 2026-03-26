@@ -3,29 +3,44 @@
  */
 
 import * as z from "zod/v4-mini";
+import { ClosedEnum } from "../types/enums.js";
 import {
   CreatePaymentLine,
   CreatePaymentLine$Outbound,
   CreatePaymentLine$outboundSchema,
 } from "./create-payment-line.js";
 
+export const CreatePaymentRequestDtoDocumentType = {
+  Invoice: "INVOICE",
+  Bill: "BILL",
+  BookingProposal: "BOOKING_PROPOSAL",
+} as const;
+export type CreatePaymentRequestDtoDocumentType = ClosedEnum<
+  typeof CreatePaymentRequestDtoDocumentType
+>;
+
 export type CreatePaymentRequestDto = {
-  currency: string;
-  documentType: string;
-  exchangeRate: number;
-  journalCode: string;
-  paymentType: string;
-  paymentLines: Array<CreatePaymentLine>;
+  currency?: string | undefined;
+  documentType?: CreatePaymentRequestDtoDocumentType | undefined;
+  exchangeRate?: number | undefined;
+  journalCode?: string | undefined;
+  paymentType?: string | undefined;
+  paymentLines?: Array<CreatePaymentLine> | undefined;
 };
 
 /** @internal */
+export const CreatePaymentRequestDtoDocumentType$outboundSchema: z.ZodMiniEnum<
+  typeof CreatePaymentRequestDtoDocumentType
+> = z.enum(CreatePaymentRequestDtoDocumentType);
+
+/** @internal */
 export type CreatePaymentRequestDto$Outbound = {
-  currency: string;
-  documentType: string;
-  exchangeRate: number;
-  journalCode: string;
-  paymentType: string;
-  paymentLines: Array<CreatePaymentLine$Outbound>;
+  currency?: string | undefined;
+  documentType?: string | undefined;
+  exchangeRate?: number | undefined;
+  journalCode?: string | undefined;
+  paymentType?: string | undefined;
+  paymentLines?: Array<CreatePaymentLine$Outbound> | undefined;
 };
 
 /** @internal */
@@ -33,12 +48,12 @@ export const CreatePaymentRequestDto$outboundSchema: z.ZodMiniType<
   CreatePaymentRequestDto$Outbound,
   CreatePaymentRequestDto
 > = z.object({
-  currency: z.string(),
-  documentType: z.string(),
-  exchangeRate: z.number(),
-  journalCode: z.string(),
-  paymentType: z.string(),
-  paymentLines: z.array(CreatePaymentLine$outboundSchema),
+  currency: z.optional(z.string()),
+  documentType: z.optional(CreatePaymentRequestDtoDocumentType$outboundSchema),
+  exchangeRate: z.optional(z.number()),
+  journalCode: z.optional(z.string()),
+  paymentType: z.optional(z.string()),
+  paymentLines: z.optional(z.array(CreatePaymentLine$outboundSchema)),
 });
 
 export function createPaymentRequestDtoToJSON(

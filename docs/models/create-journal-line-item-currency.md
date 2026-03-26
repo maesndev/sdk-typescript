@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { CreateJournalLineItemCurrency } from "maesn/models";
+import { CreateJournalLineItemCurrency } from "@maesn/typescript-sdk/models";
 
 let value: CreateJournalLineItemCurrency = "BIF";
 ```

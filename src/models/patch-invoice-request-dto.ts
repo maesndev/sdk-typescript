@@ -5,10 +5,10 @@
 import * as z from "zod/v4-mini";
 import { ClosedEnum } from "../types/enums.js";
 import {
-  Address,
-  Address$Outbound,
-  Address$outboundSchema,
-} from "./address.js";
+  PatchAddress,
+  PatchAddress$Outbound,
+  PatchAddress$outboundSchema,
+} from "./patch-address.js";
 import {
   PatchLineItemRequest,
   PatchLineItemRequest$Outbound,
@@ -79,30 +79,30 @@ export type PatchInvoiceRequestDtoLineAmountTypes = ClosedEnum<
 >;
 
 export type PatchInvoiceRequestDto = {
-  invoiceId: string;
-  contactId: string;
-  name: string;
-  reference: string;
-  currency: string;
-  invoiceDate: string;
-  journalCode: string;
-  paymentTermId: string;
-  fileId: string;
-  status: PatchInvoiceRequestDtoStatus;
-  invoiceType: PatchInvoiceRequestDtoInvoiceType;
-  oneLineAddress: string;
-  addresses: Array<Address>;
-  taxRule: PatchInvoiceRequestDtoTaxRule;
-  taxText: string;
-  lineItems: Array<PatchLineItemRequest>;
-  discountPercentage: number;
-  shippingType: PatchInvoiceRequestDtoShippingType;
-  shippingDate: string;
-  shippingEndDate: string;
-  lineAmountTypes: PatchInvoiceRequestDtoLineAmountTypes;
-  dueDate: string;
-  paidDate: string;
-  paymentTermDuration: number;
+  invoiceId?: string | undefined;
+  contactId?: string | undefined;
+  name?: string | undefined;
+  reference?: string | undefined;
+  currency?: string | undefined;
+  invoiceDate?: string | undefined;
+  journalCode?: string | undefined;
+  paymentTermId?: string | undefined;
+  fileId?: string | undefined;
+  status?: PatchInvoiceRequestDtoStatus | undefined;
+  invoiceType?: PatchInvoiceRequestDtoInvoiceType | undefined;
+  oneLineAddress?: string | undefined;
+  addresses?: Array<PatchAddress> | undefined;
+  taxRule?: PatchInvoiceRequestDtoTaxRule | undefined;
+  taxText?: string | undefined;
+  lineItems?: Array<PatchLineItemRequest> | undefined;
+  discountPercentage?: number | undefined;
+  shippingType?: PatchInvoiceRequestDtoShippingType | undefined;
+  shippingDate?: string | undefined;
+  shippingEndDate?: string | undefined;
+  lineAmountTypes?: PatchInvoiceRequestDtoLineAmountTypes | undefined;
+  dueDate?: string | undefined;
+  paidDate?: string | undefined;
+  paymentTermDuration?: number | undefined;
 };
 
 /** @internal */
@@ -133,30 +133,30 @@ export const PatchInvoiceRequestDtoLineAmountTypes$outboundSchema:
 
 /** @internal */
 export type PatchInvoiceRequestDto$Outbound = {
-  invoiceId: string;
-  contactId: string;
-  name: string;
-  reference: string;
-  currency: string;
-  invoiceDate: string;
-  journalCode: string;
-  paymentTermId: string;
-  fileId: string;
-  status: string;
-  invoiceType: string;
-  oneLineAddress: string;
-  addresses: Array<Address$Outbound>;
-  taxRule: string;
-  taxText: string;
-  lineItems: Array<PatchLineItemRequest$Outbound>;
-  discountPercentage: number;
-  shippingType: string;
-  shippingDate: string;
-  shippingEndDate: string;
-  lineAmountTypes: string;
-  dueDate: string;
-  paidDate: string;
-  paymentTermDuration: number;
+  invoiceId?: string | undefined;
+  contactId?: string | undefined;
+  name?: string | undefined;
+  reference?: string | undefined;
+  currency?: string | undefined;
+  invoiceDate?: string | undefined;
+  journalCode?: string | undefined;
+  paymentTermId?: string | undefined;
+  fileId?: string | undefined;
+  status?: string | undefined;
+  invoiceType?: string | undefined;
+  oneLineAddress?: string | undefined;
+  addresses?: Array<PatchAddress$Outbound> | undefined;
+  taxRule?: string | undefined;
+  taxText?: string | undefined;
+  lineItems?: Array<PatchLineItemRequest$Outbound> | undefined;
+  discountPercentage?: number | undefined;
+  shippingType?: string | undefined;
+  shippingDate?: string | undefined;
+  shippingEndDate?: string | undefined;
+  lineAmountTypes?: string | undefined;
+  dueDate?: string | undefined;
+  paidDate?: string | undefined;
+  paymentTermDuration?: number | undefined;
 };
 
 /** @internal */
@@ -164,30 +164,32 @@ export const PatchInvoiceRequestDto$outboundSchema: z.ZodMiniType<
   PatchInvoiceRequestDto$Outbound,
   PatchInvoiceRequestDto
 > = z.object({
-  invoiceId: z.string(),
-  contactId: z.string(),
-  name: z.string(),
-  reference: z.string(),
-  currency: z.string(),
-  invoiceDate: z.string(),
-  journalCode: z.string(),
-  paymentTermId: z.string(),
-  fileId: z.string(),
-  status: PatchInvoiceRequestDtoStatus$outboundSchema,
-  invoiceType: PatchInvoiceRequestDtoInvoiceType$outboundSchema,
-  oneLineAddress: z.string(),
-  addresses: z.array(Address$outboundSchema),
-  taxRule: PatchInvoiceRequestDtoTaxRule$outboundSchema,
-  taxText: z.string(),
-  lineItems: z.array(PatchLineItemRequest$outboundSchema),
-  discountPercentage: z.number(),
-  shippingType: PatchInvoiceRequestDtoShippingType$outboundSchema,
-  shippingDate: z.string(),
-  shippingEndDate: z.string(),
-  lineAmountTypes: PatchInvoiceRequestDtoLineAmountTypes$outboundSchema,
-  dueDate: z.string(),
-  paidDate: z.string(),
-  paymentTermDuration: z.number(),
+  invoiceId: z.optional(z.string()),
+  contactId: z.optional(z.string()),
+  name: z.optional(z.string()),
+  reference: z.optional(z.string()),
+  currency: z.optional(z.string()),
+  invoiceDate: z.optional(z.string()),
+  journalCode: z.optional(z.string()),
+  paymentTermId: z.optional(z.string()),
+  fileId: z.optional(z.string()),
+  status: z.optional(PatchInvoiceRequestDtoStatus$outboundSchema),
+  invoiceType: z.optional(PatchInvoiceRequestDtoInvoiceType$outboundSchema),
+  oneLineAddress: z.optional(z.string()),
+  addresses: z.optional(z.array(PatchAddress$outboundSchema)),
+  taxRule: z.optional(PatchInvoiceRequestDtoTaxRule$outboundSchema),
+  taxText: z.optional(z.string()),
+  lineItems: z.optional(z.array(PatchLineItemRequest$outboundSchema)),
+  discountPercentage: z.optional(z.number()),
+  shippingType: z.optional(PatchInvoiceRequestDtoShippingType$outboundSchema),
+  shippingDate: z.optional(z.string()),
+  shippingEndDate: z.optional(z.string()),
+  lineAmountTypes: z.optional(
+    PatchInvoiceRequestDtoLineAmountTypes$outboundSchema,
+  ),
+  dueDate: z.optional(z.string()),
+  paidDate: z.optional(z.string()),
+  paymentTermDuration: z.optional(z.number()),
 });
 
 export function patchInvoiceRequestDtoToJSON(

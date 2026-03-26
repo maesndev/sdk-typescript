@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
@@ -16,15 +17,27 @@ export type PatchLineItemRequest = {
   body: models.PatchLineItemRequestDto;
 };
 
+export type PatchLineItemPagination = {
+  total: number;
+  perPage: number;
+  currentPage: number;
+  totalPages: number;
+};
+
+export type PatchLineItemMeta = {
+  warnings?: Array<string> | null | undefined;
+  pagination?: PatchLineItemPagination | null | undefined;
+};
+
 export type PatchLineItemErrors = {};
 
 export type PatchLineItemRawData = {};
 
 export type PatchLineItemResponse = {
-  meta: models.MetaResponse;
-  data: Array<models.LineItemResponseDto>;
-  errors: PatchLineItemErrors;
-  rawData: PatchLineItemRawData;
+  meta?: PatchLineItemMeta | null | undefined;
+  data: models.LineItemResponseDto;
+  errors: PatchLineItemErrors | null;
+  rawData: PatchLineItemRawData | null;
 };
 
 /** @internal */
@@ -53,6 +66,48 @@ export function patchLineItemRequestToJSON(
 ): string {
   return JSON.stringify(
     PatchLineItemRequest$outboundSchema.parse(patchLineItemRequest),
+  );
+}
+
+/** @internal */
+export const PatchLineItemPagination$inboundSchema: z.ZodMiniType<
+  PatchLineItemPagination,
+  unknown
+> = z.object({
+  total: types.number(),
+  perPage: types.number(),
+  currentPage: types.number(),
+  totalPages: types.number(),
+});
+
+export function patchLineItemPaginationFromJSON(
+  jsonString: string,
+): SafeParseResult<PatchLineItemPagination, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => PatchLineItemPagination$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'PatchLineItemPagination' from JSON`,
+  );
+}
+
+/** @internal */
+export const PatchLineItemMeta$inboundSchema: z.ZodMiniType<
+  PatchLineItemMeta,
+  unknown
+> = z.object({
+  warnings: z.optional(z.nullable(z.array(types.string()))),
+  pagination: z.optional(
+    z.nullable(z.lazy(() => PatchLineItemPagination$inboundSchema)),
+  ),
+});
+
+export function patchLineItemMetaFromJSON(
+  jsonString: string,
+): SafeParseResult<PatchLineItemMeta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => PatchLineItemMeta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'PatchLineItemMeta' from JSON`,
   );
 }
 
@@ -93,10 +148,10 @@ export const PatchLineItemResponse$inboundSchema: z.ZodMiniType<
   PatchLineItemResponse,
   unknown
 > = z.object({
-  meta: models.MetaResponse$inboundSchema,
-  data: z.array(models.LineItemResponseDto$inboundSchema),
-  errors: z.lazy(() => PatchLineItemErrors$inboundSchema),
-  rawData: z.lazy(() => PatchLineItemRawData$inboundSchema),
+  meta: z.optional(z.nullable(z.lazy(() => PatchLineItemMeta$inboundSchema))),
+  data: models.LineItemResponseDto$inboundSchema,
+  errors: types.nullable(z.lazy(() => PatchLineItemErrors$inboundSchema)),
+  rawData: types.nullable(z.lazy(() => PatchLineItemRawData$inboundSchema)),
 });
 
 export function patchLineItemResponseFromJSON(

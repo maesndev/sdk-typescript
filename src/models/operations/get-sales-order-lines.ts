@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
@@ -18,15 +19,27 @@ export type GetSalesOrderLinesRequest = {
   rawData?: boolean | undefined;
 };
 
+export type GetSalesOrderLinesPagination = {
+  total: number;
+  perPage: number;
+  currentPage: number;
+  totalPages: number;
+};
+
+export type GetSalesOrderLinesMeta = {
+  warnings?: Array<string> | null | undefined;
+  pagination?: GetSalesOrderLinesPagination | null | undefined;
+};
+
 export type GetSalesOrderLinesErrors = {};
 
 export type GetSalesOrderLinesRawData = {};
 
 export type GetSalesOrderLinesResponse = {
-  meta: models.MetaResponse;
+  meta?: GetSalesOrderLinesMeta | null | undefined;
   data: Array<models.SalesOrderLineItemResponseDto>;
-  errors: GetSalesOrderLinesErrors;
-  rawData: GetSalesOrderLinesRawData;
+  errors: GetSalesOrderLinesErrors | null;
+  rawData: GetSalesOrderLinesRawData | null;
 };
 
 /** @internal */
@@ -59,6 +72,48 @@ export function getSalesOrderLinesRequestToJSON(
 ): string {
   return JSON.stringify(
     GetSalesOrderLinesRequest$outboundSchema.parse(getSalesOrderLinesRequest),
+  );
+}
+
+/** @internal */
+export const GetSalesOrderLinesPagination$inboundSchema: z.ZodMiniType<
+  GetSalesOrderLinesPagination,
+  unknown
+> = z.object({
+  total: types.number(),
+  perPage: types.number(),
+  currentPage: types.number(),
+  totalPages: types.number(),
+});
+
+export function getSalesOrderLinesPaginationFromJSON(
+  jsonString: string,
+): SafeParseResult<GetSalesOrderLinesPagination, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetSalesOrderLinesPagination$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetSalesOrderLinesPagination' from JSON`,
+  );
+}
+
+/** @internal */
+export const GetSalesOrderLinesMeta$inboundSchema: z.ZodMiniType<
+  GetSalesOrderLinesMeta,
+  unknown
+> = z.object({
+  warnings: z.optional(z.nullable(z.array(types.string()))),
+  pagination: z.optional(
+    z.nullable(z.lazy(() => GetSalesOrderLinesPagination$inboundSchema)),
+  ),
+});
+
+export function getSalesOrderLinesMetaFromJSON(
+  jsonString: string,
+): SafeParseResult<GetSalesOrderLinesMeta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetSalesOrderLinesMeta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetSalesOrderLinesMeta' from JSON`,
   );
 }
 
@@ -99,10 +154,14 @@ export const GetSalesOrderLinesResponse$inboundSchema: z.ZodMiniType<
   GetSalesOrderLinesResponse,
   unknown
 > = z.object({
-  meta: models.MetaResponse$inboundSchema,
+  meta: z.optional(
+    z.nullable(z.lazy(() => GetSalesOrderLinesMeta$inboundSchema)),
+  ),
   data: z.array(models.SalesOrderLineItemResponseDto$inboundSchema),
-  errors: z.lazy(() => GetSalesOrderLinesErrors$inboundSchema),
-  rawData: z.lazy(() => GetSalesOrderLinesRawData$inboundSchema),
+  errors: types.nullable(z.lazy(() => GetSalesOrderLinesErrors$inboundSchema)),
+  rawData: types.nullable(
+    z.lazy(() => GetSalesOrderLinesRawData$inboundSchema),
+  ),
 });
 
 export function getSalesOrderLinesResponseFromJSON(

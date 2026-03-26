@@ -3,11 +3,11 @@
 ## Example Usage
 
 ```typescript
-import { DocumentResponseDto } from "maesn/models";
+import { DocumentResponseDto } from "@maesn/typescript-sdk/models";
 
 let value: DocumentResponseDto = {
-  id: "<id>",
-  base64Encoded: true,
+  id: null,
+  base64Encoded: false,
   content: "<value>",
   contentType: "<value>",
   fileName: "example.file",

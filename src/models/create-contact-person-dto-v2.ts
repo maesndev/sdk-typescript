@@ -4,33 +4,33 @@
 
 import * as z from "zod/v4-mini";
 import {
-  EmailAddress,
-  EmailAddress$Outbound,
-  EmailAddress$outboundSchema,
-} from "./email-address.js";
+  EmailAddressV2,
+  EmailAddressV2$Outbound,
+  EmailAddressV2$outboundSchema,
+} from "./email-address-v2.js";
 import {
-  PhoneNumber,
-  PhoneNumber$Outbound,
-  PhoneNumber$outboundSchema,
-} from "./phone-number.js";
+  PhoneNumberV2,
+  PhoneNumberV2$Outbound,
+  PhoneNumberV2$outboundSchema,
+} from "./phone-number-v2.js";
 
 export type CreateContactPersonDtoV2 = {
-  id: string;
-  emailAddresses: Array<EmailAddress>;
-  firstName: string;
-  lastName: string;
-  phoneNumbers: Array<PhoneNumber>;
-  salutation: string;
+  id?: string | undefined;
+  emailAddresses?: Array<EmailAddressV2> | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  phoneNumbers?: Array<PhoneNumberV2> | undefined;
+  salutation?: string | undefined;
 };
 
 /** @internal */
 export type CreateContactPersonDtoV2$Outbound = {
-  id: string;
-  emailAddresses: Array<EmailAddress$Outbound>;
-  firstName: string;
-  lastName: string;
-  phoneNumbers: Array<PhoneNumber$Outbound>;
-  salutation: string;
+  id?: string | undefined;
+  emailAddresses?: Array<EmailAddressV2$Outbound> | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  phoneNumbers?: Array<PhoneNumberV2$Outbound> | undefined;
+  salutation?: string | undefined;
 };
 
 /** @internal */
@@ -38,12 +38,12 @@ export const CreateContactPersonDtoV2$outboundSchema: z.ZodMiniType<
   CreateContactPersonDtoV2$Outbound,
   CreateContactPersonDtoV2
 > = z.object({
-  id: z.string(),
-  emailAddresses: z.array(EmailAddress$outboundSchema),
-  firstName: z.string(),
-  lastName: z.string(),
-  phoneNumbers: z.array(PhoneNumber$outboundSchema),
-  salutation: z.string(),
+  id: z.optional(z.string()),
+  emailAddresses: z.optional(z.array(EmailAddressV2$outboundSchema)),
+  firstName: z.optional(z.string()),
+  lastName: z.optional(z.string()),
+  phoneNumbers: z.optional(z.array(PhoneNumberV2$outboundSchema)),
+  salutation: z.optional(z.string()),
 });
 
 export function createContactPersonDtoV2ToJSON(

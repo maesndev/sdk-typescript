@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { PatchItemErrors } from "maesn/models/operations";
+import { PatchItemErrors } from "@maesn/typescript-sdk/models/operations";
 
 let value: PatchItemErrors = {};
 ```

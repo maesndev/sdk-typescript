@@ -3,24 +3,12 @@
 ## Example Usage
 
 ```typescript
-import { GetOfferDocumentResponse } from "maesn/models/operations";
+import { GetOfferDocumentResponse } from "@maesn/typescript-sdk/models/operations";
 
 let value: GetOfferDocumentResponse = {
-  meta: {
-    warnings: [
-      "<value 1>",
-      "<value 2>",
-    ],
-    pagination: {
-      total: 3438.77,
-      perPage: 5109.63,
-      currentPage: 2626.79,
-      totalPages: 3561.84,
-    },
-  },
   data: {
     id: "<id>",
-    base64Encoded: false,
+    base64Encoded: true,
     content: "<value>",
     contentType: "<value>",
     fileName: "example.file",
@@ -34,7 +22,7 @@ let value: GetOfferDocumentResponse = {
 
 | Field                                                                                        | Type                                                                                         | Required                                                                                     | Description                                                                                  |
 | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `meta`                                                                                       | [models.MetaResponse](../../models/meta-response.md)                                         | :heavy_check_mark:                                                                           | N/A                                                                                          |
+| `meta`                                                                                       | [operations.GetOfferDocumentMeta](../../models/operations/get-offer-document-meta.md)        | :heavy_minus_sign:                                                                           | N/A                                                                                          |
 | `data`                                                                                       | [models.DocumentResponseDto](../../models/document-response-dto.md)                          | :heavy_check_mark:                                                                           | N/A                                                                                          |
 | `errors`                                                                                     | [operations.GetOfferDocumentErrors](../../models/operations/get-offer-document-errors.md)    | :heavy_check_mark:                                                                           | N/A                                                                                          |
 | `rawData`                                                                                    | [operations.GetOfferDocumentRawData](../../models/operations/get-offer-document-raw-data.md) | :heavy_check_mark:                                                                           | N/A                                                                                          |

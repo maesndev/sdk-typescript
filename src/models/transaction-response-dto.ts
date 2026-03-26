@@ -199,23 +199,23 @@ export type TransactionResponseDtoType = OpenEnum<
 >;
 
 export type TransactionResponseDto = {
-  id: string;
-  accountId: string;
-  accountNumber: number;
-  amount: number;
-  bookingDate: string;
-  contact: string;
-  currency: TransactionResponseDtoCurrency;
-  description: string;
-  files: Array<string>;
-  journalCode: string;
-  ledgerName: string;
-  reference: string;
-  status: TransactionResponseDtoStatus;
-  taskId: string;
-  taxRatePercentage: number;
-  type: TransactionResponseDtoType;
-  valueDate: string;
+  id: string | null;
+  accountId: string | null;
+  accountNumber: number | null;
+  amount: number | null;
+  bookingDate: string | null;
+  contact: string | null;
+  currency: TransactionResponseDtoCurrency | null;
+  description: string | null;
+  files: Array<string> | null;
+  journalCode: string | null;
+  ledgerName: string | null;
+  reference: string | null;
+  status: TransactionResponseDtoStatus | null;
+  taskId: string | null;
+  taxRatePercentage: number | null;
+  type: TransactionResponseDtoType | null;
+  valueDate: string | null;
 };
 
 /** @internal */
@@ -241,23 +241,23 @@ export const TransactionResponseDto$inboundSchema: z.ZodMiniType<
   TransactionResponseDto,
   unknown
 > = z.object({
-  id: types.string(),
-  accountId: types.string(),
-  accountNumber: types.number(),
-  amount: types.number(),
-  bookingDate: types.string(),
-  contact: types.string(),
-  currency: TransactionResponseDtoCurrency$inboundSchema,
-  description: types.string(),
-  files: z.array(types.string()),
-  journalCode: types.string(),
-  ledgerName: types.string(),
-  reference: types.string(),
-  status: TransactionResponseDtoStatus$inboundSchema,
-  taskId: types.string(),
-  taxRatePercentage: types.number(),
-  type: TransactionResponseDtoType$inboundSchema,
-  valueDate: types.string(),
+  id: types.nullable(types.string()),
+  accountId: types.nullable(types.string()),
+  accountNumber: types.nullable(types.number()),
+  amount: types.nullable(types.number()),
+  bookingDate: types.nullable(types.string()),
+  contact: types.nullable(types.string()),
+  currency: types.nullable(TransactionResponseDtoCurrency$inboundSchema),
+  description: types.nullable(types.string()),
+  files: types.nullable(z.array(types.string())),
+  journalCode: types.nullable(types.string()),
+  ledgerName: types.nullable(types.string()),
+  reference: types.nullable(types.string()),
+  status: types.nullable(TransactionResponseDtoStatus$inboundSchema),
+  taskId: types.nullable(types.string()),
+  taxRatePercentage: types.nullable(types.number()),
+  type: types.nullable(TransactionResponseDtoType$inboundSchema),
+  valueDate: types.nullable(types.string()),
 });
 
 export function transactionResponseDtoFromJSON(

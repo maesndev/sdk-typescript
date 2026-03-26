@@ -196,7 +196,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, operations.CreateJournalEntryResponse$inboundSchema),
+    M.json(201, operations.CreateJournalEntryResponse$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req);

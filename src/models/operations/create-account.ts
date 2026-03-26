@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
@@ -14,15 +15,27 @@ export type CreateAccountRequest = {
   body: models.CreateAccountRequestDto;
 };
 
+export type CreateAccountPagination = {
+  total: number;
+  perPage: number;
+  currentPage: number;
+  totalPages: number;
+};
+
+export type CreateAccountMeta = {
+  warnings?: Array<string> | null | undefined;
+  pagination?: CreateAccountPagination | null | undefined;
+};
+
 export type CreateAccountErrors = {};
 
 export type CreateAccountRawData = {};
 
 export type CreateAccountResponse = {
-  meta: models.MetaResponse;
+  meta?: CreateAccountMeta | null | undefined;
   data: models.AccountResponseDto;
-  errors: CreateAccountErrors;
-  rawData: CreateAccountRawData;
+  errors: CreateAccountErrors | null;
+  rawData: CreateAccountRawData | null;
 };
 
 /** @internal */
@@ -47,6 +60,48 @@ export function createAccountRequestToJSON(
 ): string {
   return JSON.stringify(
     CreateAccountRequest$outboundSchema.parse(createAccountRequest),
+  );
+}
+
+/** @internal */
+export const CreateAccountPagination$inboundSchema: z.ZodMiniType<
+  CreateAccountPagination,
+  unknown
+> = z.object({
+  total: types.number(),
+  perPage: types.number(),
+  currentPage: types.number(),
+  totalPages: types.number(),
+});
+
+export function createAccountPaginationFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateAccountPagination, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateAccountPagination$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateAccountPagination' from JSON`,
+  );
+}
+
+/** @internal */
+export const CreateAccountMeta$inboundSchema: z.ZodMiniType<
+  CreateAccountMeta,
+  unknown
+> = z.object({
+  warnings: z.optional(z.nullable(z.array(types.string()))),
+  pagination: z.optional(
+    z.nullable(z.lazy(() => CreateAccountPagination$inboundSchema)),
+  ),
+});
+
+export function createAccountMetaFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateAccountMeta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateAccountMeta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateAccountMeta' from JSON`,
   );
 }
 
@@ -87,10 +142,10 @@ export const CreateAccountResponse$inboundSchema: z.ZodMiniType<
   CreateAccountResponse,
   unknown
 > = z.object({
-  meta: models.MetaResponse$inboundSchema,
+  meta: z.optional(z.nullable(z.lazy(() => CreateAccountMeta$inboundSchema))),
   data: models.AccountResponseDto$inboundSchema,
-  errors: z.lazy(() => CreateAccountErrors$inboundSchema),
-  rawData: z.lazy(() => CreateAccountRawData$inboundSchema),
+  errors: types.nullable(z.lazy(() => CreateAccountErrors$inboundSchema)),
+  rawData: types.nullable(z.lazy(() => CreateAccountRawData$inboundSchema)),
 });
 
 export function createAccountResponseFromJSON(

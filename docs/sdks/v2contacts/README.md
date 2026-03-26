@@ -12,7 +12,7 @@
 
 <!-- UsageSnippet language="typescript" operationID="patchContactV2" method="patch" path="/accounting/v2/contacts/{contactId}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -26,37 +26,7 @@ async function run() {
   const result = await maesn.accounting.v2.contacts.update({
     contactId: "<id>",
     body: {
-      id: "<id>",
-      addresses: [],
-      companyName: "Kassulke - Schaden",
-      contactPersons: [
-        {
-          id: "<id>",
-          emailAddresses: [
-            {
-              email: "Jolie44@yahoo.com",
-              type: "PAYMENT",
-            },
-          ],
-          firstName: "Fritz",
-          lastName: "Buckridge",
-          phoneNumbers: [],
-          salutation: "<value>",
-        },
-      ],
       contactType: "COMPANY",
-      emailAddresses: [],
-      isCustomer: true,
-      isSupplier: false,
-      number: "<value>",
-      phoneNumbers: [
-        {
-          number: "<value>",
-          type: "LANDLINE",
-        },
-      ],
-      projectId: "<id>",
-      website: "<value>",
     },
   });
 
@@ -71,8 +41,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingV2ContactsUpdate } from "maesn/funcs/accounting-v2-contacts-update.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingV2ContactsUpdate } from "@maesn/typescript-sdk/funcs/accounting-v2-contacts-update.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -88,37 +58,7 @@ async function run() {
   const res = await accountingV2ContactsUpdate(maesn, {
     contactId: "<id>",
     body: {
-      id: "<id>",
-      addresses: [],
-      companyName: "Kassulke - Schaden",
-      contactPersons: [
-        {
-          id: "<id>",
-          emailAddresses: [
-            {
-              email: "Jolie44@yahoo.com",
-              type: "PAYMENT",
-            },
-          ],
-          firstName: "Fritz",
-          lastName: "Buckridge",
-          phoneNumbers: [],
-          salutation: "<value>",
-        },
-      ],
       contactType: "COMPANY",
-      emailAddresses: [],
-      isCustomer: true,
-      isSupplier: false,
-      number: "<value>",
-      phoneNumbers: [
-        {
-          number: "<value>",
-          type: "LANDLINE",
-        },
-      ],
-      projectId: "<id>",
-      website: "<value>",
     },
   });
   if (res.ok) {

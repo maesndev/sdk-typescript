@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
@@ -17,15 +18,27 @@ export type GetCreditNotesRequest = {
   rawData?: boolean | undefined;
 };
 
+export type GetCreditNotesPagination = {
+  total: number;
+  perPage: number;
+  currentPage: number;
+  totalPages: number;
+};
+
+export type GetCreditNotesMeta = {
+  warnings?: Array<string> | null | undefined;
+  pagination?: GetCreditNotesPagination | null | undefined;
+};
+
 export type GetCreditNotesErrors = {};
 
 export type GetCreditNotesRawData = {};
 
 export type GetCreditNotesResponse = {
-  meta: models.MetaResponse;
+  meta?: GetCreditNotesMeta | null | undefined;
   data: Array<models.CreditNoteResponseDto>;
-  errors: GetCreditNotesErrors;
-  rawData: GetCreditNotesRawData;
+  errors: GetCreditNotesErrors | null;
+  rawData: GetCreditNotesRawData | null;
 };
 
 /** @internal */
@@ -56,6 +69,48 @@ export function getCreditNotesRequestToJSON(
 ): string {
   return JSON.stringify(
     GetCreditNotesRequest$outboundSchema.parse(getCreditNotesRequest),
+  );
+}
+
+/** @internal */
+export const GetCreditNotesPagination$inboundSchema: z.ZodMiniType<
+  GetCreditNotesPagination,
+  unknown
+> = z.object({
+  total: types.number(),
+  perPage: types.number(),
+  currentPage: types.number(),
+  totalPages: types.number(),
+});
+
+export function getCreditNotesPaginationFromJSON(
+  jsonString: string,
+): SafeParseResult<GetCreditNotesPagination, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetCreditNotesPagination$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetCreditNotesPagination' from JSON`,
+  );
+}
+
+/** @internal */
+export const GetCreditNotesMeta$inboundSchema: z.ZodMiniType<
+  GetCreditNotesMeta,
+  unknown
+> = z.object({
+  warnings: z.optional(z.nullable(z.array(types.string()))),
+  pagination: z.optional(
+    z.nullable(z.lazy(() => GetCreditNotesPagination$inboundSchema)),
+  ),
+});
+
+export function getCreditNotesMetaFromJSON(
+  jsonString: string,
+): SafeParseResult<GetCreditNotesMeta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetCreditNotesMeta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetCreditNotesMeta' from JSON`,
   );
 }
 
@@ -96,10 +151,10 @@ export const GetCreditNotesResponse$inboundSchema: z.ZodMiniType<
   GetCreditNotesResponse,
   unknown
 > = z.object({
-  meta: models.MetaResponse$inboundSchema,
+  meta: z.optional(z.nullable(z.lazy(() => GetCreditNotesMeta$inboundSchema))),
   data: z.array(models.CreditNoteResponseDto$inboundSchema),
-  errors: z.lazy(() => GetCreditNotesErrors$inboundSchema),
-  rawData: z.lazy(() => GetCreditNotesRawData$inboundSchema),
+  errors: types.nullable(z.lazy(() => GetCreditNotesErrors$inboundSchema)),
+  rawData: types.nullable(z.lazy(() => GetCreditNotesRawData$inboundSchema)),
 });
 
 export function getCreditNotesResponseFromJSON(

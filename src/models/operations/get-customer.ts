@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
@@ -15,15 +16,27 @@ export type GetCustomerRequest = {
   rawData?: boolean | undefined;
 };
 
+export type GetCustomerPagination = {
+  total: number;
+  perPage: number;
+  currentPage: number;
+  totalPages: number;
+};
+
+export type GetCustomerMeta = {
+  warnings?: Array<string> | null | undefined;
+  pagination?: GetCustomerPagination | null | undefined;
+};
+
 export type GetCustomerErrors = {};
 
 export type GetCustomerRawData = {};
 
 export type GetCustomerResponse = {
-  meta: models.MetaResponse;
+  meta?: GetCustomerMeta | null | undefined;
   data: models.ContactResponseDto;
-  errors: GetCustomerErrors;
-  rawData: GetCustomerRawData;
+  errors: GetCustomerErrors | null;
+  rawData: GetCustomerRawData | null;
 };
 
 /** @internal */
@@ -50,6 +63,48 @@ export function getCustomerRequestToJSON(
 ): string {
   return JSON.stringify(
     GetCustomerRequest$outboundSchema.parse(getCustomerRequest),
+  );
+}
+
+/** @internal */
+export const GetCustomerPagination$inboundSchema: z.ZodMiniType<
+  GetCustomerPagination,
+  unknown
+> = z.object({
+  total: types.number(),
+  perPage: types.number(),
+  currentPage: types.number(),
+  totalPages: types.number(),
+});
+
+export function getCustomerPaginationFromJSON(
+  jsonString: string,
+): SafeParseResult<GetCustomerPagination, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetCustomerPagination$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetCustomerPagination' from JSON`,
+  );
+}
+
+/** @internal */
+export const GetCustomerMeta$inboundSchema: z.ZodMiniType<
+  GetCustomerMeta,
+  unknown
+> = z.object({
+  warnings: z.optional(z.nullable(z.array(types.string()))),
+  pagination: z.optional(
+    z.nullable(z.lazy(() => GetCustomerPagination$inboundSchema)),
+  ),
+});
+
+export function getCustomerMetaFromJSON(
+  jsonString: string,
+): SafeParseResult<GetCustomerMeta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetCustomerMeta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetCustomerMeta' from JSON`,
   );
 }
 
@@ -90,10 +145,10 @@ export const GetCustomerResponse$inboundSchema: z.ZodMiniType<
   GetCustomerResponse,
   unknown
 > = z.object({
-  meta: models.MetaResponse$inboundSchema,
+  meta: z.optional(z.nullable(z.lazy(() => GetCustomerMeta$inboundSchema))),
   data: models.ContactResponseDto$inboundSchema,
-  errors: z.lazy(() => GetCustomerErrors$inboundSchema),
-  rawData: z.lazy(() => GetCustomerRawData$inboundSchema),
+  errors: types.nullable(z.lazy(() => GetCustomerErrors$inboundSchema)),
+  rawData: types.nullable(z.lazy(() => GetCustomerRawData$inboundSchema)),
 });
 
 export function getCustomerResponseFromJSON(

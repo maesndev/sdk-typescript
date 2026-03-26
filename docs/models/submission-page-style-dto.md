@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { SubmissionPageStyleDto } from "maesn/models";
+import { SubmissionPageStyleDto } from "@maesn/typescript-sdk/models";
 
 let value: SubmissionPageStyleDto = {
   logoSvg: "<value>",

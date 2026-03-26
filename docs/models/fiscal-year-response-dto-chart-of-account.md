@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { FiscalYearResponseDtoChartOfAccount } from "maesn/models";
+import { FiscalYearResponseDtoChartOfAccount } from "@maesn/typescript-sdk/models";
 
 let value: FiscalYearResponseDtoChartOfAccount = "SKR03";
 

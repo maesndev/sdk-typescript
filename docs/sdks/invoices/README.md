@@ -12,7 +12,7 @@
 
 <!-- UsageSnippet language="typescript" operationID="patchLineItem" method="patch" path="/accounting/invoices/{invoiceId}/lineItems/{lineItemId}" -->
 ```typescript
-import { Maesn } from "maesn";
+import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -26,21 +26,7 @@ async function run() {
   const result = await maesn.accounting.invoices.updateLineItem({
     invoiceId: "<id>",
     lineItemId: "<id>",
-    body: {
-      accountCode: "<value>",
-      description: "boo in vast configuration navigate as ew who decode",
-      discountItemPercentage: 434.56,
-      grossAmount: 6604.43,
-      itemId: "<id>",
-      name: "<value>",
-      quantity: 7893.01,
-      taxCode: "<value>",
-      taxRatePercentage: 4240.25,
-      taxType: "<value>",
-      type: "MATERIAL",
-      unitAmount: 9494.82,
-      unitName: "<value>",
-    },
+    body: {},
   });
 
   console.log(result);
@@ -54,8 +40,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { MaesnCore } from "maesn/core.js";
-import { accountingInvoicesUpdateLineItem } from "maesn/funcs/accounting-invoices-update-line-item.js";
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingInvoicesUpdateLineItem } from "@maesn/typescript-sdk/funcs/accounting-invoices-update-line-item.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -71,21 +57,7 @@ async function run() {
   const res = await accountingInvoicesUpdateLineItem(maesn, {
     invoiceId: "<id>",
     lineItemId: "<id>",
-    body: {
-      accountCode: "<value>",
-      description: "boo in vast configuration navigate as ew who decode",
-      discountItemPercentage: 434.56,
-      grossAmount: 6604.43,
-      itemId: "<id>",
-      name: "<value>",
-      quantity: 7893.01,
-      taxCode: "<value>",
-      taxRatePercentage: 4240.25,
-      taxType: "<value>",
-      type: "MATERIAL",
-      unitAmount: 9494.82,
-      unitName: "<value>",
-    },
+    body: {},
   });
   if (res.ok) {
     const { value: result } = res;

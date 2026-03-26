@@ -26,13 +26,13 @@ export type BookingsResponseDtoChartOfAccount = OpenEnum<
 >;
 
 export type BookingsResponseDto = {
-  id: string;
-  accountNumberLength: number;
-  chartOfAccount: BookingsResponseDtoChartOfAccount;
-  createdDate: string;
-  entries: Array<BookingEntryResponseDto>;
-  fiscalYearStartDate: string;
-  taskId: string;
+  id: string | null;
+  accountNumberLength: number | null;
+  chartOfAccount: BookingsResponseDtoChartOfAccount | null;
+  createdDate: string | null;
+  entries: Array<BookingEntryResponseDto> | null;
+  fiscalYearStartDate: string | null;
+  taskId: string | null;
 };
 
 /** @internal */
@@ -46,13 +46,15 @@ export const BookingsResponseDto$inboundSchema: z.ZodMiniType<
   BookingsResponseDto,
   unknown
 > = z.object({
-  id: types.string(),
-  accountNumberLength: types.number(),
-  chartOfAccount: BookingsResponseDtoChartOfAccount$inboundSchema,
-  createdDate: types.string(),
-  entries: z.array(BookingEntryResponseDto$inboundSchema),
-  fiscalYearStartDate: types.string(),
-  taskId: types.string(),
+  id: types.nullable(types.string()),
+  accountNumberLength: types.nullable(types.number()),
+  chartOfAccount: types.nullable(
+    BookingsResponseDtoChartOfAccount$inboundSchema,
+  ),
+  createdDate: types.nullable(types.string()),
+  entries: types.nullable(z.array(BookingEntryResponseDto$inboundSchema)),
+  fiscalYearStartDate: types.nullable(types.string()),
+  taskId: types.nullable(types.string()),
 });
 
 export function bookingsResponseDtoFromJSON(

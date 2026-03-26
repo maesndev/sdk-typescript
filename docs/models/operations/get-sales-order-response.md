@@ -3,23 +3,33 @@
 ## Example Usage
 
 ```typescript
-import { GetSalesOrderResponse } from "maesn/models/operations";
+import { GetSalesOrderResponse } from "@maesn/typescript-sdk/models/operations";
 
 let value: GetSalesOrderResponse = {
-  meta: {
-    warnings: [
-      "<value 1>",
-      "<value 2>",
-    ],
-    pagination: {
-      total: 3438.77,
-      perPage: 5109.63,
-      currentPage: 2626.79,
-      totalPages: 3561.84,
-    },
+  data: {
+    id: "<id>",
+    addresses: null,
+    billingContactId: "<id>",
+    comment:
+      "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
+    contactId: "<id>",
+    createdDate: "<value>",
+    currency: null,
+    deliveryDate: "<value>",
+    lineItems: null,
+    orderDate: "<value>",
+    projectId: "<id>",
+    shippingContactId: "<id>",
+    status: "OPEN",
+    taskId: "<id>",
+    totalDiscountAmount: 3105.59,
+    totalDiscountPercentage: 6467.42,
+    totalGrossAmount: 5424.24,
+    totalNetAmount: null,
+    totalTaxAmount: 4026.96,
+    updatedDate: "<value>",
   },
-  data: [],
-  errors: {},
+  errors: null,
   rawData: {},
 };
 ```
@@ -28,7 +38,7 @@ let value: GetSalesOrderResponse = {
 
 | Field                                                                                  | Type                                                                                   | Required                                                                               | Description                                                                            |
 | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `meta`                                                                                 | [models.MetaResponse](../../models/meta-response.md)                                   | :heavy_check_mark:                                                                     | N/A                                                                                    |
-| `data`                                                                                 | [models.SalesOrderResponseDto](../../models/sales-order-response-dto.md)[]             | :heavy_check_mark:                                                                     | N/A                                                                                    |
+| `meta`                                                                                 | [operations.GetSalesOrderMeta](../../models/operations/get-sales-order-meta.md)        | :heavy_minus_sign:                                                                     | N/A                                                                                    |
+| `data`                                                                                 | [models.SalesOrderResponseDto](../../models/sales-order-response-dto.md)               | :heavy_check_mark:                                                                     | N/A                                                                                    |
 | `errors`                                                                               | [operations.GetSalesOrderErrors](../../models/operations/get-sales-order-errors.md)    | :heavy_check_mark:                                                                     | N/A                                                                                    |
 | `rawData`                                                                              | [operations.GetSalesOrderRawData](../../models/operations/get-sales-order-raw-data.md) | :heavy_check_mark:                                                                     | N/A                                                                                    |
