@@ -1,0 +1,13 @@
+# Swagger ignores adding a `type: 'integer'` to the limit enum,
+# resulting in the limit enum type in the paginationParams to be of type number.
+# This is a problem for speakeasy who expects it to be of type integer.
+
+overlay: 1.0.0
+info:
+  title: Fix numeric enum types
+  version: 0.0.1
+actions:
+  - target: "$.paths[*][*].parameters[?(@.name=='limit')].schema"
+    description: Change limit enum type from number to integer
+    update:
+      type: integer
