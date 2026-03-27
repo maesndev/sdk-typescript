@@ -8,6 +8,23 @@ info:
     before: ""
     after: ""
 actions:
+  - target: $["info"]["title"]
+    update: "Maesn Unified API"
+  - target: $["info"]["summary"]
+    update: "Multi-tenant accounting and ERP integration platform connecting 30+ target systems behind a single unified API."
+  - target: $["info"]["description"]
+    update: |
+      The Maesn Unified API provides a single interface to 30+ accounting and ERP target systems — including Exact, Xero, Sevdesk, Lexoffice, QuickBooks, DATEV, FreshBooks, and more.
+
+      All resources (invoices, contacts, accounts, bills, journal entries, payments) are normalized to a common schema, so your integration works across every connected system without modification.
+
+      ## Features
+
+      - **Unified schema** — one data model across all target systems
+      - **Multi-tenant** — isolated API keys and account keys per tenant and end user
+      - **OAuth integration** — built-in OAuth flows for all supported target systems
+      - **Webhook support** — subscribe to real-time events from connected target systems
+      - **Async processing** — long-running operations return a `taskId` for status polling
   - target: $["paths"]["/accounting/bills/{billId}/lineItems"]["post"]
     update:
       x-speakeasy-group: accounting.bills
