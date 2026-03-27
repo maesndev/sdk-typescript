@@ -10,8 +10,9 @@ sources:
             - location: https://unified-backend-prod.azurewebsites.net/api/health-json
             - location: https://unified-backend-prod.azurewebsites.net/api/tenants-json
         overlays:
-            - location: .speakeasy/speakeasy-modifications-overlay.yaml
-            - location: .speakeasy/auth-security-overlay.yaml
+            - location: .speakeasy/overlays/info-overlay.yaml
+            - location: .speakeasy/overlays/speakeasy-modifications-overlay.yaml
+            - location: .speakeasy/overlays/auth-security-overlay.yaml
         output: .speakeasy/out.openapi.yaml
         registry:
             location: registry.speakeasyapi.dev/test-qpg/myworkspace/maesn-unified-api
