@@ -1,5 +1,7 @@
 # GetSupplierResponse
 
+Supplier record matching the provided ID
+
 ## Example Usage
 
 ```typescript

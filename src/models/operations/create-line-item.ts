@@ -11,7 +11,13 @@ import * as models from "../index.js";
 
 export type CreateLineItemRequest = {
   invoiceId: string;
+  /**
+   * Environment name (required for multi-environment systems such as Business Central)
+   */
   environmentName?: string | undefined;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
   body: models.CreateLineItemRequestDto;
 };
@@ -32,6 +38,9 @@ export type CreateLineItemErrors = {};
 
 export type CreateLineItemRawData = {};
 
+/**
+ * Line item created successfully
+ */
 export type CreateLineItemResponse = {
   meta?: CreateLineItemMeta | null | undefined;
   data: models.LineItemResponseDto;

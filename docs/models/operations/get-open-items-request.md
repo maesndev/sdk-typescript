@@ -10,15 +10,15 @@ let value: GetOpenItemsRequest = {};
 
 ## Fields
 
-| Field              | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `page`             | *number*           | :heavy_minus_sign: | N/A                |
-| `limit`            | *number*           | :heavy_minus_sign: | N/A                |
-| `lastModifiedAt`   | *string*           | :heavy_minus_sign: | N/A                |
-| `environmentName`  | *string*           | :heavy_minus_sign: | N/A                |
-| `companyId`        | *string*           | :heavy_minus_sign: | N/A                |
-| `rawData`          | *boolean*          | :heavy_minus_sign: | N/A                |
-| `fiscalYear`       | *number*           | :heavy_minus_sign: | N/A                |
-| `accountNumber`    | *string*           | :heavy_minus_sign: | N/A                |
-| `documentNumber`   | *string*           | :heavy_minus_sign: | N/A                |
-| `type`             | *string*           | :heavy_minus_sign: | N/A                |
+| Field                                                                              | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `page`                                                                             | *number*                                                                           | :heavy_minus_sign:                                                                 | N/A                                                                                |
+| `limit`                                                                            | *number*                                                                           | :heavy_minus_sign:                                                                 | N/A                                                                                |
+| `lastModifiedAt`                                                                   | *string*                                                                           | :heavy_minus_sign:                                                                 | ISO 8601 timestamp; only records modified after this date are returned             |
+| `environmentName`                                                                  | *string*                                                                           | :heavy_minus_sign:                                                                 | Environment name (required for multi-environment systems such as Business Central) |
+| `companyId`                                                                        | *string*                                                                           | :heavy_minus_sign:                                                                 | ID of the company (required for multi-company target systems)                      |
+| `rawData`                                                                          | *boolean*                                                                          | :heavy_minus_sign:                                                                 | When true, returns the unprocessed response from the upstream target system        |
+| `fiscalYear`                                                                       | *number*                                                                           | :heavy_minus_sign:                                                                 | Fiscal year to scope the open items results (e.g. 2024)                            |
+| `accountNumber`                                                                    | *string*                                                                           | :heavy_minus_sign:                                                                 | Filter open items by account number                                                |
+| `documentNumber`                                                                   | *string*                                                                           | :heavy_minus_sign:                                                                 | Filter open items by document number                                               |
+| `type`                                                                             | *string*                                                                           | :heavy_minus_sign:                                                                 | Filter open items by type (e.g. receivable, payable)                               |

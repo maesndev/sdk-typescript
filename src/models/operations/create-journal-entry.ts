@@ -22,7 +22,13 @@ export type CreateJournalEntryRequestBody = {
 };
 
 export type CreateJournalEntryRequest = {
+  /**
+   * Environment name (required for multi-environment systems such as Business Central)
+   */
   environmentName?: string | undefined;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
   body: CreateJournalEntryRequestBody;
 };
@@ -43,6 +49,9 @@ export type CreateJournalEntryErrors = {};
 
 export type CreateJournalEntryRawData = {};
 
+/**
+ * Journal entry created successfully
+ */
 export type CreateJournalEntryResponse = {
   meta?: CreateJournalEntryMeta | null | undefined;
   data: models.JournalEntryResponseDto;

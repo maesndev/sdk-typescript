@@ -1,5 +1,7 @@
 # GetPaymentsResponse
 
+List of payments for the authenticated end user's connected target system
+
 ## Example Usage
 
 ```typescript

@@ -3,10 +3,21 @@
  */
 
 import * as z from "zod/v4-mini";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdk-validation-error.js";
 
 export type GetSubmissionPageStyleRequest = {
+  /**
+   * Unique tenant code used to look up the submission page style
+   */
   code: string;
 };
+
+/**
+ * Submission page style configuration for the given tenant code
+ */
+export type GetSubmissionPageStyleResponse = {};
 
 /** @internal */
 export type GetSubmissionPageStyleRequest$Outbound = {
@@ -28,5 +39,21 @@ export function getSubmissionPageStyleRequestToJSON(
     GetSubmissionPageStyleRequest$outboundSchema.parse(
       getSubmissionPageStyleRequest,
     ),
+  );
+}
+
+/** @internal */
+export const GetSubmissionPageStyleResponse$inboundSchema: z.ZodMiniType<
+  GetSubmissionPageStyleResponse,
+  unknown
+> = z.object({});
+
+export function getSubmissionPageStyleResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<GetSubmissionPageStyleResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetSubmissionPageStyleResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetSubmissionPageStyleResponse' from JSON`,
   );
 }

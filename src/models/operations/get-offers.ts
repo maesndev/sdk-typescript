@@ -10,6 +10,9 @@ import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
+/**
+ * Filter offers by unified status
+ */
 export const GetOffersStatus = {
   Draft: "DRAFT",
   Sent: "SENT",
@@ -18,15 +21,33 @@ export const GetOffersStatus = {
   Voided: "VOIDED",
   Declined: "DECLINED",
 } as const;
+/**
+ * Filter offers by unified status
+ */
 export type GetOffersStatus = ClosedEnum<typeof GetOffersStatus>;
 
 export type GetOffersRequest = {
   page?: number | undefined;
   limit?: number | undefined;
+  /**
+   * ISO 8601 timestamp; only records modified after this date are returned
+   */
   lastModifiedAt?: string | undefined;
+  /**
+   * Environment name (required for multi-environment systems such as Business Central)
+   */
   environmentName?: string | undefined;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
+  /**
+   * Filter offers by unified status
+   */
   status?: GetOffersStatus | undefined;
+  /**
+   * When true, returns the unprocessed response from the upstream target system
+   */
   rawData?: boolean | undefined;
 };
 
@@ -46,6 +67,9 @@ export type GetOffersErrors = {};
 
 export type GetOffersRawData = {};
 
+/**
+ * List of offers for the authenticated end user's connected target system
+ */
 export type GetOffersResponse = {
   meta?: GetOffersMeta | null | undefined;
   data: Array<models.OfferResponseDto>;

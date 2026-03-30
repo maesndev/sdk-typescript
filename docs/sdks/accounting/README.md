@@ -5393,11 +5393,11 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  await maesn.accounting.removePayment({
+  const result = await maesn.accounting.removePayment({
     paymentId: "<id>",
   });
 
-
+  console.log(result);
 }
 
 run();
@@ -5427,7 +5427,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    
+    console.log(result);
   } else {
     console.log("accountingRemovePayment failed:", res.error);
   }
@@ -5447,7 +5447,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[operations.DeletePaymentResponse](../../models/operations/delete-payment-response.md)\>**
 
 ### Errors
 
@@ -5472,14 +5472,14 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  await maesn.accounting.addEventSubscription({
+  const result = await maesn.accounting.addEventSubscription({
     body: {
       eventType: "<value>",
       callbackUrl: "https://dark-vibraphone.com",
     },
   });
 
-
+  console.log(result);
 }
 
 run();
@@ -5512,7 +5512,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    
+    console.log(result);
   } else {
     console.log("accountingAddEventSubscription failed:", res.error);
   }
@@ -5532,7 +5532,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[models.BaseResponseDto](../../models/base-response-dto.md)\>**
 
 ### Errors
 
@@ -5557,11 +5557,11 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  await maesn.accounting.removeEventSubscription({
+  const result = await maesn.accounting.removeEventSubscription({
     eventSubscriptionId: "<id>",
   });
 
-
+  console.log(result);
 }
 
 run();
@@ -5591,7 +5591,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    
+    console.log(result);
   } else {
     console.log("accountingRemoveEventSubscription failed:", res.error);
   }
@@ -5611,7 +5611,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[models.BaseResponseDto](../../models/base-response-dto.md)\>**
 
 ### Errors
 
@@ -5636,9 +5636,9 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  await maesn.accounting.getProfile();
+  const result = await maesn.accounting.getProfile();
 
-
+  console.log(result);
 }
 
 run();
@@ -5666,7 +5666,7 @@ async function run() {
   const res = await accountingGetProfile(maesn);
   if (res.ok) {
     const { value: result } = res;
-    
+    console.log(result);
   } else {
     console.log("accountingGetProfile failed:", res.error);
   }
@@ -5685,7 +5685,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[models.BaseResponseDto](../../models/base-response-dto.md)\>**
 
 ### Errors
 
@@ -6028,11 +6028,11 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  await maesn.accounting.removeBill({
+  const result = await maesn.accounting.removeBill({
     billId: "<id>",
   });
 
-
+  console.log(result);
 }
 
 run();
@@ -6062,7 +6062,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    
+    console.log(result);
   } else {
     console.log("accountingRemoveBill failed:", res.error);
   }
@@ -6082,7 +6082,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[operations.DeleteBillResponse](../../models/operations/delete-bill-response.md)\>**
 
 ### Errors
 

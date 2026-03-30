@@ -1,5 +1,7 @@
 # CreateExpenseResponse
 
+Expense created successfully
+
 ## Example Usage
 
 ```typescript

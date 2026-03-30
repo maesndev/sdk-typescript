@@ -1,5 +1,7 @@
 # PatchContactResponse
 
+Contact updated successfully
+
 ## Example Usage
 
 ```typescript

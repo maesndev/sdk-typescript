@@ -1,5 +1,7 @@
 # PatchLineItemResponse
 
+Line item updated successfully
+
 ## Example Usage
 
 ```typescript

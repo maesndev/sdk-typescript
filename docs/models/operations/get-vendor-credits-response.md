@@ -1,5 +1,7 @@
 # GetVendorCreditsResponse
 
+List of vendor credits for the authenticated end user's connected target system
+
 ## Example Usage
 
 ```typescript

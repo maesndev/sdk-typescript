@@ -1,5 +1,7 @@
 # UpdateCustomerResponse
 
+Customer updated successfully
+
 ## Example Usage
 
 ```typescript

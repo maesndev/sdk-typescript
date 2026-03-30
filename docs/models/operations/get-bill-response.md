@@ -1,5 +1,7 @@
 # GetBillResponse
 
+Bill record matching the provided ID
+
 ## Example Usage
 
 ```typescript

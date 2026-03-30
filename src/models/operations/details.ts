@@ -23,6 +23,11 @@ export type Details = {
   [additionalProperties: string]: unknown;
 };
 
+/**
+ * Detailed health status including database connectivity.
+ */
+export type DetailsResponse = {};
+
 /** @internal */
 export const Info$inboundSchema: z.ZodMiniType<Info, unknown> = z.catchall(
   z.object({
@@ -75,5 +80,21 @@ export function detailsFromJSON(
     jsonString,
     (x) => Details$inboundSchema.parse(JSON.parse(x)),
     `Failed to parse 'Details' from JSON`,
+  );
+}
+
+/** @internal */
+export const DetailsResponse$inboundSchema: z.ZodMiniType<
+  DetailsResponse,
+  unknown
+> = z.object({});
+
+export function detailsResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<DetailsResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DetailsResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DetailsResponse' from JSON`,
   );
 }

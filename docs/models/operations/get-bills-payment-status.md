@@ -1,5 +1,7 @@
 # GetBillsPaymentStatus
 
+Filter bills by payment status
+
 ## Example Usage
 
 ```typescript

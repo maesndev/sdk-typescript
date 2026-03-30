@@ -10,7 +10,13 @@ import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
 export type CreateSupplierRequest = {
+  /**
+   * Environment name (required for multi-environment systems such as Business Central)
+   */
   environmentName?: string | undefined;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
   body: models.CreateContactRequestDto;
 };
@@ -31,6 +37,9 @@ export type CreateSupplierErrors = {};
 
 export type CreateSupplierRawData = {};
 
+/**
+ * Supplier created successfully
+ */
 export type CreateSupplierResponse = {
   meta?: CreateSupplierMeta | null | undefined;
   data: models.ContactResponseDto;

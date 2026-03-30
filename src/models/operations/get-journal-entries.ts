@@ -12,11 +12,29 @@ import * as models from "../index.js";
 export type GetJournalEntriesRequest = {
   page?: number | undefined;
   limit?: number | undefined;
+  /**
+   * ISO 8601 timestamp; only records modified after this date are returned
+   */
   lastModifiedAt?: string | undefined;
+  /**
+   * Environment name (required for multi-environment systems such as Business Central)
+   */
   environmentName?: string | undefined;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
+  /**
+   * When true, returns the unprocessed response from the upstream target system
+   */
   rawData?: boolean | undefined;
+  /**
+   * Fiscal year to scope the journal entries (e.g. 2024)
+   */
   fiscalYear?: number | undefined;
+  /**
+   * ISO 8601 start date of the fiscal year used for scoping results
+   */
   fiscalYearStartDate?: string | undefined;
 };
 
@@ -36,6 +54,9 @@ export type GetJournalEntriesErrors = {};
 
 export type GetJournalEntriesRawData = {};
 
+/**
+ * List of journal entries for the authenticated end user's connected target system
+ */
 export type GetJournalEntriesResponse = {
   meta?: GetJournalEntriesMeta | null | undefined;
   data: Array<models.JournalEntryResponseDto>;

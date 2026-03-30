@@ -11,8 +11,17 @@ import * as models from "../index.js";
 
 export type GetExpenseRequest = {
   expenseId: string;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
+  /**
+   * Journal code used to scope the expense lookup on systems that require it
+   */
   journalCode?: string | undefined;
+  /**
+   * When true, returns the unprocessed response from the upstream target system
+   */
   rawData?: boolean | undefined;
 };
 
@@ -32,6 +41,9 @@ export type GetExpenseErrors = {};
 
 export type GetExpenseRawData = {};
 
+/**
+ * Expense record matching the provided ID
+ */
 export type GetExpenseResponse = {
   meta?: GetExpenseMeta | null | undefined;
   data: models.ExpenseResponseDto;

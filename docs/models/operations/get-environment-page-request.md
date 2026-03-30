@@ -13,7 +13,7 @@ let value: GetEnvironmentPageRequest = {
 
 ## Fields
 
-| Field              | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `state`            | *string*           | :heavy_check_mark: | N/A                |
-| `targetSystem`     | *string*           | :heavy_check_mark: | N/A                |
+| Field                                                                                    | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `state`                                                                                  | *string*                                                                                 | :heavy_check_mark:                                                                       | Encoded state value containing tenant and user context, returned from the OAuth redirect |
+| `targetSystem`                                                                           | *string*                                                                                 | :heavy_check_mark:                                                                       | Identifier of the target system (e.g. exact, sevdesk, xero)                              |

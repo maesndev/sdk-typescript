@@ -11,6 +11,9 @@ import * as models from "../index.js";
 
 export type UpdateSupplierRequest = {
   contactId: string;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
   body: models.CreateContactRequestDto;
 };
@@ -31,6 +34,9 @@ export type UpdateSupplierErrors = {};
 
 export type UpdateSupplierRawData = {};
 
+/**
+ * Supplier updated successfully
+ */
 export type UpdateSupplierResponse = {
   meta?: UpdateSupplierMeta | null | undefined;
   data: models.ContactResponseDto;

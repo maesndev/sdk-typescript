@@ -1,5 +1,7 @@
 # GetOffersStatus
 
+Filter offers by unified status
+
 ## Example Usage
 
 ```typescript

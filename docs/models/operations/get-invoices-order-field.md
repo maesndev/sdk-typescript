@@ -1,5 +1,7 @@
 # GetInvoicesOrderField
 
+Field to sort the results by
+
 ## Example Usage
 
 ```typescript

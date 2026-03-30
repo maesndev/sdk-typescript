@@ -3,10 +3,18 @@
  */
 
 import * as z from "zod/v4-mini";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdk-validation-error.js";
 
 export type HandleConfigurationCallbackRequest = {
   code: string;
 };
+
+/**
+ * Configuration webhook event received and queued for processing
+ */
+export type HandleConfigurationCallbackResponse = {};
 
 /** @internal */
 export type HandleConfigurationCallbackRequest$Outbound = {
@@ -28,5 +36,22 @@ export function handleConfigurationCallbackRequestToJSON(
     HandleConfigurationCallbackRequest$outboundSchema.parse(
       handleConfigurationCallbackRequest,
     ),
+  );
+}
+
+/** @internal */
+export const HandleConfigurationCallbackResponse$inboundSchema: z.ZodMiniType<
+  HandleConfigurationCallbackResponse,
+  unknown
+> = z.object({});
+
+export function handleConfigurationCallbackResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<HandleConfigurationCallbackResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      HandleConfigurationCallbackResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'HandleConfigurationCallbackResponse' from JSON`,
   );
 }

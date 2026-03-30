@@ -1,5 +1,7 @@
 # GetFiscalYearResponse
 
+Fiscal year record matching the provided ID
+
 ## Example Usage
 
 ```typescript

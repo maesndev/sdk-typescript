@@ -1,5 +1,7 @@
 # GetJournalEntryAttachmentsResponse
 
+List of attachments for the journal entry matching the provided ID
+
 ## Example Usage
 
 ```typescript

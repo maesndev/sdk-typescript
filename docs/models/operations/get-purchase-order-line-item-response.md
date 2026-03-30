@@ -1,5 +1,7 @@
 # GetPurchaseOrderLineItemResponse
 
+Purchase order line item record matching the provided ID
+
 ## Example Usage
 
 ```typescript

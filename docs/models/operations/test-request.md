@@ -12,6 +12,6 @@ let value: TestRequest = {
 
 ## Fields
 
-| Field              | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `accountKey`       | *string*           | :heavy_check_mark: | N/A                |
+| Field                                                                  | Type                                                                   | Required                                                               | Description                                                            |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| `accountKey`                                                           | *string*                                                               | :heavy_check_mark:                                                     | End user account key (X-ACCOUNT-KEY) to pre-fill the confirmation page |

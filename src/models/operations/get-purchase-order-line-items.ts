@@ -11,9 +11,21 @@ import * as models from "../index.js";
 
 export type GetPurchaseOrderLineItemsRequest = {
   purchaseOrderId: string;
+  /**
+   * ISO 8601 timestamp; only records modified after this date are returned
+   */
   lastModifiedAt?: string | undefined;
+  /**
+   * Environment name (required for multi-environment systems such as Business Central)
+   */
   environmentName?: string | undefined;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
+  /**
+   * When true, returns the unprocessed response from the upstream target system
+   */
   rawData?: boolean | undefined;
 };
 
@@ -33,6 +45,9 @@ export type GetPurchaseOrderLineItemsErrors = {};
 
 export type GetPurchaseOrderLineItemsRawData = {};
 
+/**
+ * List of line items for the authenticated end user's connected target system
+ */
 export type GetPurchaseOrderLineItemsResponse = {
   meta?: GetPurchaseOrderLineItemsMeta | null | undefined;
   data: Array<models.PurchaseOrderLineItemResponseDto>;

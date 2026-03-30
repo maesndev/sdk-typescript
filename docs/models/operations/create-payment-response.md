@@ -1,5 +1,7 @@
 # CreatePaymentResponse
 
+Payment created successfully
+
 ## Example Usage
 
 ```typescript

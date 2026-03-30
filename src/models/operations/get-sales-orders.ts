@@ -10,6 +10,9 @@ import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
+/**
+ * Filter sales orders by status
+ */
 export const GetSalesOrdersStatus = {
   Draft: "DRAFT",
   InReview: "IN_REVIEW",
@@ -17,15 +20,33 @@ export const GetSalesOrdersStatus = {
   Closed: "CLOSED",
   Voided: "VOIDED",
 } as const;
+/**
+ * Filter sales orders by status
+ */
 export type GetSalesOrdersStatus = ClosedEnum<typeof GetSalesOrdersStatus>;
 
 export type GetSalesOrdersRequest = {
   page?: number | undefined;
   limit?: number | undefined;
+  /**
+   * ISO 8601 timestamp; only records modified after this date are returned
+   */
   lastModifiedAt?: string | undefined;
+  /**
+   * Environment name (required for multi-environment systems such as Business Central)
+   */
   environmentName?: string | undefined;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
+  /**
+   * When true, returns the unprocessed response from the upstream target system
+   */
   rawData?: boolean | undefined;
+  /**
+   * Filter sales orders by status
+   */
   status?: GetSalesOrdersStatus | undefined;
 };
 
@@ -45,6 +66,9 @@ export type GetSalesOrdersErrors = {};
 
 export type GetSalesOrdersRawData = {};
 
+/**
+ * List of sales orders for the authenticated end user's connected target system
+ */
 export type GetSalesOrdersResponse = {
   meta?: GetSalesOrdersMeta | null | undefined;
   data: Array<models.SalesOrderResponseDto>;

@@ -12,8 +12,17 @@ import * as models from "../index.js";
 export type GetExpensesRequest = {
   page?: number | undefined;
   limit?: number | undefined;
+  /**
+   * ISO 8601 timestamp; only records modified after this date are returned
+   */
   lastModifiedAt?: string | undefined;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
+  /**
+   * When true, returns the unprocessed response from the upstream target system
+   */
   rawData?: boolean | undefined;
 };
 
@@ -33,6 +42,9 @@ export type GetExpensesErrors = {};
 
 export type GetExpensesRawData = {};
 
+/**
+ * List of expenses for the authenticated end user's connected target system
+ */
 export type GetExpensesResponse = {
   meta?: GetExpensesMeta | null | undefined;
   data: Array<models.ExpenseResponseDto>;

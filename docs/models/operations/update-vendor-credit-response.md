@@ -1,5 +1,7 @@
 # UpdateVendorCreditResponse
 
+Vendor credit updated successfully
+
 ## Example Usage
 
 ```typescript

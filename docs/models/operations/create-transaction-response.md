@@ -1,5 +1,7 @@
 # CreateTransactionResponse
 
+Transaction created successfully
+
 ## Example Usage
 
 ```typescript

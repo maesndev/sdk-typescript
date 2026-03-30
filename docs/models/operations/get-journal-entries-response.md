@@ -1,5 +1,7 @@
 # GetJournalEntriesResponse
 
+List of journal entries for the authenticated end user's connected target system
+
 ## Example Usage
 
 ```typescript

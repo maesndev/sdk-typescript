@@ -1,5 +1,7 @@
 # GetOfferDocumentResponse
 
+Document attached to the offer matching the provided ID
+
 ## Example Usage
 
 ```typescript

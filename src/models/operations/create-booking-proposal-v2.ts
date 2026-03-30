@@ -28,6 +28,9 @@ export type CreateBookingProposalV2RequestBody = {
 };
 
 export type CreateBookingProposalV2Request = {
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
   body: CreateBookingProposalV2RequestBody;
 };
@@ -48,6 +51,9 @@ export type CreateBookingProposalV2Errors = {};
 
 export type CreateBookingProposalV2RawData = {};
 
+/**
+ * Booking proposal created successfully. Returns 202 with taskId if processed asynchronously.
+ */
 export type CreateBookingProposalV2Response = {
   meta?: CreateBookingProposalV2Meta | null | undefined;
   data: models.BookingProposalResponseDtoV2;

@@ -12,7 +12,13 @@ import * as models from "../index.js";
 export type PatchLineItemRequest = {
   invoiceId: string;
   lineItemId: string;
+  /**
+   * Environment name (required for multi-environment systems such as Business Central)
+   */
   environmentName?: string | undefined;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
   body: models.PatchLineItemRequestDto;
 };
@@ -33,6 +39,9 @@ export type PatchLineItemErrors = {};
 
 export type PatchLineItemRawData = {};
 
+/**
+ * Line item updated successfully
+ */
 export type PatchLineItemResponse = {
   meta?: PatchLineItemMeta | null | undefined;
   data: models.LineItemResponseDto;

@@ -1,5 +1,7 @@
 # PatchInvoiceResponse
 
+Invoice updated successfully
+
 ## Example Usage
 
 ```typescript

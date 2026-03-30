@@ -11,7 +11,13 @@ import * as models from "../index.js";
 
 export type GetBillLineItemsRequest = {
   billId: string;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
+  /**
+   * When true, returns the unprocessed response from the upstream target system
+   */
   rawData?: boolean | undefined;
 };
 
@@ -31,6 +37,9 @@ export type GetBillLineItemsErrors = {};
 
 export type GetBillLineItemsRawData = {};
 
+/**
+ * List of line items for the authenticated end user's connected target system
+ */
 export type GetBillLineItemsResponse = {
   meta?: GetBillLineItemsMeta | null | undefined;
   data: Array<models.BillLineItemResponseDto>;

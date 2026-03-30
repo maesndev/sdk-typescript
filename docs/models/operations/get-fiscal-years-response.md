@@ -1,5 +1,7 @@
 # GetFiscalYearsResponse
 
+List of fiscal years for the authenticated end user's connected target system
+
 ## Example Usage
 
 ```typescript

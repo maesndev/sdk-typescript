@@ -11,6 +11,9 @@ import * as models from "../index.js";
 
 export type GetAsyncTaskInfoRequest = {
   taskId: string;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
   page?: number | undefined;
   limit?: number | undefined;
@@ -32,6 +35,9 @@ export type GetAsyncTaskInfoErrors = {};
 
 export type GetAsyncTaskInfoRawData = {};
 
+/**
+ * Async task status and result matching the provided task ID
+ */
 export type GetAsyncTaskInfoResponse = {
   meta?: GetAsyncTaskInfoMeta | null | undefined;
   data: models.AsyncTaskResponseDto;

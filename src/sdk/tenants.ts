@@ -26,7 +26,7 @@ export class Tenants extends ClientSDK {
   async systemRegistration(
     request: models.SystemRegistrationDto,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<string> {
     return unwrapAsync(tenantsSystemRegistration(
       this,
       request,
@@ -37,7 +37,7 @@ export class Tenants extends ClientSDK {
   async addCallbackUrl(
     request: models.CallbackUrlRegistrationDto,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<string> {
     return unwrapAsync(tenantsAddCallbackUrl(
       this,
       request,
@@ -47,7 +47,7 @@ export class Tenants extends ClientSDK {
 
   async getEndUserList(
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<models.BaseResponseDto> {
     return unwrapAsync(tenantsGetEndUserList(
       this,
       options,
@@ -56,7 +56,7 @@ export class Tenants extends ClientSDK {
 
   async countEndUsersBySystem(
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<models.BaseResponseDto> {
     return unwrapAsync(tenantsCountEndUsersBySystem(
       this,
       options,
@@ -65,7 +65,7 @@ export class Tenants extends ClientSDK {
 
   async deleteEndUser(
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<operations.DeleteEndUserResponse> {
     return unwrapAsync(tenantsDeleteEndUser(
       this,
       options,
@@ -74,7 +74,7 @@ export class Tenants extends ClientSDK {
 
   async getCallbackUrl(
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<models.BaseResponseDto> {
     return unwrapAsync(tenantsGetCallbackUrl(
       this,
       options,
@@ -83,7 +83,7 @@ export class Tenants extends ClientSDK {
 
   async getRegisteredSystems(
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<models.BaseResponseDto> {
     return unwrapAsync(tenantsGetRegisteredSystems(
       this,
       options,
@@ -92,7 +92,7 @@ export class Tenants extends ClientSDK {
 
   async getTargetSystemValues(
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<models.BaseResponseDto> {
     return unwrapAsync(tenantsGetTargetSystemValues(
       this,
       options,
@@ -101,7 +101,7 @@ export class Tenants extends ClientSDK {
 
   async getTargetSystemRequirements(
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<models.BaseResponseDto> {
     return unwrapAsync(tenantsGetTargetSystemRequirements(
       this,
       options,
@@ -110,7 +110,7 @@ export class Tenants extends ClientSDK {
 
   async getRegisteredSystemsMasked(
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<models.BaseResponseDto> {
     return unwrapAsync(tenantsGetRegisteredSystemsMasked(
       this,
       options,
@@ -120,7 +120,7 @@ export class Tenants extends ClientSDK {
   async deleteRegisteredSystem(
     request: operations.DeleteRegisteredSystemRequest,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<string> {
     return unwrapAsync(tenantsDeleteRegisteredSystem(
       this,
       request,
@@ -130,7 +130,7 @@ export class Tenants extends ClientSDK {
 
   async getAllActiveEndUsers(
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<operations.GetAllActiveEndUsersResponse> {
     return unwrapAsync(tenantsGetAllActiveEndUsers(
       this,
       options,
@@ -140,7 +140,7 @@ export class Tenants extends ClientSDK {
   async getSubmissionPageStyle(
     request: operations.GetSubmissionPageStyleRequest,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<operations.GetSubmissionPageStyleResponse> {
     return unwrapAsync(tenantsGetSubmissionPageStyle(
       this,
       request,
@@ -151,7 +151,7 @@ export class Tenants extends ClientSDK {
   async updateSubmissionPageStyle(
     request: models.SubmissionPageStyleDto,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<operations.UpdateSubmissionPageStyleResponse> {
     return unwrapAsync(tenantsUpdateSubmissionPageStyle(
       this,
       request,
@@ -161,7 +161,7 @@ export class Tenants extends ClientSDK {
 
   async getSubmissionPageStyleByKey(
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<operations.GetSubmissionPageStyleByKeyResponse> {
     return unwrapAsync(tenantsGetSubmissionPageStyleByKey(
       this,
       options,

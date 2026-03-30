@@ -1,5 +1,7 @@
 # GetCustomerResponse
 
+Customer record matching the provided ID
+
 ## Example Usage
 
 ```typescript

@@ -11,7 +11,13 @@ import * as models from "../index.js";
 
 export type PatchInvoiceRequest = {
   invoiceId: string;
+  /**
+   * Environment name (required for multi-environment systems such as Business Central)
+   */
   environmentName?: string | undefined;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
   body: models.PatchInvoiceRequestDto;
 };
@@ -32,6 +38,9 @@ export type PatchInvoiceErrors = {};
 
 export type PatchInvoiceRawData = {};
 
+/**
+ * Invoice updated successfully
+ */
 export type PatchInvoiceResponse = {
   meta?: PatchInvoiceMeta | null | undefined;
   data: models.InvoiceResponseDto;

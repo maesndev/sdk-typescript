@@ -259,11 +259,11 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  await maesn.auth.getSubmitPage({
+  const result = await maesn.auth.getSubmitPage({
     code: "<value>",
   });
 
-
+  console.log(result);
 }
 
 run();
@@ -293,7 +293,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    
+    console.log(result);
   } else {
     console.log("authGetSubmitPage failed:", res.error);
   }
@@ -313,7 +313,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[operations.GetSubmitPageResponse](../../models/operations/get-submit-page-response.md)\>**
 
 ### Errors
 
@@ -338,9 +338,9 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  await maesn.auth.apiKeyConfirmation();
+  const result = await maesn.auth.apiKeyConfirmation();
 
-
+  console.log(result);
 }
 
 run();
@@ -368,7 +368,7 @@ async function run() {
   const res = await authApiKeyConfirmation(maesn);
   if (res.ok) {
     const { value: result } = res;
-    
+    console.log(result);
   } else {
     console.log("authApiKeyConfirmation failed:", res.error);
   }
@@ -387,7 +387,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[operations.ApiKeyConfirmationResponse](../../models/operations/api-key-confirmation-response.md)\>**
 
 ### Errors
 
@@ -412,9 +412,9 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  await maesn.auth.cancel();
+  const result = await maesn.auth.cancel();
 
-
+  console.log(result);
 }
 
 run();
@@ -442,7 +442,7 @@ async function run() {
   const res = await authCancel(maesn);
   if (res.ok) {
     const { value: result } = res;
-    
+    console.log(result);
   } else {
     console.log("authCancel failed:", res.error);
   }
@@ -461,7 +461,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[operations.CancelResponse](../../models/operations/cancel-response.md)\>**
 
 ### Errors
 
@@ -486,11 +486,11 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  await maesn.auth.test({
+  const result = await maesn.auth.test({
     accountKey: "<value>",
   });
 
-
+  console.log(result);
 }
 
 run();
@@ -520,7 +520,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    
+    console.log(result);
   } else {
     console.log("authTest failed:", res.error);
   }
@@ -540,7 +540,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[operations.TestResponse](../../models/operations/test-response.md)\>**
 
 ### Errors
 
@@ -565,9 +565,12 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  await maesn.auth.longToken();
+  const result = await maesn.auth.longToken({
+    targetSystem: "<value>",
+    companyId: "<id>",
+  });
 
-
+  console.log(result);
 }
 
 run();
@@ -592,10 +595,13 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await authLongToken(maesn);
+  const res = await authLongToken(maesn, {
+    targetSystem: "<value>",
+    companyId: "<id>",
+  });
   if (res.ok) {
     const { value: result } = res;
-    
+    console.log(result);
   } else {
     console.log("authLongToken failed:", res.error);
   }
@@ -615,7 +621,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[string](../../models/.md)\>**
 
 ### Errors
 
@@ -640,12 +646,12 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  await maesn.auth.getEnvironmentPage({
+  const result = await maesn.auth.getEnvironmentPage({
     state: "Iowa",
     targetSystem: "<value>",
   });
 
-
+  console.log(result);
 }
 
 run();
@@ -676,7 +682,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    
+    console.log(result);
   } else {
     console.log("authGetEnvironmentPage failed:", res.error);
   }
@@ -696,7 +702,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[operations.GetEnvironmentPageResponse](../../models/operations/get-environment-page-response.md)\>**
 
 ### Errors
 
@@ -721,13 +727,13 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  await maesn.auth.setEndUserSelections({
+  const result = await maesn.auth.setEndUserSelections({
     accountKey: "<value>",
     environmentName: "<value>",
     companyId: "<id>",
   });
 
-
+  console.log(result);
 }
 
 run();
@@ -759,7 +765,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    
+    console.log(result);
   } else {
     console.log("authSetEndUserSelections failed:", res.error);
   }
@@ -779,7 +785,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[operations.SetEndUserSelectionsResponse](../../models/operations/set-end-user-selections-response.md)\>**
 
 ### Errors
 
@@ -804,11 +810,11 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  await maesn.auth.systemLoginUrl({
+  const result = await maesn.auth.systemLoginUrl({
     targetSystem: "<value>",
   });
 
-
+  console.log(result);
 }
 
 run();
@@ -838,7 +844,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    
+    console.log(result);
   } else {
     console.log("authSystemLoginUrl failed:", res.error);
   }
@@ -858,7 +864,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[string](../../models/.md)\>**
 
 ### Errors
 
@@ -883,12 +889,12 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  await maesn.auth.callback({
+  const result = await maesn.auth.callback({
     targetSystem: "<value>",
     state: "North Carolina",
   });
 
-
+  console.log(result);
 }
 
 run();
@@ -919,7 +925,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    
+    console.log(result);
   } else {
     console.log("authCallback failed:", res.error);
   }
@@ -939,7 +945,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[operations.CallbackResponse](../../models/operations/callback-response.md)\>**
 
 ### Errors
 
@@ -964,7 +970,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  await maesn.auth.createEndUserAccount({
+  const result = await maesn.auth.createEndUserAccount({
     targetSystem: "<value>",
     body: {
       apiKey: "<value>",
@@ -980,7 +986,7 @@ async function run() {
     },
   });
 
-
+  console.log(result);
 }
 
 run();
@@ -1022,7 +1028,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    
+    console.log(result);
   } else {
     console.log("authCreateEndUserAccount failed:", res.error);
   }
@@ -1042,7 +1048,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[operations.CreateEndUserAccountResponse](../../models/operations/create-end-user-account-response.md)\>**
 
 ### Errors
 

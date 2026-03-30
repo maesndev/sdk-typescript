@@ -3,10 +3,43 @@
  */
 
 import * as z from "zod/v4-mini";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
+import { SDKValidationError } from "../errors/sdk-validation-error.js";
 
 export type DeletePaymentRequest = {
   paymentId: string;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
+};
+
+export type DeletePaymentPagination = {
+  total: number;
+  perPage: number;
+  currentPage: number;
+  totalPages: number;
+};
+
+export type DeletePaymentMeta = {
+  warnings?: Array<string> | null | undefined;
+  pagination?: DeletePaymentPagination | null | undefined;
+};
+
+export type DeletePaymentErrors = {};
+
+export type DeletePaymentRawData = {};
+
+/**
+ * Operation completed successfully
+ */
+export type DeletePaymentResponse = {
+  meta?: DeletePaymentMeta | null | undefined;
+  data: string;
+  errors: DeletePaymentErrors | null;
+  rawData: DeletePaymentRawData | null;
 };
 
 /** @internal */
@@ -29,5 +62,100 @@ export function deletePaymentRequestToJSON(
 ): string {
   return JSON.stringify(
     DeletePaymentRequest$outboundSchema.parse(deletePaymentRequest),
+  );
+}
+
+/** @internal */
+export const DeletePaymentPagination$inboundSchema: z.ZodMiniType<
+  DeletePaymentPagination,
+  unknown
+> = z.object({
+  total: types.number(),
+  perPage: types.number(),
+  currentPage: types.number(),
+  totalPages: types.number(),
+});
+
+export function deletePaymentPaginationFromJSON(
+  jsonString: string,
+): SafeParseResult<DeletePaymentPagination, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DeletePaymentPagination$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DeletePaymentPagination' from JSON`,
+  );
+}
+
+/** @internal */
+export const DeletePaymentMeta$inboundSchema: z.ZodMiniType<
+  DeletePaymentMeta,
+  unknown
+> = z.object({
+  warnings: z.optional(z.nullable(z.array(types.string()))),
+  pagination: z.optional(
+    z.nullable(z.lazy(() => DeletePaymentPagination$inboundSchema)),
+  ),
+});
+
+export function deletePaymentMetaFromJSON(
+  jsonString: string,
+): SafeParseResult<DeletePaymentMeta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DeletePaymentMeta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DeletePaymentMeta' from JSON`,
+  );
+}
+
+/** @internal */
+export const DeletePaymentErrors$inboundSchema: z.ZodMiniType<
+  DeletePaymentErrors,
+  unknown
+> = z.object({});
+
+export function deletePaymentErrorsFromJSON(
+  jsonString: string,
+): SafeParseResult<DeletePaymentErrors, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DeletePaymentErrors$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DeletePaymentErrors' from JSON`,
+  );
+}
+
+/** @internal */
+export const DeletePaymentRawData$inboundSchema: z.ZodMiniType<
+  DeletePaymentRawData,
+  unknown
+> = z.object({});
+
+export function deletePaymentRawDataFromJSON(
+  jsonString: string,
+): SafeParseResult<DeletePaymentRawData, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DeletePaymentRawData$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DeletePaymentRawData' from JSON`,
+  );
+}
+
+/** @internal */
+export const DeletePaymentResponse$inboundSchema: z.ZodMiniType<
+  DeletePaymentResponse,
+  unknown
+> = z.object({
+  meta: z.optional(z.nullable(z.lazy(() => DeletePaymentMeta$inboundSchema))),
+  data: types.string(),
+  errors: types.nullable(z.lazy(() => DeletePaymentErrors$inboundSchema)),
+  rawData: types.nullable(z.lazy(() => DeletePaymentRawData$inboundSchema)),
+});
+
+export function deletePaymentResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<DeletePaymentResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DeletePaymentResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DeletePaymentResponse' from JSON`,
   );
 }

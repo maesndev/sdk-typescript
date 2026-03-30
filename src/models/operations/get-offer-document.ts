@@ -11,7 +11,13 @@ import * as models from "../index.js";
 
 export type GetOfferDocumentRequest = {
   offerId: string;
+  /**
+   * Environment name (required for multi-environment systems such as Business Central)
+   */
   environmentName?: string | undefined;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
 };
 
@@ -31,6 +37,9 @@ export type GetOfferDocumentErrors = {};
 
 export type GetOfferDocumentRawData = {};
 
+/**
+ * Document attached to the offer matching the provided ID
+ */
 export type GetOfferDocumentResponse = {
   meta?: GetOfferDocumentMeta | null | undefined;
   data: models.DocumentResponseDto;

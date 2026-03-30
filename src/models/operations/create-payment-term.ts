@@ -10,6 +10,9 @@ import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
 export type CreatePaymentTermRequest = {
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
   body: models.CreatePaymentTermRequestDto;
 };
@@ -30,6 +33,9 @@ export type CreatePaymentTermErrors = {};
 
 export type CreatePaymentTermRawData = {};
 
+/**
+ * Payment term created successfully
+ */
 export type CreatePaymentTermResponse = {
   meta?: CreatePaymentTermMeta | null | undefined;
   data: models.PaymentTermResponseDto;

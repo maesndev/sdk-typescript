@@ -23,11 +23,11 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  await maesn.vendorCredits.delete({
+  const result = await maesn.vendorCredits.delete({
     vendorCreditId: "<id>",
   });
 
-
+  console.log(result);
 }
 
 run();
@@ -57,7 +57,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    
+    console.log(result);
   } else {
     console.log("vendorCreditsDelete failed:", res.error);
   }
@@ -77,7 +77,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[operations.DeleteVendorCreditResponse](../../models/operations/delete-vendor-credit-response.md)\>**
 
 ### Errors
 

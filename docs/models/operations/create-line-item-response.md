@@ -1,5 +1,7 @@
 # CreateLineItemResponse
 
+Line item created successfully
+
 ## Example Usage
 
 ```typescript

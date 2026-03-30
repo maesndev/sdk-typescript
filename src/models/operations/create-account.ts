@@ -10,7 +10,13 @@ import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
 export type CreateAccountRequest = {
+  /**
+   * Environment name (required for multi-environment systems such as Business Central)
+   */
   environmentName?: string | undefined;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
   body: models.CreateAccountRequestDto;
 };
@@ -31,6 +37,9 @@ export type CreateAccountErrors = {};
 
 export type CreateAccountRawData = {};
 
+/**
+ * Account created successfully
+ */
 export type CreateAccountResponse = {
   meta?: CreateAccountMeta | null | undefined;
   data: models.AccountResponseDto;

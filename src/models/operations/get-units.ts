@@ -12,8 +12,17 @@ import * as models from "../index.js";
 export type GetUnitsRequest = {
   page?: number | undefined;
   limit?: number | undefined;
+  /**
+   * Environment name (required for multi-environment systems such as Business Central)
+   */
   environmentName?: string | undefined;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
+  /**
+   * When true, returns the unprocessed response from the upstream target system
+   */
   rawData?: boolean | undefined;
 };
 
@@ -33,6 +42,9 @@ export type GetUnitsErrors = {};
 
 export type GetUnitsRawData = {};
 
+/**
+ * List of units for the authenticated end user's connected target system
+ */
 export type GetUnitsResponse = {
   meta?: GetUnitsMeta | null | undefined;
   data: Array<models.UnitResponseDto>;

@@ -3,11 +3,47 @@
  */
 
 import * as z from "zod/v4-mini";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
+import { SDKValidationError } from "../errors/sdk-validation-error.js";
 
 export type DeleteVendorCreditRequest = {
   vendorCreditId: string;
+  /**
+   * Environment name (required for multi-environment systems such as Business Central)
+   */
   environmentName?: string | undefined;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
+};
+
+export type DeleteVendorCreditPagination = {
+  total: number;
+  perPage: number;
+  currentPage: number;
+  totalPages: number;
+};
+
+export type DeleteVendorCreditMeta = {
+  warnings?: Array<string> | null | undefined;
+  pagination?: DeleteVendorCreditPagination | null | undefined;
+};
+
+export type DeleteVendorCreditErrors = {};
+
+export type DeleteVendorCreditRawData = {};
+
+/**
+ * Operation completed successfully
+ */
+export type DeleteVendorCreditResponse = {
+  meta?: DeleteVendorCreditMeta | null | undefined;
+  data: string;
+  errors: DeleteVendorCreditErrors | null;
+  rawData: DeleteVendorCreditRawData | null;
 };
 
 /** @internal */
@@ -32,5 +68,104 @@ export function deleteVendorCreditRequestToJSON(
 ): string {
   return JSON.stringify(
     DeleteVendorCreditRequest$outboundSchema.parse(deleteVendorCreditRequest),
+  );
+}
+
+/** @internal */
+export const DeleteVendorCreditPagination$inboundSchema: z.ZodMiniType<
+  DeleteVendorCreditPagination,
+  unknown
+> = z.object({
+  total: types.number(),
+  perPage: types.number(),
+  currentPage: types.number(),
+  totalPages: types.number(),
+});
+
+export function deleteVendorCreditPaginationFromJSON(
+  jsonString: string,
+): SafeParseResult<DeleteVendorCreditPagination, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DeleteVendorCreditPagination$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DeleteVendorCreditPagination' from JSON`,
+  );
+}
+
+/** @internal */
+export const DeleteVendorCreditMeta$inboundSchema: z.ZodMiniType<
+  DeleteVendorCreditMeta,
+  unknown
+> = z.object({
+  warnings: z.optional(z.nullable(z.array(types.string()))),
+  pagination: z.optional(
+    z.nullable(z.lazy(() => DeleteVendorCreditPagination$inboundSchema)),
+  ),
+});
+
+export function deleteVendorCreditMetaFromJSON(
+  jsonString: string,
+): SafeParseResult<DeleteVendorCreditMeta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DeleteVendorCreditMeta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DeleteVendorCreditMeta' from JSON`,
+  );
+}
+
+/** @internal */
+export const DeleteVendorCreditErrors$inboundSchema: z.ZodMiniType<
+  DeleteVendorCreditErrors,
+  unknown
+> = z.object({});
+
+export function deleteVendorCreditErrorsFromJSON(
+  jsonString: string,
+): SafeParseResult<DeleteVendorCreditErrors, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DeleteVendorCreditErrors$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DeleteVendorCreditErrors' from JSON`,
+  );
+}
+
+/** @internal */
+export const DeleteVendorCreditRawData$inboundSchema: z.ZodMiniType<
+  DeleteVendorCreditRawData,
+  unknown
+> = z.object({});
+
+export function deleteVendorCreditRawDataFromJSON(
+  jsonString: string,
+): SafeParseResult<DeleteVendorCreditRawData, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DeleteVendorCreditRawData$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DeleteVendorCreditRawData' from JSON`,
+  );
+}
+
+/** @internal */
+export const DeleteVendorCreditResponse$inboundSchema: z.ZodMiniType<
+  DeleteVendorCreditResponse,
+  unknown
+> = z.object({
+  meta: z.optional(
+    z.nullable(z.lazy(() => DeleteVendorCreditMeta$inboundSchema)),
+  ),
+  data: types.string(),
+  errors: types.nullable(z.lazy(() => DeleteVendorCreditErrors$inboundSchema)),
+  rawData: types.nullable(
+    z.lazy(() => DeleteVendorCreditRawData$inboundSchema),
+  ),
+});
+
+export function deleteVendorCreditResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<DeleteVendorCreditResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DeleteVendorCreditResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DeleteVendorCreditResponse' from JSON`,
   );
 }

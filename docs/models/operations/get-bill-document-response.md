@@ -1,5 +1,7 @@
 # GetBillDocumentResponse
 
+Document associated with the specified bill
+
 ## Example Usage
 
 ```typescript

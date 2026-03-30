@@ -26,9 +26,9 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  await maesn.health.check();
+  const result = await maesn.health.check();
 
-
+  console.log(result);
 }
 
 run();
@@ -56,7 +56,7 @@ async function run() {
   const res = await healthCheck(maesn);
   if (res.ok) {
     const { value: result } = res;
-    
+    console.log(result);
   } else {
     console.log("healthCheck failed:", res.error);
   }
@@ -75,7 +75,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[operations.CheckResponse](../../models/operations/check-response.md)\>**
 
 ### Errors
 
@@ -102,9 +102,9 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  await maesn.health.details();
+  const result = await maesn.health.details();
 
-
+  console.log(result);
 }
 
 run();
@@ -132,7 +132,7 @@ async function run() {
   const res = await healthDetails(maesn);
   if (res.ok) {
     const { value: result } = res;
-    
+    console.log(result);
   } else {
     console.log("healthDetails failed:", res.error);
   }
@@ -151,7 +151,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[operations.DetailsResponse](../../models/operations/details-response.md)\>**
 
 ### Errors
 

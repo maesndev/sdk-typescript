@@ -1,5 +1,7 @@
 # GetVendorCreditsStatus
 
+Filter vendor credits by unified status
+
 ## Example Usage
 
 ```typescript

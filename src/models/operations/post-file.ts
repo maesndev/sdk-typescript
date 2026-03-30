@@ -27,6 +27,9 @@ export type PostFileRequestBody = {
 };
 
 export type PostFileRequest = {
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
   body: PostFileRequestBody;
 };
@@ -47,6 +50,9 @@ export type PostFileErrors = {};
 
 export type PostFileRawData = {};
 
+/**
+ * File uploaded successfully
+ */
 export type PostFileResponse = {
   meta?: PostFileMeta | null | undefined;
   data: models.DocumentResponseDto;

@@ -3,11 +3,47 @@
  */
 
 import * as z from "zod/v4-mini";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
+import { SDKValidationError } from "../errors/sdk-validation-error.js";
 
 export type DeleteBillRequest = {
   billId: string;
+  /**
+   * Environment name (required for multi-environment systems such as Business Central)
+   */
   environmentName?: string | undefined;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
+};
+
+export type DeleteBillPagination = {
+  total: number;
+  perPage: number;
+  currentPage: number;
+  totalPages: number;
+};
+
+export type DeleteBillMeta = {
+  warnings?: Array<string> | null | undefined;
+  pagination?: DeleteBillPagination | null | undefined;
+};
+
+export type DeleteBillErrors = {};
+
+export type DeleteBillRawData = {};
+
+/**
+ * Operation completed successfully
+ */
+export type DeleteBillResponse = {
+  meta?: DeleteBillMeta | null | undefined;
+  data: string;
+  errors: DeleteBillErrors | null;
+  rawData: DeleteBillRawData | null;
 };
 
 /** @internal */
@@ -32,5 +68,100 @@ export function deleteBillRequestToJSON(
 ): string {
   return JSON.stringify(
     DeleteBillRequest$outboundSchema.parse(deleteBillRequest),
+  );
+}
+
+/** @internal */
+export const DeleteBillPagination$inboundSchema: z.ZodMiniType<
+  DeleteBillPagination,
+  unknown
+> = z.object({
+  total: types.number(),
+  perPage: types.number(),
+  currentPage: types.number(),
+  totalPages: types.number(),
+});
+
+export function deleteBillPaginationFromJSON(
+  jsonString: string,
+): SafeParseResult<DeleteBillPagination, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DeleteBillPagination$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DeleteBillPagination' from JSON`,
+  );
+}
+
+/** @internal */
+export const DeleteBillMeta$inboundSchema: z.ZodMiniType<
+  DeleteBillMeta,
+  unknown
+> = z.object({
+  warnings: z.optional(z.nullable(z.array(types.string()))),
+  pagination: z.optional(
+    z.nullable(z.lazy(() => DeleteBillPagination$inboundSchema)),
+  ),
+});
+
+export function deleteBillMetaFromJSON(
+  jsonString: string,
+): SafeParseResult<DeleteBillMeta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DeleteBillMeta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DeleteBillMeta' from JSON`,
+  );
+}
+
+/** @internal */
+export const DeleteBillErrors$inboundSchema: z.ZodMiniType<
+  DeleteBillErrors,
+  unknown
+> = z.object({});
+
+export function deleteBillErrorsFromJSON(
+  jsonString: string,
+): SafeParseResult<DeleteBillErrors, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DeleteBillErrors$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DeleteBillErrors' from JSON`,
+  );
+}
+
+/** @internal */
+export const DeleteBillRawData$inboundSchema: z.ZodMiniType<
+  DeleteBillRawData,
+  unknown
+> = z.object({});
+
+export function deleteBillRawDataFromJSON(
+  jsonString: string,
+): SafeParseResult<DeleteBillRawData, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DeleteBillRawData$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DeleteBillRawData' from JSON`,
+  );
+}
+
+/** @internal */
+export const DeleteBillResponse$inboundSchema: z.ZodMiniType<
+  DeleteBillResponse,
+  unknown
+> = z.object({
+  meta: z.optional(z.nullable(z.lazy(() => DeleteBillMeta$inboundSchema))),
+  data: types.string(),
+  errors: types.nullable(z.lazy(() => DeleteBillErrors$inboundSchema)),
+  rawData: types.nullable(z.lazy(() => DeleteBillRawData$inboundSchema)),
+});
+
+export function deleteBillResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<DeleteBillResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DeleteBillResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DeleteBillResponse' from JSON`,
   );
 }

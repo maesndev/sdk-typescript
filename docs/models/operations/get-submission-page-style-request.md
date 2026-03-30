@@ -12,6 +12,6 @@ let value: GetSubmissionPageStyleRequest = {
 
 ## Fields
 
-| Field              | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `code`             | *string*           | :heavy_check_mark: | N/A                |
+| Field                                                        | Type                                                         | Required                                                     | Description                                                  |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `code`                                                       | *string*                                                     | :heavy_check_mark:                                           | Unique tenant code used to look up the submission page style |

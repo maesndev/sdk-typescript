@@ -1,5 +1,7 @@
 # CreateItemResponse
 
+Item created successfully
+
 ## Example Usage
 
 ```typescript

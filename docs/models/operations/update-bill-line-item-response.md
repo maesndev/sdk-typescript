@@ -1,5 +1,7 @@
 # UpdateBillLineItemResponse
 
+Bill line item updated successfully
+
 ## Example Usage
 
 ```typescript

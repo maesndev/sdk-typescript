@@ -12,6 +12,9 @@ import * as models from "../index.js";
 export type UpdateBillLineItemRequest = {
   billId: string;
   lineItemId: string;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
   body: models.CreateBillLineItemRequestDto;
 };
@@ -32,6 +35,9 @@ export type UpdateBillLineItemErrors = {};
 
 export type UpdateBillLineItemRawData = {};
 
+/**
+ * Bill line item updated successfully
+ */
 export type UpdateBillLineItemResponse = {
   meta?: UpdateBillLineItemMeta | null | undefined;
   data: Array<models.BillLineItemResponseDto>;

@@ -11,7 +11,13 @@ import * as models from "../index.js";
 
 export type PutContactV2Request = {
   contactId: string;
+  /**
+   * Environment name (required for multi-environment systems such as Business Central)
+   */
   environmentName?: string | undefined;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
   body: models.CreateContactRequestDtoV2;
 };
@@ -32,6 +38,9 @@ export type PutContactV2Errors = {};
 
 export type PutContactV2RawData = {};
 
+/**
+ * Contact updated successfully
+ */
 export type PutContactV2Response = {
   meta?: PutContactV2Meta | null | undefined;
   data: models.ContactResponseDtoV2;

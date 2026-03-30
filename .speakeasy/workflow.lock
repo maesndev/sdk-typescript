@@ -2,8 +2,8 @@ speakeasyVersion: 1.759.3
 sources:
     Maesn unified API:
         sourceNamespace: maesn-unified-api
-        sourceRevisionDigest: sha256:d9016ee9c7aa2ed9ec06bc8ec50f6cbb777f1097080f7c277ca184f7c00f7694
-        sourceBlobDigest: sha256:a13f4f897b42c35c0bf33fc9869c2dcf498e389786b5e8898240ebf6ddd10daf
+        sourceRevisionDigest: sha256:5948bad68cd503e768597280cd40a499a99e3350a5afd0ceee1f5672c662d251
+        sourceBlobDigest: sha256:15c34911839954fcaeb00f9c9708f283e5fcd58477d32b5087506d79dd601d59
         tags:
             - latest
             - "1.0"
@@ -11,10 +11,10 @@ targets:
     maesn:
         source: Maesn unified API
         sourceNamespace: maesn-unified-api
-        sourceRevisionDigest: sha256:d9016ee9c7aa2ed9ec06bc8ec50f6cbb777f1097080f7c277ca184f7c00f7694
-        sourceBlobDigest: sha256:a13f4f897b42c35c0bf33fc9869c2dcf498e389786b5e8898240ebf6ddd10daf
+        sourceRevisionDigest: sha256:5948bad68cd503e768597280cd40a499a99e3350a5afd0ceee1f5672c662d251
+        sourceBlobDigest: sha256:15c34911839954fcaeb00f9c9708f283e5fcd58477d32b5087506d79dd601d59
         codeSamplesNamespace: maesn-unified-api-typescript-code-samples
-        codeSamplesRevisionDigest: sha256:dfa70f4ec61f1da847574da3efdebf9633d4201f1e0b5dcc6d1f18ab029f78d8
+        codeSamplesRevisionDigest: sha256:d717acc458869af4990994af16afd4babc736df5c46da0291a9a3287fcd0738f
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
@@ -28,8 +28,9 @@ workflow:
                 - location: https://unified-backend-prod.azurewebsites.net/api/health-json
                 - location: https://unified-backend-prod.azurewebsites.net/api/tenants-json
             overlays:
-                - location: .speakeasy/speakeasy-modifications-overlay.yaml
-                - location: .speakeasy/auth-security-overlay.yaml
+                - location: .speakeasy/overlays/info-overlay.yaml
+                - location: .speakeasy/overlays/speakeasy-modifications-overlay.yaml
+                - location: .speakeasy/overlays/auth-security-overlay.yaml
             output: .speakeasy/out.openapi.yaml
             registry:
                 location: registry.speakeasyapi.dev/test-qpg/myworkspace/maesn-unified-api

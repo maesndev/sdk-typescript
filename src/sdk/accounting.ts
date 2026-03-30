@@ -99,6 +99,7 @@ import { accountingRetrieveVendorCredits } from "../funcs/accounting-retrieve-ve
 import { accountingUpdateCustomer } from "../funcs/accounting-update-customer.js";
 import { accountingUploadFile } from "../funcs/accounting-upload-file.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
+import * as models from "../models/index.js";
 import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
 import { AccountingBills } from "./accounting-bills.js";
@@ -847,7 +848,7 @@ export class Accounting extends ClientSDK {
   async removePayment(
     request: operations.DeletePaymentRequest,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<operations.DeletePaymentResponse> {
     return unwrapAsync(accountingRemovePayment(
       this,
       request,
@@ -858,7 +859,7 @@ export class Accounting extends ClientSDK {
   async addEventSubscription(
     request: operations.CreateEventSubscriptionsRequest,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<models.BaseResponseDto> {
     return unwrapAsync(accountingAddEventSubscription(
       this,
       request,
@@ -869,7 +870,7 @@ export class Accounting extends ClientSDK {
   async removeEventSubscription(
     request: operations.DeleteEventSubscriptionsRequest,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<models.BaseResponseDto> {
     return unwrapAsync(accountingRemoveEventSubscription(
       this,
       request,
@@ -879,7 +880,7 @@ export class Accounting extends ClientSDK {
 
   async getProfile(
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<models.BaseResponseDto> {
     return unwrapAsync(accountingGetProfile(
       this,
       options,
@@ -933,7 +934,7 @@ export class Accounting extends ClientSDK {
   async removeBill(
     request: operations.DeleteBillRequest,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<operations.DeleteBillResponse> {
     return unwrapAsync(accountingRemoveBill(
       this,
       request,

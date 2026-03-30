@@ -10,7 +10,13 @@ import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
 export type CreateSalesOrderRequest = {
+  /**
+   * Environment name (required for multi-environment systems such as Business Central)
+   */
   environmentName?: string | undefined;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
   body: models.CreateSalesOrderRequestDto;
 };
@@ -31,6 +37,9 @@ export type CreateSalesOrderErrors = {};
 
 export type CreateSalesOrderRawData = {};
 
+/**
+ * Sales order created successfully. Returns 202 with taskId if processed asynchronously.
+ */
 export type CreateSalesOrderResponse = {
   meta?: CreateSalesOrderMeta | null | undefined;
   data: models.SalesOrderResponseDto;

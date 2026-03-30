@@ -1,5 +1,7 @@
 # GetBookingProposalsStatus
 
+Filter booking proposals by status
+
 ## Example Usage
 
 ```typescript

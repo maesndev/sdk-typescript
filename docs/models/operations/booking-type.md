@@ -1,5 +1,7 @@
 # BookingType
 
+Filter booking proposals by booking type
+
 ## Example Usage
 
 ```typescript

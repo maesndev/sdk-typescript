@@ -25,6 +25,9 @@ export type GetEnvironmentsErrors = {};
 
 export type GetEnvironmentsRawData = {};
 
+/**
+ * List of environments for the authenticated end user's connected target system
+ */
 export type GetEnvironmentsResponse = {
   meta?: GetEnvironmentsMeta | null | undefined;
   data: Array<models.EnvironmentResponseDto>;

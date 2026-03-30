@@ -12,12 +12,33 @@ import * as models from "../index.js";
 export type GetCustomersRequest = {
   page?: number | undefined;
   limit?: number | undefined;
+  /**
+   * ISO 8601 timestamp; only records modified after this date are returned
+   */
   lastModifiedAt?: string | undefined;
+  /**
+   * Environment name (required for multi-environment systems such as Business Central)
+   */
   environmentName?: string | undefined;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
+  /**
+   * When true, returns the unprocessed response from the upstream target system
+   */
   rawData?: boolean | undefined;
+  /**
+   * Filter customers by email address
+   */
   email?: string | undefined;
+  /**
+   * Filter customers by name
+   */
   name?: string | undefined;
+  /**
+   * Filter customers by customer number
+   */
   number?: string | undefined;
 };
 
@@ -37,6 +58,9 @@ export type GetCustomersErrors = {};
 
 export type GetCustomersRawData = {};
 
+/**
+ * List of customers for the authenticated end user's connected target system
+ */
 export type GetCustomersResponse = {
   meta?: GetCustomersMeta | null | undefined;
   data: Array<models.ContactResponseDto>;

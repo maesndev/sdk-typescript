@@ -29,6 +29,9 @@ export type GetBillDocumentErrors = {};
 
 export type GetBillDocumentRawData = {};
 
+/**
+ * Document associated with the specified bill
+ */
 export type GetBillDocumentResponse = {
   meta?: GetBillDocumentMeta | null | undefined;
   data: models.DocumentResponseDto;

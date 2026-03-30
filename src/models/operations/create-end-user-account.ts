@@ -4,11 +4,22 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
+import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
 export type CreateEndUserAccountRequest = {
   targetSystem: string;
   body: models.CreateEndUserRequestDto;
+};
+
+/**
+ * End user account created successfully
+ */
+export type CreateEndUserAccountResponse = {
+  accountKey?: string | undefined;
 };
 
 /** @internal */
@@ -40,5 +51,23 @@ export function createEndUserAccountRequestToJSON(
     CreateEndUserAccountRequest$outboundSchema.parse(
       createEndUserAccountRequest,
     ),
+  );
+}
+
+/** @internal */
+export const CreateEndUserAccountResponse$inboundSchema: z.ZodMiniType<
+  CreateEndUserAccountResponse,
+  unknown
+> = z.object({
+  accountKey: types.optional(types.string()),
+});
+
+export function createEndUserAccountResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateEndUserAccountResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateEndUserAccountResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateEndUserAccountResponse' from JSON`,
   );
 }

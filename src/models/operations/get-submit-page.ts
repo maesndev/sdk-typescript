@@ -3,9 +3,23 @@
  */
 
 import * as z from "zod/v4-mini";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
+import { SDKValidationError } from "../errors/sdk-validation-error.js";
 
 export type GetSubmitPageRequest = {
+  /**
+   * Unique code identifying the tenant submission session
+   */
   code: string;
+};
+
+/**
+ * Submission page rendered successfully
+ */
+export type GetSubmitPageResponse = {
+  code?: string | undefined;
 };
 
 /** @internal */
@@ -26,5 +40,23 @@ export function getSubmitPageRequestToJSON(
 ): string {
   return JSON.stringify(
     GetSubmitPageRequest$outboundSchema.parse(getSubmitPageRequest),
+  );
+}
+
+/** @internal */
+export const GetSubmitPageResponse$inboundSchema: z.ZodMiniType<
+  GetSubmitPageResponse,
+  unknown
+> = z.object({
+  code: types.optional(types.string()),
+});
+
+export function getSubmitPageResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<GetSubmitPageResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetSubmitPageResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetSubmitPageResponse' from JSON`,
   );
 }

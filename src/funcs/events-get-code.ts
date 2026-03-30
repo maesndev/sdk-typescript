@@ -31,7 +31,7 @@ export function eventsGetCode(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    void,
+    operations.GetCodeResponse,
     | MaesnError
     | ResponseValidationError
     | ConnectionError
@@ -56,7 +56,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      void,
+      operations.GetCodeResponse,
       | MaesnError
       | ResponseValidationError
       | ConnectionError
@@ -89,7 +89,7 @@ async function $do(
   const path = pathToFunc("/key/{code}")(pathParams);
 
   const headers = new Headers(compactMap({
-    Accept: "*/*",
+    Accept: "application/json",
   }));
 
   const securityInput = await extractSecurity(client._options.security);
@@ -137,7 +137,7 @@ async function $do(
   const response = doResult.value;
 
   const [result] = await M.match<
-    void,
+    operations.GetCodeResponse,
     | MaesnError
     | ResponseValidationError
     | ConnectionError
@@ -147,7 +147,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.nil(201, z.void()),
+    M.json(201, operations.GetCodeResponse$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req);

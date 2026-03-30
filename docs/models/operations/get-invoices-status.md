@@ -1,5 +1,7 @@
 # GetInvoicesStatus
 
+Filter invoices by unified status
+
 ## Example Usage
 
 ```typescript

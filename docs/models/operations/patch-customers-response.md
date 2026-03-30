@@ -1,5 +1,7 @@
 # PatchCustomersResponse
 
+Customer updated successfully
+
 ## Example Usage
 
 ```typescript

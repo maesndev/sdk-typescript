@@ -1,5 +1,7 @@
 # GetExpenseResponse
 
+Expense record matching the provided ID
+
 ## Example Usage
 
 ```typescript

@@ -10,6 +10,9 @@ import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
 export type CreateJournalEntriesRequest = {
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
   body: models.CreateJournalEntriesByBatchMetaDataDto;
 };
@@ -30,6 +33,9 @@ export type CreateJournalEntriesErrors = {};
 
 export type CreateJournalEntriesRawData = {};
 
+/**
+ * Journal entries created successfully in bulk
+ */
 export type CreateJournalEntriesResponse = {
   meta?: CreateJournalEntriesMeta | null | undefined;
   data: models.JournalEntriesByBatchMetaDataResponseDto;

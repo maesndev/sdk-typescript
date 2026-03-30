@@ -1,5 +1,7 @@
 # GetInvoiceDocumentResponse
 
+Document attached to the invoice matching the provided ID
+
 ## Example Usage
 
 ```typescript

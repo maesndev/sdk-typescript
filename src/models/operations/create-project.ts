@@ -10,7 +10,13 @@ import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
 export type CreateProjectRequest = {
+  /**
+   * Environment name (required for multi-environment systems such as Business Central)
+   */
   environmentName?: string | undefined;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
   body: models.CreateProjectRequestDto;
 };
@@ -31,6 +37,9 @@ export type CreateProjectErrors = {};
 
 export type CreateProjectRawData = {};
 
+/**
+ * Project created successfully. Returns 202 with taskId if processed asynchronously.
+ */
 export type CreateProjectResponse = {
   meta?: CreateProjectMeta | null | undefined;
   data: models.ProjectResponseDto;
