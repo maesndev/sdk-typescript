@@ -1,5 +1,7 @@
 # CreateBookingProposalResponse
 
+Booking proposal created successfully
+
 ## Example Usage
 
 ```typescript

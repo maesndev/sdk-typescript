@@ -1,5 +1,7 @@
 # UpdateBillResponse
 
+Bill updated successfully
+
 ## Example Usage
 
 ```typescript

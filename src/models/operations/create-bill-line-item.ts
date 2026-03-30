@@ -11,6 +11,9 @@ import * as models from "../index.js";
 
 export type CreateBillLineItemRequest = {
   billId: string;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
   body: models.CreateBillLineItemRequestDto;
 };
@@ -31,6 +34,9 @@ export type CreateBillLineItemErrors = {};
 
 export type CreateBillLineItemRawData = {};
 
+/**
+ * Bill line item created successfully
+ */
 export type CreateBillLineItemResponse = {
   meta?: CreateBillLineItemMeta | null | undefined;
   data: Array<models.BillLineItemResponseDto>;

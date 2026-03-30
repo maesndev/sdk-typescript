@@ -12,13 +12,37 @@ import * as models from "../index.js";
 export type GetTrialBalanceRequest = {
   page?: number | undefined;
   limit?: number | undefined;
+  /**
+   * ISO 8601 timestamp; only records modified after this date are returned
+   */
   lastModifiedAt?: string | undefined;
+  /**
+   * Environment name (required for multi-environment systems such as Business Central)
+   */
   environmentName?: string | undefined;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
+  /**
+   * When true, returns the unprocessed response from the upstream target system
+   */
   rawData?: boolean | undefined;
+  /**
+   * Fiscal year to scope the trial balance results (e.g. 2024)
+   */
   fiscalYear?: number | undefined;
+  /**
+   * Filter the trial balance by account number
+   */
   accountNumber?: string | undefined;
+  /**
+   * Filter the trial balance by account code
+   */
   accountCode?: string | undefined;
+  /**
+   * ISO 8601 start date of the fiscal year used for balance calculation
+   */
   fiscalYearStartDate?: string | undefined;
 };
 
@@ -38,6 +62,9 @@ export type GetTrialBalanceErrors = {};
 
 export type GetTrialBalanceRawData = {};
 
+/**
+ * Trial balance for the authenticated end user's connected target system
+ */
 export type GetTrialBalanceResponse = {
   meta?: GetTrialBalanceMeta | null | undefined;
   data: Array<models.TrialBalanceResponseDto>;

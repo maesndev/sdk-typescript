@@ -11,7 +11,13 @@ import * as models from "../index.js";
 
 export type UpdateBillRequest = {
   billId: string;
+  /**
+   * Environment name (required for multi-environment systems such as Business Central)
+   */
   environmentName?: string | undefined;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
   body: models.CreateBillRequestDto;
 };
@@ -32,6 +38,9 @@ export type UpdateBillErrors = {};
 
 export type UpdateBillRawData = {};
 
+/**
+ * Bill updated successfully
+ */
 export type UpdateBillResponse = {
   meta?: UpdateBillMeta | null | undefined;
   data: models.BillResponseDto;

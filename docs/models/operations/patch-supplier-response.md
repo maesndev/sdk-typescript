@@ -1,5 +1,7 @@
 # PatchSupplierResponse
 
+Supplier updated successfully
+
 ## Example Usage
 
 ```typescript

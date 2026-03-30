@@ -11,7 +11,7 @@ export class VendorCredits extends ClientSDK {
   async delete(
     request: operations.DeleteVendorCreditRequest,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<operations.DeleteVendorCreditResponse> {
     return unwrapAsync(vendorCreditsDelete(
       this,
       request,

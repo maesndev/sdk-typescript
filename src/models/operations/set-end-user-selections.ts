@@ -3,11 +3,31 @@
  */
 
 import * as z from "zod/v4-mini";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
+import { SDKValidationError } from "../errors/sdk-validation-error.js";
 
 export type SetEndUserSelectionsRequest = {
+  /**
+   * End user account key (X-ACCOUNT-KEY) identifying the end user whose selections are being saved
+   */
   accountKey: string;
+  /**
+   * Environment name (required for multi-environment systems such as Business Central)
+   */
   environmentName: string;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId: string;
+};
+
+/**
+ * End user environment and company selections saved successfully
+ */
+export type SetEndUserSelectionsResponse = {
+  message?: string | undefined;
 };
 
 /** @internal */
@@ -34,5 +54,23 @@ export function setEndUserSelectionsRequestToJSON(
     SetEndUserSelectionsRequest$outboundSchema.parse(
       setEndUserSelectionsRequest,
     ),
+  );
+}
+
+/** @internal */
+export const SetEndUserSelectionsResponse$inboundSchema: z.ZodMiniType<
+  SetEndUserSelectionsResponse,
+  unknown
+> = z.object({
+  message: types.optional(types.string()),
+});
+
+export function setEndUserSelectionsResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<SetEndUserSelectionsResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => SetEndUserSelectionsResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SetEndUserSelectionsResponse' from JSON`,
   );
 }

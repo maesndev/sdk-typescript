@@ -1,5 +1,7 @@
 # GetProjectsResponse
 
+List of projects for the authenticated end user's connected target system
+
 ## Example Usage
 
 ```typescript

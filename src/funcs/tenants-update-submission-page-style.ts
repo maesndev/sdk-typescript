@@ -22,6 +22,7 @@ import { MaesnError } from "../models/errors/maesn-error.js";
 import { ResponseValidationError } from "../models/errors/response-validation-error.js";
 import { SDKValidationError } from "../models/errors/sdk-validation-error.js";
 import * as models from "../models/index.js";
+import * as operations from "../models/operations/index.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
@@ -31,7 +32,7 @@ export function tenantsUpdateSubmissionPageStyle(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    void,
+    operations.UpdateSubmissionPageStyleResponse,
     | MaesnError
     | ResponseValidationError
     | ConnectionError
@@ -56,7 +57,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      void,
+      operations.UpdateSubmissionPageStyleResponse,
       | MaesnError
       | ResponseValidationError
       | ConnectionError
@@ -84,7 +85,7 @@ async function $do(
 
   const headers = new Headers(compactMap({
     "Content-Type": "application/json",
-    Accept: "*/*",
+    Accept: "application/json",
   }));
 
   const securityInput = await extractSecurity(client._options.security);
@@ -132,7 +133,7 @@ async function $do(
   const response = doResult.value;
 
   const [result] = await M.match<
-    void,
+    operations.UpdateSubmissionPageStyleResponse,
     | MaesnError
     | ResponseValidationError
     | ConnectionError
@@ -142,7 +143,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.nil(201, z.void()),
+    M.json(201, operations.UpdateSubmissionPageStyleResponse$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req);

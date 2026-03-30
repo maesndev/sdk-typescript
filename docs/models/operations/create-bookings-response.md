@@ -1,5 +1,7 @@
 # CreateBookingsResponse
 
+Booking created successfully
+
 ## Example Usage
 
 ```typescript

@@ -10,6 +10,9 @@ import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
+/**
+ * Filter invoices by unified status
+ */
 export const GetInvoicesStatus = {
   Draft: "DRAFT",
   Corrective: "CORRECTIVE",
@@ -22,8 +25,14 @@ export const GetInvoicesStatus = {
   Overdue: "OVERDUE",
   Voided: "VOIDED",
 } as const;
+/**
+ * Filter invoices by unified status
+ */
 export type GetInvoicesStatus = ClosedEnum<typeof GetInvoicesStatus>;
 
+/**
+ * Filter invoices by payment status
+ */
 export const GetInvoicesPaymentStatus = {
   NoOpenItem: "NO_OPEN_ITEM",
   Pending: "PENDING",
@@ -37,35 +46,77 @@ export const GetInvoicesPaymentStatus = {
   Canceled: "CANCELED",
   Unknown: "UNKNOWN",
 } as const;
+/**
+ * Filter invoices by payment status
+ */
 export type GetInvoicesPaymentStatus = ClosedEnum<
   typeof GetInvoicesPaymentStatus
 >;
 
+/**
+ * Field to sort the results by
+ */
 export const GetInvoicesOrderField = {
   InvoiceDate: "invoiceDate",
   InvoiceNumber: "invoiceNumber",
   CreatedDate: "createdDate",
   UpdatedDate: "updatedDate",
 } as const;
+/**
+ * Field to sort the results by
+ */
 export type GetInvoicesOrderField = ClosedEnum<typeof GetInvoicesOrderField>;
 
+/**
+ * Sort direction for the ordered results
+ */
 export const GetInvoicesOrderDir = {
   Asc: "ASC",
   Desc: "DESC",
 } as const;
+/**
+ * Sort direction for the ordered results
+ */
 export type GetInvoicesOrderDir = ClosedEnum<typeof GetInvoicesOrderDir>;
 
 export type GetInvoicesRequest = {
   page?: number | undefined;
   limit?: number | undefined;
+  /**
+   * ISO 8601 timestamp; only records modified after this date are returned
+   */
   lastModifiedAt?: string | undefined;
+  /**
+   * Environment name (required for multi-environment systems such as Business Central)
+   */
   environmentName?: string | undefined;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
+  /**
+   * Filter invoices by unified status
+   */
   status?: GetInvoicesStatus | undefined;
+  /**
+   * Filter invoices by payment status
+   */
   paymentStatus?: GetInvoicesPaymentStatus | undefined;
+  /**
+   * When true, returns the unprocessed response from the upstream target system
+   */
   rawData?: boolean | undefined;
+  /**
+   * Field to sort the results by
+   */
   orderField?: GetInvoicesOrderField | undefined;
+  /**
+   * Sort direction for the ordered results
+   */
   orderDir?: GetInvoicesOrderDir | undefined;
+  /**
+   * ISO 8601 date; only invoices with a due date on or after this date are returned
+   */
   dueDateFrom?: string | undefined;
 };
 
@@ -85,6 +136,9 @@ export type GetInvoicesErrors = {};
 
 export type GetInvoicesRawData = {};
 
+/**
+ * List of invoices for the authenticated end user's connected target system
+ */
 export type GetInvoicesResponse = {
   meta?: GetInvoicesMeta | null | undefined;
   data: Array<models.InvoiceResponseDto>;

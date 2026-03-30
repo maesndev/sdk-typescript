@@ -1,5 +1,7 @@
 # CreateAccountResponse
 
+Account created successfully
+
 ## Example Usage
 
 ```typescript

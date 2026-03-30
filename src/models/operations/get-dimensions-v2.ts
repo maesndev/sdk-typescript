@@ -10,9 +10,21 @@ import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
 export type GetDimensionsV2Request = {
+  /**
+   * ISO 8601 timestamp; only records modified after this date are returned
+   */
   lastModifiedAt?: string | undefined;
+  /**
+   * Environment name (required for multi-environment systems such as Business Central)
+   */
   environmentName?: string | undefined;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
+  /**
+   * When true, returns the unprocessed response from the upstream target system
+   */
   rawData?: boolean | undefined;
 };
 
@@ -32,6 +44,9 @@ export type GetDimensionsV2Errors = {};
 
 export type GetDimensionsV2RawData = {};
 
+/**
+ * List of dimension categories for the authenticated end user's connected target system
+ */
 export type GetDimensionsV2Response = {
   meta?: GetDimensionsV2Meta | null | undefined;
   data: Array<models.DimensionMetaResponseDto>;

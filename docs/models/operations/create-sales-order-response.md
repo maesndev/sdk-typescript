@@ -1,5 +1,7 @@
 # CreateSalesOrderResponse
 
+Sales order created successfully. Returns 202 with taskId if processed asynchronously.
+
 ## Example Usage
 
 ```typescript

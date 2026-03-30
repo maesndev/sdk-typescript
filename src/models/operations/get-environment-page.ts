@@ -3,11 +3,25 @@
  */
 
 import * as z from "zod/v4-mini";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdk-validation-error.js";
 
 export type GetEnvironmentPageRequest = {
+  /**
+   * Encoded state value containing tenant and user context, returned from the OAuth redirect
+   */
   state: string;
+  /**
+   * Identifier of the target system (e.g. exact, sevdesk, xero)
+   */
   targetSystem: string;
 };
+
+/**
+ * Environment or company selection page rendered successfully
+ */
+export type GetEnvironmentPageResponse = {};
 
 /** @internal */
 export type GetEnvironmentPageRequest$Outbound = {
@@ -29,5 +43,21 @@ export function getEnvironmentPageRequestToJSON(
 ): string {
   return JSON.stringify(
     GetEnvironmentPageRequest$outboundSchema.parse(getEnvironmentPageRequest),
+  );
+}
+
+/** @internal */
+export const GetEnvironmentPageResponse$inboundSchema: z.ZodMiniType<
+  GetEnvironmentPageResponse,
+  unknown
+> = z.object({});
+
+export function getEnvironmentPageResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<GetEnvironmentPageResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetEnvironmentPageResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetEnvironmentPageResponse' from JSON`,
   );
 }

@@ -1,5 +1,7 @@
 # CreateJournalEntriesResponse
 
+Journal entries created successfully in bulk
+
 ## Example Usage
 
 ```typescript

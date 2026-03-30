@@ -1,5 +1,7 @@
 # GetSalesOrdersStatus
 
+Filter sales orders by status
+
 ## Example Usage
 
 ```typescript

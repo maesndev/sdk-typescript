@@ -12,21 +12,24 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
       responses:
         "200":
-          description: ""
+          description: Account record matching the provided ID
           content:
             application/json:
               schema:
@@ -61,26 +64,31 @@ paths:
         - name: lastModifiedAt
           required: false
           in: query
+          description: ISO 8601 timestamp; only records modified after this date are returned
           schema:
             type: string
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
         - name: debitCreditIndicator
           required: false
           in: query
+          description: Filter accounts by debit/credit indicator
           schema:
             enum:
               - DEBIT
@@ -89,31 +97,36 @@ paths:
         - name: fiscalYear
           required: false
           in: query
+          description: Fiscal year to scope the account balances (e.g. 2024)
           schema:
             type: number
         - name: types
           required: false
           in: query
+          description: Comma-separated list of account types to filter by
           schema:
             type: string
         - name: fiscalYearStartDate
           required: false
           in: query
+          description: ISO 8601 start date of the fiscal year used for balance calculation
           schema:
             type: string
         - name: classFilter
           required: false
           in: query
+          description: Filter accounts by account class (e.g. asset, liability, equity)
           schema:
             type: string
         - name: isActive
           required: false
           in: query
+          description: When true, returns only active accounts; when false, returns only inactive accounts
           schema:
             type: boolean
       responses:
         "200":
-          description: ""
+          description: List of accounts for the authenticated end user's connected target system
           content:
             application/json:
               schema:
@@ -133,11 +146,13 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
       requestBody:
@@ -148,7 +163,7 @@ paths:
               $ref: '#/components/schemas/CreateAccountRequestDto'
       responses:
         "201":
-          description: ""
+          description: Account created successfully
           content:
             application/json:
               schema:
@@ -183,26 +198,30 @@ paths:
         - name: lastModifiedAt
           required: false
           in: query
+          description: ISO 8601 timestamp; only records modified after this date are returned
           schema:
             type: string
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
       responses:
         "200":
-          description: ""
+          description: List of bank accounts for the authenticated end user's connected target system
           content:
             application/json:
               schema:
@@ -222,11 +241,13 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
       requestBody:
@@ -237,7 +258,7 @@ paths:
               $ref: '#/components/schemas/CreateBankAccountRequestDto'
       responses:
         "201":
-          description: ""
+          description: Bank account created successfully
           content:
             application/json:
               schema:
@@ -261,21 +282,24 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
       responses:
         "200":
-          description: ""
+          description: Bank account record matching the provided ID
           content:
             application/json:
               schema:
@@ -310,26 +334,30 @@ paths:
         - name: lastModifiedAt
           required: false
           in: query
+          description: ISO 8601 timestamp; only records modified after this date are returned
           schema:
             type: string
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
       responses:
         "200":
-          description: ""
+          description: List of dimensions for the authenticated end user's connected target system
           content:
             application/json:
               schema:
@@ -350,6 +378,7 @@ paths:
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
       requestBody:
@@ -368,7 +397,7 @@ paths:
                   $ref: '#/components/schemas/CreateTransactionRequestDto'
       responses:
         "201":
-          description: ""
+          description: Transaction created successfully
           content:
             application/json:
               schema:
@@ -403,41 +432,48 @@ paths:
         - name: lastModifiedAt
           required: false
           in: query
+          description: ISO 8601 timestamp; only records modified after this date are returned
           schema:
             type: string
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
         - name: email
           required: false
           in: query
+          description: Filter customers by email address
           schema:
             type: string
         - name: name
           required: false
           in: query
+          description: Filter customers by name
           schema:
             type: string
         - name: number
           required: false
           in: query
+          description: Filter customers by customer number
           schema:
             type: string
       responses:
         "200":
-          description: ""
+          description: List of customers for the authenticated end user's connected target system
           content:
             application/json:
               schema:
@@ -457,11 +493,13 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
       requestBody:
@@ -472,7 +510,7 @@ paths:
               $ref: '#/components/schemas/CreateContactRequestDto'
       responses:
         "201":
-          description: ""
+          description: Customer created successfully
           content:
             application/json:
               schema:
@@ -495,21 +533,24 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
       responses:
         "200":
-          description: ""
+          description: Customer record matching the provided ID
           content:
             application/json:
               schema:
@@ -532,6 +573,7 @@ paths:
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
       requestBody:
@@ -542,7 +584,7 @@ paths:
               $ref: '#/components/schemas/CreateContactRequestDto'
       responses:
         "200":
-          description: ""
+          description: Customer updated successfully
           content:
             application/json:
               schema:
@@ -564,11 +606,13 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
       requestBody:
@@ -579,7 +623,7 @@ paths:
               $ref: '#/components/schemas/PatchContactRequestDto'
       responses:
         "200":
-          description: ""
+          description: Customer updated successfully
           content:
             application/json:
               schema:
@@ -614,41 +658,48 @@ paths:
         - name: lastModifiedAt
           required: false
           in: query
+          description: ISO 8601 timestamp; only records modified after this date are returned
           schema:
             type: string
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
         - name: email
           required: false
           in: query
+          description: Filter suppliers by email address
           schema:
             type: string
         - name: name
           required: false
           in: query
+          description: Filter suppliers by name
           schema:
             type: string
         - name: number
           required: false
           in: query
+          description: Filter suppliers by supplier number
           schema:
             type: string
       responses:
         "200":
-          description: ""
+          description: List of suppliers for the authenticated end user's connected target system
           content:
             application/json:
               schema:
@@ -668,11 +719,13 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
       requestBody:
@@ -683,7 +736,7 @@ paths:
               $ref: '#/components/schemas/CreateContactRequestDto'
       responses:
         "201":
-          description: ""
+          description: Supplier created successfully
           content:
             application/json:
               schema:
@@ -707,21 +760,24 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
       responses:
         "200":
-          description: ""
+          description: Supplier record matching the provided ID
           content:
             application/json:
               schema:
@@ -744,6 +800,7 @@ paths:
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
       requestBody:
@@ -754,7 +811,7 @@ paths:
               $ref: '#/components/schemas/CreateContactRequestDto'
       responses:
         "200":
-          description: ""
+          description: Supplier updated successfully
           content:
             application/json:
               schema:
@@ -777,11 +834,13 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
       requestBody:
@@ -792,7 +851,7 @@ paths:
               $ref: '#/components/schemas/PatchContactRequestDto'
       responses:
         "200":
-          description: ""
+          description: Supplier updated successfully
           content:
             application/json:
               schema:
@@ -827,26 +886,30 @@ paths:
         - name: lastModifiedAt
           required: false
           in: query
+          description: ISO 8601 timestamp; only records modified after this date are returned
           schema:
             type: string
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
       responses:
         "200":
-          description: ""
+          description: List of contacts for the authenticated end user's connected target system
           content:
             application/json:
               schema:
@@ -865,11 +928,13 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
       requestBody:
@@ -880,7 +945,7 @@ paths:
               $ref: '#/components/schemas/CreateContactRequestDtoV2'
       responses:
         "201":
-          description: ""
+          description: Contact created successfully. Returns 202 with taskId if processed asynchronously.
           content:
             application/json:
               schema:
@@ -904,21 +969,24 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
       responses:
         "200":
-          description: ""
+          description: Contact record matching the provided ID
           content:
             application/json:
               schema:
@@ -941,11 +1009,13 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
       requestBody:
@@ -956,7 +1026,7 @@ paths:
               $ref: '#/components/schemas/CreateContactRequestDtoV2'
       responses:
         "200":
-          description: ""
+          description: Contact updated successfully
           content:
             application/json:
               schema:
@@ -979,11 +1049,13 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
       requestBody:
@@ -994,7 +1066,7 @@ paths:
               $ref: '#/components/schemas/CreateContactRequestDtoV2'
       responses:
         "200":
-          description: ""
+          description: Contact updated successfully
           content:
             application/json:
               schema:
@@ -1014,6 +1086,7 @@ paths:
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
       requestBody:
@@ -1024,7 +1097,7 @@ paths:
               $ref: '#/components/schemas/CreateContactByBatchMetaDataDto'
       responses:
         "201":
-          description: ""
+          description: Contacts created successfully in bulk
           content:
             application/json:
               schema:
@@ -1043,6 +1116,7 @@ paths:
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
       requestBody:
@@ -1053,7 +1127,7 @@ paths:
               $ref: '#/components/schemas/CreateContactByBatchMetaDataDto'
       responses:
         "201":
-          description: ""
+          description: Contacts created successfully in bulk
           content:
             application/json:
               schema:
@@ -1088,21 +1162,25 @@ paths:
         - name: lastModifiedAt
           required: false
           in: query
+          description: ISO 8601 timestamp; only records modified after this date are returned
           schema:
             type: string
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: status
           required: false
           in: query
+          description: Filter invoices by unified status
           schema:
             enum:
               - DRAFT
@@ -1119,6 +1197,7 @@ paths:
         - name: paymentStatus
           required: false
           in: query
+          description: Filter invoices by payment status
           schema:
             enum:
               - NO_OPEN_ITEM
@@ -1136,11 +1215,13 @@ paths:
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
         - name: orderField
           required: false
           in: query
+          description: Field to sort the results by
           schema:
             enum:
               - invoiceDate
@@ -1151,6 +1232,7 @@ paths:
         - name: orderDir
           required: false
           in: query
+          description: Sort direction for the ordered results
           schema:
             enum:
               - ASC
@@ -1159,11 +1241,12 @@ paths:
         - name: dueDateFrom
           required: false
           in: query
+          description: ISO 8601 date; only invoices with a due date on or after this date are returned
           schema:
             type: string
       responses:
         "200":
-          description: ""
+          description: List of invoices for the authenticated end user's connected target system
           content:
             application/json:
               schema:
@@ -1183,11 +1266,13 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
       requestBody:
@@ -1198,7 +1283,7 @@ paths:
               $ref: '#/components/schemas/CreateInvoiceRequestDto'
       responses:
         "201":
-          description: ""
+          description: Invoice created successfully
           content:
             application/json:
               schema:
@@ -1222,21 +1307,24 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
       responses:
         "200":
-          description: ""
+          description: Invoice record matching the provided ID
           content:
             application/json:
               schema:
@@ -1259,11 +1347,13 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
       requestBody:
@@ -1274,7 +1364,7 @@ paths:
               $ref: '#/components/schemas/PatchInvoiceRequestDto'
       responses:
         "200":
-          description: ""
+          description: Invoice updated successfully
           content:
             application/json:
               schema:
@@ -1298,16 +1388,18 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
       responses:
         "200":
-          description: ""
+          description: Document attached to the invoice matching the provided ID
           content:
             application/json:
               schema:
@@ -1326,6 +1418,7 @@ paths:
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
       requestBody:
@@ -1361,7 +1454,7 @@ paths:
                   example: Id of the reference object (bill or invoice id).
       responses:
         "201":
-          description: ""
+          description: File uploaded successfully
           content:
             application/json:
               schema:
@@ -1380,11 +1473,12 @@ paths:
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
       responses:
         "200":
-          description: ""
+          description: List of document types supported by the authenticated end user's connected target system
           content:
             application/json:
               schema:
@@ -1405,11 +1499,12 @@ paths:
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
       responses:
         "200":
-          description: ""
+          description: List of permitted file extensions for the authenticated end user's connected target system
           content:
             application/json:
               schema:
@@ -1433,6 +1528,7 @@ paths:
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: page
@@ -1453,7 +1549,7 @@ paths:
             type: number
       responses:
         "200":
-          description: ""
+          description: Async task status and result matching the provided task ID
           content:
             application/json:
               schema:
@@ -1488,36 +1584,42 @@ paths:
         - name: lastModifiedAt
           required: false
           in: query
+          description: ISO 8601 timestamp; only records modified after this date are returned
           schema:
             type: string
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
         - name: type
           required: false
           in: query
+          description: Filter items by type
           schema:
             type: string
         - name: itemNumber
           required: false
           in: query
+          description: Filter items by item number
           schema:
             type: string
       responses:
         "200":
-          description: ""
+          description: List of items for the authenticated end user's connected target system
           content:
             application/json:
               schema:
@@ -1537,11 +1639,13 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
       requestBody:
@@ -1552,7 +1656,7 @@ paths:
               $ref: '#/components/schemas/CreateItemRequestDto'
       responses:
         "201":
-          description: ""
+          description: Item created successfully
           content:
             application/json:
               schema:
@@ -1577,21 +1681,24 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
       responses:
         "200":
-          description: ""
+          description: Item record matching the provided ID
           content:
             application/json:
               schema:
@@ -1616,11 +1723,13 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
       requestBody:
@@ -1631,7 +1740,7 @@ paths:
               $ref: '#/components/schemas/PatchItemRequestDto'
       responses:
         "200":
-          description: ""
+          description: Item updated successfully
           content:
             application/json:
               schema:
@@ -1672,26 +1781,30 @@ paths:
         - name: lastModifiedAt
           required: false
           in: query
+          description: ISO 8601 timestamp; only records modified after this date are returned
           schema:
             type: string
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
       responses:
         "200":
-          description: ""
+          description: List of line items for the authenticated end user's connected target system
           content:
             application/json:
               schema:
@@ -1716,11 +1829,13 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
       requestBody:
@@ -1731,7 +1846,7 @@ paths:
               $ref: '#/components/schemas/CreateLineItemRequestDto'
       responses:
         "201":
-          description: ""
+          description: Line item created successfully
           content:
             application/json:
               schema:
@@ -1760,21 +1875,24 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
       responses:
         "200":
-          description: ""
+          description: Line item record matching the provided ID
           content:
             application/json:
               schema:
@@ -1802,11 +1920,13 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
       requestBody:
@@ -1817,7 +1937,7 @@ paths:
               $ref: '#/components/schemas/PatchLineItemRequestDto'
       responses:
         "200":
-          description: ""
+          description: Line item updated successfully
           content:
             application/json:
               schema:
@@ -1853,26 +1973,30 @@ paths:
         - name: lastModifiedAt
           required: false
           in: query
+          description: ISO 8601 timestamp; only records modified after this date are returned
           schema:
             type: string
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
       responses:
         "200":
-          description: ""
+          description: List of journals for the authenticated end user's connected target system
           content:
             application/json:
               schema:
@@ -1909,36 +2033,42 @@ paths:
         - name: lastModifiedAt
           required: false
           in: query
+          description: ISO 8601 timestamp; only records modified after this date are returned
           schema:
             type: string
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
         - name: fiscalYear
           required: false
           in: query
+          description: Fiscal year to scope the journal entries (e.g. 2024)
           schema:
             type: number
         - name: fiscalYearStartDate
           required: false
           in: query
+          description: ISO 8601 start date of the fiscal year used for scoping results
           schema:
             type: string
       responses:
         "200":
-          description: ""
+          description: List of journal entries for the authenticated end user's connected target system
           content:
             application/json:
               schema:
@@ -1958,11 +2088,13 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
       requestBody:
@@ -1985,7 +2117,7 @@ paths:
                   $ref: '#/components/schemas/CreateJournalEntryRequestDto'
       responses:
         "201":
-          description: ""
+          description: Journal entry created successfully
           content:
             application/json:
               schema:
@@ -2009,26 +2141,30 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: journalCode
           required: false
           in: query
+          description: Journal code used to scope the journal entry lookup on systems that require it
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
       responses:
         "200":
-          description: ""
+          description: Journal entry record matching the provided ID
           content:
             application/json:
               schema:
@@ -2047,6 +2183,7 @@ paths:
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
       requestBody:
@@ -2057,7 +2194,7 @@ paths:
               $ref: '#/components/schemas/CreateJournalEntriesByBatchMetaDataDto'
       responses:
         "201":
-          description: ""
+          description: Journal entries created successfully in bulk
           content:
             application/json:
               schema:
@@ -2082,16 +2219,18 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
       responses:
         "200":
-          description: ""
+          description: List of attachments for the journal entry matching the provided ID
           content:
             application/json:
               schema:
@@ -2126,7 +2265,7 @@ paths:
                   format: binary
       responses:
         "201":
-          description: ""
+          description: Journal entry attachment uploaded successfully
           content:
             application/json:
               schema:
@@ -2154,16 +2293,18 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
       responses:
         "200":
-          description: ""
+          description: Journal entry attachment record matching the provided ID
           content:
             application/json:
               schema:
@@ -2199,21 +2340,25 @@ paths:
         - name: lastModifiedAt
           required: false
           in: query
+          description: ISO 8601 timestamp; only records modified after this date are returned
           schema:
             type: string
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: status
           required: false
           in: query
+          description: Filter offers by unified status
           schema:
             enum:
               - DRAFT
@@ -2226,11 +2371,12 @@ paths:
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
       responses:
         "200":
-          description: ""
+          description: List of offers for the authenticated end user's connected target system
           content:
             application/json:
               schema:
@@ -2250,11 +2396,13 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
       requestBody:
@@ -2265,7 +2413,7 @@ paths:
               $ref: '#/components/schemas/CreateOfferRequestDto'
       responses:
         "201":
-          description: ""
+          description: Offer created successfully
           content:
             application/json:
               schema:
@@ -2289,21 +2437,24 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
       responses:
         "200":
-          description: ""
+          description: Offer record matching the provided ID
           content:
             application/json:
               schema:
@@ -2343,26 +2494,30 @@ paths:
         - name: lastModifiedAt
           required: false
           in: query
+          description: ISO 8601 timestamp; only records modified after this date are returned
           schema:
             type: string
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
       responses:
         "200":
-          description: ""
+          description: List of line items for the authenticated end user's connected target system
           content:
             application/json:
               schema:
@@ -2393,21 +2548,24 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
       responses:
         "200":
-          description: ""
+          description: Offer line item record matching the provided ID
           content:
             application/json:
               schema:
@@ -2431,16 +2589,18 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
       responses:
         "200":
-          description: ""
+          description: Document attached to the offer matching the provided ID
           content:
             application/json:
               schema:
@@ -2460,11 +2620,13 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
       requestBody:
@@ -2483,7 +2645,7 @@ paths:
                   $ref: '#/components/schemas/CreateExpenseDto'
       responses:
         "201":
-          description: ""
+          description: Expense created successfully
           content:
             application/json:
               schema:
@@ -2517,21 +2679,24 @@ paths:
         - name: lastModifiedAt
           required: false
           in: query
+          description: ISO 8601 timestamp; only records modified after this date are returned
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
       responses:
         "200":
-          description: ""
+          description: List of expenses for the authenticated end user's connected target system
           content:
             application/json:
               schema:
@@ -2557,21 +2722,24 @@ paths:
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: journalCode
           required: false
           in: query
+          description: Journal code used to scope the expense lookup on systems that require it
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
       responses:
         "200":
-          description: ""
+          description: Expense record matching the provided ID
           content:
             application/json:
               schema:
@@ -2606,26 +2774,30 @@ paths:
         - name: lastModifiedAt
           required: false
           in: query
+          description: ISO 8601 timestamp; only records modified after this date are returned
           schema:
             type: string
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
       responses:
         "200":
-          description: ""
+          description: List of projects for the authenticated end user's connected target system
           content:
             application/json:
               schema:
@@ -2644,11 +2816,13 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
       requestBody:
@@ -2659,7 +2833,7 @@ paths:
               $ref: '#/components/schemas/CreateProjectRequestDto'
       responses:
         "201":
-          description: ""
+          description: Project created successfully. Returns 202 with taskId if processed asynchronously.
           content:
             application/json:
               schema:
@@ -2683,21 +2857,24 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
       responses:
         "200":
-          description: ""
+          description: Project record matching the provided ID
           content:
             application/json:
               schema:
@@ -2732,26 +2909,31 @@ paths:
         - name: lastModifiedAt
           required: false
           in: query
+          description: ISO 8601 timestamp; only records modified after this date are returned
           schema:
             type: string
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
         - name: status
           required: false
           in: query
+          description: Filter sales orders by status
           schema:
             enum:
               - DRAFT
@@ -2762,7 +2944,7 @@ paths:
             type: string
       responses:
         "200":
-          description: ""
+          description: List of sales orders for the authenticated end user's connected target system
           content:
             application/json:
               schema:
@@ -2782,11 +2964,13 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
       requestBody:
@@ -2797,7 +2981,7 @@ paths:
               $ref: '#/components/schemas/CreateSalesOrderRequestDto'
       responses:
         "201":
-          description: ""
+          description: Sales order created successfully. Returns 202 with taskId if processed asynchronously.
           content:
             application/json:
               schema:
@@ -2821,21 +3005,24 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
       responses:
         "200":
-          description: ""
+          description: Sales order record matching the provided ID
           content:
             application/json:
               schema:
@@ -2875,26 +3062,30 @@ paths:
         - name: lastModifiedAt
           required: false
           in: query
+          description: ISO 8601 timestamp; only records modified after this date are returned
           schema:
             type: string
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
       responses:
         "200":
-          description: ""
+          description: List of line items for the authenticated end user's connected target system
           content:
             application/json:
               schema:
@@ -2931,36 +3122,42 @@ paths:
         - name: lastModifiedAt
           required: false
           in: query
+          description: ISO 8601 timestamp; only records modified after this date are returned
           schema:
             type: string
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
         - name: fiscalYear
           required: false
           in: query
+          description: Fiscal year to scope the payment terms results (e.g. 2024)
           schema:
             type: number
         - name: fiscalYearStartDate
           required: false
           in: query
+          description: ISO 8601 start date of the fiscal year used for scoping results
           schema:
             type: string
       responses:
         "200":
-          description: ""
+          description: List of payment terms for the authenticated end user's connected target system
           content:
             application/json:
               schema:
@@ -2979,6 +3176,7 @@ paths:
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
       requestBody:
@@ -2989,7 +3187,7 @@ paths:
               $ref: '#/components/schemas/CreatePaymentTermRequestDto'
       responses:
         "201":
-          description: ""
+          description: Payment term created successfully
           content:
             application/json:
               schema:
@@ -3013,21 +3211,24 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
       responses:
         "200":
-          description: ""
+          description: Payment term record matching the provided ID
           content:
             application/json:
               schema:
@@ -3062,31 +3263,36 @@ paths:
         - name: lastModifiedAt
           required: false
           in: query
+          description: ISO 8601 timestamp; only records modified after this date are returned
           schema:
             type: string
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
         - name: isActive
           required: false
           in: query
+          description: When true, returns only active tax rates; when false, returns only inactive tax rates
           schema:
             type: boolean
       responses:
         "200":
-          description: ""
+          description: List of tax rates for the authenticated end user's connected target system
           content:
             application/json:
               schema:
@@ -3112,21 +3318,24 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
       responses:
         "200":
-          description: ""
+          description: Tax rate record matching the provided ID
           content:
             application/json:
               schema:
@@ -3161,31 +3370,36 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: lastModifiedAt
           required: false
           in: query
+          description: ISO 8601 timestamp; only records modified after this date are returned
           schema:
             type: string
         - name: invoiceId
           required: false
           in: query
+          description: ID of the invoice to filter payments by
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
       responses:
         "200":
-          description: ""
+          description: List of payments for the authenticated end user's connected target system
           content:
             application/json:
               schema:
@@ -3205,6 +3419,7 @@ paths:
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
       requestBody:
@@ -3215,7 +3430,7 @@ paths:
               $ref: '#/components/schemas/CreatePaymentRequestDto'
       responses:
         "201":
-          description: ""
+          description: Payment created successfully
           content:
             application/json:
               schema:
@@ -3239,16 +3454,18 @@ paths:
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
       responses:
         "200":
-          description: ""
+          description: Payment record matching the provided ID
           content:
             application/json:
               schema:
@@ -3271,11 +3488,20 @@ paths:
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
       responses:
         "200":
-          description: ""
+          description: Operation completed successfully
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BaseResponseDto'
+                  - properties:
+                      data:
+                        type: string
       tags:
         - accounting
       x-speakeasy-name-override: removePayment
@@ -3286,6 +3512,7 @@ paths:
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
       requestBody:
@@ -3296,7 +3523,11 @@ paths:
               $ref: '#/components/schemas/CreateEventSubscriptionRequestDto'
       responses:
         "201":
-          description: ""
+          description: Event subscription created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BaseResponseDto'
       tags:
         - accounting
       x-speakeasy-name-override: addEventSubscription
@@ -3312,11 +3543,16 @@ paths:
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
       responses:
         "200":
-          description: ""
+          description: Operation completed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BaseResponseDto'
       tags:
         - accounting
       x-speakeasy-name-override: removeEventSubscription
@@ -3326,7 +3562,11 @@ paths:
       parameters: []
       responses:
         "200":
-          description: ""
+          description: Profile information for the authenticated end user's connected target system
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BaseResponseDto'
       tags:
         - accounting
   /accounting/passThrough:
@@ -3336,11 +3576,13 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
       requestBody:
@@ -3351,7 +3593,7 @@ paths:
               $ref: '#/components/schemas/CreatePassThroughRequestDto'
       responses:
         "201":
-          description: ""
+          description: Pass-through request forwarded to the upstream target system successfully
           content:
             application/json:
               schema:
@@ -3386,21 +3628,25 @@ paths:
         - name: lastModifiedAt
           required: false
           in: query
+          description: ISO 8601 timestamp; only records modified after this date are returned
           schema:
             type: string
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: status
           required: false
           in: query
+          description: Filter bills by unified status
           schema:
             enum:
               - DRAFT
@@ -3417,6 +3663,7 @@ paths:
         - name: paymentStatus
           required: false
           in: query
+          description: Filter bills by payment status
           schema:
             enum:
               - NO_OPEN_ITEM
@@ -3434,11 +3681,13 @@ paths:
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
         - name: orderField
           required: false
           in: query
+          description: Field to sort the results by
           schema:
             enum:
               - billDate
@@ -3449,6 +3698,7 @@ paths:
         - name: orderDir
           required: false
           in: query
+          description: Sort direction for the ordered results
           schema:
             enum:
               - ASC
@@ -3456,7 +3706,7 @@ paths:
             type: string
       responses:
         "200":
-          description: ""
+          description: List of bills for the authenticated end user's connected target system
           content:
             application/json:
               schema:
@@ -3476,11 +3726,13 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
       requestBody:
@@ -3491,7 +3743,7 @@ paths:
               $ref: '#/components/schemas/CreateBillRequestDto'
       responses:
         "201":
-          description: ""
+          description: Bill created successfully
           content:
             application/json:
               schema:
@@ -3515,21 +3767,24 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
       responses:
         "200":
-          description: ""
+          description: Bill record matching the provided ID
           content:
             application/json:
               schema:
@@ -3552,11 +3807,13 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
       requestBody:
@@ -3567,7 +3824,7 @@ paths:
               $ref: '#/components/schemas/CreateBillRequestDto'
       responses:
         "200":
-          description: ""
+          description: Bill updated successfully
           content:
             application/json:
               schema:
@@ -3591,16 +3848,26 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
       responses:
         "200":
-          description: ""
+          description: Operation completed successfully
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BaseResponseDto'
+                  - properties:
+                      data:
+                        type: string
       tags:
         - accounting
       x-speakeasy-name-override: removeBill
@@ -3615,7 +3882,7 @@ paths:
             type: string
       responses:
         "200":
-          description: ""
+          description: Document associated with the specified bill
           content:
             application/json:
               schema:
@@ -3634,6 +3901,7 @@ paths:
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
       requestBody:
@@ -3663,7 +3931,7 @@ paths:
                       type: string
       responses:
         "201":
-          description: ""
+          description: Booking proposal created successfully
           content:
             application/json:
               schema:
@@ -3696,21 +3964,25 @@ paths:
         - name: lastModifiedAt
           required: false
           in: query
+          description: ISO 8601 timestamp; only records modified after this date are returned
           schema:
             type: string
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: bookingType
           required: false
           in: query
+          description: Filter booking proposals by booking type
           schema:
             enum:
               - INVOICE
@@ -3726,6 +3998,7 @@ paths:
         - name: status
           required: false
           in: query
+          description: Filter booking proposals by status
           schema:
             enum:
               - DRAFT
@@ -3741,11 +4014,13 @@ paths:
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
         - name: orderField
           required: false
           in: query
+          description: Field to sort the results by
           schema:
             enum:
               - bookingProposalDate
@@ -3756,6 +4031,7 @@ paths:
         - name: orderDir
           required: false
           in: query
+          description: Sort direction for the ordered results
           schema:
             enum:
               - ASC
@@ -3763,7 +4039,7 @@ paths:
             type: string
       responses:
         "200":
-          description: ""
+          description: List of booking proposals for the authenticated end user's connected target system
           content:
             application/json:
               schema:
@@ -3789,21 +4065,24 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
       responses:
         "200":
-          description: ""
+          description: Booking proposal record matching the provided ID
           content:
             application/json:
               schema:
@@ -3826,7 +4105,7 @@ paths:
             type: string
       responses:
         "200":
-          description: ""
+          description: Document associated with the specified booking proposal
           content:
             application/json:
               schema:
@@ -3845,6 +4124,7 @@ paths:
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
       requestBody:
@@ -3855,7 +4135,7 @@ paths:
               $ref: '#/components/schemas/CreateBookingsRequestDto'
       responses:
         "201":
-          description: ""
+          description: Booking created successfully
           content:
             application/json:
               schema:
@@ -3890,21 +4170,25 @@ paths:
         - name: lastModifiedAt
           required: false
           in: query
+          description: ISO 8601 timestamp; only records modified after this date are returned
           schema:
             type: string
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: status
           required: false
           in: query
+          description: Filter vendor credits by unified status
           schema:
             enum:
               - DRAFT
@@ -3921,6 +4205,7 @@ paths:
         - name: paymentStatus
           required: false
           in: query
+          description: Filter vendor credits by payment status
           schema:
             enum:
               - NO_OPEN_ITEM
@@ -3938,11 +4223,12 @@ paths:
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
       responses:
         "200":
-          description: ""
+          description: List of vendor credits for the authenticated end user's connected target system
           content:
             application/json:
               schema:
@@ -3963,11 +4249,13 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
       requestBody:
@@ -3978,7 +4266,7 @@ paths:
               $ref: '#/components/schemas/CreateVendorCreditRequestDto'
       responses:
         "201":
-          description: ""
+          description: Vendor credit created successfully
           content:
             application/json:
               schema:
@@ -4001,11 +4289,13 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
       requestBody:
@@ -4016,7 +4306,7 @@ paths:
               $ref: '#/components/schemas/CreateVendorCreditRequestDto'
       responses:
         "200":
-          description: ""
+          description: Vendor credit updated successfully
           content:
             application/json:
               schema:
@@ -4039,16 +4329,26 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
       responses:
         "200":
-          description: ""
+          description: Operation completed successfully
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BaseResponseDto'
+                  - properties:
+                      data:
+                        type: string
       tags:
         - accounting
       x-speakeasy-group: vendorCredits
@@ -4065,16 +4365,18 @@ paths:
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
       responses:
         "200":
-          description: ""
+          description: List of line items for the authenticated end user's connected target system
           content:
             application/json:
               schema:
@@ -4100,6 +4402,7 @@ paths:
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
       requestBody:
@@ -4110,7 +4413,7 @@ paths:
               $ref: '#/components/schemas/CreateBillLineItemRequestDto'
       responses:
         "201":
-          description: ""
+          description: Bill line item created successfully
           content:
             application/json:
               schema:
@@ -4142,6 +4445,7 @@ paths:
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
       requestBody:
@@ -4152,7 +4456,7 @@ paths:
               $ref: '#/components/schemas/CreateBillLineItemRequestDto'
       responses:
         "200":
-          description: ""
+          description: Bill line item updated successfully
           content:
             application/json:
               schema:
@@ -4189,26 +4493,30 @@ paths:
         - name: lastModifiedAt
           required: false
           in: query
+          description: ISO 8601 timestamp; only records modified after this date are returned
           schema:
             type: string
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
       responses:
         "200":
-          description: ""
+          description: List of purchase orders for the authenticated end user's connected target system
           content:
             application/json:
               schema:
@@ -4235,21 +4543,24 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
       responses:
         "200":
-          description: ""
+          description: Purchase order record matching the provided ID
           content:
             application/json:
               schema:
@@ -4273,26 +4584,30 @@ paths:
         - name: lastModifiedAt
           required: false
           in: query
+          description: ISO 8601 timestamp; only records modified after this date are returned
           schema:
             type: string
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
       responses:
         "200":
-          description: ""
+          description: List of line items for the authenticated end user's connected target system
           content:
             application/json:
               schema:
@@ -4323,21 +4638,24 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
       responses:
         "200":
-          description: ""
+          description: Purchase order line item record matching the provided ID
           content:
             application/json:
               schema:
@@ -4372,26 +4690,30 @@ paths:
         - name: lastModifiedAt
           required: false
           in: query
+          description: ISO 8601 timestamp; only records modified after this date are returned
           schema:
             type: string
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
       responses:
         "200":
-          description: ""
+          description: List of goods receipts for the authenticated end user's connected target system
           content:
             application/json:
               schema:
@@ -4416,21 +4738,24 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
       responses:
         "200":
-          description: ""
+          description: Goods receipt record matching the provided ID
           content:
             application/json:
               schema:
@@ -4454,26 +4779,30 @@ paths:
         - name: lastModifiedAt
           required: false
           in: query
+          description: ISO 8601 timestamp; only records modified after this date are returned
           schema:
             type: string
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
       responses:
         "200":
-          description: ""
+          description: List of line items for the authenticated end user's connected target system
           content:
             application/json:
               schema:
@@ -4504,21 +4833,24 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
       responses:
         "200":
-          description: ""
+          description: Goods receipt line item record matching the provided ID
           content:
             application/json:
               schema:
@@ -4554,21 +4886,24 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
       responses:
         "200":
-          description: ""
+          description: List of units for the authenticated end user's connected target system
           content:
             application/json:
               schema:
@@ -4605,46 +4940,54 @@ paths:
         - name: lastModifiedAt
           required: false
           in: query
+          description: ISO 8601 timestamp; only records modified after this date are returned
           schema:
             type: string
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
         - name: fiscalYear
           required: false
           in: query
+          description: Fiscal year to scope the open items results (e.g. 2024)
           schema:
             type: number
         - name: accountNumber
           required: false
           in: query
+          description: Filter open items by account number
           schema:
             type: string
         - name: documentNumber
           required: false
           in: query
+          description: Filter open items by document number
           schema:
             type: string
         - name: type
           required: false
           in: query
+          description: Filter open items by type (e.g. receivable, payable)
           schema:
             type: string
       responses:
         "200":
-          description: ""
+          description: List of open items for the authenticated end user's connected target system
           content:
             application/json:
               schema:
@@ -4681,46 +5024,54 @@ paths:
         - name: lastModifiedAt
           required: false
           in: query
+          description: ISO 8601 timestamp; only records modified after this date are returned
           schema:
             type: string
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
         - name: fiscalYear
           required: false
           in: query
+          description: Fiscal year to scope the trial balance results (e.g. 2024)
           schema:
             type: number
         - name: accountNumber
           required: false
           in: query
+          description: Filter the trial balance by account number
           schema:
             type: string
         - name: accountCode
           required: false
           in: query
+          description: Filter the trial balance by account code
           schema:
             type: string
         - name: fiscalYearStartDate
           required: false
           in: query
+          description: ISO 8601 start date of the fiscal year used for balance calculation
           schema:
             type: string
       responses:
         "200":
-          description: ""
+          description: Trial balance for the authenticated end user's connected target system
           content:
             application/json:
               schema:
@@ -4757,26 +5108,30 @@ paths:
         - name: lastModifiedAt
           required: false
           in: query
+          description: ISO 8601 timestamp; only records modified after this date are returned
           schema:
             type: string
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
       responses:
         "200":
-          description: ""
+          description: List of credit notes for the authenticated end user's connected target system
           content:
             application/json:
               schema:
@@ -4802,21 +5157,24 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
       responses:
         "200":
-          description: ""
+          description: Credit note record matching the provided ID
           content:
             application/json:
               schema:
@@ -4835,21 +5193,24 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
       responses:
         "200":
-          description: ""
+          description: List of fiscal years for the authenticated end user's connected target system
           content:
             application/json:
               schema:
@@ -4874,21 +5235,24 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
       responses:
         "200":
-          description: ""
+          description: Fiscal year record matching the provided ID
           content:
             application/json:
               schema:
@@ -4910,6 +5274,7 @@ paths:
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
       requestBody:
@@ -4939,7 +5304,7 @@ paths:
                       type: string
       responses:
         "200":
-          description: ""
+          description: Booking proposal created successfully. Returns 202 with taskId if processed asynchronously.
           content:
             application/json:
               schema:
@@ -4975,26 +5340,30 @@ paths:
         - name: lastModifiedAt
           required: false
           in: query
+          description: ISO 8601 timestamp; only records modified after this date are returned
           schema:
             type: string
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
       responses:
         "200":
-          description: ""
+          description: List of contacts for the authenticated end user's connected target system
           content:
             application/json:
               schema:
@@ -5015,11 +5384,13 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
       requestBody:
@@ -5030,7 +5401,7 @@ paths:
               $ref: '#/components/schemas/CreateContactRequestDtoV2'
       responses:
         "200":
-          description: ""
+          description: Contact created successfully
           content:
             application/json:
               schema:
@@ -5055,21 +5426,24 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
       responses:
         "200":
-          description: ""
+          description: Contact record matching the provided ID
           content:
             application/json:
               schema:
@@ -5093,11 +5467,13 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
       requestBody:
@@ -5108,7 +5484,7 @@ paths:
               $ref: '#/components/schemas/CreateContactRequestDtoV2'
       responses:
         "200":
-          description: ""
+          description: Contact updated successfully
           content:
             application/json:
               schema:
@@ -5131,11 +5507,13 @@ paths:
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
       requestBody:
@@ -5146,7 +5524,7 @@ paths:
               $ref: '#/components/schemas/CreateContactRequestDtoV2'
       responses:
         "200":
-          description: ""
+          description: Contact updated successfully
           content:
             application/json:
               schema:
@@ -5166,26 +5544,30 @@ paths:
         - name: lastModifiedAt
           required: false
           in: query
+          description: ISO 8601 timestamp; only records modified after this date are returned
           schema:
             type: string
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
       responses:
         "200":
-          description: ""
+          description: List of dimension categories for the authenticated end user's connected target system
           content:
             application/json:
               schema:
@@ -5227,26 +5609,30 @@ paths:
         - name: lastModifiedAt
           required: false
           in: query
+          description: ISO 8601 timestamp; only records modified after this date are returned
           schema:
             type: string
         - name: environmentName
           required: false
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           schema:
             type: string
         - name: companyId
           required: false
           in: query
+          description: ID of the company (required for multi-company target systems)
           schema:
             type: string
         - name: rawData
           required: false
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
       responses:
         "200":
-          description: ""
+          description: List of dimension values for the authenticated end user's connected target system
           content:
             application/json:
               schema:
@@ -5287,7 +5673,7 @@ paths:
       parameters: []
       responses:
         "200":
-          description: ""
+          description: List of environments for the authenticated end user's connected target system
           content:
             application/json:
               schema:
@@ -5306,12 +5692,13 @@ paths:
       parameters:
         - name: environmentName
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           required: false
           schema:
             type: string
       responses:
         "200":
-          description: ""
+          description: List of companies for the authenticated end user's connected target system
           content:
             application/json:
               schema:
@@ -5330,12 +5717,13 @@ paths:
       parameters:
         - name: environmentName
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           required: false
           schema:
             type: string
       responses:
         "200":
-          description: ""
+          description: List of companies for the authenticated end user's connected target system
           content:
             application/json:
               schema:
@@ -5354,12 +5742,20 @@ paths:
       parameters:
         - name: code
           in: query
+          description: Unique code identifying the tenant submission session
           required: true
           schema:
             type: string
       responses:
         "200":
-          description: ""
+          description: Submission page rendered successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: string
   /apiKeyConfirmation:
     post:
       operationId: apiKeyConfirmation
@@ -5368,7 +5764,14 @@ paths:
       parameters: []
       responses:
         "201":
-          description: ""
+          description: API key confirmed and redirect URL returned successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  url:
+                    type: string
   /cancel:
     post:
       operationId: cancel
@@ -5377,7 +5780,14 @@ paths:
       parameters: []
       responses:
         "201":
-          description: ""
+          description: Cancellation redirect URL returned successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  url:
+                    type: string
   /test:
     get:
       operationId: test
@@ -5386,12 +5796,20 @@ paths:
       parameters:
         - name: accountKey
           in: query
+          description: End user account key (X-ACCOUNT-KEY) to pre-fill the confirmation page
           required: true
           schema:
             type: string
       responses:
         "200":
-          description: ""
+          description: API key confirmation page rendered successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  apiKey:
+                    type: string
   /longToken:
     get:
       operationId: longToken
@@ -5400,22 +5818,29 @@ paths:
       parameters:
         - name: targetSystem
           in: query
-          required: false
+          description: Identifier of the target system (e.g. exact, sevdesk, xero)
+          required: true
           schema:
             type: string
         - name: companyId
           in: query
-          required: false
+          description: ID of the company (required for multi-company target systems)
+          required: true
           schema:
             type: string
         - name: callbackUrl
           in: query
+          description: URL to redirect to after successful authentication
           required: false
           schema:
             type: string
       responses:
         "200":
-          description: ""
+          description: Long-lived authentication token URL returned successfully
+          content:
+            application/json:
+              schema:
+                type: string
   /selections:
     get:
       operationId: getEnvironmentPage
@@ -5424,17 +5849,23 @@ paths:
       parameters:
         - name: state
           in: query
+          description: Encoded state value containing tenant and user context, returned from the OAuth redirect
           required: true
           schema:
             type: string
         - name: targetSystem
           in: query
+          description: Identifier of the target system (e.g. exact, sevdesk, xero)
           required: true
           schema:
             type: string
       responses:
         "200":
-          description: ""
+          description: Environment or company selection page rendered successfully
+          content:
+            application/json:
+              schema:
+                type: object
   /setEndUserSelections:
     post:
       operationId: setEndUserSelections
@@ -5443,22 +5874,32 @@ paths:
       parameters:
         - name: accountKey
           in: query
+          description: End user account key (X-ACCOUNT-KEY) identifying the end user whose selections are being saved
           required: true
           schema:
             type: string
         - name: environmentName
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           required: true
           schema:
             type: string
         - name: companyId
           in: query
+          description: ID of the company (required for multi-company target systems)
           required: true
           schema:
             type: string
       responses:
         "201":
-          description: ""
+          description: End user environment and company selections saved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
   /{TARGET_SYSTEM}:
     get:
       operationId: systemLoginUrl
@@ -5472,37 +5913,47 @@ paths:
             type: string
         - name: callbackUrl
           in: query
+          description: URL to redirect to after successful authentication
           required: false
           schema:
             type: string
         - name: cancelCallbackUrl
           in: query
+          description: URL to redirect to if the user cancels authentication
           required: false
           schema:
             type: string
         - name: companyId
           in: query
+          description: ID of the company (required for multi-company target systems)
           required: false
           schema:
             type: string
         - name: tenantId
           in: query
+          description: Tenant ID to scope the authentication request (used for self-hosted or on-premise systems)
           required: false
           schema:
             type: string
         - name: baseUrl
           in: query
+          description: Base URL of the target system instance (required for self-hosted systems)
           required: false
           schema:
             type: string
         - name: environmentSelection
           in: query
+          description: When true, redirects the user to an environment or company selection page before completing authentication
           required: false
           schema:
             type: boolean
       responses:
         "200":
-          description: ""
+          description: Authentication URL for the requested target system returned successfully
+          content:
+            application/json:
+              schema:
+                type: string
   /callback/{TARGET_SYSTEM}:
     get:
       operationId: callback
@@ -5514,29 +5965,40 @@ paths:
           required: true
           schema:
             type: string
-        - name: code
-          in: query
-          required: false
-          schema:
-            type: string
         - name: state
           in: query
+          description: OAuth state parameter returned by the target system, encoding tenant and user context
           required: true
+          schema:
+            type: string
+        - name: code
+          in: query
+          description: Authorization code returned by the target system after successful OAuth consent
+          required: false
           schema:
             type: string
         - name: realmId
           in: query
+          description: Realm ID returned by QuickBooks Online after OAuth consent
           required: false
           schema:
             type: string
         - name: token
           in: query
+          description: Access token returned directly by some target systems that do not use an authorization code flow
           required: false
           schema:
             type: string
       responses:
         "200":
-          description: ""
+          description: OAuth callback processed and redirect URL returned successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  url:
+                    type: string
   /accounts/{TARGET_SYSTEM}:
     post:
       operationId: createEndUserAccount
@@ -5556,7 +6018,14 @@ paths:
         required: true
       responses:
         "201":
-          description: ""
+          description: End user account created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  accountKey:
+                    type: string
   /callback/{code}:
     post:
       operationId: handleCallback
@@ -5569,8 +6038,12 @@ paths:
           schema:
             type: string
       responses:
-        "201":
-          description: ""
+        "202":
+          description: Webhook event received and queued for processing
+          content:
+            application/json:
+              schema:
+                type: object
   /key/{code}:
     post:
       operationId: getCode
@@ -5584,7 +6057,11 @@ paths:
             type: string
       responses:
         "201":
-          description: ""
+          description: Authorization code saved successfully
+          content:
+            application/json:
+              schema:
+                type: object
   /configuration/callback/{code}:
     post:
       operationId: handleConfigurationCallback
@@ -5597,8 +6074,12 @@ paths:
           schema:
             type: string
       responses:
-        "201":
-          description: ""
+        "202":
+          description: Configuration webhook event received and queued for processing
+          content:
+            application/json:
+              schema:
+                type: object
   /user:
     post:
       operationId: createWebhookEndUser
@@ -5607,11 +6088,13 @@ paths:
       parameters:
         - name: environmentName
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           required: false
           schema:
             type: string
         - name: companyId
           in: query
+          description: ID of the company (required for multi-company target systems)
           required: false
           schema:
             type: string
@@ -5623,7 +6106,15 @@ paths:
         required: true
       responses:
         "201":
-          description: ""
+          description: Webhook created successfully
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BaseResponseDto'
+                  - properties:
+                      data:
+                        $ref: '#/components/schemas/WebhookResponseDto'
   /tenant:
     post:
       operationId: createWebHookTenant
@@ -5638,7 +6129,15 @@ paths:
         required: true
       responses:
         "201":
-          description: ""
+          description: Webhook created successfully
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BaseResponseDto'
+                  - properties:
+                      data:
+                        $ref: '#/components/schemas/WebhookResponseDto'
   /user/{webhookId}:
     delete:
       operationId: deleteWebhookEndUser
@@ -5652,17 +6151,23 @@ paths:
             type: string
         - name: environmentName
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           required: false
           schema:
             type: string
         - name: companyId
           in: query
+          description: ID of the company (required for multi-company target systems)
           required: false
           schema:
             type: string
       responses:
         "200":
-          description: ""
+          description: Operation completed successfully
+          content:
+            application/json:
+              schema:
+                type: object
   /tenant/{webhookId}:
     delete:
       operationId: deleteWebhookTenant
@@ -5676,7 +6181,11 @@ paths:
             type: string
       responses:
         "200":
-          description: ""
+          description: Operation completed successfully
+          content:
+            application/json:
+              schema:
+                type: string
   /config:
     post:
       operationId: createWebhookConfig
@@ -5691,7 +6200,15 @@ paths:
         required: true
       responses:
         "201":
-          description: ""
+          description: Webhook created successfully
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BaseResponseDto'
+                  - properties:
+                      data:
+                        $ref: '#/components/schemas/WebhookResponseDto'
   /:
     post:
       operationId: createWebhook
@@ -5700,11 +6217,13 @@ paths:
       parameters:
         - name: environmentName
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           required: false
           schema:
             type: string
         - name: companyId
           in: query
+          description: ID of the company (required for multi-company target systems)
           required: false
           schema:
             type: string
@@ -5716,7 +6235,15 @@ paths:
         required: true
       responses:
         "201":
-          description: ""
+          description: Webhook created successfully
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BaseResponseDto'
+                  - properties:
+                      data:
+                        $ref: '#/components/schemas/WebhookResponseDto'
   /{webhookId}:
     delete:
       operationId: deleteWebhook
@@ -5730,17 +6257,23 @@ paths:
             type: string
         - name: environmentName
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           required: false
           schema:
             type: string
         - name: companyId
           in: query
+          description: ID of the company (required for multi-company target systems)
           required: false
           schema:
             type: string
       responses:
         "200":
-          description: ""
+          description: Operation completed successfully
+          content:
+            application/json:
+              schema:
+                type: object
   /#4:
     get:
       operationId: getWebhooks
@@ -5749,22 +6282,35 @@ paths:
       parameters:
         - name: environmentName
           in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
           required: false
           schema:
             type: string
         - name: companyId
           in: query
+          description: ID of the company (required for multi-company target systems)
           required: false
           schema:
             type: string
         - name: rawData
           in: query
+          description: When true, returns the unprocessed response from the upstream target system
           required: false
           schema:
             type: boolean
       responses:
         "200":
-          description: ""
+          description: List of webhooks for the authenticated end user's connected target system
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BaseResponseDto'
+                  - properties:
+                      data:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/WebhookResponseDto'
   /#5:
     get:
       operationId: check
@@ -5776,6 +6322,10 @@ paths:
       responses:
         "200":
           description: Service is healthy.
+          content:
+            application/json:
+              schema:
+                type: object
   /details:
     get:
       operationId: details
@@ -5787,6 +6337,10 @@ paths:
       responses:
         "200":
           description: Detailed health status including database connectivity.
+          content:
+            application/json:
+              schema:
+                type: object
         "503":
           description: The Health Check is not successful
           content:
@@ -5856,7 +6410,11 @@ paths:
         required: true
       responses:
         "201":
-          description: ""
+          description: System registered successfully
+          content:
+            application/json:
+              schema:
+                type: string
   /add-callback-urls:
     post:
       operationId: addCallbackUrl
@@ -5871,7 +6429,11 @@ paths:
         required: true
       responses:
         "201":
-          description: ""
+          description: Callback URL added successfully
+          content:
+            application/json:
+              schema:
+                type: string
   /get-end-user-list:
     get:
       operationId: getEndUserList
@@ -5880,7 +6442,11 @@ paths:
       parameters: []
       responses:
         "200":
-          description: ""
+          description: List of end users for the authenticated tenant
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BaseResponseDto'
   /count-end-users-by-system:
     get:
       operationId: countEndUsersBySystem
@@ -5889,7 +6455,11 @@ paths:
       parameters: []
       responses:
         "200":
-          description: ""
+          description: End user counts grouped by connected target system
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BaseResponseDto'
   /delete-end-user:
     delete:
       operationId: deleteEndUser
@@ -5897,8 +6467,15 @@ paths:
         - tenants
       parameters: []
       responses:
-        "204":
-          description: ""
+        "200":
+          description: Operation completed successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
   /get-callback-url:
     get:
       operationId: getCallbackUrl
@@ -5907,7 +6484,11 @@ paths:
       parameters: []
       responses:
         "200":
-          description: ""
+          description: Callback URL configured for the authenticated tenant
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BaseResponseDto'
   /get-registered-systems:
     get:
       operationId: getRegisteredSystems
@@ -5916,7 +6497,11 @@ paths:
       parameters: []
       responses:
         "200":
-          description: ""
+          description: List of target systems registered for the authenticated tenant
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BaseResponseDto'
   /get-target-system-values:
     get:
       operationId: getTargetSystemValues
@@ -5925,7 +6510,11 @@ paths:
       parameters: []
       responses:
         "200":
-          description: ""
+          description: List of all supported target system identifiers
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BaseResponseDto'
   /get-target-system-requirements:
     get:
       operationId: getTargetSystemRequirements
@@ -5934,7 +6523,11 @@ paths:
       parameters: []
       responses:
         "200":
-          description: ""
+          description: Configuration requirements for each supported target system
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BaseResponseDto'
   /get-registered-systems-masked:
     get:
       operationId: getRegisteredSystemsMasked
@@ -5943,7 +6536,11 @@ paths:
       parameters: []
       responses:
         "200":
-          description: ""
+          description: List of target systems registered for the authenticated tenant with sensitive fields masked
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BaseResponseDto'
   /delete-registered-system/{targetSystem}:
     delete:
       operationId: deleteRegisteredSystem
@@ -5957,7 +6554,11 @@ paths:
             type: string
       responses:
         "200":
-          description: ""
+          description: Operation completed successfully
+          content:
+            application/json:
+              schema:
+                type: string
   /get-all-active-end-users:
     get:
       operationId: getAllActiveEndUsers
@@ -5966,7 +6567,11 @@ paths:
       parameters: []
       responses:
         "200":
-          description: ""
+          description: List of all active end users across all tenants
+          content:
+            application/json:
+              schema:
+                type: object
   /get-submission-page-style:
     get:
       operationId: getSubmissionPageStyle
@@ -5975,12 +6580,17 @@ paths:
       parameters:
         - name: code
           in: query
+          description: Unique tenant code used to look up the submission page style
           required: true
           schema:
             type: string
       responses:
         "200":
-          description: ""
+          description: Submission page style configuration for the given tenant code
+          content:
+            application/json:
+              schema:
+                type: object
   /submission-page-style:
     post:
       operationId: updateSubmissionPageStyle
@@ -5995,7 +6605,11 @@ paths:
         required: true
       responses:
         "201":
-          description: ""
+          description: Submission page style updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
   /submission-page-style-by-key:
     get:
       operationId: getSubmissionPageStyleByKey
@@ -6004,16 +6618,25 @@ paths:
       parameters: []
       responses:
         "200":
-          description: ""
+          description: Submission page style configuration for the authenticated tenant
+          content:
+            application/json:
+              schema:
+                type: object
 info:
-  title: Maesn unified API Tenants
-  description: |-
-    The Maesn unified API description
-    The Maesn unified API auth description
-    The Maesn unified API events description
-    The Maesn unified API webhooks description
-    The Maesn unified API health description
-    The Maesn unified API tenant description
+  title: Maesn Unified API
+  description: |
+    The Maesn Unified API provides a single interface to 30+ accounting and ERP target systems — including Exact, Xero, Sevdesk, Lexoffice, QuickBooks, DATEV, FreshBooks, and more.
+
+    All resources (invoices, contacts, accounts, bills, journal entries, payments) are normalized to a common schema, so your integration works across every connected system without modification.
+
+    ## Features
+
+    - **Unified schema** — one data model across all target systems
+    - **Multi-tenant** — isolated API keys and account keys per tenant and end user
+    - **OAuth integration** — built-in OAuth flows for all supported target systems
+    - **Webhook support** — subscribe to real-time events from connected target systems
+    - **Async processing** — long-running operations return a `taskId` for status polling
   version: "1.0"
   contact: {}
 tags:
@@ -17726,8 +18349,9 @@ components:
           type: number
           nullable: true
         subscription:
-          allOf:
-            - $ref: '#/components/schemas/Subscription'
+          type: array
+          items:
+            $ref: '#/components/schemas/Subscription'
           nullable: true
       required:
         - id
@@ -17765,6 +18389,27 @@ components:
         - tenantId
         - url
         - username
+    WebhookResponseDto:
+      type: object
+      properties:
+        id:
+          type: string
+        createdDate:
+          type: string
+        expiresDate:
+          type: string
+        updatedDate:
+          type: string
+        callbackUrl:
+          type: string
+        secret:
+          type: string
+      required:
+        - id
+        - createdDate
+        - expiresDate
+        - updatedDate
+        - callbackUrl
     CreateAccountingWebhookRequestDto:
       type: object
       properties:

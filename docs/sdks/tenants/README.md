@@ -37,7 +37,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  await maesn.tenants.systemRegistration({
+  const result = await maesn.tenants.systemRegistration({
     targetSystem: "<value>",
     clientId: "<id>",
     clientSecret: "<value>",
@@ -49,7 +49,7 @@ async function run() {
     ],
   });
 
-
+  console.log(result);
 }
 
 run();
@@ -87,7 +87,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    
+    console.log(result);
   } else {
     console.log("tenantsSystemRegistration failed:", res.error);
   }
@@ -107,7 +107,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[string](../../models/.md)\>**
 
 ### Errors
 
@@ -132,12 +132,12 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  await maesn.tenants.addCallbackUrl({
+  const result = await maesn.tenants.addCallbackUrl({
     callbackUrl: "https://steep-tuber.net/",
     cancelCallbackUrl: "https://tight-sideboard.com/",
   });
 
-
+  console.log(result);
 }
 
 run();
@@ -168,7 +168,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    
+    console.log(result);
   } else {
     console.log("tenantsAddCallbackUrl failed:", res.error);
   }
@@ -188,7 +188,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[string](../../models/.md)\>**
 
 ### Errors
 
@@ -213,9 +213,9 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  await maesn.tenants.getEndUserList();
+  const result = await maesn.tenants.getEndUserList();
 
-
+  console.log(result);
 }
 
 run();
@@ -243,7 +243,7 @@ async function run() {
   const res = await tenantsGetEndUserList(maesn);
   if (res.ok) {
     const { value: result } = res;
-    
+    console.log(result);
   } else {
     console.log("tenantsGetEndUserList failed:", res.error);
   }
@@ -262,7 +262,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[models.BaseResponseDto](../../models/base-response-dto.md)\>**
 
 ### Errors
 
@@ -287,9 +287,9 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  await maesn.tenants.countEndUsersBySystem();
+  const result = await maesn.tenants.countEndUsersBySystem();
 
-
+  console.log(result);
 }
 
 run();
@@ -317,7 +317,7 @@ async function run() {
   const res = await tenantsCountEndUsersBySystem(maesn);
   if (res.ok) {
     const { value: result } = res;
-    
+    console.log(result);
   } else {
     console.log("tenantsCountEndUsersBySystem failed:", res.error);
   }
@@ -336,7 +336,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[models.BaseResponseDto](../../models/base-response-dto.md)\>**
 
 ### Errors
 
@@ -361,9 +361,9 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  await maesn.tenants.deleteEndUser();
+  const result = await maesn.tenants.deleteEndUser();
 
-
+  console.log(result);
 }
 
 run();
@@ -391,7 +391,7 @@ async function run() {
   const res = await tenantsDeleteEndUser(maesn);
   if (res.ok) {
     const { value: result } = res;
-    
+    console.log(result);
   } else {
     console.log("tenantsDeleteEndUser failed:", res.error);
   }
@@ -410,7 +410,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[operations.DeleteEndUserResponse](../../models/operations/delete-end-user-response.md)\>**
 
 ### Errors
 
@@ -435,9 +435,9 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  await maesn.tenants.getCallbackUrl();
+  const result = await maesn.tenants.getCallbackUrl();
 
-
+  console.log(result);
 }
 
 run();
@@ -465,7 +465,7 @@ async function run() {
   const res = await tenantsGetCallbackUrl(maesn);
   if (res.ok) {
     const { value: result } = res;
-    
+    console.log(result);
   } else {
     console.log("tenantsGetCallbackUrl failed:", res.error);
   }
@@ -484,7 +484,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[models.BaseResponseDto](../../models/base-response-dto.md)\>**
 
 ### Errors
 
@@ -509,9 +509,9 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  await maesn.tenants.getRegisteredSystems();
+  const result = await maesn.tenants.getRegisteredSystems();
 
-
+  console.log(result);
 }
 
 run();
@@ -539,7 +539,7 @@ async function run() {
   const res = await tenantsGetRegisteredSystems(maesn);
   if (res.ok) {
     const { value: result } = res;
-    
+    console.log(result);
   } else {
     console.log("tenantsGetRegisteredSystems failed:", res.error);
   }
@@ -558,7 +558,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[models.BaseResponseDto](../../models/base-response-dto.md)\>**
 
 ### Errors
 
@@ -583,9 +583,9 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  await maesn.tenants.getTargetSystemValues();
+  const result = await maesn.tenants.getTargetSystemValues();
 
-
+  console.log(result);
 }
 
 run();
@@ -613,7 +613,7 @@ async function run() {
   const res = await tenantsGetTargetSystemValues(maesn);
   if (res.ok) {
     const { value: result } = res;
-    
+    console.log(result);
   } else {
     console.log("tenantsGetTargetSystemValues failed:", res.error);
   }
@@ -632,7 +632,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[models.BaseResponseDto](../../models/base-response-dto.md)\>**
 
 ### Errors
 
@@ -657,9 +657,9 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  await maesn.tenants.getTargetSystemRequirements();
+  const result = await maesn.tenants.getTargetSystemRequirements();
 
-
+  console.log(result);
 }
 
 run();
@@ -687,7 +687,7 @@ async function run() {
   const res = await tenantsGetTargetSystemRequirements(maesn);
   if (res.ok) {
     const { value: result } = res;
-    
+    console.log(result);
   } else {
     console.log("tenantsGetTargetSystemRequirements failed:", res.error);
   }
@@ -706,7 +706,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[models.BaseResponseDto](../../models/base-response-dto.md)\>**
 
 ### Errors
 
@@ -731,9 +731,9 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  await maesn.tenants.getRegisteredSystemsMasked();
+  const result = await maesn.tenants.getRegisteredSystemsMasked();
 
-
+  console.log(result);
 }
 
 run();
@@ -761,7 +761,7 @@ async function run() {
   const res = await tenantsGetRegisteredSystemsMasked(maesn);
   if (res.ok) {
     const { value: result } = res;
-    
+    console.log(result);
   } else {
     console.log("tenantsGetRegisteredSystemsMasked failed:", res.error);
   }
@@ -780,7 +780,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[models.BaseResponseDto](../../models/base-response-dto.md)\>**
 
 ### Errors
 
@@ -805,11 +805,11 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  await maesn.tenants.deleteRegisteredSystem({
+  const result = await maesn.tenants.deleteRegisteredSystem({
     targetSystem: "<value>",
   });
 
-
+  console.log(result);
 }
 
 run();
@@ -839,7 +839,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    
+    console.log(result);
   } else {
     console.log("tenantsDeleteRegisteredSystem failed:", res.error);
   }
@@ -859,7 +859,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[string](../../models/.md)\>**
 
 ### Errors
 
@@ -884,9 +884,9 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  await maesn.tenants.getAllActiveEndUsers();
+  const result = await maesn.tenants.getAllActiveEndUsers();
 
-
+  console.log(result);
 }
 
 run();
@@ -914,7 +914,7 @@ async function run() {
   const res = await tenantsGetAllActiveEndUsers(maesn);
   if (res.ok) {
     const { value: result } = res;
-    
+    console.log(result);
   } else {
     console.log("tenantsGetAllActiveEndUsers failed:", res.error);
   }
@@ -933,7 +933,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[operations.GetAllActiveEndUsersResponse](../../models/operations/get-all-active-end-users-response.md)\>**
 
 ### Errors
 
@@ -958,11 +958,11 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  await maesn.tenants.getSubmissionPageStyle({
+  const result = await maesn.tenants.getSubmissionPageStyle({
     code: "<value>",
   });
 
-
+  console.log(result);
 }
 
 run();
@@ -992,7 +992,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    
+    console.log(result);
   } else {
     console.log("tenantsGetSubmissionPageStyle failed:", res.error);
   }
@@ -1012,7 +1012,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[operations.GetSubmissionPageStyleResponse](../../models/operations/get-submission-page-style-response.md)\>**
 
 ### Errors
 
@@ -1037,7 +1037,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  await maesn.tenants.updateSubmissionPageStyle({
+  const result = await maesn.tenants.updateSubmissionPageStyle({
     logoSvg: "<value>",
     logoPng: "<value>",
     backgroundColor: "<value>",
@@ -1049,7 +1049,7 @@ async function run() {
     errorTextColor: "<value>",
   });
 
-
+  console.log(result);
 }
 
 run();
@@ -1087,7 +1087,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    
+    console.log(result);
   } else {
     console.log("tenantsUpdateSubmissionPageStyle failed:", res.error);
   }
@@ -1107,7 +1107,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[operations.UpdateSubmissionPageStyleResponse](../../models/operations/update-submission-page-style-response.md)\>**
 
 ### Errors
 
@@ -1132,9 +1132,9 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  await maesn.tenants.getSubmissionPageStyleByKey();
+  const result = await maesn.tenants.getSubmissionPageStyleByKey();
 
-
+  console.log(result);
 }
 
 run();
@@ -1162,7 +1162,7 @@ async function run() {
   const res = await tenantsGetSubmissionPageStyleByKey(maesn);
   if (res.ok) {
     const { value: result } = res;
-    
+    console.log(result);
   } else {
     console.log("tenantsGetSubmissionPageStyleByKey failed:", res.error);
   }
@@ -1181,7 +1181,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[operations.GetSubmissionPageStyleByKeyResponse](../../models/operations/get-submission-page-style-by-key-response.md)\>**
 
 ### Errors
 

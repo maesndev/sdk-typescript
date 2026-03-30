@@ -1,5 +1,7 @@
 # GetVendorCreditsPaymentStatus
 
+Filter vendor credits by payment status
+
 ## Example Usage
 
 ```typescript

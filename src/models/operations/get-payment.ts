@@ -11,7 +11,13 @@ import * as models from "../index.js";
 
 export type GetPaymentRequest = {
   paymentId: string;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
+  /**
+   * When true, returns the unprocessed response from the upstream target system
+   */
   rawData?: boolean | undefined;
 };
 
@@ -31,6 +37,9 @@ export type GetPaymentErrors = {};
 
 export type GetPaymentRawData = {};
 
+/**
+ * Payment record matching the provided ID
+ */
 export type GetPaymentResponse = {
   meta?: GetPaymentMeta | null | undefined;
   data: models.PaymentResponseDto;

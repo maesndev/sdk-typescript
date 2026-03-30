@@ -10,6 +10,9 @@ import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
 export type CreateBookingsRequest = {
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
   body: models.CreateBookingsRequestDto;
 };
@@ -30,6 +33,9 @@ export type CreateBookingsErrors = {};
 
 export type CreateBookingsRawData = {};
 
+/**
+ * Booking created successfully
+ */
 export type CreateBookingsResponse = {
   meta?: CreateBookingsMeta | null | undefined;
   data: models.BookingsResponseDto;

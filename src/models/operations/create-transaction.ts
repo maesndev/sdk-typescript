@@ -20,6 +20,9 @@ export type CreateTransactionRequestBody = {
 };
 
 export type CreateTransactionRequest = {
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
   body: CreateTransactionRequestBody;
 };
@@ -40,6 +43,9 @@ export type CreateTransactionErrors = {};
 
 export type CreateTransactionRawData = {};
 
+/**
+ * Transaction created successfully
+ */
 export type CreateTransactionResponse = {
   meta?: CreateTransactionMeta | null | undefined;
   data: models.TransactionResponseDto;

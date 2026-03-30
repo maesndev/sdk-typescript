@@ -3,11 +3,51 @@
  */
 
 import * as z from "zod/v4-mini";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
+import { SDKValidationError } from "../errors/sdk-validation-error.js";
+import * as models from "../index.js";
 
 export type GetWebhooksRequest = {
+  /**
+   * Environment name (required for multi-environment systems such as Business Central)
+   */
   environmentName?: string | undefined;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
+  /**
+   * When true, returns the unprocessed response from the upstream target system
+   */
   rawData?: boolean | undefined;
+};
+
+export type GetWebhooksPagination = {
+  total: number;
+  perPage: number;
+  currentPage: number;
+  totalPages: number;
+};
+
+export type GetWebhooksMeta = {
+  warnings?: Array<string> | null | undefined;
+  pagination?: GetWebhooksPagination | null | undefined;
+};
+
+export type GetWebhooksErrors = {};
+
+export type GetWebhooksRawData = {};
+
+/**
+ * List of webhooks for the authenticated end user's connected target system
+ */
+export type GetWebhooksResponse = {
+  meta?: GetWebhooksMeta | null | undefined;
+  data: Array<models.WebhookResponseDto>;
+  errors: GetWebhooksErrors | null;
+  rawData: GetWebhooksRawData | null;
 };
 
 /** @internal */
@@ -32,5 +72,100 @@ export function getWebhooksRequestToJSON(
 ): string {
   return JSON.stringify(
     GetWebhooksRequest$outboundSchema.parse(getWebhooksRequest),
+  );
+}
+
+/** @internal */
+export const GetWebhooksPagination$inboundSchema: z.ZodMiniType<
+  GetWebhooksPagination,
+  unknown
+> = z.object({
+  total: types.number(),
+  perPage: types.number(),
+  currentPage: types.number(),
+  totalPages: types.number(),
+});
+
+export function getWebhooksPaginationFromJSON(
+  jsonString: string,
+): SafeParseResult<GetWebhooksPagination, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetWebhooksPagination$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetWebhooksPagination' from JSON`,
+  );
+}
+
+/** @internal */
+export const GetWebhooksMeta$inboundSchema: z.ZodMiniType<
+  GetWebhooksMeta,
+  unknown
+> = z.object({
+  warnings: z.optional(z.nullable(z.array(types.string()))),
+  pagination: z.optional(
+    z.nullable(z.lazy(() => GetWebhooksPagination$inboundSchema)),
+  ),
+});
+
+export function getWebhooksMetaFromJSON(
+  jsonString: string,
+): SafeParseResult<GetWebhooksMeta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetWebhooksMeta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetWebhooksMeta' from JSON`,
+  );
+}
+
+/** @internal */
+export const GetWebhooksErrors$inboundSchema: z.ZodMiniType<
+  GetWebhooksErrors,
+  unknown
+> = z.object({});
+
+export function getWebhooksErrorsFromJSON(
+  jsonString: string,
+): SafeParseResult<GetWebhooksErrors, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetWebhooksErrors$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetWebhooksErrors' from JSON`,
+  );
+}
+
+/** @internal */
+export const GetWebhooksRawData$inboundSchema: z.ZodMiniType<
+  GetWebhooksRawData,
+  unknown
+> = z.object({});
+
+export function getWebhooksRawDataFromJSON(
+  jsonString: string,
+): SafeParseResult<GetWebhooksRawData, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetWebhooksRawData$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetWebhooksRawData' from JSON`,
+  );
+}
+
+/** @internal */
+export const GetWebhooksResponse$inboundSchema: z.ZodMiniType<
+  GetWebhooksResponse,
+  unknown
+> = z.object({
+  meta: z.optional(z.nullable(z.lazy(() => GetWebhooksMeta$inboundSchema))),
+  data: z.array(models.WebhookResponseDto$inboundSchema),
+  errors: types.nullable(z.lazy(() => GetWebhooksErrors$inboundSchema)),
+  rawData: types.nullable(z.lazy(() => GetWebhooksRawData$inboundSchema)),
+});
+
+export function getWebhooksResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<GetWebhooksResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetWebhooksResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetWebhooksResponse' from JSON`,
   );
 }

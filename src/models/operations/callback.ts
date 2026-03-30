@@ -4,20 +4,43 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
+import { SDKValidationError } from "../errors/sdk-validation-error.js";
 
 export type CallbackRequest = {
   targetSystem: string;
-  code?: string | undefined;
+  /**
+   * OAuth state parameter returned by the target system, encoding tenant and user context
+   */
   state: string;
+  /**
+   * Authorization code returned by the target system after successful OAuth consent
+   */
+  code?: string | undefined;
+  /**
+   * Realm ID returned by QuickBooks Online after OAuth consent
+   */
   realmId?: string | undefined;
+  /**
+   * Access token returned directly by some target systems that do not use an authorization code flow
+   */
   token?: string | undefined;
+};
+
+/**
+ * OAuth callback processed and redirect URL returned successfully
+ */
+export type CallbackResponse = {
+  url?: string | undefined;
 };
 
 /** @internal */
 export type CallbackRequest$Outbound = {
   TARGET_SYSTEM: string;
-  code?: string | undefined;
   state: string;
+  code?: string | undefined;
   realmId?: string | undefined;
   token?: string | undefined;
 };
@@ -29,8 +52,8 @@ export const CallbackRequest$outboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     targetSystem: z.string(),
-    code: z.optional(z.string()),
     state: z.string(),
+    code: z.optional(z.string()),
     realmId: z.optional(z.string()),
     token: z.optional(z.string()),
   }),
@@ -45,4 +68,22 @@ export function callbackRequestToJSON(
   callbackRequest: CallbackRequest,
 ): string {
   return JSON.stringify(CallbackRequest$outboundSchema.parse(callbackRequest));
+}
+
+/** @internal */
+export const CallbackResponse$inboundSchema: z.ZodMiniType<
+  CallbackResponse,
+  unknown
+> = z.object({
+  url: types.optional(types.string()),
+});
+
+export function callbackResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<CallbackResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CallbackResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CallbackResponse' from JSON`,
+  );
 }

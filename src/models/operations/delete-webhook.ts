@@ -3,12 +3,26 @@
  */
 
 import * as z from "zod/v4-mini";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdk-validation-error.js";
 
 export type DeleteWebhookRequest = {
   webhookId: string;
+  /**
+   * Environment name (required for multi-environment systems such as Business Central)
+   */
   environmentName?: string | undefined;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
 };
+
+/**
+ * Operation completed successfully
+ */
+export type DeleteWebhookResponse = {};
 
 /** @internal */
 export type DeleteWebhookRequest$Outbound = {
@@ -32,5 +46,21 @@ export function deleteWebhookRequestToJSON(
 ): string {
   return JSON.stringify(
     DeleteWebhookRequest$outboundSchema.parse(deleteWebhookRequest),
+  );
+}
+
+/** @internal */
+export const DeleteWebhookResponse$inboundSchema: z.ZodMiniType<
+  DeleteWebhookResponse,
+  unknown
+> = z.object({});
+
+export function deleteWebhookResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<DeleteWebhookResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DeleteWebhookResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DeleteWebhookResponse' from JSON`,
   );
 }

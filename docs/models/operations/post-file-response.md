@@ -1,5 +1,7 @@
 # PostFileResponse
 
+File uploaded successfully
+
 ## Example Usage
 
 ```typescript

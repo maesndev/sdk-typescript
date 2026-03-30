@@ -12,6 +12,6 @@ let value: GetSubmitPageRequest = {
 
 ## Fields
 
-| Field              | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `code`             | *string*           | :heavy_check_mark: | N/A                |
+| Field                                                 | Type                                                  | Required                                              | Description                                           |
+| ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
+| `code`                                                | *string*                                              | :heavy_check_mark:                                    | Unique code identifying the tenant submission session |

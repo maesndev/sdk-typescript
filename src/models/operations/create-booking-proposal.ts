@@ -28,6 +28,9 @@ export type CreateBookingProposalRequestBody = {
 };
 
 export type CreateBookingProposalRequest = {
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
   body: CreateBookingProposalRequestBody;
 };
@@ -48,6 +51,9 @@ export type CreateBookingProposalErrors = {};
 
 export type CreateBookingProposalRawData = {};
 
+/**
+ * Booking proposal created successfully
+ */
 export type CreateBookingProposalResponse = {
   meta?: CreateBookingProposalMeta | null | undefined;
   data: models.BookingProposalResponseDto;

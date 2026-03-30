@@ -40,6 +40,9 @@ export type CreateJournalEntryAttachmentsErrors = {};
 
 export type CreateJournalEntryAttachmentsRawData = {};
 
+/**
+ * Journal entry attachment uploaded successfully
+ */
 export type CreateJournalEntryAttachmentsResponse = {
   meta?: CreateJournalEntryAttachmentsMeta | null | undefined;
   data: models.JournalEntryResponseDto;

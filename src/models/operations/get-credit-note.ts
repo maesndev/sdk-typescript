@@ -11,8 +11,17 @@ import * as models from "../index.js";
 
 export type GetCreditNoteRequest = {
   creditNoteId: string;
+  /**
+   * Environment name (required for multi-environment systems such as Business Central)
+   */
   environmentName?: string | undefined;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
+  /**
+   * When true, returns the unprocessed response from the upstream target system
+   */
   rawData?: boolean | undefined;
 };
 
@@ -32,6 +41,9 @@ export type GetCreditNoteErrors = {};
 
 export type GetCreditNoteRawData = {};
 
+/**
+ * Credit note record matching the provided ID
+ */
 export type GetCreditNoteResponse = {
   meta?: GetCreditNoteMeta | null | undefined;
   data: models.CreditNoteResponseDto;

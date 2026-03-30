@@ -1,5 +1,7 @@
 # CreateJournalEntryResponse
 
+Journal entry created successfully
+
 ## Example Usage
 
 ```typescript

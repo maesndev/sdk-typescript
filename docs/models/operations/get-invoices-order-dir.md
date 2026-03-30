@@ -1,5 +1,7 @@
 # GetInvoicesOrderDir
 
+Sort direction for the ordered results
+
 ## Example Usage
 
 ```typescript

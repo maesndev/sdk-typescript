@@ -11,9 +11,21 @@ import * as models from "../index.js";
 
 export type GetJournalEntryRequest = {
   journalEntryId: string;
+  /**
+   * Environment name (required for multi-environment systems such as Business Central)
+   */
   environmentName?: string | undefined;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
+  /**
+   * Journal code used to scope the journal entry lookup on systems that require it
+   */
   journalCode?: string | undefined;
+  /**
+   * When true, returns the unprocessed response from the upstream target system
+   */
   rawData?: boolean | undefined;
 };
 
@@ -33,6 +45,9 @@ export type GetJournalEntryErrors = {};
 
 export type GetJournalEntryRawData = {};
 
+/**
+ * Journal entry record matching the provided ID
+ */
 export type GetJournalEntryResponse = {
   meta?: GetJournalEntryMeta | null | undefined;
   data: models.JournalEntryResponseDto;

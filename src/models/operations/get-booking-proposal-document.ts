@@ -29,6 +29,9 @@ export type GetBookingProposalDocumentErrors = {};
 
 export type GetBookingProposalDocumentRawData = {};
 
+/**
+ * Document associated with the specified booking proposal
+ */
 export type GetBookingProposalDocumentResponse = {
   meta?: GetBookingProposalDocumentMeta | null | undefined;
   data: models.DocumentResponseDto;

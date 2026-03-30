@@ -8,13 +8,7 @@ import { safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
-
-export type Subscription = {
-  id: string | null;
-  name?: string | null | undefined;
-  status?: string | null | undefined;
-  active?: boolean | null | undefined;
-};
+import { Subscription, Subscription$inboundSchema } from "./subscription.js";
 
 export type CompanyResponseDto = {
   id: string | null;
@@ -22,27 +16,8 @@ export type CompanyResponseDto = {
   environmentId?: string | null | undefined;
   clientNumber?: number | null | undefined;
   consultantNumber?: number | null | undefined;
-  subscription?: Subscription | null | undefined;
+  subscription?: Array<Subscription> | null | undefined;
 };
-
-/** @internal */
-export const Subscription$inboundSchema: z.ZodMiniType<Subscription, unknown> =
-  z.object({
-    id: types.nullable(types.string()),
-    name: z.optional(z.nullable(types.string())),
-    status: z.optional(z.nullable(types.string())),
-    active: z.optional(z.nullable(types.boolean())),
-  });
-
-export function subscriptionFromJSON(
-  jsonString: string,
-): SafeParseResult<Subscription, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => Subscription$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Subscription' from JSON`,
-  );
-}
 
 /** @internal */
 export const CompanyResponseDto$inboundSchema: z.ZodMiniType<
@@ -55,9 +30,7 @@ export const CompanyResponseDto$inboundSchema: z.ZodMiniType<
     environmentId: z.optional(z.nullable(types.string())),
     client_number: z.optional(z.nullable(types.number())),
     consultant_number: z.optional(z.nullable(types.number())),
-    subscription: z.optional(
-      z.nullable(z.lazy(() => Subscription$inboundSchema)),
-    ),
+    subscription: z.optional(z.nullable(z.array(Subscription$inboundSchema))),
   }),
   z.transform((v) => {
     return remap$(v, {

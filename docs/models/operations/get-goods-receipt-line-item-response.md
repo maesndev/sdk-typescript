@@ -1,5 +1,7 @@
 # GetGoodsReceiptLineItemResponse
 
+Goods receipt line item record matching the provided ID
+
 ## Example Usage
 
 ```typescript

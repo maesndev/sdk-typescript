@@ -10,7 +10,13 @@ import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
 export type CreateInvoiceRequest = {
+  /**
+   * Environment name (required for multi-environment systems such as Business Central)
+   */
   environmentName?: string | undefined;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
   body: models.CreateInvoiceRequestDto;
 };
@@ -31,6 +37,9 @@ export type CreateInvoiceErrors = {};
 
 export type CreateInvoiceRawData = {};
 
+/**
+ * Invoice created successfully
+ */
 export type CreateInvoiceResponse = {
   meta?: CreateInvoiceMeta | null | undefined;
   data: models.InvoiceResponseDto;

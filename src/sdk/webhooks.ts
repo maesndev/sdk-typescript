@@ -19,7 +19,7 @@ export class Webhooks extends ClientSDK {
   async createWebhookEndUser(
     request: operations.CreateWebhookEndUserRequest,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<operations.CreateWebhookEndUserResponse> {
     return unwrapAsync(webhooksCreateWebhookEndUser(
       this,
       request,
@@ -30,7 +30,7 @@ export class Webhooks extends ClientSDK {
   async createWebHookTenant(
     request: models.CreateAccountingWebhookRequestDto,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<operations.CreateWebHookTenantResponse> {
     return unwrapAsync(webhooksCreateWebHookTenant(
       this,
       request,
@@ -41,7 +41,7 @@ export class Webhooks extends ClientSDK {
   async deleteWebhookEndUser(
     request: operations.DeleteWebhookEndUserRequest,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<operations.DeleteWebhookEndUserResponse> {
     return unwrapAsync(webhooksDeleteWebhookEndUser(
       this,
       request,
@@ -52,7 +52,7 @@ export class Webhooks extends ClientSDK {
   async deleteWebhookTenant(
     request: operations.DeleteWebhookTenantRequest,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<string> {
     return unwrapAsync(webhooksDeleteWebhookTenant(
       this,
       request,
@@ -63,7 +63,7 @@ export class Webhooks extends ClientSDK {
   async createWebhookConfig(
     request: models.CreateAccountingWebhookRequestDto,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<operations.CreateWebhookConfigResponse> {
     return unwrapAsync(webhooksCreateWebhookConfig(
       this,
       request,
@@ -74,7 +74,7 @@ export class Webhooks extends ClientSDK {
   async createWebhook(
     request: operations.CreateWebhookRequest,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<operations.CreateWebhookResponse> {
     return unwrapAsync(webhooksCreateWebhook(
       this,
       request,
@@ -85,7 +85,7 @@ export class Webhooks extends ClientSDK {
   async deleteWebhook(
     request: operations.DeleteWebhookRequest,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<operations.DeleteWebhookResponse> {
     return unwrapAsync(webhooksDeleteWebhook(
       this,
       request,
@@ -96,7 +96,7 @@ export class Webhooks extends ClientSDK {
   async getWebhooks(
     request?: operations.GetWebhooksRequest | undefined,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<operations.GetWebhooksResponse> {
     return unwrapAsync(webhooksGetWebhooks(
       this,
       request,

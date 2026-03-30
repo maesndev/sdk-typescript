@@ -10,6 +10,9 @@ import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
 export type GetCompaniesFlowRequest = {
+  /**
+   * Environment name (required for multi-environment systems such as Business Central)
+   */
   environmentName?: string | undefined;
 };
 
@@ -29,6 +32,9 @@ export type GetCompaniesFlowErrors = {};
 
 export type GetCompaniesFlowRawData = {};
 
+/**
+ * List of companies for the authenticated end user's connected target system
+ */
 export type GetCompaniesFlowResponse = {
   meta?: GetCompaniesFlowMeta | null | undefined;
   data: Array<models.CompanyResponseDto>;

@@ -12,9 +12,21 @@ import * as models from "../index.js";
 export type GetContactsV2Request = {
   page?: number | undefined;
   limit?: number | undefined;
+  /**
+   * ISO 8601 timestamp; only records modified after this date are returned
+   */
   lastModifiedAt?: string | undefined;
+  /**
+   * Environment name (required for multi-environment systems such as Business Central)
+   */
   environmentName?: string | undefined;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
+  /**
+   * When true, returns the unprocessed response from the upstream target system
+   */
   rawData?: boolean | undefined;
 };
 
@@ -34,6 +46,9 @@ export type GetContactsV2Errors = {};
 
 export type GetContactsV2RawData = {};
 
+/**
+ * List of contacts for the authenticated end user's connected target system
+ */
 export type GetContactsV2Response = {
   meta?: GetContactsV2Meta | null | undefined;
   data: Array<models.ContactResponseDtoV2>;

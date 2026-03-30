@@ -10,6 +10,9 @@ import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
+/**
+ * Filter bills by unified status
+ */
 export const GetBillsStatus = {
   Draft: "DRAFT",
   Corrective: "CORRECTIVE",
@@ -22,8 +25,14 @@ export const GetBillsStatus = {
   Overdue: "OVERDUE",
   Voided: "VOIDED",
 } as const;
+/**
+ * Filter bills by unified status
+ */
 export type GetBillsStatus = ClosedEnum<typeof GetBillsStatus>;
 
+/**
+ * Filter bills by payment status
+ */
 export const GetBillsPaymentStatus = {
   NoOpenItem: "NO_OPEN_ITEM",
   Pending: "PENDING",
@@ -37,32 +46,71 @@ export const GetBillsPaymentStatus = {
   Canceled: "CANCELED",
   Unknown: "UNKNOWN",
 } as const;
+/**
+ * Filter bills by payment status
+ */
 export type GetBillsPaymentStatus = ClosedEnum<typeof GetBillsPaymentStatus>;
 
+/**
+ * Field to sort the results by
+ */
 export const GetBillsOrderField = {
   BillDate: "billDate",
   BillNumber: "billNumber",
   CreatedDate: "createdDate",
   UpdatedDate: "updatedDate",
 } as const;
+/**
+ * Field to sort the results by
+ */
 export type GetBillsOrderField = ClosedEnum<typeof GetBillsOrderField>;
 
+/**
+ * Sort direction for the ordered results
+ */
 export const GetBillsOrderDir = {
   Asc: "ASC",
   Desc: "DESC",
 } as const;
+/**
+ * Sort direction for the ordered results
+ */
 export type GetBillsOrderDir = ClosedEnum<typeof GetBillsOrderDir>;
 
 export type GetBillsRequest = {
   page?: number | undefined;
   limit?: number | undefined;
+  /**
+   * ISO 8601 timestamp; only records modified after this date are returned
+   */
   lastModifiedAt?: string | undefined;
+  /**
+   * Environment name (required for multi-environment systems such as Business Central)
+   */
   environmentName?: string | undefined;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
+  /**
+   * Filter bills by unified status
+   */
   status?: GetBillsStatus | undefined;
+  /**
+   * Filter bills by payment status
+   */
   paymentStatus?: GetBillsPaymentStatus | undefined;
+  /**
+   * When true, returns the unprocessed response from the upstream target system
+   */
   rawData?: boolean | undefined;
+  /**
+   * Field to sort the results by
+   */
   orderField?: GetBillsOrderField | undefined;
+  /**
+   * Sort direction for the ordered results
+   */
   orderDir?: GetBillsOrderDir | undefined;
 };
 
@@ -82,6 +130,9 @@ export type GetBillsErrors = {};
 
 export type GetBillsRawData = {};
 
+/**
+ * List of bills for the authenticated end user's connected target system
+ */
 export type GetBillsResponse = {
   meta?: GetBillsMeta | null | undefined;
   data: Array<models.BillResponseDto>;

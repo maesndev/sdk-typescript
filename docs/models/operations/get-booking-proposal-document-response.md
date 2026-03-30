@@ -1,5 +1,7 @@
 # GetBookingProposalDocumentResponse
 
+Document associated with the specified booking proposal
+
 ## Example Usage
 
 ```typescript

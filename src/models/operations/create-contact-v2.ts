@@ -10,7 +10,13 @@ import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
 export type CreateContactV2Request = {
+  /**
+   * Environment name (required for multi-environment systems such as Business Central)
+   */
   environmentName?: string | undefined;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
   body: models.CreateContactRequestDtoV2;
 };
@@ -31,6 +37,9 @@ export type CreateContactV2Errors = {};
 
 export type CreateContactV2RawData = {};
 
+/**
+ * Contact created successfully
+ */
 export type CreateContactV2Response = {
   meta?: CreateContactV2Meta | null | undefined;
   data: models.ContactResponseDtoV2;

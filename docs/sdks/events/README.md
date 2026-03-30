@@ -25,11 +25,11 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  await maesn.events.handleCallback({
+  const result = await maesn.events.handleCallback({
     code: "<value>",
   });
 
-
+  console.log(result);
 }
 
 run();
@@ -59,7 +59,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    
+    console.log(result);
   } else {
     console.log("eventsHandleCallback failed:", res.error);
   }
@@ -79,7 +79,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[operations.HandleCallbackResponse](../../models/operations/handle-callback-response.md)\>**
 
 ### Errors
 
@@ -104,11 +104,11 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  await maesn.events.getCode({
+  const result = await maesn.events.getCode({
     code: "<value>",
   });
 
-
+  console.log(result);
 }
 
 run();
@@ -138,7 +138,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    
+    console.log(result);
   } else {
     console.log("eventsGetCode failed:", res.error);
   }
@@ -158,7 +158,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[operations.GetCodeResponse](../../models/operations/get-code-response.md)\>**
 
 ### Errors
 
@@ -183,11 +183,11 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  await maesn.events.handleConfigurationCallback({
+  const result = await maesn.events.handleConfigurationCallback({
     code: "<value>",
   });
 
-
+  console.log(result);
 }
 
 run();
@@ -217,7 +217,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    
+    console.log(result);
   } else {
     console.log("eventsHandleConfigurationCallback failed:", res.error);
   }
@@ -237,7 +237,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[operations.HandleConfigurationCallbackResponse](../../models/operations/handle-configuration-callback-response.md)\>**
 
 ### Errors
 

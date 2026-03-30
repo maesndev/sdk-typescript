@@ -1,5 +1,7 @@
 # DebitCreditIndicator
 
+Filter accounts by debit/credit indicator
+
 ## Example Usage
 
 ```typescript

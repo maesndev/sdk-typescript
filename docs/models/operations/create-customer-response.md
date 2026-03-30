@@ -1,5 +1,7 @@
 # CreateCustomerResponse
 
+Customer created successfully
+
 ## Example Usage
 
 ```typescript

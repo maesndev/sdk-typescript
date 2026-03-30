@@ -1,5 +1,7 @@
 # CreateContactV2Response
 
+Contact created successfully
+
 ## Example Usage
 
 ```typescript

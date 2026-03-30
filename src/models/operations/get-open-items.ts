@@ -12,13 +12,37 @@ import * as models from "../index.js";
 export type GetOpenItemsRequest = {
   page?: number | undefined;
   limit?: number | undefined;
+  /**
+   * ISO 8601 timestamp; only records modified after this date are returned
+   */
   lastModifiedAt?: string | undefined;
+  /**
+   * Environment name (required for multi-environment systems such as Business Central)
+   */
   environmentName?: string | undefined;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
+  /**
+   * When true, returns the unprocessed response from the upstream target system
+   */
   rawData?: boolean | undefined;
+  /**
+   * Fiscal year to scope the open items results (e.g. 2024)
+   */
   fiscalYear?: number | undefined;
+  /**
+   * Filter open items by account number
+   */
   accountNumber?: string | undefined;
+  /**
+   * Filter open items by document number
+   */
   documentNumber?: string | undefined;
+  /**
+   * Filter open items by type (e.g. receivable, payable)
+   */
   type?: string | undefined;
 };
 
@@ -38,6 +62,9 @@ export type GetOpenItemsErrors = {};
 
 export type GetOpenItemsRawData = {};
 
+/**
+ * List of open items for the authenticated end user's connected target system
+ */
 export type GetOpenItemsResponse = {
   meta?: GetOpenItemsMeta | null | undefined;
   data: Array<models.OpenItemResponseDto>;

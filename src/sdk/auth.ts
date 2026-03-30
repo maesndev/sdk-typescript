@@ -54,7 +54,7 @@ export class Auth extends ClientSDK {
   async getSubmitPage(
     request: operations.GetSubmitPageRequest,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<operations.GetSubmitPageResponse> {
     return unwrapAsync(authGetSubmitPage(
       this,
       request,
@@ -64,7 +64,7 @@ export class Auth extends ClientSDK {
 
   async apiKeyConfirmation(
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<operations.ApiKeyConfirmationResponse> {
     return unwrapAsync(authApiKeyConfirmation(
       this,
       options,
@@ -73,7 +73,7 @@ export class Auth extends ClientSDK {
 
   async cancel(
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<operations.CancelResponse> {
     return unwrapAsync(authCancel(
       this,
       options,
@@ -83,7 +83,7 @@ export class Auth extends ClientSDK {
   async test(
     request: operations.TestRequest,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<operations.TestResponse> {
     return unwrapAsync(authTest(
       this,
       request,
@@ -92,9 +92,9 @@ export class Auth extends ClientSDK {
   }
 
   async longToken(
-    request?: operations.LongTokenRequest | undefined,
+    request: operations.LongTokenRequest,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<string> {
     return unwrapAsync(authLongToken(
       this,
       request,
@@ -105,7 +105,7 @@ export class Auth extends ClientSDK {
   async getEnvironmentPage(
     request: operations.GetEnvironmentPageRequest,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<operations.GetEnvironmentPageResponse> {
     return unwrapAsync(authGetEnvironmentPage(
       this,
       request,
@@ -116,7 +116,7 @@ export class Auth extends ClientSDK {
   async setEndUserSelections(
     request: operations.SetEndUserSelectionsRequest,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<operations.SetEndUserSelectionsResponse> {
     return unwrapAsync(authSetEndUserSelections(
       this,
       request,
@@ -127,7 +127,7 @@ export class Auth extends ClientSDK {
   async systemLoginUrl(
     request: operations.SystemLoginUrlRequest,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<string> {
     return unwrapAsync(authSystemLoginUrl(
       this,
       request,
@@ -138,7 +138,7 @@ export class Auth extends ClientSDK {
   async callback(
     request: operations.CallbackRequest,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<operations.CallbackResponse> {
     return unwrapAsync(authCallback(
       this,
       request,
@@ -149,7 +149,7 @@ export class Auth extends ClientSDK {
   async createEndUserAccount(
     request: operations.CreateEndUserAccountRequest,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<operations.CreateEndUserAccountResponse> {
     return unwrapAsync(authCreateEndUserAccount(
       this,
       request,

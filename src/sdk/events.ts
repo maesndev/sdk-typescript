@@ -13,7 +13,7 @@ export class Events extends ClientSDK {
   async handleCallback(
     request: operations.HandleCallbackRequest,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<operations.HandleCallbackResponse> {
     return unwrapAsync(eventsHandleCallback(
       this,
       request,
@@ -24,7 +24,7 @@ export class Events extends ClientSDK {
   async getCode(
     request: operations.GetCodeRequest,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<operations.GetCodeResponse> {
     return unwrapAsync(eventsGetCode(
       this,
       request,
@@ -35,7 +35,7 @@ export class Events extends ClientSDK {
   async handleConfigurationCallback(
     request: operations.HandleConfigurationCallbackRequest,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<operations.HandleConfigurationCallbackResponse> {
     return unwrapAsync(eventsHandleConfigurationCallback(
       this,
       request,

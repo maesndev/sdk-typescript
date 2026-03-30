@@ -1,5 +1,7 @@
 # GetBillsStatus
 
+Filter bills by unified status
+
 ## Example Usage
 
 ```typescript

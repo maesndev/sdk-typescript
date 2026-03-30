@@ -1,5 +1,7 @@
 # PutContactV2Response
 
+Contact updated successfully
+
 ## Example Usage
 
 ```typescript

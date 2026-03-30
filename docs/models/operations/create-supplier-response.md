@@ -1,5 +1,7 @@
 # CreateSupplierResponse
 
+Supplier created successfully
+
 ## Example Usage
 
 ```typescript

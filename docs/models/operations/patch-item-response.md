@@ -1,5 +1,7 @@
 # PatchItemResponse
 
+Item updated successfully
+
 ## Example Usage
 
 ```typescript

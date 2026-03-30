@@ -1,5 +1,7 @@
 # CreatePassThroughRequestResponse
 
+Pass-through request forwarded to the upstream target system successfully
+
 ## Example Usage
 
 ```typescript

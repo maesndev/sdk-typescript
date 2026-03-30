@@ -1,5 +1,7 @@
 # CreateBankAccountResponse
 
+Bank account created successfully
+
 ## Example Usage
 
 ```typescript

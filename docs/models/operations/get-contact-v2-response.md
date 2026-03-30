@@ -1,5 +1,7 @@
 # GetContactV2Response
 
+Contact record matching the provided ID
+
 ## Example Usage
 
 ```typescript

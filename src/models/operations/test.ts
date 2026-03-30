@@ -3,9 +3,23 @@
  */
 
 import * as z from "zod/v4-mini";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
+import { SDKValidationError } from "../errors/sdk-validation-error.js";
 
 export type TestRequest = {
+  /**
+   * End user account key (X-ACCOUNT-KEY) to pre-fill the confirmation page
+   */
   accountKey: string;
+};
+
+/**
+ * API key confirmation page rendered successfully
+ */
+export type TestResponse = {
+  apiKey?: string | undefined;
 };
 
 /** @internal */
@@ -23,4 +37,20 @@ export const TestRequest$outboundSchema: z.ZodMiniType<
 
 export function testRequestToJSON(testRequest: TestRequest): string {
   return JSON.stringify(TestRequest$outboundSchema.parse(testRequest));
+}
+
+/** @internal */
+export const TestResponse$inboundSchema: z.ZodMiniType<TestResponse, unknown> =
+  z.object({
+    apiKey: types.optional(types.string()),
+  });
+
+export function testResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<TestResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => TestResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TestResponse' from JSON`,
+  );
 }

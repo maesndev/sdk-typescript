@@ -12,10 +12,25 @@ import * as models from "../index.js";
 export type GetPaymentsRequest = {
   page?: number | undefined;
   limit?: number | undefined;
+  /**
+   * Environment name (required for multi-environment systems such as Business Central)
+   */
   environmentName?: string | undefined;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
+  /**
+   * ISO 8601 timestamp; only records modified after this date are returned
+   */
   lastModifiedAt?: string | undefined;
+  /**
+   * ID of the invoice to filter payments by
+   */
   invoiceId?: string | undefined;
+  /**
+   * When true, returns the unprocessed response from the upstream target system
+   */
   rawData?: boolean | undefined;
 };
 
@@ -35,6 +50,9 @@ export type GetPaymentsErrors = {};
 
 export type GetPaymentsRawData = {};
 
+/**
+ * List of payments for the authenticated end user's connected target system
+ */
 export type GetPaymentsResponse = {
   meta?: GetPaymentsMeta | null | undefined;
   data: Array<models.PaymentResponseDto>;

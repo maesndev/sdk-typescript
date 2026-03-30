@@ -10,24 +10,60 @@ import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
+/**
+ * Filter accounts by debit/credit indicator
+ */
 export const DebitCreditIndicator = {
   Debit: "DEBIT",
   Credit: "CREDIT",
 } as const;
+/**
+ * Filter accounts by debit/credit indicator
+ */
 export type DebitCreditIndicator = ClosedEnum<typeof DebitCreditIndicator>;
 
 export type GetAccountsRequest = {
   page?: number | undefined;
   limit?: number | undefined;
+  /**
+   * ISO 8601 timestamp; only records modified after this date are returned
+   */
   lastModifiedAt?: string | undefined;
+  /**
+   * Environment name (required for multi-environment systems such as Business Central)
+   */
   environmentName?: string | undefined;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
+  /**
+   * When true, returns the unprocessed response from the upstream target system
+   */
   rawData?: boolean | undefined;
+  /**
+   * Filter accounts by debit/credit indicator
+   */
   debitCreditIndicator?: DebitCreditIndicator | undefined;
+  /**
+   * Fiscal year to scope the account balances (e.g. 2024)
+   */
   fiscalYear?: number | undefined;
+  /**
+   * Comma-separated list of account types to filter by
+   */
   types?: string | undefined;
+  /**
+   * ISO 8601 start date of the fiscal year used for balance calculation
+   */
   fiscalYearStartDate?: string | undefined;
+  /**
+   * Filter accounts by account class (e.g. asset, liability, equity)
+   */
   classFilter?: string | undefined;
+  /**
+   * When true, returns only active accounts; when false, returns only inactive accounts
+   */
   isActive?: boolean | undefined;
 };
 
@@ -47,6 +83,9 @@ export type GetAccountsErrors = {};
 
 export type GetAccountsRawData = {};
 
+/**
+ * List of accounts for the authenticated end user's connected target system
+ */
 export type GetAccountsResponse = {
   meta?: GetAccountsMeta | null | undefined;
   data: Array<models.AccountResponseDto>;

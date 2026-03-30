@@ -1,5 +1,7 @@
 # CreateOfferResponse
 
+Offer created successfully
+
 ## Example Usage
 
 ```typescript

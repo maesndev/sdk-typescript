@@ -10,8 +10,17 @@ import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
 export type GetFiscalYearsRequest = {
+  /**
+   * Environment name (required for multi-environment systems such as Business Central)
+   */
   environmentName?: string | undefined;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
+  /**
+   * When true, returns the unprocessed response from the upstream target system
+   */
   rawData?: boolean | undefined;
 };
 
@@ -31,6 +40,9 @@ export type GetFiscalYearsErrors = {};
 
 export type GetFiscalYearsRawData = {};
 
+/**
+ * List of fiscal years for the authenticated end user's connected target system
+ */
 export type GetFiscalYearsResponse = {
   meta?: GetFiscalYearsMeta | null | undefined;
   data: Array<models.FiscalYearResponseDto>;

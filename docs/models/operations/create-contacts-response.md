@@ -1,5 +1,7 @@
 # CreateContactsResponse
 
+Contacts created successfully in bulk
+
 ## Example Usage
 
 ```typescript

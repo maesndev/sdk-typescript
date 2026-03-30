@@ -20,7 +20,13 @@ export type CreateExpenseRequestBody = {
 };
 
 export type CreateExpenseRequest = {
+  /**
+   * Environment name (required for multi-environment systems such as Business Central)
+   */
   environmentName?: string | undefined;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
   body: CreateExpenseRequestBody;
 };
@@ -41,6 +47,9 @@ export type CreateExpenseErrors = {};
 
 export type CreateExpenseRawData = {};
 
+/**
+ * Expense created successfully
+ */
 export type CreateExpenseResponse = {
   meta?: CreateExpenseMeta | null | undefined;
   data: models.ExpenseResponseDto;

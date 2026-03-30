@@ -10,6 +10,9 @@ import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
+/**
+ * Filter vendor credits by unified status
+ */
 export const GetVendorCreditsStatus = {
   Draft: "DRAFT",
   Corrective: "CORRECTIVE",
@@ -22,8 +25,14 @@ export const GetVendorCreditsStatus = {
   Overdue: "OVERDUE",
   Voided: "VOIDED",
 } as const;
+/**
+ * Filter vendor credits by unified status
+ */
 export type GetVendorCreditsStatus = ClosedEnum<typeof GetVendorCreditsStatus>;
 
+/**
+ * Filter vendor credits by payment status
+ */
 export const GetVendorCreditsPaymentStatus = {
   NoOpenItem: "NO_OPEN_ITEM",
   Pending: "PENDING",
@@ -37,6 +46,9 @@ export const GetVendorCreditsPaymentStatus = {
   Canceled: "CANCELED",
   Unknown: "UNKNOWN",
 } as const;
+/**
+ * Filter vendor credits by payment status
+ */
 export type GetVendorCreditsPaymentStatus = ClosedEnum<
   typeof GetVendorCreditsPaymentStatus
 >;
@@ -44,11 +56,29 @@ export type GetVendorCreditsPaymentStatus = ClosedEnum<
 export type GetVendorCreditsRequest = {
   page?: number | undefined;
   limit?: number | undefined;
+  /**
+   * ISO 8601 timestamp; only records modified after this date are returned
+   */
   lastModifiedAt?: string | undefined;
+  /**
+   * Environment name (required for multi-environment systems such as Business Central)
+   */
   environmentName?: string | undefined;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
+  /**
+   * Filter vendor credits by unified status
+   */
   status?: GetVendorCreditsStatus | undefined;
+  /**
+   * Filter vendor credits by payment status
+   */
   paymentStatus?: GetVendorCreditsPaymentStatus | undefined;
+  /**
+   * When true, returns the unprocessed response from the upstream target system
+   */
   rawData?: boolean | undefined;
 };
 
@@ -68,6 +98,9 @@ export type GetVendorCreditsErrors = {};
 
 export type GetVendorCreditsRawData = {};
 
+/**
+ * List of vendor credits for the authenticated end user's connected target system
+ */
 export type GetVendorCreditsResponse = {
   meta?: GetVendorCreditsMeta | null | undefined;
   data: Array<models.VendorCreditResponseDto>;

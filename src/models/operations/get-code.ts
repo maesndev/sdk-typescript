@@ -3,10 +3,18 @@
  */
 
 import * as z from "zod/v4-mini";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdk-validation-error.js";
 
 export type GetCodeRequest = {
   code: string;
 };
+
+/**
+ * Authorization code saved successfully
+ */
+export type GetCodeResponse = {};
 
 /** @internal */
 export type GetCodeRequest$Outbound = {
@@ -23,4 +31,20 @@ export const GetCodeRequest$outboundSchema: z.ZodMiniType<
 
 export function getCodeRequestToJSON(getCodeRequest: GetCodeRequest): string {
   return JSON.stringify(GetCodeRequest$outboundSchema.parse(getCodeRequest));
+}
+
+/** @internal */
+export const GetCodeResponse$inboundSchema: z.ZodMiniType<
+  GetCodeResponse,
+  unknown
+> = z.object({});
+
+export function getCodeResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<GetCodeResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetCodeResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetCodeResponse' from JSON`,
+  );
 }

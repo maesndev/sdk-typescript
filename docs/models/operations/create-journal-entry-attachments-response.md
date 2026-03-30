@@ -1,5 +1,7 @@
 # CreateJournalEntryAttachmentsResponse
 
+Journal entry attachment uploaded successfully
+
 ## Example Usage
 
 ```typescript

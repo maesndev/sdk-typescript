@@ -9,18 +9,24 @@ Developer-friendly & type-safe Typescript SDK specifically catered to leverage *
 <!-- Start Summary [summary] -->
 ## Summary
 
-Maesn unified API Tenants: The Maesn unified API description
-The Maesn unified API auth description
-The Maesn unified API events description
-The Maesn unified API webhooks description
-The Maesn unified API health description
-The Maesn unified API tenant description
+Maesn Unified API: The Maesn Unified API provides a single interface to 30+ accounting and ERP target systems — including Exact, Xero, Sevdesk, Lexoffice, QuickBooks, DATEV, FreshBooks, and more.
+
+All resources (invoices, contacts, accounts, bills, journal entries, payments) are normalized to a common schema, so your integration works across every connected system without modification.
+
+## Features
+
+- **Unified schema** — one data model across all target systems
+- **Multi-tenant** — isolated API keys and account keys per tenant and end user
+- **OAuth integration** — built-in OAuth flows for all supported target systems
+- **Webhook support** — subscribe to real-time events from connected target systems
+- **Async processing** — long-running operations return a `taskId` for status polling
 <!-- End Summary [summary] -->
 
 <!-- Start Table of Contents [toc] -->
 ## Table of Contents
 <!-- $toc-max-depth=2 -->
 * [maesn](#maesn)
+  * [Features](#features)
   * [SDK Installation](#sdk-installation)
   * [Requirements](#requirements)
   * [SDK Example Usage](#sdk-example-usage)
@@ -713,7 +719,9 @@ const maesn = new Maesn({
 
 async function run() {
   try {
-    await maesn.health.details();
+    const result = await maesn.health.details();
+
+    console.log(result);
   } catch (error) {
     // The base class for HTTP error responses
     if (error instanceof errors.MaesnError) {

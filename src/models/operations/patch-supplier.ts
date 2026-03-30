@@ -11,7 +11,13 @@ import * as models from "../index.js";
 
 export type PatchSupplierRequest = {
   contactId: string;
+  /**
+   * Environment name (required for multi-environment systems such as Business Central)
+   */
   environmentName?: string | undefined;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
   body: models.PatchContactRequestDto;
 };
@@ -32,6 +38,9 @@ export type PatchSupplierErrors = {};
 
 export type PatchSupplierRawData = {};
 
+/**
+ * Supplier updated successfully
+ */
 export type PatchSupplierResponse = {
   meta?: PatchSupplierMeta | null | undefined;
   data: models.ContactResponseDto;

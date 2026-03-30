@@ -30,13 +30,13 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  await maesn.webhooks.createWebhookEndUser({
+  const result = await maesn.webhooks.createWebhookEndUser({
     body: {
       callbackUrl: "https://oddball-subsidy.com/",
     },
   });
 
-
+  console.log(result);
 }
 
 run();
@@ -68,7 +68,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    
+    console.log(result);
   } else {
     console.log("webhooksCreateWebhookEndUser failed:", res.error);
   }
@@ -88,7 +88,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[operations.CreateWebhookEndUserResponse](../../models/operations/create-webhook-end-user-response.md)\>**
 
 ### Errors
 
@@ -113,11 +113,11 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  await maesn.webhooks.createWebHookTenant({
+  const result = await maesn.webhooks.createWebHookTenant({
     callbackUrl: "https://sneaky-omelet.org/",
   });
 
-
+  console.log(result);
 }
 
 run();
@@ -147,7 +147,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    
+    console.log(result);
   } else {
     console.log("webhooksCreateWebHookTenant failed:", res.error);
   }
@@ -167,7 +167,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[operations.CreateWebHookTenantResponse](../../models/operations/create-web-hook-tenant-response.md)\>**
 
 ### Errors
 
@@ -192,11 +192,11 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  await maesn.webhooks.deleteWebhookEndUser({
+  const result = await maesn.webhooks.deleteWebhookEndUser({
     webhookId: "<id>",
   });
 
-
+  console.log(result);
 }
 
 run();
@@ -226,7 +226,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    
+    console.log(result);
   } else {
     console.log("webhooksDeleteWebhookEndUser failed:", res.error);
   }
@@ -246,7 +246,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[operations.DeleteWebhookEndUserResponse](../../models/operations/delete-webhook-end-user-response.md)\>**
 
 ### Errors
 
@@ -271,11 +271,11 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  await maesn.webhooks.deleteWebhookTenant({
+  const result = await maesn.webhooks.deleteWebhookTenant({
     webhookId: "<id>",
   });
 
-
+  console.log(result);
 }
 
 run();
@@ -305,7 +305,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    
+    console.log(result);
   } else {
     console.log("webhooksDeleteWebhookTenant failed:", res.error);
   }
@@ -325,7 +325,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[string](../../models/.md)\>**
 
 ### Errors
 
@@ -350,11 +350,11 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  await maesn.webhooks.createWebhookConfig({
+  const result = await maesn.webhooks.createWebhookConfig({
     callbackUrl: "https://willing-haircut.info",
   });
 
-
+  console.log(result);
 }
 
 run();
@@ -384,7 +384,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    
+    console.log(result);
   } else {
     console.log("webhooksCreateWebhookConfig failed:", res.error);
   }
@@ -404,7 +404,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[operations.CreateWebhookConfigResponse](../../models/operations/create-webhook-config-response.md)\>**
 
 ### Errors
 
@@ -429,13 +429,13 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  await maesn.webhooks.createWebhook({
+  const result = await maesn.webhooks.createWebhook({
     body: {
       callbackUrl: "https://experienced-sailor.biz/",
     },
   });
 
-
+  console.log(result);
 }
 
 run();
@@ -467,7 +467,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    
+    console.log(result);
   } else {
     console.log("webhooksCreateWebhook failed:", res.error);
   }
@@ -487,7 +487,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[operations.CreateWebhookResponse](../../models/operations/create-webhook-response.md)\>**
 
 ### Errors
 
@@ -512,11 +512,11 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  await maesn.webhooks.deleteWebhook({
+  const result = await maesn.webhooks.deleteWebhook({
     webhookId: "<id>",
   });
 
-
+  console.log(result);
 }
 
 run();
@@ -546,7 +546,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    
+    console.log(result);
   } else {
     console.log("webhooksDeleteWebhook failed:", res.error);
   }
@@ -566,7 +566,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[operations.DeleteWebhookResponse](../../models/operations/delete-webhook-response.md)\>**
 
 ### Errors
 
@@ -591,9 +591,9 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  await maesn.webhooks.getWebhooks();
+  const result = await maesn.webhooks.getWebhooks();
 
-
+  console.log(result);
 }
 
 run();
@@ -621,7 +621,7 @@ async function run() {
   const res = await webhooksGetWebhooks(maesn);
   if (res.ok) {
     const { value: result } = res;
-    
+    console.log(result);
   } else {
     console.log("webhooksGetWebhooks failed:", res.error);
   }
@@ -641,7 +641,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[operations.GetWebhooksResponse](../../models/operations/get-webhooks-response.md)\>**
 
 ### Errors
 

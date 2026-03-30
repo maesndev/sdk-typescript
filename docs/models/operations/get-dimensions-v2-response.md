@@ -1,5 +1,7 @@
 # GetDimensionsV2Response
 
+List of dimension categories for the authenticated end user's connected target system
+
 ## Example Usage
 
 ```typescript

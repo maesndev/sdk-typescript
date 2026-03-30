@@ -3,12 +3,48 @@
  */
 
 import * as z from "zod/v4-mini";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
+import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
 export type CreateWebhookRequest = {
+  /**
+   * Environment name (required for multi-environment systems such as Business Central)
+   */
   environmentName?: string | undefined;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
   body: models.CreateAccountingWebhookRequestDto;
+};
+
+export type CreateWebhookPagination = {
+  total: number;
+  perPage: number;
+  currentPage: number;
+  totalPages: number;
+};
+
+export type CreateWebhookMeta = {
+  warnings?: Array<string> | null | undefined;
+  pagination?: CreateWebhookPagination | null | undefined;
+};
+
+export type CreateWebhookErrors = {};
+
+export type CreateWebhookRawData = {};
+
+/**
+ * Webhook created successfully
+ */
+export type CreateWebhookResponse = {
+  meta?: CreateWebhookMeta | null | undefined;
+  data: models.WebhookResponseDto;
+  errors: CreateWebhookErrors | null;
+  rawData: CreateWebhookRawData | null;
 };
 
 /** @internal */
@@ -33,5 +69,100 @@ export function createWebhookRequestToJSON(
 ): string {
   return JSON.stringify(
     CreateWebhookRequest$outboundSchema.parse(createWebhookRequest),
+  );
+}
+
+/** @internal */
+export const CreateWebhookPagination$inboundSchema: z.ZodMiniType<
+  CreateWebhookPagination,
+  unknown
+> = z.object({
+  total: types.number(),
+  perPage: types.number(),
+  currentPage: types.number(),
+  totalPages: types.number(),
+});
+
+export function createWebhookPaginationFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateWebhookPagination, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateWebhookPagination$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateWebhookPagination' from JSON`,
+  );
+}
+
+/** @internal */
+export const CreateWebhookMeta$inboundSchema: z.ZodMiniType<
+  CreateWebhookMeta,
+  unknown
+> = z.object({
+  warnings: z.optional(z.nullable(z.array(types.string()))),
+  pagination: z.optional(
+    z.nullable(z.lazy(() => CreateWebhookPagination$inboundSchema)),
+  ),
+});
+
+export function createWebhookMetaFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateWebhookMeta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateWebhookMeta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateWebhookMeta' from JSON`,
+  );
+}
+
+/** @internal */
+export const CreateWebhookErrors$inboundSchema: z.ZodMiniType<
+  CreateWebhookErrors,
+  unknown
+> = z.object({});
+
+export function createWebhookErrorsFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateWebhookErrors, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateWebhookErrors$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateWebhookErrors' from JSON`,
+  );
+}
+
+/** @internal */
+export const CreateWebhookRawData$inboundSchema: z.ZodMiniType<
+  CreateWebhookRawData,
+  unknown
+> = z.object({});
+
+export function createWebhookRawDataFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateWebhookRawData, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateWebhookRawData$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateWebhookRawData' from JSON`,
+  );
+}
+
+/** @internal */
+export const CreateWebhookResponse$inboundSchema: z.ZodMiniType<
+  CreateWebhookResponse,
+  unknown
+> = z.object({
+  meta: z.optional(z.nullable(z.lazy(() => CreateWebhookMeta$inboundSchema))),
+  data: models.WebhookResponseDto$inboundSchema,
+  errors: types.nullable(z.lazy(() => CreateWebhookErrors$inboundSchema)),
+  rawData: types.nullable(z.lazy(() => CreateWebhookRawData$inboundSchema)),
+});
+
+export function createWebhookResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateWebhookResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateWebhookResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateWebhookResponse' from JSON`,
   );
 }

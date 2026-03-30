@@ -1,5 +1,7 @@
 # CreateBillResponse
 
+Bill created successfully
+
 ## Example Usage
 
 ```typescript

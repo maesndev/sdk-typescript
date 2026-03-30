@@ -11,7 +11,13 @@ import * as models from "../index.js";
 
 export type GetInvoiceDocumentRequest = {
   invoiceId: string;
+  /**
+   * Environment name (required for multi-environment systems such as Business Central)
+   */
   environmentName?: string | undefined;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
 };
 
@@ -31,6 +37,9 @@ export type GetInvoiceDocumentErrors = {};
 
 export type GetInvoiceDocumentRawData = {};
 
+/**
+ * Document attached to the invoice matching the provided ID
+ */
 export type GetInvoiceDocumentResponse = {
   meta?: GetInvoiceDocumentMeta | null | undefined;
   data: models.DocumentResponseDto;

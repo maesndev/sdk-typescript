@@ -1,5 +1,7 @@
 # GetSalesOrderLinesResponse
 
+List of line items for the authenticated end user's connected target system
+
 ## Example Usage
 
 ```typescript

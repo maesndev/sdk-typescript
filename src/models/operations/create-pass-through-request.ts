@@ -10,7 +10,13 @@ import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
 export type CreatePassThroughRequestRequest = {
+  /**
+   * Environment name (required for multi-environment systems such as Business Central)
+   */
   environmentName?: string | undefined;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
   body: models.CreatePassThroughRequestDto;
 };
@@ -33,6 +39,9 @@ export type CreatePassThroughRequestErrors = {};
 
 export type CreatePassThroughRequestRawData = {};
 
+/**
+ * Pass-through request forwarded to the upstream target system successfully
+ */
 export type CreatePassThroughRequestResponse = {
   meta?: CreatePassThroughRequestMeta | null | undefined;
   data: Data;

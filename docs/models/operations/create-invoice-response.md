@@ -1,5 +1,7 @@
 # CreateInvoiceResponse
 
+Invoice created successfully
+
 ## Example Usage
 
 ```typescript

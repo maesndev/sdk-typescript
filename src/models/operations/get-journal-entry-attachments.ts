@@ -11,7 +11,13 @@ import * as models from "../index.js";
 
 export type GetJournalEntryAttachmentsRequest = {
   journalEntryId: string;
+  /**
+   * Environment name (required for multi-environment systems such as Business Central)
+   */
   environmentName?: string | undefined;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
 };
 
@@ -31,6 +37,9 @@ export type GetJournalEntryAttachmentsErrors = {};
 
 export type GetJournalEntryAttachmentsRawData = {};
 
+/**
+ * List of attachments for the journal entry matching the provided ID
+ */
 export type GetJournalEntryAttachmentsResponse = {
   meta?: GetJournalEntryAttachmentsMeta | null | undefined;
   data: Array<models.JournalEntryResponseDto>;

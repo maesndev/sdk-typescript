@@ -10,6 +10,9 @@ import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
+/**
+ * Filter booking proposals by booking type
+ */
 export const BookingType = {
   Invoice: "INVOICE",
   Bill: "BILL",
@@ -21,8 +24,14 @@ export const BookingType = {
   DownPayment: "DOWN_PAYMENT",
   Other: "OTHER",
 } as const;
+/**
+ * Filter booking proposals by booking type
+ */
 export type BookingType = ClosedEnum<typeof BookingType>;
 
+/**
+ * Filter booking proposals by status
+ */
 export const GetBookingProposalsStatus = {
   Draft: "DRAFT",
   Submitted: "SUBMITTED",
@@ -34,24 +43,39 @@ export const GetBookingProposalsStatus = {
   Disputed: "DISPUTED",
   Cancelled: "CANCELLED",
 } as const;
+/**
+ * Filter booking proposals by status
+ */
 export type GetBookingProposalsStatus = ClosedEnum<
   typeof GetBookingProposalsStatus
 >;
 
+/**
+ * Field to sort the results by
+ */
 export const GetBookingProposalsOrderField = {
   BookingProposalDate: "bookingProposalDate",
   Number: "number",
   CreatedDate: "createdDate",
   UpdatedDate: "updatedDate",
 } as const;
+/**
+ * Field to sort the results by
+ */
 export type GetBookingProposalsOrderField = ClosedEnum<
   typeof GetBookingProposalsOrderField
 >;
 
+/**
+ * Sort direction for the ordered results
+ */
 export const GetBookingProposalsOrderDir = {
   Asc: "ASC",
   Desc: "DESC",
 } as const;
+/**
+ * Sort direction for the ordered results
+ */
 export type GetBookingProposalsOrderDir = ClosedEnum<
   typeof GetBookingProposalsOrderDir
 >;
@@ -59,13 +83,37 @@ export type GetBookingProposalsOrderDir = ClosedEnum<
 export type GetBookingProposalsRequest = {
   page?: number | undefined;
   limit?: number | undefined;
+  /**
+   * ISO 8601 timestamp; only records modified after this date are returned
+   */
   lastModifiedAt?: string | undefined;
+  /**
+   * Environment name (required for multi-environment systems such as Business Central)
+   */
   environmentName?: string | undefined;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
+  /**
+   * Filter booking proposals by booking type
+   */
   bookingType?: BookingType | undefined;
+  /**
+   * Filter booking proposals by status
+   */
   status?: GetBookingProposalsStatus | undefined;
+  /**
+   * When true, returns the unprocessed response from the upstream target system
+   */
   rawData?: boolean | undefined;
+  /**
+   * Field to sort the results by
+   */
   orderField?: GetBookingProposalsOrderField | undefined;
+  /**
+   * Sort direction for the ordered results
+   */
   orderDir?: GetBookingProposalsOrderDir | undefined;
 };
 
@@ -85,6 +133,9 @@ export type GetBookingProposalsErrors = {};
 
 export type GetBookingProposalsRawData = {};
 
+/**
+ * List of booking proposals for the authenticated end user's connected target system
+ */
 export type GetBookingProposalsResponse = {
   meta?: GetBookingProposalsMeta | null | undefined;
   data: Array<models.BookingProposalResponseDto>;

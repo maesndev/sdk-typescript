@@ -1,5 +1,7 @@
 # CreateVendorCreditResponse
 
+Vendor credit created successfully
+
 ## Example Usage
 
 ```typescript

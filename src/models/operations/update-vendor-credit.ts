@@ -11,7 +11,13 @@ import * as models from "../index.js";
 
 export type UpdateVendorCreditRequest = {
   vendorCreditId: string;
+  /**
+   * Environment name (required for multi-environment systems such as Business Central)
+   */
   environmentName?: string | undefined;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
   body: models.CreateVendorCreditRequestDto;
 };
@@ -32,6 +38,9 @@ export type UpdateVendorCreditErrors = {};
 
 export type UpdateVendorCreditRawData = {};
 
+/**
+ * Vendor credit updated successfully
+ */
 export type UpdateVendorCreditResponse = {
   meta?: UpdateVendorCreditMeta | null | undefined;
   data: models.BillResponseDto;

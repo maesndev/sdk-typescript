@@ -1,5 +1,7 @@
 # GetAsyncTaskInfoResponse
 
+Async task status and result matching the provided task ID
+
 ## Example Usage
 
 ```typescript

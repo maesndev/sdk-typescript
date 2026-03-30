@@ -24,6 +24,7 @@ import { SDKValidationError } from "../models/errors/sdk-validation-error.js";
 import * as operations from "../models/operations/index.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
+import * as types$ from "../types/primitives.js";
 
 export function authSystemLoginUrl(
   client: MaesnCore,
@@ -31,7 +32,7 @@ export function authSystemLoginUrl(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    void,
+    string,
     | MaesnError
     | ResponseValidationError
     | ConnectionError
@@ -56,7 +57,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      void,
+      string,
       | MaesnError
       | ResponseValidationError
       | ConnectionError
@@ -98,7 +99,7 @@ async function $do(
   });
 
   const headers = new Headers(compactMap({
-    Accept: "*/*",
+    Accept: "application/json",
   }));
 
   const securityInput = await extractSecurity(client._options.security);
@@ -147,7 +148,7 @@ async function $do(
   const response = doResult.value;
 
   const [result] = await M.match<
-    void,
+    string,
     | MaesnError
     | ResponseValidationError
     | ConnectionError
@@ -157,7 +158,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.nil(200, z.void()),
+    M.json(200, types$.string()),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req);

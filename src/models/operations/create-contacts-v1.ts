@@ -10,6 +10,9 @@ import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
 export type CreateContactsV1Request = {
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
   body: models.CreateContactByBatchMetaDataDto;
 };
@@ -30,6 +33,9 @@ export type CreateContactsV1Errors = {};
 
 export type CreateContactsV1RawData = {};
 
+/**
+ * Contacts created successfully in bulk
+ */
 export type CreateContactsV1Response = {
   meta?: CreateContactsV1Meta | null | undefined;
   data: models.ContactByBatchMetaDataResponseDto;

@@ -7,11 +7,29 @@ import { remap as remap$ } from "../../lib/primitives.js";
 
 export type SystemLoginUrlRequest = {
   targetSystem: string;
+  /**
+   * URL to redirect to after successful authentication
+   */
   callbackUrl?: string | undefined;
+  /**
+   * URL to redirect to if the user cancels authentication
+   */
   cancelCallbackUrl?: string | undefined;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
+  /**
+   * Tenant ID to scope the authentication request (used for self-hosted or on-premise systems)
+   */
   tenantId?: string | undefined;
+  /**
+   * Base URL of the target system instance (required for self-hosted systems)
+   */
   baseUrl?: string | undefined;
+  /**
+   * When true, redirects the user to an environment or company selection page before completing authentication
+   */
   environmentSelection?: boolean | undefined;
 };
 

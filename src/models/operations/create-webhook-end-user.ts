@@ -3,12 +3,48 @@
  */
 
 import * as z from "zod/v4-mini";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
+import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
 export type CreateWebhookEndUserRequest = {
+  /**
+   * Environment name (required for multi-environment systems such as Business Central)
+   */
   environmentName?: string | undefined;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
   body: models.CreateAccountingWebhookRequestDto;
+};
+
+export type CreateWebhookEndUserPagination = {
+  total: number;
+  perPage: number;
+  currentPage: number;
+  totalPages: number;
+};
+
+export type CreateWebhookEndUserMeta = {
+  warnings?: Array<string> | null | undefined;
+  pagination?: CreateWebhookEndUserPagination | null | undefined;
+};
+
+export type CreateWebhookEndUserErrors = {};
+
+export type CreateWebhookEndUserRawData = {};
+
+/**
+ * Webhook created successfully
+ */
+export type CreateWebhookEndUserResponse = {
+  meta?: CreateWebhookEndUserMeta | null | undefined;
+  data: models.WebhookResponseDto;
+  errors: CreateWebhookEndUserErrors | null;
+  rawData: CreateWebhookEndUserRawData | null;
 };
 
 /** @internal */
@@ -35,5 +71,106 @@ export function createWebhookEndUserRequestToJSON(
     CreateWebhookEndUserRequest$outboundSchema.parse(
       createWebhookEndUserRequest,
     ),
+  );
+}
+
+/** @internal */
+export const CreateWebhookEndUserPagination$inboundSchema: z.ZodMiniType<
+  CreateWebhookEndUserPagination,
+  unknown
+> = z.object({
+  total: types.number(),
+  perPage: types.number(),
+  currentPage: types.number(),
+  totalPages: types.number(),
+});
+
+export function createWebhookEndUserPaginationFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateWebhookEndUserPagination, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateWebhookEndUserPagination$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateWebhookEndUserPagination' from JSON`,
+  );
+}
+
+/** @internal */
+export const CreateWebhookEndUserMeta$inboundSchema: z.ZodMiniType<
+  CreateWebhookEndUserMeta,
+  unknown
+> = z.object({
+  warnings: z.optional(z.nullable(z.array(types.string()))),
+  pagination: z.optional(
+    z.nullable(z.lazy(() => CreateWebhookEndUserPagination$inboundSchema)),
+  ),
+});
+
+export function createWebhookEndUserMetaFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateWebhookEndUserMeta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateWebhookEndUserMeta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateWebhookEndUserMeta' from JSON`,
+  );
+}
+
+/** @internal */
+export const CreateWebhookEndUserErrors$inboundSchema: z.ZodMiniType<
+  CreateWebhookEndUserErrors,
+  unknown
+> = z.object({});
+
+export function createWebhookEndUserErrorsFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateWebhookEndUserErrors, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateWebhookEndUserErrors$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateWebhookEndUserErrors' from JSON`,
+  );
+}
+
+/** @internal */
+export const CreateWebhookEndUserRawData$inboundSchema: z.ZodMiniType<
+  CreateWebhookEndUserRawData,
+  unknown
+> = z.object({});
+
+export function createWebhookEndUserRawDataFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateWebhookEndUserRawData, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateWebhookEndUserRawData$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateWebhookEndUserRawData' from JSON`,
+  );
+}
+
+/** @internal */
+export const CreateWebhookEndUserResponse$inboundSchema: z.ZodMiniType<
+  CreateWebhookEndUserResponse,
+  unknown
+> = z.object({
+  meta: z.optional(
+    z.nullable(z.lazy(() => CreateWebhookEndUserMeta$inboundSchema)),
+  ),
+  data: models.WebhookResponseDto$inboundSchema,
+  errors: types.nullable(
+    z.lazy(() => CreateWebhookEndUserErrors$inboundSchema),
+  ),
+  rawData: types.nullable(
+    z.lazy(() => CreateWebhookEndUserRawData$inboundSchema),
+  ),
+});
+
+export function createWebhookEndUserResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateWebhookEndUserResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateWebhookEndUserResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateWebhookEndUserResponse' from JSON`,
   );
 }

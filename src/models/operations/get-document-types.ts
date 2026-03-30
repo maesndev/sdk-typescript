@@ -10,6 +10,9 @@ import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
 export type GetDocumentTypesRequest = {
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
 };
 
@@ -29,6 +32,9 @@ export type GetDocumentTypesErrors = {};
 
 export type GetDocumentTypesRawData = {};
 
+/**
+ * List of document types supported by the authenticated end user's connected target system
+ */
 export type GetDocumentTypesResponse = {
   meta?: GetDocumentTypesMeta | null | undefined;
   data: Array<models.DocumentTypesResponseDto>;

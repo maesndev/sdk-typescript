@@ -6,6 +6,9 @@ import * as z from "zod/v4-mini";
 import * as models from "../index.js";
 
 export type CreateEventSubscriptionsRequest = {
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
   companyId?: string | undefined;
   body: models.CreateEventSubscriptionRequestDto;
 };

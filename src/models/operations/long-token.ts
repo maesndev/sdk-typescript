@@ -5,15 +5,24 @@
 import * as z from "zod/v4-mini";
 
 export type LongTokenRequest = {
-  targetSystem?: string | undefined;
-  companyId?: string | undefined;
+  /**
+   * Identifier of the target system (e.g. exact, sevdesk, xero)
+   */
+  targetSystem: string;
+  /**
+   * ID of the company (required for multi-company target systems)
+   */
+  companyId: string;
+  /**
+   * URL to redirect to after successful authentication
+   */
   callbackUrl?: string | undefined;
 };
 
 /** @internal */
 export type LongTokenRequest$Outbound = {
-  targetSystem?: string | undefined;
-  companyId?: string | undefined;
+  targetSystem: string;
+  companyId: string;
   callbackUrl?: string | undefined;
 };
 
@@ -22,8 +31,8 @@ export const LongTokenRequest$outboundSchema: z.ZodMiniType<
   LongTokenRequest$Outbound,
   LongTokenRequest
 > = z.object({
-  targetSystem: z.optional(z.string()),
-  companyId: z.optional(z.string()),
+  targetSystem: z.string(),
+  companyId: z.string(),
   callbackUrl: z.optional(z.string()),
 });
 
