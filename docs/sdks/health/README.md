@@ -13,7 +13,7 @@ Returns 200 if the service is up.
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="check" method="get" path="/#5" -->
+<!-- UsageSnippet language="typescript" operationID="check" method="get" path="/#6" -->
 ```typescript
 import { Maesn } from "@maesn/typescript-sdk";
 
