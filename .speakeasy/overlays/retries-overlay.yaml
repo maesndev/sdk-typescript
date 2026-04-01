@@ -1,0 +1,22 @@
+overlay: 1.0.0
+x-speakeasy-jsonpath: rfc9535
+info:
+  title: Default Retry Strategy
+  version: 0.0.1
+actions:
+  # Retry all GET operations on 5xx responses using exponential backoff.
+  # Connection errors are also retried (request never reached the server).
+  # Only GET is included — writes (POST/PUT/PATCH/DELETE) are not retried
+  # to avoid duplicate records on accounting operations.
+  - target: $["paths"][*]["get"]
+    update:
+      x-speakeasy-retries:
+        strategy: backoff
+        backoff:
+          initialInterval: 500
+          maxInterval: 60000
+          maxElapsedTime: 3600000
+          exponent: 1.5
+        statusCodes:
+          - 5XX
+        retryConnectionErrors: true

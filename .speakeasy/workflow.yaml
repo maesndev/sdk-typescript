@@ -14,6 +14,7 @@ sources:
             - location: .speakeasy/overlays/info-overlay.yaml
             - location: .speakeasy/overlays/auth-security-overlay.yaml
             - location: .speakeasy/overlays/enum-types-overlay.yaml
+            - location: .speakeasy/overlays/retries-overlay.yaml
         output: .speakeasy/out.openapi.yaml
         registry:
             location: registry.speakeasyapi.dev/maesndev/maesn/maesn-unified-api
