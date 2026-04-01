@@ -578,7 +578,7 @@ run();
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="getWebhooks" method="get" path="/#4" -->
+<!-- UsageSnippet language="typescript" operationID="getWebhooks" method="get" path="/#5" -->
 ```typescript
 import { Maesn } from "@maesn/typescript-sdk";
 

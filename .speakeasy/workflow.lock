@@ -2,8 +2,8 @@ speakeasyVersion: 1.761.0
 sources:
     Maesn unified API:
         sourceNamespace: maesn-unified-api
-        sourceRevisionDigest: sha256:eff603cf7330ab15942bc78035891793469f0a25185703e6439a35c4dc8146a9
-        sourceBlobDigest: sha256:aa7d0af131b38868895adb7807052aeb2bee5456811a3be9c2d8811c6a7b9576
+        sourceRevisionDigest: sha256:45cb295a342c5727be370d0a4f77d7af8ba06d76ae45d60bfcf3612f16da0b5b
+        sourceBlobDigest: sha256:6047f1512960125b0e68edd144da00cd82883ccb650ad58c44f25734e542d3cc
         tags:
             - latest
             - "1.0"
@@ -11,10 +11,10 @@ targets:
     maesn:
         source: Maesn unified API
         sourceNamespace: maesn-unified-api
-        sourceRevisionDigest: sha256:eff603cf7330ab15942bc78035891793469f0a25185703e6439a35c4dc8146a9
-        sourceBlobDigest: sha256:aa7d0af131b38868895adb7807052aeb2bee5456811a3be9c2d8811c6a7b9576
+        sourceRevisionDigest: sha256:45cb295a342c5727be370d0a4f77d7af8ba06d76ae45d60bfcf3612f16da0b5b
+        sourceBlobDigest: sha256:6047f1512960125b0e68edd144da00cd82883ccb650ad58c44f25734e542d3cc
         codeSamplesNamespace: maesn-unified-api-typescript-code-samples
-        codeSamplesRevisionDigest: sha256:38e00dd25a25bdca6f7991930f871f4d07dda07d25f60527c4fc66a46479bde4
+        codeSamplesRevisionDigest: sha256:e2a5fec8e8006b8a97ca6b6b508cd1f72c59ac27efea131ffb9cf2de85cd3d06
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
@@ -22,6 +22,7 @@ workflow:
         Maesn unified API:
             inputs:
                 - location: https://unified-backend-prod.azurewebsites.net/api-json
+                - location: https://unified-backend-prod.azurewebsites.net/api/v2-json
                 - location: https://unified-backend-prod.azurewebsites.net/api/auth-json
                 - location: https://unified-backend-prod.azurewebsites.net/api/events-json
                 - location: https://unified-backend-prod.azurewebsites.net/api/webhooks-json
@@ -31,6 +32,7 @@ workflow:
                 - location: .speakeasy/overlays/info-overlay.yaml
                 - location: .speakeasy/overlays/auth-security-overlay.yaml
                 - location: .speakeasy/overlays/enum-types-overlay.yaml
+                - location: .speakeasy/overlays/retries-overlay.yaml
             output: .speakeasy/out.openapi.yaml
             registry:
                 location: registry.speakeasyapi.dev/maesndev/maesn/maesn-unified-api

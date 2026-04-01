@@ -10,10 +10,13 @@ Developer-friendly & type-safe Typescript SDK specifically catered to leverage *
 ## Summary
 
 Maesn Unified API: Maesn is the only Unified API that provides standard endpoints tailored for ERP use cases. We will continuously work on improving and extending our portfolio of use cases and ERP systems that we offer easy integration to.
+
 Beside great use-cases, the most relevant ERP systems and the best possible support, we provide several technical key features that enable you to accelerate your integration game:
+
 - Drop-in frontend authentication components that makes it easy to connect to your customers’ end systems.
 - Authenticated pass through request for the occasional API endpoint not included in our common data models.
 - Templates for you docs, so that you have all content for your end user-onboarding ready
+
 Once you get started with maesn and integrate with our endpoints, you automatically have support for all existing and new integrations we add.
 <!-- End Summary [summary] -->
 
