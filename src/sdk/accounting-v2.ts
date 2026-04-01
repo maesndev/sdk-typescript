@@ -4,8 +4,8 @@
 
 import { accountingV2CreateBookingProposal } from "../funcs/accounting-v2-create-booking-proposal.js";
 import { accountingV2CreateContact } from "../funcs/accounting-v2-create-contact.js";
-import { accountingV2ObtainDimensions } from "../funcs/accounting-v2-obtain-dimensions.js";
-import { accountingV2UpdateContact } from "../funcs/accounting-v2-update-contact.js";
+import { accountingV2GetDimensionsV2 } from "../funcs/accounting-v2-get-dimensions-v2.js";
+import { accountingV2PutContactV2 } from "../funcs/accounting-v2-put-contact-v2.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
@@ -33,22 +33,22 @@ export class AccountingV2 extends ClientSDK {
     ));
   }
 
-  async updateContact(
+  async putContactV2(
     request: operations.PutContactV2Request,
     options?: RequestOptions,
   ): Promise<operations.PutContactV2Response> {
-    return unwrapAsync(accountingV2UpdateContact(
+    return unwrapAsync(accountingV2PutContactV2(
       this,
       request,
       options,
     ));
   }
 
-  async obtainDimensions(
+  async getDimensionsV2(
     request?: operations.GetDimensionsV2Request | undefined,
     options?: RequestOptions,
   ): Promise<operations.GetDimensionsV2Response> {
-    return unwrapAsync(accountingV2ObtainDimensions(
+    return unwrapAsync(accountingV2GetDimensionsV2(
       this,
       request,
       options,

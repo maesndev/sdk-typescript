@@ -20,7 +20,7 @@ specific category of applications.
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingRetrieveAccount } from "@maesn/typescript-sdk/funcs/accounting-retrieve-account.js";
+import { accountingGetAccount } from "@maesn/typescript-sdk/funcs/accounting-get-account.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -33,14 +33,14 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingRetrieveAccount(maesn, {
+  const res = await accountingGetAccount(maesn, {
     accountId: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingRetrieveAccount failed:", res.error);
+    console.log("accountingGetAccount failed:", res.error);
   }
 }
 
