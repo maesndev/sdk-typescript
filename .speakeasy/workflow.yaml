@@ -11,11 +11,11 @@ sources:
             - location: https://unified-backend-prod.azurewebsites.net/api/tenants-json
         overlays:
             - location: .speakeasy/overlays/info-overlay.yaml
-            - location: .speakeasy/overlays/speakeasy-modifications-overlay.yaml
             - location: .speakeasy/overlays/auth-security-overlay.yaml
+            - location: .speakeasy/overlays/enum-types-overlay.yaml
         output: .speakeasy/out.openapi.yaml
         registry:
-            location: registry.speakeasyapi.dev/test-qpg/myworkspace/maesn-unified-api
+            location: registry.speakeasyapi.dev/maesndev/maesn/maesn-unified-api
 targets:
     maesn:
         target: typescript
@@ -25,7 +25,7 @@ targets:
                 token: $npm_token
         codeSamples:
             registry:
-                location: registry.speakeasyapi.dev/test-qpg/myworkspace/maesn-unified-api-typescript-code-samples
+                location: registry.speakeasyapi.dev/maesndev/maesn/maesn-unified-api-typescript-code-samples
             labelOverride:
                 fixedValue: Typescript (SDK)
             blocking: false
