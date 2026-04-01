@@ -59,7 +59,7 @@ paths:
               - 20
               - 50
               - 100
-            type: number
+            type: integer
         - name: lastModifiedAt
           required: false
           in: query
@@ -191,7 +191,7 @@ paths:
               - 20
               - 50
               - 100
-            type: number
+            type: integer
         - name: lastModifiedAt
           required: false
           in: query
@@ -324,7 +324,7 @@ paths:
               - 20
               - 50
               - 100
-            type: number
+            type: integer
         - name: lastModifiedAt
           required: false
           in: query
@@ -420,7 +420,7 @@ paths:
               - 20
               - 50
               - 100
-            type: number
+            type: integer
         - name: lastModifiedAt
           required: false
           in: query
@@ -643,7 +643,7 @@ paths:
               - 20
               - 50
               - 100
-            type: number
+            type: integer
         - name: lastModifiedAt
           required: false
           in: query
@@ -866,7 +866,7 @@ paths:
               - 20
               - 50
               - 100
-            type: number
+            type: integer
         - name: lastModifiedAt
           required: false
           in: query
@@ -1058,8 +1058,6 @@ paths:
                         $ref: '#/components/schemas/ContactResponseDtoV2'
       tags:
         - accounting
-      x-speakeasy-group: contacts
-      x-speakeasy-name-override: patch
   /accounting/contacts/bulk:
     post:
       operationId: createContacts
@@ -1137,7 +1135,7 @@ paths:
               - 20
               - 50
               - 100
-            type: number
+            type: integer
         - name: lastModifiedAt
           required: false
           in: query
@@ -1487,7 +1485,6 @@ paths:
                         $ref: '#/components/schemas/DocumentExtensionsResponseDto'
       tags:
         - accounting
-      x-speakeasy-group: files
   /accounting/asyncTask/{taskId}:
     get:
       operationId: getAsyncTaskInfo
@@ -1518,7 +1515,7 @@ paths:
               - 20
               - 50
               - 100
-            type: number
+            type: integer
       responses:
         "200":
           description: Async task status and result matching the provided task ID
@@ -1551,7 +1548,7 @@ paths:
               - 20
               - 50
               - 100
-            type: number
+            type: integer
         - name: lastModifiedAt
           required: false
           in: query
@@ -1637,8 +1634,6 @@ paths:
                         $ref: '#/components/schemas/ItemResponseDto'
       tags:
         - accounting
-      x-speakeasy-group: items
-      x-speakeasy-name-override: create
   /accounting/items/{itemId}:
     get:
       operationId: getItem
@@ -1720,8 +1715,6 @@ paths:
                         $ref: '#/components/schemas/ItemResponseDto'
       tags:
         - accounting
-      x-speakeasy-group: items
-      x-speakeasy-name-override: modify
   /accounting/invoices/{invoiceId}/lineItems:
     get:
       operationId: getLineItems
@@ -1746,7 +1739,7 @@ paths:
               - 20
               - 50
               - 100
-            type: number
+            type: integer
         - name: lastModifiedAt
           required: false
           in: query
@@ -1914,8 +1907,6 @@ paths:
                         $ref: '#/components/schemas/LineItemResponseDto'
       tags:
         - accounting
-      x-speakeasy-group: accounting.invoices
-      x-speakeasy-name-override: updateLineItem
   /accounting/journals:
     get:
       operationId: getJournals
@@ -1935,7 +1926,7 @@ paths:
               - 20
               - 50
               - 100
-            type: number
+            type: integer
         - name: lastModifiedAt
           required: false
           in: query
@@ -1994,7 +1985,7 @@ paths:
               - 20
               - 50
               - 100
-            type: number
+            type: integer
         - name: lastModifiedAt
           required: false
           in: query
@@ -2167,8 +2158,6 @@ paths:
                         $ref: '#/components/schemas/JournalEntriesByBatchMetaDataResponseDto'
       tags:
         - accounting
-      x-speakeasy-group: journalEntries
-      x-speakeasy-name-override: createBulk
   /accounting/journalEntries/{journalEntryId}/Attachments:
     get:
       operationId: getJournalEntryAttachments
@@ -2205,8 +2194,6 @@ paths:
                           $ref: '#/components/schemas/JournalEntryResponseDto'
       tags:
         - accounting
-      x-speakeasy-group: accounting.journalEntries
-      x-speakeasy-name-override: getAttachments
     post:
       operationId: createJournalEntryAttachments
       parameters:
@@ -2277,8 +2264,6 @@ paths:
                         $ref: '#/components/schemas/JournalEntryResponseDto'
       tags:
         - accounting
-      x-speakeasy-group: journalEntryAttachments
-      x-speakeasy-name-override: getById
   /accounting/offers:
     get:
       operationId: getOffers
@@ -2298,7 +2283,7 @@ paths:
               - 20
               - 50
               - 100
-            type: number
+            type: integer
         - name: lastModifiedAt
           required: false
           in: query
@@ -2449,7 +2434,7 @@ paths:
               - 20
               - 50
               - 100
-            type: number
+            type: integer
         - name: lastModifiedAt
           required: false
           in: query
@@ -2568,8 +2553,6 @@ paths:
                         $ref: '#/components/schemas/DocumentResponseDto'
       tags:
         - accounting
-      x-speakeasy-group: offers
-      x-speakeasy-name-override: getDocument
   /accounting/expenses:
     post:
       operationId: createExpense
@@ -2631,7 +2614,7 @@ paths:
               - 20
               - 50
               - 100
-            type: number
+            type: integer
         - name: lastModifiedAt
           required: false
           in: query
@@ -2724,7 +2707,7 @@ paths:
               - 20
               - 50
               - 100
-            type: number
+            type: integer
         - name: lastModifiedAt
           required: false
           in: query
@@ -2857,7 +2840,7 @@ paths:
               - 20
               - 50
               - 100
-            type: number
+            type: integer
         - name: lastModifiedAt
           required: false
           in: query
@@ -3007,7 +2990,7 @@ paths:
               - 20
               - 50
               - 100
-            type: number
+            type: integer
         - name: lastModifiedAt
           required: false
           in: query
@@ -3066,7 +3049,7 @@ paths:
               - 20
               - 50
               - 100
-            type: number
+            type: integer
         - name: lastModifiedAt
           required: false
           in: query
@@ -3205,7 +3188,7 @@ paths:
               - 20
               - 50
               - 100
-            type: number
+            type: integer
         - name: lastModifiedAt
           required: false
           in: query
@@ -3310,7 +3293,7 @@ paths:
               - 20
               - 50
               - 100
-            type: number
+            type: integer
         - name: environmentName
           required: false
           in: query
@@ -3561,7 +3544,7 @@ paths:
               - 20
               - 50
               - 100
-            type: number
+            type: integer
         - name: lastModifiedAt
           required: false
           in: query
@@ -3769,8 +3752,6 @@ paths:
                         $ref: '#/components/schemas/BillResponseDto'
       tags:
         - accounting
-      x-speakeasy-group: bills
-      x-speakeasy-name-override: update
     delete:
       operationId: deleteBill
       parameters:
@@ -3892,7 +3873,7 @@ paths:
               - 20
               - 50
               - 100
-            type: number
+            type: integer
         - name: lastModifiedAt
           required: false
           in: query
@@ -4094,7 +4075,7 @@ paths:
               - 20
               - 50
               - 100
-            type: number
+            type: integer
         - name: lastModifiedAt
           required: false
           in: query
@@ -4277,8 +4258,6 @@ paths:
                         type: string
       tags:
         - accounting
-      x-speakeasy-group: vendorCredits
-      x-speakeasy-name-override: delete
   /accounting/bills/{billId}/lineItems:
     get:
       operationId: getBillLineItems
@@ -4315,8 +4294,6 @@ paths:
                           $ref: '#/components/schemas/BillLineItemResponseDto'
       tags:
         - accounting
-      x-speakeasy-group: bills
-      x-speakeasy-name-override: getLineItems
     post:
       operationId: createBillLineItem
       parameters:
@@ -4352,8 +4329,6 @@ paths:
                           $ref: '#/components/schemas/BillLineItemResponseDto'
       tags:
         - accounting
-      x-speakeasy-group: accounting.bills
-      x-speakeasy-name-override: addLineItem
   /accounting/bills/{billId}/lineItems/{lineItemId}:
     put:
       operationId: updateBillLineItem
@@ -4414,7 +4389,7 @@ paths:
               - 20
               - 50
               - 100
-            type: number
+            type: integer
         - name: lastModifiedAt
           required: false
           in: query
@@ -4454,8 +4429,6 @@ paths:
                           $ref: '#/components/schemas/PurchaseOrderResponseDto'
       tags:
         - accounting
-      x-speakeasy-group: purchaseOrders
-      x-speakeasy-name-override: list
   /accounting/purchaseOrders/{purchaseOrderId}:
     get:
       operationId: getPurchaseOrder
@@ -4608,7 +4581,7 @@ paths:
               - 20
               - 50
               - 100
-            type: number
+            type: integer
         - name: lastModifiedAt
           required: false
           in: query
@@ -4781,8 +4754,6 @@ paths:
                         $ref: '#/components/schemas/GoodsReceiptLineItemResponse'
       tags:
         - accounting
-      x-speakeasy-group: goodsReceipts
-      x-speakeasy-name-override: getLineItem
   /accounting/units:
     get:
       operationId: getUnits
@@ -4802,7 +4773,7 @@ paths:
               - 20
               - 50
               - 100
-            type: number
+            type: integer
         - name: environmentName
           required: false
           in: query
@@ -4855,7 +4826,7 @@ paths:
               - 20
               - 50
               - 100
-            type: number
+            type: integer
         - name: lastModifiedAt
           required: false
           in: query
@@ -4938,7 +4909,7 @@ paths:
               - 20
               - 50
               - 100
-            type: number
+            type: integer
         - name: lastModifiedAt
           required: false
           in: query
@@ -5021,7 +4992,7 @@ paths:
               - 20
               - 50
               - 100
-            type: number
+            type: integer
         - name: lastModifiedAt
           required: false
           in: query
@@ -5180,8 +5151,6 @@ paths:
                           $ref: '#/components/schemas/FiscalYearResponseDto'
       tags:
         - accounting
-      x-speakeasy-group: fiscalYears
-      x-speakeasy-name-override: get
   /accounting/v2/bookingProposals:
     post:
       operationId: createBookingProposalV2
@@ -5230,8 +5199,6 @@ paths:
                         $ref: '#/components/schemas/BookingProposalResponseDtoV2'
       tags:
         - accounting-v2
-      x-speakeasy-group: accountingV2
-      x-speakeasy-name-override: createBookingProposal
   /accounting/v2/contacts:
     get:
       operationId: getContactsV2
@@ -5251,7 +5218,7 @@ paths:
               - 20
               - 50
               - 100
-            type: number
+            type: integer
         - name: lastModifiedAt
           required: false
           in: query
@@ -5291,8 +5258,6 @@ paths:
                           $ref: '#/components/schemas/ContactResponseDtoV2'
       tags:
         - accounting-v2
-      x-speakeasy-group: contactsV2
-      x-speakeasy-name-override: list
     post:
       operationId: createContactV2
       parameters:
@@ -5327,8 +5292,6 @@ paths:
                         $ref: '#/components/schemas/ContactResponseDtoV2'
       tags:
         - accounting-v2
-      x-speakeasy-group: accountingV2
-      x-speakeasy-name-override: createContact
   /accounting/v2/contacts/{contactId}:
     get:
       operationId: getContactV2
@@ -5369,8 +5332,6 @@ paths:
                         $ref: '#/components/schemas/ContactResponseDtoV2'
       tags:
         - accounting-v2
-      x-speakeasy-group: contactsV2
-      x-speakeasy-name-override: get
     put:
       operationId: putContactV2
       parameters:
@@ -5449,8 +5410,6 @@ paths:
                         $ref: '#/components/schemas/ContactResponseDtoV2'
       tags:
         - accounting-v2
-      x-speakeasy-group: accounting.v2.contacts
-      x-speakeasy-name-override: update
   /accounting/v2/dimensions:
     get:
       operationId: getDimensionsV2
@@ -5518,7 +5477,7 @@ paths:
               - 20
               - 50
               - 100
-            type: number
+            type: integer
         - name: lastModifiedAt
           required: false
           in: query
@@ -5558,8 +5517,6 @@ paths:
                           $ref: '#/components/schemas/DimensionMetaResponseDto'
       tags:
         - accounting-v2
-      x-speakeasy-group: accounting.v2
-      x-speakeasy-name-override: getDimension
   /user/user-info:
     get:
       operationId: getUserInfo

@@ -2,8 +2,8 @@ speakeasyVersion: 1.761.0
 sources:
     Maesn unified API:
         sourceNamespace: maesn-unified-api
-        sourceRevisionDigest: sha256:9072667e0d0a525f0002677395358eda85be06efa6901c77a764f02890f378ea
-        sourceBlobDigest: sha256:04f34bf11470880ad6ae15772921012a2c3d3565feb3f358845e423e112ae885
+        sourceRevisionDigest: sha256:eff603cf7330ab15942bc78035891793469f0a25185703e6439a35c4dc8146a9
+        sourceBlobDigest: sha256:aa7d0af131b38868895adb7807052aeb2bee5456811a3be9c2d8811c6a7b9576
         tags:
             - latest
             - "1.0"
@@ -11,10 +11,10 @@ targets:
     maesn:
         source: Maesn unified API
         sourceNamespace: maesn-unified-api
-        sourceRevisionDigest: sha256:9072667e0d0a525f0002677395358eda85be06efa6901c77a764f02890f378ea
-        sourceBlobDigest: sha256:04f34bf11470880ad6ae15772921012a2c3d3565feb3f358845e423e112ae885
+        sourceRevisionDigest: sha256:eff603cf7330ab15942bc78035891793469f0a25185703e6439a35c4dc8146a9
+        sourceBlobDigest: sha256:aa7d0af131b38868895adb7807052aeb2bee5456811a3be9c2d8811c6a7b9576
         codeSamplesNamespace: maesn-unified-api-typescript-code-samples
-        codeSamplesRevisionDigest: sha256:8ab1da9e16d068a0246840b9ec0149d0d041f99513678792adba2c9aa61f3506
+        codeSamplesRevisionDigest: sha256:38e00dd25a25bdca6f7991930f871f4d07dda07d25f60527c4fc66a46479bde4
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
@@ -29,11 +29,11 @@ workflow:
                 - location: https://unified-backend-prod.azurewebsites.net/api/tenants-json
             overlays:
                 - location: .speakeasy/overlays/info-overlay.yaml
-                - location: .speakeasy/overlays/speakeasy-modifications-overlay.yaml
                 - location: .speakeasy/overlays/auth-security-overlay.yaml
+                - location: .speakeasy/overlays/enum-types-overlay.yaml
             output: .speakeasy/out.openapi.yaml
             registry:
-                location: registry.speakeasyapi.dev/test-qpg/myworkspace/maesn-unified-api
+                location: registry.speakeasyapi.dev/maesndev/maesn/maesn-unified-api
     targets:
         maesn:
             target: typescript
@@ -43,7 +43,7 @@ workflow:
                     token: $npm_token
             codeSamples:
                 registry:
-                    location: registry.speakeasyapi.dev/test-qpg/myworkspace/maesn-unified-api-typescript-code-samples
+                    location: registry.speakeasyapi.dev/maesndev/maesn/maesn-unified-api-typescript-code-samples
                 labelOverride:
                     fixedValue: Typescript (SDK)
                 blocking: false

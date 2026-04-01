@@ -10,6 +10,15 @@ import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
+export const GetAccountsLimit = {
+  Five: 5,
+  Ten: 10,
+  Twenty: 20,
+  Fifty: 50,
+  OneHundred: 100,
+} as const;
+export type GetAccountsLimit = ClosedEnum<typeof GetAccountsLimit>;
+
 /**
  * Filter accounts by debit/credit indicator
  */
@@ -24,7 +33,7 @@ export type DebitCreditIndicator = ClosedEnum<typeof DebitCreditIndicator>;
 
 export type GetAccountsRequest = {
   page?: number | undefined;
-  limit?: number | undefined;
+  limit?: GetAccountsLimit | undefined;
   /**
    * ISO 8601 timestamp; only records modified after this date are returned
    */
@@ -94,6 +103,11 @@ export type GetAccountsResponse = {
 };
 
 /** @internal */
+export const GetAccountsLimit$outboundSchema: z.ZodMiniEnum<
+  typeof GetAccountsLimit
+> = z.enum(GetAccountsLimit);
+
+/** @internal */
 export const DebitCreditIndicator$outboundSchema: z.ZodMiniEnum<
   typeof DebitCreditIndicator
 > = z.enum(DebitCreditIndicator);
@@ -120,7 +134,7 @@ export const GetAccountsRequest$outboundSchema: z.ZodMiniType<
   GetAccountsRequest
 > = z.object({
   page: z.optional(z.number()),
-  limit: z.optional(z.number()),
+  limit: z.optional(GetAccountsLimit$outboundSchema),
   lastModifiedAt: z.optional(z.string()),
   environmentName: z.optional(z.string()),
   companyId: z.optional(z.string()),

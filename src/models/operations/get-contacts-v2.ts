@@ -4,14 +4,24 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
+import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
+export const GetContactsV2Limit = {
+  Five: 5,
+  Ten: 10,
+  Twenty: 20,
+  Fifty: 50,
+  OneHundred: 100,
+} as const;
+export type GetContactsV2Limit = ClosedEnum<typeof GetContactsV2Limit>;
+
 export type GetContactsV2Request = {
   page?: number | undefined;
-  limit?: number | undefined;
+  limit?: GetContactsV2Limit | undefined;
   /**
    * ISO 8601 timestamp; only records modified after this date are returned
    */
@@ -57,6 +67,11 @@ export type GetContactsV2Response = {
 };
 
 /** @internal */
+export const GetContactsV2Limit$outboundSchema: z.ZodMiniEnum<
+  typeof GetContactsV2Limit
+> = z.enum(GetContactsV2Limit);
+
+/** @internal */
 export type GetContactsV2Request$Outbound = {
   page?: number | undefined;
   limit?: number | undefined;
@@ -72,7 +87,7 @@ export const GetContactsV2Request$outboundSchema: z.ZodMiniType<
   GetContactsV2Request
 > = z.object({
   page: z.optional(z.number()),
-  limit: z.optional(z.number()),
+  limit: z.optional(GetContactsV2Limit$outboundSchema),
   lastModifiedAt: z.optional(z.string()),
   environmentName: z.optional(z.string()),
   companyId: z.optional(z.string()),

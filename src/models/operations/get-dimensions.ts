@@ -4,14 +4,24 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
+import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
+export const GetDimensionsLimit = {
+  Five: 5,
+  Ten: 10,
+  Twenty: 20,
+  Fifty: 50,
+  OneHundred: 100,
+} as const;
+export type GetDimensionsLimit = ClosedEnum<typeof GetDimensionsLimit>;
+
 export type GetDimensionsRequest = {
   page?: number | undefined;
-  limit?: number | undefined;
+  limit?: GetDimensionsLimit | undefined;
   /**
    * ISO 8601 timestamp; only records modified after this date are returned
    */
@@ -57,6 +67,11 @@ export type GetDimensionsResponse = {
 };
 
 /** @internal */
+export const GetDimensionsLimit$outboundSchema: z.ZodMiniEnum<
+  typeof GetDimensionsLimit
+> = z.enum(GetDimensionsLimit);
+
+/** @internal */
 export type GetDimensionsRequest$Outbound = {
   page?: number | undefined;
   limit?: number | undefined;
@@ -72,7 +87,7 @@ export const GetDimensionsRequest$outboundSchema: z.ZodMiniType<
   GetDimensionsRequest
 > = z.object({
   page: z.optional(z.number()),
-  limit: z.optional(z.number()),
+  limit: z.optional(GetDimensionsLimit$outboundSchema),
   lastModifiedAt: z.optional(z.string()),
   environmentName: z.optional(z.string()),
   companyId: z.optional(z.string()),

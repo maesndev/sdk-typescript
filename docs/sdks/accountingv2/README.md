@@ -4,12 +4,16 @@
 
 ### Available Operations
 
-* [createBookingProposal](#createbookingproposal)
-* [createContact](#createcontact)
+* [createBookingProposalV2](#createbookingproposalv2)
+* [getContactsV2](#getcontactsv2)
+* [createContactV2](#createcontactv2)
+* [getContactV2](#getcontactv2)
 * [putContactV2](#putcontactv2)
+* [patchContactV2](#patchcontactv2)
 * [getDimensionsV2](#getdimensionsv2)
+* [getDimensionsByDimension](#getdimensionsbydimension)
 
-## createBookingProposal
+## createBookingProposalV2
 
 ### Example Usage
 
@@ -26,7 +30,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accountingV2.createBookingProposal({
+  const result = await maesn.accountingV2.createBookingProposalV2({
     body: {},
   });
 
@@ -42,7 +46,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingV2CreateBookingProposal } from "@maesn/typescript-sdk/funcs/accounting-v2-create-booking-proposal.js";
+import { accountingV2CreateBookingProposalV2 } from "@maesn/typescript-sdk/funcs/accounting-v2-create-booking-proposal-v2.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -55,14 +59,14 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingV2CreateBookingProposal(maesn, {
+  const res = await accountingV2CreateBookingProposalV2(maesn, {
     body: {},
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingV2CreateBookingProposal failed:", res.error);
+    console.log("accountingV2CreateBookingProposalV2 failed:", res.error);
   }
 }
 
@@ -88,7 +92,82 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## createContact
+## getContactsV2
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="getContactsV2" method="get" path="/accounting/v2/contacts" -->
+```typescript
+import { Maesn } from "@maesn/typescript-sdk";
+
+const maesn = new Maesn({
+  serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
+});
+
+async function run() {
+  const result = await maesn.accountingV2.getContactsV2();
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingV2GetContactsV2 } from "@maesn/typescript-sdk/funcs/accounting-v2-get-contacts-v2.js";
+
+// Use `MaesnCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const maesn = new MaesnCore({
+  serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
+});
+
+async function run() {
+  const res = await accountingV2GetContactsV2(maesn);
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingV2GetContactsV2 failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetContactsV2Request](../../models/operations/get-contacts-v2-request.md)                                                                                          | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.GetContactsV2Response](../../models/operations/get-contacts-v2-response.md)\>**
+
+### Errors
+
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
+
+## createContactV2
 
 ### Example Usage
 
@@ -105,7 +184,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accountingV2.createContact({
+  const result = await maesn.accountingV2.createContactV2({
     body: {
       contactType: "CONTACT_PERSON",
     },
@@ -123,7 +202,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingV2CreateContact } from "@maesn/typescript-sdk/funcs/accounting-v2-create-contact.js";
+import { accountingV2CreateContactV2 } from "@maesn/typescript-sdk/funcs/accounting-v2-create-contact-v2.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -136,7 +215,7 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingV2CreateContact(maesn, {
+  const res = await accountingV2CreateContactV2(maesn, {
     body: {
       contactType: "CONTACT_PERSON",
     },
@@ -145,7 +224,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingV2CreateContact failed:", res.error);
+    console.log("accountingV2CreateContactV2 failed:", res.error);
   }
 }
 
@@ -164,6 +243,85 @@ run();
 ### Response
 
 **Promise\<[operations.CreateContactV2Response](../../models/operations/create-contact-v2-response.md)\>**
+
+### Errors
+
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
+
+## getContactV2
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="getContactV2" method="get" path="/accounting/v2/contacts/{contactId}" -->
+```typescript
+import { Maesn } from "@maesn/typescript-sdk";
+
+const maesn = new Maesn({
+  serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
+});
+
+async function run() {
+  const result = await maesn.accountingV2.getContactV2({
+    contactId: "<id>",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingV2GetContactV2 } from "@maesn/typescript-sdk/funcs/accounting-v2-get-contact-v2.js";
+
+// Use `MaesnCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const maesn = new MaesnCore({
+  serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
+});
+
+async function run() {
+  const res = await accountingV2GetContactV2(maesn, {
+    contactId: "<id>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingV2GetContactV2 failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetContactV2Request](../../models/operations/get-contact-v2-request.md)                                                                                            | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.GetContactV2Response](../../models/operations/get-contact-v2-response.md)\>**
 
 ### Errors
 
@@ -256,6 +414,91 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
+## patchContactV2
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="patchContactV2" method="patch" path="/accounting/v2/contacts/{contactId}" -->
+```typescript
+import { Maesn } from "@maesn/typescript-sdk";
+
+const maesn = new Maesn({
+  serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
+});
+
+async function run() {
+  const result = await maesn.accountingV2.patchContactV2({
+    contactId: "<id>",
+    body: {
+      contactType: "COMPANY",
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingV2PatchContactV2 } from "@maesn/typescript-sdk/funcs/accounting-v2-patch-contact-v2.js";
+
+// Use `MaesnCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const maesn = new MaesnCore({
+  serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
+});
+
+async function run() {
+  const res = await accountingV2PatchContactV2(maesn, {
+    contactId: "<id>",
+    body: {
+      contactType: "COMPANY",
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingV2PatchContactV2 failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.PatchContactV2Request](../../models/operations/patch-contact-v2-request.md)                                                                                        | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.PatchContactV2Response](../../models/operations/patch-contact-v2-response.md)\>**
+
+### Errors
+
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
+
 ## getDimensionsV2
 
 ### Example Usage
@@ -324,6 +567,85 @@ run();
 ### Response
 
 **Promise\<[operations.GetDimensionsV2Response](../../models/operations/get-dimensions-v2-response.md)\>**
+
+### Errors
+
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
+
+## getDimensionsByDimension
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="getDimensionsByDimension" method="get" path="/accounting/v2/dimensions/{dimension}" -->
+```typescript
+import { Maesn } from "@maesn/typescript-sdk";
+
+const maesn = new Maesn({
+  serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
+});
+
+async function run() {
+  const result = await maesn.accountingV2.getDimensionsByDimension({
+    dimension: "<value>",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingV2GetDimensionsByDimension } from "@maesn/typescript-sdk/funcs/accounting-v2-get-dimensions-by-dimension.js";
+
+// Use `MaesnCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const maesn = new MaesnCore({
+  serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
+});
+
+async function run() {
+  const res = await accountingV2GetDimensionsByDimension(maesn, {
+    dimension: "<value>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingV2GetDimensionsByDimension failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetDimensionsByDimensionRequest](../../models/operations/get-dimensions-by-dimension-request.md)                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.GetDimensionsByDimensionResponse](../../models/operations/get-dimensions-by-dimension-response.md)\>**
 
 ### Errors
 

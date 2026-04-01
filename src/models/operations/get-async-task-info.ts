@@ -4,10 +4,20 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
+import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
+
+export const GetAsyncTaskInfoLimit = {
+  Five: 5,
+  Ten: 10,
+  Twenty: 20,
+  Fifty: 50,
+  OneHundred: 100,
+} as const;
+export type GetAsyncTaskInfoLimit = ClosedEnum<typeof GetAsyncTaskInfoLimit>;
 
 export type GetAsyncTaskInfoRequest = {
   taskId: string;
@@ -16,7 +26,7 @@ export type GetAsyncTaskInfoRequest = {
    */
   companyId?: string | undefined;
   page?: number | undefined;
-  limit?: number | undefined;
+  limit?: GetAsyncTaskInfoLimit | undefined;
 };
 
 export type GetAsyncTaskInfoPagination = {
@@ -46,6 +56,11 @@ export type GetAsyncTaskInfoResponse = {
 };
 
 /** @internal */
+export const GetAsyncTaskInfoLimit$outboundSchema: z.ZodMiniEnum<
+  typeof GetAsyncTaskInfoLimit
+> = z.enum(GetAsyncTaskInfoLimit);
+
+/** @internal */
 export type GetAsyncTaskInfoRequest$Outbound = {
   taskId: string;
   companyId?: string | undefined;
@@ -61,7 +76,7 @@ export const GetAsyncTaskInfoRequest$outboundSchema: z.ZodMiniType<
   taskId: z.string(),
   companyId: z.optional(z.string()),
   page: z.optional(z.number()),
-  limit: z.optional(z.number()),
+  limit: z.optional(GetAsyncTaskInfoLimit$outboundSchema),
 });
 
 export function getAsyncTaskInfoRequestToJSON(
