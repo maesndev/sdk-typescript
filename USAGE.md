@@ -11,7 +11,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.retrieveAccount({
+  const result = await maesn.accounting.getAccount({
     accountId: "<id>",
   });
 

@@ -4,104 +4,104 @@
 
 ### Available Operations
 
-* [retrieveAccount](#retrieveaccount)
-* [retrieveAccounts](#retrieveaccounts)
-* [addAccount](#addaccount)
-* [retrieveBankAccounts](#retrievebankaccounts)
-* [addBankAccount](#addbankaccount)
-* [fetchBankAccount](#fetchbankaccount)
-* [retrieveDimensions](#retrievedimensions)
-* [recordTransaction](#recordtransaction)
-* [fetchCustomers](#fetchcustomers)
+* [getAccount](#getaccount)
+* [getAccounts](#getaccounts)
+* [createAccount](#createaccount)
+* [getBankAccounts](#getbankaccounts)
+* [createBankAccount](#createbankaccount)
+* [getBankAccount](#getbankaccount)
+* [getDimensions](#getdimensions)
+* [createTransaction](#createtransaction)
+* [getCustomers](#getcustomers)
 * [createCustomer](#createcustomer)
-* [fetchCustomer](#fetchcustomer)
+* [getCustomer](#getcustomer)
 * [updateCustomer](#updatecustomer)
-* [amendCustomer](#amendcustomer)
-* [retrieveSuppliers](#retrievesuppliers)
-* [addSupplier](#addsupplier)
-* [fetchSupplier](#fetchsupplier)
-* [modifySupplier](#modifysupplier)
-* [amendSupplier](#amendsupplier)
+* [patchCustomers](#patchcustomers)
+* [getSuppliers](#getsuppliers)
+* [createSupplier](#createsupplier)
+* [getSupplier](#getsupplier)
+* [updateSupplier](#updatesupplier)
+* [patchSupplier](#patchsupplier)
 * [getContacts](#getcontacts)
-* [addContact](#addcontact)
-* [fetchContact](#fetchcontact)
-* [replaceContact](#replacecontact)
-* [createContactsBulk](#createcontactsbulk)
-* [batchAddContacts](#batchaddcontacts)
-* [retrieveInvoices](#retrieveinvoices)
-* [addInvoice](#addinvoice)
-* [fetchInvoice](#fetchinvoice)
-* [amendInvoice](#amendinvoice)
-* [fetchInvoiceDocument](#fetchinvoicedocument)
-* [uploadFile](#uploadfile)
-* [fetchDocumentTypes](#fetchdocumenttypes)
-* [getAsyncTask](#getasynctask)
-* [retrieveItems](#retrieveitems)
-* [fetchItem](#fetchitem)
-* [retrieveInvoiceLineItems](#retrieveinvoicelineitems)
-* [addInvoiceLineItem](#addinvoicelineitem)
-* [retrieveInvoiceLineItem](#retrieveinvoicelineitem)
-* [fetchJournals](#fetchjournals)
-* [listJournalEntries](#listjournalentries)
-* [addJournalEntry](#addjournalentry)
-* [fetchJournalEntry](#fetchjournalentry)
+* [createContact](#createcontact)
+* [getContact](#getcontact)
+* [putContact](#putcontact)
+* [createContacts](#createcontacts)
+* [createContactsV1](#createcontactsv1)
+* [getInvoices](#getinvoices)
+* [createInvoice](#createinvoice)
+* [getInvoice](#getinvoice)
+* [patchInvoice](#patchinvoice)
+* [getInvoiceDocument](#getinvoicedocument)
+* [postFile](#postfile)
+* [getDocumentTypes](#getdocumenttypes)
+* [getAsyncTaskInfo](#getasynctaskinfo)
+* [getItems](#getitems)
+* [getItem](#getitem)
+* [getLineItems](#getlineitems)
+* [createLineItem](#createlineitem)
+* [getLineItem](#getlineitem)
+* [getJournals](#getjournals)
+* [getJournalEntries](#getjournalentries)
+* [createJournalEntry](#createjournalentry)
+* [getJournalEntry](#getjournalentry)
 * [createJournalEntryAttachments](#createjournalentryattachments)
-* [fetchOffers](#fetchoffers)
-* [addOffer](#addoffer)
-* [fetchOffer](#fetchoffer)
-* [fetchOfferLineItems](#fetchofferlineitems)
-* [retrieveOfferLineItem](#retrieveofferlineitem)
-* [addExpense](#addexpense)
-* [fetchExpenses](#fetchexpenses)
-* [fetchExpense](#fetchexpense)
+* [getOffers](#getoffers)
+* [createOffer](#createoffer)
+* [getOffer](#getoffer)
+* [getOfferLineItems](#getofferlineitems)
+* [getOfferLineItem](#getofferlineitem)
+* [createExpense](#createexpense)
+* [getExpenses](#getexpenses)
+* [getExpense](#getexpense)
 * [getProjects](#getprojects)
-* [addProject](#addproject)
-* [fetchProject](#fetchproject)
-* [listSalesOrders](#listsalesorders)
-* [addSalesOrder](#addsalesorder)
-* [fetchSalesOrder](#fetchsalesorder)
-* [listSalesOrderLineItems](#listsalesorderlineitems)
+* [createProject](#createproject)
+* [getProject](#getproject)
+* [getSalesOrders](#getsalesorders)
+* [createSalesOrder](#createsalesorder)
+* [getSalesOrder](#getsalesorder)
+* [getSalesOrderLines](#getsalesorderlines)
 * [getPaymentTerms](#getpaymentterms)
-* [addPaymentTerm](#addpaymentterm)
-* [fetchPaymentTerm](#fetchpaymentterm)
-* [retrieveTaxRates](#retrievetaxrates)
-* [fetchTaxRate](#fetchtaxrate)
-* [retrievePayments](#retrievepayments)
-* [addPayment](#addpayment)
-* [fetchPayment](#fetchpayment)
-* [removePayment](#removepayment)
-* [addEventSubscription](#addeventsubscription)
-* [removeEventSubscription](#removeeventsubscription)
+* [createPaymentTerm](#createpaymentterm)
+* [getPaymentTerm](#getpaymentterm)
+* [getTaxRates](#gettaxrates)
+* [getTaxRate](#gettaxrate)
+* [getPayments](#getpayments)
+* [createPayment](#createpayment)
+* [getPayment](#getpayment)
+* [deletePayment](#deletepayment)
+* [createEventSubscriptions](#createeventsubscriptions)
+* [deleteEventSubscriptions](#deleteeventsubscriptions)
 * [getProfile](#getprofile)
-* [createPassThrough](#createpassthrough)
-* [fetchBills](#fetchbills)
-* [addBill](#addbill)
-* [fetchBill](#fetchbill)
-* [removeBill](#removebill)
-* [fetchBillDocument](#fetchbilldocument)
+* [createPassThroughRequest](#createpassthroughrequest)
+* [getBills](#getbills)
+* [createBill](#createbill)
+* [getBill](#getbill)
+* [deleteBill](#deletebill)
+* [getBillDocument](#getbilldocument)
 * [createBookingProposal](#createbookingproposal)
-* [listBookingProposals](#listbookingproposals)
-* [retrieveBookingProposal](#retrievebookingproposal)
-* [fetchBookingProposalDocument](#fetchbookingproposaldocument)
-* [addBooking](#addbooking)
-* [retrieveVendorCredits](#retrievevendorcredits)
+* [getBookingProposals](#getbookingproposals)
+* [getBookingProposal](#getbookingproposal)
+* [getBookingProposalDocument](#getbookingproposaldocument)
+* [createBookings](#createbookings)
+* [getVendorCredits](#getvendorcredits)
 * [createVendorCredit](#createvendorcredit)
-* [modifyVendorCredit](#modifyvendorcredit)
-* [modifyBillLineItem](#modifybilllineitem)
-* [fetchPurchaseOrder](#fetchpurchaseorder)
-* [retrievePurchaseOrderLineItems](#retrievepurchaseorderlineitems)
-* [retrievePurchaseOrderLineItem](#retrievepurchaseorderlineitem)
+* [updateVendorCredit](#updatevendorcredit)
+* [updateBillLineItem](#updatebilllineitem)
+* [getPurchaseOrder](#getpurchaseorder)
+* [getPurchaseOrderLineItems](#getpurchaseorderlineitems)
+* [getPurchaseOrderLineItem](#getpurchaseorderlineitem)
 * [getGoodsReceipts](#getgoodsreceipts)
-* [retrieveGoodsReceipt](#retrievegoodsreceipt)
-* [retrieveGoodsReceiptLineItems](#retrievegoodsreceiptlineitems)
-* [fetchUnits](#fetchunits)
-* [retrieveOpenItems](#retrieveopenitems)
-* [fetchTrialBalance](#fetchtrialbalance)
-* [listCreditNotes](#listcreditnotes)
-* [fetchCreditNote](#fetchcreditnote)
+* [getGoodsReceipt](#getgoodsreceipt)
+* [getGoodsReceiptLineItems](#getgoodsreceiptlineitems)
+* [getUnits](#getunits)
+* [getOpenItems](#getopenitems)
+* [getTrialBalance](#gettrialbalance)
+* [getCreditNotes](#getcreditnotes)
+* [getCreditNote](#getcreditnote)
 * [getFiscalYears](#getfiscalyears)
 
-## retrieveAccount
+## getAccount
 
 ### Example Usage
 
@@ -118,7 +118,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.retrieveAccount({
+  const result = await maesn.accounting.getAccount({
     accountId: "<id>",
   });
 
@@ -134,7 +134,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingRetrieveAccount } from "@maesn/typescript-sdk/funcs/accounting-retrieve-account.js";
+import { accountingGetAccount } from "@maesn/typescript-sdk/funcs/accounting-get-account.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -147,14 +147,14 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingRetrieveAccount(maesn, {
+  const res = await accountingGetAccount(maesn, {
     accountId: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingRetrieveAccount failed:", res.error);
+    console.log("accountingGetAccount failed:", res.error);
   }
 }
 
@@ -180,7 +180,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## retrieveAccounts
+## getAccounts
 
 ### Example Usage
 
@@ -197,7 +197,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.retrieveAccounts();
+  const result = await maesn.accounting.getAccounts();
 
   console.log(result);
 }
@@ -211,7 +211,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingRetrieveAccounts } from "@maesn/typescript-sdk/funcs/accounting-retrieve-accounts.js";
+import { accountingGetAccounts } from "@maesn/typescript-sdk/funcs/accounting-get-accounts.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -224,12 +224,12 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingRetrieveAccounts(maesn);
+  const res = await accountingGetAccounts(maesn);
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingRetrieveAccounts failed:", res.error);
+    console.log("accountingGetAccounts failed:", res.error);
   }
 }
 
@@ -255,7 +255,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## addAccount
+## createAccount
 
 ### Example Usage
 
@@ -272,7 +272,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.addAccount({
+  const result = await maesn.accounting.createAccount({
     body: {},
   });
 
@@ -288,7 +288,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingAddAccount } from "@maesn/typescript-sdk/funcs/accounting-add-account.js";
+import { accountingCreateAccount } from "@maesn/typescript-sdk/funcs/accounting-create-account.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -301,14 +301,14 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingAddAccount(maesn, {
+  const res = await accountingCreateAccount(maesn, {
     body: {},
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingAddAccount failed:", res.error);
+    console.log("accountingCreateAccount failed:", res.error);
   }
 }
 
@@ -334,7 +334,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## retrieveBankAccounts
+## getBankAccounts
 
 ### Example Usage
 
@@ -351,7 +351,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.retrieveBankAccounts();
+  const result = await maesn.accounting.getBankAccounts();
 
   console.log(result);
 }
@@ -365,7 +365,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingRetrieveBankAccounts } from "@maesn/typescript-sdk/funcs/accounting-retrieve-bank-accounts.js";
+import { accountingGetBankAccounts } from "@maesn/typescript-sdk/funcs/accounting-get-bank-accounts.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -378,12 +378,12 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingRetrieveBankAccounts(maesn);
+  const res = await accountingGetBankAccounts(maesn);
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingRetrieveBankAccounts failed:", res.error);
+    console.log("accountingGetBankAccounts failed:", res.error);
   }
 }
 
@@ -409,7 +409,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## addBankAccount
+## createBankAccount
 
 ### Example Usage
 
@@ -426,7 +426,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.addBankAccount({
+  const result = await maesn.accounting.createBankAccount({
     body: {},
   });
 
@@ -442,7 +442,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingAddBankAccount } from "@maesn/typescript-sdk/funcs/accounting-add-bank-account.js";
+import { accountingCreateBankAccount } from "@maesn/typescript-sdk/funcs/accounting-create-bank-account.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -455,14 +455,14 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingAddBankAccount(maesn, {
+  const res = await accountingCreateBankAccount(maesn, {
     body: {},
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingAddBankAccount failed:", res.error);
+    console.log("accountingCreateBankAccount failed:", res.error);
   }
 }
 
@@ -488,7 +488,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## fetchBankAccount
+## getBankAccount
 
 ### Example Usage
 
@@ -505,7 +505,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.fetchBankAccount({
+  const result = await maesn.accounting.getBankAccount({
     bankAccountId: "<id>",
   });
 
@@ -521,7 +521,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingFetchBankAccount } from "@maesn/typescript-sdk/funcs/accounting-fetch-bank-account.js";
+import { accountingGetBankAccount } from "@maesn/typescript-sdk/funcs/accounting-get-bank-account.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -534,14 +534,14 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingFetchBankAccount(maesn, {
+  const res = await accountingGetBankAccount(maesn, {
     bankAccountId: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingFetchBankAccount failed:", res.error);
+    console.log("accountingGetBankAccount failed:", res.error);
   }
 }
 
@@ -567,7 +567,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## retrieveDimensions
+## getDimensions
 
 ### Example Usage
 
@@ -584,7 +584,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.retrieveDimensions();
+  const result = await maesn.accounting.getDimensions();
 
   console.log(result);
 }
@@ -598,7 +598,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingRetrieveDimensions } from "@maesn/typescript-sdk/funcs/accounting-retrieve-dimensions.js";
+import { accountingGetDimensions } from "@maesn/typescript-sdk/funcs/accounting-get-dimensions.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -611,12 +611,12 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingRetrieveDimensions(maesn);
+  const res = await accountingGetDimensions(maesn);
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingRetrieveDimensions failed:", res.error);
+    console.log("accountingGetDimensions failed:", res.error);
   }
 }
 
@@ -642,7 +642,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## recordTransaction
+## createTransaction
 
 ### Example Usage
 
@@ -659,7 +659,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.recordTransaction({
+  const result = await maesn.accounting.createTransaction({
     body: {},
   });
 
@@ -675,7 +675,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingRecordTransaction } from "@maesn/typescript-sdk/funcs/accounting-record-transaction.js";
+import { accountingCreateTransaction } from "@maesn/typescript-sdk/funcs/accounting-create-transaction.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -688,14 +688,14 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingRecordTransaction(maesn, {
+  const res = await accountingCreateTransaction(maesn, {
     body: {},
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingRecordTransaction failed:", res.error);
+    console.log("accountingCreateTransaction failed:", res.error);
   }
 }
 
@@ -721,7 +721,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## fetchCustomers
+## getCustomers
 
 ### Example Usage
 
@@ -738,7 +738,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.fetchCustomers();
+  const result = await maesn.accounting.getCustomers();
 
   console.log(result);
 }
@@ -752,7 +752,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingFetchCustomers } from "@maesn/typescript-sdk/funcs/accounting-fetch-customers.js";
+import { accountingGetCustomers } from "@maesn/typescript-sdk/funcs/accounting-get-customers.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -765,12 +765,12 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingFetchCustomers(maesn);
+  const res = await accountingGetCustomers(maesn);
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingFetchCustomers failed:", res.error);
+    console.log("accountingGetCustomers failed:", res.error);
   }
 }
 
@@ -879,7 +879,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## fetchCustomer
+## getCustomer
 
 ### Example Usage
 
@@ -896,7 +896,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.fetchCustomer({
+  const result = await maesn.accounting.getCustomer({
     contactId: "<id>",
   });
 
@@ -912,7 +912,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingFetchCustomer } from "@maesn/typescript-sdk/funcs/accounting-fetch-customer.js";
+import { accountingGetCustomer } from "@maesn/typescript-sdk/funcs/accounting-get-customer.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -925,14 +925,14 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingFetchCustomer(maesn, {
+  const res = await accountingGetCustomer(maesn, {
     contactId: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingFetchCustomer failed:", res.error);
+    console.log("accountingGetCustomer failed:", res.error);
   }
 }
 
@@ -1043,7 +1043,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## amendCustomer
+## patchCustomers
 
 ### Example Usage
 
@@ -1060,7 +1060,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.amendCustomer({
+  const result = await maesn.accounting.patchCustomers({
     contactId: "<id>",
     body: {},
   });
@@ -1077,7 +1077,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingAmendCustomer } from "@maesn/typescript-sdk/funcs/accounting-amend-customer.js";
+import { accountingPatchCustomers } from "@maesn/typescript-sdk/funcs/accounting-patch-customers.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1090,7 +1090,7 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingAmendCustomer(maesn, {
+  const res = await accountingPatchCustomers(maesn, {
     contactId: "<id>",
     body: {},
   });
@@ -1098,7 +1098,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingAmendCustomer failed:", res.error);
+    console.log("accountingPatchCustomers failed:", res.error);
   }
 }
 
@@ -1124,7 +1124,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## retrieveSuppliers
+## getSuppliers
 
 ### Example Usage
 
@@ -1141,7 +1141,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.retrieveSuppliers();
+  const result = await maesn.accounting.getSuppliers();
 
   console.log(result);
 }
@@ -1155,7 +1155,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingRetrieveSuppliers } from "@maesn/typescript-sdk/funcs/accounting-retrieve-suppliers.js";
+import { accountingGetSuppliers } from "@maesn/typescript-sdk/funcs/accounting-get-suppliers.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1168,12 +1168,12 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingRetrieveSuppliers(maesn);
+  const res = await accountingGetSuppliers(maesn);
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingRetrieveSuppliers failed:", res.error);
+    console.log("accountingGetSuppliers failed:", res.error);
   }
 }
 
@@ -1199,7 +1199,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## addSupplier
+## createSupplier
 
 ### Example Usage
 
@@ -1216,7 +1216,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.addSupplier({
+  const result = await maesn.accounting.createSupplier({
     body: {
       contactType: "COMPANY",
     },
@@ -1234,7 +1234,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingAddSupplier } from "@maesn/typescript-sdk/funcs/accounting-add-supplier.js";
+import { accountingCreateSupplier } from "@maesn/typescript-sdk/funcs/accounting-create-supplier.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1247,7 +1247,7 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingAddSupplier(maesn, {
+  const res = await accountingCreateSupplier(maesn, {
     body: {
       contactType: "COMPANY",
     },
@@ -1256,7 +1256,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingAddSupplier failed:", res.error);
+    console.log("accountingCreateSupplier failed:", res.error);
   }
 }
 
@@ -1282,7 +1282,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## fetchSupplier
+## getSupplier
 
 ### Example Usage
 
@@ -1299,7 +1299,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.fetchSupplier({
+  const result = await maesn.accounting.getSupplier({
     contactId: "<id>",
   });
 
@@ -1315,7 +1315,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingFetchSupplier } from "@maesn/typescript-sdk/funcs/accounting-fetch-supplier.js";
+import { accountingGetSupplier } from "@maesn/typescript-sdk/funcs/accounting-get-supplier.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1328,14 +1328,14 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingFetchSupplier(maesn, {
+  const res = await accountingGetSupplier(maesn, {
     contactId: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingFetchSupplier failed:", res.error);
+    console.log("accountingGetSupplier failed:", res.error);
   }
 }
 
@@ -1361,7 +1361,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## modifySupplier
+## updateSupplier
 
 ### Example Usage
 
@@ -1378,7 +1378,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.modifySupplier({
+  const result = await maesn.accounting.updateSupplier({
     contactId: "<id>",
     body: {
       contactType: "CONTACT_PERSON",
@@ -1397,7 +1397,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingModifySupplier } from "@maesn/typescript-sdk/funcs/accounting-modify-supplier.js";
+import { accountingUpdateSupplier } from "@maesn/typescript-sdk/funcs/accounting-update-supplier.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1410,7 +1410,7 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingModifySupplier(maesn, {
+  const res = await accountingUpdateSupplier(maesn, {
     contactId: "<id>",
     body: {
       contactType: "CONTACT_PERSON",
@@ -1420,7 +1420,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingModifySupplier failed:", res.error);
+    console.log("accountingUpdateSupplier failed:", res.error);
   }
 }
 
@@ -1446,7 +1446,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## amendSupplier
+## patchSupplier
 
 ### Example Usage
 
@@ -1463,7 +1463,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.amendSupplier({
+  const result = await maesn.accounting.patchSupplier({
     contactId: "<id>",
     body: {},
   });
@@ -1480,7 +1480,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingAmendSupplier } from "@maesn/typescript-sdk/funcs/accounting-amend-supplier.js";
+import { accountingPatchSupplier } from "@maesn/typescript-sdk/funcs/accounting-patch-supplier.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1493,7 +1493,7 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingAmendSupplier(maesn, {
+  const res = await accountingPatchSupplier(maesn, {
     contactId: "<id>",
     body: {},
   });
@@ -1501,7 +1501,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingAmendSupplier failed:", res.error);
+    console.log("accountingPatchSupplier failed:", res.error);
   }
 }
 
@@ -1602,7 +1602,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## addContact
+## createContact
 
 ### Example Usage
 
@@ -1619,7 +1619,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.addContact({
+  const result = await maesn.accounting.createContact({
     body: {
       contactType: "COMPANY",
     },
@@ -1637,7 +1637,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingAddContact } from "@maesn/typescript-sdk/funcs/accounting-add-contact.js";
+import { accountingCreateContact } from "@maesn/typescript-sdk/funcs/accounting-create-contact.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1650,7 +1650,7 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingAddContact(maesn, {
+  const res = await accountingCreateContact(maesn, {
     body: {
       contactType: "COMPANY",
     },
@@ -1659,7 +1659,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingAddContact failed:", res.error);
+    console.log("accountingCreateContact failed:", res.error);
   }
 }
 
@@ -1685,7 +1685,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## fetchContact
+## getContact
 
 ### Example Usage
 
@@ -1702,7 +1702,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.fetchContact({
+  const result = await maesn.accounting.getContact({
     contactId: "<id>",
   });
 
@@ -1718,7 +1718,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingFetchContact } from "@maesn/typescript-sdk/funcs/accounting-fetch-contact.js";
+import { accountingGetContact } from "@maesn/typescript-sdk/funcs/accounting-get-contact.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1731,14 +1731,14 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingFetchContact(maesn, {
+  const res = await accountingGetContact(maesn, {
     contactId: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingFetchContact failed:", res.error);
+    console.log("accountingGetContact failed:", res.error);
   }
 }
 
@@ -1764,7 +1764,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## replaceContact
+## putContact
 
 ### Example Usage
 
@@ -1781,7 +1781,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.replaceContact({
+  const result = await maesn.accounting.putContact({
     contactId: "<id>",
     body: {
       contactType: "COMPANY",
@@ -1800,7 +1800,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingReplaceContact } from "@maesn/typescript-sdk/funcs/accounting-replace-contact.js";
+import { accountingPutContact } from "@maesn/typescript-sdk/funcs/accounting-put-contact.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1813,7 +1813,7 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingReplaceContact(maesn, {
+  const res = await accountingPutContact(maesn, {
     contactId: "<id>",
     body: {
       contactType: "COMPANY",
@@ -1823,7 +1823,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingReplaceContact failed:", res.error);
+    console.log("accountingPutContact failed:", res.error);
   }
 }
 
@@ -1849,7 +1849,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## createContactsBulk
+## createContacts
 
 ### Example Usage
 
@@ -1866,7 +1866,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.createContactsBulk({
+  const result = await maesn.accounting.createContacts({
     body: {
       accountNumberLength: 8670.85,
       chartOfAccount: "SKR03",
@@ -1935,7 +1935,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingCreateContactsBulk } from "@maesn/typescript-sdk/funcs/accounting-create-contacts-bulk.js";
+import { accountingCreateContacts } from "@maesn/typescript-sdk/funcs/accounting-create-contacts.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1948,7 +1948,7 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingCreateContactsBulk(maesn, {
+  const res = await accountingCreateContacts(maesn, {
     body: {
       accountNumberLength: 8670.85,
       chartOfAccount: "SKR03",
@@ -2008,7 +2008,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingCreateContactsBulk failed:", res.error);
+    console.log("accountingCreateContacts failed:", res.error);
   }
 }
 
@@ -2034,7 +2034,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## batchAddContacts
+## createContactsV1
 
 ### Example Usage
 
@@ -2051,7 +2051,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.batchAddContacts({
+  const result = await maesn.accounting.createContactsV1({
     body: {
       accountNumberLength: 3935.59,
       chartOfAccount: "SKR51",
@@ -2072,7 +2072,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingBatchAddContacts } from "@maesn/typescript-sdk/funcs/accounting-batch-add-contacts.js";
+import { accountingCreateContactsV1 } from "@maesn/typescript-sdk/funcs/accounting-create-contacts-v1.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2085,7 +2085,7 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingBatchAddContacts(maesn, {
+  const res = await accountingCreateContactsV1(maesn, {
     body: {
       accountNumberLength: 3935.59,
       chartOfAccount: "SKR51",
@@ -2097,7 +2097,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingBatchAddContacts failed:", res.error);
+    console.log("accountingCreateContactsV1 failed:", res.error);
   }
 }
 
@@ -2123,7 +2123,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## retrieveInvoices
+## getInvoices
 
 ### Example Usage
 
@@ -2140,7 +2140,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.retrieveInvoices();
+  const result = await maesn.accounting.getInvoices();
 
   console.log(result);
 }
@@ -2154,7 +2154,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingRetrieveInvoices } from "@maesn/typescript-sdk/funcs/accounting-retrieve-invoices.js";
+import { accountingGetInvoices } from "@maesn/typescript-sdk/funcs/accounting-get-invoices.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2167,12 +2167,12 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingRetrieveInvoices(maesn);
+  const res = await accountingGetInvoices(maesn);
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingRetrieveInvoices failed:", res.error);
+    console.log("accountingGetInvoices failed:", res.error);
   }
 }
 
@@ -2198,7 +2198,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## addInvoice
+## createInvoice
 
 ### Example Usage
 
@@ -2215,7 +2215,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.addInvoice({
+  const result = await maesn.accounting.createInvoice({
     body: {
       invoiceDate: "<value>",
       lineItems: [],
@@ -2234,7 +2234,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingAddInvoice } from "@maesn/typescript-sdk/funcs/accounting-add-invoice.js";
+import { accountingCreateInvoice } from "@maesn/typescript-sdk/funcs/accounting-create-invoice.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2247,7 +2247,7 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingAddInvoice(maesn, {
+  const res = await accountingCreateInvoice(maesn, {
     body: {
       invoiceDate: "<value>",
       lineItems: [],
@@ -2257,7 +2257,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingAddInvoice failed:", res.error);
+    console.log("accountingCreateInvoice failed:", res.error);
   }
 }
 
@@ -2283,7 +2283,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## fetchInvoice
+## getInvoice
 
 ### Example Usage
 
@@ -2300,7 +2300,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.fetchInvoice({
+  const result = await maesn.accounting.getInvoice({
     invoiceId: "<id>",
   });
 
@@ -2316,7 +2316,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingFetchInvoice } from "@maesn/typescript-sdk/funcs/accounting-fetch-invoice.js";
+import { accountingGetInvoice } from "@maesn/typescript-sdk/funcs/accounting-get-invoice.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2329,14 +2329,14 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingFetchInvoice(maesn, {
+  const res = await accountingGetInvoice(maesn, {
     invoiceId: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingFetchInvoice failed:", res.error);
+    console.log("accountingGetInvoice failed:", res.error);
   }
 }
 
@@ -2362,7 +2362,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## amendInvoice
+## patchInvoice
 
 ### Example Usage
 
@@ -2379,7 +2379,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.amendInvoice({
+  const result = await maesn.accounting.patchInvoice({
     invoiceId: "<id>",
     body: {},
   });
@@ -2396,7 +2396,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingAmendInvoice } from "@maesn/typescript-sdk/funcs/accounting-amend-invoice.js";
+import { accountingPatchInvoice } from "@maesn/typescript-sdk/funcs/accounting-patch-invoice.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2409,7 +2409,7 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingAmendInvoice(maesn, {
+  const res = await accountingPatchInvoice(maesn, {
     invoiceId: "<id>",
     body: {},
   });
@@ -2417,7 +2417,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingAmendInvoice failed:", res.error);
+    console.log("accountingPatchInvoice failed:", res.error);
   }
 }
 
@@ -2443,7 +2443,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## fetchInvoiceDocument
+## getInvoiceDocument
 
 ### Example Usage
 
@@ -2460,7 +2460,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.fetchInvoiceDocument({
+  const result = await maesn.accounting.getInvoiceDocument({
     invoiceId: "<id>",
   });
 
@@ -2476,7 +2476,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingFetchInvoiceDocument } from "@maesn/typescript-sdk/funcs/accounting-fetch-invoice-document.js";
+import { accountingGetInvoiceDocument } from "@maesn/typescript-sdk/funcs/accounting-get-invoice-document.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2489,14 +2489,14 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingFetchInvoiceDocument(maesn, {
+  const res = await accountingGetInvoiceDocument(maesn, {
     invoiceId: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingFetchInvoiceDocument failed:", res.error);
+    console.log("accountingGetInvoiceDocument failed:", res.error);
   }
 }
 
@@ -2522,7 +2522,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## uploadFile
+## postFile
 
 ### Example Usage
 
@@ -2539,7 +2539,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.uploadFile({
+  const result = await maesn.accounting.postFile({
     body: {
       contactId: "Contact id associated to the document",
       documentDate: "2025-03-26T08:25:54.060Z",
@@ -2563,7 +2563,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingUploadFile } from "@maesn/typescript-sdk/funcs/accounting-upload-file.js";
+import { accountingPostFile } from "@maesn/typescript-sdk/funcs/accounting-post-file.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2576,7 +2576,7 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingUploadFile(maesn, {
+  const res = await accountingPostFile(maesn, {
     body: {
       contactId: "Contact id associated to the document",
       documentDate: "2025-03-26T08:25:54.060Z",
@@ -2591,7 +2591,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingUploadFile failed:", res.error);
+    console.log("accountingPostFile failed:", res.error);
   }
 }
 
@@ -2617,7 +2617,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## fetchDocumentTypes
+## getDocumentTypes
 
 ### Example Usage
 
@@ -2634,7 +2634,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.fetchDocumentTypes();
+  const result = await maesn.accounting.getDocumentTypes();
 
   console.log(result);
 }
@@ -2648,7 +2648,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingFetchDocumentTypes } from "@maesn/typescript-sdk/funcs/accounting-fetch-document-types.js";
+import { accountingGetDocumentTypes } from "@maesn/typescript-sdk/funcs/accounting-get-document-types.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2661,12 +2661,12 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingFetchDocumentTypes(maesn);
+  const res = await accountingGetDocumentTypes(maesn);
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingFetchDocumentTypes failed:", res.error);
+    console.log("accountingGetDocumentTypes failed:", res.error);
   }
 }
 
@@ -2692,7 +2692,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## getAsyncTask
+## getAsyncTaskInfo
 
 ### Example Usage
 
@@ -2709,7 +2709,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.getAsyncTask({
+  const result = await maesn.accounting.getAsyncTaskInfo({
     taskId: "<id>",
   });
 
@@ -2725,7 +2725,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingGetAsyncTask } from "@maesn/typescript-sdk/funcs/accounting-get-async-task.js";
+import { accountingGetAsyncTaskInfo } from "@maesn/typescript-sdk/funcs/accounting-get-async-task-info.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2738,14 +2738,14 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingGetAsyncTask(maesn, {
+  const res = await accountingGetAsyncTaskInfo(maesn, {
     taskId: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingGetAsyncTask failed:", res.error);
+    console.log("accountingGetAsyncTaskInfo failed:", res.error);
   }
 }
 
@@ -2771,7 +2771,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## retrieveItems
+## getItems
 
 ### Example Usage
 
@@ -2788,7 +2788,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.retrieveItems();
+  const result = await maesn.accounting.getItems();
 
   console.log(result);
 }
@@ -2802,7 +2802,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingRetrieveItems } from "@maesn/typescript-sdk/funcs/accounting-retrieve-items.js";
+import { accountingGetItems } from "@maesn/typescript-sdk/funcs/accounting-get-items.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2815,12 +2815,12 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingRetrieveItems(maesn);
+  const res = await accountingGetItems(maesn);
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingRetrieveItems failed:", res.error);
+    console.log("accountingGetItems failed:", res.error);
   }
 }
 
@@ -2846,7 +2846,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## fetchItem
+## getItem
 
 ### Example Usage
 
@@ -2863,7 +2863,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.fetchItem({
+  const result = await maesn.accounting.getItem({
     itemId: "<id>",
   });
 
@@ -2879,7 +2879,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingFetchItem } from "@maesn/typescript-sdk/funcs/accounting-fetch-item.js";
+import { accountingGetItem } from "@maesn/typescript-sdk/funcs/accounting-get-item.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2892,14 +2892,14 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingFetchItem(maesn, {
+  const res = await accountingGetItem(maesn, {
     itemId: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingFetchItem failed:", res.error);
+    console.log("accountingGetItem failed:", res.error);
   }
 }
 
@@ -2925,7 +2925,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## retrieveInvoiceLineItems
+## getLineItems
 
 ### Example Usage
 
@@ -2942,7 +2942,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.retrieveInvoiceLineItems({
+  const result = await maesn.accounting.getLineItems({
     invoiceId: "<id>",
   });
 
@@ -2958,7 +2958,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingRetrieveInvoiceLineItems } from "@maesn/typescript-sdk/funcs/accounting-retrieve-invoice-line-items.js";
+import { accountingGetLineItems } from "@maesn/typescript-sdk/funcs/accounting-get-line-items.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2971,14 +2971,14 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingRetrieveInvoiceLineItems(maesn, {
+  const res = await accountingGetLineItems(maesn, {
     invoiceId: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingRetrieveInvoiceLineItems failed:", res.error);
+    console.log("accountingGetLineItems failed:", res.error);
   }
 }
 
@@ -3004,7 +3004,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## addInvoiceLineItem
+## createLineItem
 
 ### Example Usage
 
@@ -3021,7 +3021,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.addInvoiceLineItem({
+  const result = await maesn.accounting.createLineItem({
     invoiceId: "<id>",
     body: {
       quantity: 931.68,
@@ -3040,7 +3040,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingAddInvoiceLineItem } from "@maesn/typescript-sdk/funcs/accounting-add-invoice-line-item.js";
+import { accountingCreateLineItem } from "@maesn/typescript-sdk/funcs/accounting-create-line-item.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -3053,7 +3053,7 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingAddInvoiceLineItem(maesn, {
+  const res = await accountingCreateLineItem(maesn, {
     invoiceId: "<id>",
     body: {
       quantity: 931.68,
@@ -3063,7 +3063,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingAddInvoiceLineItem failed:", res.error);
+    console.log("accountingCreateLineItem failed:", res.error);
   }
 }
 
@@ -3089,7 +3089,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## retrieveInvoiceLineItem
+## getLineItem
 
 ### Example Usage
 
@@ -3106,7 +3106,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.retrieveInvoiceLineItem({
+  const result = await maesn.accounting.getLineItem({
     invoiceId: "<id>",
     lineItemId: "<id>",
   });
@@ -3123,7 +3123,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingRetrieveInvoiceLineItem } from "@maesn/typescript-sdk/funcs/accounting-retrieve-invoice-line-item.js";
+import { accountingGetLineItem } from "@maesn/typescript-sdk/funcs/accounting-get-line-item.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -3136,7 +3136,7 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingRetrieveInvoiceLineItem(maesn, {
+  const res = await accountingGetLineItem(maesn, {
     invoiceId: "<id>",
     lineItemId: "<id>",
   });
@@ -3144,7 +3144,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingRetrieveInvoiceLineItem failed:", res.error);
+    console.log("accountingGetLineItem failed:", res.error);
   }
 }
 
@@ -3170,7 +3170,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## fetchJournals
+## getJournals
 
 ### Example Usage
 
@@ -3187,7 +3187,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.fetchJournals();
+  const result = await maesn.accounting.getJournals();
 
   console.log(result);
 }
@@ -3201,7 +3201,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingFetchJournals } from "@maesn/typescript-sdk/funcs/accounting-fetch-journals.js";
+import { accountingGetJournals } from "@maesn/typescript-sdk/funcs/accounting-get-journals.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -3214,12 +3214,12 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingFetchJournals(maesn);
+  const res = await accountingGetJournals(maesn);
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingFetchJournals failed:", res.error);
+    console.log("accountingGetJournals failed:", res.error);
   }
 }
 
@@ -3245,7 +3245,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## listJournalEntries
+## getJournalEntries
 
 ### Example Usage
 
@@ -3262,7 +3262,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.listJournalEntries();
+  const result = await maesn.accounting.getJournalEntries();
 
   console.log(result);
 }
@@ -3276,7 +3276,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingListJournalEntries } from "@maesn/typescript-sdk/funcs/accounting-list-journal-entries.js";
+import { accountingGetJournalEntries } from "@maesn/typescript-sdk/funcs/accounting-get-journal-entries.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -3289,12 +3289,12 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingListJournalEntries(maesn);
+  const res = await accountingGetJournalEntries(maesn);
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingListJournalEntries failed:", res.error);
+    console.log("accountingGetJournalEntries failed:", res.error);
   }
 }
 
@@ -3320,7 +3320,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## addJournalEntry
+## createJournalEntry
 
 ### Example Usage
 
@@ -3337,7 +3337,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.addJournalEntry({
+  const result = await maesn.accounting.createJournalEntry({
     body: {},
   });
 
@@ -3353,7 +3353,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingAddJournalEntry } from "@maesn/typescript-sdk/funcs/accounting-add-journal-entry.js";
+import { accountingCreateJournalEntry } from "@maesn/typescript-sdk/funcs/accounting-create-journal-entry.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -3366,14 +3366,14 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingAddJournalEntry(maesn, {
+  const res = await accountingCreateJournalEntry(maesn, {
     body: {},
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingAddJournalEntry failed:", res.error);
+    console.log("accountingCreateJournalEntry failed:", res.error);
   }
 }
 
@@ -3399,7 +3399,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## fetchJournalEntry
+## getJournalEntry
 
 ### Example Usage
 
@@ -3416,7 +3416,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.fetchJournalEntry({
+  const result = await maesn.accounting.getJournalEntry({
     journalEntryId: "<id>",
   });
 
@@ -3432,7 +3432,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingFetchJournalEntry } from "@maesn/typescript-sdk/funcs/accounting-fetch-journal-entry.js";
+import { accountingGetJournalEntry } from "@maesn/typescript-sdk/funcs/accounting-get-journal-entry.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -3445,14 +3445,14 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingFetchJournalEntry(maesn, {
+  const res = await accountingGetJournalEntry(maesn, {
     journalEntryId: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingFetchJournalEntry failed:", res.error);
+    console.log("accountingGetJournalEntry failed:", res.error);
   }
 }
 
@@ -3559,7 +3559,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## fetchOffers
+## getOffers
 
 ### Example Usage
 
@@ -3576,7 +3576,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.fetchOffers();
+  const result = await maesn.accounting.getOffers();
 
   console.log(result);
 }
@@ -3590,7 +3590,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingFetchOffers } from "@maesn/typescript-sdk/funcs/accounting-fetch-offers.js";
+import { accountingGetOffers } from "@maesn/typescript-sdk/funcs/accounting-get-offers.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -3603,12 +3603,12 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingFetchOffers(maesn);
+  const res = await accountingGetOffers(maesn);
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingFetchOffers failed:", res.error);
+    console.log("accountingGetOffers failed:", res.error);
   }
 }
 
@@ -3634,7 +3634,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## addOffer
+## createOffer
 
 ### Example Usage
 
@@ -3651,7 +3651,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.addOffer({
+  const result = await maesn.accounting.createOffer({
     body: {
       addresses: [
         {
@@ -3680,7 +3680,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingAddOffer } from "@maesn/typescript-sdk/funcs/accounting-add-offer.js";
+import { accountingCreateOffer } from "@maesn/typescript-sdk/funcs/accounting-create-offer.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -3693,7 +3693,7 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingAddOffer(maesn, {
+  const res = await accountingCreateOffer(maesn, {
     body: {
       addresses: [
         {
@@ -3713,7 +3713,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingAddOffer failed:", res.error);
+    console.log("accountingCreateOffer failed:", res.error);
   }
 }
 
@@ -3739,7 +3739,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## fetchOffer
+## getOffer
 
 ### Example Usage
 
@@ -3756,7 +3756,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.fetchOffer({
+  const result = await maesn.accounting.getOffer({
     offerId: "<id>",
   });
 
@@ -3772,7 +3772,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingFetchOffer } from "@maesn/typescript-sdk/funcs/accounting-fetch-offer.js";
+import { accountingGetOffer } from "@maesn/typescript-sdk/funcs/accounting-get-offer.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -3785,14 +3785,14 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingFetchOffer(maesn, {
+  const res = await accountingGetOffer(maesn, {
     offerId: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingFetchOffer failed:", res.error);
+    console.log("accountingGetOffer failed:", res.error);
   }
 }
 
@@ -3818,7 +3818,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## fetchOfferLineItems
+## getOfferLineItems
 
 ### Example Usage
 
@@ -3835,7 +3835,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.fetchOfferLineItems({
+  const result = await maesn.accounting.getOfferLineItems({
     offerId: "<id>",
   });
 
@@ -3851,7 +3851,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingFetchOfferLineItems } from "@maesn/typescript-sdk/funcs/accounting-fetch-offer-line-items.js";
+import { accountingGetOfferLineItems } from "@maesn/typescript-sdk/funcs/accounting-get-offer-line-items.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -3864,14 +3864,14 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingFetchOfferLineItems(maesn, {
+  const res = await accountingGetOfferLineItems(maesn, {
     offerId: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingFetchOfferLineItems failed:", res.error);
+    console.log("accountingGetOfferLineItems failed:", res.error);
   }
 }
 
@@ -3897,7 +3897,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## retrieveOfferLineItem
+## getOfferLineItem
 
 ### Example Usage
 
@@ -3914,7 +3914,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.retrieveOfferLineItem({
+  const result = await maesn.accounting.getOfferLineItem({
     offerId: "<id>",
     lineItemId: "<id>",
   });
@@ -3931,7 +3931,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingRetrieveOfferLineItem } from "@maesn/typescript-sdk/funcs/accounting-retrieve-offer-line-item.js";
+import { accountingGetOfferLineItem } from "@maesn/typescript-sdk/funcs/accounting-get-offer-line-item.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -3944,7 +3944,7 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingRetrieveOfferLineItem(maesn, {
+  const res = await accountingGetOfferLineItem(maesn, {
     offerId: "<id>",
     lineItemId: "<id>",
   });
@@ -3952,7 +3952,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingRetrieveOfferLineItem failed:", res.error);
+    console.log("accountingGetOfferLineItem failed:", res.error);
   }
 }
 
@@ -3978,7 +3978,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## addExpense
+## createExpense
 
 ### Example Usage
 
@@ -3995,7 +3995,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.addExpense({
+  const result = await maesn.accounting.createExpense({
     body: {},
   });
 
@@ -4011,7 +4011,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingAddExpense } from "@maesn/typescript-sdk/funcs/accounting-add-expense.js";
+import { accountingCreateExpense } from "@maesn/typescript-sdk/funcs/accounting-create-expense.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -4024,14 +4024,14 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingAddExpense(maesn, {
+  const res = await accountingCreateExpense(maesn, {
     body: {},
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingAddExpense failed:", res.error);
+    console.log("accountingCreateExpense failed:", res.error);
   }
 }
 
@@ -4057,7 +4057,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## fetchExpenses
+## getExpenses
 
 ### Example Usage
 
@@ -4074,7 +4074,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.fetchExpenses();
+  const result = await maesn.accounting.getExpenses();
 
   console.log(result);
 }
@@ -4088,7 +4088,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingFetchExpenses } from "@maesn/typescript-sdk/funcs/accounting-fetch-expenses.js";
+import { accountingGetExpenses } from "@maesn/typescript-sdk/funcs/accounting-get-expenses.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -4101,12 +4101,12 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingFetchExpenses(maesn);
+  const res = await accountingGetExpenses(maesn);
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingFetchExpenses failed:", res.error);
+    console.log("accountingGetExpenses failed:", res.error);
   }
 }
 
@@ -4132,7 +4132,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## fetchExpense
+## getExpense
 
 ### Example Usage
 
@@ -4149,7 +4149,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.fetchExpense({
+  const result = await maesn.accounting.getExpense({
     expenseId: "<id>",
   });
 
@@ -4165,7 +4165,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingFetchExpense } from "@maesn/typescript-sdk/funcs/accounting-fetch-expense.js";
+import { accountingGetExpense } from "@maesn/typescript-sdk/funcs/accounting-get-expense.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -4178,14 +4178,14 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingFetchExpense(maesn, {
+  const res = await accountingGetExpense(maesn, {
     expenseId: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingFetchExpense failed:", res.error);
+    console.log("accountingGetExpense failed:", res.error);
   }
 }
 
@@ -4286,7 +4286,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## addProject
+## createProject
 
 ### Example Usage
 
@@ -4303,7 +4303,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.addProject({
+  const result = await maesn.accounting.createProject({
     body: {},
   });
 
@@ -4319,7 +4319,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingAddProject } from "@maesn/typescript-sdk/funcs/accounting-add-project.js";
+import { accountingCreateProject } from "@maesn/typescript-sdk/funcs/accounting-create-project.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -4332,14 +4332,14 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingAddProject(maesn, {
+  const res = await accountingCreateProject(maesn, {
     body: {},
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingAddProject failed:", res.error);
+    console.log("accountingCreateProject failed:", res.error);
   }
 }
 
@@ -4365,7 +4365,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## fetchProject
+## getProject
 
 ### Example Usage
 
@@ -4382,7 +4382,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.fetchProject({
+  const result = await maesn.accounting.getProject({
     projectId: "<id>",
   });
 
@@ -4398,7 +4398,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingFetchProject } from "@maesn/typescript-sdk/funcs/accounting-fetch-project.js";
+import { accountingGetProject } from "@maesn/typescript-sdk/funcs/accounting-get-project.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -4411,14 +4411,14 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingFetchProject(maesn, {
+  const res = await accountingGetProject(maesn, {
     projectId: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingFetchProject failed:", res.error);
+    console.log("accountingGetProject failed:", res.error);
   }
 }
 
@@ -4444,7 +4444,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## listSalesOrders
+## getSalesOrders
 
 ### Example Usage
 
@@ -4461,7 +4461,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.listSalesOrders();
+  const result = await maesn.accounting.getSalesOrders();
 
   console.log(result);
 }
@@ -4475,7 +4475,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingListSalesOrders } from "@maesn/typescript-sdk/funcs/accounting-list-sales-orders.js";
+import { accountingGetSalesOrders } from "@maesn/typescript-sdk/funcs/accounting-get-sales-orders.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -4488,12 +4488,12 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingListSalesOrders(maesn);
+  const res = await accountingGetSalesOrders(maesn);
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingListSalesOrders failed:", res.error);
+    console.log("accountingGetSalesOrders failed:", res.error);
   }
 }
 
@@ -4519,7 +4519,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## addSalesOrder
+## createSalesOrder
 
 ### Example Usage
 
@@ -4536,7 +4536,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.addSalesOrder({
+  const result = await maesn.accounting.createSalesOrder({
     body: {},
   });
 
@@ -4552,7 +4552,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingAddSalesOrder } from "@maesn/typescript-sdk/funcs/accounting-add-sales-order.js";
+import { accountingCreateSalesOrder } from "@maesn/typescript-sdk/funcs/accounting-create-sales-order.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -4565,14 +4565,14 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingAddSalesOrder(maesn, {
+  const res = await accountingCreateSalesOrder(maesn, {
     body: {},
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingAddSalesOrder failed:", res.error);
+    console.log("accountingCreateSalesOrder failed:", res.error);
   }
 }
 
@@ -4598,7 +4598,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## fetchSalesOrder
+## getSalesOrder
 
 ### Example Usage
 
@@ -4615,7 +4615,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.fetchSalesOrder({
+  const result = await maesn.accounting.getSalesOrder({
     salesOrderId: "<id>",
   });
 
@@ -4631,7 +4631,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingFetchSalesOrder } from "@maesn/typescript-sdk/funcs/accounting-fetch-sales-order.js";
+import { accountingGetSalesOrder } from "@maesn/typescript-sdk/funcs/accounting-get-sales-order.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -4644,14 +4644,14 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingFetchSalesOrder(maesn, {
+  const res = await accountingGetSalesOrder(maesn, {
     salesOrderId: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingFetchSalesOrder failed:", res.error);
+    console.log("accountingGetSalesOrder failed:", res.error);
   }
 }
 
@@ -4677,7 +4677,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## listSalesOrderLineItems
+## getSalesOrderLines
 
 ### Example Usage
 
@@ -4694,7 +4694,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.listSalesOrderLineItems({
+  const result = await maesn.accounting.getSalesOrderLines({
     salesOrderId: "<id>",
   });
 
@@ -4710,7 +4710,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingListSalesOrderLineItems } from "@maesn/typescript-sdk/funcs/accounting-list-sales-order-line-items.js";
+import { accountingGetSalesOrderLines } from "@maesn/typescript-sdk/funcs/accounting-get-sales-order-lines.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -4723,14 +4723,14 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingListSalesOrderLineItems(maesn, {
+  const res = await accountingGetSalesOrderLines(maesn, {
     salesOrderId: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingListSalesOrderLineItems failed:", res.error);
+    console.log("accountingGetSalesOrderLines failed:", res.error);
   }
 }
 
@@ -4831,7 +4831,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## addPaymentTerm
+## createPaymentTerm
 
 ### Example Usage
 
@@ -4848,7 +4848,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.addPaymentTerm({
+  const result = await maesn.accounting.createPaymentTerm({
     body: {},
   });
 
@@ -4864,7 +4864,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingAddPaymentTerm } from "@maesn/typescript-sdk/funcs/accounting-add-payment-term.js";
+import { accountingCreatePaymentTerm } from "@maesn/typescript-sdk/funcs/accounting-create-payment-term.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -4877,14 +4877,14 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingAddPaymentTerm(maesn, {
+  const res = await accountingCreatePaymentTerm(maesn, {
     body: {},
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingAddPaymentTerm failed:", res.error);
+    console.log("accountingCreatePaymentTerm failed:", res.error);
   }
 }
 
@@ -4910,7 +4910,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## fetchPaymentTerm
+## getPaymentTerm
 
 ### Example Usage
 
@@ -4927,7 +4927,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.fetchPaymentTerm({
+  const result = await maesn.accounting.getPaymentTerm({
     paymentTermId: "<id>",
   });
 
@@ -4943,7 +4943,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingFetchPaymentTerm } from "@maesn/typescript-sdk/funcs/accounting-fetch-payment-term.js";
+import { accountingGetPaymentTerm } from "@maesn/typescript-sdk/funcs/accounting-get-payment-term.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -4956,14 +4956,14 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingFetchPaymentTerm(maesn, {
+  const res = await accountingGetPaymentTerm(maesn, {
     paymentTermId: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingFetchPaymentTerm failed:", res.error);
+    console.log("accountingGetPaymentTerm failed:", res.error);
   }
 }
 
@@ -4989,7 +4989,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## retrieveTaxRates
+## getTaxRates
 
 ### Example Usage
 
@@ -5006,7 +5006,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.retrieveTaxRates();
+  const result = await maesn.accounting.getTaxRates();
 
   console.log(result);
 }
@@ -5020,7 +5020,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingRetrieveTaxRates } from "@maesn/typescript-sdk/funcs/accounting-retrieve-tax-rates.js";
+import { accountingGetTaxRates } from "@maesn/typescript-sdk/funcs/accounting-get-tax-rates.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -5033,12 +5033,12 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingRetrieveTaxRates(maesn);
+  const res = await accountingGetTaxRates(maesn);
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingRetrieveTaxRates failed:", res.error);
+    console.log("accountingGetTaxRates failed:", res.error);
   }
 }
 
@@ -5064,7 +5064,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## fetchTaxRate
+## getTaxRate
 
 ### Example Usage
 
@@ -5081,7 +5081,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.fetchTaxRate({
+  const result = await maesn.accounting.getTaxRate({
     taxRateId: "<id>",
   });
 
@@ -5097,7 +5097,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingFetchTaxRate } from "@maesn/typescript-sdk/funcs/accounting-fetch-tax-rate.js";
+import { accountingGetTaxRate } from "@maesn/typescript-sdk/funcs/accounting-get-tax-rate.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -5110,14 +5110,14 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingFetchTaxRate(maesn, {
+  const res = await accountingGetTaxRate(maesn, {
     taxRateId: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingFetchTaxRate failed:", res.error);
+    console.log("accountingGetTaxRate failed:", res.error);
   }
 }
 
@@ -5143,7 +5143,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## retrievePayments
+## getPayments
 
 ### Example Usage
 
@@ -5160,7 +5160,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.retrievePayments();
+  const result = await maesn.accounting.getPayments();
 
   console.log(result);
 }
@@ -5174,7 +5174,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingRetrievePayments } from "@maesn/typescript-sdk/funcs/accounting-retrieve-payments.js";
+import { accountingGetPayments } from "@maesn/typescript-sdk/funcs/accounting-get-payments.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -5187,12 +5187,12 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingRetrievePayments(maesn);
+  const res = await accountingGetPayments(maesn);
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingRetrievePayments failed:", res.error);
+    console.log("accountingGetPayments failed:", res.error);
   }
 }
 
@@ -5218,7 +5218,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## addPayment
+## createPayment
 
 ### Example Usage
 
@@ -5235,7 +5235,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.addPayment({
+  const result = await maesn.accounting.createPayment({
     body: {},
   });
 
@@ -5251,7 +5251,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingAddPayment } from "@maesn/typescript-sdk/funcs/accounting-add-payment.js";
+import { accountingCreatePayment } from "@maesn/typescript-sdk/funcs/accounting-create-payment.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -5264,14 +5264,14 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingAddPayment(maesn, {
+  const res = await accountingCreatePayment(maesn, {
     body: {},
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingAddPayment failed:", res.error);
+    console.log("accountingCreatePayment failed:", res.error);
   }
 }
 
@@ -5297,7 +5297,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## fetchPayment
+## getPayment
 
 ### Example Usage
 
@@ -5314,7 +5314,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.fetchPayment({
+  const result = await maesn.accounting.getPayment({
     paymentId: "<id>",
   });
 
@@ -5330,7 +5330,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingFetchPayment } from "@maesn/typescript-sdk/funcs/accounting-fetch-payment.js";
+import { accountingGetPayment } from "@maesn/typescript-sdk/funcs/accounting-get-payment.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -5343,14 +5343,14 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingFetchPayment(maesn, {
+  const res = await accountingGetPayment(maesn, {
     paymentId: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingFetchPayment failed:", res.error);
+    console.log("accountingGetPayment failed:", res.error);
   }
 }
 
@@ -5376,7 +5376,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## removePayment
+## deletePayment
 
 ### Example Usage
 
@@ -5393,7 +5393,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.removePayment({
+  const result = await maesn.accounting.deletePayment({
     paymentId: "<id>",
   });
 
@@ -5409,7 +5409,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingRemovePayment } from "@maesn/typescript-sdk/funcs/accounting-remove-payment.js";
+import { accountingDeletePayment } from "@maesn/typescript-sdk/funcs/accounting-delete-payment.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -5422,14 +5422,14 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingRemovePayment(maesn, {
+  const res = await accountingDeletePayment(maesn, {
     paymentId: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingRemovePayment failed:", res.error);
+    console.log("accountingDeletePayment failed:", res.error);
   }
 }
 
@@ -5455,7 +5455,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## addEventSubscription
+## createEventSubscriptions
 
 ### Example Usage
 
@@ -5472,7 +5472,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.addEventSubscription({
+  const result = await maesn.accounting.createEventSubscriptions({
     body: {
       eventType: "<value>",
       callbackUrl: "https://dark-vibraphone.com",
@@ -5491,7 +5491,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingAddEventSubscription } from "@maesn/typescript-sdk/funcs/accounting-add-event-subscription.js";
+import { accountingCreateEventSubscriptions } from "@maesn/typescript-sdk/funcs/accounting-create-event-subscriptions.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -5504,7 +5504,7 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingAddEventSubscription(maesn, {
+  const res = await accountingCreateEventSubscriptions(maesn, {
     body: {
       eventType: "<value>",
       callbackUrl: "https://dark-vibraphone.com",
@@ -5514,7 +5514,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingAddEventSubscription failed:", res.error);
+    console.log("accountingCreateEventSubscriptions failed:", res.error);
   }
 }
 
@@ -5540,7 +5540,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## removeEventSubscription
+## deleteEventSubscriptions
 
 ### Example Usage
 
@@ -5557,7 +5557,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.removeEventSubscription({
+  const result = await maesn.accounting.deleteEventSubscriptions({
     eventSubscriptionId: "<id>",
   });
 
@@ -5573,7 +5573,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingRemoveEventSubscription } from "@maesn/typescript-sdk/funcs/accounting-remove-event-subscription.js";
+import { accountingDeleteEventSubscriptions } from "@maesn/typescript-sdk/funcs/accounting-delete-event-subscriptions.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -5586,14 +5586,14 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingRemoveEventSubscription(maesn, {
+  const res = await accountingDeleteEventSubscriptions(maesn, {
     eventSubscriptionId: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingRemoveEventSubscription failed:", res.error);
+    console.log("accountingDeleteEventSubscriptions failed:", res.error);
   }
 }
 
@@ -5693,7 +5693,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## createPassThrough
+## createPassThroughRequest
 
 ### Example Usage
 
@@ -5710,7 +5710,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.createPassThrough({
+  const result = await maesn.accounting.createPassThroughRequest({
     body: {
       path: "/usr/bin",
       method: "DELETE",
@@ -5729,7 +5729,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingCreatePassThrough } from "@maesn/typescript-sdk/funcs/accounting-create-pass-through.js";
+import { accountingCreatePassThroughRequest } from "@maesn/typescript-sdk/funcs/accounting-create-pass-through-request.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -5742,7 +5742,7 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingCreatePassThrough(maesn, {
+  const res = await accountingCreatePassThroughRequest(maesn, {
     body: {
       path: "/usr/bin",
       method: "DELETE",
@@ -5752,7 +5752,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingCreatePassThrough failed:", res.error);
+    console.log("accountingCreatePassThroughRequest failed:", res.error);
   }
 }
 
@@ -5778,7 +5778,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## fetchBills
+## getBills
 
 ### Example Usage
 
@@ -5795,7 +5795,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.fetchBills();
+  const result = await maesn.accounting.getBills();
 
   console.log(result);
 }
@@ -5809,7 +5809,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingFetchBills } from "@maesn/typescript-sdk/funcs/accounting-fetch-bills.js";
+import { accountingGetBills } from "@maesn/typescript-sdk/funcs/accounting-get-bills.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -5822,12 +5822,12 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingFetchBills(maesn);
+  const res = await accountingGetBills(maesn);
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingFetchBills failed:", res.error);
+    console.log("accountingGetBills failed:", res.error);
   }
 }
 
@@ -5853,7 +5853,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## addBill
+## createBill
 
 ### Example Usage
 
@@ -5870,7 +5870,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.addBill({
+  const result = await maesn.accounting.createBill({
     body: {},
   });
 
@@ -5886,7 +5886,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingAddBill } from "@maesn/typescript-sdk/funcs/accounting-add-bill.js";
+import { accountingCreateBill } from "@maesn/typescript-sdk/funcs/accounting-create-bill.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -5899,14 +5899,14 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingAddBill(maesn, {
+  const res = await accountingCreateBill(maesn, {
     body: {},
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingAddBill failed:", res.error);
+    console.log("accountingCreateBill failed:", res.error);
   }
 }
 
@@ -5932,7 +5932,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## fetchBill
+## getBill
 
 ### Example Usage
 
@@ -5949,7 +5949,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.fetchBill({
+  const result = await maesn.accounting.getBill({
     billId: "<id>",
   });
 
@@ -5965,7 +5965,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingFetchBill } from "@maesn/typescript-sdk/funcs/accounting-fetch-bill.js";
+import { accountingGetBill } from "@maesn/typescript-sdk/funcs/accounting-get-bill.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -5978,14 +5978,14 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingFetchBill(maesn, {
+  const res = await accountingGetBill(maesn, {
     billId: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingFetchBill failed:", res.error);
+    console.log("accountingGetBill failed:", res.error);
   }
 }
 
@@ -6011,7 +6011,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## removeBill
+## deleteBill
 
 ### Example Usage
 
@@ -6028,7 +6028,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.removeBill({
+  const result = await maesn.accounting.deleteBill({
     billId: "<id>",
   });
 
@@ -6044,7 +6044,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingRemoveBill } from "@maesn/typescript-sdk/funcs/accounting-remove-bill.js";
+import { accountingDeleteBill } from "@maesn/typescript-sdk/funcs/accounting-delete-bill.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -6057,14 +6057,14 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingRemoveBill(maesn, {
+  const res = await accountingDeleteBill(maesn, {
     billId: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingRemoveBill failed:", res.error);
+    console.log("accountingDeleteBill failed:", res.error);
   }
 }
 
@@ -6090,7 +6090,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## fetchBillDocument
+## getBillDocument
 
 ### Example Usage
 
@@ -6107,7 +6107,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.fetchBillDocument({
+  const result = await maesn.accounting.getBillDocument({
     billId: "<id>",
   });
 
@@ -6123,7 +6123,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingFetchBillDocument } from "@maesn/typescript-sdk/funcs/accounting-fetch-bill-document.js";
+import { accountingGetBillDocument } from "@maesn/typescript-sdk/funcs/accounting-get-bill-document.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -6136,14 +6136,14 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingFetchBillDocument(maesn, {
+  const res = await accountingGetBillDocument(maesn, {
     billId: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingFetchBillDocument failed:", res.error);
+    console.log("accountingGetBillDocument failed:", res.error);
   }
 }
 
@@ -6248,7 +6248,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## listBookingProposals
+## getBookingProposals
 
 ### Example Usage
 
@@ -6265,7 +6265,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.listBookingProposals();
+  const result = await maesn.accounting.getBookingProposals();
 
   console.log(result);
 }
@@ -6279,7 +6279,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingListBookingProposals } from "@maesn/typescript-sdk/funcs/accounting-list-booking-proposals.js";
+import { accountingGetBookingProposals } from "@maesn/typescript-sdk/funcs/accounting-get-booking-proposals.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -6292,12 +6292,12 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingListBookingProposals(maesn);
+  const res = await accountingGetBookingProposals(maesn);
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingListBookingProposals failed:", res.error);
+    console.log("accountingGetBookingProposals failed:", res.error);
   }
 }
 
@@ -6323,7 +6323,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## retrieveBookingProposal
+## getBookingProposal
 
 ### Example Usage
 
@@ -6340,7 +6340,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.retrieveBookingProposal({
+  const result = await maesn.accounting.getBookingProposal({
     bookingProposalId: "<id>",
   });
 
@@ -6356,7 +6356,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingRetrieveBookingProposal } from "@maesn/typescript-sdk/funcs/accounting-retrieve-booking-proposal.js";
+import { accountingGetBookingProposal } from "@maesn/typescript-sdk/funcs/accounting-get-booking-proposal.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -6369,14 +6369,14 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingRetrieveBookingProposal(maesn, {
+  const res = await accountingGetBookingProposal(maesn, {
     bookingProposalId: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingRetrieveBookingProposal failed:", res.error);
+    console.log("accountingGetBookingProposal failed:", res.error);
   }
 }
 
@@ -6402,7 +6402,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## fetchBookingProposalDocument
+## getBookingProposalDocument
 
 ### Example Usage
 
@@ -6419,7 +6419,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.fetchBookingProposalDocument({
+  const result = await maesn.accounting.getBookingProposalDocument({
     bookingProposalId: "<id>",
   });
 
@@ -6435,7 +6435,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingFetchBookingProposalDocument } from "@maesn/typescript-sdk/funcs/accounting-fetch-booking-proposal-document.js";
+import { accountingGetBookingProposalDocument } from "@maesn/typescript-sdk/funcs/accounting-get-booking-proposal-document.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -6448,14 +6448,14 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingFetchBookingProposalDocument(maesn, {
+  const res = await accountingGetBookingProposalDocument(maesn, {
     bookingProposalId: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingFetchBookingProposalDocument failed:", res.error);
+    console.log("accountingGetBookingProposalDocument failed:", res.error);
   }
 }
 
@@ -6481,7 +6481,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## addBooking
+## createBookings
 
 ### Example Usage
 
@@ -6498,7 +6498,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.addBooking({
+  const result = await maesn.accounting.createBookings({
     body: {},
   });
 
@@ -6514,7 +6514,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingAddBooking } from "@maesn/typescript-sdk/funcs/accounting-add-booking.js";
+import { accountingCreateBookings } from "@maesn/typescript-sdk/funcs/accounting-create-bookings.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -6527,14 +6527,14 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingAddBooking(maesn, {
+  const res = await accountingCreateBookings(maesn, {
     body: {},
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingAddBooking failed:", res.error);
+    console.log("accountingCreateBookings failed:", res.error);
   }
 }
 
@@ -6560,7 +6560,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## retrieveVendorCredits
+## getVendorCredits
 
 ### Example Usage
 
@@ -6577,7 +6577,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.retrieveVendorCredits();
+  const result = await maesn.accounting.getVendorCredits();
 
   console.log(result);
 }
@@ -6591,7 +6591,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingRetrieveVendorCredits } from "@maesn/typescript-sdk/funcs/accounting-retrieve-vendor-credits.js";
+import { accountingGetVendorCredits } from "@maesn/typescript-sdk/funcs/accounting-get-vendor-credits.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -6604,12 +6604,12 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingRetrieveVendorCredits(maesn);
+  const res = await accountingGetVendorCredits(maesn);
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingRetrieveVendorCredits failed:", res.error);
+    console.log("accountingGetVendorCredits failed:", res.error);
   }
 }
 
@@ -6720,7 +6720,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## modifyVendorCredit
+## updateVendorCredit
 
 ### Example Usage
 
@@ -6737,7 +6737,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.modifyVendorCredit({
+  const result = await maesn.accounting.updateVendorCredit({
     vendorCreditId: "<id>",
     body: {
       vendorCreditDate: "<value>",
@@ -6757,7 +6757,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingModifyVendorCredit } from "@maesn/typescript-sdk/funcs/accounting-modify-vendor-credit.js";
+import { accountingUpdateVendorCredit } from "@maesn/typescript-sdk/funcs/accounting-update-vendor-credit.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -6770,7 +6770,7 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingModifyVendorCredit(maesn, {
+  const res = await accountingUpdateVendorCredit(maesn, {
     vendorCreditId: "<id>",
     body: {
       vendorCreditDate: "<value>",
@@ -6781,7 +6781,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingModifyVendorCredit failed:", res.error);
+    console.log("accountingUpdateVendorCredit failed:", res.error);
   }
 }
 
@@ -6807,7 +6807,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## modifyBillLineItem
+## updateBillLineItem
 
 ### Example Usage
 
@@ -6824,7 +6824,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.modifyBillLineItem({
+  const result = await maesn.accounting.updateBillLineItem({
     billId: "<id>",
     lineItemId: "<id>",
     body: {},
@@ -6842,7 +6842,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingModifyBillLineItem } from "@maesn/typescript-sdk/funcs/accounting-modify-bill-line-item.js";
+import { accountingUpdateBillLineItem } from "@maesn/typescript-sdk/funcs/accounting-update-bill-line-item.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -6855,7 +6855,7 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingModifyBillLineItem(maesn, {
+  const res = await accountingUpdateBillLineItem(maesn, {
     billId: "<id>",
     lineItemId: "<id>",
     body: {},
@@ -6864,7 +6864,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingModifyBillLineItem failed:", res.error);
+    console.log("accountingUpdateBillLineItem failed:", res.error);
   }
 }
 
@@ -6890,7 +6890,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## fetchPurchaseOrder
+## getPurchaseOrder
 
 ### Example Usage
 
@@ -6907,7 +6907,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.fetchPurchaseOrder({
+  const result = await maesn.accounting.getPurchaseOrder({
     purchaseOrderId: "<id>",
   });
 
@@ -6923,7 +6923,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingFetchPurchaseOrder } from "@maesn/typescript-sdk/funcs/accounting-fetch-purchase-order.js";
+import { accountingGetPurchaseOrder } from "@maesn/typescript-sdk/funcs/accounting-get-purchase-order.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -6936,14 +6936,14 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingFetchPurchaseOrder(maesn, {
+  const res = await accountingGetPurchaseOrder(maesn, {
     purchaseOrderId: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingFetchPurchaseOrder failed:", res.error);
+    console.log("accountingGetPurchaseOrder failed:", res.error);
   }
 }
 
@@ -6969,7 +6969,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## retrievePurchaseOrderLineItems
+## getPurchaseOrderLineItems
 
 ### Example Usage
 
@@ -6986,7 +6986,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.retrievePurchaseOrderLineItems({
+  const result = await maesn.accounting.getPurchaseOrderLineItems({
     purchaseOrderId: "<id>",
   });
 
@@ -7002,7 +7002,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingRetrievePurchaseOrderLineItems } from "@maesn/typescript-sdk/funcs/accounting-retrieve-purchase-order-line-items.js";
+import { accountingGetPurchaseOrderLineItems } from "@maesn/typescript-sdk/funcs/accounting-get-purchase-order-line-items.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -7015,14 +7015,14 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingRetrievePurchaseOrderLineItems(maesn, {
+  const res = await accountingGetPurchaseOrderLineItems(maesn, {
     purchaseOrderId: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingRetrievePurchaseOrderLineItems failed:", res.error);
+    console.log("accountingGetPurchaseOrderLineItems failed:", res.error);
   }
 }
 
@@ -7048,7 +7048,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## retrievePurchaseOrderLineItem
+## getPurchaseOrderLineItem
 
 ### Example Usage
 
@@ -7065,7 +7065,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.retrievePurchaseOrderLineItem({
+  const result = await maesn.accounting.getPurchaseOrderLineItem({
     purchaseOrderId: "<id>",
     lineItemId: "<id>",
   });
@@ -7082,7 +7082,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingRetrievePurchaseOrderLineItem } from "@maesn/typescript-sdk/funcs/accounting-retrieve-purchase-order-line-item.js";
+import { accountingGetPurchaseOrderLineItem } from "@maesn/typescript-sdk/funcs/accounting-get-purchase-order-line-item.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -7095,7 +7095,7 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingRetrievePurchaseOrderLineItem(maesn, {
+  const res = await accountingGetPurchaseOrderLineItem(maesn, {
     purchaseOrderId: "<id>",
     lineItemId: "<id>",
   });
@@ -7103,7 +7103,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingRetrievePurchaseOrderLineItem failed:", res.error);
+    console.log("accountingGetPurchaseOrderLineItem failed:", res.error);
   }
 }
 
@@ -7204,7 +7204,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## retrieveGoodsReceipt
+## getGoodsReceipt
 
 ### Example Usage
 
@@ -7221,7 +7221,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.retrieveGoodsReceipt({
+  const result = await maesn.accounting.getGoodsReceipt({
     goodsReceiptId: "<id>",
   });
 
@@ -7237,7 +7237,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingRetrieveGoodsReceipt } from "@maesn/typescript-sdk/funcs/accounting-retrieve-goods-receipt.js";
+import { accountingGetGoodsReceipt } from "@maesn/typescript-sdk/funcs/accounting-get-goods-receipt.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -7250,14 +7250,14 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingRetrieveGoodsReceipt(maesn, {
+  const res = await accountingGetGoodsReceipt(maesn, {
     goodsReceiptId: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingRetrieveGoodsReceipt failed:", res.error);
+    console.log("accountingGetGoodsReceipt failed:", res.error);
   }
 }
 
@@ -7283,7 +7283,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## retrieveGoodsReceiptLineItems
+## getGoodsReceiptLineItems
 
 ### Example Usage
 
@@ -7300,7 +7300,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.retrieveGoodsReceiptLineItems({
+  const result = await maesn.accounting.getGoodsReceiptLineItems({
     goodsReceiptId: "<id>",
   });
 
@@ -7316,7 +7316,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingRetrieveGoodsReceiptLineItems } from "@maesn/typescript-sdk/funcs/accounting-retrieve-goods-receipt-line-items.js";
+import { accountingGetGoodsReceiptLineItems } from "@maesn/typescript-sdk/funcs/accounting-get-goods-receipt-line-items.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -7329,14 +7329,14 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingRetrieveGoodsReceiptLineItems(maesn, {
+  const res = await accountingGetGoodsReceiptLineItems(maesn, {
     goodsReceiptId: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingRetrieveGoodsReceiptLineItems failed:", res.error);
+    console.log("accountingGetGoodsReceiptLineItems failed:", res.error);
   }
 }
 
@@ -7362,7 +7362,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## fetchUnits
+## getUnits
 
 ### Example Usage
 
@@ -7379,7 +7379,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.fetchUnits();
+  const result = await maesn.accounting.getUnits();
 
   console.log(result);
 }
@@ -7393,7 +7393,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingFetchUnits } from "@maesn/typescript-sdk/funcs/accounting-fetch-units.js";
+import { accountingGetUnits } from "@maesn/typescript-sdk/funcs/accounting-get-units.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -7406,12 +7406,12 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingFetchUnits(maesn);
+  const res = await accountingGetUnits(maesn);
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingFetchUnits failed:", res.error);
+    console.log("accountingGetUnits failed:", res.error);
   }
 }
 
@@ -7437,7 +7437,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## retrieveOpenItems
+## getOpenItems
 
 ### Example Usage
 
@@ -7454,7 +7454,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.retrieveOpenItems();
+  const result = await maesn.accounting.getOpenItems();
 
   console.log(result);
 }
@@ -7468,7 +7468,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingRetrieveOpenItems } from "@maesn/typescript-sdk/funcs/accounting-retrieve-open-items.js";
+import { accountingGetOpenItems } from "@maesn/typescript-sdk/funcs/accounting-get-open-items.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -7481,12 +7481,12 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingRetrieveOpenItems(maesn);
+  const res = await accountingGetOpenItems(maesn);
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingRetrieveOpenItems failed:", res.error);
+    console.log("accountingGetOpenItems failed:", res.error);
   }
 }
 
@@ -7512,7 +7512,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## fetchTrialBalance
+## getTrialBalance
 
 ### Example Usage
 
@@ -7529,7 +7529,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.fetchTrialBalance();
+  const result = await maesn.accounting.getTrialBalance();
 
   console.log(result);
 }
@@ -7543,7 +7543,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingFetchTrialBalance } from "@maesn/typescript-sdk/funcs/accounting-fetch-trial-balance.js";
+import { accountingGetTrialBalance } from "@maesn/typescript-sdk/funcs/accounting-get-trial-balance.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -7556,12 +7556,12 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingFetchTrialBalance(maesn);
+  const res = await accountingGetTrialBalance(maesn);
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingFetchTrialBalance failed:", res.error);
+    console.log("accountingGetTrialBalance failed:", res.error);
   }
 }
 
@@ -7587,7 +7587,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## listCreditNotes
+## getCreditNotes
 
 ### Example Usage
 
@@ -7604,7 +7604,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.listCreditNotes();
+  const result = await maesn.accounting.getCreditNotes();
 
   console.log(result);
 }
@@ -7618,7 +7618,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingListCreditNotes } from "@maesn/typescript-sdk/funcs/accounting-list-credit-notes.js";
+import { accountingGetCreditNotes } from "@maesn/typescript-sdk/funcs/accounting-get-credit-notes.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -7631,12 +7631,12 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingListCreditNotes(maesn);
+  const res = await accountingGetCreditNotes(maesn);
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingListCreditNotes failed:", res.error);
+    console.log("accountingGetCreditNotes failed:", res.error);
   }
 }
 
@@ -7662,7 +7662,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## fetchCreditNote
+## getCreditNote
 
 ### Example Usage
 
@@ -7679,7 +7679,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.fetchCreditNote({
+  const result = await maesn.accounting.getCreditNote({
     creditNoteId: "<id>",
   });
 
@@ -7695,7 +7695,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingFetchCreditNote } from "@maesn/typescript-sdk/funcs/accounting-fetch-credit-note.js";
+import { accountingGetCreditNote } from "@maesn/typescript-sdk/funcs/accounting-get-credit-note.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -7708,14 +7708,14 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingFetchCreditNote(maesn, {
+  const res = await accountingGetCreditNote(maesn, {
     creditNoteId: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingFetchCreditNote failed:", res.error);
+    console.log("accountingGetCreditNote failed:", res.error);
   }
 }
 

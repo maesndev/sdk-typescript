@@ -6,8 +6,8 @@
 
 * [createBookingProposal](#createbookingproposal)
 * [createContact](#createcontact)
-* [updateContact](#updatecontact)
-* [obtainDimensions](#obtaindimensions)
+* [putContactV2](#putcontactv2)
+* [getDimensionsV2](#getdimensionsv2)
 
 ## createBookingProposal
 
@@ -171,7 +171,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## updateContact
+## putContactV2
 
 ### Example Usage
 
@@ -188,7 +188,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accountingV2.updateContact({
+  const result = await maesn.accountingV2.putContactV2({
     contactId: "<id>",
     body: {
       contactType: "CONTACT_PERSON",
@@ -207,7 +207,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingV2UpdateContact } from "@maesn/typescript-sdk/funcs/accounting-v2-update-contact.js";
+import { accountingV2PutContactV2 } from "@maesn/typescript-sdk/funcs/accounting-v2-put-contact-v2.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -220,7 +220,7 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingV2UpdateContact(maesn, {
+  const res = await accountingV2PutContactV2(maesn, {
     contactId: "<id>",
     body: {
       contactType: "CONTACT_PERSON",
@@ -230,7 +230,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingV2UpdateContact failed:", res.error);
+    console.log("accountingV2PutContactV2 failed:", res.error);
   }
 }
 
@@ -256,7 +256,7 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## obtainDimensions
+## getDimensionsV2
 
 ### Example Usage
 
@@ -273,7 +273,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accountingV2.obtainDimensions();
+  const result = await maesn.accountingV2.getDimensionsV2();
 
   console.log(result);
 }
@@ -287,7 +287,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingV2ObtainDimensions } from "@maesn/typescript-sdk/funcs/accounting-v2-obtain-dimensions.js";
+import { accountingV2GetDimensionsV2 } from "@maesn/typescript-sdk/funcs/accounting-v2-get-dimensions-v2.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -300,12 +300,12 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingV2ObtainDimensions(maesn);
+  const res = await accountingV2GetDimensionsV2(maesn);
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingV2ObtainDimensions failed:", res.error);
+    console.log("accountingV2GetDimensionsV2 failed:", res.error);
   }
 }
 

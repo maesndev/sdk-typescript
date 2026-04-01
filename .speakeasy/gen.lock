@@ -1,29 +1,29 @@
 lockVersion: 2.0.0
 id: b4a29653-32d8-43f6-ba1e-9aa569fce206
 management:
-  docChecksum: f8ebc48b8f9c961d5e4eb9b908c090ea
+  docChecksum: 3220f5236345b2b59566a7bf7a88226d
   docVersion: "1.0"
-  speakeasyVersion: 1.759.3
-  generationVersion: 2.869.25
-  releaseVersion: 0.2.2
-  configChecksum: d51e3bba4a25dbf09593237f7a477521
+  speakeasyVersion: 1.761.0
+  generationVersion: 2.879.1
+  releaseVersion: 0.2.3
+  configChecksum: 8da5617f2906cd95ff2a6418943297f2
   repoURL: https://github.com/maesndev/sdk-typescript.git
   installationURL: https://github.com/maesndev/sdk-typescript
   published: true
 persistentEdits:
-  generation_id: ef4587e4-1d93-4f48-911c-210452aa3cfe
-  pristine_commit_hash: 8781bbc19ac621ac5d7f4e49081f7598707f3b27
-  pristine_tree_hash: ba46abcfd86f37ef7b0eb0dba8f803141c114e01
+  generation_id: 503f0998-f18d-423c-bc96-6776811c45c6
+  pristine_commit_hash: 06de37c17184f89f2cada86e0ea7aa621af53888
+  pristine_tree_hash: 23492324401a20e3ea71dbde138b7b9fb736db88
 features:
   typescript:
     additionalDependencies: 0.1.0
     additionalProperties: 0.1.3
-    core: 3.26.44
+    core: 3.26.46
     defaultEnabledRetries: 0.1.0
     devContainers: 2.90.1
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.1.2
-    globalSecurity: 2.82.15
+    globalSecurity: 2.82.16
     globalSecurityCallbacks: 0.1.0
     globalServerURLs: 2.83.1
     groups: 2.81.3
@@ -61,16 +61,16 @@ trackedFiles:
     pristine_git_object: 6ee2921010070a544e252596defc55d501e1c1ae
   FUNCTIONS.md:
     id: 21b9df02aaeb
-    last_write_checksum: sha1:902f3d572eccf5903ddc66607e436d56cf46686b
-    pristine_git_object: 398a08bb350bf911546a7c1d94ab4e3c6d7edede
+    last_write_checksum: sha1:dc991314e8dd9c42d1b47730c9508160400a9bf5
+    pristine_git_object: e467ff48836b0d442142dee8dd41cd6c57d90f33
   RUNTIMES.md:
     id: 620c490847b6
     last_write_checksum: sha1:e45b854f02c357cbcfdb8c3663000e8339e16505
     pristine_git_object: 27731c3b5ace66bedc454ed5acbe15075aacd3dc
   USAGE.md:
     id: 3aed33ce6e6f
-    last_write_checksum: sha1:eb5cd0f751f9458a826df3a63b5630b9bb76bf93
-    pristine_git_object: ab31fe746de080f289cc38ea57bbbc9e26b3cdb7
+    last_write_checksum: sha1:95e8cf499b668490086b82c36145cab9618b6cae
+    pristine_git_object: fec3a178c4d367e843ead8efde0f30ad9ebb8b0f
   docs/lib/utils/retryconfig.md:
     id: 0ce9707cb848
     last_write_checksum: sha1:bc4454e196fcd219f5a78da690375a884f5ed07b
@@ -4673,8 +4673,8 @@ trackedFiles:
     pristine_git_object: 22dd5f08bac5ea8e40e42de4ebb0a5876ef875c5
   docs/sdks/accounting/README.md:
     id: 6abb8976ed95
-    last_write_checksum: sha1:a2a38fa5e1d4fe0ad4535204073a1d900ac5f479
-    pristine_git_object: 56e2441c71a5b85c9c7e01986c2c9f8344f0eed8
+    last_write_checksum: sha1:7d58f7b58cfdf447dfd769fb56f4de86696faaa5
+    pristine_git_object: bafdaa1e50bc3d58604f7afcd30d0b0b72476861
   docs/sdks/accountingbills/README.md:
     id: bbe7d04a78f3
     last_write_checksum: sha1:8260a7b71275d8295bb885b6242e4a396692562e
@@ -4685,8 +4685,8 @@ trackedFiles:
     pristine_git_object: dcfca71ff736982e52bc6d448dd300546ec0e2fd
   docs/sdks/accountingv2/README.md:
     id: 24a9f287e358
-    last_write_checksum: sha1:7019f9983dc21edfc5cca3f5b547c845f432a512
-    pristine_git_object: d27ce76096ef042f3795b55f81170adb10360bc7
+    last_write_checksum: sha1:2613a792dd396f371472129e6604ec5dead7785d
+    pristine_git_object: 4cfdaa6d1ff1edb3be2d83802386a0da4b649610
   docs/sdks/auth/README.md:
     id: e9724f17945f
     last_write_checksum: sha1:b1144b35ebdfdf98260480e95af2396b67da8898
@@ -4753,8 +4753,8 @@ trackedFiles:
     pristine_git_object: 2dbeac3314814980e587a6bff73546042805ef2a
   docs/sdks/user/README.md:
     id: 437dd7dc6e30
-    last_write_checksum: sha1:6fd50537aaccc88ac4c7f18ed0c4e673f57a2982
-    pristine_git_object: 1ec4c7dea8033ff580c20c7ba147a7f832858a98
+    last_write_checksum: sha1:83dd87d767b5c55dce61257dfd4d2bdd2c9db8f2
+    pristine_git_object: bad59b1618cf8385eb983d5c5e0cfc7134debe22
   docs/sdks/v2/README.md:
     id: 1fff216d9073
     last_write_checksum: sha1:b556a7ba072980fa6a2ad792a24916f6689fe262
@@ -4779,278 +4779,378 @@ trackedFiles:
     id: 9d0f69d6e677
     last_write_checksum: sha1:65f0ba46d59e21e61af3fc578d019a92fb699b50
     pristine_git_object: d2146401bc48050c6f3f6ee3e51b374ce555a16e
-  examples/accountingRetrieveAccount.example.ts:
-    id: 66a91ba028c6
-    last_write_checksum: sha1:5e4182d851ba6d64ea3bddaa10d256b07188f145
-    pristine_git_object: 1702f91b20fac30530249918292706e3a05a3b3a
+  examples/accountingGetAccount.example.ts:
+    id: 6d3788d30b1b
+    last_write_checksum: sha1:6db29feb17649bd6324772e1f896e1192092c53d
+    pristine_git_object: 6063df5ea269af1486b9baad572903ded813a536
   examples/package.json:
     id: c1d7b0ec8e7e
     last_write_checksum: sha1:9c8defe27a36355230363bd58871ddd5821d78a2
     pristine_git_object: 620f120672c2be3445356aaae6d877d4d89c43d5
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:8ba94786702c706680198118034b8d182048daa4
-    pristine_git_object: b4e5696159ce31984f00f348470adcc15450d206
+    last_write_checksum: sha1:aa87413eb9b4bb0b49935a0578c83502b14c7609
+    pristine_git_object: f208418a72cf37fdcb59ea398e311be6ffdb8c2e
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:9d852a3b7ea98bf2f87bcefc83d1bd8196cce49d
-    pristine_git_object: 889efd3f9edc6e7866ab72d57a51caded1f986e7
+    last_write_checksum: sha1:7768d02a8878ea42ae9a0639500835262fb63ee1
+    pristine_git_object: 9057afc8d578fde3a9df3355c5c9c3ab5fec80e7
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:2eff2a6c77b0c787da6418de861acc36733c433a
     pristine_git_object: 0b301e382f10eb23853d0d660c4edf0d267b0a77
-  src/funcs/accounting-add-account.ts:
-    id: 251abb714513
-    last_write_checksum: sha1:94616c5b10b0a3eb7974cf46a830a01b8ea1a597
-    pristine_git_object: 62a551b255b9f8e5c99f838f8c0fa49e24cd6ee7
-  src/funcs/accounting-add-bank-account.ts:
-    id: 5f387e05cdef
-    last_write_checksum: sha1:24f7a7370a682605e63565c86b7122ff826809d5
-    pristine_git_object: e4c38be5ca5e2de2ad0139c2eea1b4148253e294
-  src/funcs/accounting-add-bill.ts:
-    id: 1fbd355db4d3
-    last_write_checksum: sha1:55b67074f01cb6e4d7dc47713ead6119a35916d7
-    pristine_git_object: 6e126a8bef6cd66a5f59474673363e13c49bf117
-  src/funcs/accounting-add-booking.ts:
-    id: 44f0731b9298
-    last_write_checksum: sha1:14d24b6d331df95fb038cc5c60181080701a5eb6
-    pristine_git_object: b21bbfa1d9748149c721a1b22d6202354a87b2a7
-  src/funcs/accounting-add-contact.ts:
-    id: 4652b63f702f
-    last_write_checksum: sha1:8db7ad601a17a849a0dd8610739137c57b660308
-    pristine_git_object: b139966f72faa9478b589969775e4d2710cdbaa7
-  src/funcs/accounting-add-event-subscription.ts:
-    id: 8c12e838cd7c
-    last_write_checksum: sha1:d46aedd45dfeadfd0bba616de3a88c032ee7cb44
-    pristine_git_object: b34fc1190bed47a65fb1f87b9591bf0d91a58042
-  src/funcs/accounting-add-expense.ts:
-    id: 586ebb46974d
-    last_write_checksum: sha1:8dc2d557a1c17ca8f0f26d4bc91fc0ccbc7062d2
-    pristine_git_object: f6346444dc9131bf38d7d9c383abd2468eb8262b
-  src/funcs/accounting-add-invoice-line-item.ts:
-    id: f5ee7324f205
-    last_write_checksum: sha1:f2eb0f6957c2be4464ef9ee29ac33f8db2457e29
-    pristine_git_object: e2fe8bcc4107da413e9bb76ce691d27442611151
-  src/funcs/accounting-add-invoice.ts:
-    id: 29cc28c58a6f
-    last_write_checksum: sha1:845efb0a6ffc230aa1784fa789f3fb687fbe3ee4
-    pristine_git_object: 8ca77eb7550c54c831c69bd854bf3182a4ddb23d
-  src/funcs/accounting-add-journal-entry.ts:
-    id: 46fd856738e6
-    last_write_checksum: sha1:1994f47d3319f1792e8cc0d7884f1897f591ce31
-    pristine_git_object: 7af7415169cd7e6812f97fbb615eee2a7b5986cf
-  src/funcs/accounting-add-offer.ts:
-    id: 247096575e9b
-    last_write_checksum: sha1:d51bf9898464b89820c04a8ba1d5ac4595b17f6f
-    pristine_git_object: af38a338cdc58736327f116dfddc5a6db9b9dc19
-  src/funcs/accounting-add-payment-term.ts:
-    id: aa605751001e
-    last_write_checksum: sha1:b587ef62c768df8b1bcd20660c37d5a21b9cf115
-    pristine_git_object: 91f56915d85a7cb2db22dd570ede681a22ae6afc
-  src/funcs/accounting-add-payment.ts:
-    id: e481e0cb6ba8
-    last_write_checksum: sha1:90c2538e319fd8017fac92f678a816747ebe96e7
-    pristine_git_object: bcc9d2e961d0b29e3ef6802f0e5da0f2a49c1a92
-  src/funcs/accounting-add-project.ts:
-    id: 4711584dd335
-    last_write_checksum: sha1:30e24eed76cfd70eac7ce9fc560bc122fd94635b
-    pristine_git_object: 1230e7d7724378bdfce88e20dbd8282f594a5e66
-  src/funcs/accounting-add-sales-order.ts:
-    id: 013feef1a634
-    last_write_checksum: sha1:4515d051ed88063be10983d6cd10fd119050fb32
-    pristine_git_object: edb73ca4e66354d07d70f6e017f77da8cd9c5577
-  src/funcs/accounting-add-supplier.ts:
-    id: cdd5f5f619c5
-    last_write_checksum: sha1:558fdc7323e28d2130c3fa4d99f526f328daf423
-    pristine_git_object: fd1da9cc6029a3e146b2d3a752944fb72747bcff
-  src/funcs/accounting-amend-customer.ts:
-    id: 0724a7613fc4
-    last_write_checksum: sha1:d692f49f28338dd364ef3b6e8fe842e2b2e8e2a9
-    pristine_git_object: a8f969f661b1675d75bc4428be964e0d654dd4bf
-  src/funcs/accounting-amend-invoice.ts:
-    id: 39781bb50b01
-    last_write_checksum: sha1:2e098341cfa4cad26c54fddcabb69fcfe3e1e656
-    pristine_git_object: 7e0f46609de5dd40626f777b8935e06e893f218f
-  src/funcs/accounting-amend-supplier.ts:
-    id: 3a5f9c6c8e2e
-    last_write_checksum: sha1:6ac824080d36dbc2ff2e880d2290c8dfbb4872fa
-    pristine_git_object: 768207813d341466022d5055921bef17c7b0e460
-  src/funcs/accounting-batch-add-contacts.ts:
-    id: 1fd018008cce
-    last_write_checksum: sha1:e93dce780b1245924af85d8ae63b76fb3f76a58d
-    pristine_git_object: 96aebaa67d02afbb728a9cd00ef72b4796461c61
   src/funcs/accounting-bills-add-line-item.ts:
     id: 9a517187811a
     last_write_checksum: sha1:a3d1a2d702c9d594a6fe714c4814dddd9375c1ad
     pristine_git_object: fa82ac3000f30752deafffc23ba6c5ebf5134e3e
+  src/funcs/accounting-create-account.ts:
+    id: a68b1b15e793
+    last_write_checksum: sha1:bf4eac4887a0aa5623169c64b547818bfad1edcc
+    pristine_git_object: d8c54a500f707c5d3c6cd5d53df0b3f2a1ab020e
+  src/funcs/accounting-create-bank-account.ts:
+    id: 32b1ca002f94
+    last_write_checksum: sha1:105db812c6e2ab872e487490a7d7ce82a5bbf3e3
+    pristine_git_object: 6479a4e07c35e3a9ad287f4faf902c77f6b5f3a6
+  src/funcs/accounting-create-bill.ts:
+    id: 1ae24749945c
+    last_write_checksum: sha1:97341d22be475db85a2384a84e0a5965aa349e56
+    pristine_git_object: 16e8863a8e1e888bd4b41e08b37ecd1d7eae199f
   src/funcs/accounting-create-booking-proposal.ts:
     id: ecd89515fa83
     last_write_checksum: sha1:d221f4e3c9b33932afcf4f2b0151891d08ddcbff
     pristine_git_object: 836f9b3f738c9afaf2a007469e4ab4cc1fbb242b
-  src/funcs/accounting-create-contacts-bulk.ts:
-    id: 2b2a2123ce52
-    last_write_checksum: sha1:47865f862b7d7edadda7b6649b9f471adab4da76
-    pristine_git_object: e377317294e24f49bb91937c59ebaf7172b98ff6
+  src/funcs/accounting-create-bookings.ts:
+    id: 361e1a40fe51
+    last_write_checksum: sha1:554a6a5e8afbe7faa3876dbb7d3322e09e2c7ebf
+    pristine_git_object: 068566bfcf647daec268573c71249c3e5a322566
+  src/funcs/accounting-create-contact.ts:
+    id: 947557f35aed
+    last_write_checksum: sha1:1557a1ac6a0fd7a314cbe10d443fccfab615662a
+    pristine_git_object: 197ed2042a411a81a50c45e47b05e6aa521a65e3
+  src/funcs/accounting-create-contacts-v1.ts:
+    id: f0522f8d6436
+    last_write_checksum: sha1:9f5aa4e55c6f8fc7396dbb41e5fe0f09e03852b3
+    pristine_git_object: 8baa603e2512701447c71333cd0e83783b1b3fd9
+  src/funcs/accounting-create-contacts.ts:
+    id: 29f936e4032a
+    last_write_checksum: sha1:f7321db5d50439e27611c5bbd3538849240a25a8
+    pristine_git_object: a6dc7576dbcfca9d4cad7e95a21c6cd8a2396afc
   src/funcs/accounting-create-customer.ts:
     id: 90e71ca5033c
     last_write_checksum: sha1:bbebf718cb7de9ec9c7b037e3afa20f5bc2987ed
     pristine_git_object: c14b289e1c161f63e454915ebb01402c3301f539
+  src/funcs/accounting-create-event-subscriptions.ts:
+    id: 40c76ddbcb22
+    last_write_checksum: sha1:4c26d5b659cafd57a3f606bcb5fd612f51619fb1
+    pristine_git_object: 0259e394c53b0435b189b83e21a86fc4654debfb
+  src/funcs/accounting-create-expense.ts:
+    id: 3323e3d1e917
+    last_write_checksum: sha1:27a485a6b8ff4c78621db6060565c6720e2fc83e
+    pristine_git_object: 2a59773b2b1d5de5bfde075358da8de67bd39a75
+  src/funcs/accounting-create-invoice.ts:
+    id: ac7da6f82954
+    last_write_checksum: sha1:afbbc33eb44776620b124daa6dd233d01b797e08
+    pristine_git_object: c0a11b19cb23936b59052ac568defda47fc218bd
   src/funcs/accounting-create-journal-entry-attachments.ts:
     id: 0a44554320b0
     last_write_checksum: sha1:f466085b7fbb26cfcc8795799646be3b7db508cf
     pristine_git_object: 65ca20c6be646a246335641d634478231c7b36b3
-  src/funcs/accounting-create-pass-through.ts:
-    id: f3d1e2d52c9b
-    last_write_checksum: sha1:becc2df580a158605da6a0d255b6ebc6acb9e8be
-    pristine_git_object: f51cb22d82b09026226481cba90f076c177a534c
+  src/funcs/accounting-create-journal-entry.ts:
+    id: 86dcd5aec1ab
+    last_write_checksum: sha1:bcac81a3e025608d6f67281ac96edfaf566f7300
+    pristine_git_object: 9746e2fc28a08d9b5087fe2b2310a18bd1c0c01e
+  src/funcs/accounting-create-line-item.ts:
+    id: 5c36d9424bed
+    last_write_checksum: sha1:80b434f590819029f58105f22e824e23eb5bdbb0
+    pristine_git_object: e9c0d446a0c550ffab7c1c0132e4cbc6c48e4cf7
+  src/funcs/accounting-create-offer.ts:
+    id: 33bca1b3ea11
+    last_write_checksum: sha1:947841e6b003f513c849adcf0cf6b282ab204575
+    pristine_git_object: ac4cd4928b098d5161f3d370d68975b4ca1cce1c
+  src/funcs/accounting-create-pass-through-request.ts:
+    id: 636fdc5f28a7
+    last_write_checksum: sha1:6ff77a22fed6cee3ae4f831bfd087c597f72e46d
+    pristine_git_object: 9780b3f7f2aef8a7ed7480d5ac492da563a2191a
+  src/funcs/accounting-create-payment-term.ts:
+    id: e9b2669c7da4
+    last_write_checksum: sha1:6248bec349c77334cac35a9d90979e3002180d48
+    pristine_git_object: ab95f20d17733b58ab150ee60a8598836bc5099b
+  src/funcs/accounting-create-payment.ts:
+    id: 88e6d488efcb
+    last_write_checksum: sha1:8261a40a97a3f32dec0781e71741edb37a55daaf
+    pristine_git_object: b4307dfea7158d77f7e5bb64f1886aaac8fb4b6a
+  src/funcs/accounting-create-project.ts:
+    id: b05abe971dae
+    last_write_checksum: sha1:5257509902e90d81faae222f2e349101001f7fd4
+    pristine_git_object: 3905f15c0685450014532235190af510448b7d7c
+  src/funcs/accounting-create-sales-order.ts:
+    id: bfbc4b4fdf95
+    last_write_checksum: sha1:17b384c3f66ab2dbb11f4b20371563f7d1441d61
+    pristine_git_object: 1f4b3bb62af49a7e2d1e745aea8b049f7d791414
+  src/funcs/accounting-create-supplier.ts:
+    id: 71042002bda6
+    last_write_checksum: sha1:de84098e5f8f7cb40433faead1373986f53cf7f1
+    pristine_git_object: e8c5b270129d9ec8fd8a4fd607edc8a64d6a5da6
+  src/funcs/accounting-create-transaction.ts:
+    id: 4224454730c6
+    last_write_checksum: sha1:a224ce468a7d3d05268fdad7a66269583fe491ab
+    pristine_git_object: 1ed5c5f2761d68bc5657b2413d81f647e5902c33
   src/funcs/accounting-create-vendor-credit.ts:
     id: 5edc43f6df2a
     last_write_checksum: sha1:d8d1c8530f015563860f27ecc5310aad37f38844
     pristine_git_object: 850d23fa42e6e7489f826c2b7e2030aadc519fa3
-  src/funcs/accounting-fetch-bank-account.ts:
-    id: 65c5f3e5fc7d
-    last_write_checksum: sha1:63be1fa45064532b3e0935a33bacf2d609634170
-    pristine_git_object: cc7314f9568bfdaf44e8bb546dc1fffbce726998
-  src/funcs/accounting-fetch-bill-document.ts:
-    id: f92202f7b239
-    last_write_checksum: sha1:14ec35ca5d88fe8dfd22b1521a540f57c84b835b
-    pristine_git_object: 0b6df6c2be9157eafe7a20e9045e111108ae088e
-  src/funcs/accounting-fetch-bill.ts:
-    id: b3e7ef116959
-    last_write_checksum: sha1:69dd442b178148c77c28da8986f35ac6343b395f
-    pristine_git_object: 4d254dfe7a35110b9c8a2cbae505f526d6504b61
-  src/funcs/accounting-fetch-bills.ts:
-    id: c04435418ea4
-    last_write_checksum: sha1:c3eae2a2981869aa28783d50a6f52cb502363150
-    pristine_git_object: ac24000bc7a059b748b485e73d9941be03c75a32
-  src/funcs/accounting-fetch-booking-proposal-document.ts:
-    id: bd110bcda45a
-    last_write_checksum: sha1:520040a9f36331abf59bfdfd05112b588ff5ee5c
-    pristine_git_object: 0b32196e80c8cedb85a06fe336ca1d12ca81accb
-  src/funcs/accounting-fetch-contact.ts:
-    id: 9482ebbad89f
-    last_write_checksum: sha1:8126c3be5032d5909112b1af819447edf92d3336
-    pristine_git_object: 84f3c4c776343c0588aec9b1bc6a9d35f1930172
-  src/funcs/accounting-fetch-credit-note.ts:
-    id: 2b45da1f8b76
-    last_write_checksum: sha1:4306967a5089248ce5f1d19b9c659e8fdcbc05bb
-    pristine_git_object: 05564ef1a55648c2b1048454b6e365b3ebec9f0c
-  src/funcs/accounting-fetch-customer.ts:
-    id: d7c5cbe84acb
-    last_write_checksum: sha1:64b74d896c658dc5647a964ed23f06a05a261d7b
-    pristine_git_object: e6d75cc27c0f4f7adc32abec934790723cdafff6
-  src/funcs/accounting-fetch-customers.ts:
-    id: 3e94a241a208
-    last_write_checksum: sha1:3c642b2739b7415ea9a188be9b9636638f1c8915
-    pristine_git_object: cbe2df0d64a6b5f75879005a2e5ac6168ee80d2e
-  src/funcs/accounting-fetch-document-types.ts:
-    id: 4c5aa66eb1da
-    last_write_checksum: sha1:cfb05e4633cc1f6165c963b0c39a926d7d2cf20f
-    pristine_git_object: 3e6f3cc7e918fc080e719bf6083874602a23e983
-  src/funcs/accounting-fetch-expense.ts:
-    id: faa354b57509
-    last_write_checksum: sha1:24ca28defd7cfb461afb552b98732a903d52141d
-    pristine_git_object: 6df836a3cb8090e27e08a7849db80190f8c1f539
-  src/funcs/accounting-fetch-expenses.ts:
-    id: a31799790153
-    last_write_checksum: sha1:3fd20c8bfc9092785e0b60ae6f2b92540a753ed7
-    pristine_git_object: 6b026d01885b2ecb590014692285cf072f8bafb9
-  src/funcs/accounting-fetch-invoice-document.ts:
-    id: d84f8fca4da6
-    last_write_checksum: sha1:7824f8323ca1d032429ef631b59a59c285757d1e
-    pristine_git_object: b74a082f275bb71903a69328a5919c84e8045a9a
-  src/funcs/accounting-fetch-invoice.ts:
-    id: a1b4939bb7e9
-    last_write_checksum: sha1:1c09b7ba418395e4712093414c5489f53e2190c5
-    pristine_git_object: fd24846ad712c78bedcd24a20c1dffe5001bb971
-  src/funcs/accounting-fetch-item.ts:
-    id: 393a118be7da
-    last_write_checksum: sha1:60d9452ec21cd2b5c74cf4b67b2b3d3f101ffe80
-    pristine_git_object: 30a8352d2e3cce76feb63e95e62f2a5ad0fb75b4
-  src/funcs/accounting-fetch-journal-entry.ts:
-    id: a27e312c5642
-    last_write_checksum: sha1:c53eefb458bffa36d73ffc17bf2ae61eebe42b50
-    pristine_git_object: 30953cf5138cdf5fb2ea38bb2c919e8cb4ff9796
-  src/funcs/accounting-fetch-journals.ts:
-    id: 0b7e21ffd231
-    last_write_checksum: sha1:938ad812400bb67462e8d436aff9e04de9ce1d90
-    pristine_git_object: b6313979400c9ac1803964cd07aa07b19d27ad1a
-  src/funcs/accounting-fetch-offer-line-items.ts:
-    id: 7de23a7a2fc2
-    last_write_checksum: sha1:831d57583a567d820a3d39f8b03b6621c9f7905c
-    pristine_git_object: 9e669b8febe8e8310f82e7023d1a8efabae719a6
-  src/funcs/accounting-fetch-offer.ts:
-    id: f3a9ee6e6c11
-    last_write_checksum: sha1:05dcc8e5c1f80386a90b8f74b84a9e1e4d1da31f
-    pristine_git_object: 1f5853b16659c1bf11fd01c37c028c9a07ed1130
-  src/funcs/accounting-fetch-offers.ts:
-    id: f9bdd50d349f
-    last_write_checksum: sha1:4c4bced080c465524b4a64cb9d80702270b982d3
-    pristine_git_object: 651a81d04682519e88e3fba9590ec887c0fcfaf1
-  src/funcs/accounting-fetch-payment-term.ts:
-    id: c9df8a2876ba
-    last_write_checksum: sha1:f314b0a745d1d45da217c09d9b34f2c93f6db58d
-    pristine_git_object: 6f3d80aa879d19d8c9d40f8c64c9425965b42b72
-  src/funcs/accounting-fetch-payment.ts:
-    id: 07415d6cb1e9
-    last_write_checksum: sha1:832aef4096a8c449b265eb57357411a49f63695e
-    pristine_git_object: 9c9d65c44b36d24b3edeb6d1d48dec09e1ca5fba
-  src/funcs/accounting-fetch-project.ts:
-    id: c9d85d071b4d
-    last_write_checksum: sha1:c6013ce6bfc11d127825b840f2218fa77f311e5d
-    pristine_git_object: 3b113023b5468d5bb9d94eea2084bfe84c51fdc7
-  src/funcs/accounting-fetch-purchase-order.ts:
-    id: d5f485384c17
-    last_write_checksum: sha1:3def57a76faf188661d8241fbd02f2820bcc3ffe
-    pristine_git_object: 965b6d337a65fc3855954786a8222b43eb3ac885
-  src/funcs/accounting-fetch-sales-order.ts:
-    id: 3458e848434c
-    last_write_checksum: sha1:4fd8f253ef66fc10f7995ae164858c626f382706
-    pristine_git_object: 6d9127004eeafd452ed18880dd14e8d0a33c8298
-  src/funcs/accounting-fetch-supplier.ts:
-    id: 8864b27cae39
-    last_write_checksum: sha1:16896260a01b5c589ea1facf4af0427aa64f58b5
-    pristine_git_object: 47065e24e20e6ba08cd9dcb17097a6b4907dae02
-  src/funcs/accounting-fetch-tax-rate.ts:
-    id: 91a10201ca2f
-    last_write_checksum: sha1:50882b91748662cbfafec79398c354a7e7e8f4d0
-    pristine_git_object: 3aa6a85de5dd2f7dd9057780d6f55efa29998097
-  src/funcs/accounting-fetch-trial-balance.ts:
-    id: 08ae83a07039
-    last_write_checksum: sha1:d650b35403f3910c39986d72ec72eb76fef2001a
-    pristine_git_object: bd22e00dec7f134940561cf2bd69a57fbde26d8a
-  src/funcs/accounting-fetch-units.ts:
-    id: 972b087ea387
-    last_write_checksum: sha1:b6fd8314d0647580cd5707c5bb70ea41799cd2ad
-    pristine_git_object: cd1c8af893a14c450739282f410f4b71da5f37db
-  src/funcs/accounting-get-async-task.ts:
-    id: 708f596c5dd3
-    last_write_checksum: sha1:f7e854d8b3e97fe45adf927dda55ea9bb8cb8a2d
-    pristine_git_object: 7ae5fdf19a2fee86f3f59f04dad13d110c4d10d3
+  src/funcs/accounting-delete-bill.ts:
+    id: 8962c4c35866
+    last_write_checksum: sha1:9b74284b9b315ba3a985c01f5db10c6e80bd3711
+    pristine_git_object: 822db087430d14c3099e90bff3621d4bd2845a2f
+  src/funcs/accounting-delete-event-subscriptions.ts:
+    id: b92e901f3c4c
+    last_write_checksum: sha1:730ad3cefe3bfdf952d6a2a93f847cbd7bb52426
+    pristine_git_object: 3bb6cd2fc8248327bcb40ea7c2e14665a7954b61
+  src/funcs/accounting-delete-payment.ts:
+    id: 697418c86a66
+    last_write_checksum: sha1:cff1ec0fef84030f1092c0f9f6b25dc61b74e61d
+    pristine_git_object: 877bc97cd2a94ff719bb478d9ca60a20123db461
+  src/funcs/accounting-get-account.ts:
+    id: 7e8444c4457a
+    last_write_checksum: sha1:cac73b0c5e0853afa271a56fc9c56b8d4501196c
+    pristine_git_object: 2c410a9cc25361d22b07555ca67ac09fc6a6e8cb
+  src/funcs/accounting-get-accounts.ts:
+    id: f535767c5a03
+    last_write_checksum: sha1:bdbac682792c1e7bd2f79ff9c07dd477e33464c9
+    pristine_git_object: ae9e66926fe665dfbac22a26d7545fd16f6bab66
+  src/funcs/accounting-get-async-task-info.ts:
+    id: fb51ae7c1882
+    last_write_checksum: sha1:73e2d6defbe34c18861e986a62ec37868d6e498f
+    pristine_git_object: 8eb58ca094a91b6a0360c9efdeddab9c0719811d
+  src/funcs/accounting-get-bank-account.ts:
+    id: 71584353e8eb
+    last_write_checksum: sha1:846e5484773bdb4997672f0a49e2983d49e9cd31
+    pristine_git_object: b324ea1fd3b45e8e6eaa80b30d8c2b06814753d0
+  src/funcs/accounting-get-bank-accounts.ts:
+    id: 91d74f0aba9f
+    last_write_checksum: sha1:bb7705d95c25ebc13a57206cf27d8c6ce058541f
+    pristine_git_object: e2cd5d87403d27054750cd81d3297cd4f2d7b08d
+  src/funcs/accounting-get-bill-document.ts:
+    id: 7055aae28cfc
+    last_write_checksum: sha1:b51a55cfd5bb70a979a6a34023eed74cadaada34
+    pristine_git_object: 61b12d67ac70c6cecd5f5d888d55e3ae8ec9df95
+  src/funcs/accounting-get-bill.ts:
+    id: 5601387daf92
+    last_write_checksum: sha1:ab08b9b642f1a7c0f97461dd28410129cf58b332
+    pristine_git_object: 2557ef6e8d41139a09da00efc6ee1df1e747c4cf
+  src/funcs/accounting-get-bills.ts:
+    id: f24b38f59037
+    last_write_checksum: sha1:7c44e12d60d441cecca56b5bc3767fc27200ff57
+    pristine_git_object: cacda42e75c3e12ae675daa4a93973535e7beee2
+  src/funcs/accounting-get-booking-proposal-document.ts:
+    id: 466fa90627d8
+    last_write_checksum: sha1:78e48ca1797538f230c0b433d9d0c7b8e1d7b8f8
+    pristine_git_object: 7b1337b40a119c705fdbf3b2a1e76407218982d2
+  src/funcs/accounting-get-booking-proposal.ts:
+    id: 77cd01d0f339
+    last_write_checksum: sha1:ed08a9740810f90be4983306c359140e1f6c3e06
+    pristine_git_object: 9671e24c8e7fad9e456d8bdc8138ce9b31a7a81f
+  src/funcs/accounting-get-booking-proposals.ts:
+    id: 3fd334264b8f
+    last_write_checksum: sha1:48f835d147ba3f19b035d531e9778293519ce09d
+    pristine_git_object: 2d1b6a82b1dd1e3c413371a7f65c8b0eafd6275c
+  src/funcs/accounting-get-contact.ts:
+    id: e96d2a324892
+    last_write_checksum: sha1:1a5c9a404497169a5ba9687f7fd49c09f86b99bc
+    pristine_git_object: b704a6953295d8dc845838c27bb03c05dad53771
   src/funcs/accounting-get-contacts.ts:
     id: f70cf8339e31
     last_write_checksum: sha1:68dce7d98566261b3a10bd88df0cc35f06ca6e50
     pristine_git_object: fe08a95f0b432c4931481045044779e3fd8226cc
+  src/funcs/accounting-get-credit-note.ts:
+    id: 8235fd497364
+    last_write_checksum: sha1:4c9f7fdd5cc772c5c97e9fd3c4c20da99b3d3fc0
+    pristine_git_object: bb23b1dbebb0109f75d567c6d108f4e9be797b13
+  src/funcs/accounting-get-credit-notes.ts:
+    id: 0d4f9546969a
+    last_write_checksum: sha1:fc037faae9413aa364fcbe90190bc49496c08f34
+    pristine_git_object: 8a03cab2c510b70ae9f1d43ec5e635c5c81edbe2
+  src/funcs/accounting-get-customer.ts:
+    id: 75404d3f95f7
+    last_write_checksum: sha1:a59c1d05c7f41cabe1985c2033ccbdbd53b00cb7
+    pristine_git_object: 5e2f3dafdba718af2c2c7da1cb38eead220c1182
+  src/funcs/accounting-get-customers.ts:
+    id: 15c5bb89e2eb
+    last_write_checksum: sha1:2aa332fe0c99b445a7267155a7066ee8e773110d
+    pristine_git_object: 306f285da3e114ab946df0c1d8499b2148640863
+  src/funcs/accounting-get-dimensions.ts:
+    id: bc684e45623d
+    last_write_checksum: sha1:a4a41a25d6c0f405862c845092d926ae20fe7290
+    pristine_git_object: 3a8994448d620e715cbe9b9425cd1114f1333f07
+  src/funcs/accounting-get-document-types.ts:
+    id: 78dea547cb8d
+    last_write_checksum: sha1:49555ee61f5f06029636a2efa40efb7401680a8f
+    pristine_git_object: f015e36aa02c83c70dee2247f557c735cbed6b7f
+  src/funcs/accounting-get-expense.ts:
+    id: 76e317795dc4
+    last_write_checksum: sha1:6af1069d17eb81fab43c9d20a9bd5f94592266b1
+    pristine_git_object: 7741ba9b1e5383b39a4a9032dfdf4ea24947cfc7
+  src/funcs/accounting-get-expenses.ts:
+    id: 808d978b8911
+    last_write_checksum: sha1:804a91b99795c1f547bf0a8501963b5adc5c82df
+    pristine_git_object: 80bf65bfc9074988dd48497eed5582f326dfcbf2
   src/funcs/accounting-get-fiscal-years.ts:
     id: 384a3da088d3
     last_write_checksum: sha1:7783c8e2817b7ecfd81fc2840fcc26e2c3911ded
     pristine_git_object: 20613f79033de31118301f5b6201756d756a2cdf
+  src/funcs/accounting-get-goods-receipt-line-items.ts:
+    id: ae6d2a9b0fc8
+    last_write_checksum: sha1:360b1f82b7a2c4b54f7818261fd9a56bde814fc8
+    pristine_git_object: 326bdad68aacbdb75971873a01cce90a19e94edb
+  src/funcs/accounting-get-goods-receipt.ts:
+    id: bd357dc92c2d
+    last_write_checksum: sha1:9c61d5af7693ad8e1210fd3ef5ae12774a5c5386
+    pristine_git_object: 62b662a5c3ba865f5ae9d3096c9b05432efbf399
   src/funcs/accounting-get-goods-receipts.ts:
     id: 328974df8305
     last_write_checksum: sha1:03d70fab651aa62c5804ffd6aa2e3faeb5ccbf9d
     pristine_git_object: 62021a25051c958777a4a9fa1bcb07bed20f46d3
+  src/funcs/accounting-get-invoice-document.ts:
+    id: fbec47ab4316
+    last_write_checksum: sha1:b5835eb71ab5fc25302b8160255cca3bfbcf3348
+    pristine_git_object: 3e3e145a8f944d87c7a50fa8be5a55f1aa0f5bfe
+  src/funcs/accounting-get-invoice.ts:
+    id: 9cc9452ba1b9
+    last_write_checksum: sha1:9a08765f549875f95f5e3c99dd3ca54faee1e33c
+    pristine_git_object: 2d17b241663804ac815d0b58bc0f00e31d91dcbd
+  src/funcs/accounting-get-invoices.ts:
+    id: 6be0fcc98f06
+    last_write_checksum: sha1:6dbb7bea9b5d001652995008c82999f3a51eb45c
+    pristine_git_object: ec0bdb042a9ccd080b16fe7a11420a5253beb461
+  src/funcs/accounting-get-item.ts:
+    id: bce83a5a59c9
+    last_write_checksum: sha1:c4b8473d4eb1038765691b2b2c98d349ce69c7a8
+    pristine_git_object: 5189029a07a561c44fc456b17f3b5610f1684758
+  src/funcs/accounting-get-items.ts:
+    id: de67efb3f5c3
+    last_write_checksum: sha1:6234f34590d11eaed87a5a1eeb562e485a49d2ec
+    pristine_git_object: 605ff17972bd5c8c5032e95520e4e1f3d6e2c3fc
+  src/funcs/accounting-get-journal-entries.ts:
+    id: 6847f567d21a
+    last_write_checksum: sha1:24ad1141ac6a66bd6180ea570f4e3354cd5c73ae
+    pristine_git_object: 5ed1f685361cddde564be5b9cbf225053d1aa9c4
+  src/funcs/accounting-get-journal-entry.ts:
+    id: b29c8f74de93
+    last_write_checksum: sha1:fec23107c2395df98f88690400340ea4391eafc6
+    pristine_git_object: 2d8c9c22e91d6bd81c4ba502c363d68cf1ed7862
+  src/funcs/accounting-get-journals.ts:
+    id: acfdf5fe66fd
+    last_write_checksum: sha1:58a501ba7df23749582b973f91ddb67313ba7b29
+    pristine_git_object: a44b221b74b9c336298abafa3d8b1fa201833125
+  src/funcs/accounting-get-line-item.ts:
+    id: 2d9c9053b8c7
+    last_write_checksum: sha1:77e553e0ea33e6216e62c72c7c11b8a52c13d689
+    pristine_git_object: a6bc653159323d30e1481c02c6c4718ee8a73a36
+  src/funcs/accounting-get-line-items.ts:
+    id: 79865b8f5d55
+    last_write_checksum: sha1:9869d3ba6fe9018c81396a61f92e37242791f066
+    pristine_git_object: a08350ed37bc4176f1de38110a714e54f4960e0f
+  src/funcs/accounting-get-offer-line-item.ts:
+    id: cf955914d748
+    last_write_checksum: sha1:bf0d365bd6b255977e3afbf808a46a4f826be217
+    pristine_git_object: 35588583e251fbdf4d76a042fde9f195ce2f5b5e
+  src/funcs/accounting-get-offer-line-items.ts:
+    id: d4f8e73b9442
+    last_write_checksum: sha1:1ae3dfb0f988832f46e76bf6226f1f3f69b6cb01
+    pristine_git_object: 21a5e3df534e21834f0511897d8c1c5991561180
+  src/funcs/accounting-get-offer.ts:
+    id: 5ded215031ba
+    last_write_checksum: sha1:83f6f49eae23aa55f11e5f5b46e3bf1f75ffab8e
+    pristine_git_object: 073aa33aa756314540c3cc2f0e76485a833b859f
+  src/funcs/accounting-get-offers.ts:
+    id: e3f63c5196a1
+    last_write_checksum: sha1:26d762a79a8ecef3de47f7cf06e8779b5a55fe78
+    pristine_git_object: 1d794c340f518f6fb38c39a03d095eaf5baedc74
+  src/funcs/accounting-get-open-items.ts:
+    id: ff490dc8dab7
+    last_write_checksum: sha1:06c531789df4ee7ef7a71b774f0ba838dd16cac4
+    pristine_git_object: 7204040f196db3fec52bd8c6d668bfcedfbd3ed6
+  src/funcs/accounting-get-payment-term.ts:
+    id: 36233aad427b
+    last_write_checksum: sha1:df86c2fb5c19488ec2bf18c658e1ca02094a9655
+    pristine_git_object: b3e927265bdfa6d7b1d7944d9d02e6e25e0393c7
   src/funcs/accounting-get-payment-terms.ts:
     id: fb4d7f76bf92
     last_write_checksum: sha1:2beb25b84b1420d0f4b20c2ba88818f608782630
     pristine_git_object: 5f184728e9891b1dfdc1ca5c21964a82fb89ff5f
+  src/funcs/accounting-get-payment.ts:
+    id: 4d7ec58e70c4
+    last_write_checksum: sha1:1430a35311cddb41436d16d8307cab92ba0df44a
+    pristine_git_object: e15e5b4bfce62baca568954dafa25f0c3ffb7ce2
+  src/funcs/accounting-get-payments.ts:
+    id: 25059afb107d
+    last_write_checksum: sha1:a2ea7a6dab229e64e729f94bc6591a989c99c01c
+    pristine_git_object: ba390701d48d6b13b4373a4efa178931ad29b802
   src/funcs/accounting-get-profile.ts:
     id: 8d6182e28152
     last_write_checksum: sha1:ac0b05002e030d5ccca33ebfe25b7d9d813592fa
     pristine_git_object: a710d186ba38409ddb2faaf15d8aa41dd3c14836
+  src/funcs/accounting-get-project.ts:
+    id: 2fc31da3305e
+    last_write_checksum: sha1:d58ebc3f2b64365212559f83f513e5d37638767b
+    pristine_git_object: 1d26a77f95ea378b25ea14b65291cdd756d1ab7b
   src/funcs/accounting-get-projects.ts:
     id: dffbfbb27cba
     last_write_checksum: sha1:cf18b2d5d5f56d0443878d4a8c4530616b978a7a
     pristine_git_object: c9d2a8bb5460dfdaa23fc106deab20988bd4b93d
+  src/funcs/accounting-get-purchase-order-line-item.ts:
+    id: d8d6b946e583
+    last_write_checksum: sha1:d5bf656f78385a01abb46ca723b7868a47512377
+    pristine_git_object: 685f52fdfabcce4914bc46b28b6cb8acb05ac0d3
+  src/funcs/accounting-get-purchase-order-line-items.ts:
+    id: e34d342eab0d
+    last_write_checksum: sha1:f78a82e351cc24ba128a1ae96de20c35f2b3c76c
+    pristine_git_object: 01e3a867a4a950c9d9f41e87fa0b2f8b36a72afa
+  src/funcs/accounting-get-purchase-order.ts:
+    id: c107f087c3c3
+    last_write_checksum: sha1:f88aa3f076606c782e9d347549056b4c74919eef
+    pristine_git_object: e7c83f6e093354392ad939d3b3f46620292c81d7
+  src/funcs/accounting-get-sales-order-lines.ts:
+    id: 7b1a50ca948f
+    last_write_checksum: sha1:3f1224179d1afc9c28340c86c34a0199d63fe7a2
+    pristine_git_object: 9ac0364dff15dd5c007a57b36d4bd2d3bac1af82
+  src/funcs/accounting-get-sales-order.ts:
+    id: 6fcd49dd525e
+    last_write_checksum: sha1:b68f31ca488651c83d2e3459a822c261d09ba1f2
+    pristine_git_object: 2dbf87bc6dfecab3931f88598e00d8ff00c2df1b
+  src/funcs/accounting-get-sales-orders.ts:
+    id: 48b573e28b04
+    last_write_checksum: sha1:8b3f3298484c70dcb3d0dae9ed63398496eaf3e4
+    pristine_git_object: 2238c16218b9f23c79c0123bd944f16f1622ddee
+  src/funcs/accounting-get-supplier.ts:
+    id: 87ee34d1355f
+    last_write_checksum: sha1:4b4621585772abfc052aa389f60ecbdd9d66237c
+    pristine_git_object: 72677430eef243af0fc67b0964d76e5d317553ec
+  src/funcs/accounting-get-suppliers.ts:
+    id: ea12e3794d29
+    last_write_checksum: sha1:6966bba311db031ea15aa1e3b7ef8340d311f85f
+    pristine_git_object: 3c11c3f177856b6005b394cd9be3a23d9550f060
+  src/funcs/accounting-get-tax-rate.ts:
+    id: 1b84a173416e
+    last_write_checksum: sha1:7e23d28ac1adc2a8eb9602d4a19c207a61e0b5a9
+    pristine_git_object: 8c4f23ec203fa16071e99e63d67389e99b24e664
+  src/funcs/accounting-get-tax-rates.ts:
+    id: f23c92e2e9e5
+    last_write_checksum: sha1:0e8a36ead41bb826d5452519cf43c425bd2d9cb0
+    pristine_git_object: d89de5335d4d66d4ce5490f6f2c2691f74d00907
+  src/funcs/accounting-get-trial-balance.ts:
+    id: 0687d8327039
+    last_write_checksum: sha1:420d478f33e3841581af78d38663b5d386474148
+    pristine_git_object: a6708b5b89474e570e40aae3832181b1b84be821
+  src/funcs/accounting-get-units.ts:
+    id: a0bf42eb5080
+    last_write_checksum: sha1:69688465d31127663e3d126451c18c7bdee56fe6
+    pristine_git_object: b33500a70989aa9cf5c214bb142a891f2eeae704
+  src/funcs/accounting-get-vendor-credits.ts:
+    id: 047d9a85f810
+    last_write_checksum: sha1:28f9cd704997ee1c7508ba99bcbb98353f954ae8
+    pristine_git_object: 66b6845b9770d18345c47cffd3d96ed74c6a6e5e
   src/funcs/accounting-invoices-update-line-item.ts:
     id: d27b00bf0cce
     last_write_checksum: sha1:7139a18f4cc892ab5cb710c9ae236f5b01ed1e9d
@@ -5059,142 +5159,42 @@ trackedFiles:
     id: 3f3edacb9719
     last_write_checksum: sha1:20125061d3e693dd02d232925d5bca8444326004
     pristine_git_object: fa687de30c9deb2b55fd58c766ae0c2ff52a7ff6
-  src/funcs/accounting-list-booking-proposals.ts:
-    id: 27b0e0ba7a81
-    last_write_checksum: sha1:21b1bf8d6b4d7b4e3bf70b11461ad2097a04bcca
-    pristine_git_object: 090a0e5f7259accef5a350f83cda31746efd4998
-  src/funcs/accounting-list-credit-notes.ts:
-    id: 0e727f87d569
-    last_write_checksum: sha1:43b473c08b11bd5c0a9663d76516c8866ad1c3ad
-    pristine_git_object: c2013ada67659be0ce906dffce80e9f66060e38e
-  src/funcs/accounting-list-journal-entries.ts:
-    id: e06d8c3ff2fb
-    last_write_checksum: sha1:ea626393852daf2065d194dc73853b9f13131414
-    pristine_git_object: c3ecf2425f889882104f2e050e2657ecbb75f1ba
-  src/funcs/accounting-list-sales-order-line-items.ts:
-    id: 22d3e626c223
-    last_write_checksum: sha1:13a3a295d5f0d48c768c4baa0380da47c3431f8c
-    pristine_git_object: c44e17837a3603d0c31d1705b13374f3666aca61
-  src/funcs/accounting-list-sales-orders.ts:
-    id: f8c41ea47500
-    last_write_checksum: sha1:e7cc98e6ef7a2582a001bee6e17f9164e0f998a4
-    pristine_git_object: 02e32b23eb11c82dbba116080d307c00956208ed
-  src/funcs/accounting-modify-bill-line-item.ts:
-    id: 4c9492306fd5
-    last_write_checksum: sha1:c972247c67170d2fc4cc3bd94eb31d911a2c9db5
-    pristine_git_object: c9c295b79df19bdc57ac45c6838a949e4b3679a2
-  src/funcs/accounting-modify-supplier.ts:
-    id: 5ea62de076bd
-    last_write_checksum: sha1:a505d44a1490e662d5caf50119d653bdd1352e53
-    pristine_git_object: 12455539620d710ffc573242f3fbf68cd3837522
-  src/funcs/accounting-modify-vendor-credit.ts:
-    id: 9061df0b5cb4
-    last_write_checksum: sha1:29f93a24c4e81edb47deb55e1593099e8faeabc6
-    pristine_git_object: a0165528a3ebda1d2c8e253ddc110705825a8399
-  src/funcs/accounting-record-transaction.ts:
-    id: 89715b9a51cd
-    last_write_checksum: sha1:fdc6e65f2ba4630c8e70a35c395e702870616274
-    pristine_git_object: ea2eeb95faff70fab9c1493ad7a8efb181cf21bc
-  src/funcs/accounting-remove-bill.ts:
-    id: dba9850147b0
-    last_write_checksum: sha1:e297e4109236b2be5e954b56446534bc11695d6a
-    pristine_git_object: 6457f401df026fdcd94a4070cf3ab3da6b536044
-  src/funcs/accounting-remove-event-subscription.ts:
-    id: aed63b3b65df
-    last_write_checksum: sha1:6b07a20da9f4b60314e4b3669320c4cf24d77d3e
-    pristine_git_object: 7a233f255318bf7d3b819aacd4ca00d0ffe9acfc
-  src/funcs/accounting-remove-payment.ts:
-    id: af3668fff610
-    last_write_checksum: sha1:bfc8092003064034988b3ee15180fc5eefd6800c
-    pristine_git_object: f54cf390fc58511aea3af6d1fb5817e3d7cacf30
-  src/funcs/accounting-replace-contact.ts:
-    id: 7a98765b7c95
-    last_write_checksum: sha1:a574fac4c596c8b7be3a25481a12cdc1586583ab
-    pristine_git_object: 4743b7a29c450cdaa01d0dc3f184430d0e6654cc
-  src/funcs/accounting-retrieve-account.ts:
-    id: 6649f222c686
-    last_write_checksum: sha1:559e4fa890af8135bb098a3c8d0356f3048d2702
-    pristine_git_object: f072cdd61cd3562f9a1cdfbdc3b842914a3f535e
-  src/funcs/accounting-retrieve-accounts.ts:
-    id: 188699cc84e9
-    last_write_checksum: sha1:f1d7e042ba85ee493efc3e8e5d1067db18e05824
-    pristine_git_object: de99b63d13fba0a0a5a417d3f03045e355ee31d6
-  src/funcs/accounting-retrieve-bank-accounts.ts:
-    id: 6cc4e7891d67
-    last_write_checksum: sha1:4d51eee0095e78218edd674d2b53b9a2fe0ad93a
-    pristine_git_object: 502424601fb8e96c60500710b29531a2bb7772da
-  src/funcs/accounting-retrieve-booking-proposal.ts:
-    id: 4e69ee542ae5
-    last_write_checksum: sha1:669f36d114959d750e9c269720048667bc329d31
-    pristine_git_object: 7d4792c31368a2bcca4af9aa78d661e791647fcf
-  src/funcs/accounting-retrieve-dimensions.ts:
-    id: e949c1f3e0e3
-    last_write_checksum: sha1:3646a665b0af8a1c48d736967bd7345055c52388
-    pristine_git_object: e9278f1afc405819f799bce6d35ddaf2c2b5f0e6
-  src/funcs/accounting-retrieve-goods-receipt-line-items.ts:
-    id: 748b83cf777c
-    last_write_checksum: sha1:15dd9675c533076f9da22cf3480bc82a2a706a46
-    pristine_git_object: e54c1c307152b978ad6670fb1095a0a739dd9af7
-  src/funcs/accounting-retrieve-goods-receipt.ts:
-    id: ba069cfc6e5d
-    last_write_checksum: sha1:e0a7159afc8d32e7aecc4eb2ee64a8dc80f37bf4
-    pristine_git_object: 83bac0e2d959b81b3aae24dbeff45edbb082cf62
-  src/funcs/accounting-retrieve-invoice-line-item.ts:
-    id: a0195bc59562
-    last_write_checksum: sha1:cf3c580eb347045eb00543998740d41a7f784336
-    pristine_git_object: d1a3daa2dfa28c037711dcda34981bb3687c8a83
-  src/funcs/accounting-retrieve-invoice-line-items.ts:
-    id: 9f16c55678f2
-    last_write_checksum: sha1:7d0c9e714e6f0e2f17a4641eae1930060f33144d
-    pristine_git_object: 0cafc7760160ade075fa37ff4244469ccc0b8d25
-  src/funcs/accounting-retrieve-invoices.ts:
-    id: 155a2afe10e0
-    last_write_checksum: sha1:2a3f8aee05f2cb622d3a05f540f684e4e2233f08
-    pristine_git_object: e8ef6947469ecf7b7a2e241de933dea10cde300a
-  src/funcs/accounting-retrieve-items.ts:
-    id: 5d0f81774fc6
-    last_write_checksum: sha1:627e72404cfd28d8423d44f3605cc6b7d3a473d0
-    pristine_git_object: 8d611604c6b410c0148e1b5616f08e31b726e736
-  src/funcs/accounting-retrieve-offer-line-item.ts:
-    id: dd5fd8d75a9e
-    last_write_checksum: sha1:85f9516b7a6e1dc1f56125818f04909008493d7d
-    pristine_git_object: b2975efa04bfa16ac141fe0e40e9b1cdeabca625
-  src/funcs/accounting-retrieve-open-items.ts:
-    id: fdd5a3429021
-    last_write_checksum: sha1:f0c3c63105c9547d1d364e0e90b0141f0a285501
-    pristine_git_object: 7fb209fdd9b756303ed36ddf545c78a16a3b2ebb
-  src/funcs/accounting-retrieve-payments.ts:
-    id: f149191589f4
-    last_write_checksum: sha1:5344c53cfbe53ce2ef7ac581b54732f333790e76
-    pristine_git_object: 7df22f9ba5848caf170f5af5b2758dfba0ef3aa8
-  src/funcs/accounting-retrieve-purchase-order-line-item.ts:
-    id: 191a75d5bc48
-    last_write_checksum: sha1:396756617c0d348a022e62ab9e6f4a16149e6249
-    pristine_git_object: eab5c7d82c0286c5e7fb050d97eeb8541c4ea2a3
-  src/funcs/accounting-retrieve-purchase-order-line-items.ts:
-    id: f36419a2dcf8
-    last_write_checksum: sha1:5e5c4d36d9f3ab1a53000b4f1114627f9fb1012f
-    pristine_git_object: 10db11185dd3b0383fb75f60faa6a4ee64c8f06e
-  src/funcs/accounting-retrieve-suppliers.ts:
-    id: e888ae25b19d
-    last_write_checksum: sha1:731b858397a0bd55566606e6c5c92b1064010b44
-    pristine_git_object: dc17fc6fa2e27ff42afc7243b26d29d55dae90ae
-  src/funcs/accounting-retrieve-tax-rates.ts:
-    id: 7a1ba055d3ac
-    last_write_checksum: sha1:97bc99268101bcea594d13e69d2f58d990f24b4d
-    pristine_git_object: 981828461f12202c89dcda43c9feec5e08e89fe9
-  src/funcs/accounting-retrieve-vendor-credits.ts:
-    id: f12f5e807d57
-    last_write_checksum: sha1:29aff0b97b749a42968a2308afe9aaee0831b9c4
-    pristine_git_object: 81296b050a8a06fd5944ac6ce86ab2081671a30b
+  src/funcs/accounting-patch-customers.ts:
+    id: 2d8005b63505
+    last_write_checksum: sha1:19fa6bdbaff6f0d5d86790deecc63a2bedea24a4
+    pristine_git_object: 0784120214237f754048977b13e4473b2d0ad021
+  src/funcs/accounting-patch-invoice.ts:
+    id: a7b79a8e84a5
+    last_write_checksum: sha1:761d84db202ee649c5362bc7748c2659b6f05f36
+    pristine_git_object: 24ad7ecf8965eeede6ecbb6088831b710c32cd93
+  src/funcs/accounting-patch-supplier.ts:
+    id: 48813c4ce894
+    last_write_checksum: sha1:0aaaded8b5831579f53616ea04532d4627c9c072
+    pristine_git_object: 432a0ddebae45b0e0a8859e798115aa5a1a87735
+  src/funcs/accounting-post-file.ts:
+    id: d2e602435eb5
+    last_write_checksum: sha1:be24f9a0902930d87747bdfebd3ebec1b10aaaf3
+    pristine_git_object: 34ca01b83463d5e1dfc20678a49f4aa468fd16e9
+  src/funcs/accounting-put-contact.ts:
+    id: cfca1bcefa8f
+    last_write_checksum: sha1:a5acb43b52a3426461d55e59b4d9718e7bcc2220
+    pristine_git_object: 04aa365d752fc2803a48598a00f56af2ed63bd7f
+  src/funcs/accounting-update-bill-line-item.ts:
+    id: 56b0fd7f10cb
+    last_write_checksum: sha1:a6149aea2899d3b835ad0f831dd34ac60203dfdf
+    pristine_git_object: b3756793c9606db1333c313cae1986f6a9c66d00
   src/funcs/accounting-update-customer.ts:
     id: 0559925db8a2
     last_write_checksum: sha1:90a98a7626aacf7b71d465681a94b4aede05cf00
     pristine_git_object: 679a95c539d8b3cc9ce5b52ed914c3e81a5f2c6d
-  src/funcs/accounting-upload-file.ts:
-    id: 3380a1b640fc
-    last_write_checksum: sha1:4e2e85ce4196a3ca21bf40dc98d6b4c84af16aff
-    pristine_git_object: 3a64f504e9cc6d59d805b3d242703fa25eb83557
+  src/funcs/accounting-update-supplier.ts:
+    id: 75d09910d50b
+    last_write_checksum: sha1:075c8828dc2666629096c557a9a2ed1f5e823c2d
+    pristine_git_object: 3b306fc794fb358404cbcda3f7991e938ce6a942
+  src/funcs/accounting-update-vendor-credit.ts:
+    id: 52ece4c72bd6
+    last_write_checksum: sha1:881349694186750a3ad0eb42410daab6bedaa7c0
+    pristine_git_object: e108ef46246f071ee9d5375915ea7278862a89fe
   src/funcs/accounting-v2-contacts-update.ts:
     id: 3f8c5a0c4292
     last_write_checksum: sha1:1485cc319a540b14ee1c32e8ff515c0f0dbbe477
@@ -5211,14 +5211,14 @@ trackedFiles:
     id: 909d661b52ed
     last_write_checksum: sha1:463b9797af86cbb2057d011658ccad75451d97b3
     pristine_git_object: b456fefa075b320169824b8af7136e138b4665be
-  src/funcs/accounting-v2-obtain-dimensions.ts:
-    id: e5d4eaba2791
-    last_write_checksum: sha1:b1b5636a473927415a4bfbfb8262a5b3009e1118
-    pristine_git_object: 91c6670738a31bcdd07f2b272210874834fb652c
-  src/funcs/accounting-v2-update-contact.ts:
-    id: e46e17ca063a
-    last_write_checksum: sha1:7f798077f3afef23ae2ba37839704332a3acc421
-    pristine_git_object: cfa529348421aa1939231b3a1992f70d5b6de947
+  src/funcs/accounting-v2-get-dimensions-v2.ts:
+    id: 5145a304414c
+    last_write_checksum: sha1:eca3acaa50c3bf4242c19a8891c69ae677053f9b
+    pristine_git_object: 37c939b72a7b65aa225e0288971f9f31246e8346
+  src/funcs/accounting-v2-put-contact-v2.ts:
+    id: 73768437d140
+    last_write_checksum: sha1:e3eaa22c13ab7ab350be49fe21ccc17aa3518430
+    pristine_git_object: 62cae71bd0f6235942e0b7086ad9a4e7c963b381
   src/funcs/auth-api-key-confirmation.ts:
     id: 050e1898a682
     last_write_checksum: sha1:f42639b365e3101a48e1b186d7b99253740d4298
@@ -5407,10 +5407,10 @@ trackedFiles:
     id: 6d162394e858
     last_write_checksum: sha1:020357faf0b8b11d7a814389897bf95b054e2cd2
     pristine_git_object: 2e2c17204733b296297ab581f89ee16324032872
-  src/funcs/user-get-info.ts:
-    id: 83b3c45e3b33
-    last_write_checksum: sha1:26dd8c9161bb18f31a69b74f9fa7ab84ba14944f
-    pristine_git_object: 282a8d7f345214449b98de4a899f7f5ae2c05c03
+  src/funcs/user-get-user-info.ts:
+    id: 1980fd796b8f
+    last_write_checksum: sha1:ed9cb21e726e682a084f4428afc01fa22838608f
+    pristine_git_object: f9fa48e75a90d2828f346f5f2722e59d1ae587dc
   src/funcs/vendor-credits-delete.ts:
     id: afdee76d3eff
     last_write_checksum: sha1:d8d0d46eb8c9d12888292f1690b0bb29e41f11a9
@@ -5469,8 +5469,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:3675928d2a43013d40dac4ed72f76705067a6928
-    pristine_git_object: ed5355070a51f9ad1e7173fb0efc424da85b9914
+    last_write_checksum: sha1:485316abb179a4a076d071c4c720659afd0f791c
+    pristine_git_object: 61e8bca3d84c45bec5131975714c19d1aae386a6
   src/lib/dlv.ts:
     id: b1988214835a
     last_write_checksum: sha1:1dd3e3fbb4550c4bf31f5ef997faff355d6f3250
@@ -5521,8 +5521,8 @@ trackedFiles:
     pristine_git_object: 81f671511b69fdf141f267f22d9bc5ac3049e1b9
   src/lib/security.ts:
     id: 0502afa7922e
-    last_write_checksum: sha1:91f65275930d0026050381ab24123ea99871c84c
-    pristine_git_object: 46fdf483e0dbdf8829151d4a463d68e277347975
+    last_write_checksum: sha1:9cc16caf3fccb7f22a289bc9473f4a02eeb8085c
+    pristine_git_object: 381a733215096bd71cc12c2703c02ed15f877c4e
   src/lib/url.ts:
     id: b0057e24ed76
     last_write_checksum: sha1:3bceadd74bf0b31adf13eb06b7531077c3e07d65
@@ -6769,12 +6769,12 @@ trackedFiles:
     pristine_git_object: b0424e4cbb69541e85d237c2a4f60f9408ee6d92
   src/sdk/accounting-v2.ts:
     id: aad7a3e48ae9
-    last_write_checksum: sha1:92e294fac7f1401b4180e424c05578d147dc3e15
-    pristine_git_object: 139931ff48fd28b9c9713d6f3647fd72acc94dcb
+    last_write_checksum: sha1:bfeed4969c4d83cb2b48436760be17aed24e6928
+    pristine_git_object: 499b8a78fe501dfeb713cb411e860befeccd33fa
   src/sdk/accounting.ts:
     id: e0128a734bc9
-    last_write_checksum: sha1:6ae167c49a9886a887ee28be315b980f58b5cda3
-    pristine_git_object: 0ebf6e3acdf789ed66e5d4e1a992510f5d7daf4a
+    last_write_checksum: sha1:865a85d32290e9a944285d09593f7c7c95dbb815
+    pristine_git_object: ab2fa06d0624eea8a441cbef8364a9c991b1a034
   src/sdk/auth.ts:
     id: b29b1fc6bdf5
     last_write_checksum: sha1:7d477978c8a337860522dd4371d05e32e9cddade
@@ -6849,8 +6849,8 @@ trackedFiles:
     pristine_git_object: e3864836d949615859c43490349e64f2ace5189a
   src/sdk/user.ts:
     id: 363e2a871b31
-    last_write_checksum: sha1:64989acf91ac750477dadaafb16af369bbfa2b54
-    pristine_git_object: b0c64903a765d87902c05f6e6f639840b46bc0b1
+    last_write_checksum: sha1:a2adbd77f1a54037fc7da939471da203da473ba8
+    pristine_git_object: b7d6fd1f85296c67950704aa71ab18dbce694922
   src/sdk/v2-contacts.ts:
     id: 8976ad03c879
     last_write_checksum: sha1:64f42abe478020ea1151da4408aec04f52a5e505
@@ -8139,4 +8139,181 @@ examples:
         "200":
           application/json: {}
 examplesVersion: 1.0.2
-releaseNotes: "## Typescript SDK Changes:\n* `maesn.auth.getCompanies()`:  `response.data[].subscription` **Changed** (Breaking ⚠️)\n* `maesn.tenants.deleteEndUser()`:  `response` **Changed** (Breaking ⚠️)\n* `maesn.events.handleConfigurationCallback()`:  `response` **Changed** (Breaking ⚠️)\n* `maesn.events.handleCallback()`:  `response` **Changed** (Breaking ⚠️)\n* `maesn.auth.longToken()`: \n  *  `request` **Changed** (Breaking ⚠️)\n  *  `response.status[200]` **Added**\n* `maesn.auth.getCompaniesFlow()`:  `response.data[].subscription` **Changed** (Breaking ⚠️)\n* `maesn.webhooks.createWebHookTenant()`:  `response.status[201]` **Added**\n* `maesn.webhooks.createWebhookConfig()`:  `response.status[201]` **Added**\n* `maesn.auth.getSubmitPage()`:  `response.status[200]` **Added**\n* `maesn.auth.apiKeyConfirmation()`:  `response.status[201]` **Added**\n* `maesn.auth.cancel()`:  `response.status[201]` **Added**\n* `maesn.auth.test()`:  `response.status[200]` **Added**\n* `maesn.accounting.removeBill()`:  `response.status[200]` **Added**\n* `maesn.auth.getEnvironmentPage()`:  `response.status[200]` **Added**\n* `maesn.auth.setEndUserSelections()`:  `response.status[201]` **Added**\n* `maesn.auth.systemLoginUrl()`:  `response.status[200]` **Added**\n* `maesn.auth.callback()`:  `response.status[200]` **Added**\n* `maesn.auth.createEndUserAccount()`:  `response.status[201]` **Added**\n* `maesn.accounting.getProfile()`:  `response.status[200]` **Added**\n* `maesn.events.getCode()`:  `response.status[201]` **Added**\n* `maesn.accounting.removeEventSubscription()`:  `response.status[200]` **Added**\n* `maesn.webhooks.createWebhookEndUser()`:  `response.status[201]` **Added**\n* `maesn.accounting.removePayment()`:  `response.status[200]` **Added**\n* `maesn.webhooks.deleteWebhookEndUser()`:  `response.status[200]` **Added**\n* `maesn.webhooks.deleteWebhookTenant()`:  `response.status[200]` **Added**\n* `maesn.vendorCredits.delete()`:  `response.status[200]` **Added**\n* `maesn.webhooks.createWebhook()`:  `response.status[201]` **Added**\n* `maesn.webhooks.deleteWebhook()`:  `response.status[200]` **Added**\n* `maesn.webhooks.getWebhooks()`:  `response.status[200]` **Added**\n* `maesn.health.check()`:  `response.status[200]` **Added**\n* `maesn.health.details()`:  `response.status[200]` **Added**\n* `maesn.tenants.systemRegistration()`:  `response.status[201]` **Added**\n* `maesn.tenants.addCallbackUrl()`:  `response.status[201]` **Added**\n* `maesn.tenants.getEndUserList()`:  `response.status[200]` **Added**\n* `maesn.tenants.countEndUsersBySystem()`:  `response.status[200]` **Added**\n* `maesn.accounting.addEventSubscription()`:  `response.status[201]` **Added**\n* `maesn.tenants.getCallbackUrl()`:  `response.status[200]` **Added**\n* `maesn.tenants.getRegisteredSystems()`:  `response.status[200]` **Added**\n* `maesn.tenants.getTargetSystemValues()`:  `response.status[200]` **Added**\n* `maesn.tenants.getTargetSystemRequirements()`:  `response.status[200]` **Added**\n* `maesn.tenants.getRegisteredSystemsMasked()`:  `response.status[200]` **Added**\n* `maesn.tenants.deleteRegisteredSystem()`:  `response.status[200]` **Added**\n* `maesn.tenants.getAllActiveEndUsers()`:  `response.status[200]` **Added**\n* `maesn.tenants.getSubmissionPageStyle()`:  `response.status[200]` **Added**\n* `maesn.tenants.updateSubmissionPageStyle()`:  `response.status[201]` **Added**\n* `maesn.tenants.getSubmissionPageStyleByKey()`:  `response.status[200]` **Added**\n"
+releaseNotes: |
+  ## Typescript SDK Changes:
+  * `maesn.accounting.getAccount()`: **Added**
+  * `maesn.accounting.getAccounts()`: **Added**
+  * `maesn.accounting.createAccount()`: **Added**
+  * `maesn.accounting.getBankAccounts()`: **Added**
+  * `maesn.accounting.createBankAccount()`: **Added**
+  * `maesn.accounting.getBankAccount()`: **Added**
+  * `maesn.accounting.getDimensions()`: **Added**
+  * `maesn.accounting.createTransaction()`: **Added**
+  * `maesn.accounting.getCustomers()`: **Added**
+  * `maesn.accounting.getCustomer()`: **Added**
+  * `maesn.accounting.patchCustomers()`: **Added**
+  * `maesn.accounting.getSuppliers()`: **Added**
+  * `maesn.accounting.createSupplier()`: **Added**
+  * `maesn.accounting.getSupplier()`: **Added**
+  * `maesn.accounting.updateSupplier()`: **Added**
+  * `maesn.accounting.patchSupplier()`: **Added**
+  * `maesn.accounting.createContact()`: **Added**
+  * `maesn.accounting.getContact()`: **Added**
+  * `maesn.accounting.putContact()`: **Added**
+  * `maesn.accounting.createContacts()`: **Added**
+  * `maesn.accounting.createContactsV1()`: **Added**
+  * `maesn.accounting.getInvoices()`: **Added**
+  * `maesn.accounting.createInvoice()`: **Added**
+  * `maesn.accounting.getInvoice()`: **Added**
+  * `maesn.accounting.patchInvoice()`: **Added**
+  * `maesn.accounting.getInvoiceDocument()`: **Added**
+  * `maesn.accounting.postFile()`: **Added**
+  * `maesn.accounting.getDocumentTypes()`: **Added**
+  * `maesn.accounting.getAsyncTaskInfo()`: **Added**
+  * `maesn.accounting.getItems()`: **Added**
+  * `maesn.accounting.getItem()`: **Added**
+  * `maesn.accounting.getLineItems()`: **Added**
+  * `maesn.accounting.createLineItem()`: **Added**
+  * `maesn.accounting.getLineItem()`: **Added**
+  * `maesn.accounting.getJournals()`: **Added**
+  * `maesn.accounting.getJournalEntries()`: **Added**
+  * `maesn.accounting.createJournalEntry()`: **Added**
+  * `maesn.accounting.getJournalEntry()`: **Added**
+  * `maesn.accounting.getOffers()`: **Added**
+  * `maesn.accounting.createOffer()`: **Added**
+  * `maesn.accounting.getOffer()`: **Added**
+  * `maesn.accounting.getOfferLineItems()`: **Added**
+  * `maesn.accounting.getOfferLineItem()`: **Added**
+  * `maesn.accounting.createExpense()`: **Added**
+  * `maesn.accounting.getExpenses()`: **Added**
+  * `maesn.accounting.getExpense()`: **Added**
+  * `maesn.accounting.createProject()`: **Added**
+  * `maesn.accounting.getProject()`: **Added**
+  * `maesn.accounting.getSalesOrders()`: **Added**
+  * `maesn.accounting.createSalesOrder()`: **Added**
+  * `maesn.accounting.getSalesOrder()`: **Added**
+  * `maesn.accounting.getSalesOrderLines()`: **Added**
+  * `maesn.accounting.createPaymentTerm()`: **Added**
+  * `maesn.accounting.getPaymentTerm()`: **Added**
+  * `maesn.accounting.getTaxRates()`: **Added**
+  * `maesn.accounting.getTaxRate()`: **Added**
+  * `maesn.accounting.getPayments()`: **Added**
+  * `maesn.accounting.createPayment()`: **Added**
+  * `maesn.accounting.getPayment()`: **Added**
+  * `maesn.accounting.deletePayment()`: **Added**
+  * `maesn.accounting.createEventSubscriptions()`: **Added**
+  * `maesn.accounting.deleteEventSubscriptions()`: **Added**
+  * `maesn.accounting.createPassThroughRequest()`: **Added**
+  * `maesn.accounting.getBills()`: **Added**
+  * `maesn.accounting.createBill()`: **Added**
+  * `maesn.accounting.getBill()`: **Added**
+  * `maesn.accounting.deleteBill()`: **Added**
+  * `maesn.accounting.getBillDocument()`: **Added**
+  * `maesn.accounting.getBookingProposals()`: **Added**
+  * `maesn.accounting.getBookingProposal()`: **Added**
+  * `maesn.accounting.getBookingProposalDocument()`: **Added**
+  * `maesn.accounting.createBookings()`: **Added**
+  * `maesn.accounting.getVendorCredits()`: **Added**
+  * `maesn.accounting.updateVendorCredit()`: **Added**
+  * `maesn.accounting.updateBillLineItem()`: **Added**
+  * `maesn.accounting.getPurchaseOrder()`: **Added**
+  * `maesn.accounting.getPurchaseOrderLineItems()`: **Added**
+  * `maesn.accounting.getPurchaseOrderLineItem()`: **Added**
+  * `maesn.accounting.getGoodsReceipt()`: **Added**
+  * `maesn.accounting.getGoodsReceiptLineItems()`: **Added**
+  * `maesn.accounting.getUnits()`: **Added**
+  * `maesn.accounting.getOpenItems()`: **Added**
+  * `maesn.accounting.getTrialBalance()`: **Added**
+  * `maesn.accounting.getCreditNotes()`: **Added**
+  * `maesn.accounting.getCreditNote()`: **Added**
+  * `maesn.accountingV2.putContactV2()`: **Added**
+  * `maesn.accountingV2.getDimensionsV2()`: **Added**
+  * `maesn.user.getUserInfo()`: **Added**
+  * `maesn.accounting.retrieveAccount()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.retrieveAccounts()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.addAccount()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.retrieveBankAccounts()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.addBankAccount()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.fetchBankAccount()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.retrieveDimensions()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.recordTransaction()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.fetchCustomers()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.fetchCustomer()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.amendCustomer()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.retrieveSuppliers()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.addSupplier()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.fetchSupplier()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.modifySupplier()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.amendSupplier()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.addContact()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.fetchContact()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.replaceContact()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.createContactsBulk()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.batchAddContacts()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.retrieveInvoices()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.addInvoice()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.fetchInvoice()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.amendInvoice()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.fetchInvoiceDocument()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.uploadFile()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.fetchDocumentTypes()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.getAsyncTask()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.retrieveItems()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.fetchItem()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.retrieveInvoiceLineItems()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.addInvoiceLineItem()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.retrieveInvoiceLineItem()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.fetchJournals()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.listJournalEntries()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.addJournalEntry()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.fetchJournalEntry()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.fetchOffers()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.addOffer()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.fetchOffer()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.fetchOfferLineItems()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.retrieveOfferLineItem()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.addExpense()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.fetchExpenses()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.fetchExpense()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.addProject()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.fetchProject()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.listSalesOrders()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.addSalesOrder()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.fetchSalesOrder()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.listSalesOrderLineItems()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.addPaymentTerm()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.fetchPaymentTerm()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.retrieveTaxRates()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.fetchTaxRate()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.retrievePayments()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.addPayment()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.fetchPayment()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.removePayment()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.addEventSubscription()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.removeEventSubscription()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.createPassThrough()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.fetchBills()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.addBill()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.fetchBill()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.removeBill()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.fetchBillDocument()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.listBookingProposals()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.retrieveBookingProposal()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.fetchBookingProposalDocument()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.addBooking()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.retrieveVendorCredits()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.modifyVendorCredit()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.modifyBillLineItem()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.fetchPurchaseOrder()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.retrievePurchaseOrderLineItems()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.retrievePurchaseOrderLineItem()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.retrieveGoodsReceipt()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.retrieveGoodsReceiptLineItems()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.fetchUnits()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.retrieveOpenItems()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.fetchTrialBalance()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.listCreditNotes()`: **Removed** (Breaking ⚠️)
+  * `maesn.accounting.fetchCreditNote()`: **Removed** (Breaking ⚠️)
+  * `maesn.accountingV2.updateContact()`: **Removed** (Breaking ⚠️)
+  * `maesn.accountingV2.obtainDimensions()`: **Removed** (Breaking ⚠️)
+  * `maesn.user.getInfo()`: **Removed** (Breaking ⚠️)

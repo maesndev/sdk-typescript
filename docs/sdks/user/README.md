@@ -4,9 +4,9 @@
 
 ### Available Operations
 
-* [getInfo](#getinfo)
+* [getUserInfo](#getuserinfo)
 
-## getInfo
+## getUserInfo
 
 ### Example Usage
 
@@ -23,7 +23,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.user.getInfo();
+  const result = await maesn.user.getUserInfo();
 
   console.log(result);
 }
@@ -37,7 +37,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { userGetInfo } from "@maesn/typescript-sdk/funcs/user-get-info.js";
+import { userGetUserInfo } from "@maesn/typescript-sdk/funcs/user-get-user-info.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -50,12 +50,12 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await userGetInfo(maesn);
+  const res = await userGetUserInfo(maesn);
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("userGetInfo failed:", res.error);
+    console.log("userGetUserInfo failed:", res.error);
   }
 }
 

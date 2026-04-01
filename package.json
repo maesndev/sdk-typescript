@@ -1,6 +1,6 @@
 {
   "name": "@maesn/typescript-sdk",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "author": "Speakeasy",
   "publishConfig": {
     "access": "restricted"

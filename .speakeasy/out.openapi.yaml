@@ -40,7 +40,6 @@ paths:
                         $ref: '#/components/schemas/AccountResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: retrieveAccount
   /accounting/accounts:
     get:
       operationId: getAccounts
@@ -139,7 +138,6 @@ paths:
                           $ref: '#/components/schemas/AccountResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: retrieveAccounts
     post:
       operationId: createAccount
       parameters:
@@ -174,7 +172,6 @@ paths:
                         $ref: '#/components/schemas/AccountResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: addAccount
   /accounting/bankAccounts:
     get:
       operationId: getBankAccounts
@@ -234,7 +231,6 @@ paths:
                           $ref: '#/components/schemas/BankAccountResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: retrieveBankAccounts
     post:
       operationId: createBankAccount
       parameters:
@@ -269,7 +265,6 @@ paths:
                         $ref: '#/components/schemas/BankAccountResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: addBankAccount
   /accounting/bankAccounts/{bankAccountId}:
     get:
       operationId: getBankAccount
@@ -310,7 +305,6 @@ paths:
                         $ref: '#/components/schemas/BankAccountResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: fetchBankAccount
   /accounting/dimensions:
     get:
       operationId: getDimensions
@@ -370,7 +364,6 @@ paths:
                           $ref: '#/components/schemas/DimensionResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: retrieveDimensions
   /accounting/transactions:
     post:
       operationId: createTransaction
@@ -408,7 +401,6 @@ paths:
                         $ref: '#/components/schemas/TransactionResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: recordTransaction
   /accounting/customers:
     get:
       operationId: getCustomers
@@ -486,7 +478,6 @@ paths:
                           $ref: '#/components/schemas/ContactResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: fetchCustomers
     post:
       operationId: createCustomer
       parameters:
@@ -561,7 +552,6 @@ paths:
                         $ref: '#/components/schemas/ContactResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: fetchCustomer
     put:
       operationId: updateCustomer
       parameters:
@@ -634,7 +624,6 @@ paths:
                         $ref: '#/components/schemas/ContactResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: amendCustomer
   /accounting/suppliers:
     get:
       operationId: getSuppliers
@@ -712,7 +701,6 @@ paths:
                           $ref: '#/components/schemas/ContactResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: retrieveSuppliers
     post:
       operationId: createSupplier
       parameters:
@@ -747,7 +735,6 @@ paths:
                         $ref: '#/components/schemas/ContactResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: addSupplier
   /accounting/suppliers/{contactId}:
     get:
       operationId: getSupplier
@@ -788,7 +775,6 @@ paths:
                         $ref: '#/components/schemas/ContactResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: fetchSupplier
     put:
       operationId: updateSupplier
       parameters:
@@ -822,7 +808,6 @@ paths:
                         $ref: '#/components/schemas/ContactResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: modifySupplier
     patch:
       operationId: patchSupplier
       parameters:
@@ -862,7 +847,6 @@ paths:
                         $ref: '#/components/schemas/ContactResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: amendSupplier
   /accounting/contacts:
     get:
       operationId: getContacts
@@ -956,7 +940,6 @@ paths:
                         $ref: '#/components/schemas/ContactResponseDtoV2'
       tags:
         - accounting
-      x-speakeasy-name-override: addContact
   /accounting/contacts/{contactId}:
     get:
       operationId: getContact
@@ -997,7 +980,6 @@ paths:
                         $ref: '#/components/schemas/ContactResponseDtoV2'
       tags:
         - accounting
-      x-speakeasy-name-override: fetchContact
     put:
       operationId: putContact
       parameters:
@@ -1037,7 +1019,6 @@ paths:
                         $ref: '#/components/schemas/ContactResponseDtoV2'
       tags:
         - accounting
-      x-speakeasy-name-override: replaceContact
     patch:
       operationId: patchContact
       parameters:
@@ -1108,7 +1089,6 @@ paths:
                         $ref: '#/components/schemas/ContactByBatchMetaDataResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: createContactsBulk
   /accounting/batch/contacts:
     post:
       operationId: createContactsV1
@@ -1138,7 +1118,6 @@ paths:
                         $ref: '#/components/schemas/ContactByBatchMetaDataResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: batchAddContacts
   /accounting/invoices:
     get:
       operationId: getInvoices
@@ -1259,7 +1238,6 @@ paths:
                           $ref: '#/components/schemas/InvoiceResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: retrieveInvoices
     post:
       operationId: createInvoice
       parameters:
@@ -1294,7 +1272,6 @@ paths:
                         $ref: '#/components/schemas/InvoiceResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: addInvoice
   /accounting/invoices/{invoiceId}:
     get:
       operationId: getInvoice
@@ -1335,7 +1312,6 @@ paths:
                         $ref: '#/components/schemas/InvoiceResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: fetchInvoice
     patch:
       operationId: patchInvoice
       parameters:
@@ -1375,7 +1351,6 @@ paths:
                         $ref: '#/components/schemas/InvoiceResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: amendInvoice
   /accounting/invoices/{invoiceId}/document:
     get:
       operationId: getInvoiceDocument
@@ -1410,7 +1385,6 @@ paths:
                         $ref: '#/components/schemas/DocumentResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: fetchInvoiceDocument
   /accounting/files:
     post:
       operationId: postFile
@@ -1465,7 +1439,6 @@ paths:
                         $ref: '#/components/schemas/DocumentResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: uploadFile
   /accounting/files/documentTypes:
     get:
       operationId: getDocumentTypes
@@ -1491,7 +1464,6 @@ paths:
                           $ref: '#/components/schemas/DocumentTypesResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: fetchDocumentTypes
   /accounting/files/documentExtensions:
     get:
       operationId: getDocumentExtensions
@@ -1560,7 +1532,6 @@ paths:
                         $ref: '#/components/schemas/AsyncTaskResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: getAsyncTask
   /accounting/items:
     get:
       operationId: getItems
@@ -1632,7 +1603,6 @@ paths:
                           $ref: '#/components/schemas/ItemResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: retrieveItems
     post:
       operationId: createItem
       parameters:
@@ -1711,7 +1681,6 @@ paths:
                           $ref: '#/components/schemas/ItemResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: fetchItem
     patch:
       operationId: patchItem
       parameters:
@@ -1817,7 +1786,6 @@ paths:
                           $ref: '#/components/schemas/LineItemResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: retrieveInvoiceLineItems
     post:
       operationId: createLineItem
       parameters:
@@ -1857,7 +1825,6 @@ paths:
                         $ref: '#/components/schemas/LineItemResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: addInvoiceLineItem
   /accounting/invoices/{invoiceId}/lineItems/{lineItemId}:
     get:
       operationId: getLineItem
@@ -1903,7 +1870,6 @@ paths:
                         $ref: '#/components/schemas/LineItemResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: retrieveInvoiceLineItem
     patch:
       operationId: patchLineItem
       parameters:
@@ -2009,7 +1975,6 @@ paths:
                           $ref: '#/components/schemas/JournalResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: fetchJournals
   /accounting/journalEntries:
     get:
       operationId: getJournalEntries
@@ -2081,7 +2046,6 @@ paths:
                           $ref: '#/components/schemas/JournalEntryResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: listJournalEntries
     post:
       operationId: createJournalEntry
       parameters:
@@ -2128,7 +2092,6 @@ paths:
                         $ref: '#/components/schemas/JournalEntryResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: addJournalEntry
   /accounting/journalEntries/{journalEntryId}:
     get:
       operationId: getJournalEntry
@@ -2175,7 +2138,6 @@ paths:
                         $ref: '#/components/schemas/JournalEntryResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: fetchJournalEntry
   /accounting/journalEntries/bulk:
     post:
       operationId: createJournalEntries
@@ -2389,7 +2351,6 @@ paths:
                           $ref: '#/components/schemas/OfferResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: fetchOffers
     post:
       operationId: createOffer
       parameters:
@@ -2424,7 +2385,6 @@ paths:
                         $ref: '#/components/schemas/OfferResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: addOffer
   /accounting/offers/{offerId}:
     get:
       operationId: getOffer
@@ -2465,7 +2425,6 @@ paths:
                         $ref: '#/components/schemas/OfferResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: fetchOffer
   /accounting/offers/{offerId}/lineItems:
     get:
       operationId: getOfferLineItems
@@ -2530,7 +2489,6 @@ paths:
                           $ref: '#/components/schemas/OfferLineItemResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: fetchOfferLineItems
   /accounting/offers/{offerId}/lineItems/{lineItemId}:
     get:
       operationId: getOfferLineItem
@@ -2576,7 +2534,6 @@ paths:
                         $ref: '#/components/schemas/OfferLineItemResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: retrieveOfferLineItem
   /accounting/offers/{offerId}/document:
     get:
       operationId: getOfferDocument
@@ -2656,7 +2613,6 @@ paths:
                         $ref: '#/components/schemas/ExpenseResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: addExpense
     get:
       operationId: getExpenses
       parameters:
@@ -2709,7 +2665,6 @@ paths:
                           $ref: '#/components/schemas/ExpenseResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: fetchExpenses
   /accounting/expenses/{expenseId}:
     get:
       operationId: getExpense
@@ -2750,7 +2705,6 @@ paths:
                         $ref: '#/components/schemas/ExpenseResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: fetchExpense
   /accounting/projects:
     get:
       operationId: getProjects
@@ -2844,7 +2798,6 @@ paths:
                         $ref: '#/components/schemas/ProjectResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: addProject
   /accounting/projects/{projectId}:
     get:
       operationId: getProject
@@ -2885,7 +2838,6 @@ paths:
                         $ref: '#/components/schemas/ProjectResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: fetchProject
   /accounting/salesOrders:
     get:
       operationId: getSalesOrders
@@ -2957,7 +2909,6 @@ paths:
                           $ref: '#/components/schemas/SalesOrderResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: listSalesOrders
     post:
       operationId: createSalesOrder
       parameters:
@@ -2992,7 +2943,6 @@ paths:
                         $ref: '#/components/schemas/SalesOrderResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: addSalesOrder
   /accounting/salesOrders/{salesOrderId}:
     get:
       operationId: getSalesOrder
@@ -3033,7 +2983,6 @@ paths:
                         $ref: '#/components/schemas/SalesOrderResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: fetchSalesOrder
   /accounting/salesOrders/{salesOrderId}/lineItems:
     get:
       operationId: getSalesOrderLines
@@ -3098,7 +3047,6 @@ paths:
                           $ref: '#/components/schemas/SalesOrderLineItemResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: listSalesOrderLineItems
   /accounting/paymentTerms:
     get:
       operationId: getPaymentTerms
@@ -3198,7 +3146,6 @@ paths:
                         $ref: '#/components/schemas/PaymentTermResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: addPaymentTerm
   /accounting/paymentTerms/{paymentTermId}:
     get:
       operationId: getPaymentTerm
@@ -3239,7 +3186,6 @@ paths:
                         $ref: '#/components/schemas/PaymentTermResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: fetchPaymentTerm
   /accounting/taxRates:
     get:
       operationId: getTaxRates
@@ -3305,7 +3251,6 @@ paths:
                           $ref: '#/components/schemas/TaxRateResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: retrieveTaxRates
   /accounting/taxRates/{taxRateId}:
     get:
       operationId: getTaxRate
@@ -3346,7 +3291,6 @@ paths:
                         $ref: '#/components/schemas/TaxRateResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: fetchTaxRate
   /accounting/payments:
     get:
       operationId: getPayments
@@ -3412,7 +3356,6 @@ paths:
                           $ref: '#/components/schemas/PaymentResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: retrievePayments
     post:
       operationId: createPayment
       parameters:
@@ -3441,7 +3384,6 @@ paths:
                         $ref: '#/components/schemas/PaymentResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: addPayment
   /accounting/payments/{paymentId}:
     get:
       operationId: getPayment
@@ -3476,7 +3418,6 @@ paths:
                         $ref: '#/components/schemas/PaymentResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: fetchPayment
     delete:
       operationId: deletePayment
       parameters:
@@ -3504,7 +3445,6 @@ paths:
                         type: string
       tags:
         - accounting
-      x-speakeasy-name-override: removePayment
   /accounting/event-subscriptions:
     post:
       operationId: createEventSubscriptions
@@ -3530,7 +3470,6 @@ paths:
                 $ref: '#/components/schemas/BaseResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: addEventSubscription
   /accounting/event-subscriptions/{eventSubscriptionId}:
     delete:
       operationId: deleteEventSubscriptions
@@ -3555,7 +3494,6 @@ paths:
                 $ref: '#/components/schemas/BaseResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: removeEventSubscription
   /accounting/profile:
     get:
       operationId: getProfile
@@ -3604,7 +3542,6 @@ paths:
                         type: object
       tags:
         - accounting
-      x-speakeasy-name-override: createPassThrough
   /accounting/bills:
     get:
       operationId: getBills
@@ -3719,7 +3656,6 @@ paths:
                           $ref: '#/components/schemas/BillResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: fetchBills
     post:
       operationId: createBill
       parameters:
@@ -3754,7 +3690,6 @@ paths:
                         $ref: '#/components/schemas/BillResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: addBill
   /accounting/bills/{billId}:
     get:
       operationId: getBill
@@ -3795,7 +3730,6 @@ paths:
                         $ref: '#/components/schemas/BillResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: fetchBill
     put:
       operationId: updateBill
       parameters:
@@ -3870,7 +3804,6 @@ paths:
                         type: string
       tags:
         - accounting
-      x-speakeasy-name-override: removeBill
   /accounting/bills/{billId}/document:
     get:
       operationId: getBillDocument
@@ -3893,7 +3826,6 @@ paths:
                         $ref: '#/components/schemas/DocumentResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: fetchBillDocument
   /accounting/bookingProposals:
     post:
       operationId: createBookingProposal
@@ -4052,7 +3984,6 @@ paths:
                           $ref: '#/components/schemas/BookingProposalResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: listBookingProposals
   /accounting/bookingProposals/{bookingProposalId}:
     get:
       operationId: getBookingProposal
@@ -4093,7 +4024,6 @@ paths:
                         $ref: '#/components/schemas/BookingProposalResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: retrieveBookingProposal
   /accounting/bookingProposals/{bookingProposalId}/document:
     get:
       operationId: getBookingProposalDocument
@@ -4116,7 +4046,6 @@ paths:
                         $ref: '#/components/schemas/DocumentResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: fetchBookingProposalDocument
   /accounting/bookings:
     post:
       operationId: createBookings
@@ -4146,7 +4075,6 @@ paths:
                         $ref: '#/components/schemas/BookingsResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: addBooking
   /accounting/vendorCredits:
     get:
       operationId: getVendorCredits
@@ -4241,7 +4169,6 @@ paths:
                           $ref: '#/components/schemas/VendorCreditResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: retrieveVendorCredits
   /accounting/vendorCredit:
     post:
       operationId: createVendorCredit
@@ -4317,7 +4244,6 @@ paths:
                         $ref: '#/components/schemas/BillResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: modifyVendorCredit
     delete:
       operationId: deleteVendorCredit
       parameters:
@@ -4469,7 +4395,6 @@ paths:
                           $ref: '#/components/schemas/BillLineItemResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: modifyBillLineItem
   /accounting/purchaseOrders:
     get:
       operationId: getPurchaseOrders
@@ -4571,7 +4496,6 @@ paths:
                         $ref: '#/components/schemas/PurchaseOrderResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: fetchPurchaseOrder
   /accounting/purchaseOrders/{purchaseOrderId}/lineItems:
     get:
       operationId: getPurchaseOrderLineItems
@@ -4620,7 +4544,6 @@ paths:
                           $ref: '#/components/schemas/PurchaseOrderLineItemResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: retrievePurchaseOrderLineItems
   /accounting/purchaseOrders/{purchaseOrderId}/lineItems/{lineItemId}:
     get:
       operationId: getPurchaseOrderLineItem
@@ -4666,7 +4589,6 @@ paths:
                         $ref: '#/components/schemas/PurchaseOrderLineItemResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: retrievePurchaseOrderLineItem
   /accounting/goodsReceipts:
     get:
       operationId: getGoodsReceipts
@@ -4766,7 +4688,6 @@ paths:
                         $ref: '#/components/schemas/GoodsReceiptResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: retrieveGoodsReceipt
   /accounting/goodsReceipts/{goodsReceiptId}/lineItems:
     get:
       operationId: getGoodsReceiptLineItems
@@ -4815,7 +4736,6 @@ paths:
                           $ref: '#/components/schemas/GoodsReceiptLineItemResponse'
       tags:
         - accounting
-      x-speakeasy-name-override: retrieveGoodsReceiptLineItems
   /accounting/goodsReceipts/{goodsReceiptId}/lineItems/{lineItemId}:
     get:
       operationId: getGoodsReceiptLineItem
@@ -4916,7 +4836,6 @@ paths:
                           $ref: '#/components/schemas/UnitResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: fetchUnits
   /accounting/openItems:
     get:
       operationId: getOpenItems
@@ -5000,7 +4919,6 @@ paths:
                           $ref: '#/components/schemas/OpenItemResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: retrieveOpenItems
   /accounting/trialBalance:
     get:
       operationId: getTrialBalance
@@ -5084,7 +5002,6 @@ paths:
                           $ref: '#/components/schemas/TrialBalanceResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: fetchTrialBalance
   /accounting/creditNotes:
     get:
       operationId: getCreditNotes
@@ -5144,7 +5061,6 @@ paths:
                           $ref: '#/components/schemas/CreditNoteResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: listCreditNotes
   /accounting/creditNotes/{creditNoteId}:
     get:
       operationId: getCreditNote
@@ -5185,7 +5101,6 @@ paths:
                         $ref: '#/components/schemas/CreditNoteResponseDto'
       tags:
         - accounting
-      x-speakeasy-name-override: fetchCreditNote
   /accounting/fiscalYears:
     get:
       operationId: getFiscalYears
@@ -5495,7 +5410,6 @@ paths:
                         $ref: '#/components/schemas/ContactResponseDtoV2'
       tags:
         - accounting-v2
-      x-speakeasy-name-override: updateContact
     patch:
       operationId: patchContactV2
       parameters:
@@ -5580,7 +5494,6 @@ paths:
                           $ref: '#/components/schemas/DimensionMetaResponseDto'
       tags:
         - accounting-v2
-      x-speakeasy-name-override: obtainDimensions
   /accounting/v2/dimensions/{dimension}:
     get:
       operationId: getDimensionsByDimension
@@ -5664,7 +5577,6 @@ paths:
                         $ref: '#/components/schemas/UserInfoResponseDto'
       tags:
         - user
-      x-speakeasy-name-override: getInfo
   /environments:
     get:
       operationId: getEnvironments
@@ -6626,17 +6538,12 @@ paths:
 info:
   title: Maesn Unified API
   description: |
-    The Maesn Unified API provides a single interface to 30+ accounting and ERP target systems — including Exact, Xero, Sevdesk, Lexoffice, QuickBooks, DATEV, FreshBooks, and more.
-
-    All resources (invoices, contacts, accounts, bills, journal entries, payments) are normalized to a common schema, so your integration works across every connected system without modification.
-
-    ## Features
-
-    - **Unified schema** — one data model across all target systems
-    - **Multi-tenant** — isolated API keys and account keys per tenant and end user
-    - **OAuth integration** — built-in OAuth flows for all supported target systems
-    - **Webhook support** — subscribe to real-time events from connected target systems
-    - **Async processing** — long-running operations return a `taskId` for status polling
+    Maesn is the only Unified API that provides standard endpoints tailored for ERP use cases. We will continuously work on improving and extending our portfolio of use cases and ERP systems that we offer easy integration to.
+    Beside great use-cases, the most relevant ERP systems and the best possible support, we provide several technical key features that enable you to accelerate your integration game:
+    - Drop-in frontend authentication components that makes it easy to connect to your customers’ end systems.
+    - Authenticated pass through request for the occasional API endpoint not included in our common data models.
+    - Templates for you docs, so that you have all content for your end user-onboarding ready
+    Once you get started with maesn and integrate with our endpoints, you automatically have support for all existing and new integrations we add.
   version: "1.0"
   contact: {}
 tags:
