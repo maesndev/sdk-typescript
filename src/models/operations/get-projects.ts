@@ -4,14 +4,24 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
+import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
+export const GetProjectsLimit = {
+  Five: 5,
+  Ten: 10,
+  Twenty: 20,
+  Fifty: 50,
+  OneHundred: 100,
+} as const;
+export type GetProjectsLimit = ClosedEnum<typeof GetProjectsLimit>;
+
 export type GetProjectsRequest = {
   page?: number | undefined;
-  limit?: number | undefined;
+  limit?: GetProjectsLimit | undefined;
   /**
    * ISO 8601 timestamp; only records modified after this date are returned
    */
@@ -57,6 +67,11 @@ export type GetProjectsResponse = {
 };
 
 /** @internal */
+export const GetProjectsLimit$outboundSchema: z.ZodMiniEnum<
+  typeof GetProjectsLimit
+> = z.enum(GetProjectsLimit);
+
+/** @internal */
 export type GetProjectsRequest$Outbound = {
   page?: number | undefined;
   limit?: number | undefined;
@@ -72,7 +87,7 @@ export const GetProjectsRequest$outboundSchema: z.ZodMiniType<
   GetProjectsRequest
 > = z.object({
   page: z.optional(z.number()),
-  limit: z.optional(z.number()),
+  limit: z.optional(GetProjectsLimit$outboundSchema),
   lastModifiedAt: z.optional(z.string()),
   environmentName: z.optional(z.string()),
   companyId: z.optional(z.string()),

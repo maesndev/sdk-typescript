@@ -11,13 +11,13 @@ let value: UpdateBillLineItemResponse = {
   data: [
     {
       id: "<id>",
-      accountId: null,
+      accountId: "<id>",
       accountNumber: "<value>",
-      createdDate: "<value>",
+      createdDate: null,
       deferredEndDate: "<value>",
       deferredStartDate: "<value>",
       description:
-        "behind sedately anenst notwithstanding phooey diversity past aha",
+        "since record muddy quintuple seafood hence likewise plumber ick ouch",
       dimensions: [
         {
           name: "<value>",
@@ -26,23 +26,23 @@ let value: UpdateBillLineItemResponse = {
       ],
       itemId: "<id>",
       itemName: "<value>",
-      quantity: 972.26,
+      quantity: 1273.11,
       taxCode: null,
-      taxRatePercentage: 7368.09,
-      totalDiscountAmount: 6048.94,
-      totalDiscountPercentage: 7206.62,
-      totalGrossAmount: 7285.99,
-      totalNetAmount: 2328.6,
-      totalTaxAmount: 5246.18,
-      unitAmount: 7884.58,
-      unitDiscountAmount: 5739.68,
-      unitDiscountPercentage: 5524.06,
+      taxRatePercentage: 248.32,
+      totalDiscountAmount: 5210.72,
+      totalDiscountPercentage: 7272.38,
+      totalGrossAmount: 7810.47,
+      totalNetAmount: 2983.23,
+      totalTaxAmount: 3886.78,
+      unitAmount: 632.5,
+      unitDiscountAmount: null,
+      unitDiscountPercentage: 2870.11,
       unitName: "<value>",
       updatedDate: "<value>",
     },
   ],
   errors: {},
-  rawData: {},
+  rawData: null,
 };
 ```
 

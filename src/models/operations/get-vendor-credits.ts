@@ -10,6 +10,15 @@ import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
+export const GetVendorCreditsLimit = {
+  Five: 5,
+  Ten: 10,
+  Twenty: 20,
+  Fifty: 50,
+  OneHundred: 100,
+} as const;
+export type GetVendorCreditsLimit = ClosedEnum<typeof GetVendorCreditsLimit>;
+
 /**
  * Filter vendor credits by unified status
  */
@@ -55,7 +64,7 @@ export type GetVendorCreditsPaymentStatus = ClosedEnum<
 
 export type GetVendorCreditsRequest = {
   page?: number | undefined;
-  limit?: number | undefined;
+  limit?: GetVendorCreditsLimit | undefined;
   /**
    * ISO 8601 timestamp; only records modified after this date are returned
    */
@@ -109,6 +118,11 @@ export type GetVendorCreditsResponse = {
 };
 
 /** @internal */
+export const GetVendorCreditsLimit$outboundSchema: z.ZodMiniEnum<
+  typeof GetVendorCreditsLimit
+> = z.enum(GetVendorCreditsLimit);
+
+/** @internal */
 export const GetVendorCreditsStatus$outboundSchema: z.ZodMiniEnum<
   typeof GetVendorCreditsStatus
 > = z.enum(GetVendorCreditsStatus);
@@ -136,7 +150,7 @@ export const GetVendorCreditsRequest$outboundSchema: z.ZodMiniType<
   GetVendorCreditsRequest
 > = z.object({
   page: z.optional(z.number()),
-  limit: z.optional(z.number()),
+  limit: z.optional(GetVendorCreditsLimit$outboundSchema),
   lastModifiedAt: z.optional(z.string()),
   environmentName: z.optional(z.string()),
   companyId: z.optional(z.string()),

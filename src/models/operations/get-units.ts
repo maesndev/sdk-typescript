@@ -4,14 +4,24 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
+import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
+export const GetUnitsLimit = {
+  Five: 5,
+  Ten: 10,
+  Twenty: 20,
+  Fifty: 50,
+  OneHundred: 100,
+} as const;
+export type GetUnitsLimit = ClosedEnum<typeof GetUnitsLimit>;
+
 export type GetUnitsRequest = {
   page?: number | undefined;
-  limit?: number | undefined;
+  limit?: GetUnitsLimit | undefined;
   /**
    * Environment name (required for multi-environment systems such as Business Central)
    */
@@ -53,6 +63,10 @@ export type GetUnitsResponse = {
 };
 
 /** @internal */
+export const GetUnitsLimit$outboundSchema: z.ZodMiniEnum<typeof GetUnitsLimit> =
+  z.enum(GetUnitsLimit);
+
+/** @internal */
 export type GetUnitsRequest$Outbound = {
   page?: number | undefined;
   limit?: number | undefined;
@@ -67,7 +81,7 @@ export const GetUnitsRequest$outboundSchema: z.ZodMiniType<
   GetUnitsRequest
 > = z.object({
   page: z.optional(z.number()),
-  limit: z.optional(z.number()),
+  limit: z.optional(GetUnitsLimit$outboundSchema),
   environmentName: z.optional(z.string()),
   companyId: z.optional(z.string()),
   rawData: z.optional(z.boolean()),

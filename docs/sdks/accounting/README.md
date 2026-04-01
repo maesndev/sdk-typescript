@@ -26,6 +26,7 @@
 * [createContact](#createcontact)
 * [getContact](#getcontact)
 * [putContact](#putcontact)
+* [patchContact](#patchcontact)
 * [createContacts](#createcontacts)
 * [createContactsV1](#createcontactsv1)
 * [getInvoices](#getinvoices)
@@ -35,22 +36,30 @@
 * [getInvoiceDocument](#getinvoicedocument)
 * [postFile](#postfile)
 * [getDocumentTypes](#getdocumenttypes)
+* [getDocumentExtensions](#getdocumentextensions)
 * [getAsyncTaskInfo](#getasynctaskinfo)
 * [getItems](#getitems)
+* [createItem](#createitem)
 * [getItem](#getitem)
+* [patchItem](#patchitem)
 * [getLineItems](#getlineitems)
 * [createLineItem](#createlineitem)
 * [getLineItem](#getlineitem)
+* [patchLineItem](#patchlineitem)
 * [getJournals](#getjournals)
 * [getJournalEntries](#getjournalentries)
 * [createJournalEntry](#createjournalentry)
 * [getJournalEntry](#getjournalentry)
+* [createJournalEntries](#createjournalentries)
+* [getJournalEntryAttachments](#getjournalentryattachments)
 * [createJournalEntryAttachments](#createjournalentryattachments)
+* [getJournalEntryAttachmentById](#getjournalentryattachmentbyid)
 * [getOffers](#getoffers)
 * [createOffer](#createoffer)
 * [getOffer](#getoffer)
 * [getOfferLineItems](#getofferlineitems)
 * [getOfferLineItem](#getofferlineitem)
+* [getOfferDocument](#getofferdocument)
 * [createExpense](#createexpense)
 * [getExpenses](#getexpenses)
 * [getExpense](#getexpense)
@@ -77,6 +86,7 @@
 * [getBills](#getbills)
 * [createBill](#createbill)
 * [getBill](#getbill)
+* [updateBill](#updatebill)
 * [deleteBill](#deletebill)
 * [getBillDocument](#getbilldocument)
 * [createBookingProposal](#createbookingproposal)
@@ -87,19 +97,25 @@
 * [getVendorCredits](#getvendorcredits)
 * [createVendorCredit](#createvendorcredit)
 * [updateVendorCredit](#updatevendorcredit)
+* [deleteVendorCredit](#deletevendorcredit)
+* [getBillLineItems](#getbilllineitems)
+* [createBillLineItem](#createbilllineitem)
 * [updateBillLineItem](#updatebilllineitem)
+* [getPurchaseOrders](#getpurchaseorders)
 * [getPurchaseOrder](#getpurchaseorder)
 * [getPurchaseOrderLineItems](#getpurchaseorderlineitems)
 * [getPurchaseOrderLineItem](#getpurchaseorderlineitem)
 * [getGoodsReceipts](#getgoodsreceipts)
 * [getGoodsReceipt](#getgoodsreceipt)
 * [getGoodsReceiptLineItems](#getgoodsreceiptlineitems)
+* [getGoodsReceiptLineItem](#getgoodsreceiptlineitem)
 * [getUnits](#getunits)
 * [getOpenItems](#getopenitems)
 * [getTrialBalance](#gettrialbalance)
 * [getCreditNotes](#getcreditnotes)
 * [getCreditNote](#getcreditnote)
 * [getFiscalYears](#getfiscalyears)
+* [getFiscalYear](#getfiscalyear)
 
 ## getAccount
 
@@ -1849,6 +1865,91 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
+## patchContact
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="patchContact" method="patch" path="/accounting/contacts/{contactId}" -->
+```typescript
+import { Maesn } from "@maesn/typescript-sdk";
+
+const maesn = new Maesn({
+  serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
+});
+
+async function run() {
+  const result = await maesn.accounting.patchContact({
+    contactId: "<id>",
+    body: {
+      contactType: "CONTACT_PERSON",
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingPatchContact } from "@maesn/typescript-sdk/funcs/accounting-patch-contact.js";
+
+// Use `MaesnCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const maesn = new MaesnCore({
+  serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
+});
+
+async function run() {
+  const res = await accountingPatchContact(maesn, {
+    contactId: "<id>",
+    body: {
+      contactType: "CONTACT_PERSON",
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingPatchContact failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.PatchContactRequest](../../models/operations/patch-contact-request.md)                                                                                             | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.PatchContactResponse](../../models/operations/patch-contact-response.md)\>**
+
+### Errors
+
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
+
 ## createContacts
 
 ### Example Usage
@@ -2692,6 +2793,81 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
+## getDocumentExtensions
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="getDocumentExtensions" method="get" path="/accounting/files/documentExtensions" -->
+```typescript
+import { Maesn } from "@maesn/typescript-sdk";
+
+const maesn = new Maesn({
+  serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
+});
+
+async function run() {
+  const result = await maesn.accounting.getDocumentExtensions();
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingGetDocumentExtensions } from "@maesn/typescript-sdk/funcs/accounting-get-document-extensions.js";
+
+// Use `MaesnCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const maesn = new MaesnCore({
+  serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
+});
+
+async function run() {
+  const res = await accountingGetDocumentExtensions(maesn);
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingGetDocumentExtensions failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetDocumentExtensionsRequest](../../models/operations/get-document-extensions-request.md)                                                                          | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.GetDocumentExtensionsResponse](../../models/operations/get-document-extensions-response.md)\>**
+
+### Errors
+
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
+
 ## getAsyncTaskInfo
 
 ### Example Usage
@@ -2846,6 +3022,85 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
+## createItem
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="createItem" method="post" path="/accounting/items" -->
+```typescript
+import { Maesn } from "@maesn/typescript-sdk";
+
+const maesn = new Maesn({
+  serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
+});
+
+async function run() {
+  const result = await maesn.accounting.createItem({
+    body: {},
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingCreateItem } from "@maesn/typescript-sdk/funcs/accounting-create-item.js";
+
+// Use `MaesnCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const maesn = new MaesnCore({
+  serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
+});
+
+async function run() {
+  const res = await accountingCreateItem(maesn, {
+    body: {},
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingCreateItem failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.CreateItemRequest](../../models/operations/create-item-request.md)                                                                                                 | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.CreateItemResponse](../../models/operations/create-item-response.md)\>**
+
+### Errors
+
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
+
 ## getItem
 
 ### Example Usage
@@ -2918,6 +3173,87 @@ run();
 ### Response
 
 **Promise\<[operations.GetItemResponse](../../models/operations/get-item-response.md)\>**
+
+### Errors
+
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
+
+## patchItem
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="patchItem" method="patch" path="/accounting/items/{itemId}" -->
+```typescript
+import { Maesn } from "@maesn/typescript-sdk";
+
+const maesn = new Maesn({
+  serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
+});
+
+async function run() {
+  const result = await maesn.accounting.patchItem({
+    itemId: "<id>",
+    body: {},
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingPatchItem } from "@maesn/typescript-sdk/funcs/accounting-patch-item.js";
+
+// Use `MaesnCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const maesn = new MaesnCore({
+  serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
+});
+
+async function run() {
+  const res = await accountingPatchItem(maesn, {
+    itemId: "<id>",
+    body: {},
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingPatchItem failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.PatchItemRequest](../../models/operations/patch-item-request.md)                                                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.PatchItemResponse](../../models/operations/patch-item-response.md)\>**
 
 ### Errors
 
@@ -3163,6 +3499,89 @@ run();
 ### Response
 
 **Promise\<[operations.GetLineItemResponse](../../models/operations/get-line-item-response.md)\>**
+
+### Errors
+
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
+
+## patchLineItem
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="patchLineItem" method="patch" path="/accounting/invoices/{invoiceId}/lineItems/{lineItemId}" -->
+```typescript
+import { Maesn } from "@maesn/typescript-sdk";
+
+const maesn = new Maesn({
+  serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
+});
+
+async function run() {
+  const result = await maesn.accounting.patchLineItem({
+    invoiceId: "<id>",
+    lineItemId: "<id>",
+    body: {},
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingPatchLineItem } from "@maesn/typescript-sdk/funcs/accounting-patch-line-item.js";
+
+// Use `MaesnCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const maesn = new MaesnCore({
+  serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
+});
+
+async function run() {
+  const res = await accountingPatchLineItem(maesn, {
+    invoiceId: "<id>",
+    lineItemId: "<id>",
+    body: {},
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingPatchLineItem failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.PatchLineItemRequest](../../models/operations/patch-line-item-request.md)                                                                                          | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.PatchLineItemResponse](../../models/operations/patch-line-item-response.md)\>**
 
 ### Errors
 
@@ -3478,6 +3897,266 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
+## createJournalEntries
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="createJournalEntries" method="post" path="/accounting/journalEntries/bulk" -->
+```typescript
+import { Maesn } from "@maesn/typescript-sdk";
+
+const maesn = new Maesn({
+  serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
+});
+
+async function run() {
+  const result = await maesn.accounting.createJournalEntries({
+    body: {
+      accountNumberLength: 1703.63,
+      chartOfAccount: "SKR14",
+      entries: [
+        {
+          accountId: "<id>",
+          accountingPeriodId: "<id>",
+          currency: "UYU",
+          debitCreditIndicator: "CREDIT",
+          deliveryDate: "<value>",
+          description: "duh whose wherever dusk",
+          documentId: "<id>",
+          dueDate: "<value>",
+          exchangeRate: "<value>",
+          isProvisional: false,
+          journalCode: "<value>",
+          journalLineItems: [
+            {
+              accountCode: "<value>",
+              accountId: "<id>",
+              accountNumber: 8284.89,
+              currency: "MOP",
+              customerId: "<id>",
+              debitCreditIndicator: "DEBIT",
+              description: "thoughtfully blah membership nor dress gosh summarise vein",
+              dimensions: [
+                {},
+              ],
+              discountAmount: 8088.09,
+              documentNumber: "<value>",
+              exchangeRate: "<value>",
+              supplierId: "<id>",
+              taxRate: {
+                id: "<id>",
+                code: "<value>",
+                name: "<value>",
+                taxRatePercentage: "<value>",
+              },
+              thirdPartyCode: "<value>",
+              totalGrossAmount: 6768.04,
+              totalNetAmount: 8076.41,
+              totalTaxAmount: 7880.01,
+            },
+          ],
+          journalType: "<value>",
+          number: "<value>",
+          taxAssignmentDate: "<value>",
+          transactionDate: "<value>",
+        },
+      ],
+      fiscalYearStartDate: "<value>",
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingCreateJournalEntries } from "@maesn/typescript-sdk/funcs/accounting-create-journal-entries.js";
+
+// Use `MaesnCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const maesn = new MaesnCore({
+  serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
+});
+
+async function run() {
+  const res = await accountingCreateJournalEntries(maesn, {
+    body: {
+      accountNumberLength: 1703.63,
+      chartOfAccount: "SKR14",
+      entries: [
+        {
+          accountId: "<id>",
+          accountingPeriodId: "<id>",
+          currency: "UYU",
+          debitCreditIndicator: "CREDIT",
+          deliveryDate: "<value>",
+          description: "duh whose wherever dusk",
+          documentId: "<id>",
+          dueDate: "<value>",
+          exchangeRate: "<value>",
+          isProvisional: false,
+          journalCode: "<value>",
+          journalLineItems: [
+            {
+              accountCode: "<value>",
+              accountId: "<id>",
+              accountNumber: 8284.89,
+              currency: "MOP",
+              customerId: "<id>",
+              debitCreditIndicator: "DEBIT",
+              description: "thoughtfully blah membership nor dress gosh summarise vein",
+              dimensions: [
+                {},
+              ],
+              discountAmount: 8088.09,
+              documentNumber: "<value>",
+              exchangeRate: "<value>",
+              supplierId: "<id>",
+              taxRate: {
+                id: "<id>",
+                code: "<value>",
+                name: "<value>",
+                taxRatePercentage: "<value>",
+              },
+              thirdPartyCode: "<value>",
+              totalGrossAmount: 6768.04,
+              totalNetAmount: 8076.41,
+              totalTaxAmount: 7880.01,
+            },
+          ],
+          journalType: "<value>",
+          number: "<value>",
+          taxAssignmentDate: "<value>",
+          transactionDate: "<value>",
+        },
+      ],
+      fiscalYearStartDate: "<value>",
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingCreateJournalEntries failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.CreateJournalEntriesRequest](../../models/operations/create-journal-entries-request.md)                                                                            | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.CreateJournalEntriesResponse](../../models/operations/create-journal-entries-response.md)\>**
+
+### Errors
+
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
+
+## getJournalEntryAttachments
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="getJournalEntryAttachments" method="get" path="/accounting/journalEntries/{journalEntryId}/Attachments" -->
+```typescript
+import { Maesn } from "@maesn/typescript-sdk";
+
+const maesn = new Maesn({
+  serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
+});
+
+async function run() {
+  const result = await maesn.accounting.getJournalEntryAttachments({
+    journalEntryId: "<id>",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingGetJournalEntryAttachments } from "@maesn/typescript-sdk/funcs/accounting-get-journal-entry-attachments.js";
+
+// Use `MaesnCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const maesn = new MaesnCore({
+  serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
+});
+
+async function run() {
+  const res = await accountingGetJournalEntryAttachments(maesn, {
+    journalEntryId: "<id>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingGetJournalEntryAttachments failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetJournalEntryAttachmentsRequest](../../models/operations/get-journal-entry-attachments-request.md)                                                               | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.GetJournalEntryAttachmentsResponse](../../models/operations/get-journal-entry-attachments-response.md)\>**
+
+### Errors
+
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
+
 ## createJournalEntryAttachments
 
 ### Example Usage
@@ -3552,6 +4231,87 @@ run();
 ### Response
 
 **Promise\<[operations.CreateJournalEntryAttachmentsResponse](../../models/operations/create-journal-entry-attachments-response.md)\>**
+
+### Errors
+
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
+
+## getJournalEntryAttachmentById
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="getJournalEntryAttachmentById" method="get" path="/accounting/journalEntries/{journalEntryId}/Attachments/{attachmentId}" -->
+```typescript
+import { Maesn } from "@maesn/typescript-sdk";
+
+const maesn = new Maesn({
+  serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
+});
+
+async function run() {
+  const result = await maesn.accounting.getJournalEntryAttachmentById({
+    journalEntryId: "<id>",
+    attachmentId: "<id>",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingGetJournalEntryAttachmentById } from "@maesn/typescript-sdk/funcs/accounting-get-journal-entry-attachment-by-id.js";
+
+// Use `MaesnCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const maesn = new MaesnCore({
+  serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
+});
+
+async function run() {
+  const res = await accountingGetJournalEntryAttachmentById(maesn, {
+    journalEntryId: "<id>",
+    attachmentId: "<id>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingGetJournalEntryAttachmentById failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetJournalEntryAttachmentByIdRequest](../../models/operations/get-journal-entry-attachment-by-id-request.md)                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.GetJournalEntryAttachmentByIdResponse](../../models/operations/get-journal-entry-attachment-by-id-response.md)\>**
 
 ### Errors
 
@@ -3971,6 +4731,85 @@ run();
 ### Response
 
 **Promise\<[operations.GetOfferLineItemResponse](../../models/operations/get-offer-line-item-response.md)\>**
+
+### Errors
+
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
+
+## getOfferDocument
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="getOfferDocument" method="get" path="/accounting/offers/{offerId}/document" -->
+```typescript
+import { Maesn } from "@maesn/typescript-sdk";
+
+const maesn = new Maesn({
+  serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
+});
+
+async function run() {
+  const result = await maesn.accounting.getOfferDocument({
+    offerId: "<id>",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingGetOfferDocument } from "@maesn/typescript-sdk/funcs/accounting-get-offer-document.js";
+
+// Use `MaesnCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const maesn = new MaesnCore({
+  serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
+});
+
+async function run() {
+  const res = await accountingGetOfferDocument(maesn, {
+    offerId: "<id>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingGetOfferDocument failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetOfferDocumentRequest](../../models/operations/get-offer-document-request.md)                                                                                    | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.GetOfferDocumentResponse](../../models/operations/get-offer-document-response.md)\>**
 
 ### Errors
 
@@ -6011,6 +6850,87 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
+## updateBill
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="updateBill" method="put" path="/accounting/bills/{billId}" -->
+```typescript
+import { Maesn } from "@maesn/typescript-sdk";
+
+const maesn = new Maesn({
+  serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
+});
+
+async function run() {
+  const result = await maesn.accounting.updateBill({
+    billId: "<id>",
+    body: {},
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingUpdateBill } from "@maesn/typescript-sdk/funcs/accounting-update-bill.js";
+
+// Use `MaesnCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const maesn = new MaesnCore({
+  serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
+});
+
+async function run() {
+  const res = await accountingUpdateBill(maesn, {
+    billId: "<id>",
+    body: {},
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingUpdateBill failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.UpdateBillRequest](../../models/operations/update-bill-request.md)                                                                                                 | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.UpdateBillResponse](../../models/operations/update-bill-response.md)\>**
+
+### Errors
+
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
+
 ## deleteBill
 
 ### Example Usage
@@ -6807,6 +7727,245 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
+## deleteVendorCredit
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="deleteVendorCredit" method="delete" path="/accounting/vendorCredits/{vendorCreditId}" -->
+```typescript
+import { Maesn } from "@maesn/typescript-sdk";
+
+const maesn = new Maesn({
+  serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
+});
+
+async function run() {
+  const result = await maesn.accounting.deleteVendorCredit({
+    vendorCreditId: "<id>",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingDeleteVendorCredit } from "@maesn/typescript-sdk/funcs/accounting-delete-vendor-credit.js";
+
+// Use `MaesnCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const maesn = new MaesnCore({
+  serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
+});
+
+async function run() {
+  const res = await accountingDeleteVendorCredit(maesn, {
+    vendorCreditId: "<id>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingDeleteVendorCredit failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.DeleteVendorCreditRequest](../../models/operations/delete-vendor-credit-request.md)                                                                                | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.DeleteVendorCreditResponse](../../models/operations/delete-vendor-credit-response.md)\>**
+
+### Errors
+
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
+
+## getBillLineItems
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="getBillLineItems" method="get" path="/accounting/bills/{billId}/lineItems" -->
+```typescript
+import { Maesn } from "@maesn/typescript-sdk";
+
+const maesn = new Maesn({
+  serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
+});
+
+async function run() {
+  const result = await maesn.accounting.getBillLineItems({
+    billId: "<id>",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingGetBillLineItems } from "@maesn/typescript-sdk/funcs/accounting-get-bill-line-items.js";
+
+// Use `MaesnCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const maesn = new MaesnCore({
+  serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
+});
+
+async function run() {
+  const res = await accountingGetBillLineItems(maesn, {
+    billId: "<id>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingGetBillLineItems failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetBillLineItemsRequest](../../models/operations/get-bill-line-items-request.md)                                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.GetBillLineItemsResponse](../../models/operations/get-bill-line-items-response.md)\>**
+
+### Errors
+
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
+
+## createBillLineItem
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="createBillLineItem" method="post" path="/accounting/bills/{billId}/lineItems" -->
+```typescript
+import { Maesn } from "@maesn/typescript-sdk";
+
+const maesn = new Maesn({
+  serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
+});
+
+async function run() {
+  const result = await maesn.accounting.createBillLineItem({
+    billId: "<id>",
+    body: {},
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingCreateBillLineItem } from "@maesn/typescript-sdk/funcs/accounting-create-bill-line-item.js";
+
+// Use `MaesnCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const maesn = new MaesnCore({
+  serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
+});
+
+async function run() {
+  const res = await accountingCreateBillLineItem(maesn, {
+    billId: "<id>",
+    body: {},
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingCreateBillLineItem failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.CreateBillLineItemRequest](../../models/operations/create-bill-line-item-request.md)                                                                               | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.CreateBillLineItemResponse](../../models/operations/create-bill-line-item-response.md)\>**
+
+### Errors
+
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
+
 ## updateBillLineItem
 
 ### Example Usage
@@ -6883,6 +8042,81 @@ run();
 ### Response
 
 **Promise\<[operations.UpdateBillLineItemResponse](../../models/operations/update-bill-line-item-response.md)\>**
+
+### Errors
+
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
+
+## getPurchaseOrders
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="getPurchaseOrders" method="get" path="/accounting/purchaseOrders" -->
+```typescript
+import { Maesn } from "@maesn/typescript-sdk";
+
+const maesn = new Maesn({
+  serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
+});
+
+async function run() {
+  const result = await maesn.accounting.getPurchaseOrders();
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingGetPurchaseOrders } from "@maesn/typescript-sdk/funcs/accounting-get-purchase-orders.js";
+
+// Use `MaesnCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const maesn = new MaesnCore({
+  serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
+});
+
+async function run() {
+  const res = await accountingGetPurchaseOrders(maesn);
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingGetPurchaseOrders failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetPurchaseOrdersRequest](../../models/operations/get-purchase-orders-request.md)                                                                                  | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.GetPurchaseOrdersResponse](../../models/operations/get-purchase-orders-response.md)\>**
 
 ### Errors
 
@@ -7362,6 +8596,87 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
+## getGoodsReceiptLineItem
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="getGoodsReceiptLineItem" method="get" path="/accounting/goodsReceipts/{goodsReceiptId}/lineItems/{lineItemId}" -->
+```typescript
+import { Maesn } from "@maesn/typescript-sdk";
+
+const maesn = new Maesn({
+  serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
+});
+
+async function run() {
+  const result = await maesn.accounting.getGoodsReceiptLineItem({
+    goodsReceiptId: "<id>",
+    lineItemId: "<id>",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingGetGoodsReceiptLineItem } from "@maesn/typescript-sdk/funcs/accounting-get-goods-receipt-line-item.js";
+
+// Use `MaesnCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const maesn = new MaesnCore({
+  serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
+});
+
+async function run() {
+  const res = await accountingGetGoodsReceiptLineItem(maesn, {
+    goodsReceiptId: "<id>",
+    lineItemId: "<id>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingGetGoodsReceiptLineItem failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetGoodsReceiptLineItemRequest](../../models/operations/get-goods-receipt-line-item-request.md)                                                                    | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.GetGoodsReceiptLineItemResponse](../../models/operations/get-goods-receipt-line-item-response.md)\>**
+
+### Errors
+
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
+
 ## getUnits
 
 ### Example Usage
@@ -7809,6 +9124,85 @@ run();
 ### Response
 
 **Promise\<[operations.GetFiscalYearsResponse](../../models/operations/get-fiscal-years-response.md)\>**
+
+### Errors
+
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
+
+## getFiscalYear
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="getFiscalYear" method="get" path="/accounting/fiscalYears/{fiscalYearId}" -->
+```typescript
+import { Maesn } from "@maesn/typescript-sdk";
+
+const maesn = new Maesn({
+  serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
+});
+
+async function run() {
+  const result = await maesn.accounting.getFiscalYear({
+    fiscalYearId: "<id>",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingGetFiscalYear } from "@maesn/typescript-sdk/funcs/accounting-get-fiscal-year.js";
+
+// Use `MaesnCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const maesn = new MaesnCore({
+  serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
+});
+
+async function run() {
+  const res = await accountingGetFiscalYear(maesn, {
+    fiscalYearId: "<id>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingGetFiscalYear failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetFiscalYearRequest](../../models/operations/get-fiscal-year-request.md)                                                                                          | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.GetFiscalYearResponse](../../models/operations/get-fiscal-year-response.md)\>**
 
 ### Errors
 

@@ -4,6 +4,7 @@
 
 import { accountingCreateAccount } from "../funcs/accounting-create-account.js";
 import { accountingCreateBankAccount } from "../funcs/accounting-create-bank-account.js";
+import { accountingCreateBillLineItem } from "../funcs/accounting-create-bill-line-item.js";
 import { accountingCreateBill } from "../funcs/accounting-create-bill.js";
 import { accountingCreateBookingProposal } from "../funcs/accounting-create-booking-proposal.js";
 import { accountingCreateBookings } from "../funcs/accounting-create-bookings.js";
@@ -14,6 +15,8 @@ import { accountingCreateCustomer } from "../funcs/accounting-create-customer.js
 import { accountingCreateEventSubscriptions } from "../funcs/accounting-create-event-subscriptions.js";
 import { accountingCreateExpense } from "../funcs/accounting-create-expense.js";
 import { accountingCreateInvoice } from "../funcs/accounting-create-invoice.js";
+import { accountingCreateItem } from "../funcs/accounting-create-item.js";
+import { accountingCreateJournalEntries } from "../funcs/accounting-create-journal-entries.js";
 import { accountingCreateJournalEntryAttachments } from "../funcs/accounting-create-journal-entry-attachments.js";
 import { accountingCreateJournalEntry } from "../funcs/accounting-create-journal-entry.js";
 import { accountingCreateLineItem } from "../funcs/accounting-create-line-item.js";
@@ -29,12 +32,14 @@ import { accountingCreateVendorCredit } from "../funcs/accounting-create-vendor-
 import { accountingDeleteBill } from "../funcs/accounting-delete-bill.js";
 import { accountingDeleteEventSubscriptions } from "../funcs/accounting-delete-event-subscriptions.js";
 import { accountingDeletePayment } from "../funcs/accounting-delete-payment.js";
+import { accountingDeleteVendorCredit } from "../funcs/accounting-delete-vendor-credit.js";
 import { accountingGetAccount } from "../funcs/accounting-get-account.js";
 import { accountingGetAccounts } from "../funcs/accounting-get-accounts.js";
 import { accountingGetAsyncTaskInfo } from "../funcs/accounting-get-async-task-info.js";
 import { accountingGetBankAccount } from "../funcs/accounting-get-bank-account.js";
 import { accountingGetBankAccounts } from "../funcs/accounting-get-bank-accounts.js";
 import { accountingGetBillDocument } from "../funcs/accounting-get-bill-document.js";
+import { accountingGetBillLineItems } from "../funcs/accounting-get-bill-line-items.js";
 import { accountingGetBill } from "../funcs/accounting-get-bill.js";
 import { accountingGetBills } from "../funcs/accounting-get-bills.js";
 import { accountingGetBookingProposalDocument } from "../funcs/accounting-get-booking-proposal-document.js";
@@ -47,10 +52,13 @@ import { accountingGetCreditNotes } from "../funcs/accounting-get-credit-notes.j
 import { accountingGetCustomer } from "../funcs/accounting-get-customer.js";
 import { accountingGetCustomers } from "../funcs/accounting-get-customers.js";
 import { accountingGetDimensions } from "../funcs/accounting-get-dimensions.js";
+import { accountingGetDocumentExtensions } from "../funcs/accounting-get-document-extensions.js";
 import { accountingGetDocumentTypes } from "../funcs/accounting-get-document-types.js";
 import { accountingGetExpense } from "../funcs/accounting-get-expense.js";
 import { accountingGetExpenses } from "../funcs/accounting-get-expenses.js";
+import { accountingGetFiscalYear } from "../funcs/accounting-get-fiscal-year.js";
 import { accountingGetFiscalYears } from "../funcs/accounting-get-fiscal-years.js";
+import { accountingGetGoodsReceiptLineItem } from "../funcs/accounting-get-goods-receipt-line-item.js";
 import { accountingGetGoodsReceiptLineItems } from "../funcs/accounting-get-goods-receipt-line-items.js";
 import { accountingGetGoodsReceipt } from "../funcs/accounting-get-goods-receipt.js";
 import { accountingGetGoodsReceipts } from "../funcs/accounting-get-goods-receipts.js";
@@ -60,10 +68,13 @@ import { accountingGetInvoices } from "../funcs/accounting-get-invoices.js";
 import { accountingGetItem } from "../funcs/accounting-get-item.js";
 import { accountingGetItems } from "../funcs/accounting-get-items.js";
 import { accountingGetJournalEntries } from "../funcs/accounting-get-journal-entries.js";
+import { accountingGetJournalEntryAttachmentById } from "../funcs/accounting-get-journal-entry-attachment-by-id.js";
+import { accountingGetJournalEntryAttachments } from "../funcs/accounting-get-journal-entry-attachments.js";
 import { accountingGetJournalEntry } from "../funcs/accounting-get-journal-entry.js";
 import { accountingGetJournals } from "../funcs/accounting-get-journals.js";
 import { accountingGetLineItem } from "../funcs/accounting-get-line-item.js";
 import { accountingGetLineItems } from "../funcs/accounting-get-line-items.js";
+import { accountingGetOfferDocument } from "../funcs/accounting-get-offer-document.js";
 import { accountingGetOfferLineItem } from "../funcs/accounting-get-offer-line-item.js";
 import { accountingGetOfferLineItems } from "../funcs/accounting-get-offer-line-items.js";
 import { accountingGetOffer } from "../funcs/accounting-get-offer.js";
@@ -79,6 +90,7 @@ import { accountingGetProjects } from "../funcs/accounting-get-projects.js";
 import { accountingGetPurchaseOrderLineItem } from "../funcs/accounting-get-purchase-order-line-item.js";
 import { accountingGetPurchaseOrderLineItems } from "../funcs/accounting-get-purchase-order-line-items.js";
 import { accountingGetPurchaseOrder } from "../funcs/accounting-get-purchase-order.js";
+import { accountingGetPurchaseOrders } from "../funcs/accounting-get-purchase-orders.js";
 import { accountingGetSalesOrderLines } from "../funcs/accounting-get-sales-order-lines.js";
 import { accountingGetSalesOrder } from "../funcs/accounting-get-sales-order.js";
 import { accountingGetSalesOrders } from "../funcs/accounting-get-sales-orders.js";
@@ -89,12 +101,16 @@ import { accountingGetTaxRates } from "../funcs/accounting-get-tax-rates.js";
 import { accountingGetTrialBalance } from "../funcs/accounting-get-trial-balance.js";
 import { accountingGetUnits } from "../funcs/accounting-get-units.js";
 import { accountingGetVendorCredits } from "../funcs/accounting-get-vendor-credits.js";
+import { accountingPatchContact } from "../funcs/accounting-patch-contact.js";
 import { accountingPatchCustomers } from "../funcs/accounting-patch-customers.js";
 import { accountingPatchInvoice } from "../funcs/accounting-patch-invoice.js";
+import { accountingPatchItem } from "../funcs/accounting-patch-item.js";
+import { accountingPatchLineItem } from "../funcs/accounting-patch-line-item.js";
 import { accountingPatchSupplier } from "../funcs/accounting-patch-supplier.js";
 import { accountingPostFile } from "../funcs/accounting-post-file.js";
 import { accountingPutContact } from "../funcs/accounting-put-contact.js";
 import { accountingUpdateBillLineItem } from "../funcs/accounting-update-bill-line-item.js";
+import { accountingUpdateBill } from "../funcs/accounting-update-bill.js";
 import { accountingUpdateCustomer } from "../funcs/accounting-update-customer.js";
 import { accountingUpdateSupplier } from "../funcs/accounting-update-supplier.js";
 import { accountingUpdateVendorCredit } from "../funcs/accounting-update-vendor-credit.js";
@@ -102,34 +118,8 @@ import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as models from "../models/index.js";
 import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
-import { AccountingBills } from "./accounting-bills.js";
-import { AccountingJournalEntries } from "./accounting-journal-entries.js";
-import { Invoices } from "./invoices.js";
-import { V2 } from "./v2.js";
 
 export class Accounting extends ClientSDK {
-  private _invoices?: Invoices;
-  get invoices(): Invoices {
-    return (this._invoices ??= new Invoices(this._options));
-  }
-
-  private _journalEntries?: AccountingJournalEntries;
-  get journalEntries(): AccountingJournalEntries {
-    return (this._journalEntries ??= new AccountingJournalEntries(
-      this._options,
-    ));
-  }
-
-  private _bills?: AccountingBills;
-  get bills(): AccountingBills {
-    return (this._bills ??= new AccountingBills(this._options));
-  }
-
-  private _v2?: V2;
-  get v2(): V2 {
-    return (this._v2 ??= new V2(this._options));
-  }
-
   async getAccount(
     request: operations.GetAccountRequest,
     options?: RequestOptions,
@@ -372,6 +362,17 @@ export class Accounting extends ClientSDK {
     ));
   }
 
+  async patchContact(
+    request: operations.PatchContactRequest,
+    options?: RequestOptions,
+  ): Promise<operations.PatchContactResponse> {
+    return unwrapAsync(accountingPatchContact(
+      this,
+      request,
+      options,
+    ));
+  }
+
   async createContacts(
     request: operations.CreateContactsRequest,
     options?: RequestOptions,
@@ -471,6 +472,17 @@ export class Accounting extends ClientSDK {
     ));
   }
 
+  async getDocumentExtensions(
+    request?: operations.GetDocumentExtensionsRequest | undefined,
+    options?: RequestOptions,
+  ): Promise<operations.GetDocumentExtensionsResponse> {
+    return unwrapAsync(accountingGetDocumentExtensions(
+      this,
+      request,
+      options,
+    ));
+  }
+
   async getAsyncTaskInfo(
     request: operations.GetAsyncTaskInfoRequest,
     options?: RequestOptions,
@@ -493,11 +505,33 @@ export class Accounting extends ClientSDK {
     ));
   }
 
+  async createItem(
+    request: operations.CreateItemRequest,
+    options?: RequestOptions,
+  ): Promise<operations.CreateItemResponse> {
+    return unwrapAsync(accountingCreateItem(
+      this,
+      request,
+      options,
+    ));
+  }
+
   async getItem(
     request: operations.GetItemRequest,
     options?: RequestOptions,
   ): Promise<operations.GetItemResponse> {
     return unwrapAsync(accountingGetItem(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  async patchItem(
+    request: operations.PatchItemRequest,
+    options?: RequestOptions,
+  ): Promise<operations.PatchItemResponse> {
+    return unwrapAsync(accountingPatchItem(
       this,
       request,
       options,
@@ -531,6 +565,17 @@ export class Accounting extends ClientSDK {
     options?: RequestOptions,
   ): Promise<operations.GetLineItemResponse> {
     return unwrapAsync(accountingGetLineItem(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  async patchLineItem(
+    request: operations.PatchLineItemRequest,
+    options?: RequestOptions,
+  ): Promise<operations.PatchLineItemResponse> {
+    return unwrapAsync(accountingPatchLineItem(
       this,
       request,
       options,
@@ -581,11 +626,44 @@ export class Accounting extends ClientSDK {
     ));
   }
 
+  async createJournalEntries(
+    request: operations.CreateJournalEntriesRequest,
+    options?: RequestOptions,
+  ): Promise<operations.CreateJournalEntriesResponse> {
+    return unwrapAsync(accountingCreateJournalEntries(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  async getJournalEntryAttachments(
+    request: operations.GetJournalEntryAttachmentsRequest,
+    options?: RequestOptions,
+  ): Promise<operations.GetJournalEntryAttachmentsResponse> {
+    return unwrapAsync(accountingGetJournalEntryAttachments(
+      this,
+      request,
+      options,
+    ));
+  }
+
   async createJournalEntryAttachments(
     request: operations.CreateJournalEntryAttachmentsRequest,
     options?: RequestOptions,
   ): Promise<operations.CreateJournalEntryAttachmentsResponse> {
     return unwrapAsync(accountingCreateJournalEntryAttachments(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  async getJournalEntryAttachmentById(
+    request: operations.GetJournalEntryAttachmentByIdRequest,
+    options?: RequestOptions,
+  ): Promise<operations.GetJournalEntryAttachmentByIdResponse> {
+    return unwrapAsync(accountingGetJournalEntryAttachmentById(
       this,
       request,
       options,
@@ -641,6 +719,17 @@ export class Accounting extends ClientSDK {
     options?: RequestOptions,
   ): Promise<operations.GetOfferLineItemResponse> {
     return unwrapAsync(accountingGetOfferLineItem(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  async getOfferDocument(
+    request: operations.GetOfferDocumentRequest,
+    options?: RequestOptions,
+  ): Promise<operations.GetOfferDocumentResponse> {
+    return unwrapAsync(accountingGetOfferDocument(
       this,
       request,
       options,
@@ -931,6 +1020,17 @@ export class Accounting extends ClientSDK {
     ));
   }
 
+  async updateBill(
+    request: operations.UpdateBillRequest,
+    options?: RequestOptions,
+  ): Promise<operations.UpdateBillResponse> {
+    return unwrapAsync(accountingUpdateBill(
+      this,
+      request,
+      options,
+    ));
+  }
+
   async deleteBill(
     request: operations.DeleteBillRequest,
     options?: RequestOptions,
@@ -1041,11 +1141,55 @@ export class Accounting extends ClientSDK {
     ));
   }
 
+  async deleteVendorCredit(
+    request: operations.DeleteVendorCreditRequest,
+    options?: RequestOptions,
+  ): Promise<operations.DeleteVendorCreditResponse> {
+    return unwrapAsync(accountingDeleteVendorCredit(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  async getBillLineItems(
+    request: operations.GetBillLineItemsRequest,
+    options?: RequestOptions,
+  ): Promise<operations.GetBillLineItemsResponse> {
+    return unwrapAsync(accountingGetBillLineItems(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  async createBillLineItem(
+    request: operations.CreateBillLineItemRequest,
+    options?: RequestOptions,
+  ): Promise<operations.CreateBillLineItemResponse> {
+    return unwrapAsync(accountingCreateBillLineItem(
+      this,
+      request,
+      options,
+    ));
+  }
+
   async updateBillLineItem(
     request: operations.UpdateBillLineItemRequest,
     options?: RequestOptions,
   ): Promise<operations.UpdateBillLineItemResponse> {
     return unwrapAsync(accountingUpdateBillLineItem(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  async getPurchaseOrders(
+    request?: operations.GetPurchaseOrdersRequest | undefined,
+    options?: RequestOptions,
+  ): Promise<operations.GetPurchaseOrdersResponse> {
+    return unwrapAsync(accountingGetPurchaseOrders(
       this,
       request,
       options,
@@ -1118,6 +1262,17 @@ export class Accounting extends ClientSDK {
     ));
   }
 
+  async getGoodsReceiptLineItem(
+    request: operations.GetGoodsReceiptLineItemRequest,
+    options?: RequestOptions,
+  ): Promise<operations.GetGoodsReceiptLineItemResponse> {
+    return unwrapAsync(accountingGetGoodsReceiptLineItem(
+      this,
+      request,
+      options,
+    ));
+  }
+
   async getUnits(
     request?: operations.GetUnitsRequest | undefined,
     options?: RequestOptions,
@@ -1178,6 +1333,17 @@ export class Accounting extends ClientSDK {
     options?: RequestOptions,
   ): Promise<operations.GetFiscalYearsResponse> {
     return unwrapAsync(accountingGetFiscalYears(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  async getFiscalYear(
+    request: operations.GetFiscalYearRequest,
+    options?: RequestOptions,
+  ): Promise<operations.GetFiscalYearResponse> {
+    return unwrapAsync(accountingGetFiscalYear(
       this,
       request,
       options,

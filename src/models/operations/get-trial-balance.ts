@@ -4,14 +4,24 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
+import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
+export const GetTrialBalanceLimit = {
+  Five: 5,
+  Ten: 10,
+  Twenty: 20,
+  Fifty: 50,
+  OneHundred: 100,
+} as const;
+export type GetTrialBalanceLimit = ClosedEnum<typeof GetTrialBalanceLimit>;
+
 export type GetTrialBalanceRequest = {
   page?: number | undefined;
-  limit?: number | undefined;
+  limit?: GetTrialBalanceLimit | undefined;
   /**
    * ISO 8601 timestamp; only records modified after this date are returned
    */
@@ -73,6 +83,11 @@ export type GetTrialBalanceResponse = {
 };
 
 /** @internal */
+export const GetTrialBalanceLimit$outboundSchema: z.ZodMiniEnum<
+  typeof GetTrialBalanceLimit
+> = z.enum(GetTrialBalanceLimit);
+
+/** @internal */
 export type GetTrialBalanceRequest$Outbound = {
   page?: number | undefined;
   limit?: number | undefined;
@@ -92,7 +107,7 @@ export const GetTrialBalanceRequest$outboundSchema: z.ZodMiniType<
   GetTrialBalanceRequest
 > = z.object({
   page: z.optional(z.number()),
-  limit: z.optional(z.number()),
+  limit: z.optional(GetTrialBalanceLimit$outboundSchema),
   lastModifiedAt: z.optional(z.string()),
   environmentName: z.optional(z.string()),
   companyId: z.optional(z.string()),

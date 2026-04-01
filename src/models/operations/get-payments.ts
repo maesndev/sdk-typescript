@@ -4,14 +4,24 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
+import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
+export const GetPaymentsLimit = {
+  Five: 5,
+  Ten: 10,
+  Twenty: 20,
+  Fifty: 50,
+  OneHundred: 100,
+} as const;
+export type GetPaymentsLimit = ClosedEnum<typeof GetPaymentsLimit>;
+
 export type GetPaymentsRequest = {
   page?: number | undefined;
-  limit?: number | undefined;
+  limit?: GetPaymentsLimit | undefined;
   /**
    * Environment name (required for multi-environment systems such as Business Central)
    */
@@ -61,6 +71,11 @@ export type GetPaymentsResponse = {
 };
 
 /** @internal */
+export const GetPaymentsLimit$outboundSchema: z.ZodMiniEnum<
+  typeof GetPaymentsLimit
+> = z.enum(GetPaymentsLimit);
+
+/** @internal */
 export type GetPaymentsRequest$Outbound = {
   page?: number | undefined;
   limit?: number | undefined;
@@ -77,7 +92,7 @@ export const GetPaymentsRequest$outboundSchema: z.ZodMiniType<
   GetPaymentsRequest
 > = z.object({
   page: z.optional(z.number()),
-  limit: z.optional(z.number()),
+  limit: z.optional(GetPaymentsLimit$outboundSchema),
   environmentName: z.optional(z.string()),
   companyId: z.optional(z.string()),
   lastModifiedAt: z.optional(z.string()),

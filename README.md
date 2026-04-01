@@ -174,6 +174,7 @@ run();
 * [createContact](docs/sdks/accounting/README.md#createcontact)
 * [getContact](docs/sdks/accounting/README.md#getcontact)
 * [putContact](docs/sdks/accounting/README.md#putcontact)
+* [patchContact](docs/sdks/accounting/README.md#patchcontact)
 * [createContacts](docs/sdks/accounting/README.md#createcontacts)
 * [createContactsV1](docs/sdks/accounting/README.md#createcontactsv1)
 * [getInvoices](docs/sdks/accounting/README.md#getinvoices)
@@ -183,22 +184,30 @@ run();
 * [getInvoiceDocument](docs/sdks/accounting/README.md#getinvoicedocument)
 * [postFile](docs/sdks/accounting/README.md#postfile)
 * [getDocumentTypes](docs/sdks/accounting/README.md#getdocumenttypes)
+* [getDocumentExtensions](docs/sdks/accounting/README.md#getdocumentextensions)
 * [getAsyncTaskInfo](docs/sdks/accounting/README.md#getasynctaskinfo)
 * [getItems](docs/sdks/accounting/README.md#getitems)
+* [createItem](docs/sdks/accounting/README.md#createitem)
 * [getItem](docs/sdks/accounting/README.md#getitem)
+* [patchItem](docs/sdks/accounting/README.md#patchitem)
 * [getLineItems](docs/sdks/accounting/README.md#getlineitems)
 * [createLineItem](docs/sdks/accounting/README.md#createlineitem)
 * [getLineItem](docs/sdks/accounting/README.md#getlineitem)
+* [patchLineItem](docs/sdks/accounting/README.md#patchlineitem)
 * [getJournals](docs/sdks/accounting/README.md#getjournals)
 * [getJournalEntries](docs/sdks/accounting/README.md#getjournalentries)
 * [createJournalEntry](docs/sdks/accounting/README.md#createjournalentry)
 * [getJournalEntry](docs/sdks/accounting/README.md#getjournalentry)
+* [createJournalEntries](docs/sdks/accounting/README.md#createjournalentries)
+* [getJournalEntryAttachments](docs/sdks/accounting/README.md#getjournalentryattachments)
 * [createJournalEntryAttachments](docs/sdks/accounting/README.md#createjournalentryattachments)
+* [getJournalEntryAttachmentById](docs/sdks/accounting/README.md#getjournalentryattachmentbyid)
 * [getOffers](docs/sdks/accounting/README.md#getoffers)
 * [createOffer](docs/sdks/accounting/README.md#createoffer)
 * [getOffer](docs/sdks/accounting/README.md#getoffer)
 * [getOfferLineItems](docs/sdks/accounting/README.md#getofferlineitems)
 * [getOfferLineItem](docs/sdks/accounting/README.md#getofferlineitem)
+* [getOfferDocument](docs/sdks/accounting/README.md#getofferdocument)
 * [createExpense](docs/sdks/accounting/README.md#createexpense)
 * [getExpenses](docs/sdks/accounting/README.md#getexpenses)
 * [getExpense](docs/sdks/accounting/README.md#getexpense)
@@ -225,6 +234,7 @@ run();
 * [getBills](docs/sdks/accounting/README.md#getbills)
 * [createBill](docs/sdks/accounting/README.md#createbill)
 * [getBill](docs/sdks/accounting/README.md#getbill)
+* [updateBill](docs/sdks/accounting/README.md#updatebill)
 * [deleteBill](docs/sdks/accounting/README.md#deletebill)
 * [getBillDocument](docs/sdks/accounting/README.md#getbilldocument)
 * [createBookingProposal](docs/sdks/accounting/README.md#createbookingproposal)
@@ -235,46 +245,36 @@ run();
 * [getVendorCredits](docs/sdks/accounting/README.md#getvendorcredits)
 * [createVendorCredit](docs/sdks/accounting/README.md#createvendorcredit)
 * [updateVendorCredit](docs/sdks/accounting/README.md#updatevendorcredit)
+* [deleteVendorCredit](docs/sdks/accounting/README.md#deletevendorcredit)
+* [getBillLineItems](docs/sdks/accounting/README.md#getbilllineitems)
+* [createBillLineItem](docs/sdks/accounting/README.md#createbilllineitem)
 * [updateBillLineItem](docs/sdks/accounting/README.md#updatebilllineitem)
+* [getPurchaseOrders](docs/sdks/accounting/README.md#getpurchaseorders)
 * [getPurchaseOrder](docs/sdks/accounting/README.md#getpurchaseorder)
 * [getPurchaseOrderLineItems](docs/sdks/accounting/README.md#getpurchaseorderlineitems)
 * [getPurchaseOrderLineItem](docs/sdks/accounting/README.md#getpurchaseorderlineitem)
 * [getGoodsReceipts](docs/sdks/accounting/README.md#getgoodsreceipts)
 * [getGoodsReceipt](docs/sdks/accounting/README.md#getgoodsreceipt)
 * [getGoodsReceiptLineItems](docs/sdks/accounting/README.md#getgoodsreceiptlineitems)
+* [getGoodsReceiptLineItem](docs/sdks/accounting/README.md#getgoodsreceiptlineitem)
 * [getUnits](docs/sdks/accounting/README.md#getunits)
 * [getOpenItems](docs/sdks/accounting/README.md#getopenitems)
 * [getTrialBalance](docs/sdks/accounting/README.md#gettrialbalance)
 * [getCreditNotes](docs/sdks/accounting/README.md#getcreditnotes)
 * [getCreditNote](docs/sdks/accounting/README.md#getcreditnote)
 * [getFiscalYears](docs/sdks/accounting/README.md#getfiscalyears)
-
-#### [Accounting.Bills](docs/sdks/accountingbills/README.md)
-
-* [addLineItem](docs/sdks/accountingbills/README.md#addlineitem)
-
-#### [Accounting.Invoices](docs/sdks/invoices/README.md)
-
-* [updateLineItem](docs/sdks/invoices/README.md#updatelineitem)
-
-#### [Accounting.JournalEntries](docs/sdks/accountingjournalentries/README.md)
-
-* [getAttachments](docs/sdks/accountingjournalentries/README.md#getattachments)
-
-#### [Accounting.V2](docs/sdks/v2/README.md)
-
-* [getDimension](docs/sdks/v2/README.md#getdimension)
-
-##### [Accounting.V2.Contacts](docs/sdks/v2contacts/README.md)
-
-* [update](docs/sdks/v2contacts/README.md#update)
+* [getFiscalYear](docs/sdks/accounting/README.md#getfiscalyear)
 
 ### [AccountingV2](docs/sdks/accountingv2/README.md)
 
-* [createBookingProposal](docs/sdks/accountingv2/README.md#createbookingproposal)
-* [createContact](docs/sdks/accountingv2/README.md#createcontact)
+* [createBookingProposalV2](docs/sdks/accountingv2/README.md#createbookingproposalv2)
+* [getContactsV2](docs/sdks/accountingv2/README.md#getcontactsv2)
+* [createContactV2](docs/sdks/accountingv2/README.md#createcontactv2)
+* [getContactV2](docs/sdks/accountingv2/README.md#getcontactv2)
 * [putContactV2](docs/sdks/accountingv2/README.md#putcontactv2)
+* [patchContactV2](docs/sdks/accountingv2/README.md#patchcontactv2)
 * [getDimensionsV2](docs/sdks/accountingv2/README.md#getdimensionsv2)
+* [getDimensionsByDimension](docs/sdks/accountingv2/README.md#getdimensionsbydimension)
 
 ### [Auth](docs/sdks/auth/README.md)
 
@@ -292,63 +292,16 @@ run();
 * [callback](docs/sdks/auth/README.md#callback)
 * [createEndUserAccount](docs/sdks/auth/README.md#createenduseraccount)
 
-### [Bills](docs/sdks/bills/README.md)
-
-* [update](docs/sdks/bills/README.md#update)
-* [getLineItems](docs/sdks/bills/README.md#getlineitems)
-
-### [Contacts](docs/sdks/contacts/README.md)
-
-* [patch](docs/sdks/contacts/README.md#patch)
-
-### [ContactsV2](docs/sdks/contactsv2/README.md)
-
-* [list](docs/sdks/contactsv2/README.md#list)
-* [get](docs/sdks/contactsv2/README.md#get)
-
 ### [Events](docs/sdks/events/README.md)
 
 * [handleCallback](docs/sdks/events/README.md#handlecallback)
 * [getCode](docs/sdks/events/README.md#getcode)
 * [handleConfigurationCallback](docs/sdks/events/README.md#handleconfigurationcallback)
 
-### [Files](docs/sdks/files/README.md)
-
-* [getDocumentExtensions](docs/sdks/files/README.md#getdocumentextensions)
-
-### [FiscalYears](docs/sdks/fiscalyears/README.md)
-
-* [get](docs/sdks/fiscalyears/README.md#get)
-
-### [GoodsReceipts](docs/sdks/goodsreceipts/README.md)
-
-* [getLineItem](docs/sdks/goodsreceipts/README.md#getlineitem)
-
 ### [Health](docs/sdks/health/README.md)
 
 * [check](docs/sdks/health/README.md#check) - Health check
 * [details](docs/sdks/health/README.md#details) - Detailed health check
-
-### [Items](docs/sdks/items/README.md)
-
-* [create](docs/sdks/items/README.md#create)
-* [modify](docs/sdks/items/README.md#modify)
-
-### [JournalEntries](docs/sdks/journalentries/README.md)
-
-* [createBulk](docs/sdks/journalentries/README.md#createbulk)
-
-### [JournalEntryAttachments](docs/sdks/journalentryattachments/README.md)
-
-* [getById](docs/sdks/journalentryattachments/README.md#getbyid)
-
-### [Offers](docs/sdks/offers/README.md)
-
-* [getDocument](docs/sdks/offers/README.md#getdocument)
-
-### [PurchaseOrders](docs/sdks/purchaseorders/README.md)
-
-* [list](docs/sdks/purchaseorders/README.md#list)
 
 ### [Tenants](docs/sdks/tenants/README.md)
 
@@ -371,10 +324,6 @@ run();
 ### [User](docs/sdks/user/README.md)
 
 * [getUserInfo](docs/sdks/user/README.md#getuserinfo)
-
-### [VendorCredits](docs/sdks/vendorcredits/README.md)
-
-* [delete](docs/sdks/vendorcredits/README.md#delete)
 
 ### [Webhooks](docs/sdks/webhooks/README.md)
 
@@ -405,10 +354,10 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 
 <summary>Available standalone functions</summary>
 
-- [`accountingBillsAddLineItem`](docs/sdks/accountingbills/README.md#addlineitem)
 - [`accountingCreateAccount`](docs/sdks/accounting/README.md#createaccount)
 - [`accountingCreateBankAccount`](docs/sdks/accounting/README.md#createbankaccount)
 - [`accountingCreateBill`](docs/sdks/accounting/README.md#createbill)
+- [`accountingCreateBillLineItem`](docs/sdks/accounting/README.md#createbilllineitem)
 - [`accountingCreateBookingProposal`](docs/sdks/accounting/README.md#createbookingproposal)
 - [`accountingCreateBookings`](docs/sdks/accounting/README.md#createbookings)
 - [`accountingCreateContact`](docs/sdks/accounting/README.md#createcontact)
@@ -418,6 +367,8 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`accountingCreateEventSubscriptions`](docs/sdks/accounting/README.md#createeventsubscriptions)
 - [`accountingCreateExpense`](docs/sdks/accounting/README.md#createexpense)
 - [`accountingCreateInvoice`](docs/sdks/accounting/README.md#createinvoice)
+- [`accountingCreateItem`](docs/sdks/accounting/README.md#createitem)
+- [`accountingCreateJournalEntries`](docs/sdks/accounting/README.md#createjournalentries)
 - [`accountingCreateJournalEntry`](docs/sdks/accounting/README.md#createjournalentry)
 - [`accountingCreateJournalEntryAttachments`](docs/sdks/accounting/README.md#createjournalentryattachments)
 - [`accountingCreateLineItem`](docs/sdks/accounting/README.md#createlineitem)
@@ -433,6 +384,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`accountingDeleteBill`](docs/sdks/accounting/README.md#deletebill)
 - [`accountingDeleteEventSubscriptions`](docs/sdks/accounting/README.md#deleteeventsubscriptions)
 - [`accountingDeletePayment`](docs/sdks/accounting/README.md#deletepayment)
+- [`accountingDeleteVendorCredit`](docs/sdks/accounting/README.md#deletevendorcredit)
 - [`accountingGetAccount`](docs/sdks/accounting/README.md#getaccount)
 - [`accountingGetAccounts`](docs/sdks/accounting/README.md#getaccounts)
 - [`accountingGetAsyncTaskInfo`](docs/sdks/accounting/README.md#getasynctaskinfo)
@@ -440,6 +392,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`accountingGetBankAccounts`](docs/sdks/accounting/README.md#getbankaccounts)
 - [`accountingGetBill`](docs/sdks/accounting/README.md#getbill)
 - [`accountingGetBillDocument`](docs/sdks/accounting/README.md#getbilldocument)
+- [`accountingGetBillLineItems`](docs/sdks/accounting/README.md#getbilllineitems)
 - [`accountingGetBills`](docs/sdks/accounting/README.md#getbills)
 - [`accountingGetBookingProposal`](docs/sdks/accounting/README.md#getbookingproposal)
 - [`accountingGetBookingProposalDocument`](docs/sdks/accounting/README.md#getbookingproposaldocument)
@@ -451,11 +404,14 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`accountingGetCustomer`](docs/sdks/accounting/README.md#getcustomer)
 - [`accountingGetCustomers`](docs/sdks/accounting/README.md#getcustomers)
 - [`accountingGetDimensions`](docs/sdks/accounting/README.md#getdimensions)
+- [`accountingGetDocumentExtensions`](docs/sdks/accounting/README.md#getdocumentextensions)
 - [`accountingGetDocumentTypes`](docs/sdks/accounting/README.md#getdocumenttypes)
 - [`accountingGetExpense`](docs/sdks/accounting/README.md#getexpense)
 - [`accountingGetExpenses`](docs/sdks/accounting/README.md#getexpenses)
+- [`accountingGetFiscalYear`](docs/sdks/accounting/README.md#getfiscalyear)
 - [`accountingGetFiscalYears`](docs/sdks/accounting/README.md#getfiscalyears)
 - [`accountingGetGoodsReceipt`](docs/sdks/accounting/README.md#getgoodsreceipt)
+- [`accountingGetGoodsReceiptLineItem`](docs/sdks/accounting/README.md#getgoodsreceiptlineitem)
 - [`accountingGetGoodsReceiptLineItems`](docs/sdks/accounting/README.md#getgoodsreceiptlineitems)
 - [`accountingGetGoodsReceipts`](docs/sdks/accounting/README.md#getgoodsreceipts)
 - [`accountingGetInvoice`](docs/sdks/accounting/README.md#getinvoice)
@@ -465,10 +421,13 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`accountingGetItems`](docs/sdks/accounting/README.md#getitems)
 - [`accountingGetJournalEntries`](docs/sdks/accounting/README.md#getjournalentries)
 - [`accountingGetJournalEntry`](docs/sdks/accounting/README.md#getjournalentry)
+- [`accountingGetJournalEntryAttachmentById`](docs/sdks/accounting/README.md#getjournalentryattachmentbyid)
+- [`accountingGetJournalEntryAttachments`](docs/sdks/accounting/README.md#getjournalentryattachments)
 - [`accountingGetJournals`](docs/sdks/accounting/README.md#getjournals)
 - [`accountingGetLineItem`](docs/sdks/accounting/README.md#getlineitem)
 - [`accountingGetLineItems`](docs/sdks/accounting/README.md#getlineitems)
 - [`accountingGetOffer`](docs/sdks/accounting/README.md#getoffer)
+- [`accountingGetOfferDocument`](docs/sdks/accounting/README.md#getofferdocument)
 - [`accountingGetOfferLineItem`](docs/sdks/accounting/README.md#getofferlineitem)
 - [`accountingGetOfferLineItems`](docs/sdks/accounting/README.md#getofferlineitems)
 - [`accountingGetOffers`](docs/sdks/accounting/README.md#getoffers)
@@ -483,6 +442,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`accountingGetPurchaseOrder`](docs/sdks/accounting/README.md#getpurchaseorder)
 - [`accountingGetPurchaseOrderLineItem`](docs/sdks/accounting/README.md#getpurchaseorderlineitem)
 - [`accountingGetPurchaseOrderLineItems`](docs/sdks/accounting/README.md#getpurchaseorderlineitems)
+- [`accountingGetPurchaseOrders`](docs/sdks/accounting/README.md#getpurchaseorders)
 - [`accountingGetSalesOrder`](docs/sdks/accounting/README.md#getsalesorder)
 - [`accountingGetSalesOrderLines`](docs/sdks/accounting/README.md#getsalesorderlines)
 - [`accountingGetSalesOrders`](docs/sdks/accounting/README.md#getsalesorders)
@@ -493,22 +453,26 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`accountingGetTrialBalance`](docs/sdks/accounting/README.md#gettrialbalance)
 - [`accountingGetUnits`](docs/sdks/accounting/README.md#getunits)
 - [`accountingGetVendorCredits`](docs/sdks/accounting/README.md#getvendorcredits)
-- [`accountingInvoicesUpdateLineItem`](docs/sdks/invoices/README.md#updatelineitem)
-- [`accountingJournalEntriesGetAttachments`](docs/sdks/accountingjournalentries/README.md#getattachments)
+- [`accountingPatchContact`](docs/sdks/accounting/README.md#patchcontact)
 - [`accountingPatchCustomers`](docs/sdks/accounting/README.md#patchcustomers)
 - [`accountingPatchInvoice`](docs/sdks/accounting/README.md#patchinvoice)
+- [`accountingPatchItem`](docs/sdks/accounting/README.md#patchitem)
+- [`accountingPatchLineItem`](docs/sdks/accounting/README.md#patchlineitem)
 - [`accountingPatchSupplier`](docs/sdks/accounting/README.md#patchsupplier)
 - [`accountingPostFile`](docs/sdks/accounting/README.md#postfile)
 - [`accountingPutContact`](docs/sdks/accounting/README.md#putcontact)
+- [`accountingUpdateBill`](docs/sdks/accounting/README.md#updatebill)
 - [`accountingUpdateBillLineItem`](docs/sdks/accounting/README.md#updatebilllineitem)
 - [`accountingUpdateCustomer`](docs/sdks/accounting/README.md#updatecustomer)
 - [`accountingUpdateSupplier`](docs/sdks/accounting/README.md#updatesupplier)
 - [`accountingUpdateVendorCredit`](docs/sdks/accounting/README.md#updatevendorcredit)
-- [`accountingV2ContactsUpdate`](docs/sdks/v2contacts/README.md#update)
-- [`accountingV2CreateBookingProposal`](docs/sdks/accountingv2/README.md#createbookingproposal)
-- [`accountingV2CreateContact`](docs/sdks/accountingv2/README.md#createcontact)
-- [`accountingV2GetDimension`](docs/sdks/v2/README.md#getdimension)
+- [`accountingV2CreateBookingProposalV2`](docs/sdks/accountingv2/README.md#createbookingproposalv2)
+- [`accountingV2CreateContactV2`](docs/sdks/accountingv2/README.md#createcontactv2)
+- [`accountingV2GetContactsV2`](docs/sdks/accountingv2/README.md#getcontactsv2)
+- [`accountingV2GetContactV2`](docs/sdks/accountingv2/README.md#getcontactv2)
+- [`accountingV2GetDimensionsByDimension`](docs/sdks/accountingv2/README.md#getdimensionsbydimension)
 - [`accountingV2GetDimensionsV2`](docs/sdks/accountingv2/README.md#getdimensionsv2)
+- [`accountingV2PatchContactV2`](docs/sdks/accountingv2/README.md#patchcontactv2)
 - [`accountingV2PutContactV2`](docs/sdks/accountingv2/README.md#putcontactv2)
 - [`authApiKeyConfirmation`](docs/sdks/auth/README.md#apikeyconfirmation)
 - [`authCallback`](docs/sdks/auth/README.md#callback)
@@ -523,25 +487,11 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`authSetEndUserSelections`](docs/sdks/auth/README.md#setenduserselections)
 - [`authSystemLoginUrl`](docs/sdks/auth/README.md#systemloginurl)
 - [`authTest`](docs/sdks/auth/README.md#test)
-- [`billsGetLineItems`](docs/sdks/bills/README.md#getlineitems)
-- [`billsUpdate`](docs/sdks/bills/README.md#update)
-- [`contactsPatch`](docs/sdks/contacts/README.md#patch)
-- [`contactsV2Get`](docs/sdks/contactsv2/README.md#get)
-- [`contactsV2List`](docs/sdks/contactsv2/README.md#list)
 - [`eventsGetCode`](docs/sdks/events/README.md#getcode)
 - [`eventsHandleCallback`](docs/sdks/events/README.md#handlecallback)
 - [`eventsHandleConfigurationCallback`](docs/sdks/events/README.md#handleconfigurationcallback)
-- [`filesGetDocumentExtensions`](docs/sdks/files/README.md#getdocumentextensions)
-- [`fiscalYearsGet`](docs/sdks/fiscalyears/README.md#get)
-- [`goodsReceiptsGetLineItem`](docs/sdks/goodsreceipts/README.md#getlineitem)
 - [`healthCheck`](docs/sdks/health/README.md#check) - Health check
 - [`healthDetails`](docs/sdks/health/README.md#details) - Detailed health check
-- [`itemsCreate`](docs/sdks/items/README.md#create)
-- [`itemsModify`](docs/sdks/items/README.md#modify)
-- [`journalEntriesCreateBulk`](docs/sdks/journalentries/README.md#createbulk)
-- [`journalEntryAttachmentsGetById`](docs/sdks/journalentryattachments/README.md#getbyid)
-- [`offersGetDocument`](docs/sdks/offers/README.md#getdocument)
-- [`purchaseOrdersList`](docs/sdks/purchaseorders/README.md#list)
 - [`tenantsAddCallbackUrl`](docs/sdks/tenants/README.md#addcallbackurl)
 - [`tenantsCountEndUsersBySystem`](docs/sdks/tenants/README.md#countendusersbysystem)
 - [`tenantsDeleteEndUser`](docs/sdks/tenants/README.md#deleteenduser)
@@ -558,7 +508,6 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`tenantsSystemRegistration`](docs/sdks/tenants/README.md#systemregistration)
 - [`tenantsUpdateSubmissionPageStyle`](docs/sdks/tenants/README.md#updatesubmissionpagestyle)
 - [`userGetUserInfo`](docs/sdks/user/README.md#getuserinfo)
-- [`vendorCreditsDelete`](docs/sdks/vendorcredits/README.md#delete)
 - [`webhooksCreateWebhook`](docs/sdks/webhooks/README.md#createwebhook)
 - [`webhooksCreateWebhookConfig`](docs/sdks/webhooks/README.md#createwebhookconfig)
 - [`webhooksCreateWebhookEndUser`](docs/sdks/webhooks/README.md#createwebhookenduser)

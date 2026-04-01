@@ -4,15 +4,25 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
+import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
+export const GetLineItemsLimit = {
+  Five: 5,
+  Ten: 10,
+  Twenty: 20,
+  Fifty: 50,
+  OneHundred: 100,
+} as const;
+export type GetLineItemsLimit = ClosedEnum<typeof GetLineItemsLimit>;
+
 export type GetLineItemsRequest = {
   invoiceId: string;
   page?: number | undefined;
-  limit?: number | undefined;
+  limit?: GetLineItemsLimit | undefined;
   /**
    * ISO 8601 timestamp; only records modified after this date are returned
    */
@@ -58,6 +68,11 @@ export type GetLineItemsResponse = {
 };
 
 /** @internal */
+export const GetLineItemsLimit$outboundSchema: z.ZodMiniEnum<
+  typeof GetLineItemsLimit
+> = z.enum(GetLineItemsLimit);
+
+/** @internal */
 export type GetLineItemsRequest$Outbound = {
   invoiceId: string;
   page?: number | undefined;
@@ -75,7 +90,7 @@ export const GetLineItemsRequest$outboundSchema: z.ZodMiniType<
 > = z.object({
   invoiceId: z.string(),
   page: z.optional(z.number()),
-  limit: z.optional(z.number()),
+  limit: z.optional(GetLineItemsLimit$outboundSchema),
   lastModifiedAt: z.optional(z.string()),
   environmentName: z.optional(z.string()),
   companyId: z.optional(z.string()),
