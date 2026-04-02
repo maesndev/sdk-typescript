@@ -1,9 +1,9 @@
-speakeasyVersion: 1.761.0
+speakeasyVersion: 1.761.1
 sources:
     Maesn unified API:
         sourceNamespace: maesn-unified-api
-        sourceRevisionDigest: sha256:45cb295a342c5727be370d0a4f77d7af8ba06d76ae45d60bfcf3612f16da0b5b
-        sourceBlobDigest: sha256:6047f1512960125b0e68edd144da00cd82883ccb650ad58c44f25734e542d3cc
+        sourceRevisionDigest: sha256:1f77909dfa49d7f06853cda790bb202917d7a39a9d4967c8895052a62f43d997
+        sourceBlobDigest: sha256:d4abb08dfedf8bd165b72178fdeef2a7ff5e3aaf77b2171354c1d0f6dfd1147c
         tags:
             - latest
             - "1.0"
@@ -11,10 +11,10 @@ targets:
     maesn:
         source: Maesn unified API
         sourceNamespace: maesn-unified-api
-        sourceRevisionDigest: sha256:45cb295a342c5727be370d0a4f77d7af8ba06d76ae45d60bfcf3612f16da0b5b
-        sourceBlobDigest: sha256:6047f1512960125b0e68edd144da00cd82883ccb650ad58c44f25734e542d3cc
+        sourceRevisionDigest: sha256:1f77909dfa49d7f06853cda790bb202917d7a39a9d4967c8895052a62f43d997
+        sourceBlobDigest: sha256:d4abb08dfedf8bd165b72178fdeef2a7ff5e3aaf77b2171354c1d0f6dfd1147c
         codeSamplesNamespace: maesn-unified-api-typescript-code-samples
-        codeSamplesRevisionDigest: sha256:e2a5fec8e8006b8a97ca6b6b508cd1f72c59ac27efea131ffb9cf2de85cd3d06
+        codeSamplesRevisionDigest: sha256:622bc0b08e6e7e048503a9b1ab0f445b307c9e7cafc10f8cb7ecb6da6f88a36f
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
@@ -22,9 +22,7 @@ workflow:
         Maesn unified API:
             inputs:
                 - location: https://unified-backend-prod.azurewebsites.net/api-json
-                - location: https://unified-backend-prod.azurewebsites.net/api/v2-json
                 - location: https://unified-backend-prod.azurewebsites.net/api/auth-json
-                - location: https://unified-backend-prod.azurewebsites.net/api/events-json
                 - location: https://unified-backend-prod.azurewebsites.net/api/webhooks-json
                 - location: https://unified-backend-prod.azurewebsites.net/api/health-json
                 - location: https://unified-backend-prod.azurewebsites.net/api/tenants-json

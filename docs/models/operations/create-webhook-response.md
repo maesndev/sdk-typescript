@@ -13,9 +13,9 @@ let value: CreateWebhookResponse = {
     createdDate: "<value>",
     expiresDate: "<value>",
     updatedDate: "<value>",
-    callbackUrl: "https://unimportant-almighty.net",
+    callbackUrl: "https://low-tomatillo.biz/",
   },
-  errors: null,
+  errors: {},
   rawData: {},
 };
 ```
