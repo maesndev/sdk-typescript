@@ -561,12 +561,23 @@ run();
 ```
 <!-- End File uploads [file-upload] -->
 
-<!-- Start Retries [retries] -->
 ## Retries
 
-Some of the endpoints in this SDK support retries.  If you use the SDK without any configuration, it will fall back to the default retry strategy provided by the API.  However, the default retry strategy can be overridden on a per-operation basis, or across the entire SDK.
+All **GET** endpoints automatically retry on `5XX` errors and connection failures using exponential backoff. **POST, PUT, PATCH, and DELETE** endpoints never retry automatically to avoid creating duplicate records.
 
-To change the default retry strategy for a single API call, simply provide a retryConfig object to the call:
+Default retry configuration:
+
+| Parameter | Value |
+|---|---|
+| Strategy | Exponential backoff |
+| Initial interval | 500 ms |
+| Max interval | 60 s |
+| Exponent | 1.5 |
+| Max elapsed time | 1 h |
+| Retried status codes | 5XX |
+| Retry connection errors | Yes |
+
+You can override the retry strategy per call:
 ```typescript
 import { Maesn } from "@maesn/typescript-sdk";
 
@@ -585,12 +596,12 @@ async function run() {
     retries: {
       strategy: "backoff",
       backoff: {
-        initialInterval: 1,
-        maxInterval: 50,
-        exponent: 1.1,
-        maxElapsedTime: 100,
+        initialInterval: 500,
+        maxInterval: 60000,
+        exponent: 1.5,
+        maxElapsedTime: 3600000,
       },
-      retryConnectionErrors: false,
+      retryConnectionErrors: true,
     },
   });
 
@@ -601,7 +612,7 @@ run();
 
 ```
 
-If you'd like to override the default retry strategy for all operations that support retries, you can provide a retryConfig at SDK initialization:
+Or override the default for all operations at SDK initialization:
 ```typescript
 import { Maesn } from "@maesn/typescript-sdk";
 
@@ -610,12 +621,12 @@ const maesn = new Maesn({
   retryConfig: {
     strategy: "backoff",
     backoff: {
-      initialInterval: 1,
-      maxInterval: 50,
-      exponent: 1.1,
-      maxElapsedTime: 100,
+      initialInterval: 500,
+      maxInterval: 60000,
+      exponent: 1.5,
+      maxElapsedTime: 3600000,
     },
-    retryConnectionErrors: false,
+    retryConnectionErrors: true,
   },
   security: {
     apiKey: process.env["MAESN_API_KEY"] ?? "",
@@ -634,7 +645,7 @@ async function run() {
 run();
 
 ```
-<!-- End Retries [retries] -->
+<!-- No Retries [retries] -->
 
 <!-- Start Error Handling [errors] -->
 ## Error Handling
