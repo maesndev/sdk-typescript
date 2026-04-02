@@ -81,7 +81,7 @@ async function $do(
   const payload = parsed.value;
   const body = null;
 
-  const path = pathToFunc("/#5")();
+  const path = pathToFunc("/")();
 
   const query = encodeFormQuery({
     "companyId": payload?.companyId,

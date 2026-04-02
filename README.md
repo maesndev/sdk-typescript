@@ -179,7 +179,6 @@ run();
 * [putContact](docs/sdks/accounting/README.md#putcontact)
 * [patchContact](docs/sdks/accounting/README.md#patchcontact)
 * [createContacts](docs/sdks/accounting/README.md#createcontacts)
-* [createContactsV1](docs/sdks/accounting/README.md#createcontactsv1)
 * [getInvoices](docs/sdks/accounting/README.md#getinvoices)
 * [createInvoice](docs/sdks/accounting/README.md#createinvoice)
 * [getInvoice](docs/sdks/accounting/README.md#getinvoice)
@@ -196,7 +195,6 @@ run();
 * [getLineItems](docs/sdks/accounting/README.md#getlineitems)
 * [createLineItem](docs/sdks/accounting/README.md#createlineitem)
 * [getLineItem](docs/sdks/accounting/README.md#getlineitem)
-* [patchLineItem](docs/sdks/accounting/README.md#patchlineitem)
 * [getJournals](docs/sdks/accounting/README.md#getjournals)
 * [getJournalEntries](docs/sdks/accounting/README.md#getjournalentries)
 * [createJournalEntry](docs/sdks/accounting/README.md#createjournalentry)
@@ -230,9 +228,6 @@ run();
 * [createPayment](docs/sdks/accounting/README.md#createpayment)
 * [getPayment](docs/sdks/accounting/README.md#getpayment)
 * [deletePayment](docs/sdks/accounting/README.md#deletepayment)
-* [createEventSubscriptions](docs/sdks/accounting/README.md#createeventsubscriptions)
-* [deleteEventSubscriptions](docs/sdks/accounting/README.md#deleteeventsubscriptions)
-* [getProfile](docs/sdks/accounting/README.md#getprofile)
 * [createPassThroughRequest](docs/sdks/accounting/README.md#createpassthroughrequest)
 * [getBills](docs/sdks/accounting/README.md#getbills)
 * [createBill](docs/sdks/accounting/README.md#createbill)
@@ -244,7 +239,6 @@ run();
 * [getBookingProposals](docs/sdks/accounting/README.md#getbookingproposals)
 * [getBookingProposal](docs/sdks/accounting/README.md#getbookingproposal)
 * [getBookingProposalDocument](docs/sdks/accounting/README.md#getbookingproposaldocument)
-* [createBookings](docs/sdks/accounting/README.md#createbookings)
 * [getVendorCredits](docs/sdks/accounting/README.md#getvendorcredits)
 * [createVendorCredit](docs/sdks/accounting/README.md#createvendorcredit)
 * [updateVendorCredit](docs/sdks/accounting/README.md#updatevendorcredit)
@@ -283,46 +277,15 @@ run();
 
 * [getEnvironments](docs/sdks/auth/README.md#getenvironments)
 * [getCompanies](docs/sdks/auth/README.md#getcompanies)
-* [getCompaniesFlow](docs/sdks/auth/README.md#getcompaniesflow)
-* [getSubmitPage](docs/sdks/auth/README.md#getsubmitpage)
-* [apiKeyConfirmation](docs/sdks/auth/README.md#apikeyconfirmation)
-* [cancel](docs/sdks/auth/README.md#cancel)
-* [test](docs/sdks/auth/README.md#test)
-* [longToken](docs/sdks/auth/README.md#longtoken)
-* [getEnvironmentPage](docs/sdks/auth/README.md#getenvironmentpage)
-* [setEndUserSelections](docs/sdks/auth/README.md#setenduserselections)
 * [systemLoginUrl](docs/sdks/auth/README.md#systemloginurl)
-* [callback](docs/sdks/auth/README.md#callback)
 * [createEndUserAccount](docs/sdks/auth/README.md#createenduseraccount)
-
-### [Events](docs/sdks/events/README.md)
-
-* [handleCallback](docs/sdks/events/README.md#handlecallback)
-* [getCode](docs/sdks/events/README.md#getcode)
-* [handleConfigurationCallback](docs/sdks/events/README.md#handleconfigurationcallback)
-
-### [Health](docs/sdks/health/README.md)
-
-* [check](docs/sdks/health/README.md#check) - Health check
-* [details](docs/sdks/health/README.md#details) - Detailed health check
 
 ### [Tenants](docs/sdks/tenants/README.md)
 
 * [systemRegistration](docs/sdks/tenants/README.md#systemregistration)
 * [addCallbackUrl](docs/sdks/tenants/README.md#addcallbackurl)
 * [getEndUserList](docs/sdks/tenants/README.md#getenduserlist)
-* [countEndUsersBySystem](docs/sdks/tenants/README.md#countendusersbysystem)
 * [deleteEndUser](docs/sdks/tenants/README.md#deleteenduser)
-* [getCallbackUrl](docs/sdks/tenants/README.md#getcallbackurl)
-* [getRegisteredSystems](docs/sdks/tenants/README.md#getregisteredsystems)
-* [getTargetSystemValues](docs/sdks/tenants/README.md#gettargetsystemvalues)
-* [getTargetSystemRequirements](docs/sdks/tenants/README.md#gettargetsystemrequirements)
-* [getRegisteredSystemsMasked](docs/sdks/tenants/README.md#getregisteredsystemsmasked)
-* [deleteRegisteredSystem](docs/sdks/tenants/README.md#deleteregisteredsystem)
-* [getAllActiveEndUsers](docs/sdks/tenants/README.md#getallactiveendusers)
-* [getSubmissionPageStyle](docs/sdks/tenants/README.md#getsubmissionpagestyle)
-* [updateSubmissionPageStyle](docs/sdks/tenants/README.md#updatesubmissionpagestyle)
-* [getSubmissionPageStyleByKey](docs/sdks/tenants/README.md#getsubmissionpagestylebykey)
 
 ### [User](docs/sdks/user/README.md)
 
@@ -330,14 +293,9 @@ run();
 
 ### [Webhooks](docs/sdks/webhooks/README.md)
 
-* [createWebhookEndUser](docs/sdks/webhooks/README.md#createwebhookenduser)
-* [createWebHookTenant](docs/sdks/webhooks/README.md#createwebhooktenant)
-* [deleteWebhookEndUser](docs/sdks/webhooks/README.md#deletewebhookenduser)
-* [deleteWebhookTenant](docs/sdks/webhooks/README.md#deletewebhooktenant)
-* [createWebhookConfig](docs/sdks/webhooks/README.md#createwebhookconfig)
 * [createWebhook](docs/sdks/webhooks/README.md#createwebhook)
-* [deleteWebhook](docs/sdks/webhooks/README.md#deletewebhook)
 * [getWebhooks](docs/sdks/webhooks/README.md#getwebhooks)
+* [deleteWebhook](docs/sdks/webhooks/README.md#deletewebhook)
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
@@ -362,12 +320,9 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`accountingCreateBill`](docs/sdks/accounting/README.md#createbill)
 - [`accountingCreateBillLineItem`](docs/sdks/accounting/README.md#createbilllineitem)
 - [`accountingCreateBookingProposal`](docs/sdks/accounting/README.md#createbookingproposal)
-- [`accountingCreateBookings`](docs/sdks/accounting/README.md#createbookings)
 - [`accountingCreateContact`](docs/sdks/accounting/README.md#createcontact)
 - [`accountingCreateContacts`](docs/sdks/accounting/README.md#createcontacts)
-- [`accountingCreateContactsV1`](docs/sdks/accounting/README.md#createcontactsv1)
 - [`accountingCreateCustomer`](docs/sdks/accounting/README.md#createcustomer)
-- [`accountingCreateEventSubscriptions`](docs/sdks/accounting/README.md#createeventsubscriptions)
 - [`accountingCreateExpense`](docs/sdks/accounting/README.md#createexpense)
 - [`accountingCreateInvoice`](docs/sdks/accounting/README.md#createinvoice)
 - [`accountingCreateItem`](docs/sdks/accounting/README.md#createitem)
@@ -385,7 +340,6 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`accountingCreateTransaction`](docs/sdks/accounting/README.md#createtransaction)
 - [`accountingCreateVendorCredit`](docs/sdks/accounting/README.md#createvendorcredit)
 - [`accountingDeleteBill`](docs/sdks/accounting/README.md#deletebill)
-- [`accountingDeleteEventSubscriptions`](docs/sdks/accounting/README.md#deleteeventsubscriptions)
 - [`accountingDeletePayment`](docs/sdks/accounting/README.md#deletepayment)
 - [`accountingDeleteVendorCredit`](docs/sdks/accounting/README.md#deletevendorcredit)
 - [`accountingGetAccount`](docs/sdks/accounting/README.md#getaccount)
@@ -439,7 +393,6 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`accountingGetPayments`](docs/sdks/accounting/README.md#getpayments)
 - [`accountingGetPaymentTerm`](docs/sdks/accounting/README.md#getpaymentterm)
 - [`accountingGetPaymentTerms`](docs/sdks/accounting/README.md#getpaymentterms)
-- [`accountingGetProfile`](docs/sdks/accounting/README.md#getprofile)
 - [`accountingGetProject`](docs/sdks/accounting/README.md#getproject)
 - [`accountingGetProjects`](docs/sdks/accounting/README.md#getprojects)
 - [`accountingGetPurchaseOrder`](docs/sdks/accounting/README.md#getpurchaseorder)
@@ -460,7 +413,6 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`accountingPatchCustomers`](docs/sdks/accounting/README.md#patchcustomers)
 - [`accountingPatchInvoice`](docs/sdks/accounting/README.md#patchinvoice)
 - [`accountingPatchItem`](docs/sdks/accounting/README.md#patchitem)
-- [`accountingPatchLineItem`](docs/sdks/accounting/README.md#patchlineitem)
 - [`accountingPatchSupplier`](docs/sdks/accounting/README.md#patchsupplier)
 - [`accountingPostFile`](docs/sdks/accounting/README.md#postfile)
 - [`accountingPutContact`](docs/sdks/accounting/README.md#putcontact)
@@ -477,47 +429,17 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`accountingV2GetDimensionsV2`](docs/sdks/accountingv2/README.md#getdimensionsv2)
 - [`accountingV2PatchContactV2`](docs/sdks/accountingv2/README.md#patchcontactv2)
 - [`accountingV2PutContactV2`](docs/sdks/accountingv2/README.md#putcontactv2)
-- [`authApiKeyConfirmation`](docs/sdks/auth/README.md#apikeyconfirmation)
-- [`authCallback`](docs/sdks/auth/README.md#callback)
-- [`authCancel`](docs/sdks/auth/README.md#cancel)
 - [`authCreateEndUserAccount`](docs/sdks/auth/README.md#createenduseraccount)
 - [`authGetCompanies`](docs/sdks/auth/README.md#getcompanies)
-- [`authGetCompaniesFlow`](docs/sdks/auth/README.md#getcompaniesflow)
-- [`authGetEnvironmentPage`](docs/sdks/auth/README.md#getenvironmentpage)
 - [`authGetEnvironments`](docs/sdks/auth/README.md#getenvironments)
-- [`authGetSubmitPage`](docs/sdks/auth/README.md#getsubmitpage)
-- [`authLongToken`](docs/sdks/auth/README.md#longtoken)
-- [`authSetEndUserSelections`](docs/sdks/auth/README.md#setenduserselections)
 - [`authSystemLoginUrl`](docs/sdks/auth/README.md#systemloginurl)
-- [`authTest`](docs/sdks/auth/README.md#test)
-- [`eventsGetCode`](docs/sdks/events/README.md#getcode)
-- [`eventsHandleCallback`](docs/sdks/events/README.md#handlecallback)
-- [`eventsHandleConfigurationCallback`](docs/sdks/events/README.md#handleconfigurationcallback)
-- [`healthCheck`](docs/sdks/health/README.md#check) - Health check
-- [`healthDetails`](docs/sdks/health/README.md#details) - Detailed health check
 - [`tenantsAddCallbackUrl`](docs/sdks/tenants/README.md#addcallbackurl)
-- [`tenantsCountEndUsersBySystem`](docs/sdks/tenants/README.md#countendusersbysystem)
 - [`tenantsDeleteEndUser`](docs/sdks/tenants/README.md#deleteenduser)
-- [`tenantsDeleteRegisteredSystem`](docs/sdks/tenants/README.md#deleteregisteredsystem)
-- [`tenantsGetAllActiveEndUsers`](docs/sdks/tenants/README.md#getallactiveendusers)
-- [`tenantsGetCallbackUrl`](docs/sdks/tenants/README.md#getcallbackurl)
 - [`tenantsGetEndUserList`](docs/sdks/tenants/README.md#getenduserlist)
-- [`tenantsGetRegisteredSystems`](docs/sdks/tenants/README.md#getregisteredsystems)
-- [`tenantsGetRegisteredSystemsMasked`](docs/sdks/tenants/README.md#getregisteredsystemsmasked)
-- [`tenantsGetSubmissionPageStyle`](docs/sdks/tenants/README.md#getsubmissionpagestyle)
-- [`tenantsGetSubmissionPageStyleByKey`](docs/sdks/tenants/README.md#getsubmissionpagestylebykey)
-- [`tenantsGetTargetSystemRequirements`](docs/sdks/tenants/README.md#gettargetsystemrequirements)
-- [`tenantsGetTargetSystemValues`](docs/sdks/tenants/README.md#gettargetsystemvalues)
 - [`tenantsSystemRegistration`](docs/sdks/tenants/README.md#systemregistration)
-- [`tenantsUpdateSubmissionPageStyle`](docs/sdks/tenants/README.md#updatesubmissionpagestyle)
 - [`userGetUserInfo`](docs/sdks/user/README.md#getuserinfo)
 - [`webhooksCreateWebhook`](docs/sdks/webhooks/README.md#createwebhook)
-- [`webhooksCreateWebhookConfig`](docs/sdks/webhooks/README.md#createwebhookconfig)
-- [`webhooksCreateWebhookEndUser`](docs/sdks/webhooks/README.md#createwebhookenduser)
-- [`webhooksCreateWebHookTenant`](docs/sdks/webhooks/README.md#createwebhooktenant)
 - [`webhooksDeleteWebhook`](docs/sdks/webhooks/README.md#deletewebhook)
-- [`webhooksDeleteWebhookEndUser`](docs/sdks/webhooks/README.md#deletewebhookenduser)
-- [`webhooksDeleteWebhookTenant`](docs/sdks/webhooks/README.md#deletewebhooktenant)
 - [`webhooksGetWebhooks`](docs/sdks/webhooks/README.md#getwebhooks)
 
 </details>
@@ -652,14 +574,13 @@ run();
 
 [`MaesnError`](./src/models/errors/maesn-error.ts) is the base class for all HTTP error responses. It has the following properties:
 
-| Property            | Type       | Description                                                                             |
-| ------------------- | ---------- | --------------------------------------------------------------------------------------- |
-| `error.message`     | `string`   | Error message                                                                           |
-| `error.statusCode`  | `number`   | HTTP response status code eg `404`                                                      |
-| `error.headers`     | `Headers`  | HTTP response headers                                                                   |
-| `error.body`        | `string`   | HTTP body. Can be empty string if no body is returned.                                  |
-| `error.rawResponse` | `Response` | Raw HTTP response                                                                       |
-| `error.data$`       |            | Optional. Some errors may contain structured data. [See Error Classes](#error-classes). |
+| Property            | Type       | Description                                            |
+| ------------------- | ---------- | ------------------------------------------------------ |
+| `error.message`     | `string`   | Error message                                          |
+| `error.statusCode`  | `number`   | HTTP response status code eg `404`                     |
+| `error.headers`     | `Headers`  | HTTP response headers                                  |
+| `error.body`        | `string`   | HTTP body. Can be empty string if no body is returned. |
+| `error.rawResponse` | `Response` | Raw HTTP response                                      |
 
 ### Example
 ```typescript
@@ -676,24 +597,17 @@ const maesn = new Maesn({
 
 async function run() {
   try {
-    const result = await maesn.health.details();
+    const result = await maesn.accounting.getAccount({
+      accountId: "<id>",
+    });
 
     console.log(result);
   } catch (error) {
-    // The base class for HTTP error responses
     if (error instanceof errors.MaesnError) {
       console.log(error.message);
       console.log(error.statusCode);
       console.log(error.body);
       console.log(error.headers);
-
-      // Depending on the method different errors may be thrown
-      if (error instanceof errors.ServiceUnavailableError) {
-        console.log(error.data$.status); // string
-        console.log(error.data$.info); // { [k: string]: Info }
-        console.log(error.data$.error); // { [k: string]: ErrorT }
-        console.log(error.data$.details); // { [k: string]: Details }
-      }
     }
   }
 }
@@ -706,7 +620,7 @@ run();
 **Primary error:**
 * [`MaesnError`](./src/models/errors/maesn-error.ts): The base class for HTTP error responses.
 
-<details><summary>Less common errors (7)</summary>
+<details><summary>Less common errors (6)</summary>
 
 <br />
 
@@ -719,12 +633,9 @@ run();
 
 
 **Inherit from [`MaesnError`](./src/models/errors/maesn-error.ts)**:
-* [`ServiceUnavailableError`](./src/models/errors/service-unavailable-error.ts): The Health Check is not successful. Status code `503`. Applicable to 1 of 162 methods.*
 * [`ResponseValidationError`](./src/models/errors/response-validation-error.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>
-
-\* Check [the method documentation](#available-resources-and-operations) to see if the error is applicable.
 <!-- End Error Handling [errors] -->
 
 <!-- Start Custom HTTP Client [http-client] -->

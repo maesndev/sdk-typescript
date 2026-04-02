@@ -7,7 +7,7 @@ import { CreateWebhookRequest } from "@maesn/typescript-sdk/models/operations";
 
 let value: CreateWebhookRequest = {
   body: {
-    callbackUrl: "https://well-worn-stranger.com/",
+    callbackUrl: "https://passionate-season.net",
   },
 };
 ```
