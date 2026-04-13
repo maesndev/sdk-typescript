@@ -5,6 +5,7 @@ sources:
         inputs:
             - location: https://unified-backend-prod.azurewebsites.net/api-json
             - location: https://unified-backend-prod.azurewebsites.net/api/v2-json
+            - location: https://unified-backend-prod.azurewebsites.net/api/auth-json
             - location: https://unified-backend-prod.azurewebsites.net/api/tenants-json
             - location: https://unified-backend-prod.azurewebsites.net/api/events-json
             - location: https://unified-backend-prod.azurewebsites.net/api/webhooks-json
