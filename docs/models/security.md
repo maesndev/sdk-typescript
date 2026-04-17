@@ -10,7 +10,7 @@ let value: Security = {};
 
 ## Fields
 
-| Field              | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `apiKey`           | *string*           | :heavy_minus_sign: | N/A                |
-| `accountKey`       | *string*           | :heavy_minus_sign: | N/A                |
+| Field                                                   | Type                                                    | Required                                                | Description                                             |
+| ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- |
+| `option1`                                               | [models.SecurityOption1](../models/security-option1.md) | :heavy_minus_sign:                                      | N/A                                                     |
+| `option2`                                               | [models.SecurityOption2](../models/security-option2.md) | :heavy_minus_sign:                                      | N/A                                                     |

@@ -19,8 +19,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -46,8 +48,10 @@ import { healthCheck } from "@maesn/typescript-sdk/funcs/health-check.js";
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 

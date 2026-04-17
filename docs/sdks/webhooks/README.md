@@ -21,8 +21,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -52,8 +54,10 @@ import { webhooksCreateWebhookEndUser } from "@maesn/typescript-sdk/funcs/webhoo
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -104,8 +108,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -133,8 +139,10 @@ import { webhooksDeleteWebhookEndUser } from "@maesn/typescript-sdk/funcs/webhoo
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -183,8 +191,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -214,8 +224,10 @@ import { webhooksCreateWebhook } from "@maesn/typescript-sdk/funcs/webhooks-crea
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -266,8 +278,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -293,8 +307,10 @@ import { webhooksGetWebhooks } from "@maesn/typescript-sdk/funcs/webhooks-get-we
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -341,8 +357,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -370,8 +388,10 @@ import { webhooksDeleteWebhook } from "@maesn/typescript-sdk/funcs/webhooks-dele
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 

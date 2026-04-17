@@ -3,26 +3,84 @@
  */
 
 import * as z from "zod/v4-mini";
+import { remap as remap$ } from "../lib/primitives.js";
+
+export type SecurityOption1 = {
+  apiKey: string;
+  accountKey: string;
+};
+
+export type SecurityOption2 = {
+  apiKey: string;
+};
 
 export type Security = {
-  apiKey?: string | undefined;
-  accountKey?: string | undefined;
+  option1?: SecurityOption1 | undefined;
+  option2?: SecurityOption2 | undefined;
 };
 
 /** @internal */
+export type SecurityOption1$Outbound = {
+  apiKey: string;
+  accountKey: string;
+};
+
+/** @internal */
+export const SecurityOption1$outboundSchema: z.ZodMiniType<
+  SecurityOption1$Outbound,
+  SecurityOption1
+> = z.object({
+  apiKey: z.string(),
+  accountKey: z.string(),
+});
+
+export function securityOption1ToJSON(
+  securityOption1: SecurityOption1,
+): string {
+  return JSON.stringify(SecurityOption1$outboundSchema.parse(securityOption1));
+}
+
+/** @internal */
+export type SecurityOption2$Outbound = {
+  apiKey: string;
+};
+
+/** @internal */
+export const SecurityOption2$outboundSchema: z.ZodMiniType<
+  SecurityOption2$Outbound,
+  SecurityOption2
+> = z.object({
+  apiKey: z.string(),
+});
+
+export function securityOption2ToJSON(
+  securityOption2: SecurityOption2,
+): string {
+  return JSON.stringify(SecurityOption2$outboundSchema.parse(securityOption2));
+}
+
+/** @internal */
 export type Security$Outbound = {
-  apiKey?: string | undefined;
-  accountKey?: string | undefined;
+  Option1?: SecurityOption1$Outbound | undefined;
+  Option2?: SecurityOption2$Outbound | undefined;
 };
 
 /** @internal */
 export const Security$outboundSchema: z.ZodMiniType<
   Security$Outbound,
   Security
-> = z.object({
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = z.pipe(
+  z.object({
+    option1: z.optional(z.lazy(() => SecurityOption1$outboundSchema)),
+    option2: z.optional(z.lazy(() => SecurityOption2$outboundSchema)),
+  }),
+  z.transform((v) => {
+    return remap$(v, {
+      option1: "Option1",
+      option2: "Option2",
+    });
+  }),
+);
 
 export function securityToJSON(security: Security): string {
   return JSON.stringify(Security$outboundSchema.parse(security));
