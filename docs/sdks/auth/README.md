@@ -20,8 +20,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -47,8 +49,10 @@ import { authGetEnvironments } from "@maesn/typescript-sdk/funcs/auth-get-enviro
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -94,8 +98,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -121,8 +127,10 @@ import { authGetCompanies } from "@maesn/typescript-sdk/funcs/auth-get-companies
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -169,8 +177,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -198,8 +208,10 @@ import { authSystemLoginUrl } from "@maesn/typescript-sdk/funcs/auth-system-logi
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -248,8 +260,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -289,8 +303,10 @@ import { authCreateEndUserAccount } from "@maesn/typescript-sdk/funcs/auth-creat
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 

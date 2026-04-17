@@ -127,8 +127,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -156,8 +158,10 @@ import { accountingGetAccount } from "@maesn/typescript-sdk/funcs/accounting-get
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -206,8 +210,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -233,8 +239,10 @@ import { accountingGetAccounts } from "@maesn/typescript-sdk/funcs/accounting-ge
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -281,8 +289,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -310,8 +320,10 @@ import { accountingCreateAccount } from "@maesn/typescript-sdk/funcs/accounting-
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -360,8 +372,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -387,8 +401,10 @@ import { accountingGetBankAccounts } from "@maesn/typescript-sdk/funcs/accountin
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -435,8 +451,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -464,8 +482,10 @@ import { accountingCreateBankAccount } from "@maesn/typescript-sdk/funcs/account
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -514,8 +534,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -543,8 +565,10 @@ import { accountingGetBankAccount } from "@maesn/typescript-sdk/funcs/accounting
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -593,8 +617,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -620,8 +646,10 @@ import { accountingGetDimensions } from "@maesn/typescript-sdk/funcs/accounting-
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -668,8 +696,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -697,8 +727,10 @@ import { accountingCreateTransaction } from "@maesn/typescript-sdk/funcs/account
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -747,8 +779,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -774,8 +808,10 @@ import { accountingGetCustomers } from "@maesn/typescript-sdk/funcs/accounting-g
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -822,8 +858,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -853,8 +891,10 @@ import { accountingCreateCustomer } from "@maesn/typescript-sdk/funcs/accounting
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -905,8 +945,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -934,8 +976,10 @@ import { accountingGetCustomer } from "@maesn/typescript-sdk/funcs/accounting-ge
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -984,8 +1028,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -1016,8 +1062,10 @@ import { accountingUpdateCustomer } from "@maesn/typescript-sdk/funcs/accounting
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -1069,8 +1117,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -1099,8 +1149,10 @@ import { accountingPatchCustomers } from "@maesn/typescript-sdk/funcs/accounting
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -1150,8 +1202,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -1177,8 +1231,10 @@ import { accountingGetSuppliers } from "@maesn/typescript-sdk/funcs/accounting-g
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -1225,8 +1281,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -1256,8 +1314,10 @@ import { accountingCreateSupplier } from "@maesn/typescript-sdk/funcs/accounting
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -1308,8 +1368,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -1337,8 +1399,10 @@ import { accountingGetSupplier } from "@maesn/typescript-sdk/funcs/accounting-ge
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -1387,8 +1451,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -1419,8 +1485,10 @@ import { accountingUpdateSupplier } from "@maesn/typescript-sdk/funcs/accounting
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -1472,8 +1540,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -1502,8 +1572,10 @@ import { accountingPatchSupplier } from "@maesn/typescript-sdk/funcs/accounting-
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -1553,8 +1625,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -1580,8 +1654,10 @@ import { accountingGetContacts } from "@maesn/typescript-sdk/funcs/accounting-ge
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -1628,8 +1704,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -1659,8 +1737,10 @@ import { accountingCreateContact } from "@maesn/typescript-sdk/funcs/accounting-
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -1711,8 +1791,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -1740,8 +1822,10 @@ import { accountingGetContact } from "@maesn/typescript-sdk/funcs/accounting-get
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -1790,8 +1874,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -1822,8 +1908,10 @@ import { accountingPutContact } from "@maesn/typescript-sdk/funcs/accounting-put
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -1875,8 +1963,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -1907,8 +1997,10 @@ import { accountingPatchContact } from "@maesn/typescript-sdk/funcs/accounting-p
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -1960,8 +2052,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -2042,8 +2136,10 @@ import { accountingCreateContacts } from "@maesn/typescript-sdk/funcs/accounting
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -2145,8 +2241,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -2179,8 +2277,10 @@ import { accountingCreateContactsV1 } from "@maesn/typescript-sdk/funcs/accounti
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -2234,8 +2334,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -2261,8 +2363,10 @@ import { accountingGetInvoices } from "@maesn/typescript-sdk/funcs/accounting-ge
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -2309,8 +2413,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -2341,8 +2447,10 @@ import { accountingCreateInvoice } from "@maesn/typescript-sdk/funcs/accounting-
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -2394,8 +2502,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -2423,8 +2533,10 @@ import { accountingGetInvoice } from "@maesn/typescript-sdk/funcs/accounting-get
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -2473,8 +2585,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -2503,8 +2617,10 @@ import { accountingPatchInvoice } from "@maesn/typescript-sdk/funcs/accounting-p
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -2554,8 +2670,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -2583,8 +2701,10 @@ import { accountingGetInvoiceDocument } from "@maesn/typescript-sdk/funcs/accoun
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -2633,8 +2753,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -2670,8 +2792,10 @@ import { accountingPostFile } from "@maesn/typescript-sdk/funcs/accounting-post-
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -2728,8 +2852,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -2755,8 +2881,10 @@ import { accountingGetDocumentTypes } from "@maesn/typescript-sdk/funcs/accounti
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -2803,8 +2931,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -2830,8 +2960,10 @@ import { accountingGetDocumentExtensions } from "@maesn/typescript-sdk/funcs/acc
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -2878,8 +3010,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -2907,8 +3041,10 @@ import { accountingGetAsyncTaskInfo } from "@maesn/typescript-sdk/funcs/accounti
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -2957,8 +3093,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -2984,8 +3122,10 @@ import { accountingGetItems } from "@maesn/typescript-sdk/funcs/accounting-get-i
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -3032,8 +3172,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -3061,8 +3203,10 @@ import { accountingCreateItem } from "@maesn/typescript-sdk/funcs/accounting-cre
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -3111,8 +3255,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -3140,8 +3286,10 @@ import { accountingGetItem } from "@maesn/typescript-sdk/funcs/accounting-get-it
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -3190,8 +3338,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -3220,8 +3370,10 @@ import { accountingPatchItem } from "@maesn/typescript-sdk/funcs/accounting-patc
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -3271,8 +3423,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -3300,8 +3454,10 @@ import { accountingGetLineItems } from "@maesn/typescript-sdk/funcs/accounting-g
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -3350,8 +3506,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -3382,8 +3540,10 @@ import { accountingCreateLineItem } from "@maesn/typescript-sdk/funcs/accounting
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -3435,8 +3595,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -3465,8 +3627,10 @@ import { accountingGetLineItem } from "@maesn/typescript-sdk/funcs/accounting-ge
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -3516,8 +3680,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -3547,8 +3713,10 @@ import { accountingPatchLineItem } from "@maesn/typescript-sdk/funcs/accounting-
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -3599,8 +3767,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -3626,8 +3796,10 @@ import { accountingGetJournals } from "@maesn/typescript-sdk/funcs/accounting-ge
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -3674,8 +3846,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -3701,8 +3875,10 @@ import { accountingGetJournalEntries } from "@maesn/typescript-sdk/funcs/account
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -3749,8 +3925,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -3778,8 +3956,10 @@ import { accountingCreateJournalEntry } from "@maesn/typescript-sdk/funcs/accoun
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -3828,8 +4008,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -3857,8 +4039,10 @@ import { accountingGetJournalEntry } from "@maesn/typescript-sdk/funcs/accountin
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -3907,8 +4091,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -3987,8 +4173,10 @@ import { accountingCreateJournalEntries } from "@maesn/typescript-sdk/funcs/acco
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -4088,8 +4276,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -4117,8 +4307,10 @@ import { accountingGetJournalEntryAttachments } from "@maesn/typescript-sdk/func
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -4167,8 +4359,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -4197,8 +4391,10 @@ import { accountingCreateJournalEntryAttachments } from "@maesn/typescript-sdk/f
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -4248,8 +4444,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -4278,8 +4476,10 @@ import { accountingGetJournalEntryAttachmentById } from "@maesn/typescript-sdk/f
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -4329,8 +4529,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -4356,8 +4558,10 @@ import { accountingGetOffers } from "@maesn/typescript-sdk/funcs/accounting-get-
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -4404,8 +4608,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -4446,8 +4652,10 @@ import { accountingCreateOffer } from "@maesn/typescript-sdk/funcs/accounting-cr
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -4509,8 +4717,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -4538,8 +4748,10 @@ import { accountingGetOffer } from "@maesn/typescript-sdk/funcs/accounting-get-o
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -4588,8 +4800,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -4617,8 +4831,10 @@ import { accountingGetOfferLineItems } from "@maesn/typescript-sdk/funcs/account
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -4667,8 +4883,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -4697,8 +4915,10 @@ import { accountingGetOfferLineItem } from "@maesn/typescript-sdk/funcs/accounti
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -4748,8 +4968,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -4777,8 +4999,10 @@ import { accountingGetOfferDocument } from "@maesn/typescript-sdk/funcs/accounti
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -4827,8 +5051,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -4856,8 +5082,10 @@ import { accountingCreateExpense } from "@maesn/typescript-sdk/funcs/accounting-
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -4906,8 +5134,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -4933,8 +5163,10 @@ import { accountingGetExpenses } from "@maesn/typescript-sdk/funcs/accounting-ge
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -4981,8 +5213,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -5010,8 +5244,10 @@ import { accountingGetExpense } from "@maesn/typescript-sdk/funcs/accounting-get
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -5060,8 +5296,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -5087,8 +5325,10 @@ import { accountingGetProjects } from "@maesn/typescript-sdk/funcs/accounting-ge
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -5135,8 +5375,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -5164,8 +5406,10 @@ import { accountingCreateProject } from "@maesn/typescript-sdk/funcs/accounting-
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -5214,8 +5458,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -5243,8 +5489,10 @@ import { accountingGetProject } from "@maesn/typescript-sdk/funcs/accounting-get
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -5293,8 +5541,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -5320,8 +5570,10 @@ import { accountingGetSalesOrders } from "@maesn/typescript-sdk/funcs/accounting
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -5368,8 +5620,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -5397,8 +5651,10 @@ import { accountingCreateSalesOrder } from "@maesn/typescript-sdk/funcs/accounti
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -5447,8 +5703,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -5476,8 +5734,10 @@ import { accountingGetSalesOrder } from "@maesn/typescript-sdk/funcs/accounting-
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -5526,8 +5786,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -5555,8 +5817,10 @@ import { accountingGetSalesOrderLines } from "@maesn/typescript-sdk/funcs/accoun
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -5605,8 +5869,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -5632,8 +5898,10 @@ import { accountingGetPaymentTerms } from "@maesn/typescript-sdk/funcs/accountin
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -5680,8 +5948,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -5709,8 +5979,10 @@ import { accountingCreatePaymentTerm } from "@maesn/typescript-sdk/funcs/account
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -5759,8 +6031,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -5788,8 +6062,10 @@ import { accountingGetPaymentTerm } from "@maesn/typescript-sdk/funcs/accounting
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -5838,8 +6114,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -5865,8 +6143,10 @@ import { accountingGetTaxRates } from "@maesn/typescript-sdk/funcs/accounting-ge
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -5913,8 +6193,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -5942,8 +6224,10 @@ import { accountingGetTaxRate } from "@maesn/typescript-sdk/funcs/accounting-get
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -5992,8 +6276,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -6019,8 +6305,10 @@ import { accountingGetPayments } from "@maesn/typescript-sdk/funcs/accounting-ge
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -6067,8 +6355,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -6096,8 +6386,10 @@ import { accountingCreatePayment } from "@maesn/typescript-sdk/funcs/accounting-
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -6146,8 +6438,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -6175,8 +6469,10 @@ import { accountingGetPayment } from "@maesn/typescript-sdk/funcs/accounting-get
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -6225,8 +6521,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -6254,8 +6552,10 @@ import { accountingDeletePayment } from "@maesn/typescript-sdk/funcs/accounting-
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -6304,8 +6604,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -6336,8 +6638,10 @@ import { accountingCreateEventSubscriptions } from "@maesn/typescript-sdk/funcs/
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -6389,8 +6693,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -6418,8 +6724,10 @@ import { accountingDeleteEventSubscriptions } from "@maesn/typescript-sdk/funcs/
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -6468,8 +6776,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -6495,8 +6805,10 @@ import { accountingGetProfile } from "@maesn/typescript-sdk/funcs/accounting-get
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -6542,8 +6854,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -6574,8 +6888,10 @@ import { accountingCreatePassThroughRequest } from "@maesn/typescript-sdk/funcs/
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -6627,8 +6943,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -6654,8 +6972,10 @@ import { accountingGetBills } from "@maesn/typescript-sdk/funcs/accounting-get-b
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -6702,8 +7022,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -6731,8 +7053,10 @@ import { accountingCreateBill } from "@maesn/typescript-sdk/funcs/accounting-cre
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -6781,8 +7105,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -6810,8 +7136,10 @@ import { accountingGetBill } from "@maesn/typescript-sdk/funcs/accounting-get-bi
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -6860,8 +7188,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -6890,8 +7220,10 @@ import { accountingUpdateBill } from "@maesn/typescript-sdk/funcs/accounting-upd
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -6941,8 +7273,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -6970,8 +7304,10 @@ import { accountingDeleteBill } from "@maesn/typescript-sdk/funcs/accounting-del
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -7020,8 +7356,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -7049,8 +7387,10 @@ import { accountingGetBillDocument } from "@maesn/typescript-sdk/funcs/accountin
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -7099,8 +7439,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -7128,8 +7470,10 @@ import { accountingCreateBookingProposal } from "@maesn/typescript-sdk/funcs/acc
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -7178,8 +7522,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -7205,8 +7551,10 @@ import { accountingGetBookingProposals } from "@maesn/typescript-sdk/funcs/accou
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -7253,8 +7601,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -7282,8 +7632,10 @@ import { accountingGetBookingProposal } from "@maesn/typescript-sdk/funcs/accoun
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -7332,8 +7684,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -7361,8 +7715,10 @@ import { accountingGetBookingProposalDocument } from "@maesn/typescript-sdk/func
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -7411,8 +7767,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -7438,8 +7796,10 @@ import { accountingGetVendorCredits } from "@maesn/typescript-sdk/funcs/accounti
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -7486,8 +7846,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -7518,8 +7880,10 @@ import { accountingCreateVendorCredit } from "@maesn/typescript-sdk/funcs/accoun
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -7571,8 +7935,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -7604,8 +7970,10 @@ import { accountingUpdateVendorCredit } from "@maesn/typescript-sdk/funcs/accoun
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -7658,8 +8026,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -7687,8 +8057,10 @@ import { accountingDeleteVendorCredit } from "@maesn/typescript-sdk/funcs/accoun
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -7737,8 +8109,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -7766,8 +8140,10 @@ import { accountingGetBillLineItems } from "@maesn/typescript-sdk/funcs/accounti
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -7816,8 +8192,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -7846,8 +8224,10 @@ import { accountingCreateBillLineItem } from "@maesn/typescript-sdk/funcs/accoun
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -7897,8 +8277,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -7928,8 +8310,10 @@ import { accountingUpdateBillLineItem } from "@maesn/typescript-sdk/funcs/accoun
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -7980,8 +8364,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -8007,8 +8393,10 @@ import { accountingGetPurchaseOrders } from "@maesn/typescript-sdk/funcs/account
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -8055,8 +8443,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -8084,8 +8474,10 @@ import { accountingGetPurchaseOrder } from "@maesn/typescript-sdk/funcs/accounti
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -8134,8 +8526,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -8163,8 +8557,10 @@ import { accountingGetPurchaseOrderLineItems } from "@maesn/typescript-sdk/funcs
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -8213,8 +8609,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -8243,8 +8641,10 @@ import { accountingGetPurchaseOrderLineItem } from "@maesn/typescript-sdk/funcs/
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -8294,8 +8694,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -8321,8 +8723,10 @@ import { accountingGetGoodsReceipts } from "@maesn/typescript-sdk/funcs/accounti
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -8369,8 +8773,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -8398,8 +8804,10 @@ import { accountingGetGoodsReceipt } from "@maesn/typescript-sdk/funcs/accountin
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -8448,8 +8856,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -8477,8 +8887,10 @@ import { accountingGetGoodsReceiptLineItems } from "@maesn/typescript-sdk/funcs/
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -8527,8 +8939,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -8557,8 +8971,10 @@ import { accountingGetGoodsReceiptLineItem } from "@maesn/typescript-sdk/funcs/a
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -8608,8 +9024,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -8635,8 +9053,10 @@ import { accountingGetUnits } from "@maesn/typescript-sdk/funcs/accounting-get-u
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -8683,8 +9103,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -8710,8 +9132,10 @@ import { accountingGetOpenItems } from "@maesn/typescript-sdk/funcs/accounting-g
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -8758,8 +9182,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -8785,8 +9211,10 @@ import { accountingGetTrialBalance } from "@maesn/typescript-sdk/funcs/accountin
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -8833,8 +9261,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -8860,8 +9290,10 @@ import { accountingGetCreditNotes } from "@maesn/typescript-sdk/funcs/accounting
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -8908,8 +9340,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -8937,8 +9371,10 @@ import { accountingGetCreditNote } from "@maesn/typescript-sdk/funcs/accounting-
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -8987,8 +9423,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -9014,8 +9452,10 @@ import { accountingGetFiscalYears } from "@maesn/typescript-sdk/funcs/accounting
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -9062,8 +9502,10 @@ import { Maesn } from "@maesn/typescript-sdk";
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 
@@ -9091,8 +9533,10 @@ import { accountingGetFiscalYear } from "@maesn/typescript-sdk/funcs/accounting-
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
   security: {
-    apiKey: process.env["MAESN_API_KEY"] ?? "",
-    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    option1: {
+      apiKey: process.env["MAESN_API_KEY"] ?? "",
+      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+    },
   },
 });
 

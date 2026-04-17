@@ -247,12 +247,19 @@ export function resolveGlobalSecurity(
       {
         fieldName: "X-API-KEY",
         type: "apiKey:header",
-        value: security?.apiKey ?? env().MAESN_API_KEY,
+        value: security?.option1?.apiKey ?? env().MAESN_API_KEY,
       },
       {
         fieldName: "X-ACCOUNT-KEY",
         type: "apiKey:header",
-        value: security?.accountKey ?? env().MAESN_ACCOUNT_KEY,
+        value: security?.option1?.accountKey ?? env().MAESN_ACCOUNT_KEY,
+      },
+    ],
+    [
+      {
+        fieldName: "X-API-KEY",
+        type: "apiKey:header",
+        value: security?.option2?.apiKey ?? env().MAESN_API_KEY,
       },
     ],
   ];
