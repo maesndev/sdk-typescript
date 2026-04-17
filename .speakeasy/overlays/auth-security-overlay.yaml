@@ -25,6 +25,7 @@ actions:
       security:
         - apiKey: []
           accountKey: []
+        - apiKey: []
 
   # Remove per-operation parameters since they're now handled globally
   - target: $["paths"][*][*]["parameters"][?(@["name"] == "X-API-KEY")]
