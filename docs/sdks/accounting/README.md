@@ -28,6 +28,7 @@
 * [putContact](#putcontact)
 * [patchContact](#patchcontact)
 * [createContacts](#createcontacts)
+* [createContactsV1](#createcontactsv1)
 * [getInvoices](#getinvoices)
 * [createInvoice](#createinvoice)
 * [getInvoice](#getinvoice)
@@ -44,6 +45,7 @@
 * [getLineItems](#getlineitems)
 * [createLineItem](#createlineitem)
 * [getLineItem](#getlineitem)
+* [patchLineItem](#patchlineitem)
 * [getJournals](#getjournals)
 * [getJournalEntries](#getjournalentries)
 * [createJournalEntry](#createjournalentry)
@@ -77,6 +79,9 @@
 * [createPayment](#createpayment)
 * [getPayment](#getpayment)
 * [deletePayment](#deletepayment)
+* [createEventSubscriptions](#createeventsubscriptions)
+* [deleteEventSubscriptions](#deleteeventsubscriptions)
+* [getProfile](#getprofile)
 * [createPassThroughRequest](#createpassthroughrequest)
 * [getBills](#getbills)
 * [createBill](#createbill)
@@ -2129,6 +2134,95 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
+## createContactsV1
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="createContactsV1" method="post" path="/accounting/batch/contacts" -->
+```typescript
+import { Maesn } from "@maesn/typescript-sdk";
+
+const maesn = new Maesn({
+  serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
+});
+
+async function run() {
+  const result = await maesn.accounting.createContactsV1({
+    body: {
+      accountNumberLength: 3935.59,
+      chartOfAccount: "SKR51",
+      entries: [],
+      fiscalYearStartDate: "<value>",
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingCreateContactsV1 } from "@maesn/typescript-sdk/funcs/accounting-create-contacts-v1.js";
+
+// Use `MaesnCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const maesn = new MaesnCore({
+  serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
+});
+
+async function run() {
+  const res = await accountingCreateContactsV1(maesn, {
+    body: {
+      accountNumberLength: 3935.59,
+      chartOfAccount: "SKR51",
+      entries: [],
+      fiscalYearStartDate: "<value>",
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingCreateContactsV1 failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.CreateContactsV1Request](../../models/operations/create-contacts-v1-request.md)                                                                                    | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.CreateContactsV1Response](../../models/operations/create-contacts-v1-response.md)\>**
+
+### Errors
+
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
+
 ## getInvoices
 
 ### Example Usage
@@ -3404,6 +3498,89 @@ run();
 ### Response
 
 **Promise\<[operations.GetLineItemResponse](../../models/operations/get-line-item-response.md)\>**
+
+### Errors
+
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
+
+## patchLineItem
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="patchLineItem" method="patch" path="/accounting/invoices/{invoiceId}/lineItems/{lineItemId}" -->
+```typescript
+import { Maesn } from "@maesn/typescript-sdk";
+
+const maesn = new Maesn({
+  serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
+});
+
+async function run() {
+  const result = await maesn.accounting.patchLineItem({
+    invoiceId: "<id>",
+    lineItemId: "<id>",
+    body: {},
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingPatchLineItem } from "@maesn/typescript-sdk/funcs/accounting-patch-line-item.js";
+
+// Use `MaesnCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const maesn = new MaesnCore({
+  serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
+});
+
+async function run() {
+  const res = await accountingPatchLineItem(maesn, {
+    invoiceId: "<id>",
+    lineItemId: "<id>",
+    body: {},
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingPatchLineItem failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.PatchLineItemRequest](../../models/operations/patch-line-item-request.md)                                                                                          | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.PatchLineItemResponse](../../models/operations/patch-line-item-response.md)\>**
 
 ### Errors
 
@@ -6109,6 +6286,244 @@ run();
 ### Response
 
 **Promise\<[operations.DeletePaymentResponse](../../models/operations/delete-payment-response.md)\>**
+
+### Errors
+
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
+
+## createEventSubscriptions
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="createEventSubscriptions" method="post" path="/accounting/event-subscriptions" -->
+```typescript
+import { Maesn } from "@maesn/typescript-sdk";
+
+const maesn = new Maesn({
+  serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
+});
+
+async function run() {
+  const result = await maesn.accounting.createEventSubscriptions({
+    body: {
+      eventType: "<value>",
+      callbackUrl: "https://dark-vibraphone.com",
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingCreateEventSubscriptions } from "@maesn/typescript-sdk/funcs/accounting-create-event-subscriptions.js";
+
+// Use `MaesnCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const maesn = new MaesnCore({
+  serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
+});
+
+async function run() {
+  const res = await accountingCreateEventSubscriptions(maesn, {
+    body: {
+      eventType: "<value>",
+      callbackUrl: "https://dark-vibraphone.com",
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingCreateEventSubscriptions failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.CreateEventSubscriptionsRequest](../../models/operations/create-event-subscriptions-request.md)                                                                    | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[models.BaseResponseDto](../../models/base-response-dto.md)\>**
+
+### Errors
+
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
+
+## deleteEventSubscriptions
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="deleteEventSubscriptions" method="delete" path="/accounting/event-subscriptions/{eventSubscriptionId}" -->
+```typescript
+import { Maesn } from "@maesn/typescript-sdk";
+
+const maesn = new Maesn({
+  serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
+});
+
+async function run() {
+  const result = await maesn.accounting.deleteEventSubscriptions({
+    eventSubscriptionId: "<id>",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingDeleteEventSubscriptions } from "@maesn/typescript-sdk/funcs/accounting-delete-event-subscriptions.js";
+
+// Use `MaesnCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const maesn = new MaesnCore({
+  serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
+});
+
+async function run() {
+  const res = await accountingDeleteEventSubscriptions(maesn, {
+    eventSubscriptionId: "<id>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingDeleteEventSubscriptions failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.DeleteEventSubscriptionsRequest](../../models/operations/delete-event-subscriptions-request.md)                                                                    | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[models.BaseResponseDto](../../models/base-response-dto.md)\>**
+
+### Errors
+
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
+
+## getProfile
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="getProfile" method="get" path="/accounting/profile" -->
+```typescript
+import { Maesn } from "@maesn/typescript-sdk";
+
+const maesn = new Maesn({
+  serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
+});
+
+async function run() {
+  const result = await maesn.accounting.getProfile();
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingGetProfile } from "@maesn/typescript-sdk/funcs/accounting-get-profile.js";
+
+// Use `MaesnCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const maesn = new MaesnCore({
+  serverURL: "https://api.example.com",
+  security: {
+    apiKey: process.env["MAESN_API_KEY"] ?? "",
+    accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
+  },
+});
+
+async function run() {
+  const res = await accountingGetProfile(maesn);
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingGetProfile failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[models.BaseResponseDto](../../models/base-response-dto.md)\>**
 
 ### Errors
 

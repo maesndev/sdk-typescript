@@ -13,7 +13,7 @@
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="getEnvironments" method="get" path="/environments" -->
+<!-- UsageSnippet language="typescript" operationID="getEnvironments" method="get" path="/auth/environments" -->
 ```typescript
 import { Maesn } from "@maesn/typescript-sdk";
 
@@ -87,7 +87,7 @@ run();
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="getCompanies" method="get" path="/companies" -->
+<!-- UsageSnippet language="typescript" operationID="getCompanies" method="get" path="/auth/companies" -->
 ```typescript
 import { Maesn } from "@maesn/typescript-sdk";
 
@@ -162,7 +162,7 @@ run();
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="systemLoginUrl" method="get" path="/{TARGET_SYSTEM}" -->
+<!-- UsageSnippet language="typescript" operationID="systemLoginUrl" method="get" path="/auth/{TARGET_SYSTEM}" -->
 ```typescript
 import { Maesn } from "@maesn/typescript-sdk";
 
@@ -241,7 +241,7 @@ run();
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="createEndUserAccount" method="post" path="/accounts/{TARGET_SYSTEM}" -->
+<!-- UsageSnippet language="typescript" operationID="createEndUserAccount" method="post" path="/auth/accounts/{TARGET_SYSTEM}" -->
 ```typescript
 import { Maesn } from "@maesn/typescript-sdk";
 
