@@ -1197,6 +1197,35 @@ paths:
                         $ref: '#/components/schemas/ContactByBatchMetaDataResponseDto'
       tags:
         - accounting
+  /accounting/batch/contacts:
+    post:
+      operationId: createContactsV1
+      parameters:
+        - name: companyId
+          required: false
+          in: query
+          description: ID of the company (required for multi-company target systems)
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateContactByBatchMetaDataDto'
+      responses:
+        "201":
+          description: Contacts created successfully in bulk
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BaseResponseDto'
+                  - properties:
+                      data:
+                        $ref: '#/components/schemas/ContactByBatchMetaDataResponseDto'
+      tags:
+        - accounting
   /accounting/invoices:
     get:
       operationId: getInvoices
@@ -2044,6 +2073,50 @@ paths:
         statusCodes:
           - 5XX
         retryConnectionErrors: true
+    patch:
+      operationId: patchLineItem
+      parameters:
+        - name: invoiceId
+          required: true
+          in: path
+          schema:
+            type: string
+        - name: lineItemId
+          required: true
+          in: path
+          schema:
+            type: string
+        - name: environmentName
+          required: false
+          in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
+          schema:
+            type: string
+        - name: companyId
+          required: false
+          in: query
+          description: ID of the company (required for multi-company target systems)
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchLineItemRequestDto'
+      responses:
+        "200":
+          description: Line item updated successfully
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BaseResponseDto'
+                  - properties:
+                      data:
+                        $ref: '#/components/schemas/LineItemResponseDto'
+      tags:
+        - accounting
   /accounting/journals:
     get:
       operationId: getJournals
@@ -3795,6 +3868,78 @@ paths:
                         type: string
       tags:
         - accounting
+  /accounting/event-subscriptions:
+    post:
+      operationId: createEventSubscriptions
+      parameters:
+        - name: companyId
+          required: false
+          in: query
+          description: ID of the company (required for multi-company target systems)
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateEventSubscriptionRequestDto'
+      responses:
+        "201":
+          description: Event subscription created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BaseResponseDto'
+      tags:
+        - accounting
+  /accounting/event-subscriptions/{eventSubscriptionId}:
+    delete:
+      operationId: deleteEventSubscriptions
+      parameters:
+        - name: eventSubscriptionId
+          required: true
+          in: path
+          schema:
+            type: string
+        - name: companyId
+          required: false
+          in: query
+          description: ID of the company (required for multi-company target systems)
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Operation completed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BaseResponseDto'
+      tags:
+        - accounting
+  /accounting/profile:
+    get:
+      operationId: getProfile
+      parameters: []
+      responses:
+        "200":
+          description: Profile information for the authenticated end user's connected target system
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BaseResponseDto'
+      tags:
+        - accounting
+      x-speakeasy-retries:
+        strategy: backoff
+        backoff:
+          initialInterval: 500
+          maxInterval: 60000
+          maxElapsedTime: 3600000
+          exponent: 1.5
+        statusCodes:
+          - 5XX
+        retryConnectionErrors: true
   /accounting/passThrough:
     post:
       operationId: createPassThroughRequest
@@ -5718,13 +5863,13 @@ paths:
           required: false
           in: query
           schema:
+            type: integer
             enum:
               - 5
               - 10
               - 20
               - 50
               - 100
-            type: integer
         - name: lastModifiedAt
           required: false
           in: query
@@ -6007,13 +6152,13 @@ paths:
           required: false
           in: query
           schema:
+            type: integer
             enum:
               - 5
               - 10
               - 20
               - 50
               - 100
-            type: integer
         - name: lastModifiedAt
           required: false
           in: query
@@ -6090,7 +6235,7 @@ paths:
         statusCodes:
           - 5XX
         retryConnectionErrors: true
-  /environments:
+  /auth/environments:
     get:
       operationId: getEnvironments
       tags:
@@ -6119,7 +6264,7 @@ paths:
         statusCodes:
           - 5XX
         retryConnectionErrors: true
-  /companies:
+  /auth/companies:
     get:
       operationId: getCompanies
       tags:
@@ -6154,7 +6299,256 @@ paths:
         statusCodes:
           - 5XX
         retryConnectionErrors: true
-  /{TARGET_SYSTEM}:
+  /auth/companiesFlow:
+    get:
+      operationId: getCompaniesFlow
+      tags:
+        - auth
+      parameters:
+        - name: environmentName
+          in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
+          required: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: List of companies for the authenticated end user's connected target system
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BaseResponseDto'
+                  - properties:
+                      data:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/CompanyResponseDto'
+      x-speakeasy-ignore: true
+      x-speakeasy-retries:
+        strategy: backoff
+        backoff:
+          initialInterval: 500
+          maxInterval: 60000
+          maxElapsedTime: 3600000
+          exponent: 1.5
+        statusCodes:
+          - 5XX
+        retryConnectionErrors: true
+  /auth/submit:
+    get:
+      operationId: getSubmitPage
+      tags:
+        - auth
+      parameters:
+        - name: code
+          in: query
+          description: Unique code identifying the tenant submission session
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Submission page rendered successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: string
+      x-speakeasy-ignore: true
+      x-speakeasy-retries:
+        strategy: backoff
+        backoff:
+          initialInterval: 500
+          maxInterval: 60000
+          maxElapsedTime: 3600000
+          exponent: 1.5
+        statusCodes:
+          - 5XX
+        retryConnectionErrors: true
+  /auth/apiKeyConfirmation:
+    post:
+      operationId: apiKeyConfirmation
+      tags:
+        - auth
+      parameters: []
+      responses:
+        "201":
+          description: API key confirmed and redirect URL returned successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  url:
+                    type: string
+      x-speakeasy-ignore: true
+  /auth/cancel:
+    post:
+      operationId: cancel
+      tags:
+        - auth
+      parameters: []
+      responses:
+        "201":
+          description: Cancellation redirect URL returned successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  url:
+                    type: string
+      x-speakeasy-ignore: true
+  /auth/test:
+    get:
+      operationId: test
+      tags:
+        - auth
+      parameters:
+        - name: accountKey
+          in: query
+          description: End user account key (X-ACCOUNT-KEY) to pre-fill the confirmation page
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: API key confirmation page rendered successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  apiKey:
+                    type: string
+      x-speakeasy-ignore: true
+      x-speakeasy-retries:
+        strategy: backoff
+        backoff:
+          initialInterval: 500
+          maxInterval: 60000
+          maxElapsedTime: 3600000
+          exponent: 1.5
+        statusCodes:
+          - 5XX
+        retryConnectionErrors: true
+  /auth/longToken:
+    get:
+      operationId: longToken
+      tags:
+        - auth
+      parameters:
+        - name: targetSystem
+          in: query
+          description: Identifier of the target system (e.g. exact, sevdesk, xero)
+          required: true
+          schema:
+            type: string
+        - name: companyId
+          in: query
+          description: ID of the company (required for multi-company target systems)
+          required: true
+          schema:
+            type: string
+        - name: callbackUrl
+          in: query
+          description: URL to redirect to after successful authentication
+          required: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Long-lived authentication token URL returned successfully
+          content:
+            application/json:
+              schema:
+                type: string
+      x-speakeasy-ignore: true
+      x-speakeasy-retries:
+        strategy: backoff
+        backoff:
+          initialInterval: 500
+          maxInterval: 60000
+          maxElapsedTime: 3600000
+          exponent: 1.5
+        statusCodes:
+          - 5XX
+        retryConnectionErrors: true
+  /auth/selections:
+    get:
+      operationId: getEnvironmentPage
+      tags:
+        - auth
+      parameters:
+        - name: state
+          in: query
+          description: Encoded state value containing tenant and user context, returned from the OAuth redirect
+          required: true
+          schema:
+            type: string
+        - name: targetSystem
+          in: query
+          description: Identifier of the target system (e.g. exact, sevdesk, xero)
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Environment or company selection page rendered successfully
+          content:
+            application/json:
+              schema:
+                type: object
+      x-speakeasy-ignore: true
+      x-speakeasy-retries:
+        strategy: backoff
+        backoff:
+          initialInterval: 500
+          maxInterval: 60000
+          maxElapsedTime: 3600000
+          exponent: 1.5
+        statusCodes:
+          - 5XX
+        retryConnectionErrors: true
+  /auth/setEndUserSelections:
+    post:
+      operationId: setEndUserSelections
+      tags:
+        - auth
+      parameters:
+        - name: accountKey
+          in: query
+          description: End user account key (X-ACCOUNT-KEY) identifying the end user whose selections are being saved
+          required: true
+          schema:
+            type: string
+        - name: environmentName
+          in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
+          required: true
+          schema:
+            type: string
+        - name: companyId
+          in: query
+          description: ID of the company (required for multi-company target systems)
+          required: true
+          schema:
+            type: string
+      responses:
+        "201":
+          description: End user environment and company selections saved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+      x-speakeasy-ignore: true
+  /auth/{TARGET_SYSTEM}:
     get:
       operationId: systemLoginUrl
       tags:
@@ -6218,7 +6612,63 @@ paths:
         statusCodes:
           - 5XX
         retryConnectionErrors: true
-  /accounts/{TARGET_SYSTEM}:
+  /auth/callback/{TARGET_SYSTEM}:
+    get:
+      operationId: callback
+      tags:
+        - auth
+      parameters:
+        - name: TARGET_SYSTEM
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: state
+          in: query
+          description: OAuth state parameter returned by the target system, encoding tenant and user context
+          required: true
+          schema:
+            type: string
+        - name: code
+          in: query
+          description: Authorization code returned by the target system after successful OAuth consent
+          required: false
+          schema:
+            type: string
+        - name: realmId
+          in: query
+          description: Realm ID returned by QuickBooks Online after OAuth consent
+          required: false
+          schema:
+            type: string
+        - name: token
+          in: query
+          description: Access token returned directly by some target systems that do not use an authorization code flow
+          required: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OAuth callback processed and redirect URL returned successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  url:
+                    type: string
+      x-speakeasy-ignore: true
+      x-speakeasy-retries:
+        strategy: backoff
+        backoff:
+          initialInterval: 500
+          maxInterval: 60000
+          maxElapsedTime: 3600000
+          exponent: 1.5
+        statusCodes:
+          - 5XX
+        retryConnectionErrors: true
+  /auth/accounts/{TARGET_SYSTEM}:
     post:
       operationId: createEndUserAccount
       tags:
@@ -6245,7 +6695,521 @@ paths:
                 properties:
                   accountKey:
                     type: string
-  /:
+  /tenants/register-system:
+    post:
+      operationId: systemRegistration
+      tags:
+        - tenants
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SystemRegistrationDto'
+        required: true
+      responses:
+        "201":
+          description: System registered successfully
+          content:
+            application/json:
+              schema:
+                type: string
+  /tenants/add-callback-urls:
+    post:
+      operationId: addCallbackUrl
+      tags:
+        - tenants
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CallbackUrlRegistrationDto'
+        required: true
+      responses:
+        "201":
+          description: Callback URL added successfully
+          content:
+            application/json:
+              schema:
+                type: string
+  /tenants/get-end-user-list:
+    get:
+      operationId: getEndUserList
+      tags:
+        - tenants
+      parameters: []
+      responses:
+        "200":
+          description: List of end users for the authenticated tenant
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BaseResponseDto'
+      x-speakeasy-retries:
+        strategy: backoff
+        backoff:
+          initialInterval: 500
+          maxInterval: 60000
+          maxElapsedTime: 3600000
+          exponent: 1.5
+        statusCodes:
+          - 5XX
+        retryConnectionErrors: true
+  /tenants/count-end-users-by-system:
+    get:
+      operationId: countEndUsersBySystem
+      tags:
+        - tenants
+      parameters: []
+      responses:
+        "200":
+          description: End user counts grouped by connected target system
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BaseResponseDto'
+      x-speakeasy-retries:
+        strategy: backoff
+        backoff:
+          initialInterval: 500
+          maxInterval: 60000
+          maxElapsedTime: 3600000
+          exponent: 1.5
+        statusCodes:
+          - 5XX
+        retryConnectionErrors: true
+  /tenants/delete-end-user:
+    delete:
+      operationId: deleteEndUser
+      tags:
+        - tenants
+      parameters: []
+      responses:
+        "200":
+          description: Operation completed successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+  /tenants/get-callback-url:
+    get:
+      operationId: getCallbackUrl
+      tags:
+        - tenants
+      parameters: []
+      responses:
+        "200":
+          description: Callback URL configured for the authenticated tenant
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BaseResponseDto'
+      x-speakeasy-retries:
+        strategy: backoff
+        backoff:
+          initialInterval: 500
+          maxInterval: 60000
+          maxElapsedTime: 3600000
+          exponent: 1.5
+        statusCodes:
+          - 5XX
+        retryConnectionErrors: true
+  /tenants/get-registered-systems:
+    get:
+      operationId: getRegisteredSystems
+      tags:
+        - tenants
+      parameters: []
+      responses:
+        "200":
+          description: List of target systems registered for the authenticated tenant
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BaseResponseDto'
+      x-speakeasy-retries:
+        strategy: backoff
+        backoff:
+          initialInterval: 500
+          maxInterval: 60000
+          maxElapsedTime: 3600000
+          exponent: 1.5
+        statusCodes:
+          - 5XX
+        retryConnectionErrors: true
+  /tenants/get-target-system-values:
+    get:
+      operationId: getTargetSystemValues
+      tags:
+        - tenants
+      parameters: []
+      responses:
+        "200":
+          description: List of all supported target system identifiers
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BaseResponseDto'
+      x-speakeasy-retries:
+        strategy: backoff
+        backoff:
+          initialInterval: 500
+          maxInterval: 60000
+          maxElapsedTime: 3600000
+          exponent: 1.5
+        statusCodes:
+          - 5XX
+        retryConnectionErrors: true
+  /tenants/get-target-system-requirements:
+    get:
+      operationId: getTargetSystemRequirements
+      tags:
+        - tenants
+      parameters: []
+      responses:
+        "200":
+          description: Configuration requirements for each supported target system
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BaseResponseDto'
+      x-speakeasy-retries:
+        strategy: backoff
+        backoff:
+          initialInterval: 500
+          maxInterval: 60000
+          maxElapsedTime: 3600000
+          exponent: 1.5
+        statusCodes:
+          - 5XX
+        retryConnectionErrors: true
+  /tenants/get-registered-systems-masked:
+    get:
+      operationId: getRegisteredSystemsMasked
+      tags:
+        - tenants
+      parameters: []
+      responses:
+        "200":
+          description: List of target systems registered for the authenticated tenant with sensitive fields masked
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BaseResponseDto'
+      x-speakeasy-retries:
+        strategy: backoff
+        backoff:
+          initialInterval: 500
+          maxInterval: 60000
+          maxElapsedTime: 3600000
+          exponent: 1.5
+        statusCodes:
+          - 5XX
+        retryConnectionErrors: true
+  /tenants/delete-registered-system/{targetSystem}:
+    delete:
+      operationId: deleteRegisteredSystem
+      tags:
+        - tenants
+      parameters:
+        - name: targetSystem
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Operation completed successfully
+          content:
+            application/json:
+              schema:
+                type: string
+  /tenants/get-all-active-end-users:
+    get:
+      operationId: getAllActiveEndUsers
+      tags:
+        - tenants
+      parameters: []
+      responses:
+        "200":
+          description: List of all active end users across all tenants
+          content:
+            application/json:
+              schema:
+                type: object
+      x-speakeasy-ignore: true
+      x-speakeasy-retries:
+        strategy: backoff
+        backoff:
+          initialInterval: 500
+          maxInterval: 60000
+          maxElapsedTime: 3600000
+          exponent: 1.5
+        statusCodes:
+          - 5XX
+        retryConnectionErrors: true
+  /tenants/get-submission-page-style:
+    get:
+      operationId: getSubmissionPageStyle
+      tags:
+        - tenants
+      parameters:
+        - name: code
+          in: query
+          description: Unique tenant code used to look up the submission page style
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Submission page style configuration for the given tenant code
+          content:
+            application/json:
+              schema:
+                type: object
+      x-speakeasy-retries:
+        strategy: backoff
+        backoff:
+          initialInterval: 500
+          maxInterval: 60000
+          maxElapsedTime: 3600000
+          exponent: 1.5
+        statusCodes:
+          - 5XX
+        retryConnectionErrors: true
+  /tenants/submission-page-style:
+    post:
+      operationId: updateSubmissionPageStyle
+      tags:
+        - tenants
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubmissionPageStyleDto'
+        required: true
+      responses:
+        "201":
+          description: Submission page style updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+  /tenants/submission-page-style-by-key:
+    get:
+      operationId: getSubmissionPageStyleByKey
+      tags:
+        - tenants
+      parameters: []
+      responses:
+        "200":
+          description: Submission page style configuration for the authenticated tenant
+          content:
+            application/json:
+              schema:
+                type: object
+      x-speakeasy-retries:
+        strategy: backoff
+        backoff:
+          initialInterval: 500
+          maxInterval: 60000
+          maxElapsedTime: 3600000
+          exponent: 1.5
+        statusCodes:
+          - 5XX
+        retryConnectionErrors: true
+  /events/callback/{code}:
+    post:
+      operationId: handleCallback
+      tags:
+        - events
+      parameters:
+        - name: code
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "202":
+          description: Webhook event received and queued for processing
+          content:
+            application/json:
+              schema:
+                type: object
+  /events/key/{code}:
+    post:
+      operationId: getCode
+      tags:
+        - events
+      parameters:
+        - name: code
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "201":
+          description: Authorization code saved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+  /events/configuration/callback/{code}:
+    post:
+      operationId: handleConfigurationCallback
+      tags:
+        - events
+      parameters:
+        - name: code
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "202":
+          description: Configuration webhook event received and queued for processing
+          content:
+            application/json:
+              schema:
+                type: object
+  /webhooks/user:
+    post:
+      operationId: createWebhookEndUser
+      tags:
+        - webhooks
+      parameters:
+        - name: environmentName
+          in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
+          required: false
+          schema:
+            type: string
+        - name: companyId
+          in: query
+          description: ID of the company (required for multi-company target systems)
+          required: false
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateAccountingWebhookRequestDto'
+        required: true
+      responses:
+        "201":
+          description: Webhook created successfully
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BaseResponseDto'
+                  - properties:
+                      data:
+                        $ref: '#/components/schemas/WebhookResponseDto'
+  /webhooks/tenant:
+    post:
+      operationId: createWebHookTenant
+      tags:
+        - webhooks
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateAccountingWebhookRequestDto'
+        required: true
+      responses:
+        "201":
+          description: Webhook created successfully
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BaseResponseDto'
+                  - properties:
+                      data:
+                        $ref: '#/components/schemas/WebhookResponseDto'
+      x-speakeasy-ignore: true
+  /webhooks/user/{webhookId}:
+    delete:
+      operationId: deleteWebhookEndUser
+      tags:
+        - webhooks
+      parameters:
+        - name: webhookId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: environmentName
+          in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
+          required: false
+          schema:
+            type: string
+        - name: companyId
+          in: query
+          description: ID of the company (required for multi-company target systems)
+          required: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Operation completed successfully
+          content:
+            application/json:
+              schema:
+                type: object
+  /webhooks/tenant/{webhookId}:
+    delete:
+      operationId: deleteWebhookTenant
+      tags:
+        - webhooks
+      parameters:
+        - name: webhookId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Operation completed successfully
+          content:
+            application/json:
+              schema:
+                type: string
+      x-speakeasy-ignore: true
+  /webhooks/config:
+    post:
+      operationId: createWebhookConfig
+      tags:
+        - webhooks
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateAccountingWebhookRequestDto'
+        required: true
+      responses:
+        "201":
+          description: Webhook created successfully
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BaseResponseDto'
+                  - properties:
+                      data:
+                        $ref: '#/components/schemas/WebhookResponseDto'
+      x-speakeasy-ignore: true
+  /webhooks:
     post:
       operationId: createWebhook
       tags:
@@ -6326,7 +7290,7 @@ paths:
         statusCodes:
           - 5XX
         retryConnectionErrors: true
-  /{webhookId}:
+  /webhooks/{webhookId}:
     delete:
       operationId: deleteWebhook
       tags:
@@ -6356,57 +7320,21 @@ paths:
             application/json:
               schema:
                 type: object
-  /register-system:
-    post:
-      operationId: systemRegistration
-      tags:
-        - tenants
-      parameters: []
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/SystemRegistrationDto'
-        required: true
-      responses:
-        "201":
-          description: System registered successfully
-          content:
-            application/json:
-              schema:
-                type: string
-  /add-callback-urls:
-    post:
-      operationId: addCallbackUrl
-      tags:
-        - tenants
-      parameters: []
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CallbackUrlRegistrationDto'
-        required: true
-      responses:
-        "201":
-          description: Callback URL added successfully
-          content:
-            application/json:
-              schema:
-                type: string
-  /get-end-user-list:
+  /health:
     get:
-      operationId: getEndUserList
+      operationId: check
+      summary: Health check
+      description: Returns 200 if the service is up.
       tags:
-        - tenants
+        - health
       parameters: []
       responses:
         "200":
-          description: List of end users for the authenticated tenant
+          description: Service is healthy.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BaseResponseDto'
+                type: object
       x-speakeasy-retries:
         strategy: backoff
         backoff:
@@ -6417,22 +7345,87 @@ paths:
         statusCodes:
           - 5XX
         retryConnectionErrors: true
-  /delete-end-user:
-    delete:
-      operationId: deleteEndUser
+  /health/details:
+    get:
+      operationId: details
+      summary: Detailed health check
+      description: Returns database connectivity status. Requires admin token.
       tags:
-        - tenants
+        - health
       parameters: []
       responses:
         "200":
-          description: Operation completed successfully
+          description: Detailed health status including database connectivity.
+          content:
+            application/json:
+              schema:
+                type: object
+        "503":
+          description: The Health Check is not successful
           content:
             application/json:
               schema:
                 type: object
                 properties:
-                  message:
+                  status:
                     type: string
+                    example: error
+                  info:
+                    type: object
+                    additionalProperties:
+                      type: object
+                      properties:
+                        status:
+                          type: string
+                      required:
+                        - status
+                      additionalProperties: true
+                    nullable: true
+                    example:
+                      database:
+                        status: up
+                  error:
+                    type: object
+                    additionalProperties:
+                      type: object
+                      properties:
+                        status:
+                          type: string
+                      required:
+                        - status
+                      additionalProperties: true
+                    nullable: true
+                    example:
+                      redis:
+                        status: down
+                        message: Could not connect
+                  details:
+                    type: object
+                    additionalProperties:
+                      type: object
+                      properties:
+                        status:
+                          type: string
+                      required:
+                        - status
+                      additionalProperties: true
+                    example:
+                      database:
+                        status: up
+                      redis:
+                        status: down
+                        message: Could not connect
+      x-speakeasy-ignore: true
+      x-speakeasy-retries:
+        strategy: backoff
+        backoff:
+          initialInterval: 500
+          maxInterval: 60000
+          maxElapsedTime: 3600000
+          exponent: 1.5
+        statusCodes:
+          - 5XX
+        retryConnectionErrors: true
 info:
   title: Maesn Unified API
   description: |
@@ -16956,6 +17949,40 @@ components:
           type: number
         priceIncludesTax:
           type: boolean
+    PatchLineItemRequestDto:
+      type: object
+      properties:
+        accountCode:
+          type: string
+        description:
+          type: string
+        discountItemPercentage:
+          type: number
+        grossAmount:
+          type: number
+        itemId:
+          type: string
+        name:
+          type: string
+        quantity:
+          type: number
+        taxCode:
+          type: string
+        taxRatePercentage:
+          type: number
+        taxType:
+          type: string
+        type:
+          type: string
+          enum:
+            - SERVICE_ITEM
+            - MATERIAL
+            - CUSTOM
+            - TEXT
+        unitAmount:
+          type: number
+        unitName:
+          type: string
     CreatePaymentLine:
       type: object
       properties:
@@ -16996,6 +18023,16 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/CreatePaymentLine'
+    CreateEventSubscriptionRequestDto:
+      type: object
+      properties:
+        eventType:
+          type: string
+        callbackUrl:
+          type: string
+      required:
+        - eventType
+        - callbackUrl
     BillDimensionRequestDto:
       type: object
       properties:
@@ -18153,40 +19190,6 @@ components:
         - tenantId
         - url
         - username
-    WebhookResponseDto:
-      type: object
-      properties:
-        id:
-          type: string
-        createdDate:
-          type: string
-        expiresDate:
-          type: string
-        updatedDate:
-          type: string
-        callbackUrl:
-          type: string
-        secret:
-          type: string
-      required:
-        - id
-        - createdDate
-        - expiresDate
-        - updatedDate
-        - callbackUrl
-    CreateAccountingWebhookRequestDto:
-      type: object
-      properties:
-        callbackUrl:
-          type: string
-        eventType:
-          type: string
-        resource:
-          type: string
-        targetSystem:
-          type: string
-      required:
-        - callbackUrl
     CustomValues:
       type: object
       properties:
@@ -18225,6 +19228,71 @@ components:
       required:
         - callbackUrl
         - cancelCallbackUrl
+    SubmissionPageStyleDto:
+      type: object
+      properties:
+        logoSvg:
+          type: string
+        logoPng:
+          type: string
+        backgroundColor:
+          type: string
+        titleColor:
+          type: string
+        textColor:
+          type: string
+        inputBackgroundColor:
+          type: string
+        submitButtonColor:
+          type: string
+        cancelButtonColor:
+          type: string
+        errorTextColor:
+          type: string
+      required:
+        - logoSvg
+        - logoPng
+        - backgroundColor
+        - titleColor
+        - textColor
+        - inputBackgroundColor
+        - submitButtonColor
+        - cancelButtonColor
+        - errorTextColor
+    WebhookResponseDto:
+      type: object
+      properties:
+        id:
+          type: string
+        createdDate:
+          type: string
+        expiresDate:
+          type: string
+        updatedDate:
+          type: string
+        callbackUrl:
+          type: string
+        secret:
+          type: string
+      required:
+        - id
+        - createdDate
+        - expiresDate
+        - updatedDate
+        - callbackUrl
+    CreateAccountingWebhookRequestDto:
+      type: object
+      properties:
+        callbackUrl:
+          type: string
+        eventType:
+          type: string
+        resource:
+          type: string
+        targetSystem:
+          type: string
+      required:
+        - callbackUrl
   securitySchemes:
     apiKey:
       type: apiKey

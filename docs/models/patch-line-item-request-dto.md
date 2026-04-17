@@ -1,0 +1,27 @@
+# PatchLineItemRequestDto
+
+## Example Usage
+
+```typescript
+import { PatchLineItemRequestDto } from "@maesn/typescript-sdk/models";
+
+let value: PatchLineItemRequestDto = {};
+```
+
+## Fields
+
+| Field                                                                               | Type                                                                                | Required                                                                            | Description                                                                         |
+| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `accountCode`                                                                       | *string*                                                                            | :heavy_minus_sign:                                                                  | N/A                                                                                 |
+| `description`                                                                       | *string*                                                                            | :heavy_minus_sign:                                                                  | N/A                                                                                 |
+| `discountItemPercentage`                                                            | *number*                                                                            | :heavy_minus_sign:                                                                  | N/A                                                                                 |
+| `grossAmount`                                                                       | *number*                                                                            | :heavy_minus_sign:                                                                  | N/A                                                                                 |
+| `itemId`                                                                            | *string*                                                                            | :heavy_minus_sign:                                                                  | N/A                                                                                 |
+| `name`                                                                              | *string*                                                                            | :heavy_minus_sign:                                                                  | N/A                                                                                 |
+| `quantity`                                                                          | *number*                                                                            | :heavy_minus_sign:                                                                  | N/A                                                                                 |
+| `taxCode`                                                                           | *string*                                                                            | :heavy_minus_sign:                                                                  | N/A                                                                                 |
+| `taxRatePercentage`                                                                 | *number*                                                                            | :heavy_minus_sign:                                                                  | N/A                                                                                 |
+| `taxType`                                                                           | *string*                                                                            | :heavy_minus_sign:                                                                  | N/A                                                                                 |
+| `type`                                                                              | [models.PatchLineItemRequestDtoType](../models/patch-line-item-request-dto-type.md) | :heavy_minus_sign:                                                                  | N/A                                                                                 |
+| `unitAmount`                                                                        | *number*                                                                            | :heavy_minus_sign:                                                                  | N/A                                                                                 |
+| `unitName`                                                                          | *string*                                                                            | :heavy_minus_sign:                                                                  | N/A                                                                                 |

@@ -1,9 +1,9 @@
-speakeasyVersion: 1.761.1
+speakeasyVersion: 1.761.7
 sources:
     Maesn unified API:
         sourceNamespace: maesn-unified-api
-        sourceRevisionDigest: sha256:1f77909dfa49d7f06853cda790bb202917d7a39a9d4967c8895052a62f43d997
-        sourceBlobDigest: sha256:d4abb08dfedf8bd165b72178fdeef2a7ff5e3aaf77b2171354c1d0f6dfd1147c
+        sourceRevisionDigest: sha256:f7ffc29a0db35bf2b1478a14f84c572511cf603b9ffcc3dd2ecd367a6f357754
+        sourceBlobDigest: sha256:de4f7db7570d91f28badeeb80b533595cdcb9f3487bcd2fae77d2f4c57bdc5d7
         tags:
             - latest
             - "1.0"
@@ -11,10 +11,10 @@ targets:
     maesn:
         source: Maesn unified API
         sourceNamespace: maesn-unified-api
-        sourceRevisionDigest: sha256:1f77909dfa49d7f06853cda790bb202917d7a39a9d4967c8895052a62f43d997
-        sourceBlobDigest: sha256:d4abb08dfedf8bd165b72178fdeef2a7ff5e3aaf77b2171354c1d0f6dfd1147c
+        sourceRevisionDigest: sha256:f7ffc29a0db35bf2b1478a14f84c572511cf603b9ffcc3dd2ecd367a6f357754
+        sourceBlobDigest: sha256:de4f7db7570d91f28badeeb80b533595cdcb9f3487bcd2fae77d2f4c57bdc5d7
         codeSamplesNamespace: maesn-unified-api-typescript-code-samples
-        codeSamplesRevisionDigest: sha256:622bc0b08e6e7e048503a9b1ab0f445b307c9e7cafc10f8cb7ecb6da6f88a36f
+        codeSamplesRevisionDigest: sha256:bac3ea0bb85721314d49aec817ddc37aa4b2b74ecae85a0cd4831c3e09fde2a1
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
@@ -22,10 +22,12 @@ workflow:
         Maesn unified API:
             inputs:
                 - location: https://unified-backend-prod.azurewebsites.net/api-json
-                - location: https://unified-backend-prod.azurewebsites.net/api/auth-json
-                - location: https://unified-backend-prod.azurewebsites.net/api/webhooks-json
-                - location: https://unified-backend-prod.azurewebsites.net/api/health-json
-                - location: https://unified-backend-prod.azurewebsites.net/api/tenants-json
+                - location: https://unified-backend-prod.azurewebsites.net/api/v2-json
+                - location: https://unified-backend-prod.azurewebsites.net/api/auth-sdk-json
+                - location: https://unified-backend-prod.azurewebsites.net/api/tenants-sdk-json
+                - location: https://unified-backend-prod.azurewebsites.net/api/events-sdk-json
+                - location: https://unified-backend-prod.azurewebsites.net/api/webhooks-sdk-json
+                - location: https://unified-backend-prod.azurewebsites.net/api/health-sdk-json
             overlays:
                 - location: .speakeasy/overlays/info-overlay.yaml
                 - location: .speakeasy/overlays/auth-security-overlay.yaml

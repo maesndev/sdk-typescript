@@ -3,9 +3,19 @@
  */
 
 import { tenantsAddCallbackUrl } from "../funcs/tenants-add-callback-url.js";
+import { tenantsCountEndUsersBySystem } from "../funcs/tenants-count-end-users-by-system.js";
 import { tenantsDeleteEndUser } from "../funcs/tenants-delete-end-user.js";
+import { tenantsDeleteRegisteredSystem } from "../funcs/tenants-delete-registered-system.js";
+import { tenantsGetCallbackUrl } from "../funcs/tenants-get-callback-url.js";
 import { tenantsGetEndUserList } from "../funcs/tenants-get-end-user-list.js";
+import { tenantsGetRegisteredSystemsMasked } from "../funcs/tenants-get-registered-systems-masked.js";
+import { tenantsGetRegisteredSystems } from "../funcs/tenants-get-registered-systems.js";
+import { tenantsGetSubmissionPageStyleByKey } from "../funcs/tenants-get-submission-page-style-by-key.js";
+import { tenantsGetSubmissionPageStyle } from "../funcs/tenants-get-submission-page-style.js";
+import { tenantsGetTargetSystemRequirements } from "../funcs/tenants-get-target-system-requirements.js";
+import { tenantsGetTargetSystemValues } from "../funcs/tenants-get-target-system-values.js";
 import { tenantsSystemRegistration } from "../funcs/tenants-system-registration.js";
+import { tenantsUpdateSubmissionPageStyle } from "../funcs/tenants-update-submission-page-style.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as models from "../models/index.js";
 import * as operations from "../models/operations/index.js";
@@ -43,10 +53,106 @@ export class Tenants extends ClientSDK {
     ));
   }
 
+  async countEndUsersBySystem(
+    options?: RequestOptions,
+  ): Promise<models.BaseResponseDto> {
+    return unwrapAsync(tenantsCountEndUsersBySystem(
+      this,
+      options,
+    ));
+  }
+
   async deleteEndUser(
     options?: RequestOptions,
   ): Promise<operations.DeleteEndUserResponse> {
     return unwrapAsync(tenantsDeleteEndUser(
+      this,
+      options,
+    ));
+  }
+
+  async getCallbackUrl(
+    options?: RequestOptions,
+  ): Promise<models.BaseResponseDto> {
+    return unwrapAsync(tenantsGetCallbackUrl(
+      this,
+      options,
+    ));
+  }
+
+  async getRegisteredSystems(
+    options?: RequestOptions,
+  ): Promise<models.BaseResponseDto> {
+    return unwrapAsync(tenantsGetRegisteredSystems(
+      this,
+      options,
+    ));
+  }
+
+  async getTargetSystemValues(
+    options?: RequestOptions,
+  ): Promise<models.BaseResponseDto> {
+    return unwrapAsync(tenantsGetTargetSystemValues(
+      this,
+      options,
+    ));
+  }
+
+  async getTargetSystemRequirements(
+    options?: RequestOptions,
+  ): Promise<models.BaseResponseDto> {
+    return unwrapAsync(tenantsGetTargetSystemRequirements(
+      this,
+      options,
+    ));
+  }
+
+  async getRegisteredSystemsMasked(
+    options?: RequestOptions,
+  ): Promise<models.BaseResponseDto> {
+    return unwrapAsync(tenantsGetRegisteredSystemsMasked(
+      this,
+      options,
+    ));
+  }
+
+  async deleteRegisteredSystem(
+    request: operations.DeleteRegisteredSystemRequest,
+    options?: RequestOptions,
+  ): Promise<string> {
+    return unwrapAsync(tenantsDeleteRegisteredSystem(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  async getSubmissionPageStyle(
+    request: operations.GetSubmissionPageStyleRequest,
+    options?: RequestOptions,
+  ): Promise<operations.GetSubmissionPageStyleResponse> {
+    return unwrapAsync(tenantsGetSubmissionPageStyle(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  async updateSubmissionPageStyle(
+    request: models.SubmissionPageStyleDto,
+    options?: RequestOptions,
+  ): Promise<operations.UpdateSubmissionPageStyleResponse> {
+    return unwrapAsync(tenantsUpdateSubmissionPageStyle(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  async getSubmissionPageStyleByKey(
+    options?: RequestOptions,
+  ): Promise<operations.GetSubmissionPageStyleByKeyResponse> {
+    return unwrapAsync(tenantsGetSubmissionPageStyleByKey(
       this,
       options,
     ));
