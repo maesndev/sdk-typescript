@@ -10,6 +10,11 @@ import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
+export type GetSalesOrdersGlobals = {
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
+};
+
 export const GetSalesOrdersLimit = {
   Five: 5,
   Ten: 10,
@@ -57,6 +62,14 @@ export type GetSalesOrdersRequest = {
    * Filter sales orders by status
    */
   status?: GetSalesOrdersStatus | undefined;
+  /**
+   * API key
+   */
+  apiKey?: string | undefined;
+  /**
+   * Account key
+   */
+  accountKey?: string | undefined;
 };
 
 export type GetSalesOrdersPagination = {
@@ -104,6 +117,8 @@ export type GetSalesOrdersRequest$Outbound = {
   companyId?: string | undefined;
   rawData?: boolean | undefined;
   status?: string | undefined;
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
 };
 
 /** @internal */
@@ -118,6 +133,8 @@ export const GetSalesOrdersRequest$outboundSchema: z.ZodMiniType<
   companyId: z.optional(z.string()),
   rawData: z.optional(z.boolean()),
   status: z.optional(GetSalesOrdersStatus$outboundSchema),
+  apiKey: z.optional(z.string()),
+  accountKey: z.optional(z.string()),
 });
 
 export function getSalesOrdersRequestToJSON(

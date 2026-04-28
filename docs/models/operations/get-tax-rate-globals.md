@@ -1,0 +1,16 @@
+# GetTaxRateGlobals
+
+## Example Usage
+
+```typescript
+import { GetTaxRateGlobals } from "@maesn/typescript-sdk/models/operations";
+
+let value: GetTaxRateGlobals = {};
+```
+
+## Fields
+
+| Field              | Type               | Required           | Description        |
+| ------------------ | ------------------ | ------------------ | ------------------ |
+| `apiKey`           | *string*           | :heavy_minus_sign: | N/A                |
+| `accountKey`       | *string*           | :heavy_minus_sign: | N/A                |

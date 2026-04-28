@@ -9,6 +9,11 @@ import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
+export type CreateBookingProposalV2Globals = {
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
+};
+
 export type CreateBookingProposalV2File = {
   fileName: string;
   content: ReadableStream<Uint8Array> | Blob | ArrayBuffer | Uint8Array;
@@ -32,6 +37,14 @@ export type CreateBookingProposalV2Request = {
    * ID of the company (required for multi-company target systems)
    */
   companyId?: string | undefined;
+  /**
+   * API key
+   */
+  apiKey?: string | undefined;
+  /**
+   * Account key
+   */
+  accountKey?: string | undefined;
   body: CreateBookingProposalV2RequestBody;
 };
 
@@ -52,11 +65,11 @@ export type CreateBookingProposalV2Errors = {};
 export type CreateBookingProposalV2RawData = {};
 
 /**
- * Booking proposal created successfully. Returns 202 with taskId if processed asynchronously.
+ * Booking proposal queued successfully. Processed asynchronously and returns 202 with taskId.
  */
 export type CreateBookingProposalV2Response = {
   meta?: CreateBookingProposalV2Meta | null | undefined;
-  data: models.BookingProposalResponseDtoV2;
+  data: models.TaskIdResponseDto;
   errors: CreateBookingProposalV2Errors | null;
   rawData: CreateBookingProposalV2RawData | null;
 };
@@ -162,6 +175,8 @@ export function createBookingProposalV2RequestBodyToJSON(
 /** @internal */
 export type CreateBookingProposalV2Request$Outbound = {
   companyId?: string | undefined;
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
   body: CreateBookingProposalV2RequestBody$Outbound;
 };
 
@@ -171,6 +186,8 @@ export const CreateBookingProposalV2Request$outboundSchema: z.ZodMiniType<
   CreateBookingProposalV2Request
 > = z.object({
   companyId: z.optional(z.string()),
+  apiKey: z.optional(z.string()),
+  accountKey: z.optional(z.string()),
   body: z.lazy(() => CreateBookingProposalV2RequestBody$outboundSchema),
 });
 
@@ -266,7 +283,7 @@ export const CreateBookingProposalV2Response$inboundSchema: z.ZodMiniType<
   meta: z.optional(
     z.nullable(z.lazy(() => CreateBookingProposalV2Meta$inboundSchema)),
   ),
-  data: models.BookingProposalResponseDtoV2$inboundSchema,
+  data: models.TaskIdResponseDto$inboundSchema,
   errors: types.nullable(
     z.lazy(() => CreateBookingProposalV2Errors$inboundSchema),
   ),

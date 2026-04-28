@@ -7,8 +7,21 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 
+export type HandleConfigurationCallbackGlobals = {
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
+};
+
 export type HandleConfigurationCallbackRequest = {
   code: string;
+  /**
+   * API key
+   */
+  apiKey?: string | undefined;
+  /**
+   * Account key
+   */
+  accountKey?: string | undefined;
 };
 
 /**
@@ -19,6 +32,8 @@ export type HandleConfigurationCallbackResponse = {};
 /** @internal */
 export type HandleConfigurationCallbackRequest$Outbound = {
   code: string;
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
 };
 
 /** @internal */
@@ -27,6 +42,8 @@ export const HandleConfigurationCallbackRequest$outboundSchema: z.ZodMiniType<
   HandleConfigurationCallbackRequest
 > = z.object({
   code: z.string(),
+  apiKey: z.optional(z.string()),
+  accountKey: z.optional(z.string()),
 });
 
 export function handleConfigurationCallbackRequestToJSON(

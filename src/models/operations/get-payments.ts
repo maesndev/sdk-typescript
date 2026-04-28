@@ -10,6 +10,11 @@ import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
+export type GetPaymentsGlobals = {
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
+};
+
 export const GetPaymentsLimit = {
   Five: 5,
   Ten: 10,
@@ -42,6 +47,14 @@ export type GetPaymentsRequest = {
    * When true, returns the unprocessed response from the upstream target system
    */
   rawData?: boolean | undefined;
+  /**
+   * API key
+   */
+  apiKey?: string | undefined;
+  /**
+   * Account key
+   */
+  accountKey?: string | undefined;
 };
 
 export type GetPaymentsPagination = {
@@ -84,6 +97,8 @@ export type GetPaymentsRequest$Outbound = {
   lastModifiedAt?: string | undefined;
   invoiceId?: string | undefined;
   rawData?: boolean | undefined;
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
 };
 
 /** @internal */
@@ -98,6 +113,8 @@ export const GetPaymentsRequest$outboundSchema: z.ZodMiniType<
   lastModifiedAt: z.optional(z.string()),
   invoiceId: z.optional(z.string()),
   rawData: z.optional(z.boolean()),
+  apiKey: z.optional(z.string()),
+  accountKey: z.optional(z.string()),
 });
 
 export function getPaymentsRequestToJSON(

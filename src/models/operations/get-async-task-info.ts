@@ -10,6 +10,11 @@ import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
+export type GetAsyncTaskInfoGlobals = {
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
+};
+
 export const GetAsyncTaskInfoLimit = {
   Five: 5,
   Ten: 10,
@@ -27,6 +32,14 @@ export type GetAsyncTaskInfoRequest = {
   companyId?: string | undefined;
   page?: number | undefined;
   limit?: GetAsyncTaskInfoLimit | undefined;
+  /**
+   * API key
+   */
+  apiKey?: string | undefined;
+  /**
+   * Account key
+   */
+  accountKey?: string | undefined;
 };
 
 export type GetAsyncTaskInfoPagination = {
@@ -66,6 +79,8 @@ export type GetAsyncTaskInfoRequest$Outbound = {
   companyId?: string | undefined;
   page?: number | undefined;
   limit?: number | undefined;
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
 };
 
 /** @internal */
@@ -77,6 +92,8 @@ export const GetAsyncTaskInfoRequest$outboundSchema: z.ZodMiniType<
   companyId: z.optional(z.string()),
   page: z.optional(z.number()),
   limit: z.optional(GetAsyncTaskInfoLimit$outboundSchema),
+  apiKey: z.optional(z.string()),
+  accountKey: z.optional(z.string()),
 });
 
 export function getAsyncTaskInfoRequestToJSON(

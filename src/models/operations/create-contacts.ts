@@ -9,11 +9,24 @@ import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
+export type CreateContactsGlobals = {
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
+};
+
 export type CreateContactsRequest = {
   /**
    * ID of the company (required for multi-company target systems)
    */
   companyId?: string | undefined;
+  /**
+   * API key
+   */
+  apiKey?: string | undefined;
+  /**
+   * Account key
+   */
+  accountKey?: string | undefined;
   body: models.CreateContactByBatchMetaDataDto;
 };
 
@@ -46,6 +59,8 @@ export type CreateContactsResponse = {
 /** @internal */
 export type CreateContactsRequest$Outbound = {
   companyId?: string | undefined;
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
   body: models.CreateContactByBatchMetaDataDto$Outbound;
 };
 
@@ -55,6 +70,8 @@ export const CreateContactsRequest$outboundSchema: z.ZodMiniType<
   CreateContactsRequest
 > = z.object({
   companyId: z.optional(z.string()),
+  apiKey: z.optional(z.string()),
+  accountKey: z.optional(z.string()),
   body: models.CreateContactByBatchMetaDataDto$outboundSchema,
 });
 

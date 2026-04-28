@@ -5,6 +5,11 @@
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 
+export type SystemLoginUrlGlobals = {
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
+};
+
 export type SystemLoginUrlRequest = {
   targetSystem: string;
   /**
@@ -31,6 +36,18 @@ export type SystemLoginUrlRequest = {
    * When true, redirects the user to an environment or company selection page before completing authentication
    */
   environmentSelection?: boolean | undefined;
+  /**
+   * When set to true, appends a signature as a query parameter to the redirect URL.
+   */
+  includeSignature?: boolean | undefined;
+  /**
+   * API key
+   */
+  apiKey?: string | undefined;
+  /**
+   * Account key
+   */
+  accountKey?: string | undefined;
 };
 
 /** @internal */
@@ -42,6 +59,9 @@ export type SystemLoginUrlRequest$Outbound = {
   tenantId?: string | undefined;
   baseUrl?: string | undefined;
   environmentSelection?: boolean | undefined;
+  include_signature?: boolean | undefined;
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
 };
 
 /** @internal */
@@ -57,10 +77,14 @@ export const SystemLoginUrlRequest$outboundSchema: z.ZodMiniType<
     tenantId: z.optional(z.string()),
     baseUrl: z.optional(z.string()),
     environmentSelection: z.optional(z.boolean()),
+    includeSignature: z.optional(z.boolean()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
   }),
   z.transform((v) => {
     return remap$(v, {
       targetSystem: "TARGET_SYSTEM",
+      includeSignature: "include_signature",
     });
   }),
 );

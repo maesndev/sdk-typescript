@@ -9,8 +9,21 @@ import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
+export type GetBookingProposalDocumentGlobals = {
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
+};
+
 export type GetBookingProposalDocumentRequest = {
   bookingProposalId: string;
+  /**
+   * API key
+   */
+  apiKey?: string | undefined;
+  /**
+   * Account key
+   */
+  accountKey?: string | undefined;
 };
 
 export type GetBookingProposalDocumentPagination = {
@@ -42,6 +55,8 @@ export type GetBookingProposalDocumentResponse = {
 /** @internal */
 export type GetBookingProposalDocumentRequest$Outbound = {
   bookingProposalId: string;
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
 };
 
 /** @internal */
@@ -50,6 +65,8 @@ export const GetBookingProposalDocumentRequest$outboundSchema: z.ZodMiniType<
   GetBookingProposalDocumentRequest
 > = z.object({
   bookingProposalId: z.string(),
+  apiKey: z.optional(z.string()),
+  accountKey: z.optional(z.string()),
 });
 
 export function getBookingProposalDocumentRequestToJSON(

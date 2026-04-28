@@ -9,6 +9,11 @@ import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
+export type GetInvoiceDocumentGlobals = {
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
+};
+
 export type GetInvoiceDocumentRequest = {
   invoiceId: string;
   /**
@@ -19,6 +24,14 @@ export type GetInvoiceDocumentRequest = {
    * ID of the company (required for multi-company target systems)
    */
   companyId?: string | undefined;
+  /**
+   * API key
+   */
+  apiKey?: string | undefined;
+  /**
+   * Account key
+   */
+  accountKey?: string | undefined;
 };
 
 export type GetInvoiceDocumentPagination = {
@@ -52,6 +65,8 @@ export type GetInvoiceDocumentRequest$Outbound = {
   invoiceId: string;
   environmentName?: string | undefined;
   companyId?: string | undefined;
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
 };
 
 /** @internal */
@@ -62,6 +77,8 @@ export const GetInvoiceDocumentRequest$outboundSchema: z.ZodMiniType<
   invoiceId: z.string(),
   environmentName: z.optional(z.string()),
   companyId: z.optional(z.string()),
+  apiKey: z.optional(z.string()),
+  accountKey: z.optional(z.string()),
 });
 
 export function getInvoiceDocumentRequestToJSON(

@@ -10,6 +10,11 @@ import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
+export type GetOffersGlobals = {
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
+};
+
 export const GetOffersLimit = {
   Five: 5,
   Ten: 10,
@@ -58,6 +63,14 @@ export type GetOffersRequest = {
    * When true, returns the unprocessed response from the upstream target system
    */
   rawData?: boolean | undefined;
+  /**
+   * API key
+   */
+  apiKey?: string | undefined;
+  /**
+   * Account key
+   */
+  accountKey?: string | undefined;
 };
 
 export type GetOffersPagination = {
@@ -105,6 +118,8 @@ export type GetOffersRequest$Outbound = {
   companyId?: string | undefined;
   status?: string | undefined;
   rawData?: boolean | undefined;
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
 };
 
 /** @internal */
@@ -119,6 +134,8 @@ export const GetOffersRequest$outboundSchema: z.ZodMiniType<
   companyId: z.optional(z.string()),
   status: z.optional(GetOffersStatus$outboundSchema),
   rawData: z.optional(z.boolean()),
+  apiKey: z.optional(z.string()),
+  accountKey: z.optional(z.string()),
 });
 
 export function getOffersRequestToJSON(

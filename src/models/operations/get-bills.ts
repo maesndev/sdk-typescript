@@ -10,6 +10,11 @@ import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
+export type GetBillsGlobals = {
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
+};
+
 export const GetBillsLimit = {
   Five: 5,
   Ten: 10,
@@ -121,6 +126,14 @@ export type GetBillsRequest = {
    * Sort direction for the ordered results
    */
   orderDir?: GetBillsOrderDir | undefined;
+  /**
+   * API key
+   */
+  apiKey?: string | undefined;
+  /**
+   * Account key
+   */
+  accountKey?: string | undefined;
 };
 
 export type GetBillsPagination = {
@@ -185,6 +198,8 @@ export type GetBillsRequest$Outbound = {
   rawData?: boolean | undefined;
   orderField?: string | undefined;
   orderDir?: string | undefined;
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
 };
 
 /** @internal */
@@ -202,6 +217,8 @@ export const GetBillsRequest$outboundSchema: z.ZodMiniType<
   rawData: z.optional(z.boolean()),
   orderField: z.optional(GetBillsOrderField$outboundSchema),
   orderDir: z.optional(GetBillsOrderDir$outboundSchema),
+  apiKey: z.optional(z.string()),
+  accountKey: z.optional(z.string()),
 });
 
 export function getBillsRequestToJSON(

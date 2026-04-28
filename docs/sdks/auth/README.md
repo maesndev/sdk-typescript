@@ -19,12 +19,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -48,12 +44,8 @@ import { authGetEnvironments } from "@maesn/typescript-sdk/funcs/auth-get-enviro
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -73,6 +65,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetEnvironmentsRequest](../../models/operations/get-environments-request.md)                                                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -97,12 +90,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -126,12 +115,8 @@ import { authGetCompanies } from "@maesn/typescript-sdk/funcs/auth-get-companies
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -176,12 +161,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -207,12 +188,8 @@ import { authSystemLoginUrl } from "@maesn/typescript-sdk/funcs/auth-system-logi
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -259,12 +236,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -302,12 +275,8 @@ import { authCreateEndUserAccount } from "@maesn/typescript-sdk/funcs/auth-creat
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {

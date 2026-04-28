@@ -10,6 +10,11 @@ import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
+export type PostFileGlobals = {
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
+};
+
 export type PostFileFile = {
   fileName: string;
   content: ReadableStream<Uint8Array> | Blob | ArrayBuffer | Uint8Array;
@@ -31,6 +36,14 @@ export type PostFileRequest = {
    * ID of the company (required for multi-company target systems)
    */
   companyId?: string | undefined;
+  /**
+   * API key
+   */
+  apiKey?: string | undefined;
+  /**
+   * Account key
+   */
+  accountKey?: string | undefined;
   body: PostFileRequestBody;
 };
 
@@ -124,6 +137,8 @@ export function postFileRequestBodyToJSON(
 /** @internal */
 export type PostFileRequest$Outbound = {
   companyId?: string | undefined;
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
   body: PostFileRequestBody$Outbound;
 };
 
@@ -133,6 +148,8 @@ export const PostFileRequest$outboundSchema: z.ZodMiniType<
   PostFileRequest
 > = z.object({
   companyId: z.optional(z.string()),
+  apiKey: z.optional(z.string()),
+  accountKey: z.optional(z.string()),
   body: z.lazy(() => PostFileRequestBody$outboundSchema),
 });
 

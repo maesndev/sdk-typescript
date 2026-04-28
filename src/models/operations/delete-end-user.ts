@@ -8,12 +8,51 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 
+export type DeleteEndUserGlobals = {
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
+};
+
+export type DeleteEndUserRequest = {
+  /**
+   * API key
+   */
+  apiKey?: string | undefined;
+  /**
+   * Account key
+   */
+  accountKey?: string | undefined;
+};
+
 /**
  * Operation completed successfully
  */
 export type DeleteEndUserResponse = {
   message?: string | undefined;
 };
+
+/** @internal */
+export type DeleteEndUserRequest$Outbound = {
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
+};
+
+/** @internal */
+export const DeleteEndUserRequest$outboundSchema: z.ZodMiniType<
+  DeleteEndUserRequest$Outbound,
+  DeleteEndUserRequest
+> = z.object({
+  apiKey: z.optional(z.string()),
+  accountKey: z.optional(z.string()),
+});
+
+export function deleteEndUserRequestToJSON(
+  deleteEndUserRequest: DeleteEndUserRequest,
+): string {
+  return JSON.stringify(
+    DeleteEndUserRequest$outboundSchema.parse(deleteEndUserRequest),
+  );
+}
 
 /** @internal */
 export const DeleteEndUserResponse$inboundSchema: z.ZodMiniType<

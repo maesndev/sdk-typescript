@@ -18,6 +18,7 @@
 * [getSubmissionPageStyle](#getsubmissionpagestyle)
 * [updateSubmissionPageStyle](#updatesubmissionpagestyle)
 * [getSubmissionPageStyleByKey](#getsubmissionpagestylebykey)
+* [generateTenantSigningSecret](#generatetenantsigningsecret)
 
 ## systemRegistration
 
@@ -29,25 +30,23 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
   const result = await maesn.tenants.systemRegistration({
-    targetSystem: "<value>",
-    clientId: "<id>",
-    clientSecret: "<value>",
-    customValues: [
-      {
-        key: "<key>",
-        value: "<value>",
-      },
-    ],
+    body: {
+      targetSystem: "<value>",
+      clientId: "<id>",
+      clientSecret: "<value>",
+      customValues: [
+        {
+          key: "<key>",
+          value: "<value>",
+        },
+      ],
+    },
   });
 
   console.log(result);
@@ -68,25 +67,23 @@ import { tenantsSystemRegistration } from "@maesn/typescript-sdk/funcs/tenants-s
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
   const res = await tenantsSystemRegistration(maesn, {
-    targetSystem: "<value>",
-    clientId: "<id>",
-    clientSecret: "<value>",
-    customValues: [
-      {
-        key: "<key>",
-        value: "<value>",
-      },
-    ],
+    body: {
+      targetSystem: "<value>",
+      clientId: "<id>",
+      clientSecret: "<value>",
+      customValues: [
+        {
+          key: "<key>",
+          value: "<value>",
+        },
+      ],
+    },
   });
   if (res.ok) {
     const { value: result } = res;
@@ -103,7 +100,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [models.SystemRegistrationDto](../../models/system-registration-dto.md)                                                                                                        | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.SystemRegistrationRequest](../../models/operations/system-registration-request.md)                                                                                 | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -128,18 +125,16 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
   const result = await maesn.tenants.addCallbackUrl({
-    callbackUrl: "https://steep-tuber.net/",
-    cancelCallbackUrl: "https://tight-sideboard.com/",
+    body: {
+      callbackUrl: "https://steep-tuber.net/",
+      cancelCallbackUrl: "https://tight-sideboard.com/",
+    },
   });
 
   console.log(result);
@@ -160,18 +155,16 @@ import { tenantsAddCallbackUrl } from "@maesn/typescript-sdk/funcs/tenants-add-c
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
   const res = await tenantsAddCallbackUrl(maesn, {
-    callbackUrl: "https://steep-tuber.net/",
-    cancelCallbackUrl: "https://tight-sideboard.com/",
+    body: {
+      callbackUrl: "https://steep-tuber.net/",
+      cancelCallbackUrl: "https://tight-sideboard.com/",
+    },
   });
   if (res.ok) {
     const { value: result } = res;
@@ -188,7 +181,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [models.CallbackUrlRegistrationDto](../../models/callback-url-registration-dto.md)                                                                                             | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.AddCallbackUrlRequest](../../models/operations/add-callback-url-request.md)                                                                                        | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -213,12 +206,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -242,12 +231,8 @@ import { tenantsGetEndUserList } from "@maesn/typescript-sdk/funcs/tenants-get-e
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -267,6 +252,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetEndUserListRequest](../../models/operations/get-end-user-list-request.md)                                                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -291,12 +277,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -320,12 +302,8 @@ import { tenantsCountEndUsersBySystem } from "@maesn/typescript-sdk/funcs/tenant
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -345,6 +323,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.CountEndUsersBySystemRequest](../../models/operations/count-end-users-by-system-request.md)                                                                        | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -369,12 +348,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -398,12 +373,8 @@ import { tenantsDeleteEndUser } from "@maesn/typescript-sdk/funcs/tenants-delete
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -423,6 +394,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.DeleteEndUserRequest](../../models/operations/delete-end-user-request.md)                                                                                          | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -447,12 +419,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -476,12 +444,8 @@ import { tenantsGetCallbackUrl } from "@maesn/typescript-sdk/funcs/tenants-get-c
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -501,6 +465,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetCallbackUrlRequest](../../models/operations/get-callback-url-request.md)                                                                                        | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -525,12 +490,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -554,12 +515,8 @@ import { tenantsGetRegisteredSystems } from "@maesn/typescript-sdk/funcs/tenants
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -579,6 +536,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetRegisteredSystemsRequest](../../models/operations/get-registered-systems-request.md)                                                                            | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -603,12 +561,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -632,12 +586,8 @@ import { tenantsGetTargetSystemValues } from "@maesn/typescript-sdk/funcs/tenant
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -657,6 +607,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetTargetSystemValuesRequest](../../models/operations/get-target-system-values-request.md)                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -681,12 +632,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -710,12 +657,8 @@ import { tenantsGetTargetSystemRequirements } from "@maesn/typescript-sdk/funcs/
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -735,6 +678,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetTargetSystemRequirementsRequest](../../models/operations/get-target-system-requirements-request.md)                                                             | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -759,12 +703,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -788,12 +728,8 @@ import { tenantsGetRegisteredSystemsMasked } from "@maesn/typescript-sdk/funcs/t
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -813,6 +749,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetRegisteredSystemsMaskedRequest](../../models/operations/get-registered-systems-masked-request.md)                                                               | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -837,12 +774,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -868,12 +801,8 @@ import { tenantsDeleteRegisteredSystem } from "@maesn/typescript-sdk/funcs/tenan
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -920,12 +849,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -951,12 +876,8 @@ import { tenantsGetSubmissionPageStyle } from "@maesn/typescript-sdk/funcs/tenan
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -1003,25 +924,23 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
   const result = await maesn.tenants.updateSubmissionPageStyle({
-    logoSvg: "<value>",
-    logoPng: "<value>",
-    backgroundColor: "<value>",
-    titleColor: "<value>",
-    textColor: "<value>",
-    inputBackgroundColor: "<value>",
-    submitButtonColor: "<value>",
-    cancelButtonColor: "<value>",
-    errorTextColor: "<value>",
+    body: {
+      logoSvg: "<value>",
+      logoPng: "<value>",
+      backgroundColor: "<value>",
+      titleColor: "<value>",
+      textColor: "<value>",
+      inputBackgroundColor: "<value>",
+      submitButtonColor: "<value>",
+      cancelButtonColor: "<value>",
+      errorTextColor: "<value>",
+    },
   });
 
   console.log(result);
@@ -1042,25 +961,23 @@ import { tenantsUpdateSubmissionPageStyle } from "@maesn/typescript-sdk/funcs/te
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
   const res = await tenantsUpdateSubmissionPageStyle(maesn, {
-    logoSvg: "<value>",
-    logoPng: "<value>",
-    backgroundColor: "<value>",
-    titleColor: "<value>",
-    textColor: "<value>",
-    inputBackgroundColor: "<value>",
-    submitButtonColor: "<value>",
-    cancelButtonColor: "<value>",
-    errorTextColor: "<value>",
+    body: {
+      logoSvg: "<value>",
+      logoPng: "<value>",
+      backgroundColor: "<value>",
+      titleColor: "<value>",
+      textColor: "<value>",
+      inputBackgroundColor: "<value>",
+      submitButtonColor: "<value>",
+      cancelButtonColor: "<value>",
+      errorTextColor: "<value>",
+    },
   });
   if (res.ok) {
     const { value: result } = res;
@@ -1077,7 +994,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [models.SubmissionPageStyleDto](../../models/submission-page-style-dto.md)                                                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.UpdateSubmissionPageStyleRequest](../../models/operations/update-submission-page-style-request.md)                                                                 | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -1102,12 +1019,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -1131,12 +1044,8 @@ import { tenantsGetSubmissionPageStyleByKey } from "@maesn/typescript-sdk/funcs/
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -1156,6 +1065,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetSubmissionPageStyleByKeyRequest](../../models/operations/get-submission-page-style-by-key-request.md)                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -1163,6 +1073,77 @@ run();
 ### Response
 
 **Promise\<[operations.GetSubmissionPageStyleByKeyResponse](../../models/operations/get-submission-page-style-by-key-response.md)\>**
+
+### Errors
+
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
+
+## generateTenantSigningSecret
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="generateTenantSigningSecret" method="post" path="/tenants/signing-secret" -->
+```typescript
+import { Maesn } from "@maesn/typescript-sdk";
+
+const maesn = new Maesn({
+  serverURL: "https://api.example.com",
+  apiKey: "<value>",
+  accountKey: "<value>",
+});
+
+async function run() {
+  const result = await maesn.tenants.generateTenantSigningSecret();
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { tenantsGenerateTenantSigningSecret } from "@maesn/typescript-sdk/funcs/tenants-generate-tenant-signing-secret.js";
+
+// Use `MaesnCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const maesn = new MaesnCore({
+  serverURL: "https://api.example.com",
+  apiKey: "<value>",
+  accountKey: "<value>",
+});
+
+async function run() {
+  const res = await tenantsGenerateTenantSigningSecret(maesn);
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("tenantsGenerateTenantSigningSecret failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GenerateTenantSigningSecretRequest](../../models/operations/generate-tenant-signing-secret-request.md)                                                             | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.GenerateTenantSigningSecretResponse](../../models/operations/generate-tenant-signing-secret-response.md)\>**
 
 ### Errors
 

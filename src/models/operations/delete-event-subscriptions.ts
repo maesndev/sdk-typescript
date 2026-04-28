@@ -4,18 +4,33 @@
 
 import * as z from "zod/v4-mini";
 
+export type DeleteEventSubscriptionsGlobals = {
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
+};
+
 export type DeleteEventSubscriptionsRequest = {
   eventSubscriptionId: string;
   /**
    * ID of the company (required for multi-company target systems)
    */
   companyId?: string | undefined;
+  /**
+   * API key
+   */
+  apiKey?: string | undefined;
+  /**
+   * Account key
+   */
+  accountKey?: string | undefined;
 };
 
 /** @internal */
 export type DeleteEventSubscriptionsRequest$Outbound = {
   eventSubscriptionId: string;
   companyId?: string | undefined;
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
 };
 
 /** @internal */
@@ -25,6 +40,8 @@ export const DeleteEventSubscriptionsRequest$outboundSchema: z.ZodMiniType<
 > = z.object({
   eventSubscriptionId: z.string(),
   companyId: z.optional(z.string()),
+  apiKey: z.optional(z.string()),
+  accountKey: z.optional(z.string()),
 });
 
 export function deleteEventSubscriptionsRequestToJSON(

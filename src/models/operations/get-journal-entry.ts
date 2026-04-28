@@ -9,6 +9,11 @@ import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
+export type GetJournalEntryGlobals = {
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
+};
+
 export type GetJournalEntryRequest = {
   journalEntryId: string;
   /**
@@ -27,6 +32,14 @@ export type GetJournalEntryRequest = {
    * When true, returns the unprocessed response from the upstream target system
    */
   rawData?: boolean | undefined;
+  /**
+   * API key
+   */
+  apiKey?: string | undefined;
+  /**
+   * Account key
+   */
+  accountKey?: string | undefined;
 };
 
 export type GetJournalEntryPagination = {
@@ -62,6 +75,8 @@ export type GetJournalEntryRequest$Outbound = {
   companyId?: string | undefined;
   journalCode?: string | undefined;
   rawData?: boolean | undefined;
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
 };
 
 /** @internal */
@@ -74,6 +89,8 @@ export const GetJournalEntryRequest$outboundSchema: z.ZodMiniType<
   companyId: z.optional(z.string()),
   journalCode: z.optional(z.string()),
   rawData: z.optional(z.boolean()),
+  apiKey: z.optional(z.string()),
+  accountKey: z.optional(z.string()),
 });
 
 export function getJournalEntryRequestToJSON(

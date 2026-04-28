@@ -6,11 +6,56 @@ import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
+import * as models from "../index.js";
+
+export type UpdateSubmissionPageStyleGlobals = {
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
+};
+
+export type UpdateSubmissionPageStyleRequest = {
+  /**
+   * API key
+   */
+  apiKey?: string | undefined;
+  /**
+   * Account key
+   */
+  accountKey?: string | undefined;
+  body: models.SubmissionPageStyleDto;
+};
 
 /**
  * Submission page style updated successfully
  */
 export type UpdateSubmissionPageStyleResponse = {};
+
+/** @internal */
+export type UpdateSubmissionPageStyleRequest$Outbound = {
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
+  body: models.SubmissionPageStyleDto$Outbound;
+};
+
+/** @internal */
+export const UpdateSubmissionPageStyleRequest$outboundSchema: z.ZodMiniType<
+  UpdateSubmissionPageStyleRequest$Outbound,
+  UpdateSubmissionPageStyleRequest
+> = z.object({
+  apiKey: z.optional(z.string()),
+  accountKey: z.optional(z.string()),
+  body: models.SubmissionPageStyleDto$outboundSchema,
+});
+
+export function updateSubmissionPageStyleRequestToJSON(
+  updateSubmissionPageStyleRequest: UpdateSubmissionPageStyleRequest,
+): string {
+  return JSON.stringify(
+    UpdateSubmissionPageStyleRequest$outboundSchema.parse(
+      updateSubmissionPageStyleRequest,
+    ),
+  );
+}
 
 /** @internal */
 export const UpdateSubmissionPageStyleResponse$inboundSchema: z.ZodMiniType<

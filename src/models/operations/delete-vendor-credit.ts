@@ -8,6 +8,11 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 
+export type DeleteVendorCreditGlobals = {
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
+};
+
 export type DeleteVendorCreditRequest = {
   vendorCreditId: string;
   /**
@@ -18,6 +23,14 @@ export type DeleteVendorCreditRequest = {
    * ID of the company (required for multi-company target systems)
    */
   companyId?: string | undefined;
+  /**
+   * API key
+   */
+  apiKey?: string | undefined;
+  /**
+   * Account key
+   */
+  accountKey?: string | undefined;
 };
 
 export type DeleteVendorCreditPagination = {
@@ -51,6 +64,8 @@ export type DeleteVendorCreditRequest$Outbound = {
   vendorCreditId: string;
   environmentName?: string | undefined;
   companyId?: string | undefined;
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
 };
 
 /** @internal */
@@ -61,6 +76,8 @@ export const DeleteVendorCreditRequest$outboundSchema: z.ZodMiniType<
   vendorCreditId: z.string(),
   environmentName: z.optional(z.string()),
   companyId: z.optional(z.string()),
+  apiKey: z.optional(z.string()),
+  accountKey: z.optional(z.string()),
 });
 
 export function deleteVendorCreditRequestToJSON(

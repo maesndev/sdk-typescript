@@ -10,6 +10,11 @@ import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
+export type CreateJournalEntryGlobals = {
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
+};
+
 export type CreateJournalEntryFile = {
   fileName: string;
   content: ReadableStream<Uint8Array> | Blob | ArrayBuffer | Uint8Array;
@@ -30,6 +35,14 @@ export type CreateJournalEntryRequest = {
    * ID of the company (required for multi-company target systems)
    */
   companyId?: string | undefined;
+  /**
+   * API key
+   */
+  apiKey?: string | undefined;
+  /**
+   * Account key
+   */
+  accountKey?: string | undefined;
   body: CreateJournalEntryRequestBody;
 };
 
@@ -129,6 +142,8 @@ export function createJournalEntryRequestBodyToJSON(
 export type CreateJournalEntryRequest$Outbound = {
   environmentName?: string | undefined;
   companyId?: string | undefined;
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
   body: CreateJournalEntryRequestBody$Outbound;
 };
 
@@ -139,6 +154,8 @@ export const CreateJournalEntryRequest$outboundSchema: z.ZodMiniType<
 > = z.object({
   environmentName: z.optional(z.string()),
   companyId: z.optional(z.string()),
+  apiKey: z.optional(z.string()),
+  accountKey: z.optional(z.string()),
   body: z.lazy(() => CreateJournalEntryRequestBody$outboundSchema),
 });
 

@@ -27,7 +27,6 @@ Once you get started with maesn and integrate with our endpoints, you automatica
   * [SDK Installation](#sdk-installation)
   * [Requirements](#requirements)
   * [SDK Example Usage](#sdk-example-usage)
-  * [Authentication](#authentication)
   * [Available Resources and Operations](#available-resources-and-operations)
   * [Standalone functions](#standalone-functions)
   * [File uploads](#file-uploads)
@@ -91,12 +90,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -111,82 +106,6 @@ run();
 
 ```
 <!-- End SDK Example Usage [usage] -->
-
-<!-- Start Authentication [security] -->
-## Authentication
-
-### Per-Client Security Schemes
-
-This SDK supports multiple security scheme combinations globally. You can choose from one of the alternatives by setting the `security` optional parameter when initializing the SDK client instance. The selected option will be used by default to authenticate with the API for all operations that support it.
-
-#### Option1
-
-All of the following schemes must be satisfied to use the `Option1` alternative:
-
-| Name         | Type   | Scheme  | Environment Variable |
-| ------------ | ------ | ------- | -------------------- |
-| `apiKey`     | apiKey | API key | `MAESN_API_KEY`      |
-| `accountKey` | apiKey | API key | `MAESN_ACCOUNT_KEY`  |
-
-Example:
-```typescript
-import { Maesn } from "@maesn/typescript-sdk";
-
-const maesn = new Maesn({
-  serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
-});
-
-async function run() {
-  const result = await maesn.accounting.getAccount({
-    accountId: "<id>",
-  });
-
-  console.log(result);
-}
-
-run();
-
-```
-
-#### Option2
-
-The `Option2` alternative relies on the following scheme:
-
-| Name     | Type   | Scheme  | Environment Variable |
-| -------- | ------ | ------- | -------------------- |
-| `apiKey` | apiKey | API key | `MAESN_API_KEY`      |
-
-Example:
-```typescript
-import { Maesn } from "@maesn/typescript-sdk";
-
-const maesn = new Maesn({
-  serverURL: "https://api.example.com",
-  security: {
-    option2: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-    },
-  },
-});
-
-async function run() {
-  const result = await maesn.accounting.getAccount({
-    accountId: "<id>",
-  });
-
-  console.log(result);
-}
-
-run();
-
-```
-<!-- End Authentication [security] -->
 
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
@@ -227,6 +146,7 @@ run();
 * [patchInvoice](docs/sdks/accounting/README.md#patchinvoice)
 * [getInvoiceDocument](docs/sdks/accounting/README.md#getinvoicedocument)
 * [postFile](docs/sdks/accounting/README.md#postfile)
+* [postFileAsync](docs/sdks/accounting/README.md#postfileasync)
 * [getDocumentTypes](docs/sdks/accounting/README.md#getdocumenttypes)
 * [getDocumentExtensions](docs/sdks/accounting/README.md#getdocumentextensions)
 * [getAsyncTaskInfo](docs/sdks/accounting/README.md#getasynctaskinfo)
@@ -307,6 +227,7 @@ run();
 * [getCreditNote](docs/sdks/accounting/README.md#getcreditnote)
 * [getFiscalYears](docs/sdks/accounting/README.md#getfiscalyears)
 * [getFiscalYear](docs/sdks/accounting/README.md#getfiscalyear)
+* [createExpenseAsync](docs/sdks/accounting/README.md#createexpenseasync)
 
 ### [AccountingV2](docs/sdks/accountingv2/README.md)
 
@@ -352,6 +273,7 @@ run();
 * [getSubmissionPageStyle](docs/sdks/tenants/README.md#getsubmissionpagestyle)
 * [updateSubmissionPageStyle](docs/sdks/tenants/README.md#updatesubmissionpagestyle)
 * [getSubmissionPageStyleByKey](docs/sdks/tenants/README.md#getsubmissionpagestylebykey)
+* [generateTenantSigningSecret](docs/sdks/tenants/README.md#generatetenantsigningsecret)
 
 ### [User](docs/sdks/user/README.md)
 
@@ -394,6 +316,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`accountingCreateCustomer`](docs/sdks/accounting/README.md#createcustomer)
 - [`accountingCreateEventSubscriptions`](docs/sdks/accounting/README.md#createeventsubscriptions)
 - [`accountingCreateExpense`](docs/sdks/accounting/README.md#createexpense)
+- [`accountingCreateExpenseAsync`](docs/sdks/accounting/README.md#createexpenseasync)
 - [`accountingCreateInvoice`](docs/sdks/accounting/README.md#createinvoice)
 - [`accountingCreateItem`](docs/sdks/accounting/README.md#createitem)
 - [`accountingCreateJournalEntries`](docs/sdks/accounting/README.md#createjournalentries)
@@ -488,6 +411,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`accountingPatchLineItem`](docs/sdks/accounting/README.md#patchlineitem)
 - [`accountingPatchSupplier`](docs/sdks/accounting/README.md#patchsupplier)
 - [`accountingPostFile`](docs/sdks/accounting/README.md#postfile)
+- [`accountingPostFileAsync`](docs/sdks/accounting/README.md#postfileasync)
 - [`accountingPutContact`](docs/sdks/accounting/README.md#putcontact)
 - [`accountingUpdateBill`](docs/sdks/accounting/README.md#updatebill)
 - [`accountingUpdateBillLineItem`](docs/sdks/accounting/README.md#updatebilllineitem)
@@ -514,6 +438,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`tenantsCountEndUsersBySystem`](docs/sdks/tenants/README.md#countendusersbysystem)
 - [`tenantsDeleteEndUser`](docs/sdks/tenants/README.md#deleteenduser)
 - [`tenantsDeleteRegisteredSystem`](docs/sdks/tenants/README.md#deleteregisteredsystem)
+- [`tenantsGenerateTenantSigningSecret`](docs/sdks/tenants/README.md#generatetenantsigningsecret)
 - [`tenantsGetCallbackUrl`](docs/sdks/tenants/README.md#getcallbackurl)
 - [`tenantsGetEndUserList`](docs/sdks/tenants/README.md#getenduserlist)
 - [`tenantsGetRegisteredSystems`](docs/sdks/tenants/README.md#getregisteredsystems)
@@ -553,12 +478,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -680,12 +601,8 @@ import * as errors from "@maesn/typescript-sdk/models/errors";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {

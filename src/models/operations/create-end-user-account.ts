@@ -10,8 +10,21 @@ import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
+export type CreateEndUserAccountGlobals = {
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
+};
+
 export type CreateEndUserAccountRequest = {
   targetSystem: string;
+  /**
+   * API key
+   */
+  apiKey?: string | undefined;
+  /**
+   * Account key
+   */
+  accountKey?: string | undefined;
   body: models.CreateEndUserRequestDto;
 };
 
@@ -25,6 +38,8 @@ export type CreateEndUserAccountResponse = {
 /** @internal */
 export type CreateEndUserAccountRequest$Outbound = {
   TARGET_SYSTEM: string;
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
   body: models.CreateEndUserRequestDto$Outbound;
 };
 
@@ -35,6 +50,8 @@ export const CreateEndUserAccountRequest$outboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     targetSystem: z.string(),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
     body: models.CreateEndUserRequestDto$outboundSchema,
   }),
   z.transform((v) => {

@@ -4,13 +4,12 @@
 
 import * as z from "zod/v4-mini";
 import { MaesnCore } from "../core.js";
-import { encodeJSON } from "../lib/encodings.js";
+import { encodeJSON, encodeSimple } from "../lib/encodings.js";
 import { matchStatusCode } from "../lib/http.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
-import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
 import {
   ConnectionError,
@@ -22,14 +21,14 @@ import {
 import { MaesnError } from "../models/errors/maesn-error.js";
 import { ResponseValidationError } from "../models/errors/response-validation-error.js";
 import { SDKValidationError } from "../models/errors/sdk-validation-error.js";
-import * as models from "../models/index.js";
+import * as operations from "../models/operations/index.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 import * as types$ from "../types/primitives.js";
 
 export function tenantsAddCallbackUrl(
   client: MaesnCore,
-  request: models.CallbackUrlRegistrationDto,
+  request: operations.AddCallbackUrlRequest,
   options?: RequestOptions,
 ): APIPromise<
   Result<
@@ -53,7 +52,7 @@ export function tenantsAddCallbackUrl(
 
 async function $do(
   client: MaesnCore,
-  request: models.CallbackUrlRegistrationDto,
+  request: operations.AddCallbackUrlRequest,
   options?: RequestOptions,
 ): Promise<
   [
@@ -73,24 +72,31 @@ async function $do(
 > {
   const parsed = safeParse(
     request,
-    (value) => z.parse(models.CallbackUrlRegistrationDto$outboundSchema, value),
+    (value) => z.parse(operations.AddCallbackUrlRequest$outboundSchema, value),
     "Input validation failed",
   );
   if (!parsed.ok) {
     return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
-  const body = encodeJSON("body", payload, { explode: true });
+  const body = encodeJSON("body", payload.body, { explode: true });
 
   const path = pathToFunc("/tenants/add-callback-urls")();
 
   const headers = new Headers(compactMap({
     "Content-Type": "application/json",
     Accept: "application/json",
+    "X-ACCOUNT-KEY": encodeSimple(
+      "X-ACCOUNT-KEY",
+      payload.accountKey ?? client._options.accountKey,
+      { explode: false, charEncoding: "none" },
+    ),
+    "X-API-KEY": encodeSimple(
+      "X-API-KEY",
+      payload.apiKey ?? client._options.apiKey,
+      { explode: false, charEncoding: "none" },
+    ),
   }));
-
-  const securityInput = await extractSecurity(client._options.security);
-  const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
     options: client._options,
@@ -98,9 +104,9 @@ async function $do(
     operationID: "addCallbackUrl",
     oAuth2Scopes: null,
 
-    resolvedSecurity: requestSecurity,
+    resolvedSecurity: null,
 
-    securitySource: client._options.security,
+    securitySource: null,
     retryConfig: options?.retries
       || client._options.retryConfig
       || { strategy: "none" },
@@ -108,7 +114,6 @@ async function $do(
   };
 
   const requestRes = client._createRequest(context, {
-    security: requestSecurity,
     method: "POST",
     baseURL: options?.serverURL,
     path: path,

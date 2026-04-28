@@ -7,10 +7,51 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 
+export type GetSubmissionPageStyleByKeyGlobals = {
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
+};
+
+export type GetSubmissionPageStyleByKeyRequest = {
+  /**
+   * API key
+   */
+  apiKey?: string | undefined;
+  /**
+   * Account key
+   */
+  accountKey?: string | undefined;
+};
+
 /**
  * Submission page style configuration for the authenticated tenant
  */
 export type GetSubmissionPageStyleByKeyResponse = {};
+
+/** @internal */
+export type GetSubmissionPageStyleByKeyRequest$Outbound = {
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
+};
+
+/** @internal */
+export const GetSubmissionPageStyleByKeyRequest$outboundSchema: z.ZodMiniType<
+  GetSubmissionPageStyleByKeyRequest$Outbound,
+  GetSubmissionPageStyleByKeyRequest
+> = z.object({
+  apiKey: z.optional(z.string()),
+  accountKey: z.optional(z.string()),
+});
+
+export function getSubmissionPageStyleByKeyRequestToJSON(
+  getSubmissionPageStyleByKeyRequest: GetSubmissionPageStyleByKeyRequest,
+): string {
+  return JSON.stringify(
+    GetSubmissionPageStyleByKeyRequest$outboundSchema.parse(
+      getSubmissionPageStyleByKeyRequest,
+    ),
+  );
+}
 
 /** @internal */
 export const GetSubmissionPageStyleByKeyResponse$inboundSchema: z.ZodMiniType<

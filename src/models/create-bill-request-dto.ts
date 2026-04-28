@@ -98,6 +98,7 @@ export type CreateBillRequestDto = {
   name?: string | undefined;
   oneLineAddress?: string | undefined;
   paidDate?: CreateBillRequestDtoPaidDate | undefined;
+  paymentReference?: string | undefined;
   paymentTermCode?: string | undefined;
   paymentStatus?: CreateBillRequestDtoPaymentStatus | undefined;
   paymentDays?: number | undefined;
@@ -188,6 +189,7 @@ export type CreateBillRequestDto$Outbound = {
   name?: string | undefined;
   oneLineAddress?: string | undefined;
   paidDate?: CreateBillRequestDtoPaidDate$Outbound | undefined;
+  paymentReference?: string | undefined;
   paymentTermCode?: string | undefined;
   paymentStatus?: string | undefined;
   paymentDays?: number | undefined;
@@ -225,6 +227,7 @@ export const CreateBillRequestDto$outboundSchema: z.ZodMiniType<
   paidDate: z.optional(
     z.lazy(() => CreateBillRequestDtoPaidDate$outboundSchema),
   ),
+  paymentReference: z.optional(z.string()),
   paymentTermCode: z.optional(z.string()),
   paymentStatus: z.optional(CreateBillRequestDtoPaymentStatus$outboundSchema),
   paymentDays: z.optional(z.number()),

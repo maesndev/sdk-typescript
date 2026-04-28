@@ -9,6 +9,11 @@ import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
+export type GetFiscalYearGlobals = {
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
+};
+
 export type GetFiscalYearRequest = {
   fiscalYearId: string;
   /**
@@ -23,6 +28,14 @@ export type GetFiscalYearRequest = {
    * When true, returns the unprocessed response from the upstream target system
    */
   rawData?: boolean | undefined;
+  /**
+   * API key
+   */
+  apiKey?: string | undefined;
+  /**
+   * Account key
+   */
+  accountKey?: string | undefined;
 };
 
 export type GetFiscalYearPagination = {
@@ -57,6 +70,8 @@ export type GetFiscalYearRequest$Outbound = {
   environmentName?: string | undefined;
   companyId?: string | undefined;
   rawData?: boolean | undefined;
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
 };
 
 /** @internal */
@@ -68,6 +83,8 @@ export const GetFiscalYearRequest$outboundSchema: z.ZodMiniType<
   environmentName: z.optional(z.string()),
   companyId: z.optional(z.string()),
   rawData: z.optional(z.boolean()),
+  apiKey: z.optional(z.string()),
+  accountKey: z.optional(z.string()),
 });
 
 export function getFiscalYearRequestToJSON(

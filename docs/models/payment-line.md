@@ -23,6 +23,7 @@ let value: PaymentLine = {
 | `accountId`        | *string*           | :heavy_check_mark: | N/A                |
 | `amount`           | *number*           | :heavy_check_mark: | N/A                |
 | `contactName`      | *string*           | :heavy_check_mark: | N/A                |
+| `contactId`        | *string*           | :heavy_minus_sign: | N/A                |
 | `customerId`       | *string*           | :heavy_minus_sign: | N/A                |
 | `description`      | *string*           | :heavy_check_mark: | N/A                |
 | `invoiceId`        | *string*           | :heavy_check_mark: | N/A                |

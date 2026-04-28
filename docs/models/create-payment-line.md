@@ -15,6 +15,7 @@ let value: CreatePaymentLine = {};
 | `accountId`        | *string*           | :heavy_minus_sign: | N/A                |
 | `amount`           | *number*           | :heavy_minus_sign: | N/A                |
 | `contactName`      | *string*           | :heavy_minus_sign: | N/A                |
+| `contactId`        | *string*           | :heavy_minus_sign: | N/A                |
 | `customerId`       | *string*           | :heavy_minus_sign: | N/A                |
 | `description`      | *string*           | :heavy_minus_sign: | N/A                |
 | `invoiceId`        | *string*           | :heavy_minus_sign: | N/A                |

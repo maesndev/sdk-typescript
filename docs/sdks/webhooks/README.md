@@ -20,12 +20,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -53,12 +49,8 @@ import { webhooksCreateWebhookEndUser } from "@maesn/typescript-sdk/funcs/webhoo
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -107,12 +99,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -138,12 +126,8 @@ import { webhooksDeleteWebhookEndUser } from "@maesn/typescript-sdk/funcs/webhoo
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -190,12 +174,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -223,12 +203,8 @@ import { webhooksCreateWebhook } from "@maesn/typescript-sdk/funcs/webhooks-crea
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -277,12 +253,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -306,12 +278,8 @@ import { webhooksGetWebhooks } from "@maesn/typescript-sdk/funcs/webhooks-get-we
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -356,12 +324,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -387,12 +351,8 @@ import { webhooksDeleteWebhook } from "@maesn/typescript-sdk/funcs/webhooks-dele
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {

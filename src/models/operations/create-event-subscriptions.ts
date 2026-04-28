@@ -5,17 +5,32 @@
 import * as z from "zod/v4-mini";
 import * as models from "../index.js";
 
+export type CreateEventSubscriptionsGlobals = {
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
+};
+
 export type CreateEventSubscriptionsRequest = {
   /**
    * ID of the company (required for multi-company target systems)
    */
   companyId?: string | undefined;
+  /**
+   * API key
+   */
+  apiKey?: string | undefined;
+  /**
+   * Account key
+   */
+  accountKey?: string | undefined;
   body: models.CreateEventSubscriptionRequestDto;
 };
 
 /** @internal */
 export type CreateEventSubscriptionsRequest$Outbound = {
   companyId?: string | undefined;
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
   body: models.CreateEventSubscriptionRequestDto$Outbound;
 };
 
@@ -25,6 +40,8 @@ export const CreateEventSubscriptionsRequest$outboundSchema: z.ZodMiniType<
   CreateEventSubscriptionsRequest
 > = z.object({
   companyId: z.optional(z.string()),
+  apiKey: z.optional(z.string()),
+  accountKey: z.optional(z.string()),
   body: models.CreateEventSubscriptionRequestDto$outboundSchema,
 });
 
