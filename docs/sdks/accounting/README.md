@@ -35,6 +35,7 @@
 * [patchInvoice](#patchinvoice)
 * [getInvoiceDocument](#getinvoicedocument)
 * [postFile](#postfile)
+* [postFileAsync](#postfileasync)
 * [getDocumentTypes](#getdocumenttypes)
 * [getDocumentExtensions](#getdocumentextensions)
 * [getAsyncTaskInfo](#getasynctaskinfo)
@@ -115,6 +116,7 @@
 * [getCreditNote](#getcreditnote)
 * [getFiscalYears](#getfiscalyears)
 * [getFiscalYear](#getfiscalyear)
+* [createExpenseAsync](#createexpenseasync)
 
 ## getAccount
 
@@ -126,12 +128,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -157,12 +155,8 @@ import { accountingGetAccount } from "@maesn/typescript-sdk/funcs/accounting-get
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -209,12 +203,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -238,12 +228,8 @@ import { accountingGetAccounts } from "@maesn/typescript-sdk/funcs/accounting-ge
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -288,12 +274,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -319,12 +301,8 @@ import { accountingCreateAccount } from "@maesn/typescript-sdk/funcs/accounting-
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -371,12 +349,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -400,12 +374,8 @@ import { accountingGetBankAccounts } from "@maesn/typescript-sdk/funcs/accountin
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -450,12 +420,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -481,12 +447,8 @@ import { accountingCreateBankAccount } from "@maesn/typescript-sdk/funcs/account
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -533,12 +495,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -564,12 +522,8 @@ import { accountingGetBankAccount } from "@maesn/typescript-sdk/funcs/accounting
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -616,12 +570,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -645,12 +595,8 @@ import { accountingGetDimensions } from "@maesn/typescript-sdk/funcs/accounting-
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -695,12 +641,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -726,12 +668,8 @@ import { accountingCreateTransaction } from "@maesn/typescript-sdk/funcs/account
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -778,12 +716,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -807,12 +741,8 @@ import { accountingGetCustomers } from "@maesn/typescript-sdk/funcs/accounting-g
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -857,12 +787,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -890,12 +816,8 @@ import { accountingCreateCustomer } from "@maesn/typescript-sdk/funcs/accounting
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -944,12 +866,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -975,12 +893,8 @@ import { accountingGetCustomer } from "@maesn/typescript-sdk/funcs/accounting-ge
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -1027,12 +941,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -1061,12 +971,8 @@ import { accountingUpdateCustomer } from "@maesn/typescript-sdk/funcs/accounting
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -1116,12 +1022,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -1148,12 +1050,8 @@ import { accountingPatchCustomers } from "@maesn/typescript-sdk/funcs/accounting
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -1201,12 +1099,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -1230,12 +1124,8 @@ import { accountingGetSuppliers } from "@maesn/typescript-sdk/funcs/accounting-g
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -1280,12 +1170,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -1313,12 +1199,8 @@ import { accountingCreateSupplier } from "@maesn/typescript-sdk/funcs/accounting
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -1367,12 +1249,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -1398,12 +1276,8 @@ import { accountingGetSupplier } from "@maesn/typescript-sdk/funcs/accounting-ge
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -1450,12 +1324,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -1484,12 +1354,8 @@ import { accountingUpdateSupplier } from "@maesn/typescript-sdk/funcs/accounting
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -1539,12 +1405,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -1571,12 +1433,8 @@ import { accountingPatchSupplier } from "@maesn/typescript-sdk/funcs/accounting-
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -1624,12 +1482,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -1653,12 +1507,8 @@ import { accountingGetContacts } from "@maesn/typescript-sdk/funcs/accounting-ge
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -1703,12 +1553,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -1736,12 +1582,8 @@ import { accountingCreateContact } from "@maesn/typescript-sdk/funcs/accounting-
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -1790,12 +1632,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -1821,12 +1659,8 @@ import { accountingGetContact } from "@maesn/typescript-sdk/funcs/accounting-get
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -1873,12 +1707,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -1907,12 +1737,8 @@ import { accountingPutContact } from "@maesn/typescript-sdk/funcs/accounting-put
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -1962,12 +1788,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -1996,12 +1818,8 @@ import { accountingPatchContact } from "@maesn/typescript-sdk/funcs/accounting-p
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -2051,12 +1869,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -2135,12 +1949,8 @@ import { accountingCreateContacts } from "@maesn/typescript-sdk/funcs/accounting
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -2240,12 +2050,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -2276,12 +2082,8 @@ import { accountingCreateContactsV1 } from "@maesn/typescript-sdk/funcs/accounti
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -2333,12 +2135,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -2362,12 +2160,8 @@ import { accountingGetInvoices } from "@maesn/typescript-sdk/funcs/accounting-ge
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -2412,12 +2206,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -2446,12 +2236,8 @@ import { accountingCreateInvoice } from "@maesn/typescript-sdk/funcs/accounting-
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -2501,12 +2287,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -2532,12 +2314,8 @@ import { accountingGetInvoice } from "@maesn/typescript-sdk/funcs/accounting-get
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -2584,12 +2362,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -2616,12 +2390,8 @@ import { accountingPatchInvoice } from "@maesn/typescript-sdk/funcs/accounting-p
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -2669,12 +2439,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -2700,12 +2466,8 @@ import { accountingGetInvoiceDocument } from "@maesn/typescript-sdk/funcs/accoun
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -2752,12 +2514,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -2791,12 +2549,8 @@ import { accountingPostFile } from "@maesn/typescript-sdk/funcs/accounting-post-
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -2841,6 +2595,93 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
+## postFileAsync
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="postFileAsync" method="post" path="/accounting/files/async" -->
+```typescript
+import { Maesn } from "@maesn/typescript-sdk";
+
+const maesn = new Maesn({
+  serverURL: "https://api.example.com",
+  apiKey: "<value>",
+  accountKey: "<value>",
+});
+
+async function run() {
+  const result = await maesn.accounting.postFileAsync({
+    body: {
+      documentDate: "2025-03-26T08:25:54.060Z",
+      documentId: "b5e624e5-fb9e-4836-a443-87a3820f5b48",
+      documentType: "Rechnungsausgang",
+      integrationSource: "3rd party app",
+      note: "note for the document",
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingPostFileAsync } from "@maesn/typescript-sdk/funcs/accounting-post-file-async.js";
+
+// Use `MaesnCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const maesn = new MaesnCore({
+  serverURL: "https://api.example.com",
+  apiKey: "<value>",
+  accountKey: "<value>",
+});
+
+async function run() {
+  const res = await accountingPostFileAsync(maesn, {
+    body: {
+      documentDate: "2025-03-26T08:25:54.060Z",
+      documentId: "b5e624e5-fb9e-4836-a443-87a3820f5b48",
+      documentType: "Rechnungsausgang",
+      integrationSource: "3rd party app",
+      note: "note for the document",
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingPostFileAsync failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.PostFileAsyncRequest](../../models/operations/post-file-async-request.md)                                                                                          | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.PostFileAsyncResponse](../../models/operations/post-file-async-response.md)\>**
+
+### Errors
+
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
+
 ## getDocumentTypes
 
 ### Example Usage
@@ -2851,12 +2692,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -2880,12 +2717,8 @@ import { accountingGetDocumentTypes } from "@maesn/typescript-sdk/funcs/accounti
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -2930,12 +2763,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -2959,12 +2788,8 @@ import { accountingGetDocumentExtensions } from "@maesn/typescript-sdk/funcs/acc
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -3009,12 +2834,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -3040,12 +2861,8 @@ import { accountingGetAsyncTaskInfo } from "@maesn/typescript-sdk/funcs/accounti
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -3092,12 +2909,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -3121,12 +2934,8 @@ import { accountingGetItems } from "@maesn/typescript-sdk/funcs/accounting-get-i
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -3171,12 +2980,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -3202,12 +3007,8 @@ import { accountingCreateItem } from "@maesn/typescript-sdk/funcs/accounting-cre
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -3254,12 +3055,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -3285,12 +3082,8 @@ import { accountingGetItem } from "@maesn/typescript-sdk/funcs/accounting-get-it
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -3337,12 +3130,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -3369,12 +3158,8 @@ import { accountingPatchItem } from "@maesn/typescript-sdk/funcs/accounting-patc
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -3422,12 +3207,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -3453,12 +3234,8 @@ import { accountingGetLineItems } from "@maesn/typescript-sdk/funcs/accounting-g
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -3505,12 +3282,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -3539,12 +3312,8 @@ import { accountingCreateLineItem } from "@maesn/typescript-sdk/funcs/accounting
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -3594,12 +3363,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -3626,12 +3391,8 @@ import { accountingGetLineItem } from "@maesn/typescript-sdk/funcs/accounting-ge
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -3679,12 +3440,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -3712,12 +3469,8 @@ import { accountingPatchLineItem } from "@maesn/typescript-sdk/funcs/accounting-
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -3766,12 +3519,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -3795,12 +3544,8 @@ import { accountingGetJournals } from "@maesn/typescript-sdk/funcs/accounting-ge
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -3845,12 +3590,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -3874,12 +3615,8 @@ import { accountingGetJournalEntries } from "@maesn/typescript-sdk/funcs/account
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -3924,12 +3661,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -3955,12 +3688,8 @@ import { accountingCreateJournalEntry } from "@maesn/typescript-sdk/funcs/accoun
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -4007,12 +3736,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -4038,12 +3763,8 @@ import { accountingGetJournalEntry } from "@maesn/typescript-sdk/funcs/accountin
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -4090,12 +3811,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -4172,12 +3889,8 @@ import { accountingCreateJournalEntries } from "@maesn/typescript-sdk/funcs/acco
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -4275,12 +3988,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -4306,12 +4015,8 @@ import { accountingGetJournalEntryAttachments } from "@maesn/typescript-sdk/func
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -4358,12 +4063,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -4390,12 +4091,8 @@ import { accountingCreateJournalEntryAttachments } from "@maesn/typescript-sdk/f
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -4443,12 +4140,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -4475,12 +4168,8 @@ import { accountingGetJournalEntryAttachmentById } from "@maesn/typescript-sdk/f
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -4528,12 +4217,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -4557,12 +4242,8 @@ import { accountingGetOffers } from "@maesn/typescript-sdk/funcs/accounting-get-
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -4607,12 +4288,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -4651,12 +4328,8 @@ import { accountingCreateOffer } from "@maesn/typescript-sdk/funcs/accounting-cr
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -4716,12 +4389,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -4747,12 +4416,8 @@ import { accountingGetOffer } from "@maesn/typescript-sdk/funcs/accounting-get-o
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -4799,12 +4464,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -4830,12 +4491,8 @@ import { accountingGetOfferLineItems } from "@maesn/typescript-sdk/funcs/account
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -4882,12 +4539,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -4914,12 +4567,8 @@ import { accountingGetOfferLineItem } from "@maesn/typescript-sdk/funcs/accounti
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -4967,12 +4616,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -4998,12 +4643,8 @@ import { accountingGetOfferDocument } from "@maesn/typescript-sdk/funcs/accounti
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -5050,12 +4691,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -5081,12 +4718,8 @@ import { accountingCreateExpense } from "@maesn/typescript-sdk/funcs/accounting-
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -5133,12 +4766,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -5162,12 +4791,8 @@ import { accountingGetExpenses } from "@maesn/typescript-sdk/funcs/accounting-ge
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -5212,12 +4837,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -5243,12 +4864,8 @@ import { accountingGetExpense } from "@maesn/typescript-sdk/funcs/accounting-get
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -5295,12 +4912,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -5324,12 +4937,8 @@ import { accountingGetProjects } from "@maesn/typescript-sdk/funcs/accounting-ge
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -5374,12 +4983,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -5405,12 +5010,8 @@ import { accountingCreateProject } from "@maesn/typescript-sdk/funcs/accounting-
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -5457,12 +5058,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -5488,12 +5085,8 @@ import { accountingGetProject } from "@maesn/typescript-sdk/funcs/accounting-get
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -5540,12 +5133,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -5569,12 +5158,8 @@ import { accountingGetSalesOrders } from "@maesn/typescript-sdk/funcs/accounting
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -5619,12 +5204,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -5650,12 +5231,8 @@ import { accountingCreateSalesOrder } from "@maesn/typescript-sdk/funcs/accounti
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -5702,12 +5279,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -5733,12 +5306,8 @@ import { accountingGetSalesOrder } from "@maesn/typescript-sdk/funcs/accounting-
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -5785,12 +5354,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -5816,12 +5381,8 @@ import { accountingGetSalesOrderLines } from "@maesn/typescript-sdk/funcs/accoun
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -5868,12 +5429,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -5897,12 +5454,8 @@ import { accountingGetPaymentTerms } from "@maesn/typescript-sdk/funcs/accountin
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -5947,12 +5500,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -5978,12 +5527,8 @@ import { accountingCreatePaymentTerm } from "@maesn/typescript-sdk/funcs/account
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -6030,12 +5575,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -6061,12 +5602,8 @@ import { accountingGetPaymentTerm } from "@maesn/typescript-sdk/funcs/accounting
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -6113,12 +5650,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -6142,12 +5675,8 @@ import { accountingGetTaxRates } from "@maesn/typescript-sdk/funcs/accounting-ge
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -6192,12 +5721,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -6223,12 +5748,8 @@ import { accountingGetTaxRate } from "@maesn/typescript-sdk/funcs/accounting-get
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -6275,12 +5796,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -6304,12 +5821,8 @@ import { accountingGetPayments } from "@maesn/typescript-sdk/funcs/accounting-ge
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -6354,12 +5867,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -6385,12 +5894,8 @@ import { accountingCreatePayment } from "@maesn/typescript-sdk/funcs/accounting-
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -6437,12 +5942,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -6468,12 +5969,8 @@ import { accountingGetPayment } from "@maesn/typescript-sdk/funcs/accounting-get
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -6520,12 +6017,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -6551,12 +6044,8 @@ import { accountingDeletePayment } from "@maesn/typescript-sdk/funcs/accounting-
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -6603,12 +6092,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -6637,12 +6122,8 @@ import { accountingCreateEventSubscriptions } from "@maesn/typescript-sdk/funcs/
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -6692,12 +6173,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -6723,12 +6200,8 @@ import { accountingDeleteEventSubscriptions } from "@maesn/typescript-sdk/funcs/
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -6775,12 +6248,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -6804,12 +6273,8 @@ import { accountingGetProfile } from "@maesn/typescript-sdk/funcs/accounting-get
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -6829,6 +6294,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetProfileRequest](../../models/operations/get-profile-request.md)                                                                                                 | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -6853,12 +6319,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -6887,12 +6349,8 @@ import { accountingCreatePassThroughRequest } from "@maesn/typescript-sdk/funcs/
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -6942,12 +6400,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -6971,12 +6425,8 @@ import { accountingGetBills } from "@maesn/typescript-sdk/funcs/accounting-get-b
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -7021,12 +6471,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -7052,12 +6498,8 @@ import { accountingCreateBill } from "@maesn/typescript-sdk/funcs/accounting-cre
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -7104,12 +6546,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -7135,12 +6573,8 @@ import { accountingGetBill } from "@maesn/typescript-sdk/funcs/accounting-get-bi
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -7187,12 +6621,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -7219,12 +6649,8 @@ import { accountingUpdateBill } from "@maesn/typescript-sdk/funcs/accounting-upd
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -7272,12 +6698,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -7303,12 +6725,8 @@ import { accountingDeleteBill } from "@maesn/typescript-sdk/funcs/accounting-del
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -7355,12 +6773,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -7386,12 +6800,8 @@ import { accountingGetBillDocument } from "@maesn/typescript-sdk/funcs/accountin
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -7438,12 +6848,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -7469,12 +6875,8 @@ import { accountingCreateBookingProposal } from "@maesn/typescript-sdk/funcs/acc
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -7521,12 +6923,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -7550,12 +6948,8 @@ import { accountingGetBookingProposals } from "@maesn/typescript-sdk/funcs/accou
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -7600,12 +6994,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -7631,12 +7021,8 @@ import { accountingGetBookingProposal } from "@maesn/typescript-sdk/funcs/accoun
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -7683,12 +7069,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -7714,12 +7096,8 @@ import { accountingGetBookingProposalDocument } from "@maesn/typescript-sdk/func
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -7766,12 +7144,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -7795,12 +7169,8 @@ import { accountingGetVendorCredits } from "@maesn/typescript-sdk/funcs/accounti
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -7845,12 +7215,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -7879,12 +7245,8 @@ import { accountingCreateVendorCredit } from "@maesn/typescript-sdk/funcs/accoun
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -7934,12 +7296,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -7969,12 +7327,8 @@ import { accountingUpdateVendorCredit } from "@maesn/typescript-sdk/funcs/accoun
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -8025,12 +7379,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -8056,12 +7406,8 @@ import { accountingDeleteVendorCredit } from "@maesn/typescript-sdk/funcs/accoun
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -8108,12 +7454,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -8139,12 +7481,8 @@ import { accountingGetBillLineItems } from "@maesn/typescript-sdk/funcs/accounti
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -8191,12 +7529,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -8223,12 +7557,8 @@ import { accountingCreateBillLineItem } from "@maesn/typescript-sdk/funcs/accoun
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -8276,12 +7606,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -8309,12 +7635,8 @@ import { accountingUpdateBillLineItem } from "@maesn/typescript-sdk/funcs/accoun
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -8363,12 +7685,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -8392,12 +7710,8 @@ import { accountingGetPurchaseOrders } from "@maesn/typescript-sdk/funcs/account
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -8442,12 +7756,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -8473,12 +7783,8 @@ import { accountingGetPurchaseOrder } from "@maesn/typescript-sdk/funcs/accounti
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -8525,12 +7831,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -8556,12 +7858,8 @@ import { accountingGetPurchaseOrderLineItems } from "@maesn/typescript-sdk/funcs
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -8608,12 +7906,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -8640,12 +7934,8 @@ import { accountingGetPurchaseOrderLineItem } from "@maesn/typescript-sdk/funcs/
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -8693,12 +7983,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -8722,12 +8008,8 @@ import { accountingGetGoodsReceipts } from "@maesn/typescript-sdk/funcs/accounti
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -8772,12 +8054,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -8803,12 +8081,8 @@ import { accountingGetGoodsReceipt } from "@maesn/typescript-sdk/funcs/accountin
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -8855,12 +8129,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -8886,12 +8156,8 @@ import { accountingGetGoodsReceiptLineItems } from "@maesn/typescript-sdk/funcs/
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -8938,12 +8204,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -8970,12 +8232,8 @@ import { accountingGetGoodsReceiptLineItem } from "@maesn/typescript-sdk/funcs/a
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -9023,12 +8281,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -9052,12 +8306,8 @@ import { accountingGetUnits } from "@maesn/typescript-sdk/funcs/accounting-get-u
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -9102,12 +8352,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -9131,12 +8377,8 @@ import { accountingGetOpenItems } from "@maesn/typescript-sdk/funcs/accounting-g
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -9181,12 +8423,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -9210,12 +8448,8 @@ import { accountingGetTrialBalance } from "@maesn/typescript-sdk/funcs/accountin
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -9260,12 +8494,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -9289,12 +8519,8 @@ import { accountingGetCreditNotes } from "@maesn/typescript-sdk/funcs/accounting
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -9339,12 +8565,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -9370,12 +8592,8 @@ import { accountingGetCreditNote } from "@maesn/typescript-sdk/funcs/accounting-
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -9422,12 +8640,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -9451,12 +8665,8 @@ import { accountingGetFiscalYears } from "@maesn/typescript-sdk/funcs/accounting
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -9501,12 +8711,8 @@ import { Maesn } from "@maesn/typescript-sdk";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -9532,12 +8738,8 @@ import { accountingGetFiscalYear } from "@maesn/typescript-sdk/funcs/accounting-
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {
@@ -9567,6 +8769,81 @@ run();
 ### Response
 
 **Promise\<[operations.GetFiscalYearResponse](../../models/operations/get-fiscal-year-response.md)\>**
+
+### Errors
+
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
+
+## createExpenseAsync
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="createExpenseAsync" method="post" path="/accounting/expenses/async" -->
+```typescript
+import { Maesn } from "@maesn/typescript-sdk";
+
+const maesn = new Maesn({
+  serverURL: "https://api.example.com",
+  apiKey: "<value>",
+  accountKey: "<value>",
+});
+
+async function run() {
+  const result = await maesn.accounting.createExpenseAsync({
+    body: {},
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingCreateExpenseAsync } from "@maesn/typescript-sdk/funcs/accounting-create-expense-async.js";
+
+// Use `MaesnCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const maesn = new MaesnCore({
+  serverURL: "https://api.example.com",
+  apiKey: "<value>",
+  accountKey: "<value>",
+});
+
+async function run() {
+  const res = await accountingCreateExpenseAsync(maesn, {
+    body: {},
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingCreateExpenseAsync failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.CreateExpenseAsyncRequest](../../models/operations/create-expense-async-request.md)                                                                                | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.CreateExpenseAsyncResponse](../../models/operations/create-expense-async-response.md)\>**
 
 ### Errors
 

@@ -8,6 +8,7 @@ export type CreatePaymentLine = {
   accountId?: string | undefined;
   amount?: number | undefined;
   contactName?: string | undefined;
+  contactId?: string | undefined;
   customerId?: string | undefined;
   description?: string | undefined;
   invoiceId?: string | undefined;
@@ -20,6 +21,7 @@ export type CreatePaymentLine$Outbound = {
   accountId?: string | undefined;
   amount?: number | undefined;
   contactName?: string | undefined;
+  contactId?: string | undefined;
   customerId?: string | undefined;
   description?: string | undefined;
   invoiceId?: string | undefined;
@@ -35,6 +37,7 @@ export const CreatePaymentLine$outboundSchema: z.ZodMiniType<
   accountId: z.optional(z.string()),
   amount: z.optional(z.number()),
   contactName: z.optional(z.string()),
+  contactId: z.optional(z.string()),
   customerId: z.optional(z.string()),
   description: z.optional(z.string()),
   invoiceId: z.optional(z.string()),

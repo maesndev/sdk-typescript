@@ -3,10 +3,18 @@
  */
 
 import * as z from "zod/v4-mini";
+import { SDKOptions } from "./config.js";
 import { dlv } from "./dlv.js";
 
 export interface Env {
+  /**
+   * Sets the apiKey parameter for all supported operations
+   */
   MAESN_API_KEY?: string | undefined;
+
+  /**
+   * Sets the accountKey parameter for all supported operations
+   */
   MAESN_ACCOUNT_KEY?: string | undefined;
 
   MAESN_DEBUG?: boolean | undefined;
@@ -56,4 +64,22 @@ export function env(): Env {
  */
 export function resetEnv() {
   envMemo = undefined;
+}
+
+/**
+ * Populates global parameters with environment variables.
+ */
+export function fillGlobals(options: SDKOptions): SDKOptions {
+  const clone = { ...options };
+
+  const envVars = env();
+
+  if (typeof envVars.MAESN_API_KEY !== "undefined") {
+    clone.apiKey ??= envVars.MAESN_API_KEY;
+  }
+  if (typeof envVars.MAESN_ACCOUNT_KEY !== "undefined") {
+    clone.accountKey ??= envVars.MAESN_ACCOUNT_KEY;
+  }
+
+  return clone;
 }

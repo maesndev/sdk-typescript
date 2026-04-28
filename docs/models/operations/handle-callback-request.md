@@ -15,3 +15,5 @@ let value: HandleCallbackRequest = {
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
 | `code`             | *string*           | :heavy_check_mark: | N/A                |
+| `apiKey`           | *string*           | :heavy_minus_sign: | API key            |
+| `accountKey`       | *string*           | :heavy_minus_sign: | Account key        |

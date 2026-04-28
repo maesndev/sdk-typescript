@@ -26,12 +26,8 @@ import { accountingGetAccount } from "@maesn/typescript-sdk/funcs/accounting-get
 // You can create one instance of it to use across an application.
 const maesn = new MaesnCore({
   serverURL: "https://api.example.com",
-  security: {
-    option1: {
-      apiKey: process.env["MAESN_API_KEY"] ?? "",
-      accountKey: process.env["MAESN_ACCOUNT_KEY"] ?? "",
-    },
-  },
+  apiKey: "<value>",
+  accountKey: "<value>",
 });
 
 async function run() {

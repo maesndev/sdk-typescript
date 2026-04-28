@@ -10,6 +10,11 @@ import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
+export type GetVendorCreditsGlobals = {
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
+};
+
 export const GetVendorCreditsLimit = {
   Five: 5,
   Ten: 10,
@@ -89,6 +94,14 @@ export type GetVendorCreditsRequest = {
    * When true, returns the unprocessed response from the upstream target system
    */
   rawData?: boolean | undefined;
+  /**
+   * API key
+   */
+  apiKey?: string | undefined;
+  /**
+   * Account key
+   */
+  accountKey?: string | undefined;
 };
 
 export type GetVendorCreditsPagination = {
@@ -142,6 +155,8 @@ export type GetVendorCreditsRequest$Outbound = {
   status?: string | undefined;
   paymentStatus?: string | undefined;
   rawData?: boolean | undefined;
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
 };
 
 /** @internal */
@@ -157,6 +172,8 @@ export const GetVendorCreditsRequest$outboundSchema: z.ZodMiniType<
   status: z.optional(GetVendorCreditsStatus$outboundSchema),
   paymentStatus: z.optional(GetVendorCreditsPaymentStatus$outboundSchema),
   rawData: z.optional(z.boolean()),
+  apiKey: z.optional(z.string()),
+  accountKey: z.optional(z.string()),
 });
 
 export function getVendorCreditsRequestToJSON(

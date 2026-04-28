@@ -9,6 +9,11 @@ import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
+export type CreateBookingProposalGlobals = {
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
+};
+
 export type CreateBookingProposalFile = {
   fileName: string;
   content: ReadableStream<Uint8Array> | Blob | ArrayBuffer | Uint8Array;
@@ -32,6 +37,14 @@ export type CreateBookingProposalRequest = {
    * ID of the company (required for multi-company target systems)
    */
   companyId?: string | undefined;
+  /**
+   * API key
+   */
+  apiKey?: string | undefined;
+  /**
+   * Account key
+   */
+  accountKey?: string | undefined;
   body: CreateBookingProposalRequestBody;
 };
 
@@ -155,6 +168,8 @@ export function createBookingProposalRequestBodyToJSON(
 /** @internal */
 export type CreateBookingProposalRequest$Outbound = {
   companyId?: string | undefined;
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
   body: CreateBookingProposalRequestBody$Outbound;
 };
 
@@ -164,6 +179,8 @@ export const CreateBookingProposalRequest$outboundSchema: z.ZodMiniType<
   CreateBookingProposalRequest
 > = z.object({
   companyId: z.optional(z.string()),
+  apiKey: z.optional(z.string()),
+  accountKey: z.optional(z.string()),
   body: z.lazy(() => CreateBookingProposalRequestBody$outboundSchema),
 });
 

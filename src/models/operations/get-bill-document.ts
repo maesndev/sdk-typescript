@@ -9,8 +9,21 @@ import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
+export type GetBillDocumentGlobals = {
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
+};
+
 export type GetBillDocumentRequest = {
   billId: string;
+  /**
+   * API key
+   */
+  apiKey?: string | undefined;
+  /**
+   * Account key
+   */
+  accountKey?: string | undefined;
 };
 
 export type GetBillDocumentPagination = {
@@ -42,6 +55,8 @@ export type GetBillDocumentResponse = {
 /** @internal */
 export type GetBillDocumentRequest$Outbound = {
   billId: string;
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
 };
 
 /** @internal */
@@ -50,6 +65,8 @@ export const GetBillDocumentRequest$outboundSchema: z.ZodMiniType<
   GetBillDocumentRequest
 > = z.object({
   billId: z.string(),
+  apiKey: z.optional(z.string()),
+  accountKey: z.optional(z.string()),
 });
 
 export function getBillDocumentRequestToJSON(

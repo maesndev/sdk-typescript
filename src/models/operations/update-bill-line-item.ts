@@ -9,6 +9,11 @@ import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
+export type UpdateBillLineItemGlobals = {
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
+};
+
 export type UpdateBillLineItemRequest = {
   billId: string;
   lineItemId: string;
@@ -16,6 +21,14 @@ export type UpdateBillLineItemRequest = {
    * ID of the company (required for multi-company target systems)
    */
   companyId?: string | undefined;
+  /**
+   * API key
+   */
+  apiKey?: string | undefined;
+  /**
+   * Account key
+   */
+  accountKey?: string | undefined;
   body: models.CreateBillLineItemRequestDto;
 };
 
@@ -50,6 +63,8 @@ export type UpdateBillLineItemRequest$Outbound = {
   billId: string;
   lineItemId: string;
   companyId?: string | undefined;
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
   body: models.CreateBillLineItemRequestDto$Outbound;
 };
 
@@ -61,6 +76,8 @@ export const UpdateBillLineItemRequest$outboundSchema: z.ZodMiniType<
   billId: z.string(),
   lineItemId: z.string(),
   companyId: z.optional(z.string()),
+  apiKey: z.optional(z.string()),
+  accountKey: z.optional(z.string()),
   body: models.CreateBillLineItemRequestDto$outboundSchema,
 });
 

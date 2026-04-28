@@ -9,6 +9,11 @@ import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
+export type CreateAccountGlobals = {
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
+};
+
 export type CreateAccountRequest = {
   /**
    * Environment name (required for multi-environment systems such as Business Central)
@@ -18,6 +23,14 @@ export type CreateAccountRequest = {
    * ID of the company (required for multi-company target systems)
    */
   companyId?: string | undefined;
+  /**
+   * API key
+   */
+  apiKey?: string | undefined;
+  /**
+   * Account key
+   */
+  accountKey?: string | undefined;
   body: models.CreateAccountRequestDto;
 };
 
@@ -51,6 +64,8 @@ export type CreateAccountResponse = {
 export type CreateAccountRequest$Outbound = {
   environmentName?: string | undefined;
   companyId?: string | undefined;
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
   body: models.CreateAccountRequestDto$Outbound;
 };
 
@@ -61,6 +76,8 @@ export const CreateAccountRequest$outboundSchema: z.ZodMiniType<
 > = z.object({
   environmentName: z.optional(z.string()),
   companyId: z.optional(z.string()),
+  apiKey: z.optional(z.string()),
+  accountKey: z.optional(z.string()),
   body: models.CreateAccountRequestDto$outboundSchema,
 });
 

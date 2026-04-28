@@ -10,6 +10,11 @@ import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
+export type GetTaxRatesGlobals = {
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
+};
+
 export const GetTaxRatesLimit = {
   Five: 5,
   Ten: 10,
@@ -42,6 +47,14 @@ export type GetTaxRatesRequest = {
    * When true, returns only active tax rates; when false, returns only inactive tax rates
    */
   isActive?: boolean | undefined;
+  /**
+   * API key
+   */
+  apiKey?: string | undefined;
+  /**
+   * Account key
+   */
+  accountKey?: string | undefined;
 };
 
 export type GetTaxRatesPagination = {
@@ -84,6 +97,8 @@ export type GetTaxRatesRequest$Outbound = {
   companyId?: string | undefined;
   rawData?: boolean | undefined;
   isActive?: boolean | undefined;
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
 };
 
 /** @internal */
@@ -98,6 +113,8 @@ export const GetTaxRatesRequest$outboundSchema: z.ZodMiniType<
   companyId: z.optional(z.string()),
   rawData: z.optional(z.boolean()),
   isActive: z.optional(z.boolean()),
+  apiKey: z.optional(z.string()),
+  accountKey: z.optional(z.string()),
 });
 
 export function getTaxRatesRequestToJSON(

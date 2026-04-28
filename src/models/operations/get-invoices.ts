@@ -10,6 +10,11 @@ import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
+export type GetInvoicesGlobals = {
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
+};
+
 export const GetInvoicesLimit = {
   Five: 5,
   Ten: 10,
@@ -127,6 +132,14 @@ export type GetInvoicesRequest = {
    * ISO 8601 date; only invoices with a due date on or after this date are returned
    */
   dueDateFrom?: string | undefined;
+  /**
+   * API key
+   */
+  apiKey?: string | undefined;
+  /**
+   * Account key
+   */
+  accountKey?: string | undefined;
 };
 
 export type GetInvoicesPagination = {
@@ -193,6 +206,8 @@ export type GetInvoicesRequest$Outbound = {
   orderField?: string | undefined;
   orderDir?: string | undefined;
   dueDateFrom?: string | undefined;
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
 };
 
 /** @internal */
@@ -211,6 +226,8 @@ export const GetInvoicesRequest$outboundSchema: z.ZodMiniType<
   orderField: z.optional(GetInvoicesOrderField$outboundSchema),
   orderDir: z.optional(GetInvoicesOrderDir$outboundSchema),
   dueDateFrom: z.optional(z.string()),
+  apiKey: z.optional(z.string()),
+  accountKey: z.optional(z.string()),
 });
 
 export function getInvoicesRequestToJSON(

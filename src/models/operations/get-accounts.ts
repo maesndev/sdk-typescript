@@ -10,6 +10,11 @@ import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
+export type GetAccountsGlobals = {
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
+};
+
 export const GetAccountsLimit = {
   Five: 5,
   Ten: 10,
@@ -74,6 +79,14 @@ export type GetAccountsRequest = {
    * When true, returns only active accounts; when false, returns only inactive accounts
    */
   isActive?: boolean | undefined;
+  /**
+   * API key
+   */
+  apiKey?: string | undefined;
+  /**
+   * Account key
+   */
+  accountKey?: string | undefined;
 };
 
 export type GetAccountsPagination = {
@@ -126,6 +139,8 @@ export type GetAccountsRequest$Outbound = {
   fiscalYearStartDate?: string | undefined;
   classFilter?: string | undefined;
   isActive?: boolean | undefined;
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
 };
 
 /** @internal */
@@ -145,6 +160,8 @@ export const GetAccountsRequest$outboundSchema: z.ZodMiniType<
   fiscalYearStartDate: z.optional(z.string()),
   classFilter: z.optional(z.string()),
   isActive: z.optional(z.boolean()),
+  apiKey: z.optional(z.string()),
+  accountKey: z.optional(z.string()),
 });
 
 export function getAccountsRequestToJSON(

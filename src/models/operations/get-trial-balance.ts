@@ -10,6 +10,11 @@ import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
+export type GetTrialBalanceGlobals = {
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
+};
+
 export const GetTrialBalanceLimit = {
   Five: 5,
   Ten: 10,
@@ -54,6 +59,14 @@ export type GetTrialBalanceRequest = {
    * ISO 8601 start date of the fiscal year used for balance calculation
    */
   fiscalYearStartDate?: string | undefined;
+  /**
+   * API key
+   */
+  apiKey?: string | undefined;
+  /**
+   * Account key
+   */
+  accountKey?: string | undefined;
 };
 
 export type GetTrialBalancePagination = {
@@ -99,6 +112,8 @@ export type GetTrialBalanceRequest$Outbound = {
   accountNumber?: string | undefined;
   accountCode?: string | undefined;
   fiscalYearStartDate?: string | undefined;
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
 };
 
 /** @internal */
@@ -116,6 +131,8 @@ export const GetTrialBalanceRequest$outboundSchema: z.ZodMiniType<
   accountNumber: z.optional(z.string()),
   accountCode: z.optional(z.string()),
   fiscalYearStartDate: z.optional(z.string()),
+  apiKey: z.optional(z.string()),
+  accountKey: z.optional(z.string()),
 });
 
 export function getTrialBalanceRequestToJSON(

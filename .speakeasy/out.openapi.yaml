@@ -27,6 +27,18 @@ paths:
           description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: Account record matching the provided ID
@@ -133,6 +145,18 @@ paths:
           description: When true, returns only active accounts; when false, returns only inactive accounts
           schema:
             type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: List of accounts for the authenticated end user's connected target system
@@ -173,6 +197,18 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       requestBody:
         required: true
         content:
@@ -236,6 +272,18 @@ paths:
           description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: List of bank accounts for the authenticated end user's connected target system
@@ -276,6 +324,18 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       requestBody:
         required: true
         content:
@@ -322,6 +382,18 @@ paths:
           description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: Bank account record matching the provided ID
@@ -389,6 +461,18 @@ paths:
           description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: List of dimensions for the authenticated end user's connected target system
@@ -424,6 +508,18 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       requestBody:
         required: true
         content:
@@ -513,6 +609,18 @@ paths:
           description: Filter customers by customer number
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: List of customers for the authenticated end user's connected target system
@@ -553,6 +661,18 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       requestBody:
         required: true
         content:
@@ -599,6 +719,18 @@ paths:
           description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: Customer record matching the provided ID
@@ -636,6 +768,18 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       requestBody:
         required: true
         content:
@@ -675,6 +819,18 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       requestBody:
         required: true
         content:
@@ -756,6 +912,18 @@ paths:
           description: Filter suppliers by supplier number
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: List of suppliers for the authenticated end user's connected target system
@@ -796,6 +964,18 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       requestBody:
         required: true
         content:
@@ -842,6 +1022,18 @@ paths:
           description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: Supplier record matching the provided ID
@@ -879,6 +1071,18 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       requestBody:
         required: true
         content:
@@ -918,6 +1122,18 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       requestBody:
         required: true
         content:
@@ -981,6 +1197,18 @@ paths:
           description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: List of contacts for the authenticated end user's connected target system
@@ -1021,6 +1249,18 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       requestBody:
         required: true
         content:
@@ -1067,6 +1307,18 @@ paths:
           description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: Contact record matching the provided ID
@@ -1110,6 +1362,18 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       requestBody:
         required: true
         content:
@@ -1149,6 +1413,18 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       requestBody:
         required: true
         content:
@@ -1178,6 +1454,18 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       requestBody:
         required: true
         content:
@@ -1207,6 +1495,18 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       requestBody:
         required: true
         content:
@@ -1331,6 +1631,18 @@ paths:
           description: ISO 8601 date; only invoices with a due date on or after this date are returned
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: List of invoices for the authenticated end user's connected target system
@@ -1371,6 +1683,18 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       requestBody:
         required: true
         content:
@@ -1417,6 +1741,18 @@ paths:
           description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: Invoice record matching the provided ID
@@ -1460,6 +1796,18 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       requestBody:
         required: true
         content:
@@ -1500,6 +1848,18 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: Document attached to the invoice matching the provided ID
@@ -1533,6 +1893,18 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       requestBody:
         required: true
         content:
@@ -1577,6 +1949,66 @@ paths:
                         $ref: '#/components/schemas/DocumentResponseDto'
       tags:
         - accounting
+  /accounting/files/async:
+    post:
+      operationId: postFileAsync
+      parameters:
+        - name: companyId
+          required: false
+          in: query
+          description: ID of the company (required for multi-company target systems)
+          schema:
+            type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                documentDate:
+                  type: string
+                  example: "2025-03-26T08:25:54.060Z"
+                documentId:
+                  type: string
+                  example: b5e624e5-fb9e-4836-a443-87a3820f5b48
+                documentType:
+                  type: string
+                  example: Rechnungsausgang
+                integrationSource:
+                  type: string
+                  example: 3rd party app
+                note:
+                  type: string
+                  example: note for the document
+      responses:
+        "202":
+          description: File queued successfully. Processed asynchronously and returns 202 with taskId.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BaseResponseDto'
+                  - properties:
+                      data:
+                        $ref: '#/components/schemas/TaskIdResponseDto'
+      tags:
+        - accounting
   /accounting/files/documentTypes:
     get:
       operationId: getDocumentTypes
@@ -1587,6 +2019,18 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: List of document types supported by the authenticated end user's connected target system
@@ -1622,6 +2066,18 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: List of permitted file extensions for the authenticated end user's connected target system
@@ -1676,6 +2132,18 @@ paths:
               - 50
               - 100
             type: integer
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: Async task status and result matching the provided task ID
@@ -1755,6 +2223,18 @@ paths:
           description: Filter items by item number
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: List of items for the authenticated end user's connected target system
@@ -1795,6 +2275,18 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       requestBody:
         required: true
         content:
@@ -1841,6 +2333,18 @@ paths:
           description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: Item record matching the provided ID
@@ -1886,6 +2390,18 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       requestBody:
         required: true
         content:
@@ -1954,6 +2470,18 @@ paths:
           description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: List of line items for the authenticated end user's connected target system
@@ -1999,6 +2527,18 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       requestBody:
         required: true
         content:
@@ -2050,6 +2590,18 @@ paths:
           description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: Line item record matching the provided ID
@@ -2098,6 +2650,18 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       requestBody:
         required: true
         content:
@@ -2161,6 +2725,18 @@ paths:
           description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: List of journals for the authenticated end user's connected target system
@@ -2242,6 +2818,18 @@ paths:
           description: ISO 8601 start date of the fiscal year used for scoping results
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: List of journal entries for the authenticated end user's connected target system
@@ -2282,6 +2870,18 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       requestBody:
         required: true
         content:
@@ -2346,6 +2946,18 @@ paths:
           description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: Journal entry record matching the provided ID
@@ -2379,6 +2991,18 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       requestBody:
         required: true
         content:
@@ -2419,6 +3043,18 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: List of attachments for the journal entry matching the provided ID
@@ -2452,6 +3088,18 @@ paths:
           in: path
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       requestBody:
         required: true
         content:
@@ -2501,6 +3149,18 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: Journal entry attachment record matching the provided ID
@@ -2581,6 +3241,18 @@ paths:
           description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: List of offers for the authenticated end user's connected target system
@@ -2621,6 +3293,18 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       requestBody:
         required: true
         content:
@@ -2667,6 +3351,18 @@ paths:
           description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: Offer record matching the provided ID
@@ -2739,6 +3435,18 @@ paths:
           description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: List of line items for the authenticated end user's connected target system
@@ -2796,6 +3504,18 @@ paths:
           description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: Offer line item record matching the provided ID
@@ -2840,6 +3560,18 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: Document attached to the offer matching the provided ID
@@ -2879,6 +3611,18 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       requestBody:
         required: true
         content:
@@ -2943,6 +3687,18 @@ paths:
           description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: List of expenses for the authenticated end user's connected target system
@@ -2995,6 +3751,18 @@ paths:
           description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: Expense record matching the provided ID
@@ -3062,6 +3830,18 @@ paths:
           description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: List of projects for the authenticated end user's connected target system
@@ -3102,6 +3882,18 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       requestBody:
         required: true
         content:
@@ -3148,6 +3940,18 @@ paths:
           description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: Project record matching the provided ID
@@ -3227,6 +4031,18 @@ paths:
               - CLOSED
               - VOIDED
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: List of sales orders for the authenticated end user's connected target system
@@ -3267,6 +4083,18 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       requestBody:
         required: true
         content:
@@ -3313,6 +4141,18 @@ paths:
           description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: Sales order record matching the provided ID
@@ -3385,6 +4225,18 @@ paths:
           description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: List of line items for the authenticated end user's connected target system
@@ -3466,6 +4318,18 @@ paths:
           description: ISO 8601 start date of the fiscal year used for scoping results
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: List of payment terms for the authenticated end user's connected target system
@@ -3500,6 +4364,18 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       requestBody:
         required: true
         content:
@@ -3546,6 +4422,18 @@ paths:
           description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: Payment term record matching the provided ID
@@ -3619,6 +4507,18 @@ paths:
           description: When true, returns only active tax rates; when false, returns only inactive tax rates
           schema:
             type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: List of tax rates for the authenticated end user's connected target system
@@ -3671,6 +4571,18 @@ paths:
           description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: Tax rate record matching the provided ID
@@ -3744,6 +4656,18 @@ paths:
           description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: List of payments for the authenticated end user's connected target system
@@ -3778,6 +4702,18 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       requestBody:
         required: true
         content:
@@ -3818,6 +4754,18 @@ paths:
           description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: Payment record matching the provided ID
@@ -3855,6 +4803,18 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: Operation completed successfully
@@ -3878,6 +4838,18 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       requestBody:
         required: true
         content:
@@ -3908,6 +4880,18 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: Operation completed successfully
@@ -3920,7 +4904,19 @@ paths:
   /accounting/profile:
     get:
       operationId: getProfile
-      parameters: []
+      parameters:
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: Profile information for the authenticated end user's connected target system
@@ -3956,6 +4952,18 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       requestBody:
         required: true
         content:
@@ -4074,6 +5082,18 @@ paths:
               - ASC
               - DESC
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: List of bills for the authenticated end user's connected target system
@@ -4114,6 +5134,18 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       requestBody:
         required: true
         content:
@@ -4160,6 +5192,18 @@ paths:
           description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: Bill record matching the provided ID
@@ -4203,6 +5247,18 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       requestBody:
         required: true
         content:
@@ -4242,6 +5298,18 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: Operation completed successfully
@@ -4264,6 +5332,18 @@ paths:
           in: path
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: Document associated with the specified bill
@@ -4297,6 +5377,18 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       requestBody:
         required: true
         content:
@@ -4430,6 +5522,18 @@ paths:
               - ASC
               - DESC
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: List of booking proposals for the authenticated end user's connected target system
@@ -4482,6 +5586,18 @@ paths:
           description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: Booking proposal record matching the provided ID
@@ -4514,6 +5630,18 @@ paths:
           in: path
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: Document associated with the specified booking proposal
@@ -4616,6 +5744,18 @@ paths:
           description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: List of vendor credits for the authenticated end user's connected target system
@@ -4657,6 +5797,18 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       requestBody:
         required: true
         content:
@@ -4697,6 +5849,18 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       requestBody:
         required: true
         content:
@@ -4736,6 +5900,18 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: Operation completed successfully
@@ -4770,6 +5946,18 @@ paths:
           description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: List of line items for the authenticated end user's connected target system
@@ -4809,6 +5997,18 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       requestBody:
         required: true
         content:
@@ -4850,6 +6050,18 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       requestBody:
         required: true
         content:
@@ -4915,6 +6127,18 @@ paths:
           description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: List of purchase orders for the authenticated end user's connected target system
@@ -4967,6 +6191,18 @@ paths:
           description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: Purchase order record matching the provided ID
@@ -5023,6 +6259,18 @@ paths:
           description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: List of line items for the authenticated end user's connected target system
@@ -5080,6 +6328,18 @@ paths:
           description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: Purchase order line item record matching the provided ID
@@ -5147,6 +6407,18 @@ paths:
           description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: List of goods receipts for the authenticated end user's connected target system
@@ -5199,6 +6471,18 @@ paths:
           description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: Goods receipt record matching the provided ID
@@ -5255,6 +6539,18 @@ paths:
           description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: List of line items for the authenticated end user's connected target system
@@ -5312,6 +6608,18 @@ paths:
           description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: Goods receipt line item record matching the provided ID
@@ -5373,6 +6681,18 @@ paths:
           description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: List of units for the authenticated end user's connected target system
@@ -5466,6 +6786,18 @@ paths:
           description: Filter open items by type (e.g. receivable, payable)
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: List of open items for the authenticated end user's connected target system
@@ -5559,6 +6891,18 @@ paths:
           description: ISO 8601 start date of the fiscal year used for balance calculation
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: Trial balance for the authenticated end user's connected target system
@@ -5628,6 +6972,18 @@ paths:
           description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: List of credit notes for the authenticated end user's connected target system
@@ -5680,6 +7036,18 @@ paths:
           description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: Credit note record matching the provided ID
@@ -5725,6 +7093,18 @@ paths:
           description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: List of fiscal years for the authenticated end user's connected target system
@@ -5777,6 +7157,18 @@ paths:
           description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: Fiscal year record matching the provided ID
@@ -5802,6 +7194,55 @@ paths:
         statusCodes:
           - 5XX
         retryConnectionErrors: true
+  /accounting/expenses/async:
+    post:
+      operationId: createExpenseAsync
+      parameters:
+        - name: companyId
+          required: false
+          in: query
+          description: ID of the company (required for multi-company target systems)
+          schema:
+            type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                files:
+                  type: array
+                  items:
+                    type: string
+                    format: binary
+                expense:
+                  $ref: '#/components/schemas/CreateExpenseRequestDtoV2'
+      responses:
+        "202":
+          description: Expense queued successfully. Processed asynchronously and returns 202 with taskId.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BaseResponseDto'
+                  - properties:
+                      data:
+                        $ref: '#/components/schemas/TaskIdResponseDto'
+      tags:
+        - accounting
   /accounting/v2/bookingProposals:
     post:
       operationId: createBookingProposalV2
@@ -5812,6 +7253,18 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       requestBody:
         required: true
         content:
@@ -5838,8 +7291,8 @@ paths:
                     register:
                       type: string
       responses:
-        "200":
-          description: Booking proposal created successfully. Returns 202 with taskId if processed asynchronously.
+        "202":
+          description: Booking proposal queued successfully. Processed asynchronously and returns 202 with taskId.
           content:
             application/json:
               schema:
@@ -5847,7 +7300,7 @@ paths:
                   - $ref: '#/components/schemas/BaseResponseDto'
                   - properties:
                       data:
-                        $ref: '#/components/schemas/BookingProposalResponseDtoV2'
+                        $ref: '#/components/schemas/TaskIdResponseDto'
       tags:
         - accounting-v2
   /accounting/v2/contacts:
@@ -5894,6 +7347,18 @@ paths:
           description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: List of contacts for the authenticated end user's connected target system
@@ -5934,6 +7399,18 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       requestBody:
         required: true
         content:
@@ -5980,6 +7457,18 @@ paths:
           description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: Contact record matching the provided ID
@@ -6023,6 +7512,18 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       requestBody:
         required: true
         content:
@@ -6062,6 +7563,18 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       requestBody:
         required: true
         content:
@@ -6109,6 +7622,18 @@ paths:
           description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: List of dimension categories for the authenticated end user's connected target system
@@ -6183,6 +7708,18 @@ paths:
           description: When true, returns the unprocessed response from the upstream target system
           schema:
             type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: List of dimension values for the authenticated end user's connected target system
@@ -6211,7 +7748,19 @@ paths:
   /user/user-info:
     get:
       operationId: getUserInfo
-      parameters: []
+      parameters:
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: ""
@@ -6240,7 +7789,19 @@ paths:
       operationId: getEnvironments
       tags:
         - auth
-      parameters: []
+      parameters:
+        - name: X-API-KEY
+          in: header
+          description: API key
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          in: header
+          description: Account key
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: List of environments for the authenticated end user's connected target system
@@ -6276,6 +7837,18 @@ paths:
           required: false
           schema:
             type: string
+        - name: X-API-KEY
+          in: header
+          description: API key
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          in: header
+          description: Account key
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: List of companies for the authenticated end user's connected target system
@@ -6311,6 +7884,18 @@ paths:
           required: false
           schema:
             type: string
+        - name: X-API-KEY
+          in: header
+          description: API key
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          in: header
+          description: Account key
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: List of companies for the authenticated end user's connected target system
@@ -6347,6 +7932,18 @@ paths:
           required: true
           schema:
             type: string
+        - name: X-API-KEY
+          in: header
+          description: API key
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          in: header
+          description: Account key
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: Submission page rendered successfully
@@ -6373,7 +7970,19 @@ paths:
       operationId: apiKeyConfirmation
       tags:
         - auth
-      parameters: []
+      parameters:
+        - name: X-API-KEY
+          in: header
+          description: API key
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          in: header
+          description: Account key
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "201":
           description: API key confirmed and redirect URL returned successfully
@@ -6390,7 +7999,19 @@ paths:
       operationId: cancel
       tags:
         - auth
-      parameters: []
+      parameters:
+        - name: X-API-KEY
+          in: header
+          description: API key
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          in: header
+          description: Account key
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "201":
           description: Cancellation redirect URL returned successfully
@@ -6414,6 +8035,18 @@ paths:
           required: true
           schema:
             type: string
+        - name: X-API-KEY
+          in: header
+          description: API key
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          in: header
+          description: Account key
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: API key confirmation page rendered successfully
@@ -6459,6 +8092,24 @@ paths:
           required: false
           schema:
             type: string
+        - name: include_signature
+          in: query
+          description: When set to true, appends a signature as a query parameter to the redirect URL.
+          required: false
+          schema:
+            type: boolean
+        - name: X-API-KEY
+          in: header
+          description: API key
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          in: header
+          description: Account key
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: Long-lived authentication token URL returned successfully
@@ -6495,6 +8146,18 @@ paths:
           required: true
           schema:
             type: string
+        - name: X-API-KEY
+          in: header
+          description: API key
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          in: header
+          description: Account key
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: Environment or company selection page rendered successfully
@@ -6537,6 +8200,18 @@ paths:
           required: true
           schema:
             type: string
+        - name: X-API-KEY
+          in: header
+          description: API key
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          in: header
+          description: Account key
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "201":
           description: End user environment and company selections saved successfully
@@ -6595,11 +8270,29 @@ paths:
           required: false
           schema:
             type: boolean
+        - name: include_signature
+          in: query
+          description: When set to true, appends a signature as a query parameter to the redirect URL.
+          required: false
+          schema:
+            type: boolean
+        - name: X-API-KEY
+          in: header
+          description: API key
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          in: header
+          description: Account key
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: Authentication URL for the requested target system returned successfully
           content:
-            application/json:
+            text/html:
               schema:
                 type: string
       x-speakeasy-retries:
@@ -6647,6 +8340,18 @@ paths:
           required: false
           schema:
             type: string
+        - name: X-API-KEY
+          in: header
+          description: API key
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          in: header
+          description: Account key
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: OAuth callback processed and redirect URL returned successfully
@@ -6679,6 +8384,18 @@ paths:
           required: true
           schema:
             type: string
+        - name: X-API-KEY
+          in: header
+          description: API key
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          in: header
+          description: Account key
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       requestBody:
         content:
           application/json:
@@ -6700,7 +8417,19 @@ paths:
       operationId: systemRegistration
       tags:
         - tenants
-      parameters: []
+      parameters:
+        - name: X-API-KEY
+          in: header
+          description: API key
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          in: header
+          description: Account key
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       requestBody:
         content:
           application/json:
@@ -6719,7 +8448,19 @@ paths:
       operationId: addCallbackUrl
       tags:
         - tenants
-      parameters: []
+      parameters:
+        - name: X-API-KEY
+          in: header
+          description: API key
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          in: header
+          description: Account key
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       requestBody:
         content:
           application/json:
@@ -6738,7 +8479,19 @@ paths:
       operationId: getEndUserList
       tags:
         - tenants
-      parameters: []
+      parameters:
+        - name: X-API-KEY
+          in: header
+          description: API key
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          in: header
+          description: Account key
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: List of end users for the authenticated tenant
@@ -6761,7 +8514,19 @@ paths:
       operationId: countEndUsersBySystem
       tags:
         - tenants
-      parameters: []
+      parameters:
+        - name: X-API-KEY
+          in: header
+          description: API key
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          in: header
+          description: Account key
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: End user counts grouped by connected target system
@@ -6784,7 +8549,19 @@ paths:
       operationId: deleteEndUser
       tags:
         - tenants
-      parameters: []
+      parameters:
+        - name: X-API-KEY
+          in: header
+          description: API key
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          in: header
+          description: Account key
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: Operation completed successfully
@@ -6800,7 +8577,19 @@ paths:
       operationId: getCallbackUrl
       tags:
         - tenants
-      parameters: []
+      parameters:
+        - name: X-API-KEY
+          in: header
+          description: API key
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          in: header
+          description: Account key
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: Callback URL configured for the authenticated tenant
@@ -6823,7 +8612,19 @@ paths:
       operationId: getRegisteredSystems
       tags:
         - tenants
-      parameters: []
+      parameters:
+        - name: X-API-KEY
+          in: header
+          description: API key
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          in: header
+          description: Account key
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: List of target systems registered for the authenticated tenant
@@ -6846,7 +8647,19 @@ paths:
       operationId: getTargetSystemValues
       tags:
         - tenants
-      parameters: []
+      parameters:
+        - name: X-API-KEY
+          in: header
+          description: API key
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          in: header
+          description: Account key
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: List of all supported target system identifiers
@@ -6869,7 +8682,19 @@ paths:
       operationId: getTargetSystemRequirements
       tags:
         - tenants
-      parameters: []
+      parameters:
+        - name: X-API-KEY
+          in: header
+          description: API key
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          in: header
+          description: Account key
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: Configuration requirements for each supported target system
@@ -6892,7 +8717,19 @@ paths:
       operationId: getRegisteredSystemsMasked
       tags:
         - tenants
-      parameters: []
+      parameters:
+        - name: X-API-KEY
+          in: header
+          description: API key
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          in: header
+          description: Account key
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: List of target systems registered for the authenticated tenant with sensitive fields masked
@@ -6921,6 +8758,18 @@ paths:
           required: true
           schema:
             type: string
+        - name: X-API-KEY
+          in: header
+          description: API key
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          in: header
+          description: Account key
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: Operation completed successfully
@@ -6933,7 +8782,19 @@ paths:
       operationId: getAllActiveEndUsers
       tags:
         - tenants
-      parameters: []
+      parameters:
+        - name: X-API-KEY
+          in: header
+          description: API key
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          in: header
+          description: Account key
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: List of all active end users across all tenants
@@ -6964,6 +8825,18 @@ paths:
           required: true
           schema:
             type: string
+        - name: X-API-KEY
+          in: header
+          description: API key
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          in: header
+          description: Account key
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: Submission page style configuration for the given tenant code
@@ -6986,7 +8859,19 @@ paths:
       operationId: updateSubmissionPageStyle
       tags:
         - tenants
-      parameters: []
+      parameters:
+        - name: X-API-KEY
+          in: header
+          description: API key
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          in: header
+          description: Account key
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       requestBody:
         content:
           application/json:
@@ -7005,7 +8890,19 @@ paths:
       operationId: getSubmissionPageStyleByKey
       tags:
         - tenants
-      parameters: []
+      parameters:
+        - name: X-API-KEY
+          in: header
+          description: API key
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          in: header
+          description: Account key
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: Submission page style configuration for the authenticated tenant
@@ -7023,6 +8920,31 @@ paths:
         statusCodes:
           - 5XX
         retryConnectionErrors: true
+  /tenants/signing-secret:
+    post:
+      operationId: generateTenantSigningSecret
+      tags:
+        - tenants
+      parameters:
+        - name: X-API-KEY
+          in: header
+          description: API key
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          in: header
+          description: Account key
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
+      responses:
+        "201":
+          description: Signing secret generated successfully
+          content:
+            application/json:
+              schema:
+                type: object
   /events/callback/{code}:
     post:
       operationId: handleCallback
@@ -7034,6 +8956,18 @@ paths:
           required: true
           schema:
             type: string
+        - name: X-API-KEY
+          in: header
+          description: API key
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          in: header
+          description: Account key
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "202":
           description: Webhook event received and queued for processing
@@ -7052,6 +8986,18 @@ paths:
           required: true
           schema:
             type: string
+        - name: X-API-KEY
+          in: header
+          description: API key
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          in: header
+          description: Account key
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "201":
           description: Authorization code saved successfully
@@ -7070,6 +9016,18 @@ paths:
           required: true
           schema:
             type: string
+        - name: X-API-KEY
+          in: header
+          description: API key
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          in: header
+          description: Account key
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "202":
           description: Configuration webhook event received and queued for processing
@@ -7095,6 +9053,18 @@ paths:
           required: false
           schema:
             type: string
+        - name: X-API-KEY
+          in: header
+          description: API key
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          in: header
+          description: Account key
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       requestBody:
         content:
           application/json:
@@ -7117,7 +9087,19 @@ paths:
       operationId: createWebHookTenant
       tags:
         - webhooks
-      parameters: []
+      parameters:
+        - name: X-API-KEY
+          in: header
+          description: API key
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          in: header
+          description: Account key
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       requestBody:
         content:
           application/json:
@@ -7159,6 +9141,18 @@ paths:
           required: false
           schema:
             type: string
+        - name: X-API-KEY
+          in: header
+          description: API key
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          in: header
+          description: Account key
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: Operation completed successfully
@@ -7177,6 +9171,18 @@ paths:
           required: true
           schema:
             type: string
+        - name: X-API-KEY
+          in: header
+          description: API key
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          in: header
+          description: Account key
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: Operation completed successfully
@@ -7190,7 +9196,19 @@ paths:
       operationId: createWebhookConfig
       tags:
         - webhooks
-      parameters: []
+      parameters:
+        - name: X-API-KEY
+          in: header
+          description: API key
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          in: header
+          description: Account key
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       requestBody:
         content:
           application/json:
@@ -7227,6 +9245,18 @@ paths:
           required: false
           schema:
             type: string
+        - name: X-API-KEY
+          in: header
+          description: API key
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          in: header
+          description: Account key
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       requestBody:
         content:
           application/json:
@@ -7267,6 +9297,18 @@ paths:
           required: false
           schema:
             type: boolean
+        - name: X-API-KEY
+          in: header
+          description: API key
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          in: header
+          description: Account key
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: List of webhooks for the authenticated end user's connected target system
@@ -7313,6 +9355,18 @@ paths:
           required: false
           schema:
             type: string
+        - name: X-API-KEY
+          in: header
+          description: API key
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          in: header
+          description: Account key
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: Operation completed successfully
@@ -7327,7 +9381,19 @@ paths:
       description: Returns 200 if the service is up.
       tags:
         - health
-      parameters: []
+      parameters:
+        - name: X-API-KEY
+          in: header
+          description: API key
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          in: header
+          description: Account key
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: Service is healthy.
@@ -7352,7 +9418,19 @@ paths:
       description: Returns database connectivity status. Requires admin token.
       tags:
         - health
-      parameters: []
+      parameters:
+        - name: X-API-KEY
+          in: header
+          description: API key
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          in: header
+          description: Account key
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
       responses:
         "200":
           description: Detailed health status including database connectivity.
@@ -9037,6 +11115,9 @@ components:
         paidDate:
           type: string
           nullable: true
+        paymentReference:
+          type: string
+          nullable: true
         paymentTermCode:
           type: string
           nullable: true
@@ -9143,6 +11224,7 @@ components:
         - name
         - oneLineAddress
         - paidDate
+        - paymentReference
         - paymentTermCode
         - paymentStatus
         - paymentDays
@@ -12942,6 +15024,9 @@ components:
         contactName:
           type: string
           nullable: true
+        contactId:
+          type: string
+          nullable: true
         customerId:
           type: string
           nullable: true
@@ -16524,6 +18609,128 @@ components:
         - startDate
         - status
         - updatedDate
+    AccountRequestCommonDtoV2:
+      type: object
+      properties:
+        id:
+          type: string
+        code:
+          type: string
+        name:
+          type: string
+        number:
+          type: number
+    DimensionRequestCommonDtoV2:
+      type: object
+      properties:
+        id:
+          type: string
+        code:
+          type: string
+        dimension:
+          type: string
+        name:
+          type: string
+    TaxRateRequestDtoV2:
+      type: object
+      properties:
+        id:
+          type: string
+        code:
+          type: string
+        description:
+          type: string
+        taxRatePercentage:
+          type: number
+    ExpenseLineItemRequestDtoV2:
+      type: object
+      properties:
+        id:
+          type: string
+        account:
+          $ref: '#/components/schemas/AccountRequestCommonDtoV2'
+        currency:
+          type: string
+        description:
+          type: string
+        dimensions:
+          type: array
+          items:
+            $ref: '#/components/schemas/DimensionRequestCommonDtoV2'
+        documentNumber:
+          type: string
+        exchangeRate:
+          type: number
+        itemId:
+          type: string
+        taxRate:
+          $ref: '#/components/schemas/TaxRateRequestDtoV2'
+        totalGrossAmount:
+          type: number
+        totalNetAmount:
+          type: number
+    CreateExpenseRequestDtoV2:
+      type: object
+      properties:
+        id:
+          type: string
+        account:
+          $ref: '#/components/schemas/AccountRequestCommonDtoV2'
+        currency:
+          type: string
+        customerId:
+          type: string
+        description:
+          type: string
+        documentId:
+          type: string
+        expenseLines:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExpenseLineItemRequestDtoV2'
+        files:
+          type: array
+          items:
+            type: string
+        generatorName:
+          type: string
+        journalCode:
+          type: string
+        note:
+          type: string
+        paymentTermId:
+          type: string
+        paymentType:
+          type: string
+          enum:
+            - CASH
+            - CHECK
+            - CREDIT_CARD
+            - CREDIT
+            - COLLECTION
+        supplierId:
+          type: string
+        type:
+          type: string
+          enum:
+            - EXPENSE
+            - REFUND
+        totalGrossAmount:
+          type: number
+        totalNetAmount:
+          type: number
+        totalTaxAmount:
+          type: number
+        transactionDate:
+          type: string
+    TaskIdResponseDto:
+      type: object
+      properties:
+        taskId:
+          type: string
+          nullable: true
+      required:
+        - taskId
     CreateAccountRequestDto:
       type: object
       properties:
@@ -17992,6 +20199,8 @@ components:
           type: number
         contactName:
           type: string
+        contactId:
+          type: string
         customerId:
           type: string
         description:
@@ -18125,6 +20334,8 @@ components:
           type: string
         paidDate:
           type: object
+        paymentReference:
+          type: string
         paymentTermCode:
           type: string
         paymentStatus:
@@ -18272,28 +20483,6 @@ components:
           type: number
         name:
           type: string
-    AccountRequestCommonDtoV2:
-      type: object
-      properties:
-        id:
-          type: string
-        code:
-          type: string
-        name:
-          type: string
-        number:
-          type: number
-    DimensionRequestCommonDtoV2:
-      type: object
-      properties:
-        id:
-          type: string
-        code:
-          type: string
-        dimension:
-          type: string
-        name:
-          type: string
     BookingProposalLineItemRequestDtoV2:
       type: object
       properties:
@@ -18389,299 +20578,6 @@ components:
           type: number
         vatId:
           type: string
-    BookingProposalAddressResponseDtoV2:
-      type: object
-      properties:
-        city:
-          type: string
-          nullable: true
-      required:
-        - city
-    BankAccountResponseCommonDtoV2:
-      type: object
-      properties:
-        id:
-          type: string
-          nullable: true
-        bic:
-          type: string
-          nullable: true
-        code:
-          type: string
-          nullable: true
-        iban:
-          type: string
-          nullable: true
-        number:
-          type: number
-          nullable: true
-      required:
-        - id
-        - bic
-        - code
-        - iban
-        - number
-    ContactResponseCommonDtoV2:
-      type: object
-      properties:
-        id:
-          type: string
-          nullable: true
-        accountNumber:
-          type: number
-          nullable: true
-        name:
-          type: string
-          nullable: true
-      required:
-        - id
-        - accountNumber
-        - name
-    AccountResponseCommonDtoV2:
-      type: object
-      properties:
-        id:
-          type: string
-          nullable: true
-        code:
-          type: string
-          nullable: true
-        name:
-          type: string
-          nullable: true
-        number:
-          type: number
-          nullable: true
-      required:
-        - id
-        - code
-        - name
-        - number
-    DimensionResponseCommonDtoV2:
-      type: object
-      properties:
-        id:
-          type: string
-          nullable: true
-        code:
-          type: string
-          nullable: true
-        dimension:
-          type: string
-          nullable: true
-        name:
-          type: string
-          nullable: true
-      required:
-        - id
-        - code
-        - dimension
-        - name
-    BookingProposalLineItemResponseDtoV2:
-      type: object
-      properties:
-        id:
-          type: string
-          nullable: true
-        account:
-          nullable: true
-          allOf:
-            - $ref: '#/components/schemas/AccountResponseCommonDtoV2'
-        createdDate:
-          type: string
-          nullable: true
-        description:
-          type: string
-          nullable: true
-        dimensions:
-          nullable: true
-          type: array
-          items:
-            $ref: '#/components/schemas/DimensionResponseCommonDtoV2'
-        discountAmount:
-          type: number
-          nullable: true
-        discountAmount2:
-          type: number
-          nullable: true
-        discountPercentage:
-          type: number
-          nullable: true
-        discountPercentage2:
-          type: number
-          nullable: true
-        taxCode:
-          type: string
-          nullable: true
-        taxRatePercentage:
-          type: number
-          nullable: true
-        totalGrossAmount:
-          type: number
-          nullable: true
-        totalNetAmount:
-          type: number
-          nullable: true
-        type:
-          type: string
-          enum:
-            - PRODUCT
-            - SERVICE
-          nullable: true
-        updatedDate:
-          type: string
-          nullable: true
-      required:
-        - id
-        - account
-        - createdDate
-        - description
-        - dimensions
-        - discountAmount
-        - discountAmount2
-        - discountPercentage
-        - discountPercentage2
-        - taxCode
-        - taxRatePercentage
-        - totalGrossAmount
-        - totalNetAmount
-        - type
-        - updatedDate
-    BookingProposalResponseDtoV2:
-      type: object
-      properties:
-        id:
-          type: string
-          nullable: true
-        addresses:
-          nullable: true
-          type: array
-          items:
-            $ref: '#/components/schemas/BookingProposalAddressResponseDtoV2'
-        bankAccount:
-          nullable: true
-          allOf:
-            - $ref: '#/components/schemas/BankAccountResponseCommonDtoV2'
-        bookingProposalDate:
-          type: string
-          nullable: true
-        bookingType:
-          type: string
-          enum:
-            - INVOICE
-            - BILL
-            - CREDIT_NOTE
-            - VENDOR_CREDIT
-            - CREDIT_CARD
-            - EXPENSE
-            - DOWN_PAYMENT
-            - OTHER
-          nullable: true
-        contact:
-          nullable: true
-          allOf:
-            - $ref: '#/components/schemas/ContactResponseCommonDtoV2'
-        createdDate:
-          type: string
-          nullable: true
-        currency:
-          type: string
-          nullable: true
-        deliveryDate:
-          type: string
-          nullable: true
-        discountPaymentDate:
-          type: string
-          nullable: true
-        discountPaymentDate2:
-          type: string
-          nullable: true
-        dueDate:
-          type: string
-          nullable: true
-        files:
-          nullable: true
-          type: array
-          items:
-            type: string
-        journalCode:
-          type: string
-          nullable: true
-        isPaymentOrder:
-          type: boolean
-          nullable: true
-        ledgerName:
-          type: string
-          nullable: true
-        lineItems:
-          nullable: true
-          type: array
-          items:
-            $ref: '#/components/schemas/BookingProposalLineItemResponseDtoV2'
-        notes:
-          type: string
-          nullable: true
-        number:
-          type: string
-          nullable: true
-        orderId:
-          type: string
-          nullable: true
-        paidDate:
-          type: string
-          nullable: true
-        paymentTermId:
-          type: string
-          nullable: true
-        status:
-          type: string
-          enum:
-            - DRAFT
-            - SUBMITTED
-            - OPEN
-            - PARTIALLY_PAID
-            - PAID
-            - OVERDUE
-            - VOIDED
-            - DISPUTED
-            - CANCELLED
-          nullable: true
-        totalGrossAmount:
-          type: number
-          nullable: true
-        updatedDate:
-          type: string
-          nullable: true
-        vatId:
-          type: string
-          nullable: true
-      required:
-        - id
-        - addresses
-        - bankAccount
-        - bookingProposalDate
-        - bookingType
-        - contact
-        - createdDate
-        - currency
-        - deliveryDate
-        - discountPaymentDate
-        - discountPaymentDate2
-        - dueDate
-        - files
-        - journalCode
-        - isPaymentOrder
-        - ledgerName
-        - lineItems
-        - notes
-        - number
-        - orderId
-        - paidDate
-        - paymentTermId
-        - status
-        - totalGrossAmount
-        - updatedDate
-        - vatId
     ContactAddressV2:
       type: object
       properties:
@@ -19293,18 +21189,15 @@ components:
           type: string
       required:
         - callbackUrl
-  securitySchemes:
-    apiKey:
-      type: apiKey
+x-speakeasy-globals:
+  parameters:
+    - name: X-API-KEY
       in: header
-      name: X-API-KEY
-      description: API key for authentication
-    accountKey:
-      type: apiKey
+      schema:
+        type: string
+      x-speakeasy-name-override: apiKey
+    - name: X-ACCOUNT-KEY
       in: header
-      name: X-ACCOUNT-KEY
-      description: Account key for tenant-specific operations
-security:
-  - apiKey: []
-    accountKey: []
-  - apiKey: []
+      schema:
+        type: string
+      x-speakeasy-name-override: accountKey

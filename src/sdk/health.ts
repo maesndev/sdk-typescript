@@ -15,10 +15,12 @@ export class Health extends ClientSDK {
    * Returns 200 if the service is up.
    */
   async check(
+    request?: operations.CheckRequest | undefined,
     options?: RequestOptions,
   ): Promise<operations.CheckResponse> {
     return unwrapAsync(healthCheck(
       this,
+      request,
       options,
     ));
   }

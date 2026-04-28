@@ -6,6 +6,7 @@ import { tenantsAddCallbackUrl } from "../funcs/tenants-add-callback-url.js";
 import { tenantsCountEndUsersBySystem } from "../funcs/tenants-count-end-users-by-system.js";
 import { tenantsDeleteEndUser } from "../funcs/tenants-delete-end-user.js";
 import { tenantsDeleteRegisteredSystem } from "../funcs/tenants-delete-registered-system.js";
+import { tenantsGenerateTenantSigningSecret } from "../funcs/tenants-generate-tenant-signing-secret.js";
 import { tenantsGetCallbackUrl } from "../funcs/tenants-get-callback-url.js";
 import { tenantsGetEndUserList } from "../funcs/tenants-get-end-user-list.js";
 import { tenantsGetRegisteredSystemsMasked } from "../funcs/tenants-get-registered-systems-masked.js";
@@ -23,7 +24,7 @@ import { unwrapAsync } from "../types/fp.js";
 
 export class Tenants extends ClientSDK {
   async systemRegistration(
-    request: models.SystemRegistrationDto,
+    request: operations.SystemRegistrationRequest,
     options?: RequestOptions,
   ): Promise<string> {
     return unwrapAsync(tenantsSystemRegistration(
@@ -34,7 +35,7 @@ export class Tenants extends ClientSDK {
   }
 
   async addCallbackUrl(
-    request: models.CallbackUrlRegistrationDto,
+    request: operations.AddCallbackUrlRequest,
     options?: RequestOptions,
   ): Promise<string> {
     return unwrapAsync(tenantsAddCallbackUrl(
@@ -45,73 +46,89 @@ export class Tenants extends ClientSDK {
   }
 
   async getEndUserList(
+    request?: operations.GetEndUserListRequest | undefined,
     options?: RequestOptions,
   ): Promise<models.BaseResponseDto> {
     return unwrapAsync(tenantsGetEndUserList(
       this,
+      request,
       options,
     ));
   }
 
   async countEndUsersBySystem(
+    request?: operations.CountEndUsersBySystemRequest | undefined,
     options?: RequestOptions,
   ): Promise<models.BaseResponseDto> {
     return unwrapAsync(tenantsCountEndUsersBySystem(
       this,
+      request,
       options,
     ));
   }
 
   async deleteEndUser(
+    request?: operations.DeleteEndUserRequest | undefined,
     options?: RequestOptions,
   ): Promise<operations.DeleteEndUserResponse> {
     return unwrapAsync(tenantsDeleteEndUser(
       this,
+      request,
       options,
     ));
   }
 
   async getCallbackUrl(
+    request?: operations.GetCallbackUrlRequest | undefined,
     options?: RequestOptions,
   ): Promise<models.BaseResponseDto> {
     return unwrapAsync(tenantsGetCallbackUrl(
       this,
+      request,
       options,
     ));
   }
 
   async getRegisteredSystems(
+    request?: operations.GetRegisteredSystemsRequest | undefined,
     options?: RequestOptions,
   ): Promise<models.BaseResponseDto> {
     return unwrapAsync(tenantsGetRegisteredSystems(
       this,
+      request,
       options,
     ));
   }
 
   async getTargetSystemValues(
+    request?: operations.GetTargetSystemValuesRequest | undefined,
     options?: RequestOptions,
   ): Promise<models.BaseResponseDto> {
     return unwrapAsync(tenantsGetTargetSystemValues(
       this,
+      request,
       options,
     ));
   }
 
   async getTargetSystemRequirements(
+    request?: operations.GetTargetSystemRequirementsRequest | undefined,
     options?: RequestOptions,
   ): Promise<models.BaseResponseDto> {
     return unwrapAsync(tenantsGetTargetSystemRequirements(
       this,
+      request,
       options,
     ));
   }
 
   async getRegisteredSystemsMasked(
+    request?: operations.GetRegisteredSystemsMaskedRequest | undefined,
     options?: RequestOptions,
   ): Promise<models.BaseResponseDto> {
     return unwrapAsync(tenantsGetRegisteredSystemsMasked(
       this,
+      request,
       options,
     ));
   }
@@ -139,7 +156,7 @@ export class Tenants extends ClientSDK {
   }
 
   async updateSubmissionPageStyle(
-    request: models.SubmissionPageStyleDto,
+    request: operations.UpdateSubmissionPageStyleRequest,
     options?: RequestOptions,
   ): Promise<operations.UpdateSubmissionPageStyleResponse> {
     return unwrapAsync(tenantsUpdateSubmissionPageStyle(
@@ -150,10 +167,23 @@ export class Tenants extends ClientSDK {
   }
 
   async getSubmissionPageStyleByKey(
+    request?: operations.GetSubmissionPageStyleByKeyRequest | undefined,
     options?: RequestOptions,
   ): Promise<operations.GetSubmissionPageStyleByKeyResponse> {
     return unwrapAsync(tenantsGetSubmissionPageStyleByKey(
       this,
+      request,
+      options,
+    ));
+  }
+
+  async generateTenantSigningSecret(
+    request?: operations.GenerateTenantSigningSecretRequest | undefined,
+    options?: RequestOptions,
+  ): Promise<operations.GenerateTenantSigningSecretResponse> {
+    return unwrapAsync(tenantsGenerateTenantSigningSecret(
+      this,
+      request,
       options,
     ));
   }

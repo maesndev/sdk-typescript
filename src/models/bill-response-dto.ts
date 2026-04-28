@@ -92,6 +92,7 @@ export type BillResponseDto = {
   name: string | null;
   oneLineAddress: string | null;
   paidDate: string | null;
+  paymentReference: string | null;
   paymentTermCode: string | null;
   paymentStatus: BillResponseDtoPaymentStatus | null;
   paymentDays: number | null;
@@ -154,6 +155,7 @@ export const BillResponseDto$inboundSchema: z.ZodMiniType<
   name: types.nullable(types.string()),
   oneLineAddress: types.nullable(types.string()),
   paidDate: types.nullable(types.string()),
+  paymentReference: types.nullable(types.string()),
   paymentTermCode: types.nullable(types.string()),
   paymentStatus: types.nullable(BillResponseDtoPaymentStatus$inboundSchema),
   paymentDays: types.nullable(types.number()),

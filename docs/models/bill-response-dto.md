@@ -48,20 +48,21 @@ let value: BillResponseDto = {
   name: "<value>",
   oneLineAddress: null,
   paidDate: "<value>",
+  paymentReference: "<value>",
   paymentTermCode: "<value>",
-  paymentStatus: "UNKNOWN",
-  paymentDays: 2097.58,
+  paymentStatus: "DEBITED",
+  paymentDays: 3043.02,
   reference: "<value>",
   shippingDate: "<value>",
-  shippingType: "SERVICE_PERIOD",
-  status: "CORRECTIVE",
-  taxRule: "PHOTOVOLTAIC_EQUIPMENT",
+  shippingType: "SERVICE",
+  status: "PARTIALLY_OVERDUE",
+  taxRule: "INTRACOMMUNITY_SERVICE",
   taxText: "<value>",
-  totalDiscountAmount: 1067.58,
-  totalDiscountPercentage: 1018.42,
+  totalDiscountAmount: 3024.69,
+  totalDiscountPercentage: 584.4,
   totalGrossAmount: null,
-  totalNetAmount: null,
-  totalTaxAmount: 5862.61,
+  totalNetAmount: 5862.61,
+  totalTaxAmount: 3992.64,
   updatedDate: "<value>",
 };
 ```
@@ -86,6 +87,7 @@ let value: BillResponseDto = {
 | `name`                                                                               | *string*                                                                             | :heavy_check_mark:                                                                   | N/A                                                                                  |
 | `oneLineAddress`                                                                     | *string*                                                                             | :heavy_check_mark:                                                                   | N/A                                                                                  |
 | `paidDate`                                                                           | *string*                                                                             | :heavy_check_mark:                                                                   | N/A                                                                                  |
+| `paymentReference`                                                                   | *string*                                                                             | :heavy_check_mark:                                                                   | N/A                                                                                  |
 | `paymentTermCode`                                                                    | *string*                                                                             | :heavy_check_mark:                                                                   | N/A                                                                                  |
 | `paymentStatus`                                                                      | [models.BillResponseDtoPaymentStatus](../models/bill-response-dto-payment-status.md) | :heavy_check_mark:                                                                   | N/A                                                                                  |
 | `paymentDays`                                                                        | *number*                                                                             | :heavy_check_mark:                                                                   | N/A                                                                                  |

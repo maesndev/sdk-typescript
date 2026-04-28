@@ -9,6 +9,22 @@ import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
+export type GetEnvironmentsGlobals = {
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
+};
+
+export type GetEnvironmentsRequest = {
+  /**
+   * API key
+   */
+  apiKey?: string | undefined;
+  /**
+   * Account key
+   */
+  accountKey?: string | undefined;
+};
+
 export type GetEnvironmentsPagination = {
   total: number;
   perPage: number;
@@ -34,6 +50,29 @@ export type GetEnvironmentsResponse = {
   errors: GetEnvironmentsErrors | null;
   rawData: GetEnvironmentsRawData | null;
 };
+
+/** @internal */
+export type GetEnvironmentsRequest$Outbound = {
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
+};
+
+/** @internal */
+export const GetEnvironmentsRequest$outboundSchema: z.ZodMiniType<
+  GetEnvironmentsRequest$Outbound,
+  GetEnvironmentsRequest
+> = z.object({
+  apiKey: z.optional(z.string()),
+  accountKey: z.optional(z.string()),
+});
+
+export function getEnvironmentsRequestToJSON(
+  getEnvironmentsRequest: GetEnvironmentsRequest,
+): string {
+  return JSON.stringify(
+    GetEnvironmentsRequest$outboundSchema.parse(getEnvironmentsRequest),
+  );
+}
 
 /** @internal */
 export const GetEnvironmentsPagination$inboundSchema: z.ZodMiniType<

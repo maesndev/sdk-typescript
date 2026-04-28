@@ -9,6 +9,11 @@ import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
+export type GetOfferLineItemGlobals = {
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
+};
+
 export type GetOfferLineItemRequest = {
   offerId: string;
   lineItemId: string;
@@ -24,6 +29,14 @@ export type GetOfferLineItemRequest = {
    * When true, returns the unprocessed response from the upstream target system
    */
   rawData?: boolean | undefined;
+  /**
+   * API key
+   */
+  apiKey?: string | undefined;
+  /**
+   * Account key
+   */
+  accountKey?: string | undefined;
 };
 
 export type GetOfferLineItemPagination = {
@@ -59,6 +72,8 @@ export type GetOfferLineItemRequest$Outbound = {
   environmentName?: string | undefined;
   companyId?: string | undefined;
   rawData?: boolean | undefined;
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
 };
 
 /** @internal */
@@ -71,6 +86,8 @@ export const GetOfferLineItemRequest$outboundSchema: z.ZodMiniType<
   environmentName: z.optional(z.string()),
   companyId: z.optional(z.string()),
   rawData: z.optional(z.boolean()),
+  apiKey: z.optional(z.string()),
+  accountKey: z.optional(z.string()),
 });
 
 export function getOfferLineItemRequestToJSON(

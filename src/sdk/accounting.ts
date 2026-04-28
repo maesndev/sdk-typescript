@@ -12,6 +12,7 @@ import { accountingCreateContactsV1 } from "../funcs/accounting-create-contacts-
 import { accountingCreateContacts } from "../funcs/accounting-create-contacts.js";
 import { accountingCreateCustomer } from "../funcs/accounting-create-customer.js";
 import { accountingCreateEventSubscriptions } from "../funcs/accounting-create-event-subscriptions.js";
+import { accountingCreateExpenseAsync } from "../funcs/accounting-create-expense-async.js";
 import { accountingCreateExpense } from "../funcs/accounting-create-expense.js";
 import { accountingCreateInvoice } from "../funcs/accounting-create-invoice.js";
 import { accountingCreateItem } from "../funcs/accounting-create-item.js";
@@ -106,6 +107,7 @@ import { accountingPatchInvoice } from "../funcs/accounting-patch-invoice.js";
 import { accountingPatchItem } from "../funcs/accounting-patch-item.js";
 import { accountingPatchLineItem } from "../funcs/accounting-patch-line-item.js";
 import { accountingPatchSupplier } from "../funcs/accounting-patch-supplier.js";
+import { accountingPostFileAsync } from "../funcs/accounting-post-file-async.js";
 import { accountingPostFile } from "../funcs/accounting-post-file.js";
 import { accountingPutContact } from "../funcs/accounting-put-contact.js";
 import { accountingUpdateBillLineItem } from "../funcs/accounting-update-bill-line-item.js";
@@ -454,6 +456,17 @@ export class Accounting extends ClientSDK {
     options?: RequestOptions,
   ): Promise<operations.PostFileResponse> {
     return unwrapAsync(accountingPostFile(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  async postFileAsync(
+    request: operations.PostFileAsyncRequest,
+    options?: RequestOptions,
+  ): Promise<operations.PostFileAsyncResponse> {
+    return unwrapAsync(accountingPostFileAsync(
       this,
       request,
       options,
@@ -967,10 +980,12 @@ export class Accounting extends ClientSDK {
   }
 
   async getProfile(
+    request?: operations.GetProfileRequest | undefined,
     options?: RequestOptions,
   ): Promise<models.BaseResponseDto> {
     return unwrapAsync(accountingGetProfile(
       this,
+      request,
       options,
     ));
   }
@@ -1332,6 +1347,17 @@ export class Accounting extends ClientSDK {
     options?: RequestOptions,
   ): Promise<operations.GetFiscalYearResponse> {
     return unwrapAsync(accountingGetFiscalYear(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  async createExpenseAsync(
+    request: operations.CreateExpenseAsyncRequest,
+    options?: RequestOptions,
+  ): Promise<operations.CreateExpenseAsyncResponse> {
+    return unwrapAsync(accountingCreateExpenseAsync(
       this,
       request,
       options,

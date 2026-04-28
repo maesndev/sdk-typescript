@@ -9,11 +9,24 @@ import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
+export type GetDocumentTypesGlobals = {
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
+};
+
 export type GetDocumentTypesRequest = {
   /**
    * ID of the company (required for multi-company target systems)
    */
   companyId?: string | undefined;
+  /**
+   * API key
+   */
+  apiKey?: string | undefined;
+  /**
+   * Account key
+   */
+  accountKey?: string | undefined;
 };
 
 export type GetDocumentTypesPagination = {
@@ -45,6 +58,8 @@ export type GetDocumentTypesResponse = {
 /** @internal */
 export type GetDocumentTypesRequest$Outbound = {
   companyId?: string | undefined;
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
 };
 
 /** @internal */
@@ -53,6 +68,8 @@ export const GetDocumentTypesRequest$outboundSchema: z.ZodMiniType<
   GetDocumentTypesRequest
 > = z.object({
   companyId: z.optional(z.string()),
+  apiKey: z.optional(z.string()),
+  accountKey: z.optional(z.string()),
 });
 
 export function getDocumentTypesRequestToJSON(

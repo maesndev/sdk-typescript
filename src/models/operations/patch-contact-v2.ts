@@ -9,6 +9,11 @@ import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
+export type PatchContactV2Globals = {
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
+};
+
 export type PatchContactV2Request = {
   contactId: string;
   /**
@@ -19,6 +24,14 @@ export type PatchContactV2Request = {
    * ID of the company (required for multi-company target systems)
    */
   companyId?: string | undefined;
+  /**
+   * API key
+   */
+  apiKey?: string | undefined;
+  /**
+   * Account key
+   */
+  accountKey?: string | undefined;
   body: models.CreateContactRequestDtoV2;
 };
 
@@ -53,6 +66,8 @@ export type PatchContactV2Request$Outbound = {
   contactId: string;
   environmentName?: string | undefined;
   companyId?: string | undefined;
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
   body: models.CreateContactRequestDtoV2$Outbound;
 };
 
@@ -64,6 +79,8 @@ export const PatchContactV2Request$outboundSchema: z.ZodMiniType<
   contactId: z.string(),
   environmentName: z.optional(z.string()),
   companyId: z.optional(z.string()),
+  apiKey: z.optional(z.string()),
+  accountKey: z.optional(z.string()),
   body: models.CreateContactRequestDtoV2$outboundSchema,
 });
 

@@ -9,11 +9,24 @@ import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
+export type GetCompaniesGlobals = {
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
+};
+
 export type GetCompaniesRequest = {
   /**
    * Environment name (required for multi-environment systems such as Business Central)
    */
   environmentName?: string | undefined;
+  /**
+   * API key
+   */
+  apiKey?: string | undefined;
+  /**
+   * Account key
+   */
+  accountKey?: string | undefined;
 };
 
 export type GetCompaniesPagination = {
@@ -45,6 +58,8 @@ export type GetCompaniesResponse = {
 /** @internal */
 export type GetCompaniesRequest$Outbound = {
   environmentName?: string | undefined;
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
 };
 
 /** @internal */
@@ -53,6 +68,8 @@ export const GetCompaniesRequest$outboundSchema: z.ZodMiniType<
   GetCompaniesRequest
 > = z.object({
   environmentName: z.optional(z.string()),
+  apiKey: z.optional(z.string()),
+  accountKey: z.optional(z.string()),
 });
 
 export function getCompaniesRequestToJSON(

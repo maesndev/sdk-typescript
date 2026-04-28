@@ -8,12 +8,25 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 
+export type DeletePaymentGlobals = {
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
+};
+
 export type DeletePaymentRequest = {
   paymentId: string;
   /**
    * ID of the company (required for multi-company target systems)
    */
   companyId?: string | undefined;
+  /**
+   * API key
+   */
+  apiKey?: string | undefined;
+  /**
+   * Account key
+   */
+  accountKey?: string | undefined;
 };
 
 export type DeletePaymentPagination = {
@@ -46,6 +59,8 @@ export type DeletePaymentResponse = {
 export type DeletePaymentRequest$Outbound = {
   paymentId: string;
   companyId?: string | undefined;
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
 };
 
 /** @internal */
@@ -55,6 +70,8 @@ export const DeletePaymentRequest$outboundSchema: z.ZodMiniType<
 > = z.object({
   paymentId: z.string(),
   companyId: z.optional(z.string()),
+  apiKey: z.optional(z.string()),
+  accountKey: z.optional(z.string()),
 });
 
 export function deletePaymentRequestToJSON(

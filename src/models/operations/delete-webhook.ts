@@ -7,6 +7,11 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 
+export type DeleteWebhookGlobals = {
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
+};
+
 export type DeleteWebhookRequest = {
   webhookId: string;
   /**
@@ -17,6 +22,14 @@ export type DeleteWebhookRequest = {
    * ID of the company (required for multi-company target systems)
    */
   companyId?: string | undefined;
+  /**
+   * API key
+   */
+  apiKey?: string | undefined;
+  /**
+   * Account key
+   */
+  accountKey?: string | undefined;
 };
 
 /**
@@ -29,6 +42,8 @@ export type DeleteWebhookRequest$Outbound = {
   webhookId: string;
   environmentName?: string | undefined;
   companyId?: string | undefined;
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
 };
 
 /** @internal */
@@ -39,6 +54,8 @@ export const DeleteWebhookRequest$outboundSchema: z.ZodMiniType<
   webhookId: z.string(),
   environmentName: z.optional(z.string()),
   companyId: z.optional(z.string()),
+  apiKey: z.optional(z.string()),
+  accountKey: z.optional(z.string()),
 });
 
 export function deleteWebhookRequestToJSON(

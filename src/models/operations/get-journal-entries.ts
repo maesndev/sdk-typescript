@@ -10,6 +10,11 @@ import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
+export type GetJournalEntriesGlobals = {
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
+};
+
 export const GetJournalEntriesLimit = {
   Five: 5,
   Ten: 10,
@@ -46,6 +51,14 @@ export type GetJournalEntriesRequest = {
    * ISO 8601 start date of the fiscal year used for scoping results
    */
   fiscalYearStartDate?: string | undefined;
+  /**
+   * API key
+   */
+  apiKey?: string | undefined;
+  /**
+   * Account key
+   */
+  accountKey?: string | undefined;
 };
 
 export type GetJournalEntriesPagination = {
@@ -89,6 +102,8 @@ export type GetJournalEntriesRequest$Outbound = {
   rawData?: boolean | undefined;
   fiscalYear?: number | undefined;
   fiscalYearStartDate?: string | undefined;
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
 };
 
 /** @internal */
@@ -104,6 +119,8 @@ export const GetJournalEntriesRequest$outboundSchema: z.ZodMiniType<
   rawData: z.optional(z.boolean()),
   fiscalYear: z.optional(z.number()),
   fiscalYearStartDate: z.optional(z.string()),
+  apiKey: z.optional(z.string()),
+  accountKey: z.optional(z.string()),
 });
 
 export function getJournalEntriesRequestToJSON(

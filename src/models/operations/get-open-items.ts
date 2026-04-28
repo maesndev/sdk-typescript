@@ -10,6 +10,11 @@ import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
+export type GetOpenItemsGlobals = {
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
+};
+
 export const GetOpenItemsLimit = {
   Five: 5,
   Ten: 10,
@@ -54,6 +59,14 @@ export type GetOpenItemsRequest = {
    * Filter open items by type (e.g. receivable, payable)
    */
   type?: string | undefined;
+  /**
+   * API key
+   */
+  apiKey?: string | undefined;
+  /**
+   * Account key
+   */
+  accountKey?: string | undefined;
 };
 
 export type GetOpenItemsPagination = {
@@ -99,6 +112,8 @@ export type GetOpenItemsRequest$Outbound = {
   accountNumber?: string | undefined;
   documentNumber?: string | undefined;
   type?: string | undefined;
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
 };
 
 /** @internal */
@@ -116,6 +131,8 @@ export const GetOpenItemsRequest$outboundSchema: z.ZodMiniType<
   accountNumber: z.optional(z.string()),
   documentNumber: z.optional(z.string()),
   type: z.optional(z.string()),
+  apiKey: z.optional(z.string()),
+  accountKey: z.optional(z.string()),
 });
 
 export function getOpenItemsRequestToJSON(

@@ -7,10 +7,45 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 
+export type CheckGlobals = {
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
+};
+
+export type CheckRequest = {
+  /**
+   * API key
+   */
+  apiKey?: string | undefined;
+  /**
+   * Account key
+   */
+  accountKey?: string | undefined;
+};
+
 /**
  * Service is healthy.
  */
 export type CheckResponse = {};
+
+/** @internal */
+export type CheckRequest$Outbound = {
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
+};
+
+/** @internal */
+export const CheckRequest$outboundSchema: z.ZodMiniType<
+  CheckRequest$Outbound,
+  CheckRequest
+> = z.object({
+  apiKey: z.optional(z.string()),
+  accountKey: z.optional(z.string()),
+});
+
+export function checkRequestToJSON(checkRequest: CheckRequest): string {
+  return JSON.stringify(CheckRequest$outboundSchema.parse(checkRequest));
+}
 
 /** @internal */
 export const CheckResponse$inboundSchema: z.ZodMiniType<

@@ -4,13 +4,28 @@
 
 import * as z from "zod/v4-mini";
 
+export type DeleteRegisteredSystemGlobals = {
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
+};
+
 export type DeleteRegisteredSystemRequest = {
   targetSystem: string;
+  /**
+   * API key
+   */
+  apiKey?: string | undefined;
+  /**
+   * Account key
+   */
+  accountKey?: string | undefined;
 };
 
 /** @internal */
 export type DeleteRegisteredSystemRequest$Outbound = {
   targetSystem: string;
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
 };
 
 /** @internal */
@@ -19,6 +34,8 @@ export const DeleteRegisteredSystemRequest$outboundSchema: z.ZodMiniType<
   DeleteRegisteredSystemRequest
 > = z.object({
   targetSystem: z.string(),
+  apiKey: z.optional(z.string()),
+  accountKey: z.optional(z.string()),
 });
 
 export function deleteRegisteredSystemRequestToJSON(

@@ -10,6 +10,11 @@ import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
+export type GetItemsGlobals = {
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
+};
+
 export const GetItemsLimit = {
   Five: 5,
   Ten: 10,
@@ -46,6 +51,14 @@ export type GetItemsRequest = {
    * Filter items by item number
    */
   itemNumber?: string | undefined;
+  /**
+   * API key
+   */
+  apiKey?: string | undefined;
+  /**
+   * Account key
+   */
+  accountKey?: string | undefined;
 };
 
 export type GetItemsPagination = {
@@ -88,6 +101,8 @@ export type GetItemsRequest$Outbound = {
   rawData?: boolean | undefined;
   type?: string | undefined;
   itemNumber?: string | undefined;
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
 };
 
 /** @internal */
@@ -103,6 +118,8 @@ export const GetItemsRequest$outboundSchema: z.ZodMiniType<
   rawData: z.optional(z.boolean()),
   type: z.optional(z.string()),
   itemNumber: z.optional(z.string()),
+  apiKey: z.optional(z.string()),
+  accountKey: z.optional(z.string()),
 });
 
 export function getItemsRequestToJSON(

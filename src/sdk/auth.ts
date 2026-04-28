@@ -12,10 +12,12 @@ import { unwrapAsync } from "../types/fp.js";
 
 export class Auth extends ClientSDK {
   async getEnvironments(
+    request?: operations.GetEnvironmentsRequest | undefined,
     options?: RequestOptions,
   ): Promise<operations.GetEnvironmentsResponse> {
     return unwrapAsync(authGetEnvironments(
       this,
+      request,
       options,
     ));
   }

@@ -10,6 +10,11 @@ import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
+export type GetSuppliersGlobals = {
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
+};
+
 export const GetSuppliersLimit = {
   Five: 5,
   Ten: 10,
@@ -50,6 +55,14 @@ export type GetSuppliersRequest = {
    * Filter suppliers by supplier number
    */
   number?: string | undefined;
+  /**
+   * API key
+   */
+  apiKey?: string | undefined;
+  /**
+   * Account key
+   */
+  accountKey?: string | undefined;
 };
 
 export type GetSuppliersPagination = {
@@ -94,6 +107,8 @@ export type GetSuppliersRequest$Outbound = {
   email?: string | undefined;
   name?: string | undefined;
   number?: string | undefined;
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
 };
 
 /** @internal */
@@ -110,6 +125,8 @@ export const GetSuppliersRequest$outboundSchema: z.ZodMiniType<
   email: z.optional(z.string()),
   name: z.optional(z.string()),
   number: z.optional(z.string()),
+  apiKey: z.optional(z.string()),
+  accountKey: z.optional(z.string()),
 });
 
 export function getSuppliersRequestToJSON(

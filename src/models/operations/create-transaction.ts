@@ -9,6 +9,11 @@ import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
+export type CreateTransactionGlobals = {
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
+};
+
 export type CreateTransactionFile = {
   fileName: string;
   content: ReadableStream<Uint8Array> | Blob | ArrayBuffer | Uint8Array;
@@ -24,6 +29,14 @@ export type CreateTransactionRequest = {
    * ID of the company (required for multi-company target systems)
    */
   companyId?: string | undefined;
+  /**
+   * API key
+   */
+  apiKey?: string | undefined;
+  /**
+   * Account key
+   */
+  accountKey?: string | undefined;
   body: CreateTransactionRequestBody;
 };
 
@@ -111,6 +124,8 @@ export function createTransactionRequestBodyToJSON(
 /** @internal */
 export type CreateTransactionRequest$Outbound = {
   companyId?: string | undefined;
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
   body: CreateTransactionRequestBody$Outbound;
 };
 
@@ -120,6 +135,8 @@ export const CreateTransactionRequest$outboundSchema: z.ZodMiniType<
   CreateTransactionRequest
 > = z.object({
   companyId: z.optional(z.string()),
+  apiKey: z.optional(z.string()),
+  accountKey: z.optional(z.string()),
   body: z.lazy(() => CreateTransactionRequestBody$outboundSchema),
 });
 

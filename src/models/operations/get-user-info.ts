@@ -9,6 +9,22 @@ import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
+export type GetUserInfoGlobals = {
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
+};
+
+export type GetUserInfoRequest = {
+  /**
+   * API key
+   */
+  apiKey?: string | undefined;
+  /**
+   * Account key
+   */
+  accountKey?: string | undefined;
+};
+
 export type GetUserInfoPagination = {
   total: number;
   perPage: number;
@@ -31,6 +47,29 @@ export type GetUserInfoResponse = {
   errors: GetUserInfoErrors | null;
   rawData: GetUserInfoRawData | null;
 };
+
+/** @internal */
+export type GetUserInfoRequest$Outbound = {
+  apiKey?: string | undefined;
+  accountKey?: string | undefined;
+};
+
+/** @internal */
+export const GetUserInfoRequest$outboundSchema: z.ZodMiniType<
+  GetUserInfoRequest$Outbound,
+  GetUserInfoRequest
+> = z.object({
+  apiKey: z.optional(z.string()),
+  accountKey: z.optional(z.string()),
+});
+
+export function getUserInfoRequestToJSON(
+  getUserInfoRequest: GetUserInfoRequest,
+): string {
+  return JSON.stringify(
+    GetUserInfoRequest$outboundSchema.parse(getUserInfoRequest),
+  );
+}
 
 /** @internal */
 export const GetUserInfoPagination$inboundSchema: z.ZodMiniType<
