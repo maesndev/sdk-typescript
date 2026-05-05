@@ -4,8 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../lib/schemas.js";
-import * as openEnums from "../types/enums.js";
-import { OpenEnum } from "../types/enums.js";
+import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
@@ -21,7 +20,7 @@ export const PhoneNumberType = {
   Whatsapp: "WHATSAPP",
   Other: "OTHER",
 } as const;
-export type PhoneNumberType = OpenEnum<typeof PhoneNumberType>;
+export type PhoneNumberType = ClosedEnum<typeof PhoneNumberType>;
 
 export type PhoneNumber = {
   number: string | null;
@@ -29,10 +28,9 @@ export type PhoneNumber = {
 };
 
 /** @internal */
-export const PhoneNumberType$inboundSchema: z.ZodMiniType<
-  PhoneNumberType,
-  unknown
-> = openEnums.inboundSchema(PhoneNumberType);
+export const PhoneNumberType$inboundSchema: z.ZodMiniEnum<
+  typeof PhoneNumberType
+> = z.enum(PhoneNumberType);
 
 /** @internal */
 export const PhoneNumber$inboundSchema: z.ZodMiniType<PhoneNumber, unknown> = z

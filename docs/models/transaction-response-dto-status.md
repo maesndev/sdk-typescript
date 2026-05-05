@@ -6,12 +6,10 @@
 import { TransactionResponseDtoStatus } from "@maesn/typescript-sdk/models";
 
 let value: TransactionResponseDtoStatus = "LINKED";
-
-// Open enum: unrecognized values are captured as Unrecognized<string>
 ```
 
 ## Values
 
 ```typescript
-"CREATED" | "LINKED" | "PRIVATE" | "BOOKED" | "AUTHORISED" | "DELETED" | Unrecognized<string>
+"CREATED" | "LINKED" | "PRIVATE" | "BOOKED" | "AUTHORISED" | "DELETED"
 ```

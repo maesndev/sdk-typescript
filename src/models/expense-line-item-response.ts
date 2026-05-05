@@ -4,8 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../lib/schemas.js";
-import * as openEnums from "../types/enums.js";
-import { OpenEnum } from "../types/enums.js";
+import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { Dimension, Dimension$inboundSchema } from "./dimension.js";
@@ -169,7 +168,7 @@ export const ExpenseLineItemResponseCurrency = {
   Zmk: "ZMK",
   Zwr: "ZWR",
 } as const;
-export type ExpenseLineItemResponseCurrency = OpenEnum<
+export type ExpenseLineItemResponseCurrency = ClosedEnum<
   typeof ExpenseLineItemResponseCurrency
 >;
 
@@ -199,10 +198,9 @@ export type ExpenseLineItemResponse = {
 };
 
 /** @internal */
-export const ExpenseLineItemResponseCurrency$inboundSchema: z.ZodMiniType<
-  ExpenseLineItemResponseCurrency,
-  unknown
-> = openEnums.inboundSchema(ExpenseLineItemResponseCurrency);
+export const ExpenseLineItemResponseCurrency$inboundSchema: z.ZodMiniEnum<
+  typeof ExpenseLineItemResponseCurrency
+> = z.enum(ExpenseLineItemResponseCurrency);
 
 /** @internal */
 export const ExpenseLineItemResponseTaxRate$inboundSchema: z.ZodMiniType<

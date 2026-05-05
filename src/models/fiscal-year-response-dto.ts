@@ -4,8 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../lib/schemas.js";
-import * as openEnums from "../types/enums.js";
-import { OpenEnum } from "../types/enums.js";
+import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
@@ -17,7 +16,7 @@ export const FiscalYearResponseDtoChartOfAccount = {
   Skr14: "SKR14",
   Skr42: "SKR42",
 } as const;
-export type FiscalYearResponseDtoChartOfAccount = OpenEnum<
+export type FiscalYearResponseDtoChartOfAccount = ClosedEnum<
   typeof FiscalYearResponseDtoChartOfAccount
 >;
 
@@ -25,7 +24,7 @@ export const FiscalYearResponseDtoStatus = {
   Open: "OPEN",
   Closed: "CLOSED",
 } as const;
-export type FiscalYearResponseDtoStatus = OpenEnum<
+export type FiscalYearResponseDtoStatus = ClosedEnum<
   typeof FiscalYearResponseDtoStatus
 >;
 
@@ -42,16 +41,14 @@ export type FiscalYearResponseDto = {
 };
 
 /** @internal */
-export const FiscalYearResponseDtoChartOfAccount$inboundSchema: z.ZodMiniType<
-  FiscalYearResponseDtoChartOfAccount,
-  unknown
-> = openEnums.inboundSchema(FiscalYearResponseDtoChartOfAccount);
+export const FiscalYearResponseDtoChartOfAccount$inboundSchema: z.ZodMiniEnum<
+  typeof FiscalYearResponseDtoChartOfAccount
+> = z.enum(FiscalYearResponseDtoChartOfAccount);
 
 /** @internal */
-export const FiscalYearResponseDtoStatus$inboundSchema: z.ZodMiniType<
-  FiscalYearResponseDtoStatus,
-  unknown
-> = openEnums.inboundSchema(FiscalYearResponseDtoStatus);
+export const FiscalYearResponseDtoStatus$inboundSchema: z.ZodMiniEnum<
+  typeof FiscalYearResponseDtoStatus
+> = z.enum(FiscalYearResponseDtoStatus);
 
 /** @internal */
 export const FiscalYearResponseDto$inboundSchema: z.ZodMiniType<

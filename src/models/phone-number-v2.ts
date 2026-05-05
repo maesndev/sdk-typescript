@@ -4,8 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../lib/schemas.js";
-import * as openEnums from "../types/enums.js";
-import { OpenEnum } from "../types/enums.js";
+import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
@@ -18,7 +17,7 @@ export const PhoneNumberV2Type = {
   Private: "PRIVATE",
   Other: "OTHER",
 } as const;
-export type PhoneNumberV2Type = OpenEnum<typeof PhoneNumberV2Type>;
+export type PhoneNumberV2Type = ClosedEnum<typeof PhoneNumberV2Type>;
 
 export type PhoneNumberV2 = {
   number: string | null;
@@ -26,15 +25,13 @@ export type PhoneNumberV2 = {
 };
 
 /** @internal */
-export const PhoneNumberV2Type$inboundSchema: z.ZodMiniType<
-  PhoneNumberV2Type,
-  unknown
-> = openEnums.inboundSchema(PhoneNumberV2Type);
+export const PhoneNumberV2Type$inboundSchema: z.ZodMiniEnum<
+  typeof PhoneNumberV2Type
+> = z.enum(PhoneNumberV2Type);
 /** @internal */
-export const PhoneNumberV2Type$outboundSchema: z.ZodMiniType<
-  string,
-  PhoneNumberV2Type
-> = openEnums.outboundSchema(PhoneNumberV2Type);
+export const PhoneNumberV2Type$outboundSchema: z.ZodMiniEnum<
+  typeof PhoneNumberV2Type
+> = PhoneNumberV2Type$inboundSchema;
 
 /** @internal */
 export const PhoneNumberV2$inboundSchema: z.ZodMiniType<

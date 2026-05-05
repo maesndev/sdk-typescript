@@ -4,8 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../lib/schemas.js";
-import * as openEnums from "../types/enums.js";
-import { OpenEnum } from "../types/enums.js";
+import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import {
@@ -18,7 +17,7 @@ export const PaymentTermResponseDtoDueType = {
   DueInDays: "DUE_IN_DAYS",
   DueAsPeriod: "DUE_AS_PERIOD",
 } as const;
-export type PaymentTermResponseDtoDueType = OpenEnum<
+export type PaymentTermResponseDtoDueType = ClosedEnum<
   typeof PaymentTermResponseDtoDueType
 >;
 
@@ -28,7 +27,7 @@ export const PaymentMethod = {
   PaymentServiceProvider: "PAYMENT_SERVICE_PROVIDER",
   AutomaticBankWithdrawal: "AUTOMATIC_BANK_WITHDRAWAL",
 } as const;
-export type PaymentMethod = OpenEnum<typeof PaymentMethod>;
+export type PaymentMethod = ClosedEnum<typeof PaymentMethod>;
 
 export type PaymentTermResponseDto = {
   id: string | null;
@@ -48,16 +47,13 @@ export type PaymentTermResponseDto = {
 };
 
 /** @internal */
-export const PaymentTermResponseDtoDueType$inboundSchema: z.ZodMiniType<
-  PaymentTermResponseDtoDueType,
-  unknown
-> = openEnums.inboundSchema(PaymentTermResponseDtoDueType);
+export const PaymentTermResponseDtoDueType$inboundSchema: z.ZodMiniEnum<
+  typeof PaymentTermResponseDtoDueType
+> = z.enum(PaymentTermResponseDtoDueType);
 
 /** @internal */
-export const PaymentMethod$inboundSchema: z.ZodMiniType<
-  PaymentMethod,
-  unknown
-> = openEnums.inboundSchema(PaymentMethod);
+export const PaymentMethod$inboundSchema: z.ZodMiniEnum<typeof PaymentMethod> =
+  z.enum(PaymentMethod);
 
 /** @internal */
 export const PaymentTermResponseDto$inboundSchema: z.ZodMiniType<

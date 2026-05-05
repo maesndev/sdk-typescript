@@ -4,8 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../lib/schemas.js";
-import * as openEnums from "../types/enums.js";
-import { OpenEnum } from "../types/enums.js";
+import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
@@ -168,7 +167,7 @@ export const TransactionResponseDtoCurrency = {
   Zmk: "ZMK",
   Zwr: "ZWR",
 } as const;
-export type TransactionResponseDtoCurrency = OpenEnum<
+export type TransactionResponseDtoCurrency = ClosedEnum<
   typeof TransactionResponseDtoCurrency
 >;
 
@@ -180,7 +179,7 @@ export const TransactionResponseDtoStatus = {
   Authorised: "AUTHORISED",
   Deleted: "DELETED",
 } as const;
-export type TransactionResponseDtoStatus = OpenEnum<
+export type TransactionResponseDtoStatus = ClosedEnum<
   typeof TransactionResponseDtoStatus
 >;
 
@@ -194,7 +193,7 @@ export const TransactionResponseDtoType = {
   ReceiveTransfer: "RECEIVE-TRANSFER",
   SpendTransfer: "SPEND-TRANSFER",
 } as const;
-export type TransactionResponseDtoType = OpenEnum<
+export type TransactionResponseDtoType = ClosedEnum<
   typeof TransactionResponseDtoType
 >;
 
@@ -219,22 +218,19 @@ export type TransactionResponseDto = {
 };
 
 /** @internal */
-export const TransactionResponseDtoCurrency$inboundSchema: z.ZodMiniType<
-  TransactionResponseDtoCurrency,
-  unknown
-> = openEnums.inboundSchema(TransactionResponseDtoCurrency);
+export const TransactionResponseDtoCurrency$inboundSchema: z.ZodMiniEnum<
+  typeof TransactionResponseDtoCurrency
+> = z.enum(TransactionResponseDtoCurrency);
 
 /** @internal */
-export const TransactionResponseDtoStatus$inboundSchema: z.ZodMiniType<
-  TransactionResponseDtoStatus,
-  unknown
-> = openEnums.inboundSchema(TransactionResponseDtoStatus);
+export const TransactionResponseDtoStatus$inboundSchema: z.ZodMiniEnum<
+  typeof TransactionResponseDtoStatus
+> = z.enum(TransactionResponseDtoStatus);
 
 /** @internal */
-export const TransactionResponseDtoType$inboundSchema: z.ZodMiniType<
-  TransactionResponseDtoType,
-  unknown
-> = openEnums.inboundSchema(TransactionResponseDtoType);
+export const TransactionResponseDtoType$inboundSchema: z.ZodMiniEnum<
+  typeof TransactionResponseDtoType
+> = z.enum(TransactionResponseDtoType);
 
 /** @internal */
 export const TransactionResponseDto$inboundSchema: z.ZodMiniType<

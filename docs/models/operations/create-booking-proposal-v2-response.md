@@ -1,13 +1,66 @@
 # CreateBookingProposalV2Response
 
-Booking proposal queued successfully. Processed asynchronously and returns 202 with taskId.
 
-## Example Usage
+## Supported Types
+
+### `operations.CreateBookingProposalV2ResponseBody1`
 
 ```typescript
-import { CreateBookingProposalV2Response } from "@maesn/typescript-sdk/models/operations";
+const value: operations.CreateBookingProposalV2ResponseBody1 = {
+  data: {
+    id: null,
+    addresses: [
+      {
+        city: null,
+      },
+    ],
+    bankAccount: {
+      id: "<id>",
+      bic: "<value>",
+      code: "<value>",
+      iban: "MK37802448P89258A39",
+      number: 8602.08,
+    },
+    bookingProposalDate: "<value>",
+    bookingType: "EXPENSE",
+    contact: {
+      id: "<id>",
+      accountNumber: 5605.39,
+      name: "<value>",
+    },
+    createdDate: "<value>",
+    currency: "Rufiyaa",
+    deliveryDate: "<value>",
+    discountPaymentDate: "<value>",
+    discountPaymentDate2: "<value>",
+    dueDate: "<value>",
+    files: [
+      "<value 1>",
+      "<value 2>",
+    ],
+    journalCode: null,
+    isPaymentOrder: true,
+    ledgerName: "<value>",
+    lineItems: [],
+    notes: "<value>",
+    number: "<value>",
+    orderId: "<id>",
+    paidDate: "<value>",
+    paymentTermId: "<id>",
+    status: "SUBMITTED",
+    totalGrossAmount: 5062.84,
+    updatedDate: "<value>",
+    vatId: "<id>",
+  },
+  errors: {},
+  rawData: {},
+};
+```
 
-let value: CreateBookingProposalV2Response = {
+### `operations.CreateBookingProposalV2ResponseBody2`
+
+```typescript
+const value: operations.CreateBookingProposalV2ResponseBody2 = {
   data: {
     taskId: "<id>",
   },
@@ -16,11 +69,3 @@ let value: CreateBookingProposalV2Response = {
 };
 ```
 
-## Fields
-
-| Field                                                                                                       | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
-| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `meta`                                                                                                      | [operations.CreateBookingProposalV2Meta](../../models/operations/create-booking-proposal-v2-meta.md)        | :heavy_minus_sign:                                                                                          | N/A                                                                                                         |
-| `data`                                                                                                      | [models.TaskIdResponseDto](../../models/task-id-response-dto.md)                                            | :heavy_check_mark:                                                                                          | N/A                                                                                                         |
-| `errors`                                                                                                    | [operations.CreateBookingProposalV2Errors](../../models/operations/create-booking-proposal-v2-errors.md)    | :heavy_check_mark:                                                                                          | N/A                                                                                                         |
-| `rawData`                                                                                                   | [operations.CreateBookingProposalV2RawData](../../models/operations/create-booking-proposal-v2-raw-data.md) | :heavy_check_mark:                                                                                          | N/A                                                                                                         |

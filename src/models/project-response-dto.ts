@@ -4,8 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../lib/schemas.js";
-import * as openEnums from "../types/enums.js";
-import { OpenEnum } from "../types/enums.js";
+import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
@@ -168,7 +167,7 @@ export const ProjectResponseDtoCurrency = {
   Zmk: "ZMK",
   Zwr: "ZWR",
 } as const;
-export type ProjectResponseDtoCurrency = OpenEnum<
+export type ProjectResponseDtoCurrency = ClosedEnum<
   typeof ProjectResponseDtoCurrency
 >;
 
@@ -176,7 +175,7 @@ export const ProjectResponseDtoStatus = {
   Active: "ACTIVE",
   Closed: "CLOSED",
 } as const;
-export type ProjectResponseDtoStatus = OpenEnum<
+export type ProjectResponseDtoStatus = ClosedEnum<
   typeof ProjectResponseDtoStatus
 >;
 
@@ -197,16 +196,14 @@ export type ProjectResponseDto = {
 };
 
 /** @internal */
-export const ProjectResponseDtoCurrency$inboundSchema: z.ZodMiniType<
-  ProjectResponseDtoCurrency,
-  unknown
-> = openEnums.inboundSchema(ProjectResponseDtoCurrency);
+export const ProjectResponseDtoCurrency$inboundSchema: z.ZodMiniEnum<
+  typeof ProjectResponseDtoCurrency
+> = z.enum(ProjectResponseDtoCurrency);
 
 /** @internal */
-export const ProjectResponseDtoStatus$inboundSchema: z.ZodMiniType<
-  ProjectResponseDtoStatus,
-  unknown
-> = openEnums.inboundSchema(ProjectResponseDtoStatus);
+export const ProjectResponseDtoStatus$inboundSchema: z.ZodMiniEnum<
+  typeof ProjectResponseDtoStatus
+> = z.enum(ProjectResponseDtoStatus);
 
 /** @internal */
 export const ProjectResponseDto$inboundSchema: z.ZodMiniType<

@@ -1,15 +1,15 @@
-# PutContactV2Pagination
+# CreateBookingProposalV2Pagination1
 
 ## Example Usage
 
 ```typescript
-import { PutContactV2Pagination } from "@maesn/typescript-sdk/models/operations";
+import { CreateBookingProposalV2Pagination1 } from "@maesn/typescript-sdk/models/operations";
 
-let value: PutContactV2Pagination = {
-  total: 2932.63,
-  perPage: 6828.07,
-  currentPage: 8413.5,
-  totalPages: 2009.58,
+let value: CreateBookingProposalV2Pagination1 = {
+  total: 4609.74,
+  perPage: 5781,
+  currentPage: 2398.11,
+  totalPages: 1638.6,
 };
 ```
 

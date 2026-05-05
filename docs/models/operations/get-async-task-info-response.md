@@ -17,7 +17,7 @@ let value: GetAsyncTaskInfoResponse = {
         type: null,
       },
     ],
-    responseData: "<value>",
+    responseData: {},
     status: "SUCCESS",
   },
   errors: {},

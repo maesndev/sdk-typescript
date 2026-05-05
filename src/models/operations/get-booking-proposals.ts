@@ -29,7 +29,7 @@ export type GetBookingProposalsLimit = ClosedEnum<
 /**
  * Filter booking proposals by booking type
  */
-export const BookingType = {
+export const GetBookingProposalsBookingType = {
   Invoice: "INVOICE",
   Bill: "BILL",
   CreditNote: "CREDIT_NOTE",
@@ -43,7 +43,9 @@ export const BookingType = {
 /**
  * Filter booking proposals by booking type
  */
-export type BookingType = ClosedEnum<typeof BookingType>;
+export type GetBookingProposalsBookingType = ClosedEnum<
+  typeof GetBookingProposalsBookingType
+>;
 
 /**
  * Filter booking proposals by status
@@ -114,7 +116,7 @@ export type GetBookingProposalsRequest = {
   /**
    * Filter booking proposals by booking type
    */
-  bookingType?: BookingType | undefined;
+  bookingType?: GetBookingProposalsBookingType | undefined;
   /**
    * Filter booking proposals by status
    */
@@ -173,8 +175,9 @@ export const GetBookingProposalsLimit$outboundSchema: z.ZodMiniEnum<
 > = z.enum(GetBookingProposalsLimit);
 
 /** @internal */
-export const BookingType$outboundSchema: z.ZodMiniEnum<typeof BookingType> = z
-  .enum(BookingType);
+export const GetBookingProposalsBookingType$outboundSchema: z.ZodMiniEnum<
+  typeof GetBookingProposalsBookingType
+> = z.enum(GetBookingProposalsBookingType);
 
 /** @internal */
 export const GetBookingProposalsStatus$outboundSchema: z.ZodMiniEnum<
@@ -217,7 +220,7 @@ export const GetBookingProposalsRequest$outboundSchema: z.ZodMiniType<
   lastModifiedAt: z.optional(z.string()),
   environmentName: z.optional(z.string()),
   companyId: z.optional(z.string()),
-  bookingType: z.optional(BookingType$outboundSchema),
+  bookingType: z.optional(GetBookingProposalsBookingType$outboundSchema),
   status: z.optional(GetBookingProposalsStatus$outboundSchema),
   rawData: z.optional(z.boolean()),
   orderField: z.optional(GetBookingProposalsOrderField$outboundSchema),

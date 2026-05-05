@@ -218,6 +218,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
+    M.json(201, operations.CreateBookingProposalV2Response$inboundSchema),
     M.json(202, operations.CreateBookingProposalV2Response$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),

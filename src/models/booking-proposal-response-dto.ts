@@ -4,8 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../lib/schemas.js";
-import * as openEnums from "../types/enums.js";
-import { OpenEnum } from "../types/enums.js";
+import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import {
@@ -18,7 +17,7 @@ import {
   LineItemResponse$inboundSchema,
 } from "./line-item-response.js";
 
-export const BookingType = {
+export const BookingProposalResponseDtoBookingType = {
   Invoice: "INVOICE",
   Bill: "BILL",
   CreditNote: "CREDIT_NOTE",
@@ -29,7 +28,9 @@ export const BookingType = {
   DownPayment: "DOWN_PAYMENT",
   Other: "OTHER",
 } as const;
-export type BookingType = OpenEnum<typeof BookingType>;
+export type BookingProposalResponseDtoBookingType = ClosedEnum<
+  typeof BookingProposalResponseDtoBookingType
+>;
 
 export const BookingProposalResponseDtoStatus = {
   Draft: "DRAFT",
@@ -42,7 +43,7 @@ export const BookingProposalResponseDtoStatus = {
   Disputed: "DISPUTED",
   Cancelled: "CANCELLED",
 } as const;
-export type BookingProposalResponseDtoStatus = OpenEnum<
+export type BookingProposalResponseDtoStatus = ClosedEnum<
   typeof BookingProposalResponseDtoStatus
 >;
 
@@ -55,7 +56,7 @@ export type BookingProposalResponseDto = {
   bankCode: string | null;
   bic: string | null;
   bookingProposalDate: string | null;
-  bookingType: BookingType | null;
+  bookingType: BookingProposalResponseDtoBookingType | null;
   contactAccountNumber: number | null;
   contactId: string | null;
   contactName: string | null;
@@ -84,14 +85,14 @@ export type BookingProposalResponseDto = {
 };
 
 /** @internal */
-export const BookingType$inboundSchema: z.ZodMiniType<BookingType, unknown> =
-  openEnums.inboundSchema(BookingType);
+export const BookingProposalResponseDtoBookingType$inboundSchema: z.ZodMiniEnum<
+  typeof BookingProposalResponseDtoBookingType
+> = z.enum(BookingProposalResponseDtoBookingType);
 
 /** @internal */
-export const BookingProposalResponseDtoStatus$inboundSchema: z.ZodMiniType<
-  BookingProposalResponseDtoStatus,
-  unknown
-> = openEnums.inboundSchema(BookingProposalResponseDtoStatus);
+export const BookingProposalResponseDtoStatus$inboundSchema: z.ZodMiniEnum<
+  typeof BookingProposalResponseDtoStatus
+> = z.enum(BookingProposalResponseDtoStatus);
 
 /** @internal */
 export const BookingProposalResponseDto$inboundSchema: z.ZodMiniType<
@@ -106,7 +107,9 @@ export const BookingProposalResponseDto$inboundSchema: z.ZodMiniType<
   bankCode: types.nullable(types.string()),
   bic: types.nullable(types.string()),
   bookingProposalDate: types.nullable(types.string()),
-  bookingType: types.nullable(BookingType$inboundSchema),
+  bookingType: types.nullable(
+    BookingProposalResponseDtoBookingType$inboundSchema,
+  ),
   contactAccountNumber: types.nullable(types.number()),
   contactId: types.nullable(types.string()),
   contactName: types.nullable(types.string()),

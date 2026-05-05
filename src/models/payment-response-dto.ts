@@ -4,8 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../lib/schemas.js";
-import * as openEnums from "../types/enums.js";
-import { OpenEnum } from "../types/enums.js";
+import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
@@ -16,7 +15,7 @@ export const PaymentResponseDtoDocumentType = {
   Bill: "BILL",
   BookingProposal: "BOOKING_PROPOSAL",
 } as const;
-export type PaymentResponseDtoDocumentType = OpenEnum<
+export type PaymentResponseDtoDocumentType = ClosedEnum<
   typeof PaymentResponseDtoDocumentType
 >;
 
@@ -33,10 +32,9 @@ export type PaymentResponseDto = {
 };
 
 /** @internal */
-export const PaymentResponseDtoDocumentType$inboundSchema: z.ZodMiniType<
-  PaymentResponseDtoDocumentType,
-  unknown
-> = openEnums.inboundSchema(PaymentResponseDtoDocumentType);
+export const PaymentResponseDtoDocumentType$inboundSchema: z.ZodMiniEnum<
+  typeof PaymentResponseDtoDocumentType
+> = z.enum(PaymentResponseDtoDocumentType);
 
 /** @internal */
 export const PaymentResponseDto$inboundSchema: z.ZodMiniType<

@@ -155,7 +155,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, operations.CreateContactV2Response$inboundSchema),
+    M.json(201, operations.CreateContactV2Response$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req);

@@ -4,8 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../lib/schemas.js";
-import * as openEnums from "../types/enums.js";
-import { OpenEnum } from "../types/enums.js";
+import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
@@ -14,7 +13,7 @@ export const MonthlyValueDebitCreditIndicator = {
   Debit: "DEBIT",
   Credit: "CREDIT",
 } as const;
-export type MonthlyValueDebitCreditIndicator = OpenEnum<
+export type MonthlyValueDebitCreditIndicator = ClosedEnum<
   typeof MonthlyValueDebitCreditIndicator
 >;
 
@@ -29,10 +28,9 @@ export type MonthlyValue = {
 };
 
 /** @internal */
-export const MonthlyValueDebitCreditIndicator$inboundSchema: z.ZodMiniType<
-  MonthlyValueDebitCreditIndicator,
-  unknown
-> = openEnums.inboundSchema(MonthlyValueDebitCreditIndicator);
+export const MonthlyValueDebitCreditIndicator$inboundSchema: z.ZodMiniEnum<
+  typeof MonthlyValueDebitCreditIndicator
+> = z.enum(MonthlyValueDebitCreditIndicator);
 
 /** @internal */
 export const MonthlyValueBalance$inboundSchema: z.ZodMiniType<
