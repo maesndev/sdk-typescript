@@ -6,12 +6,10 @@
 import { InvoiceResponseDtoInvoiceType } from "@maesn/typescript-sdk/models";
 
 let value: InvoiceResponseDtoInvoiceType = "STANDARD";
-
-// Open enum: unrecognized values are captured as Unrecognized<string>
 ```
 
 ## Values
 
 ```typescript
-"STANDARD" | "BILL" | Unrecognized<string>
+"STANDARD" | "BILL"
 ```

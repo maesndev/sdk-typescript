@@ -4,8 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../lib/schemas.js";
-import * as openEnums from "../types/enums.js";
-import { OpenEnum } from "../types/enums.js";
+import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import {
@@ -31,7 +30,7 @@ export const ContactResponseDtoV2ContactType = {
   Company: "COMPANY",
   Undefined: "UNDEFINED",
 } as const;
-export type ContactResponseDtoV2ContactType = OpenEnum<
+export type ContactResponseDtoV2ContactType = ClosedEnum<
   typeof ContactResponseDtoV2ContactType
 >;
 
@@ -53,10 +52,9 @@ export type ContactResponseDtoV2 = {
 };
 
 /** @internal */
-export const ContactResponseDtoV2ContactType$inboundSchema: z.ZodMiniType<
-  ContactResponseDtoV2ContactType,
-  unknown
-> = openEnums.inboundSchema(ContactResponseDtoV2ContactType);
+export const ContactResponseDtoV2ContactType$inboundSchema: z.ZodMiniEnum<
+  typeof ContactResponseDtoV2ContactType
+> = z.enum(ContactResponseDtoV2ContactType);
 
 /** @internal */
 export const ContactResponseDtoV2$inboundSchema: z.ZodMiniType<

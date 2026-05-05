@@ -4,8 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../lib/schemas.js";
-import * as openEnums from "../types/enums.js";
-import { OpenEnum } from "../types/enums.js";
+import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { Address, Address$inboundSchema } from "./address.js";
@@ -173,7 +172,7 @@ export const PurchaseOrderResponseDtoCurrency = {
   Zmk: "ZMK",
   Zwr: "ZWR",
 } as const;
-export type PurchaseOrderResponseDtoCurrency = OpenEnum<
+export type PurchaseOrderResponseDtoCurrency = ClosedEnum<
   typeof PurchaseOrderResponseDtoCurrency
 >;
 
@@ -183,7 +182,7 @@ export const PurchaseOrderResponseDtoStatus = {
   PartiallyFulfilled: "PARTIALLY_FULFILLED",
   Canceled: "CANCELED",
 } as const;
-export type PurchaseOrderResponseDtoStatus = OpenEnum<
+export type PurchaseOrderResponseDtoStatus = ClosedEnum<
   typeof PurchaseOrderResponseDtoStatus
 >;
 
@@ -210,16 +209,14 @@ export type PurchaseOrderResponseDto = {
 };
 
 /** @internal */
-export const PurchaseOrderResponseDtoCurrency$inboundSchema: z.ZodMiniType<
-  PurchaseOrderResponseDtoCurrency,
-  unknown
-> = openEnums.inboundSchema(PurchaseOrderResponseDtoCurrency);
+export const PurchaseOrderResponseDtoCurrency$inboundSchema: z.ZodMiniEnum<
+  typeof PurchaseOrderResponseDtoCurrency
+> = z.enum(PurchaseOrderResponseDtoCurrency);
 
 /** @internal */
-export const PurchaseOrderResponseDtoStatus$inboundSchema: z.ZodMiniType<
-  PurchaseOrderResponseDtoStatus,
-  unknown
-> = openEnums.inboundSchema(PurchaseOrderResponseDtoStatus);
+export const PurchaseOrderResponseDtoStatus$inboundSchema: z.ZodMiniEnum<
+  typeof PurchaseOrderResponseDtoStatus
+> = z.enum(PurchaseOrderResponseDtoStatus);
 
 /** @internal */
 export const PurchaseOrderResponseDto$inboundSchema: z.ZodMiniType<

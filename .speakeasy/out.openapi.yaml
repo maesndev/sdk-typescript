@@ -2355,7 +2355,6 @@ paths:
                   - $ref: '#/components/schemas/BaseResponseDto'
                   - properties:
                       data:
-                        type: array
                         items:
                           $ref: '#/components/schemas/ItemResponseDto'
       tags:
@@ -7179,7 +7178,6 @@ paths:
                   - $ref: '#/components/schemas/BaseResponseDto'
                   - properties:
                       data:
-                        type: array
                         items:
                           $ref: '#/components/schemas/FiscalYearResponseDto'
       tags:
@@ -7279,6 +7277,11 @@ paths:
                     format: binary
                 bookingType:
                   type: string
+                  enum:
+                    - INVOICE
+                    - BILL
+                    - CREDIT_NOTE
+                    - VENDOR_CREDIT
                 bookingProposal:
                   $ref: '#/components/schemas/CreateBookingProposalRequestDtoV2'
                 folderManagement:
@@ -7291,6 +7294,16 @@ paths:
                     register:
                       type: string
       responses:
+        "201":
+          description: Booking proposal created successfully (synchronous).
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BaseResponseDto'
+                  - properties:
+                      data:
+                        $ref: '#/components/schemas/BookingProposalResponseDtoV2'
         "202":
           description: Booking proposal queued successfully. Processed asynchronously and returns 202 with taskId.
           content:
@@ -7418,7 +7431,7 @@ paths:
             schema:
               $ref: '#/components/schemas/CreateContactRequestDtoV2'
       responses:
-        "200":
+        "201":
           description: Contact created successfully
           content:
             application/json:
@@ -7533,6 +7546,16 @@ paths:
       responses:
         "200":
           description: Contact updated successfully
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BaseResponseDto'
+                  - properties:
+                      data:
+                        $ref: '#/components/schemas/ContactResponseDtoV2'
+        "201":
+          description: Contact created successfully (upsert)
           content:
             application/json:
               schema:
@@ -14347,7 +14370,7 @@ components:
           items:
             $ref: '#/components/schemas/InformationResponseDto'
         responseData:
-          type: string
+          type: object
           nullable: true
         status:
           type: string
@@ -16000,6 +16023,9 @@ components:
         paidDate:
           type: string
           nullable: true
+        paymentReference:
+          type: string
+          nullable: true
         paymentTermId:
           type: string
           nullable: true
@@ -16110,6 +16136,7 @@ components:
         - name
         - oneLineAddress
         - paidDate
+        - paymentReference
         - paymentTermId
         - paymentStatus
         - paymentDays
@@ -16213,6 +16240,8 @@ components:
           type: string
         paidDate:
           type: object
+        paymentReference:
+          type: string
         paymentStatus:
           type: string
           enum:
@@ -20408,6 +20437,299 @@ components:
           type: number
         totalTaxAmount:
           type: number
+    BookingProposalAddressResponseDtoV2:
+      type: object
+      properties:
+        city:
+          type: string
+          nullable: true
+      required:
+        - city
+    BankAccountResponseCommonDtoV2:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: true
+        bic:
+          type: string
+          nullable: true
+        code:
+          type: string
+          nullable: true
+        iban:
+          type: string
+          nullable: true
+        number:
+          type: number
+          nullable: true
+      required:
+        - id
+        - bic
+        - code
+        - iban
+        - number
+    ContactResponseCommonDtoV2:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: true
+        accountNumber:
+          type: number
+          nullable: true
+        name:
+          type: string
+          nullable: true
+      required:
+        - id
+        - accountNumber
+        - name
+    AccountResponseCommonDtoV2:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: true
+        code:
+          type: string
+          nullable: true
+        name:
+          type: string
+          nullable: true
+        number:
+          type: number
+          nullable: true
+      required:
+        - id
+        - code
+        - name
+        - number
+    DimensionResponseCommonDtoV2:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: true
+        code:
+          type: string
+          nullable: true
+        dimension:
+          type: string
+          nullable: true
+        name:
+          type: string
+          nullable: true
+      required:
+        - id
+        - code
+        - dimension
+        - name
+    BookingProposalLineItemResponseDtoV2:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: true
+        account:
+          nullable: true
+          allOf:
+            - $ref: '#/components/schemas/AccountResponseCommonDtoV2'
+        createdDate:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        dimensions:
+          nullable: true
+          type: array
+          items:
+            $ref: '#/components/schemas/DimensionResponseCommonDtoV2'
+        discountAmount:
+          type: number
+          nullable: true
+        discountAmount2:
+          type: number
+          nullable: true
+        discountPercentage:
+          type: number
+          nullable: true
+        discountPercentage2:
+          type: number
+          nullable: true
+        taxCode:
+          type: string
+          nullable: true
+        taxRatePercentage:
+          type: number
+          nullable: true
+        totalGrossAmount:
+          type: number
+          nullable: true
+        totalNetAmount:
+          type: number
+          nullable: true
+        type:
+          type: string
+          enum:
+            - PRODUCT
+            - SERVICE
+          nullable: true
+        updatedDate:
+          type: string
+          nullable: true
+      required:
+        - id
+        - account
+        - createdDate
+        - description
+        - dimensions
+        - discountAmount
+        - discountAmount2
+        - discountPercentage
+        - discountPercentage2
+        - taxCode
+        - taxRatePercentage
+        - totalGrossAmount
+        - totalNetAmount
+        - type
+        - updatedDate
+    BookingProposalResponseDtoV2:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: true
+        addresses:
+          nullable: true
+          type: array
+          items:
+            $ref: '#/components/schemas/BookingProposalAddressResponseDtoV2'
+        bankAccount:
+          nullable: true
+          allOf:
+            - $ref: '#/components/schemas/BankAccountResponseCommonDtoV2'
+        bookingProposalDate:
+          type: string
+          nullable: true
+        bookingType:
+          type: string
+          enum:
+            - INVOICE
+            - BILL
+            - CREDIT_NOTE
+            - VENDOR_CREDIT
+            - CREDIT_CARD
+            - EXPENSE
+            - DOWN_PAYMENT
+            - OTHER
+          nullable: true
+        contact:
+          nullable: true
+          allOf:
+            - $ref: '#/components/schemas/ContactResponseCommonDtoV2'
+        createdDate:
+          type: string
+          nullable: true
+        currency:
+          type: string
+          nullable: true
+        deliveryDate:
+          type: string
+          nullable: true
+        discountPaymentDate:
+          type: string
+          nullable: true
+        discountPaymentDate2:
+          type: string
+          nullable: true
+        dueDate:
+          type: string
+          nullable: true
+        files:
+          nullable: true
+          type: array
+          items:
+            type: string
+        journalCode:
+          type: string
+          nullable: true
+        isPaymentOrder:
+          type: boolean
+          nullable: true
+        ledgerName:
+          type: string
+          nullable: true
+        lineItems:
+          nullable: true
+          type: array
+          items:
+            $ref: '#/components/schemas/BookingProposalLineItemResponseDtoV2'
+        notes:
+          type: string
+          nullable: true
+        number:
+          type: string
+          nullable: true
+        orderId:
+          type: string
+          nullable: true
+        paidDate:
+          type: string
+          nullable: true
+        paymentTermId:
+          type: string
+          nullable: true
+        status:
+          type: string
+          enum:
+            - DRAFT
+            - SUBMITTED
+            - OPEN
+            - PARTIALLY_PAID
+            - PAID
+            - OVERDUE
+            - VOIDED
+            - DISPUTED
+            - CANCELLED
+          nullable: true
+        totalGrossAmount:
+          type: number
+          nullable: true
+        updatedDate:
+          type: string
+          nullable: true
+        vatId:
+          type: string
+          nullable: true
+      required:
+        - id
+        - addresses
+        - bankAccount
+        - bookingProposalDate
+        - bookingType
+        - contact
+        - createdDate
+        - currency
+        - deliveryDate
+        - discountPaymentDate
+        - discountPaymentDate2
+        - dueDate
+        - files
+        - journalCode
+        - isPaymentOrder
+        - ledgerName
+        - lineItems
+        - notes
+        - number
+        - orderId
+        - paidDate
+        - paymentTermId
+        - status
+        - totalGrossAmount
+        - updatedDate
+        - vatId
     DimensionMetaResponseDto:
       type: object
       properties:

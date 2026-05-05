@@ -4,8 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../lib/schemas.js";
-import * as openEnums from "../types/enums.js";
-import { OpenEnum } from "../types/enums.js";
+import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
@@ -14,7 +13,7 @@ export const LineItemResponseType = {
   Goods: "GOODS",
   Services: "SERVICES",
 } as const;
-export type LineItemResponseType = OpenEnum<typeof LineItemResponseType>;
+export type LineItemResponseType = ClosedEnum<typeof LineItemResponseType>;
 
 export type LineItemResponse = {
   id: string | null;
@@ -40,10 +39,9 @@ export type LineItemResponse = {
 };
 
 /** @internal */
-export const LineItemResponseType$inboundSchema: z.ZodMiniType<
-  LineItemResponseType,
-  unknown
-> = openEnums.inboundSchema(LineItemResponseType);
+export const LineItemResponseType$inboundSchema: z.ZodMiniEnum<
+  typeof LineItemResponseType
+> = z.enum(LineItemResponseType);
 
 /** @internal */
 export const LineItemResponse$inboundSchema: z.ZodMiniType<

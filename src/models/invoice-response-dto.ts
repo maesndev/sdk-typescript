@@ -4,8 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../lib/schemas.js";
-import * as openEnums from "../types/enums.js";
-import { OpenEnum } from "../types/enums.js";
+import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { Address, Address$inboundSchema } from "./address.js";
@@ -19,7 +18,7 @@ export const InvoiceResponseDtoInvoiceType = {
   Standard: "STANDARD",
   Bill: "BILL",
 } as const;
-export type InvoiceResponseDtoInvoiceType = OpenEnum<
+export type InvoiceResponseDtoInvoiceType = ClosedEnum<
   typeof InvoiceResponseDtoInvoiceType
 >;
 
@@ -28,7 +27,7 @@ export const InvoiceResponseDtoLineAmountTypes = {
   Inclusive: "INCLUSIVE",
   Notax: "NOTAX",
 } as const;
-export type InvoiceResponseDtoLineAmountTypes = OpenEnum<
+export type InvoiceResponseDtoLineAmountTypes = ClosedEnum<
   typeof InvoiceResponseDtoLineAmountTypes
 >;
 
@@ -45,7 +44,7 @@ export const InvoiceResponseDtoPaymentStatus = {
   Canceled: "CANCELED",
   Unknown: "UNKNOWN",
 } as const;
-export type InvoiceResponseDtoPaymentStatus = OpenEnum<
+export type InvoiceResponseDtoPaymentStatus = ClosedEnum<
   typeof InvoiceResponseDtoPaymentStatus
 >;
 
@@ -61,7 +60,7 @@ export const InvoiceResponseDtoStatus = {
   Overdue: "OVERDUE",
   Voided: "VOIDED",
 } as const;
-export type InvoiceResponseDtoStatus = OpenEnum<
+export type InvoiceResponseDtoStatus = ClosedEnum<
   typeof InvoiceResponseDtoStatus
 >;
 
@@ -82,7 +81,7 @@ export const InvoiceResponseDtoTaxRule = {
   OssElectronicServices: "OSS_ELECTRONIC_SERVICES",
   OssServices: "OSS_SERVICES",
 } as const;
-export type InvoiceResponseDtoTaxRule = OpenEnum<
+export type InvoiceResponseDtoTaxRule = ClosedEnum<
   typeof InvoiceResponseDtoTaxRule
 >;
 
@@ -118,34 +117,29 @@ export type InvoiceResponseDto = {
 };
 
 /** @internal */
-export const InvoiceResponseDtoInvoiceType$inboundSchema: z.ZodMiniType<
-  InvoiceResponseDtoInvoiceType,
-  unknown
-> = openEnums.inboundSchema(InvoiceResponseDtoInvoiceType);
+export const InvoiceResponseDtoInvoiceType$inboundSchema: z.ZodMiniEnum<
+  typeof InvoiceResponseDtoInvoiceType
+> = z.enum(InvoiceResponseDtoInvoiceType);
 
 /** @internal */
-export const InvoiceResponseDtoLineAmountTypes$inboundSchema: z.ZodMiniType<
-  InvoiceResponseDtoLineAmountTypes,
-  unknown
-> = openEnums.inboundSchema(InvoiceResponseDtoLineAmountTypes);
+export const InvoiceResponseDtoLineAmountTypes$inboundSchema: z.ZodMiniEnum<
+  typeof InvoiceResponseDtoLineAmountTypes
+> = z.enum(InvoiceResponseDtoLineAmountTypes);
 
 /** @internal */
-export const InvoiceResponseDtoPaymentStatus$inboundSchema: z.ZodMiniType<
-  InvoiceResponseDtoPaymentStatus,
-  unknown
-> = openEnums.inboundSchema(InvoiceResponseDtoPaymentStatus);
+export const InvoiceResponseDtoPaymentStatus$inboundSchema: z.ZodMiniEnum<
+  typeof InvoiceResponseDtoPaymentStatus
+> = z.enum(InvoiceResponseDtoPaymentStatus);
 
 /** @internal */
-export const InvoiceResponseDtoStatus$inboundSchema: z.ZodMiniType<
-  InvoiceResponseDtoStatus,
-  unknown
-> = openEnums.inboundSchema(InvoiceResponseDtoStatus);
+export const InvoiceResponseDtoStatus$inboundSchema: z.ZodMiniEnum<
+  typeof InvoiceResponseDtoStatus
+> = z.enum(InvoiceResponseDtoStatus);
 
 /** @internal */
-export const InvoiceResponseDtoTaxRule$inboundSchema: z.ZodMiniType<
-  InvoiceResponseDtoTaxRule,
-  unknown
-> = openEnums.inboundSchema(InvoiceResponseDtoTaxRule);
+export const InvoiceResponseDtoTaxRule$inboundSchema: z.ZodMiniEnum<
+  typeof InvoiceResponseDtoTaxRule
+> = z.enum(InvoiceResponseDtoTaxRule);
 
 /** @internal */
 export const InvoiceResponseDto$inboundSchema: z.ZodMiniType<

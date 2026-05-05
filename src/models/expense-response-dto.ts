@@ -4,8 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../lib/schemas.js";
-import * as openEnums from "../types/enums.js";
-import { OpenEnum } from "../types/enums.js";
+import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
@@ -172,7 +171,7 @@ export const ExpenseResponseDtoCurrency = {
   Zmk: "ZMK",
   Zwr: "ZWR",
 } as const;
-export type ExpenseResponseDtoCurrency = OpenEnum<
+export type ExpenseResponseDtoCurrency = ClosedEnum<
   typeof ExpenseResponseDtoCurrency
 >;
 
@@ -183,7 +182,7 @@ export const ExpenseResponseDtoPaymentType = {
   Credit: "CREDIT",
   Collection: "COLLECTION",
 } as const;
-export type ExpenseResponseDtoPaymentType = OpenEnum<
+export type ExpenseResponseDtoPaymentType = ClosedEnum<
   typeof ExpenseResponseDtoPaymentType
 >;
 
@@ -191,7 +190,7 @@ export const ExpenseResponseDtoType = {
   Expense: "EXPENSE",
   Refund: "REFUND",
 } as const;
-export type ExpenseResponseDtoType = OpenEnum<typeof ExpenseResponseDtoType>;
+export type ExpenseResponseDtoType = ClosedEnum<typeof ExpenseResponseDtoType>;
 
 export type ExpenseResponseDto = {
   id: string | null;
@@ -222,22 +221,19 @@ export type ExpenseResponseDto = {
 };
 
 /** @internal */
-export const ExpenseResponseDtoCurrency$inboundSchema: z.ZodMiniType<
-  ExpenseResponseDtoCurrency,
-  unknown
-> = openEnums.inboundSchema(ExpenseResponseDtoCurrency);
+export const ExpenseResponseDtoCurrency$inboundSchema: z.ZodMiniEnum<
+  typeof ExpenseResponseDtoCurrency
+> = z.enum(ExpenseResponseDtoCurrency);
 
 /** @internal */
-export const ExpenseResponseDtoPaymentType$inboundSchema: z.ZodMiniType<
-  ExpenseResponseDtoPaymentType,
-  unknown
-> = openEnums.inboundSchema(ExpenseResponseDtoPaymentType);
+export const ExpenseResponseDtoPaymentType$inboundSchema: z.ZodMiniEnum<
+  typeof ExpenseResponseDtoPaymentType
+> = z.enum(ExpenseResponseDtoPaymentType);
 
 /** @internal */
-export const ExpenseResponseDtoType$inboundSchema: z.ZodMiniType<
-  ExpenseResponseDtoType,
-  unknown
-> = openEnums.inboundSchema(ExpenseResponseDtoType);
+export const ExpenseResponseDtoType$inboundSchema: z.ZodMiniEnum<
+  typeof ExpenseResponseDtoType
+> = z.enum(ExpenseResponseDtoType);
 
 /** @internal */
 export const ExpenseResponseDto$inboundSchema: z.ZodMiniType<

@@ -4,8 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../lib/schemas.js";
-import * as openEnums from "../types/enums.js";
-import { OpenEnum } from "../types/enums.js";
+import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
@@ -260,7 +259,7 @@ export const ContactAddressCountryCode = {
   Zm: "ZM",
   Zw: "ZW",
 } as const;
-export type ContactAddressCountryCode = OpenEnum<
+export type ContactAddressCountryCode = ClosedEnum<
   typeof ContactAddressCountryCode
 >;
 
@@ -272,7 +271,7 @@ export const ContactAddressType = {
   Work: "WORK",
   Pickup: "PICKUP",
 } as const;
-export type ContactAddressType = OpenEnum<typeof ContactAddressType>;
+export type ContactAddressType = ClosedEnum<typeof ContactAddressType>;
 
 export type ContactAddress = {
   addressLine1: string | null;
@@ -284,16 +283,14 @@ export type ContactAddress = {
 };
 
 /** @internal */
-export const ContactAddressCountryCode$inboundSchema: z.ZodMiniType<
-  ContactAddressCountryCode,
-  unknown
-> = openEnums.inboundSchema(ContactAddressCountryCode);
+export const ContactAddressCountryCode$inboundSchema: z.ZodMiniEnum<
+  typeof ContactAddressCountryCode
+> = z.enum(ContactAddressCountryCode);
 
 /** @internal */
-export const ContactAddressType$inboundSchema: z.ZodMiniType<
-  ContactAddressType,
-  unknown
-> = openEnums.inboundSchema(ContactAddressType);
+export const ContactAddressType$inboundSchema: z.ZodMiniEnum<
+  typeof ContactAddressType
+> = z.enum(ContactAddressType);
 
 /** @internal */
 export const ContactAddress$inboundSchema: z.ZodMiniType<

@@ -1,13 +1,13 @@
-# BookingType
+# GetBookingProposalsBookingType
 
 Filter booking proposals by booking type
 
 ## Example Usage
 
 ```typescript
-import { BookingType } from "@maesn/typescript-sdk/models/operations";
+import { GetBookingProposalsBookingType } from "@maesn/typescript-sdk/models/operations";
 
-let value: BookingType = "CREDIT_NOTE";
+let value: GetBookingProposalsBookingType = "CREDIT_CARD";
 ```
 
 ## Values

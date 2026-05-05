@@ -52,20 +52,21 @@ let value: VendorCreditResponseDto = {
   name: "<value>",
   oneLineAddress: "<value>",
   paidDate: "<value>",
+  paymentReference: "<value>",
   paymentTermId: "<id>",
-  paymentStatus: "UNKNOWN",
-  paymentDays: 9403.31,
+  paymentStatus: "CLEARED_WITH_CREDIT_NOTE",
+  paymentDays: 9823.74,
   reference: "<value>",
   shippingDate: "<value>",
-  shippingType: "DELIVERY",
-  status: "CORRECTIVE",
-  taxRule: "EXPORT_SERVICE",
+  shippingType: "SERVICE",
+  status: "PARTIALLY_PAID",
+  taxRule: "INTRACOMMUNITY_GOODS",
   taxText: "<value>",
-  totalDiscountAmount: 6882.79,
-  totalDiscountPercentage: null,
-  totalGrossAmount: 3107.3,
-  totalNetAmount: 3657.5,
-  totalTaxAmount: 5885.96,
+  totalDiscountAmount: 205.22,
+  totalDiscountPercentage: 3107.3,
+  totalGrossAmount: 3657.5,
+  totalNetAmount: 5885.96,
+  totalTaxAmount: 4051.09,
   updatedDate: "<value>",
   vendorCreditDate: "<value>",
   vendorCreditNumber: "<value>",
@@ -90,6 +91,7 @@ let value: VendorCreditResponseDto = {
 | `name`                                                                                                | *string*                                                                                              | :heavy_check_mark:                                                                                    | N/A                                                                                                   |
 | `oneLineAddress`                                                                                      | *string*                                                                                              | :heavy_check_mark:                                                                                    | N/A                                                                                                   |
 | `paidDate`                                                                                            | *string*                                                                                              | :heavy_check_mark:                                                                                    | N/A                                                                                                   |
+| `paymentReference`                                                                                    | *string*                                                                                              | :heavy_check_mark:                                                                                    | N/A                                                                                                   |
 | `paymentTermId`                                                                                       | *string*                                                                                              | :heavy_check_mark:                                                                                    | N/A                                                                                                   |
 | `paymentStatus`                                                                                       | [models.VendorCreditResponseDtoPaymentStatus](../models/vendor-credit-response-dto-payment-status.md) | :heavy_check_mark:                                                                                    | N/A                                                                                                   |
 | `paymentDays`                                                                                         | *number*                                                                                              | :heavy_check_mark:                                                                                    | N/A                                                                                                   |

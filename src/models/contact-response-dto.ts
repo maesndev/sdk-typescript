@@ -4,8 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../lib/schemas.js";
-import * as openEnums from "../types/enums.js";
-import { OpenEnum } from "../types/enums.js";
+import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import {
@@ -29,7 +28,7 @@ export const ContactResponseDtoContactType = {
   Company: "COMPANY",
   Undefined: "UNDEFINED",
 } as const;
-export type ContactResponseDtoContactType = OpenEnum<
+export type ContactResponseDtoContactType = ClosedEnum<
   typeof ContactResponseDtoContactType
 >;
 
@@ -38,7 +37,7 @@ export const ContactResponseDtoRole = {
   Customer: "CUSTOMER",
   Contact: "CONTACT",
 } as const;
-export type ContactResponseDtoRole = OpenEnum<typeof ContactResponseDtoRole>;
+export type ContactResponseDtoRole = ClosedEnum<typeof ContactResponseDtoRole>;
 
 export type ContactResponseDto = {
   id: string | null;
@@ -59,16 +58,14 @@ export type ContactResponseDto = {
 };
 
 /** @internal */
-export const ContactResponseDtoContactType$inboundSchema: z.ZodMiniType<
-  ContactResponseDtoContactType,
-  unknown
-> = openEnums.inboundSchema(ContactResponseDtoContactType);
+export const ContactResponseDtoContactType$inboundSchema: z.ZodMiniEnum<
+  typeof ContactResponseDtoContactType
+> = z.enum(ContactResponseDtoContactType);
 
 /** @internal */
-export const ContactResponseDtoRole$inboundSchema: z.ZodMiniType<
-  ContactResponseDtoRole,
-  unknown
-> = openEnums.inboundSchema(ContactResponseDtoRole);
+export const ContactResponseDtoRole$inboundSchema: z.ZodMiniEnum<
+  typeof ContactResponseDtoRole
+> = z.enum(ContactResponseDtoRole);
 
 /** @internal */
 export const ContactResponseDto$inboundSchema: z.ZodMiniType<

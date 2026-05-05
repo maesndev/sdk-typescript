@@ -4,8 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../lib/schemas.js";
-import * as openEnums from "../types/enums.js";
-import { OpenEnum } from "../types/enums.js";
+import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
@@ -13,6 +12,8 @@ import {
   InformationResponseDto,
   InformationResponseDto$inboundSchema,
 } from "./information-response-dto.js";
+
+export type ResponseData = {};
 
 export const AsyncTaskResponseDtoStatus = {
   Open: "OPEN",
@@ -25,21 +26,34 @@ export const AsyncTaskResponseDtoStatus = {
   CancelFailed: "CANCEL_FAILED",
   Deleted: "DELETED",
 } as const;
-export type AsyncTaskResponseDtoStatus = OpenEnum<
+export type AsyncTaskResponseDtoStatus = ClosedEnum<
   typeof AsyncTaskResponseDtoStatus
 >;
 
 export type AsyncTaskResponseDto = {
   information: Array<InformationResponseDto> | null;
-  responseData: string | null;
+  responseData: ResponseData | null;
   status: AsyncTaskResponseDtoStatus | null;
 };
 
 /** @internal */
-export const AsyncTaskResponseDtoStatus$inboundSchema: z.ZodMiniType<
-  AsyncTaskResponseDtoStatus,
-  unknown
-> = openEnums.inboundSchema(AsyncTaskResponseDtoStatus);
+export const ResponseData$inboundSchema: z.ZodMiniType<ResponseData, unknown> =
+  z.object({});
+
+export function responseDataFromJSON(
+  jsonString: string,
+): SafeParseResult<ResponseData, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ResponseData$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ResponseData' from JSON`,
+  );
+}
+
+/** @internal */
+export const AsyncTaskResponseDtoStatus$inboundSchema: z.ZodMiniEnum<
+  typeof AsyncTaskResponseDtoStatus
+> = z.enum(AsyncTaskResponseDtoStatus);
 
 /** @internal */
 export const AsyncTaskResponseDto$inboundSchema: z.ZodMiniType<
@@ -47,7 +61,7 @@ export const AsyncTaskResponseDto$inboundSchema: z.ZodMiniType<
   unknown
 > = z.object({
   information: types.nullable(z.array(InformationResponseDto$inboundSchema)),
-  responseData: types.nullable(types.string()),
+  responseData: types.nullable(z.lazy(() => ResponseData$inboundSchema)),
   status: types.nullable(AsyncTaskResponseDtoStatus$inboundSchema),
 });
 

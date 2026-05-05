@@ -14,7 +14,7 @@ let value: AsyncTaskResponseDto = {
       type: null,
     },
   ],
-  responseData: "<value>",
+  responseData: {},
   status: null,
 };
 ```
@@ -24,5 +24,5 @@ let value: AsyncTaskResponseDto = {
 | Field                                                                            | Type                                                                             | Required                                                                         | Description                                                                      |
 | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
 | `information`                                                                    | [models.InformationResponseDto](../models/information-response-dto.md)[]         | :heavy_check_mark:                                                               | N/A                                                                              |
-| `responseData`                                                                   | *string*                                                                         | :heavy_check_mark:                                                               | N/A                                                                              |
+| `responseData`                                                                   | [models.ResponseData](../models/response-data.md)                                | :heavy_check_mark:                                                               | N/A                                                                              |
 | `status`                                                                         | [models.AsyncTaskResponseDtoStatus](../models/async-task-response-dto-status.md) | :heavy_check_mark:                                                               | N/A                                                                              |

@@ -4,8 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../lib/schemas.js";
-import * as openEnums from "../types/enums.js";
-import { OpenEnum } from "../types/enums.js";
+import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
@@ -260,14 +259,16 @@ export const AddressOfferCountryCode = {
   Zm: "ZM",
   Zw: "ZW",
 } as const;
-export type AddressOfferCountryCode = OpenEnum<typeof AddressOfferCountryCode>;
+export type AddressOfferCountryCode = ClosedEnum<
+  typeof AddressOfferCountryCode
+>;
 
 export const AddressOfferType = {
   Billing: "BILLING",
   Delivery: "DELIVERY",
   Selling: "SELLING",
 } as const;
-export type AddressOfferType = OpenEnum<typeof AddressOfferType>;
+export type AddressOfferType = ClosedEnum<typeof AddressOfferType>;
 
 export type AddressOffer = {
   addressLine1?: string | null | undefined;
@@ -279,26 +280,22 @@ export type AddressOffer = {
 };
 
 /** @internal */
-export const AddressOfferCountryCode$inboundSchema: z.ZodMiniType<
-  AddressOfferCountryCode,
-  unknown
-> = openEnums.inboundSchema(AddressOfferCountryCode);
+export const AddressOfferCountryCode$inboundSchema: z.ZodMiniEnum<
+  typeof AddressOfferCountryCode
+> = z.enum(AddressOfferCountryCode);
 /** @internal */
-export const AddressOfferCountryCode$outboundSchema: z.ZodMiniType<
-  string,
-  AddressOfferCountryCode
-> = openEnums.outboundSchema(AddressOfferCountryCode);
+export const AddressOfferCountryCode$outboundSchema: z.ZodMiniEnum<
+  typeof AddressOfferCountryCode
+> = AddressOfferCountryCode$inboundSchema;
 
 /** @internal */
-export const AddressOfferType$inboundSchema: z.ZodMiniType<
-  AddressOfferType,
-  unknown
-> = openEnums.inboundSchema(AddressOfferType);
+export const AddressOfferType$inboundSchema: z.ZodMiniEnum<
+  typeof AddressOfferType
+> = z.enum(AddressOfferType);
 /** @internal */
-export const AddressOfferType$outboundSchema: z.ZodMiniType<
-  string,
-  AddressOfferType
-> = openEnums.outboundSchema(AddressOfferType);
+export const AddressOfferType$outboundSchema: z.ZodMiniEnum<
+  typeof AddressOfferType
+> = AddressOfferType$inboundSchema;
 
 /** @internal */
 export const AddressOffer$inboundSchema: z.ZodMiniType<AddressOffer, unknown> =

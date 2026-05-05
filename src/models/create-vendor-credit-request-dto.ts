@@ -95,6 +95,7 @@ export type CreateVendorCreditRequestDto = {
   name?: string | undefined;
   oneLineAddress?: string | undefined;
   paidDate?: CreateVendorCreditRequestDtoPaidDate | undefined;
+  paymentReference?: string | undefined;
   paymentStatus?: CreateVendorCreditRequestDtoPaymentStatus | undefined;
   paymentDays?: number | undefined;
   reference?: string | undefined;
@@ -187,6 +188,7 @@ export type CreateVendorCreditRequestDto$Outbound = {
   name?: string | undefined;
   oneLineAddress?: string | undefined;
   paidDate?: CreateVendorCreditRequestDtoPaidDate$Outbound | undefined;
+  paymentReference?: string | undefined;
   paymentStatus?: string | undefined;
   paymentDays?: number | undefined;
   reference?: string | undefined;
@@ -224,6 +226,7 @@ export const CreateVendorCreditRequestDto$outboundSchema: z.ZodMiniType<
   paidDate: z.optional(
     z.lazy(() => CreateVendorCreditRequestDtoPaidDate$outboundSchema),
   ),
+  paymentReference: z.optional(z.string()),
   paymentStatus: z.optional(
     CreateVendorCreditRequestDtoPaymentStatus$outboundSchema,
   ),

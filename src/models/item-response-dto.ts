@@ -4,8 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../lib/schemas.js";
-import * as openEnums from "../types/enums.js";
-import { OpenEnum } from "../types/enums.js";
+import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
@@ -14,7 +13,7 @@ export const ItemResponseDtoType = {
   Product: "PRODUCT",
   Service: "SERVICE",
 } as const;
-export type ItemResponseDtoType = OpenEnum<typeof ItemResponseDtoType>;
+export type ItemResponseDtoType = ClosedEnum<typeof ItemResponseDtoType>;
 
 export const ItemResponseDtoUnitName = {
   Piece: "PIECE",
@@ -38,7 +37,9 @@ export const ItemResponseDtoUnitName = {
   Tonne: "TONNE",
   Unit: "UNIT",
 } as const;
-export type ItemResponseDtoUnitName = OpenEnum<typeof ItemResponseDtoUnitName>;
+export type ItemResponseDtoUnitName = ClosedEnum<
+  typeof ItemResponseDtoUnitName
+>;
 
 export type ItemResponseDto = {
   id: string | null;
@@ -60,16 +61,14 @@ export type ItemResponseDto = {
 };
 
 /** @internal */
-export const ItemResponseDtoType$inboundSchema: z.ZodMiniType<
-  ItemResponseDtoType,
-  unknown
-> = openEnums.inboundSchema(ItemResponseDtoType);
+export const ItemResponseDtoType$inboundSchema: z.ZodMiniEnum<
+  typeof ItemResponseDtoType
+> = z.enum(ItemResponseDtoType);
 
 /** @internal */
-export const ItemResponseDtoUnitName$inboundSchema: z.ZodMiniType<
-  ItemResponseDtoUnitName,
-  unknown
-> = openEnums.inboundSchema(ItemResponseDtoUnitName);
+export const ItemResponseDtoUnitName$inboundSchema: z.ZodMiniEnum<
+  typeof ItemResponseDtoUnitName
+> = z.enum(ItemResponseDtoUnitName);
 
 /** @internal */
 export const ItemResponseDto$inboundSchema: z.ZodMiniType<

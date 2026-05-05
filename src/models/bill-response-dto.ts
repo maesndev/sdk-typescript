@@ -4,8 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../lib/schemas.js";
-import * as openEnums from "../types/enums.js";
-import { OpenEnum } from "../types/enums.js";
+import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { Address, Address$inboundSchema } from "./address.js";
@@ -28,7 +27,7 @@ export const BillResponseDtoPaymentStatus = {
   Canceled: "CANCELED",
   Unknown: "UNKNOWN",
 } as const;
-export type BillResponseDtoPaymentStatus = OpenEnum<
+export type BillResponseDtoPaymentStatus = ClosedEnum<
   typeof BillResponseDtoPaymentStatus
 >;
 
@@ -38,7 +37,7 @@ export const BillResponseDtoShippingType = {
   Delivery: "DELIVERY",
   DeliveryPeriod: "DELIVERY_PERIOD",
 } as const;
-export type BillResponseDtoShippingType = OpenEnum<
+export type BillResponseDtoShippingType = ClosedEnum<
   typeof BillResponseDtoShippingType
 >;
 
@@ -54,7 +53,7 @@ export const BillResponseDtoStatus = {
   Overdue: "OVERDUE",
   Voided: "VOIDED",
 } as const;
-export type BillResponseDtoStatus = OpenEnum<typeof BillResponseDtoStatus>;
+export type BillResponseDtoStatus = ClosedEnum<typeof BillResponseDtoStatus>;
 
 export const BillResponseDtoTaxRule = {
   Net: "NET",
@@ -73,7 +72,7 @@ export const BillResponseDtoTaxRule = {
   OssElectronicServices: "OSS_ELECTRONIC_SERVICES",
   OssServices: "OSS_SERVICES",
 } as const;
-export type BillResponseDtoTaxRule = OpenEnum<typeof BillResponseDtoTaxRule>;
+export type BillResponseDtoTaxRule = ClosedEnum<typeof BillResponseDtoTaxRule>;
 
 export type BillResponseDto = {
   id: string | null;
@@ -111,28 +110,24 @@ export type BillResponseDto = {
 };
 
 /** @internal */
-export const BillResponseDtoPaymentStatus$inboundSchema: z.ZodMiniType<
-  BillResponseDtoPaymentStatus,
-  unknown
-> = openEnums.inboundSchema(BillResponseDtoPaymentStatus);
+export const BillResponseDtoPaymentStatus$inboundSchema: z.ZodMiniEnum<
+  typeof BillResponseDtoPaymentStatus
+> = z.enum(BillResponseDtoPaymentStatus);
 
 /** @internal */
-export const BillResponseDtoShippingType$inboundSchema: z.ZodMiniType<
-  BillResponseDtoShippingType,
-  unknown
-> = openEnums.inboundSchema(BillResponseDtoShippingType);
+export const BillResponseDtoShippingType$inboundSchema: z.ZodMiniEnum<
+  typeof BillResponseDtoShippingType
+> = z.enum(BillResponseDtoShippingType);
 
 /** @internal */
-export const BillResponseDtoStatus$inboundSchema: z.ZodMiniType<
-  BillResponseDtoStatus,
-  unknown
-> = openEnums.inboundSchema(BillResponseDtoStatus);
+export const BillResponseDtoStatus$inboundSchema: z.ZodMiniEnum<
+  typeof BillResponseDtoStatus
+> = z.enum(BillResponseDtoStatus);
 
 /** @internal */
-export const BillResponseDtoTaxRule$inboundSchema: z.ZodMiniType<
-  BillResponseDtoTaxRule,
-  unknown
-> = openEnums.inboundSchema(BillResponseDtoTaxRule);
+export const BillResponseDtoTaxRule$inboundSchema: z.ZodMiniEnum<
+  typeof BillResponseDtoTaxRule
+> = z.enum(BillResponseDtoTaxRule);
 
 /** @internal */
 export const BillResponseDto$inboundSchema: z.ZodMiniType<

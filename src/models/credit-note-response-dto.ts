@@ -4,8 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../lib/schemas.js";
-import * as openEnums from "../types/enums.js";
-import { OpenEnum } from "../types/enums.js";
+import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { Address, Address$inboundSchema } from "./address.js";
@@ -28,7 +27,7 @@ export const CreditNoteResponseDtoPaymentStatus = {
   Canceled: "CANCELED",
   Unknown: "UNKNOWN",
 } as const;
-export type CreditNoteResponseDtoPaymentStatus = OpenEnum<
+export type CreditNoteResponseDtoPaymentStatus = ClosedEnum<
   typeof CreditNoteResponseDtoPaymentStatus
 >;
 
@@ -44,7 +43,7 @@ export const CreditNoteResponseDtoStatus = {
   Overdue: "OVERDUE",
   Voided: "VOIDED",
 } as const;
-export type CreditNoteResponseDtoStatus = OpenEnum<
+export type CreditNoteResponseDtoStatus = ClosedEnum<
   typeof CreditNoteResponseDtoStatus
 >;
 
@@ -70,16 +69,14 @@ export type CreditNoteResponseDto = {
 };
 
 /** @internal */
-export const CreditNoteResponseDtoPaymentStatus$inboundSchema: z.ZodMiniType<
-  CreditNoteResponseDtoPaymentStatus,
-  unknown
-> = openEnums.inboundSchema(CreditNoteResponseDtoPaymentStatus);
+export const CreditNoteResponseDtoPaymentStatus$inboundSchema: z.ZodMiniEnum<
+  typeof CreditNoteResponseDtoPaymentStatus
+> = z.enum(CreditNoteResponseDtoPaymentStatus);
 
 /** @internal */
-export const CreditNoteResponseDtoStatus$inboundSchema: z.ZodMiniType<
-  CreditNoteResponseDtoStatus,
-  unknown
-> = openEnums.inboundSchema(CreditNoteResponseDtoStatus);
+export const CreditNoteResponseDtoStatus$inboundSchema: z.ZodMiniEnum<
+  typeof CreditNoteResponseDtoStatus
+> = z.enum(CreditNoteResponseDtoStatus);
 
 /** @internal */
 export const CreditNoteResponseDto$inboundSchema: z.ZodMiniType<

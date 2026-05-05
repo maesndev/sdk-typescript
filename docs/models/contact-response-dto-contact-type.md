@@ -6,12 +6,10 @@
 import { ContactResponseDtoContactType } from "@maesn/typescript-sdk/models";
 
 let value: ContactResponseDtoContactType = "COMPANY";
-
-// Open enum: unrecognized values are captured as Unrecognized<string>
 ```
 
 ## Values
 
 ```typescript
-"CONTACT_PERSON" | "COMPANY" | "UNDEFINED" | Unrecognized<string>
+"CONTACT_PERSON" | "COMPANY" | "UNDEFINED"
 ```

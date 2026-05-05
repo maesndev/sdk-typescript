@@ -4,8 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../lib/schemas.js";
-import * as openEnums from "../types/enums.js";
-import { OpenEnum } from "../types/enums.js";
+import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
@@ -14,7 +13,7 @@ export const OpenItemEntryResponseDtoDebitCreditIndicator = {
   Debit: "DEBIT",
   Credit: "CREDIT",
 } as const;
-export type OpenItemEntryResponseDtoDebitCreditIndicator = OpenEnum<
+export type OpenItemEntryResponseDtoDebitCreditIndicator = ClosedEnum<
   typeof OpenItemEntryResponseDtoDebitCreditIndicator
 >;
 
@@ -29,8 +28,9 @@ export type OpenItemEntryResponseDto = {
 
 /** @internal */
 export const OpenItemEntryResponseDtoDebitCreditIndicator$inboundSchema:
-  z.ZodMiniType<OpenItemEntryResponseDtoDebitCreditIndicator, unknown> =
-    openEnums.inboundSchema(OpenItemEntryResponseDtoDebitCreditIndicator);
+  z.ZodMiniEnum<typeof OpenItemEntryResponseDtoDebitCreditIndicator> = z.enum(
+    OpenItemEntryResponseDtoDebitCreditIndicator,
+  );
 
 /** @internal */
 export const OpenItemEntryResponseDto$inboundSchema: z.ZodMiniType<

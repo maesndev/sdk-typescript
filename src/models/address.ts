@@ -4,8 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../lib/schemas.js";
-import * as openEnums from "../types/enums.js";
-import { OpenEnum } from "../types/enums.js";
+import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
@@ -260,14 +259,14 @@ export const AddressCountryCode = {
   Zm: "ZM",
   Zw: "ZW",
 } as const;
-export type AddressCountryCode = OpenEnum<typeof AddressCountryCode>;
+export type AddressCountryCode = ClosedEnum<typeof AddressCountryCode>;
 
 export const AddressType = {
   Billing: "BILLING",
   Delivery: "DELIVERY",
   Selling: "SELLING",
 } as const;
-export type AddressType = OpenEnum<typeof AddressType>;
+export type AddressType = ClosedEnum<typeof AddressType>;
 
 export type Address = {
   addressLine1?: string | null | undefined;
@@ -279,22 +278,20 @@ export type Address = {
 };
 
 /** @internal */
-export const AddressCountryCode$inboundSchema: z.ZodMiniType<
-  AddressCountryCode,
-  unknown
-> = openEnums.inboundSchema(AddressCountryCode);
+export const AddressCountryCode$inboundSchema: z.ZodMiniEnum<
+  typeof AddressCountryCode
+> = z.enum(AddressCountryCode);
 /** @internal */
-export const AddressCountryCode$outboundSchema: z.ZodMiniType<
-  string,
-  AddressCountryCode
-> = openEnums.outboundSchema(AddressCountryCode);
+export const AddressCountryCode$outboundSchema: z.ZodMiniEnum<
+  typeof AddressCountryCode
+> = AddressCountryCode$inboundSchema;
 
 /** @internal */
-export const AddressType$inboundSchema: z.ZodMiniType<AddressType, unknown> =
-  openEnums.inboundSchema(AddressType);
+export const AddressType$inboundSchema: z.ZodMiniEnum<typeof AddressType> = z
+  .enum(AddressType);
 /** @internal */
-export const AddressType$outboundSchema: z.ZodMiniType<string, AddressType> =
-  openEnums.outboundSchema(AddressType);
+export const AddressType$outboundSchema: z.ZodMiniEnum<typeof AddressType> =
+  AddressType$inboundSchema;
 
 /** @internal */
 export const Address$inboundSchema: z.ZodMiniType<Address, unknown> = z.object({

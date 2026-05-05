@@ -4,8 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../lib/schemas.js";
-import * as openEnums from "../types/enums.js";
-import { OpenEnum } from "../types/enums.js";
+import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { Dimension, Dimension$inboundSchema } from "./dimension.js";
@@ -169,13 +168,15 @@ export const JournalLineItemCurrency = {
   Zmk: "ZMK",
   Zwr: "ZWR",
 } as const;
-export type JournalLineItemCurrency = OpenEnum<typeof JournalLineItemCurrency>;
+export type JournalLineItemCurrency = ClosedEnum<
+  typeof JournalLineItemCurrency
+>;
 
 export const JournalLineItemDebitCreditIndicator = {
   Debit: "DEBIT",
   Credit: "CREDIT",
 } as const;
-export type JournalLineItemDebitCreditIndicator = OpenEnum<
+export type JournalLineItemDebitCreditIndicator = ClosedEnum<
   typeof JournalLineItemDebitCreditIndicator
 >;
 
@@ -210,16 +211,14 @@ export type JournalLineItem = {
 };
 
 /** @internal */
-export const JournalLineItemCurrency$inboundSchema: z.ZodMiniType<
-  JournalLineItemCurrency,
-  unknown
-> = openEnums.inboundSchema(JournalLineItemCurrency);
+export const JournalLineItemCurrency$inboundSchema: z.ZodMiniEnum<
+  typeof JournalLineItemCurrency
+> = z.enum(JournalLineItemCurrency);
 
 /** @internal */
-export const JournalLineItemDebitCreditIndicator$inboundSchema: z.ZodMiniType<
-  JournalLineItemDebitCreditIndicator,
-  unknown
-> = openEnums.inboundSchema(JournalLineItemDebitCreditIndicator);
+export const JournalLineItemDebitCreditIndicator$inboundSchema: z.ZodMiniEnum<
+  typeof JournalLineItemDebitCreditIndicator
+> = z.enum(JournalLineItemDebitCreditIndicator);
 
 /** @internal */
 export const JournalLineItemTaxRate$inboundSchema: z.ZodMiniType<

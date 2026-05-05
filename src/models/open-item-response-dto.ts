@@ -4,8 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../lib/schemas.js";
-import * as openEnums from "../types/enums.js";
-import { OpenEnum } from "../types/enums.js";
+import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
@@ -18,7 +17,7 @@ export const OpenItemResponseDtoDebitCreditIndicator = {
   Debit: "DEBIT",
   Credit: "CREDIT",
 } as const;
-export type OpenItemResponseDtoDebitCreditIndicator = OpenEnum<
+export type OpenItemResponseDtoDebitCreditIndicator = ClosedEnum<
   typeof OpenItemResponseDtoDebitCreditIndicator
 >;
 
@@ -31,7 +30,9 @@ export const OpenItemResponseDtoType = {
   Bill: "BILL",
   Invoice: "INVOICE",
 } as const;
-export type OpenItemResponseDtoType = OpenEnum<typeof OpenItemResponseDtoType>;
+export type OpenItemResponseDtoType = ClosedEnum<
+  typeof OpenItemResponseDtoType
+>;
 
 export type OpenItemResponseDto = {
   id: string | null;
@@ -52,8 +53,9 @@ export type OpenItemResponseDto = {
 
 /** @internal */
 export const OpenItemResponseDtoDebitCreditIndicator$inboundSchema:
-  z.ZodMiniType<OpenItemResponseDtoDebitCreditIndicator, unknown> = openEnums
-    .inboundSchema(OpenItemResponseDtoDebitCreditIndicator);
+  z.ZodMiniEnum<typeof OpenItemResponseDtoDebitCreditIndicator> = z.enum(
+    OpenItemResponseDtoDebitCreditIndicator,
+  );
 
 /** @internal */
 export const OpenBalance$inboundSchema: z.ZodMiniType<OpenBalance, unknown> = z
@@ -75,10 +77,9 @@ export function openBalanceFromJSON(
 }
 
 /** @internal */
-export const OpenItemResponseDtoType$inboundSchema: z.ZodMiniType<
-  OpenItemResponseDtoType,
-  unknown
-> = openEnums.inboundSchema(OpenItemResponseDtoType);
+export const OpenItemResponseDtoType$inboundSchema: z.ZodMiniEnum<
+  typeof OpenItemResponseDtoType
+> = z.enum(OpenItemResponseDtoType);
 
 /** @internal */
 export const OpenItemResponseDto$inboundSchema: z.ZodMiniType<

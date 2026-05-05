@@ -4,8 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../lib/schemas.js";
-import * as openEnums from "../types/enums.js";
-import { OpenEnum } from "../types/enums.js";
+import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { Address, Address$inboundSchema } from "./address.js";
@@ -28,7 +27,7 @@ export const VendorCreditResponseDtoPaymentStatus = {
   Canceled: "CANCELED",
   Unknown: "UNKNOWN",
 } as const;
-export type VendorCreditResponseDtoPaymentStatus = OpenEnum<
+export type VendorCreditResponseDtoPaymentStatus = ClosedEnum<
   typeof VendorCreditResponseDtoPaymentStatus
 >;
 
@@ -38,7 +37,7 @@ export const VendorCreditResponseDtoShippingType = {
   Delivery: "DELIVERY",
   DeliveryPeriod: "DELIVERY_PERIOD",
 } as const;
-export type VendorCreditResponseDtoShippingType = OpenEnum<
+export type VendorCreditResponseDtoShippingType = ClosedEnum<
   typeof VendorCreditResponseDtoShippingType
 >;
 
@@ -54,7 +53,7 @@ export const VendorCreditResponseDtoStatus = {
   Overdue: "OVERDUE",
   Voided: "VOIDED",
 } as const;
-export type VendorCreditResponseDtoStatus = OpenEnum<
+export type VendorCreditResponseDtoStatus = ClosedEnum<
   typeof VendorCreditResponseDtoStatus
 >;
 
@@ -75,7 +74,7 @@ export const VendorCreditResponseDtoTaxRule = {
   OssElectronicServices: "OSS_ELECTRONIC_SERVICES",
   OssServices: "OSS_SERVICES",
 } as const;
-export type VendorCreditResponseDtoTaxRule = OpenEnum<
+export type VendorCreditResponseDtoTaxRule = ClosedEnum<
   typeof VendorCreditResponseDtoTaxRule
 >;
 
@@ -94,6 +93,7 @@ export type VendorCreditResponseDto = {
   name: string | null;
   oneLineAddress: string | null;
   paidDate: string | null;
+  paymentReference: string | null;
   paymentTermId: string | null;
   paymentStatus: VendorCreditResponseDtoPaymentStatus | null;
   paymentDays: number | null;
@@ -114,28 +114,24 @@ export type VendorCreditResponseDto = {
 };
 
 /** @internal */
-export const VendorCreditResponseDtoPaymentStatus$inboundSchema: z.ZodMiniType<
-  VendorCreditResponseDtoPaymentStatus,
-  unknown
-> = openEnums.inboundSchema(VendorCreditResponseDtoPaymentStatus);
+export const VendorCreditResponseDtoPaymentStatus$inboundSchema: z.ZodMiniEnum<
+  typeof VendorCreditResponseDtoPaymentStatus
+> = z.enum(VendorCreditResponseDtoPaymentStatus);
 
 /** @internal */
-export const VendorCreditResponseDtoShippingType$inboundSchema: z.ZodMiniType<
-  VendorCreditResponseDtoShippingType,
-  unknown
-> = openEnums.inboundSchema(VendorCreditResponseDtoShippingType);
+export const VendorCreditResponseDtoShippingType$inboundSchema: z.ZodMiniEnum<
+  typeof VendorCreditResponseDtoShippingType
+> = z.enum(VendorCreditResponseDtoShippingType);
 
 /** @internal */
-export const VendorCreditResponseDtoStatus$inboundSchema: z.ZodMiniType<
-  VendorCreditResponseDtoStatus,
-  unknown
-> = openEnums.inboundSchema(VendorCreditResponseDtoStatus);
+export const VendorCreditResponseDtoStatus$inboundSchema: z.ZodMiniEnum<
+  typeof VendorCreditResponseDtoStatus
+> = z.enum(VendorCreditResponseDtoStatus);
 
 /** @internal */
-export const VendorCreditResponseDtoTaxRule$inboundSchema: z.ZodMiniType<
-  VendorCreditResponseDtoTaxRule,
-  unknown
-> = openEnums.inboundSchema(VendorCreditResponseDtoTaxRule);
+export const VendorCreditResponseDtoTaxRule$inboundSchema: z.ZodMiniEnum<
+  typeof VendorCreditResponseDtoTaxRule
+> = z.enum(VendorCreditResponseDtoTaxRule);
 
 /** @internal */
 export const VendorCreditResponseDto$inboundSchema: z.ZodMiniType<
@@ -158,6 +154,7 @@ export const VendorCreditResponseDto$inboundSchema: z.ZodMiniType<
   name: types.nullable(types.string()),
   oneLineAddress: types.nullable(types.string()),
   paidDate: types.nullable(types.string()),
+  paymentReference: types.nullable(types.string()),
   paymentTermId: types.nullable(types.string()),
   paymentStatus: types.nullable(
     VendorCreditResponseDtoPaymentStatus$inboundSchema,

@@ -1,11 +1,11 @@
-# PutContactV2Errors
+# PutContactV2RawData1
 
 ## Example Usage
 
 ```typescript
-import { PutContactV2Errors } from "@maesn/typescript-sdk/models/operations";
+import { PutContactV2RawData1 } from "@maesn/typescript-sdk/models/operations";
 
-let value: PutContactV2Errors = {};
+let value: PutContactV2RawData1 = {};
 ```
 
 ## Fields

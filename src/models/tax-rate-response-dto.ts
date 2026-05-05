@@ -4,8 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../lib/schemas.js";
-import * as openEnums from "../types/enums.js";
-import { OpenEnum } from "../types/enums.js";
+import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
@@ -16,7 +15,7 @@ export const TaxRateResponseDtoType = {
   NoTax: "NO_TAX",
   ZeroTax: "ZERO_TAX",
 } as const;
-export type TaxRateResponseDtoType = OpenEnum<typeof TaxRateResponseDtoType>;
+export type TaxRateResponseDtoType = ClosedEnum<typeof TaxRateResponseDtoType>;
 
 export const Usage = {
   Invoice: "INVOICE",
@@ -25,7 +24,7 @@ export const Usage = {
   Cash: "CASH",
   All: "ALL",
 } as const;
-export type Usage = OpenEnum<typeof Usage>;
+export type Usage = ClosedEnum<typeof Usage>;
 
 export type TaxRateResponseDto = {
   id: string | null;
@@ -40,14 +39,12 @@ export type TaxRateResponseDto = {
 };
 
 /** @internal */
-export const TaxRateResponseDtoType$inboundSchema: z.ZodMiniType<
-  TaxRateResponseDtoType,
-  unknown
-> = openEnums.inboundSchema(TaxRateResponseDtoType);
+export const TaxRateResponseDtoType$inboundSchema: z.ZodMiniEnum<
+  typeof TaxRateResponseDtoType
+> = z.enum(TaxRateResponseDtoType);
 
 /** @internal */
-export const Usage$inboundSchema: z.ZodMiniType<Usage, unknown> = openEnums
-  .inboundSchema(Usage);
+export const Usage$inboundSchema: z.ZodMiniEnum<typeof Usage> = z.enum(Usage);
 
 /** @internal */
 export const TaxRateResponseDto$inboundSchema: z.ZodMiniType<

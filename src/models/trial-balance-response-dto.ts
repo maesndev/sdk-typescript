@@ -4,8 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../lib/schemas.js";
-import * as openEnums from "../types/enums.js";
-import { OpenEnum } from "../types/enums.js";
+import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
@@ -15,7 +14,7 @@ export const TrialBalanceResponseDtoBalanceDebitCreditIndicator = {
   Debit: "DEBIT",
   Credit: "CREDIT",
 } as const;
-export type TrialBalanceResponseDtoBalanceDebitCreditIndicator = OpenEnum<
+export type TrialBalanceResponseDtoBalanceDebitCreditIndicator = ClosedEnum<
   typeof TrialBalanceResponseDtoBalanceDebitCreditIndicator
 >;
 
@@ -30,7 +29,7 @@ export const OpeningBalanceDebitCreditIndicator = {
   Debit: "DEBIT",
   Credit: "CREDIT",
 } as const;
-export type OpeningBalanceDebitCreditIndicator = OpenEnum<
+export type OpeningBalanceDebitCreditIndicator = ClosedEnum<
   typeof OpeningBalanceDebitCreditIndicator
 >;
 
@@ -54,8 +53,8 @@ export type TrialBalanceResponseDto = {
 
 /** @internal */
 export const TrialBalanceResponseDtoBalanceDebitCreditIndicator$inboundSchema:
-  z.ZodMiniType<TrialBalanceResponseDtoBalanceDebitCreditIndicator, unknown> =
-    openEnums.inboundSchema(TrialBalanceResponseDtoBalanceDebitCreditIndicator);
+  z.ZodMiniEnum<typeof TrialBalanceResponseDtoBalanceDebitCreditIndicator> = z
+    .enum(TrialBalanceResponseDtoBalanceDebitCreditIndicator);
 
 /** @internal */
 export const TrialBalanceResponseDtoBalance$inboundSchema: z.ZodMiniType<
@@ -79,10 +78,9 @@ export function trialBalanceResponseDtoBalanceFromJSON(
 }
 
 /** @internal */
-export const OpeningBalanceDebitCreditIndicator$inboundSchema: z.ZodMiniType<
-  OpeningBalanceDebitCreditIndicator,
-  unknown
-> = openEnums.inboundSchema(OpeningBalanceDebitCreditIndicator);
+export const OpeningBalanceDebitCreditIndicator$inboundSchema: z.ZodMiniEnum<
+  typeof OpeningBalanceDebitCreditIndicator
+> = z.enum(OpeningBalanceDebitCreditIndicator);
 
 /** @internal */
 export const OpeningBalance$inboundSchema: z.ZodMiniType<

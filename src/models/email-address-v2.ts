@@ -4,8 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../lib/schemas.js";
-import * as openEnums from "../types/enums.js";
-import { OpenEnum } from "../types/enums.js";
+import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
@@ -18,7 +17,7 @@ export const EmailAddressV2Type = {
   Payment: "PAYMENT",
   Other: "OTHER",
 } as const;
-export type EmailAddressV2Type = OpenEnum<typeof EmailAddressV2Type>;
+export type EmailAddressV2Type = ClosedEnum<typeof EmailAddressV2Type>;
 
 export type EmailAddressV2 = {
   email: string | null;
@@ -26,15 +25,13 @@ export type EmailAddressV2 = {
 };
 
 /** @internal */
-export const EmailAddressV2Type$inboundSchema: z.ZodMiniType<
-  EmailAddressV2Type,
-  unknown
-> = openEnums.inboundSchema(EmailAddressV2Type);
+export const EmailAddressV2Type$inboundSchema: z.ZodMiniEnum<
+  typeof EmailAddressV2Type
+> = z.enum(EmailAddressV2Type);
 /** @internal */
-export const EmailAddressV2Type$outboundSchema: z.ZodMiniType<
-  string,
-  EmailAddressV2Type
-> = openEnums.outboundSchema(EmailAddressV2Type);
+export const EmailAddressV2Type$outboundSchema: z.ZodMiniEnum<
+  typeof EmailAddressV2Type
+> = EmailAddressV2Type$inboundSchema;
 
 /** @internal */
 export const EmailAddressV2$inboundSchema: z.ZodMiniType<

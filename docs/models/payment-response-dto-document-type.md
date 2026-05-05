@@ -6,12 +6,10 @@
 import { PaymentResponseDtoDocumentType } from "@maesn/typescript-sdk/models";
 
 let value: PaymentResponseDtoDocumentType = "BILL";
-
-// Open enum: unrecognized values are captured as Unrecognized<string>
 ```
 
 ## Values
 
 ```typescript
-"INVOICE" | "BILL" | "BOOKING_PROPOSAL" | Unrecognized<string>
+"INVOICE" | "BILL" | "BOOKING_PROPOSAL"
 ```

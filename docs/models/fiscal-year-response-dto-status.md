@@ -6,12 +6,10 @@
 import { FiscalYearResponseDtoStatus } from "@maesn/typescript-sdk/models";
 
 let value: FiscalYearResponseDtoStatus = "CLOSED";
-
-// Open enum: unrecognized values are captured as Unrecognized<string>
 ```
 
 ## Values
 
 ```typescript
-"OPEN" | "CLOSED" | Unrecognized<string>
+"OPEN" | "CLOSED"
 ```

@@ -4,8 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../lib/schemas.js";
-import * as openEnums from "../types/enums.js";
-import { OpenEnum } from "../types/enums.js";
+import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
@@ -17,7 +16,9 @@ export const AccountResponseDtoClass = {
   Liability: "LIABILITY",
   Revenue: "REVENUE",
 } as const;
-export type AccountResponseDtoClass = OpenEnum<typeof AccountResponseDtoClass>;
+export type AccountResponseDtoClass = ClosedEnum<
+  typeof AccountResponseDtoClass
+>;
 
 export const AccountResponseDtoCurrency = {
   Aed: "AED",
@@ -177,7 +178,7 @@ export const AccountResponseDtoCurrency = {
   Zmk: "ZMK",
   Zwr: "ZWR",
 } as const;
-export type AccountResponseDtoCurrency = OpenEnum<
+export type AccountResponseDtoCurrency = ClosedEnum<
   typeof AccountResponseDtoCurrency
 >;
 
@@ -185,7 +186,7 @@ export const AccountResponseDtoDebitCreditIndicator = {
   Debit: "DEBIT",
   Credit: "CREDIT",
 } as const;
-export type AccountResponseDtoDebitCreditIndicator = OpenEnum<
+export type AccountResponseDtoDebitCreditIndicator = ClosedEnum<
   typeof AccountResponseDtoDebitCreditIndicator
 >;
 
@@ -193,7 +194,7 @@ export const AccountResponseDtoStatus = {
   Active: "ACTIVE",
   Archived: "ARCHIVED",
 } as const;
-export type AccountResponseDtoStatus = OpenEnum<
+export type AccountResponseDtoStatus = ClosedEnum<
   typeof AccountResponseDtoStatus
 >;
 
@@ -215,27 +216,25 @@ export type AccountResponseDto = {
 };
 
 /** @internal */
-export const AccountResponseDtoClass$inboundSchema: z.ZodMiniType<
-  AccountResponseDtoClass,
-  unknown
-> = openEnums.inboundSchema(AccountResponseDtoClass);
+export const AccountResponseDtoClass$inboundSchema: z.ZodMiniEnum<
+  typeof AccountResponseDtoClass
+> = z.enum(AccountResponseDtoClass);
 
 /** @internal */
-export const AccountResponseDtoCurrency$inboundSchema: z.ZodMiniType<
-  AccountResponseDtoCurrency,
-  unknown
-> = openEnums.inboundSchema(AccountResponseDtoCurrency);
+export const AccountResponseDtoCurrency$inboundSchema: z.ZodMiniEnum<
+  typeof AccountResponseDtoCurrency
+> = z.enum(AccountResponseDtoCurrency);
 
 /** @internal */
 export const AccountResponseDtoDebitCreditIndicator$inboundSchema:
-  z.ZodMiniType<AccountResponseDtoDebitCreditIndicator, unknown> = openEnums
-    .inboundSchema(AccountResponseDtoDebitCreditIndicator);
+  z.ZodMiniEnum<typeof AccountResponseDtoDebitCreditIndicator> = z.enum(
+    AccountResponseDtoDebitCreditIndicator,
+  );
 
 /** @internal */
-export const AccountResponseDtoStatus$inboundSchema: z.ZodMiniType<
-  AccountResponseDtoStatus,
-  unknown
-> = openEnums.inboundSchema(AccountResponseDtoStatus);
+export const AccountResponseDtoStatus$inboundSchema: z.ZodMiniEnum<
+  typeof AccountResponseDtoStatus
+> = z.enum(AccountResponseDtoStatus);
 
 /** @internal */
 export const AccountResponseDto$inboundSchema: z.ZodMiniType<
