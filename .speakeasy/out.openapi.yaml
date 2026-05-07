@@ -11817,7 +11817,7 @@ components:
         accountId:
           type: string
         accountNumber:
-          type: number
+          type: string
         currency:
           type: string
           enum:

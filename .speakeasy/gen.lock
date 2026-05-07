@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: b4a29653-32d8-43f6-ba1e-9aa569fce206
 management:
-  docChecksum: f5d08e13393eefd79201edaa8010f4a6
+  docChecksum: 430f5486673931d6289e4d9cd183fae1
   docVersion: "1.0"
-  speakeasyVersion: 1.761.11
-  generationVersion: 2.881.17
-  releaseVersion: 0.6.1
-  configChecksum: 96694754f5a6ce7f29803b82c006d288
+  speakeasyVersion: 1.762.0
+  generationVersion: 2.882.0
+  releaseVersion: 0.6.2
+  configChecksum: 7e8be250ead9d34edb8f8b7921f834be
   repoURL: https://github.com/maesndev/sdk-typescript.git
   installationURL: https://github.com/maesndev/sdk-typescript
   published: true
 persistentEdits:
-  generation_id: 48d9bdea-9a02-4ac3-9d1d-92774d0ae913
-  pristine_commit_hash: 0d94498af0650b99794f415ed4de2877820c5c70
-  pristine_tree_hash: 58f51b72853769d56f1b0c8a2779c0e21163f93e
+  generation_id: 99fb8629-b79d-4c19-ae88-40be3e0a9393
+  pristine_commit_hash: e4257166c37cd9f80ca4042a3b2288642c9282a8
+  pristine_tree_hash: 5cb808c94ef9e5de329b9ac00fd3d5157e37989a
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -592,8 +592,8 @@ trackedFiles:
     pristine_git_object: f606a1980dfe0dc265f53ea6434c5ce9ac308458
   docs/models/create-journal-line-item.md:
     id: 67df814bad95
-    last_write_checksum: sha1:e0bca524cf7b23ab3aa1a5358abf19d495dc4f44
-    pristine_git_object: 649c1a8d3757ce301e824eb65109ff4e5ee902d3
+    last_write_checksum: sha1:e9af1e5bafcf14abda9fb56b2607726899bc9e73
+    pristine_git_object: c5dbdb32cdcaad4e61c952db70eb8c5661e21ccf
   docs/models/create-line-item-request-dto.md:
     id: d37047e399bb
     last_write_checksum: sha1:a0ed2993ae995a88afe3fd2605d14d40c507a0da
@@ -5396,8 +5396,8 @@ trackedFiles:
     pristine_git_object: 22dd5f08bac5ea8e40e42de4ebb0a5876ef875c5
   docs/sdks/accounting/README.md:
     id: 6abb8976ed95
-    last_write_checksum: sha1:bedf53780e04228b80483202e03f4bbc6ba5d01b
-    pristine_git_object: 14927aa8ee28762fae5ffc7d6304009fd6ecf08e
+    last_write_checksum: sha1:e82e936dc3fb21048f80958f4b30fb71a59051c8
+    pristine_git_object: 4c44438dcba4d35b700bcf83a7f670016ab7a31c
   docs/sdks/accountingv2/README.md:
     id: 24a9f287e358
     last_write_checksum: sha1:765e4f7e309c786a09d025f9fa47c5fef1d973a2
@@ -5444,12 +5444,12 @@ trackedFiles:
     pristine_git_object: 620f120672c2be3445356aaae6d877d4d89c43d5
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:3ecdb57fe81573c7ec4031825991ba8b7f81bb46
-    pristine_git_object: b6327b4aa5541c26b47cd61e3e6f6be40f6ead90
+    last_write_checksum: sha1:e0cdb59b1ec9ff9c5028a071c9c8f677496d1bbb
+    pristine_git_object: 815be29858f2c2f4b6ec3f292217dc4cbdb3851a
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:8b18a907f9388cec7c0529537adfb38916264ee4
-    pristine_git_object: 3e284a4e8c110e577af1cbd92fa233f617b84898
+    last_write_checksum: sha1:31b5452c9396bdc369810d37d86a514e93b847e9
+    pristine_git_object: 95c7d0c044b284fb865e7665acbcc47952c179f3
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:2eff2a6c77b0c787da6418de861acc36733c433a
@@ -6076,8 +6076,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:fd0ad673a6134667abff2a53eec6eb39860d665a
-    pristine_git_object: 6ffa54bf9a5c6a41a1a022a9cc9e0f8f4c5af8d7
+    last_write_checksum: sha1:71d667c9885b3537e3a066587063f2bb7ae43c09
+    pristine_git_object: b1b694dda4073ce57b3a9eec840619b38d83861f
   src/lib/dlv.ts:
     id: b1988214835a
     last_write_checksum: sha1:1dd3e3fbb4550c4bf31f5ef997faff355d6f3250
@@ -6360,8 +6360,8 @@ trackedFiles:
     pristine_git_object: 0c45e06294927091ddb18b9b78bcf92f5eb65281
   src/models/create-journal-line-item.ts:
     id: 2a72ced786b1
-    last_write_checksum: sha1:0c1010f9b34d4eadbcc8319eb45b034d3ced3de1
-    pristine_git_object: e937f49497d623402e9c91506adb496178ad15dd
+    last_write_checksum: sha1:7531e5399f7132ca3dda9e45407cbd5828787b98
+    pristine_git_object: b7d6cfef0a1de3f66e45efbffddc9c75bd9ea883
   src/models/create-line-item-request-dto.ts:
     id: 3272d45c3340
     last_write_checksum: sha1:5ea281e63ed9432e0b26481a6b6b5864bf90265c
@@ -7818,7 +7818,7 @@ examples:
   createJournalEntries:
     speakeasy-default-create-journal-entries:
       requestBody:
-        application/json: {"accountNumberLength": 1703.63, "chartOfAccount": "SKR14", "entries": [{"accountId": "<id>", "accountingPeriodId": "<id>", "currency": "UYU", "debitCreditIndicator": "CREDIT", "deliveryDate": "<value>", "description": "duh whose wherever dusk", "documentId": "<id>", "dueDate": "<value>", "exchangeRate": "<value>", "isProvisional": false, "journalCode": "<value>", "journalLineItems": [{"accountCode": "<value>", "accountId": "<id>", "accountNumber": 8284.89, "currency": "MOP", "customerId": "<id>", "debitCreditIndicator": "DEBIT", "description": "thoughtfully blah membership nor dress gosh summarise vein", "dimensions": [{}], "discountAmount": 8088.09, "documentNumber": "<value>", "exchangeRate": "<value>", "supplierId": "<id>", "taxRate": {"id": "<id>", "code": "<value>", "name": "<value>", "taxRatePercentage": "<value>"}, "thirdPartyCode": "<value>", "totalGrossAmount": 6768.04, "totalNetAmount": 8076.41, "totalTaxAmount": 7880.01}], "journalType": "<value>", "number": "<value>", "taxAssignmentDate": "<value>", "transactionDate": "<value>"}], "fiscalYearStartDate": "<value>"}
+        application/json: {"accountNumberLength": 1703.63, "chartOfAccount": "SKR14", "entries": [{"accountId": "<id>", "accountingPeriodId": "<id>", "currency": "UYU", "debitCreditIndicator": "CREDIT", "deliveryDate": "<value>", "description": "duh whose wherever dusk", "documentId": "<id>", "dueDate": "<value>", "exchangeRate": "<value>", "isProvisional": false, "journalCode": "<value>", "journalLineItems": [{"accountCode": "<value>", "accountId": "<id>", "accountNumber": "8284.89", "currency": "MOP", "customerId": "<id>", "debitCreditIndicator": "DEBIT", "description": "thoughtfully blah membership nor dress gosh summarise vein", "dimensions": [{}], "discountAmount": 8088.09, "documentNumber": "<value>", "exchangeRate": "<value>", "supplierId": "<id>", "taxRate": {"id": "<id>", "code": "<value>", "name": "<value>", "taxRatePercentage": "<value>"}, "thirdPartyCode": "<value>", "totalGrossAmount": 6768.04, "totalNetAmount": 8076.41, "totalTaxAmount": 7880.01}], "journalType": "<value>", "number": "<value>", "taxAssignmentDate": "<value>", "transactionDate": "<value>"}], "fiscalYearStartDate": "<value>"}
       responses:
         "200":
           application/json: {"meta": {"warnings": ["<value 1>", "<value 2>", "<value 3>"], "pagination": {"total": 3665.41, "perPage": 8420.39, "currentPage": 9506.66, "totalPages": 9985.07}}, "data": {"id": "<id>", "accountNumberLength": 75.3, "chartOfAccount": "<value>", "createdDate": "<value>", "entries": [], "fiscalYearStartDate": "<value>", "taskId": "<id>"}, "errors": {}, "rawData": {}}
@@ -8690,4 +8690,4 @@ examples:
         "201":
           application/json: {}
 examplesVersion: 1.0.2
-releaseNotes: "## Typescript SDK Changes:\n* `maesn.accounting.getAsyncTaskInfo()`:  `response.data.responseData` **Changed** (Breaking ⚠️)\n* `maesn.accountingV2.createBookingProposalV2()`: \n  *  `request.body.bookingType` **Changed** (Breaking ⚠️)\n  *  `response.status[201]` **Added** (Breaking ⚠️)\n* `maesn.accountingV2.createContactV2()`:  `response` **Changed** (Breaking ⚠️)\n* `maesn.accountingV2.putContactV2()`:  `response.status[201]` **Added** (Breaking ⚠️)\n* `maesn.accounting.getVendorCredits()`:  `response.data[].paymentReference` **Added**\n* `maesn.accounting.createVendorCredit()`: \n  *  `request.body.paymentReference` **Added**\n  *  `response.data.paymentReference` **Added**\n* `maesn.accounting.updateVendorCredit()`: \n  *  `request.body.paymentReference` **Added**\n"
+releaseNotes: "## Typescript SDK Changes:\n* `maesn.accounting.createJournalEntry()`: \n  *  `request.body.journalEntry` **Changed** (Breaking ⚠️)\n* `maesn.accounting.createJournalEntries()`: \n  *  `request.body.entries[].journalLineItems[].accountNumber` **Changed** (Breaking ⚠️)\n"

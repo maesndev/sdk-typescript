@@ -3837,7 +3837,7 @@ async function run() {
             {
               accountCode: "<value>",
               accountId: "<id>",
-              accountNumber: 8284.89,
+              accountNumber: "8284.89",
               currency: "MOP",
               customerId: "<id>",
               debitCreditIndicator: "DEBIT",
@@ -3915,7 +3915,7 @@ async function run() {
             {
               accountCode: "<value>",
               accountId: "<id>",
-              accountNumber: 8284.89,
+              accountNumber: "8284.89",
               currency: "MOP",
               customerId: "<id>",
               debitCreditIndicator: "DEBIT",
