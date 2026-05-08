@@ -188,7 +188,7 @@ export type CreateJournalLineItemDebitCreditIndicator = ClosedEnum<
 export type CreateJournalLineItem = {
   accountCode?: string | undefined;
   accountId?: string | undefined;
-  accountNumber?: number | undefined;
+  accountNumber?: string | undefined;
   currency?: CreateJournalLineItemCurrency | undefined;
   customerId?: string | undefined;
   debitCreditIndicator?: CreateJournalLineItemDebitCreditIndicator | undefined;
@@ -220,7 +220,7 @@ export const CreateJournalLineItemDebitCreditIndicator$outboundSchema:
 export type CreateJournalLineItem$Outbound = {
   accountCode?: string | undefined;
   accountId?: string | undefined;
-  accountNumber?: number | undefined;
+  accountNumber?: string | undefined;
   currency?: string | undefined;
   customerId?: string | undefined;
   debitCreditIndicator?: string | undefined;
@@ -244,7 +244,7 @@ export const CreateJournalLineItem$outboundSchema: z.ZodMiniType<
 > = z.object({
   accountCode: z.optional(z.string()),
   accountId: z.optional(z.string()),
-  accountNumber: z.optional(z.number()),
+  accountNumber: z.optional(z.string()),
   currency: z.optional(CreateJournalLineItemCurrency$outboundSchema),
   customerId: z.optional(z.string()),
   debitCreditIndicator: z.optional(
