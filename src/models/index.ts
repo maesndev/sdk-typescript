@@ -36,6 +36,7 @@ export * from "./contact-response-dto.js";
 export * from "./create-account-request-dto.js";
 export * from "./create-accounting-webhook-request-dto.js";
 export * from "./create-address.js";
+export * from "./create-auth-webhook-request-dto.js";
 export * from "./create-bank-account-request-dto.js";
 export * from "./create-bank-account.js";
 export * from "./create-bill-line-item-request-dto.js";

@@ -144,6 +144,7 @@ export * from "./post-file-async.js";
 export * from "./post-file.js";
 export * from "./put-contact-v2.js";
 export * from "./put-contact.js";
+export * from "./system-login-url-post-auth.js";
 export * from "./system-login-url.js";
 export * from "./system-registration.js";
 export * from "./update-bill-line-item.js";

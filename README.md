@@ -245,6 +245,7 @@ run();
 * [getEnvironments](docs/sdks/auth/README.md#getenvironments)
 * [getCompanies](docs/sdks/auth/README.md#getcompanies)
 * [systemLoginUrl](docs/sdks/auth/README.md#systemloginurl)
+* [systemLoginUrlPostAuth](docs/sdks/auth/README.md#systemloginurlpostauth)
 * [createEndUserAccount](docs/sdks/auth/README.md#createenduseraccount)
 
 ### [Events](docs/sdks/events/README.md)
@@ -430,6 +431,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`authGetCompanies`](docs/sdks/auth/README.md#getcompanies)
 - [`authGetEnvironments`](docs/sdks/auth/README.md#getenvironments)
 - [`authSystemLoginUrl`](docs/sdks/auth/README.md#systemloginurl)
+- [`authSystemLoginUrlPostAuth`](docs/sdks/auth/README.md#systemloginurlpostauth)
 - [`eventsGetCode`](docs/sdks/events/README.md#getcode)
 - [`eventsHandleCallback`](docs/sdks/events/README.md#handlecallback)
 - [`eventsHandleConfigurationCallback`](docs/sdks/events/README.md#handleconfigurationcallback)
