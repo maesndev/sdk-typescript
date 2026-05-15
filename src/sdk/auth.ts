@@ -5,6 +5,7 @@
 import { authCreateEndUserAccount } from "../funcs/auth-create-end-user-account.js";
 import { authGetCompanies } from "../funcs/auth-get-companies.js";
 import { authGetEnvironments } from "../funcs/auth-get-environments.js";
+import { authSystemLoginUrlPostAuth } from "../funcs/auth-system-login-url-post-auth.js";
 import { authSystemLoginUrl } from "../funcs/auth-system-login-url.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as operations from "../models/operations/index.js";
@@ -38,6 +39,17 @@ export class Auth extends ClientSDK {
     options?: RequestOptions,
   ): Promise<string> {
     return unwrapAsync(authSystemLoginUrl(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  async systemLoginUrlPostAuth(
+    request: operations.SystemLoginUrlPostAuthRequest,
+    options?: RequestOptions,
+  ): Promise<string> {
+    return unwrapAsync(authSystemLoginUrlPostAuth(
       this,
       request,
       options,

@@ -5081,6 +5081,12 @@ paths:
               - ASC
               - DESC
             type: string
+        - name: billDateFrom
+          required: false
+          in: query
+          description: ISO 8601 timestamp; only records with bill date after the provided value are returned
+          schema:
+            type: string
         - name: X-API-KEY
           description: API key
           in: header
@@ -8328,6 +8334,41 @@ paths:
         statusCodes:
           - 5XX
         retryConnectionErrors: true
+    post:
+      operationId: systemLoginUrlPostAuth
+      tags:
+        - auth
+      parameters:
+        - name: TARGET_SYSTEM
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: X-API-KEY
+          in: header
+          description: API key
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          in: header
+          description: Account key
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateAuthWebhookRequestDto'
+        required: true
+      responses:
+        "201":
+          description: Authentication URL for the requested target system returned successfully
+          content:
+            text/html:
+              schema:
+                type: string
   /auth/callback/{TARGET_SYSTEM}:
     get:
       operationId: callback
@@ -21374,6 +21415,21 @@ components:
           nullable: true
       required:
         - id
+    CreateAuthWebhookRequestDto:
+      type: object
+      properties:
+        baseUrl:
+          type: string
+        callBackUrl:
+          type: string
+        cancelCallbackUrl:
+          type: string
+        includeSignature:
+          type: boolean
+        tenantId:
+          type: string
+        webhookCallbackUrl:
+          type: string
     CreateEndUserRequestDto:
       type: object
       properties:

@@ -127,6 +127,10 @@ export type GetBillsRequest = {
    */
   orderDir?: GetBillsOrderDir | undefined;
   /**
+   * ISO 8601 timestamp; only records with bill date after the provided value are returned
+   */
+  billDateFrom?: string | undefined;
+  /**
    * API key
    */
   apiKey?: string | undefined;
@@ -198,6 +202,7 @@ export type GetBillsRequest$Outbound = {
   rawData?: boolean | undefined;
   orderField?: string | undefined;
   orderDir?: string | undefined;
+  billDateFrom?: string | undefined;
   apiKey?: string | undefined;
   accountKey?: string | undefined;
 };
@@ -217,6 +222,7 @@ export const GetBillsRequest$outboundSchema: z.ZodMiniType<
   rawData: z.optional(z.boolean()),
   orderField: z.optional(GetBillsOrderField$outboundSchema),
   orderDir: z.optional(GetBillsOrderDir$outboundSchema),
+  billDateFrom: z.optional(z.string()),
   apiKey: z.optional(z.string()),
   accountKey: z.optional(z.string()),
 });

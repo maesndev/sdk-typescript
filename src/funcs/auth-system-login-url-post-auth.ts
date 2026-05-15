@@ -4,7 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { MaesnCore } from "../core.js";
-import { encodeFormQuery, encodeSimple } from "../lib/encodings.js";
+import { encodeJSON, encodeSimple } from "../lib/encodings.js";
 import { matchStatusCode } from "../lib/http.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
@@ -24,14 +24,15 @@ import { SDKValidationError } from "../models/errors/sdk-validation-error.js";
 import * as operations from "../models/operations/index.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
+import * as types$ from "../types/primitives.js";
 
-export function accountingGetBills(
+export function authSystemLoginUrlPostAuth(
   client: MaesnCore,
-  request?: operations.GetBillsRequest | undefined,
+  request: operations.SystemLoginUrlPostAuthRequest,
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    operations.GetBillsResponse,
+    string,
     | MaesnError
     | ResponseValidationError
     | ConnectionError
@@ -51,12 +52,12 @@ export function accountingGetBills(
 
 async function $do(
   client: MaesnCore,
-  request?: operations.GetBillsRequest | undefined,
+  request: operations.SystemLoginUrlPostAuthRequest,
   options?: RequestOptions,
 ): Promise<
   [
     Result<
-      operations.GetBillsResponse,
+      string,
       | MaesnError
       | ResponseValidationError
       | ConnectionError
@@ -72,41 +73,34 @@ async function $do(
   const parsed = safeParse(
     request,
     (value) =>
-      z.parse(z.optional(operations.GetBillsRequest$outboundSchema), value),
+      z.parse(operations.SystemLoginUrlPostAuthRequest$outboundSchema, value),
     "Input validation failed",
   );
   if (!parsed.ok) {
     return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
-  const body = null;
+  const body = encodeJSON("body", payload.body, { explode: true });
 
-  const path = pathToFunc("/accounting/bills")();
-
-  const query = encodeFormQuery({
-    "billDateFrom": payload?.billDateFrom,
-    "companyId": payload?.companyId,
-    "environmentName": payload?.environmentName,
-    "lastModifiedAt": payload?.lastModifiedAt,
-    "limit": payload?.limit,
-    "orderDir": payload?.orderDir,
-    "orderField": payload?.orderField,
-    "page": payload?.page,
-    "paymentStatus": payload?.paymentStatus,
-    "rawData": payload?.rawData,
-    "status": payload?.status,
-  });
+  const pathParams = {
+    TARGET_SYSTEM: encodeSimple("TARGET_SYSTEM", payload.TARGET_SYSTEM, {
+      explode: false,
+      charEncoding: "percent",
+    }),
+  };
+  const path = pathToFunc("/auth/{TARGET_SYSTEM}")(pathParams);
 
   const headers = new Headers(compactMap({
-    Accept: "application/json",
+    "Content-Type": "application/json",
+    Accept: "text/html",
     "X-ACCOUNT-KEY": encodeSimple(
       "X-ACCOUNT-KEY",
-      payload?.accountKey ?? client._options.accountKey,
+      payload.accountKey ?? client._options.accountKey,
       { explode: false, charEncoding: "none" },
     ),
     "X-API-KEY": encodeSimple(
       "X-API-KEY",
-      payload?.apiKey ?? client._options.apiKey,
+      payload.apiKey ?? client._options.apiKey,
       { explode: false, charEncoding: "none" },
     ),
   }));
@@ -114,7 +108,7 @@ async function $do(
   const context = {
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "getBills",
+    operationID: "systemLoginUrlPostAuth",
     oAuth2Scopes: null,
 
     resolvedSecurity: null,
@@ -122,26 +116,15 @@ async function $do(
     securitySource: null,
     retryConfig: options?.retries
       || client._options.retryConfig
-      || {
-        strategy: "backoff",
-        backoff: {
-          initialInterval: 500,
-          maxInterval: 60000,
-          exponent: 1.5,
-          maxElapsedTime: 3600000,
-        },
-        retryConnectionErrors: true,
-      }
       || { strategy: "none" },
-    retryCodes: options?.retryCodes || ["5XX"],
+    retryCodes: options?.retryCodes || ["429", "500", "502", "503", "504"],
   };
 
   const requestRes = client._createRequest(context, {
-    method: "GET",
+    method: "POST",
     baseURL: options?.serverURL,
     path: path,
     headers: headers,
-    query: query,
     body: body,
     userAgent: client._options.userAgent,
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
@@ -164,7 +147,7 @@ async function $do(
   const response = doResult.value;
 
   const [result] = await M.match<
-    operations.GetBillsResponse,
+    string,
     | MaesnError
     | ResponseValidationError
     | ConnectionError
@@ -174,7 +157,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, operations.GetBillsResponse$inboundSchema),
+    M.text(201, types$.string(), { ctype: "text/html" }),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req);
