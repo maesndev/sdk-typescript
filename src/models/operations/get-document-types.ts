@@ -4,6 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
+import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -14,11 +15,26 @@ export type GetDocumentTypesGlobals = {
   accountKey?: string | undefined;
 };
 
+export const GetDocumentTypesLimit = {
+  Five: 5,
+  Ten: 10,
+  Twenty: 20,
+  Fifty: 50,
+  OneHundred: 100,
+} as const;
+export type GetDocumentTypesLimit = ClosedEnum<typeof GetDocumentTypesLimit>;
+
 export type GetDocumentTypesRequest = {
+  page?: number | undefined;
+  limit?: GetDocumentTypesLimit | undefined;
   /**
    * ID of the company (required for multi-company target systems)
    */
   companyId?: string | undefined;
+  /**
+   * When true, returns the unprocessed response from the upstream target system
+   */
+  rawData?: boolean | undefined;
   /**
    * API key
    */
@@ -56,8 +72,16 @@ export type GetDocumentTypesResponse = {
 };
 
 /** @internal */
+export const GetDocumentTypesLimit$outboundSchema: z.ZodMiniEnum<
+  typeof GetDocumentTypesLimit
+> = z.enum(GetDocumentTypesLimit);
+
+/** @internal */
 export type GetDocumentTypesRequest$Outbound = {
+  page?: number | undefined;
+  limit?: number | undefined;
   companyId?: string | undefined;
+  rawData?: boolean | undefined;
   apiKey?: string | undefined;
   accountKey?: string | undefined;
 };
@@ -67,7 +91,10 @@ export const GetDocumentTypesRequest$outboundSchema: z.ZodMiniType<
   GetDocumentTypesRequest$Outbound,
   GetDocumentTypesRequest
 > = z.object({
+  page: z.optional(z.number()),
+  limit: z.optional(GetDocumentTypesLimit$outboundSchema),
   companyId: z.optional(z.string()),
+  rawData: z.optional(z.boolean()),
   apiKey: z.optional(z.string()),
   accountKey: z.optional(z.string()),
 });

@@ -228,6 +228,7 @@ run();
 * [getFiscalYears](docs/sdks/accounting/README.md#getfiscalyears)
 * [getFiscalYear](docs/sdks/accounting/README.md#getfiscalyear)
 * [createExpenseAsync](docs/sdks/accounting/README.md#createexpenseasync)
+* [createBookingProposalAsync](docs/sdks/accounting/README.md#createbookingproposalasync)
 
 ### [AccountingV2](docs/sdks/accountingv2/README.md)
 
@@ -311,6 +312,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`accountingCreateBill`](docs/sdks/accounting/README.md#createbill)
 - [`accountingCreateBillLineItem`](docs/sdks/accounting/README.md#createbilllineitem)
 - [`accountingCreateBookingProposal`](docs/sdks/accounting/README.md#createbookingproposal)
+- [`accountingCreateBookingProposalAsync`](docs/sdks/accounting/README.md#createbookingproposalasync)
 - [`accountingCreateContact`](docs/sdks/accounting/README.md#createcontact)
 - [`accountingCreateContacts`](docs/sdks/accounting/README.md#createcontacts)
 - [`accountingCreateContactsV1`](docs/sdks/accounting/README.md#createcontactsv1)

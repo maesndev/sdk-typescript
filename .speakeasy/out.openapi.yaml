@@ -2013,12 +2013,34 @@ paths:
     get:
       operationId: getDocumentTypes
       parameters:
+        - name: page
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: limit
+          required: false
+          in: query
+          schema:
+            enum:
+              - 5
+              - 10
+              - 20
+              - 50
+              - 100
+            type: integer
         - name: companyId
           required: false
           in: query
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: rawData
+          required: false
+          in: query
+          description: When true, returns the unprocessed response from the upstream target system
+          schema:
+            type: boolean
         - name: X-API-KEY
           description: API key
           in: header
@@ -7237,6 +7259,71 @@ paths:
       responses:
         "202":
           description: Expense queued successfully. Processed asynchronously and returns 202 with taskId.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BaseResponseDto'
+                  - properties:
+                      data:
+                        $ref: '#/components/schemas/TaskIdResponseDto'
+      tags:
+        - accounting
+  /accounting/bookingProposals/async:
+    post:
+      operationId: createBookingProposalAsync
+      parameters:
+        - name: companyId
+          required: false
+          in: query
+          description: ID of the company (required for multi-company target systems)
+          schema:
+            type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                files:
+                  type: array
+                  items:
+                    type: string
+                    format: binary
+                bookingType:
+                  type: string
+                  enum:
+                    - INVOICE
+                    - BILL
+                    - CREDIT_NOTE
+                    - VENDOR_CREDIT
+                bookingProposal:
+                  $ref: '#/components/schemas/CreateBookingProposalRequestDtoV2'
+                folderManagement:
+                  type: object
+                  properties:
+                    category:
+                      type: string
+                    folder:
+                      type: string
+                    register:
+                      type: string
+      responses:
+        "202":
+          description: Booking proposal queued successfully. Processed asynchronously and returns 202 with taskId.
           content:
             application/json:
               schema:
@@ -18801,6 +18888,128 @@ components:
           nullable: true
       required:
         - taskId
+    BookingProposalAddressRequestDtoV2:
+      type: object
+      properties:
+        city:
+          type: string
+    BankAccountRequestCommonDtoV2:
+      type: object
+      properties:
+        id:
+          type: string
+        bic:
+          type: string
+        code:
+          type: string
+        iban:
+          type: string
+        number:
+          type: number
+    ContactRequestCommonDtoV2:
+      type: object
+      properties:
+        id:
+          type: string
+        accountNumber:
+          type: number
+        name:
+          type: string
+    BookingProposalLineItemRequestDtoV2:
+      type: object
+      properties:
+        id:
+          type: string
+        account:
+          $ref: '#/components/schemas/AccountRequestCommonDtoV2'
+        description:
+          type: string
+        dimensions:
+          type: array
+          items:
+            $ref: '#/components/schemas/DimensionRequestCommonDtoV2'
+        discountAmount:
+          type: number
+        discountAmount2:
+          type: number
+        discountPercentage:
+          type: number
+        discountPercentage2:
+          type: number
+        taxCode:
+          type: string
+        taxRatePercentage:
+          type: number
+        totalGrossAmount:
+          type: number
+        totalNetAmount:
+          type: number
+        type:
+          type: string
+          enum:
+            - PRODUCT
+            - SERVICE
+    CreateBookingProposalRequestDtoV2:
+      type: object
+      properties:
+        id:
+          type: string
+        addresses:
+          type: array
+          items:
+            $ref: '#/components/schemas/BookingProposalAddressRequestDtoV2'
+        bankAccount:
+          $ref: '#/components/schemas/BankAccountRequestCommonDtoV2'
+        bookingProposalDate:
+          type: string
+        contact:
+          $ref: '#/components/schemas/ContactRequestCommonDtoV2'
+        currency:
+          type: string
+        deliveryDate:
+          type: string
+        discountPaymentDate:
+          type: string
+        discountPaymentDate2:
+          type: string
+        dueDate:
+          type: string
+        journalCode:
+          type: string
+        isPaymentOrder:
+          type: boolean
+        ledgerName:
+          type: string
+        lineItems:
+          type: array
+          items:
+            $ref: '#/components/schemas/BookingProposalLineItemRequestDtoV2'
+        notes:
+          type: string
+        number:
+          type: string
+        orderId:
+          type: string
+        paidDate:
+          type: string
+        paymentTermId:
+          type: string
+        status:
+          type: string
+          enum:
+            - DRAFT
+            - SUBMITTED
+            - OPEN
+            - PARTIALLY_PAID
+            - PAID
+            - OVERDUE
+            - VOIDED
+            - DISPUTED
+            - CANCELLED
+        totalGrossAmount:
+          type: number
+        vatId:
+          type: string
     CreateAccountRequestDto:
       type: object
       properties:
@@ -20819,128 +21028,6 @@ components:
         - name
         - status
         - updatedDate
-    BookingProposalAddressRequestDtoV2:
-      type: object
-      properties:
-        city:
-          type: string
-    BankAccountRequestCommonDtoV2:
-      type: object
-      properties:
-        id:
-          type: string
-        bic:
-          type: string
-        code:
-          type: string
-        iban:
-          type: string
-        number:
-          type: number
-    ContactRequestCommonDtoV2:
-      type: object
-      properties:
-        id:
-          type: string
-        accountNumber:
-          type: number
-        name:
-          type: string
-    BookingProposalLineItemRequestDtoV2:
-      type: object
-      properties:
-        id:
-          type: string
-        account:
-          $ref: '#/components/schemas/AccountRequestCommonDtoV2'
-        description:
-          type: string
-        dimensions:
-          type: array
-          items:
-            $ref: '#/components/schemas/DimensionRequestCommonDtoV2'
-        discountAmount:
-          type: number
-        discountAmount2:
-          type: number
-        discountPercentage:
-          type: number
-        discountPercentage2:
-          type: number
-        taxCode:
-          type: string
-        taxRatePercentage:
-          type: number
-        totalGrossAmount:
-          type: number
-        totalNetAmount:
-          type: number
-        type:
-          type: string
-          enum:
-            - PRODUCT
-            - SERVICE
-    CreateBookingProposalRequestDtoV2:
-      type: object
-      properties:
-        id:
-          type: string
-        addresses:
-          type: array
-          items:
-            $ref: '#/components/schemas/BookingProposalAddressRequestDtoV2'
-        bankAccount:
-          $ref: '#/components/schemas/BankAccountRequestCommonDtoV2'
-        bookingProposalDate:
-          type: string
-        contact:
-          $ref: '#/components/schemas/ContactRequestCommonDtoV2'
-        currency:
-          type: string
-        deliveryDate:
-          type: string
-        discountPaymentDate:
-          type: string
-        discountPaymentDate2:
-          type: string
-        dueDate:
-          type: string
-        journalCode:
-          type: string
-        isPaymentOrder:
-          type: boolean
-        ledgerName:
-          type: string
-        lineItems:
-          type: array
-          items:
-            $ref: '#/components/schemas/BookingProposalLineItemRequestDtoV2'
-        notes:
-          type: string
-        number:
-          type: string
-        orderId:
-          type: string
-        paidDate:
-          type: string
-        paymentTermId:
-          type: string
-        status:
-          type: string
-          enum:
-            - DRAFT
-            - SUBMITTED
-            - OPEN
-            - PARTIALLY_PAID
-            - PAID
-            - OVERDUE
-            - VOIDED
-            - DISPUTED
-            - CANCELLED
-        totalGrossAmount:
-          type: number
-        vatId:
-          type: string
     ContactAddressV2:
       type: object
       properties:
