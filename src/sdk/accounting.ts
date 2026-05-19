@@ -6,6 +6,7 @@ import { accountingCreateAccount } from "../funcs/accounting-create-account.js";
 import { accountingCreateBankAccount } from "../funcs/accounting-create-bank-account.js";
 import { accountingCreateBillLineItem } from "../funcs/accounting-create-bill-line-item.js";
 import { accountingCreateBill } from "../funcs/accounting-create-bill.js";
+import { accountingCreateBookingProposalAsync } from "../funcs/accounting-create-booking-proposal-async.js";
 import { accountingCreateBookingProposal } from "../funcs/accounting-create-booking-proposal.js";
 import { accountingCreateContact } from "../funcs/accounting-create-contact.js";
 import { accountingCreateContactsV1 } from "../funcs/accounting-create-contacts-v1.js";
@@ -1358,6 +1359,17 @@ export class Accounting extends ClientSDK {
     options?: RequestOptions,
   ): Promise<operations.CreateExpenseAsyncResponse> {
     return unwrapAsync(accountingCreateExpenseAsync(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  async createBookingProposalAsync(
+    request: operations.CreateBookingProposalAsyncRequest,
+    options?: RequestOptions,
+  ): Promise<operations.CreateBookingProposalAsyncResponse> {
+    return unwrapAsync(accountingCreateBookingProposalAsync(
       this,
       request,
       options,

@@ -4,7 +4,18 @@
 
 import * as z from "zod/v4-mini";
 import { MaesnCore } from "../core.js";
-import { encodeFormQuery, encodeSimple } from "../lib/encodings.js";
+import {
+  appendForm,
+  encodeFormQuery,
+  encodeJSON,
+  encodeSimple,
+  normalizeBlob,
+} from "../lib/encodings.js";
+import {
+  bytesToBlob,
+  getContentTypeFromFileName,
+  readableStreamToArrayBuffer,
+} from "../lib/files.js";
 import { matchStatusCode } from "../lib/http.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
@@ -23,15 +34,17 @@ import { ResponseValidationError } from "../models/errors/response-validation-er
 import { SDKValidationError } from "../models/errors/sdk-validation-error.js";
 import * as operations from "../models/operations/index.js";
 import { APICall, APIPromise } from "../types/async.js";
+import { isBlobLike } from "../types/blobs.js";
 import { Result } from "../types/fp.js";
+import { isReadableStream } from "../types/streams.js";
 
-export function accountingGetDocumentTypes(
+export function accountingCreateBookingProposalAsync(
   client: MaesnCore,
-  request?: operations.GetDocumentTypesRequest | undefined,
+  request: operations.CreateBookingProposalAsyncRequest,
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    operations.GetDocumentTypesResponse,
+    operations.CreateBookingProposalAsyncResponse,
     | MaesnError
     | ResponseValidationError
     | ConnectionError
@@ -51,12 +64,12 @@ export function accountingGetDocumentTypes(
 
 async function $do(
   client: MaesnCore,
-  request?: operations.GetDocumentTypesRequest | undefined,
+  request: operations.CreateBookingProposalAsyncRequest,
   options?: RequestOptions,
 ): Promise<
   [
     Result<
-      operations.GetDocumentTypesResponse,
+      operations.CreateBookingProposalAsyncResponse,
       | MaesnError
       | ResponseValidationError
       | ConnectionError
@@ -73,7 +86,7 @@ async function $do(
     request,
     (value) =>
       z.parse(
-        z.optional(operations.GetDocumentTypesRequest$outboundSchema),
+        operations.CreateBookingProposalAsyncRequest$outboundSchema,
         value,
       ),
     "Input validation failed",
@@ -82,27 +95,75 @@ async function $do(
     return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
-  const body = null;
+  const body = new FormData();
 
-  const path = pathToFunc("/accounting/files/documentTypes")();
+  if (payload.body.bookingProposal !== undefined) {
+    appendForm(
+      body,
+      "bookingProposal",
+      encodeJSON("bookingProposal", payload.body.bookingProposal, {
+        explode: true,
+      }),
+    );
+  }
+  if (payload.body.bookingType !== undefined) {
+    appendForm(body, "bookingType", payload.body.bookingType);
+  }
+  if (payload.body.files !== undefined) {
+    for (const fileItem of payload.body.files ?? []) {
+      if (isBlobLike(fileItem)) {
+        const file = fileItem;
+        const blob = await normalizeBlob(file);
+        const name = "name" in file ? (file.name as string) : undefined;
+        appendForm(body, "files", blob, name);
+      } else if (isReadableStream(fileItem.content)) {
+        const buffer = await readableStreamToArrayBuffer(fileItem.content);
+        const contentType = getContentTypeFromFileName(fileItem.fileName)
+          || "application/octet-stream";
+        appendForm(
+          body,
+          "files",
+          bytesToBlob(buffer, contentType),
+          fileItem.fileName,
+        );
+      } else {
+        const contentType = getContentTypeFromFileName(fileItem.fileName)
+          || "application/octet-stream";
+        appendForm(
+          body,
+          "files",
+          bytesToBlob(fileItem.content, contentType),
+          fileItem.fileName,
+        );
+      }
+    }
+  }
+  if (payload.body.folderManagement !== undefined) {
+    appendForm(
+      body,
+      "folderManagement",
+      encodeJSON("folderManagement", payload.body.folderManagement, {
+        explode: true,
+      }),
+    );
+  }
+
+  const path = pathToFunc("/accounting/bookingProposals/async")();
 
   const query = encodeFormQuery({
-    "companyId": payload?.companyId,
-    "limit": payload?.limit,
-    "page": payload?.page,
-    "rawData": payload?.rawData,
+    "companyId": payload.companyId,
   });
 
   const headers = new Headers(compactMap({
     Accept: "application/json",
     "X-ACCOUNT-KEY": encodeSimple(
       "X-ACCOUNT-KEY",
-      payload?.accountKey ?? client._options.accountKey,
+      payload.accountKey ?? client._options.accountKey,
       { explode: false, charEncoding: "none" },
     ),
     "X-API-KEY": encodeSimple(
       "X-API-KEY",
-      payload?.apiKey ?? client._options.apiKey,
+      payload.apiKey ?? client._options.apiKey,
       { explode: false, charEncoding: "none" },
     ),
   }));
@@ -110,7 +171,7 @@ async function $do(
   const context = {
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "getDocumentTypes",
+    operationID: "createBookingProposalAsync",
     oAuth2Scopes: null,
 
     resolvedSecurity: null,
@@ -118,22 +179,12 @@ async function $do(
     securitySource: null,
     retryConfig: options?.retries
       || client._options.retryConfig
-      || {
-        strategy: "backoff",
-        backoff: {
-          initialInterval: 500,
-          maxInterval: 60000,
-          exponent: 1.5,
-          maxElapsedTime: 3600000,
-        },
-        retryConnectionErrors: true,
-      }
       || { strategy: "none" },
-    retryCodes: options?.retryCodes || ["5XX"],
+    retryCodes: options?.retryCodes || ["429", "500", "502", "503", "504"],
   };
 
   const requestRes = client._createRequest(context, {
-    method: "GET",
+    method: "POST",
     baseURL: options?.serverURL,
     path: path,
     headers: headers,
@@ -160,7 +211,7 @@ async function $do(
   const response = doResult.value;
 
   const [result] = await M.match<
-    operations.GetDocumentTypesResponse,
+    operations.CreateBookingProposalAsyncResponse,
     | MaesnError
     | ResponseValidationError
     | ConnectionError
@@ -170,7 +221,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, operations.GetDocumentTypesResponse$inboundSchema),
+    M.json(202, operations.CreateBookingProposalAsyncResponse$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req);

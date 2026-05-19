@@ -2,8 +2,8 @@ speakeasyVersion: 1.763.1
 sources:
     Maesn unified API:
         sourceNamespace: maesn-unified-api
-        sourceRevisionDigest: sha256:594370f67cc8758a880c516f3d4b0eaebdaeec1ded107eb891ef7319b6bcc29f
-        sourceBlobDigest: sha256:d64ac43843d5848d11b042fcccaa8d1b49930e410659909febbe11d91ba530ce
+        sourceRevisionDigest: sha256:a01e81c010a95e26009ad6adc56462b978ac8421021f4fef37ce9b1b6ea6fd62
+        sourceBlobDigest: sha256:e48ca4656dc214f65bcd49bc62070e542b44e6a650540d7ba33a67b660a850c8
         tags:
             - latest
             - "1.0"
@@ -11,10 +11,10 @@ targets:
     maesn:
         source: Maesn unified API
         sourceNamespace: maesn-unified-api
-        sourceRevisionDigest: sha256:594370f67cc8758a880c516f3d4b0eaebdaeec1ded107eb891ef7319b6bcc29f
-        sourceBlobDigest: sha256:d64ac43843d5848d11b042fcccaa8d1b49930e410659909febbe11d91ba530ce
+        sourceRevisionDigest: sha256:a01e81c010a95e26009ad6adc56462b978ac8421021f4fef37ce9b1b6ea6fd62
+        sourceBlobDigest: sha256:e48ca4656dc214f65bcd49bc62070e542b44e6a650540d7ba33a67b660a850c8
         codeSamplesNamespace: maesn-unified-api-typescript-code-samples
-        codeSamplesRevisionDigest: sha256:04303e370104b131f56c3e7d265312919ca7fc877d1bbc738578ab29c188de13
+        codeSamplesRevisionDigest: sha256:756f4a0a871ce4e382032985a5b46fbba4c03d4af8a5f54352d60f51b14819c8
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest

@@ -1,0 +1,18 @@
+# CreateBookingProposalAsyncRequestBody
+
+## Example Usage
+
+```typescript
+import { CreateBookingProposalAsyncRequestBody } from "@maesn/typescript-sdk/models/operations";
+
+let value: CreateBookingProposalAsyncRequestBody = {};
+```
+
+## Fields
+
+| Field                                                                                                                               | Type                                                                                                                                | Required                                                                                                                            | Description                                                                                                                         |
+| ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `files`                                                                                                                             | [operations.CreateBookingProposalAsyncFile](../../models/operations/create-booking-proposal-async-file.md)[]                        | :heavy_minus_sign:                                                                                                                  | N/A                                                                                                                                 |
+| `bookingType`                                                                                                                       | [operations.CreateBookingProposalAsyncBookingType](../../models/operations/create-booking-proposal-async-booking-type.md)           | :heavy_minus_sign:                                                                                                                  | N/A                                                                                                                                 |
+| `bookingProposal`                                                                                                                   | [models.CreateBookingProposalRequestDtoV2](../../models/create-booking-proposal-request-dto-v2.md)                                  | :heavy_minus_sign:                                                                                                                  | N/A                                                                                                                                 |
+| `folderManagement`                                                                                                                  | [operations.CreateBookingProposalAsyncFolderManagement](../../models/operations/create-booking-proposal-async-folder-management.md) | :heavy_minus_sign:                                                                                                                  | N/A                                                                                                                                 |
