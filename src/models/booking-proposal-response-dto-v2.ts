@@ -74,6 +74,7 @@ export type BookingProposalResponseDtoV2 = {
   discountPaymentDate2: string | null;
   dueDate: string | null;
   files: Array<string> | null;
+  generatorName: string | null;
   journalCode: string | null;
   isPaymentOrder: boolean | null;
   ledgerName: string | null;
@@ -167,6 +168,7 @@ export const BookingProposalResponseDtoV2$inboundSchema: z.ZodMiniType<
   discountPaymentDate2: types.nullable(types.string()),
   dueDate: types.nullable(types.string()),
   files: types.nullable(z.array(types.string())),
+  generatorName: types.nullable(types.string()),
   journalCode: types.nullable(types.string()),
   isPaymentOrder: types.nullable(types.boolean()),
   ledgerName: types.nullable(types.string()),

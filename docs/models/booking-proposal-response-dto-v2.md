@@ -37,17 +37,41 @@ let value: BookingProposalResponseDtoV2 = {
     "<value 2>",
     "<value 3>",
   ],
+  generatorName: "<value>",
   journalCode: "<value>",
   isPaymentOrder: true,
   ledgerName: "<value>",
-  lineItems: [],
+  lineItems: [
+    {
+      id: null,
+      account: {
+        id: "<id>",
+        code: "<value>",
+        name: "<value>",
+        number: 688.07,
+      },
+      createdDate: "<value>",
+      description: "log annual with apud apt worthwhile",
+      dimensions: [],
+      discountAmount: 3037.23,
+      discountAmount2: 6272.48,
+      discountPercentage: 5498.16,
+      discountPercentage2: 9231.11,
+      taxCode: "<value>",
+      taxRatePercentage: 859.39,
+      totalGrossAmount: 2915.87,
+      totalNetAmount: 9109.18,
+      type: "SERVICE",
+      updatedDate: "<value>",
+    },
+  ],
   notes: "<value>",
-  number: null,
+  number: "<value>",
   orderId: "<id>",
   paidDate: "<value>",
   paymentTermId: "<id>",
-  status: "VOIDED",
-  totalGrossAmount: null,
+  status: "OPEN",
+  totalGrossAmount: 6111.86,
   updatedDate: "<value>",
   vatId: "<id>",
 };
@@ -70,6 +94,7 @@ let value: BookingProposalResponseDtoV2 = {
 | `discountPaymentDate2`                                                                                       | *string*                                                                                                     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `dueDate`                                                                                                    | *string*                                                                                                     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `files`                                                                                                      | *string*[]                                                                                                   | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
+| `generatorName`                                                                                              | *string*                                                                                                     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `journalCode`                                                                                                | *string*                                                                                                     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `isPaymentOrder`                                                                                             | *boolean*                                                                                                    | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `ledgerName`                                                                                                 | *string*                                                                                                     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |

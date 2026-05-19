@@ -51,6 +51,7 @@ export type CreateBookingProposalRequestDtoV2 = {
   discountPaymentDate?: string | undefined;
   discountPaymentDate2?: string | undefined;
   dueDate?: string | undefined;
+  generatorName?: string | undefined;
   journalCode?: string | undefined;
   isPaymentOrder?: boolean | undefined;
   ledgerName?: string | undefined;
@@ -83,6 +84,7 @@ export type CreateBookingProposalRequestDtoV2$Outbound = {
   discountPaymentDate?: string | undefined;
   discountPaymentDate2?: string | undefined;
   dueDate?: string | undefined;
+  generatorName?: string | undefined;
   journalCode?: string | undefined;
   isPaymentOrder?: boolean | undefined;
   ledgerName?: string | undefined;
@@ -114,6 +116,7 @@ export const CreateBookingProposalRequestDtoV2$outboundSchema: z.ZodMiniType<
   discountPaymentDate: z.optional(z.string()),
   discountPaymentDate2: z.optional(z.string()),
   dueDate: z.optional(z.string()),
+  generatorName: z.optional(z.string()),
   journalCode: z.optional(z.string()),
   isPaymentOrder: z.optional(z.boolean()),
   ledgerName: z.optional(z.string()),

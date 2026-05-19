@@ -18974,6 +18974,8 @@ components:
           type: string
         dueDate:
           type: string
+        generatorName:
+          type: string
         journalCode:
           type: string
         isPaymentOrder:
@@ -20902,6 +20904,9 @@ components:
           type: array
           items:
             type: string
+        generatorName:
+          type: string
+          nullable: true
         journalCode:
           type: string
           nullable: true
@@ -20967,6 +20972,7 @@ components:
         - discountPaymentDate2
         - dueDate
         - files
+        - generatorName
         - journalCode
         - isPaymentOrder
         - ledgerName
