@@ -7,6 +7,10 @@ import { safeParse } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
+import {
+  DimensionResponseCommonDtoV2,
+  DimensionResponseCommonDtoV2$inboundSchema,
+} from "./dimension-response-common-dto-v2.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
 export const LineItemResponseType = {
@@ -26,6 +30,7 @@ export type LineItemResponse = {
   description: string | null;
   dimension1: string | null;
   dimension2: string | null;
+  dimensions: Array<DimensionResponseCommonDtoV2> | null;
   discountAmount: number | null;
   discountAmount2: number | null;
   discountPercentage: number | null;
@@ -58,6 +63,9 @@ export const LineItemResponse$inboundSchema: z.ZodMiniType<
   description: types.nullable(types.string()),
   dimension1: types.nullable(types.string()),
   dimension2: types.nullable(types.string()),
+  dimensions: types.nullable(
+    z.array(DimensionResponseCommonDtoV2$inboundSchema),
+  ),
   discountAmount: types.nullable(types.number()),
   discountAmount2: types.nullable(types.number()),
   discountPercentage: types.nullable(types.number()),

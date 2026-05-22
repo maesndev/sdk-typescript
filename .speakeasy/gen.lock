@@ -1,23 +1,23 @@
 lockVersion: 2.0.0
 id: b4a29653-32d8-43f6-ba1e-9aa569fce206
 management:
-  docChecksum: c6c0fd4ed29721c5652e97b7281d6286
+  docChecksum: 46fc87805cc0c7313eaee6bc4c44fa0c
   docVersion: "1.0"
-  speakeasyVersion: 1.763.1
-  generationVersion: 2.884.4
-  releaseVersion: 0.6.5
-  configChecksum: 9d32622392e5bed771b29b34a5bcb1c0
+  speakeasyVersion: 1.764.0
+  generationVersion: 2.885.0
+  releaseVersion: 0.6.6
+  configChecksum: dec8858536ee4254bf8d30b30970dbc4
   repoURL: https://github.com/maesndev/sdk-typescript.git
   installationURL: https://github.com/maesndev/sdk-typescript
   published: true
 persistentEdits:
-  generation_id: a4b3cb2c-0ae2-477b-9d45-68a7f16327b5
-  pristine_commit_hash: e23fae803225dd5c8e8328b7972258438dc67118
-  pristine_tree_hash: ca07f2921f4e0630736647946cbdb1defb33a9b5
+  generation_id: f0973fbd-58b4-4a37-84cc-2cab90ad5729
+  pristine_commit_hash: 84cb5a365dc58f9059151546d176a5a3f7bdd243
+  pristine_tree_hash: f198d36e7dc3c7753e3c208b1dba30361f95a687
 features:
   typescript:
     additionalDependencies: 0.1.0
-    core: 3.26.50
+    core: 3.26.51
     defaultEnabledRetries: 0.1.0
     devContainers: 2.90.1
     enumUnions: 0.1.0
@@ -228,8 +228,8 @@ trackedFiles:
     pristine_git_object: b52b1df60170cd2a8accc78b8bc2b50c2be86578
   docs/models/booking-proposal-line-item-response-dto-v2.md:
     id: d80299bc74c7
-    last_write_checksum: sha1:39d754000e5147f94a8e5465bf8a9725d4946310
-    pristine_git_object: 3afc2b2d9febe4ebd8062b30743816eb1cfd0c2e
+    last_write_checksum: sha1:4a02e5b6f55e0d19a5ea0f465825d96370beea48
+    pristine_git_object: 9764631036ad1b5203b406dcec41d45a54359ac4
   docs/models/booking-proposal-response-dto-booking-type.md:
     id: fbb64297e6b1
     last_write_checksum: sha1:0c8686440c10ac27851b9b1255283c4fca7b6b36
@@ -256,8 +256,8 @@ trackedFiles:
     pristine_git_object: 2354546efcd21e125283f6e7ba1aa26a2b46c7a6
   docs/models/booking-proposal-response-dto.md:
     id: 78005a9d9d18
-    last_write_checksum: sha1:d3c7ca9d539a5d5a2cbbef5972ba2ad419b356cd
-    pristine_git_object: f1d10fdaed2fa64536c9ea902ffdf615d494535c
+    last_write_checksum: sha1:c206f61760b94569c06d878ccdf00410377fade0
+    pristine_git_object: 0b32dcfebfb031f9cd7b9d990daff5fa0d5548d3
   docs/models/callback-url-registration-dto.md:
     id: 9e9a6e1412eb
     last_write_checksum: sha1:fbb71de1ef9c7f47265b3c35f7d6059314d67afe
@@ -720,8 +720,8 @@ trackedFiles:
     pristine_git_object: 086db31c4c828df6af3dd17f3bd27bdad7d3e124
   docs/models/create-vendor-credit-request-dto.md:
     id: 4826a29ec596
-    last_write_checksum: sha1:3fe682e34ee417714878e84280cf0ed706f752b5
-    pristine_git_object: bc40d0655788aaab465d1aa0a2837d860e52ec92
+    last_write_checksum: sha1:076155b89d0ccad2b095c67f16a05cce7f995381
+    pristine_git_object: 2d616feaf5e890ed05a1eedd0525c6cf05dd9734
   docs/models/credit-note-lines-dto.md:
     id: 8fadbd71eecf
     last_write_checksum: sha1:37a886dc055183048d10e7116ef415d74830c874
@@ -968,8 +968,8 @@ trackedFiles:
     pristine_git_object: 6cb6a6da26a8e74946dc8a012037475fc7e6a6b1
   docs/models/line-item-request.md:
     id: 7ba4879d98a9
-    last_write_checksum: sha1:1ca6c4c7f7910729bd69d5314718e7651a2666d9
-    pristine_git_object: 2f37c2a7601edb9b1c5565bd66094ac9f21b49a4
+    last_write_checksum: sha1:42828b30631068982f5718dc0a0213b8732aa451
+    pristine_git_object: 4a4f82efaa85ee307e22f2735d04caa37d920f61
   docs/models/line-item-response-dto.md:
     id: c34d746ff0b7
     last_write_checksum: sha1:6b71e996d2d91f6d5497580f0cad8b2c51b46b81
@@ -980,8 +980,8 @@ trackedFiles:
     pristine_git_object: e619d9add051249d7e375f08c929066ff4ee7634
   docs/models/line-item-response.md:
     id: 38a34f3439a3
-    last_write_checksum: sha1:ec017e648df5687b0cafa429f5a2cc7eda60fab7
-    pristine_git_object: bbb521ee380fb4f74dd73f3b9c2a0a21398f8783
+    last_write_checksum: sha1:b759ffb3768ef364d56e4ad689c4edff04889af5
+    pristine_git_object: aa8a1871158a31a17357937c670fc3b2e18581c6
   docs/models/meta.md:
     id: b5731935642a
     last_write_checksum: sha1:bd9dcdff166c84f467804d2f5d89a3587bc3a6e6
@@ -1268,12 +1268,12 @@ trackedFiles:
     pristine_git_object: 13a2ee197f06f7044938154005d494fc32867242
   docs/models/operations/create-booking-proposal-request.md:
     id: 68acd90b1528
-    last_write_checksum: sha1:30a4d4aa8daef0cd8442d39cc97dc8ef3b6e00d7
-    pristine_git_object: 97b02bf9bcc37d54b2be5657f12df086fb6d2306
+    last_write_checksum: sha1:ee461589b96c4d8833c0f468f994aec6a6ccf419
+    pristine_git_object: 449af6bc280a65b52907322cd3769376262a2b61
   docs/models/operations/create-booking-proposal-response.md:
     id: 77be172adbe5
-    last_write_checksum: sha1:6576b997418b25572c1bcbfbc22b8c0e0adf2dd5
-    pristine_git_object: 64d1e5d6aa6a352ad1fbe3a994c8f698c86eab02
+    last_write_checksum: sha1:c8a70842190c80c40a937acb72ff0917d58fc687
+    pristine_git_object: da7361ee0f74e4e169252348c8e5503d6357711c
   docs/models/operations/create-booking-proposal-v2-booking-type.md:
     id: 047c6cb26116
     last_write_checksum: sha1:214f66998cce3b4a0a1ee93c4b44e30fd6ae8fd7
@@ -2016,8 +2016,8 @@ trackedFiles:
     pristine_git_object: 2ab0e430011b041a39c77662e335b04b87538938
   docs/models/operations/create-vendor-credit-response.md:
     id: 1f3bc1c86681
-    last_write_checksum: sha1:23d665534ec4d368eeb1f3eb4ae69d390f994fea
-    pristine_git_object: 8cbce43fec42cb7d62b944dca210d9c39453b44e
+    last_write_checksum: sha1:accac8aee81afe6a625ef1f7c7335665be21f82b
+    pristine_git_object: dcfa38e5c1e0d2511c7af77b48a23144653eddbb
   docs/models/operations/create-webhook-end-user-errors.md:
     id: decec5319ed5
     last_write_checksum: sha1:cf4359de0d9260688160e5c4fa41a9c41c0355e9
@@ -2568,8 +2568,8 @@ trackedFiles:
     pristine_git_object: dc732d0a47de3e338e8e0e8577b852efdc4b7f55
   docs/models/operations/get-booking-proposal-response.md:
     id: 27c4da36778d
-    last_write_checksum: sha1:939d3ee7852becdb650917365237d840a2289f62
-    pristine_git_object: 7f7987b752d269bcd4d9f40ae04f51d6a2261418
+    last_write_checksum: sha1:776aacfabd033265595f79ef5ff7639d6efae25a
+    pristine_git_object: 959c1f0d2df181197cf8292bbb026264c8be8953
   docs/models/operations/get-booking-proposals-booking-type.md:
     id: 2cce652d2134
     last_write_checksum: sha1:26a454991ffe1b3c472e6f97ab2ce705bf07bb29
@@ -5448,8 +5448,8 @@ trackedFiles:
     pristine_git_object: 3f85a940a3e6d6101e2b6f3c6f3c2f2310ae3a37
   docs/models/vendor-credit-response-dto.md:
     id: e49b3769fe41
-    last_write_checksum: sha1:8dd8f2a310f176a6aff8b02d118cbf13a1937a0d
-    pristine_git_object: 2a2cc733517d43b43523c5f5a965e5917046930c
+    last_write_checksum: sha1:dbe115ff5ac12539b95aa60eaaaf88110f4cd3f6
+    pristine_git_object: 1ace449d70f24f593e2129d29a1117410802864d
   docs/models/webhook-response-dto.md:
     id: 7da3e25c9dd1
     last_write_checksum: sha1:f42413479a6b96b5c4ac71ec82afa22ced46f0e2
@@ -5504,12 +5504,12 @@ trackedFiles:
     pristine_git_object: 620f120672c2be3445356aaae6d877d4d89c43d5
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:ff7743004a7e641650becc6ef48c06f5d478bd58
-    pristine_git_object: 94581813de2d9b4a6a651305137ed92f34d9c37c
+    last_write_checksum: sha1:f1423be63be81d512a88074d2576a36bbb1b12ff
+    pristine_git_object: 45fa7be38caefa4acc58331ef6b3b428bca0f66a
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:33ad15e5ecd74b349e435cc01b4d5d8b94f61ad6
-    pristine_git_object: 0858653a5d4fc3e055abb63a7aa9265b56a755d8
+    last_write_checksum: sha1:eafc4648ed986274b2347fb131f43ae99e13f0d3
+    pristine_git_object: 8499b97592184bfa0c88c94f8581610b8fbeaf30
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:2eff2a6c77b0c787da6418de861acc36733c433a
@@ -5536,8 +5536,8 @@ trackedFiles:
     pristine_git_object: a840f3e1c23920e73ee9df53a31d5a406b83f014
   src/funcs/accounting-create-booking-proposal.ts:
     id: ecd89515fa83
-    last_write_checksum: sha1:ecc5af218719ca0b148b05dac8e61143db4d2b1d
-    pristine_git_object: d78f210be8f2b223e90d02b09d8c0ddb27073c77
+    last_write_checksum: sha1:f07b4c0087e6923a7e8bf3bb711848fbea750f8f
+    pristine_git_object: aa6f80e79527032bde1748f0bf0fd6ba43036df8
   src/funcs/accounting-create-contact.ts:
     id: 947557f35aed
     last_write_checksum: sha1:a8f4b1a05a36a321b73534547a942e7d511dad3d
@@ -6144,8 +6144,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:9a101afaadf27919b091938fa8bc430c078a1f48
-    pristine_git_object: 4252741c29f41ecbe252cbc33adb70452fa3b252
+    last_write_checksum: sha1:7c19ed5a00d42460a76274785a88afa1b2ced42c
+    pristine_git_object: e3b4aa5c2a9d6e7da6eb3bf3b7dc56d4d319ec5e
   src/lib/dlv.ts:
     id: b1988214835a
     last_write_checksum: sha1:1dd3e3fbb4550c4bf31f5ef997faff355d6f3250
@@ -6488,8 +6488,8 @@ trackedFiles:
     pristine_git_object: 23ff5c23696e112853285afc79da89b5764b90b4
   src/models/create-vendor-credit-request-dto.ts:
     id: d9f7c91da9b7
-    last_write_checksum: sha1:9030b8cbbdcfd0c9c135ef996d935f865dc3d204
-    pristine_git_object: a1222b908ff71bec40fb3716761e05cf53f3d394
+    last_write_checksum: sha1:16cb375c63a252bc5a89fb253e8557776391f792
+    pristine_git_object: 6da8bd68e1a6e258d30b7a3007d0090a39bba662
   src/models/credit-note-lines-dto.ts:
     id: e9fd8b3231e0
     last_write_checksum: sha1:1100bbd60243a039e7798dfc2b4d2ac6f4152603
@@ -6652,16 +6652,16 @@ trackedFiles:
     pristine_git_object: 7afecd08368d279d822396de8c47b3541e6854e9
   src/models/line-item-request.ts:
     id: c17d60866fa9
-    last_write_checksum: sha1:91d8b1a690fe9b976721c36cd9158616414453b4
-    pristine_git_object: f25d753762be6e9f46bd4d0dd1f4bed1c051dcff
+    last_write_checksum: sha1:a3c0ac83257c653989c68b83a0dadccf872e9cfe
+    pristine_git_object: 03cffb5cfe77cf99c798e35266856b987b139f29
   src/models/line-item-response-dto.ts:
     id: f2c33ef26f84
     last_write_checksum: sha1:de8fa1c4bd17a53fa289e240e7967859197044c7
     pristine_git_object: d93004529dfff6b290eed0c55a1e26cc71e62ae2
   src/models/line-item-response.ts:
     id: eb4e7d3f660b
-    last_write_checksum: sha1:3f94424aa6a62ae4e8791f5f0a5ae584cc80c995
-    pristine_git_object: 28934f472df33b866380f082565aef745cc71352
+    last_write_checksum: sha1:079385e742960fb00a344f8e49eaa6d1b627ea28
+    pristine_git_object: 7da061dbaea74c7352b3bcfad88d81f3bcae8117
   src/models/monthly-value.ts:
     id: 4caf4e47e988
     last_write_checksum: sha1:29573f76aa6a4c21d11c05141c9e10829277e339
@@ -6720,8 +6720,8 @@ trackedFiles:
     pristine_git_object: 05f1eebabf63078099b7fe6d39a7bf22e54be74d
   src/models/operations/create-booking-proposal.ts:
     id: f53b4bc2a59f
-    last_write_checksum: sha1:f39a1f99eaa36ffdbdc79bc9431f6483664fcae2
-    pristine_git_object: 15b15cb546966142e875720de8ae14ee44c3b249
+    last_write_checksum: sha1:09740e904018500bfab84d5a66e8091dd16252cc
+    pristine_git_object: cc47ded2499f32c90aa19936c8ddf9eb3fe62eea
   src/models/operations/create-contact-v2.ts:
     id: 3641c9b1e364
     last_write_checksum: sha1:4a489624d6fd472c72577e41aa8eeb314bfe9f92
@@ -7424,8 +7424,8 @@ trackedFiles:
     pristine_git_object: d2d9ac501e57e3ed733c999a4d3041996e8f9f4a
   src/models/vendor-credit-response-dto.ts:
     id: 58ddc44ac938
-    last_write_checksum: sha1:da2099eb53a06f0af72c6ac815c3c3382819c5b1
-    pristine_git_object: c67ed3d755608d08a89a3a9f0aebfd8b49bbffbd
+    last_write_checksum: sha1:5b22ecfc4bed7eb8d0a7ba4a0d26bcb20fbd1135
+    pristine_git_object: 28b7d75977892e74304d6c2ad796f1d6286d744c
   src/models/webhook-response-dto.ts:
     id: 9323566c2b81
     last_write_checksum: sha1:466a7c1601545ca8fb1e11176b731d07751154a3
@@ -7472,8 +7472,8 @@ trackedFiles:
     pristine_git_object: 4ed76118b029efc84b022cc585b0c496befe470e
   src/types/async.ts:
     id: fac8da972f86
-    last_write_checksum: sha1:3ff07b3feaf390ec1aeb18ff938e139c6c4a9585
-    pristine_git_object: 689dba5de50e8769e5f3bb913e3f42a146d15bc1
+    last_write_checksum: sha1:675d04bb4b4081dc3482f18de98674f9b446e7b4
+    pristine_git_object: 1543b95cf7be9b5a871d7395f259dbd65331dc21
   src/types/blobs.ts:
     id: f8ab9b326c86
     last_write_checksum: sha1:fd681458b532138913c372b05b3e16407abaa7a1
@@ -8248,7 +8248,7 @@ examples:
         "200":
           application/json: {"meta": {"warnings": ["<value 1>", "<value 2>", "<value 3>"], "pagination": {"total": 7243.51, "perPage": 5403.06, "currentPage": 6326.97, "totalPages": 2219.44}}, "data": {"id": "<id>", "accountId": "<id>", "addresses": [{"addressLine1": "861 Beech Drive", "addressLine2": "-", "city": "Palm Bay", "countryCode": "GA", "postalCode": "97113-7357", "type": "BILLING"}], "contactId": "<id>", "createdDate": {}, "currency": "Nakfa", "deliveryDate": "<value>", "dueDate": "<value>", "fileId": "<id>", "journalCode": "<value>", "lineItems": [], "name": "<value>", "oneLineAddress": "<value>", "paidDate": {}, "paymentTermId": "<id>", "paymentStatus": "BAD_DEBT", "paymentDays": 5068.74, "reference": "<value>", "shippingDate": {}, "shippingType": "SERVICE", "status": "PARTIALLY_OVERDUE", "taxRule": "PHOTOVOLTAIC_EQUIPMENT", "taxText": "<value>", "totalDiscountAmount": 9774.93, "totalDiscountPercentage": 9514.38, "totalGrossAmount": 5198.54, "totalNetAmount": 8075.67, "totalTaxAmount": 556.74, "updatedDate": "<value>", "vendorCreditDate": "<value>", "vendorCreditNumber": "<value>"}, "errors": {}, "rawData": {}}
         "201":
-          application/json: {"data": {"id": "<id>", "accountId": "<id>", "addresses": [{}], "contactId": "<id>", "createdDate": "<value>", "currency": null, "deliveryDate": "<value>", "dueDate": "<value>", "fileId": "<id>", "journalCode": "<value>", "lineItems": [{"id": "<id>", "accountId": "<id>", "accountNumber": "<value>", "createdDate": "<value>", "deferredEndDate": "<value>", "deferredStartDate": "<value>", "description": "yet battle innovate", "dimensions": [], "itemId": "<id>", "itemName": "<value>", "quantity": 971.15, "taxCode": "<value>", "taxRatePercentage": 3361.14, "totalDiscountAmount": 2598.16, "totalDiscountPercentage": 5416.63, "totalGrossAmount": 9670.97, "totalNetAmount": 3733.78, "totalTaxAmount": 2481.05, "unitAmount": 4962.94, "unitDiscountAmount": null, "unitDiscountPercentage": 7335.93, "unitName": null, "updatedDate": "<value>"}], "name": "<value>", "oneLineAddress": "<value>", "paidDate": "<value>", "paymentReference": "<value>", "paymentTermId": "<id>", "paymentStatus": "PAID", "paymentDays": 9150.39, "reference": "<value>", "shippingDate": "<value>", "shippingType": "SERVICE", "status": null, "taxRule": "EXPORT_GOODS", "taxText": "<value>", "totalDiscountAmount": 2217.21, "totalDiscountPercentage": 3420.49, "totalGrossAmount": 9944.31, "totalNetAmount": 791.91, "totalTaxAmount": 982.03, "updatedDate": "<value>", "vendorCreditDate": null, "vendorCreditNumber": "<value>"}, "errors": {}, "rawData": {}}
+          application/json: {"data": {"id": "<id>", "accountId": "<id>", "addresses": [{}], "contactId": "<id>", "createdDate": "<value>", "currency": null, "deliveryDate": "<value>", "dueDate": "<value>", "fileId": "<id>", "journalCode": "<value>", "lineItems": [{"id": "<id>", "accountId": "<id>", "accountNumber": "<value>", "createdDate": "<value>", "deferredEndDate": "<value>", "deferredStartDate": "<value>", "description": "yet battle innovate", "dimensions": [], "itemId": "<id>", "itemName": "<value>", "quantity": 971.15, "taxCode": "<value>", "taxRatePercentage": 3361.14, "totalDiscountAmount": 2598.16, "totalDiscountPercentage": 5416.63, "totalGrossAmount": 9670.97, "totalNetAmount": 3733.78, "totalTaxAmount": 2481.05, "unitAmount": 4962.94, "unitDiscountAmount": null, "unitDiscountPercentage": 7335.93, "unitName": null, "updatedDate": "<value>"}], "name": "<value>", "oneLineAddress": "<value>", "paidDate": "<value>", "paymentReference": "<value>", "paymentTermCode": "<value>", "paymentStatus": "PAID", "paymentDays": 9150.39, "reference": "<value>", "shippingDate": "<value>", "shippingType": "SERVICE", "status": null, "taxRule": "EXPORT_GOODS", "taxText": "<value>", "totalDiscountAmount": 2217.21, "totalDiscountPercentage": 3420.49, "totalGrossAmount": 9944.31, "totalNetAmount": 791.91, "totalTaxAmount": 982.03, "updatedDate": "<value>", "vendorCreditDate": null, "vendorCreditNumber": "<value>"}, "errors": {}, "rawData": {}}
   updateVendorCredit:
     speakeasy-default-update-vendor-credit:
       parameters:
@@ -8787,4 +8787,4 @@ examples:
         "202":
           application/json: {"data": {"taskId": "<id>"}, "errors": {}, "rawData": null}
 examplesVersion: 1.0.2
-releaseNotes: "## Typescript SDK Changes:\n* `maesn.accounting.createBookingProposalAsync()`: \n  *  `request.body.bookingProposal` **Changed**\n* `maesn.accountingV2.createBookingProposalV2()`: \n  *  `request.body.bookingProposal` **Changed**\n  *  `response.data.generatorName` **Added**\n"
+releaseNotes: "## Typescript SDK Changes:\n* `maesn.accounting.getVendorCredits()`:  `response.data[]` **Changed** (Breaking ⚠️)\n* `maesn.accounting.createVendorCredit()`: \n  *  `request.body.paymentTermCode` **Added**\n  *  `response.data` **Changed** (Breaking ⚠️)\n* `maesn.accounting.createBookingProposal()`: \n  *  `request` **Changed**\n  *  `response.data.lineItems[].dimensions` **Added**\n* `maesn.accounting.getBookingProposals()`:  `response.data[].lineItems[].dimensions` **Added**\n* `maesn.accounting.getBookingProposal()`:  `response.data.lineItems[].dimensions` **Added**\n* `maesn.accounting.updateVendorCredit()`: \n  *  `request.body.paymentTermCode` **Added**\n"

@@ -149,6 +149,7 @@ async function $do(
 
   const query = encodeFormQuery({
     "companyId": payload.companyId,
+    "environmentName": payload.environmentName,
   });
 
   const headers = new Headers(compactMap({

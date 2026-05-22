@@ -26,7 +26,7 @@ let value: CreateVendorCreditResponse = {
     oneLineAddress: "<value>",
     paidDate: "<value>",
     paymentReference: "<value>",
-    paymentTermId: "<id>",
+    paymentTermCode: "<value>",
     paymentStatus: "PENDING",
     paymentDays: 2391.09,
     reference: "<value>",

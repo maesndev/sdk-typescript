@@ -5404,6 +5404,12 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: environmentName
+          required: false
+          in: query
+          description: Name of the environment (required for multi-company target systems)
+          schema:
+            type: string
         - name: X-API-KEY
           description: API key
           in: header
@@ -15250,6 +15256,17 @@ components:
     BookingProposalAddress:
       type: object
       properties: {}
+    DimensionRequestCommonDtoV2:
+      type: object
+      properties:
+        id:
+          type: string
+        code:
+          type: string
+        dimension:
+          type: string
+        name:
+          type: string
     LineItemRequest:
       type: object
       properties:
@@ -15271,6 +15288,10 @@ components:
           type: string
         dimension2:
           type: string
+        dimensions:
+          type: array
+          items:
+            $ref: '#/components/schemas/DimensionRequestCommonDtoV2'
         discountAmount:
           type: number
         discountAmount2:
@@ -15360,6 +15381,26 @@ components:
       required:
         - bookingProposalDate
         - lineItems
+    DimensionResponseCommonDtoV2:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: true
+        code:
+          type: string
+          nullable: true
+        dimension:
+          type: string
+          nullable: true
+        name:
+          type: string
+          nullable: true
+      required:
+        - id
+        - code
+        - dimension
+        - name
     LineItemResponse:
       type: object
       properties:
@@ -15393,6 +15434,11 @@ components:
         dimension2:
           type: string
           nullable: true
+        dimensions:
+          nullable: true
+          type: array
+          items:
+            $ref: '#/components/schemas/DimensionResponseCommonDtoV2'
         discountAmount:
           type: number
           nullable: true
@@ -15437,6 +15483,7 @@ components:
         - description
         - dimension1
         - dimension2
+        - dimensions
         - discountAmount
         - discountAmount2
         - discountPercentage
@@ -16154,7 +16201,7 @@ components:
         paymentReference:
           type: string
           nullable: true
-        paymentTermId:
+        paymentTermCode:
           type: string
           nullable: true
         paymentStatus:
@@ -16265,7 +16312,7 @@ components:
         - oneLineAddress
         - paidDate
         - paymentReference
-        - paymentTermId
+        - paymentTermCode
         - paymentStatus
         - paymentDays
         - reference
@@ -16369,6 +16416,8 @@ components:
         paidDate:
           type: object
         paymentReference:
+          type: string
+        paymentTermCode:
           type: string
         paymentStatus:
           type: string
@@ -18777,17 +18826,6 @@ components:
           type: string
         number:
           type: number
-    DimensionRequestCommonDtoV2:
-      type: object
-      properties:
-        id:
-          type: string
-        code:
-          type: string
-        dimension:
-          type: string
-        name:
-          type: string
     TaxRateRequestDtoV2:
       type: object
       properties:
@@ -20757,26 +20795,6 @@ components:
         - code
         - name
         - number
-    DimensionResponseCommonDtoV2:
-      type: object
-      properties:
-        id:
-          type: string
-          nullable: true
-        code:
-          type: string
-          nullable: true
-        dimension:
-          type: string
-          nullable: true
-        name:
-          type: string
-          nullable: true
-      required:
-        - id
-        - code
-        - dimension
-        - name
     BookingProposalLineItemResponseDtoV2:
       type: object
       properties:

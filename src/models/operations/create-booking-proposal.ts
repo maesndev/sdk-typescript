@@ -38,6 +38,10 @@ export type CreateBookingProposalRequest = {
    */
   companyId?: string | undefined;
   /**
+   * Name of the environment (required for multi-company target systems)
+   */
+  environmentName?: string | undefined;
+  /**
    * API key
    */
   apiKey?: string | undefined;
@@ -168,6 +172,7 @@ export function createBookingProposalRequestBodyToJSON(
 /** @internal */
 export type CreateBookingProposalRequest$Outbound = {
   companyId?: string | undefined;
+  environmentName?: string | undefined;
   apiKey?: string | undefined;
   accountKey?: string | undefined;
   body: CreateBookingProposalRequestBody$Outbound;
@@ -179,6 +184,7 @@ export const CreateBookingProposalRequest$outboundSchema: z.ZodMiniType<
   CreateBookingProposalRequest
 > = z.object({
   companyId: z.optional(z.string()),
+  environmentName: z.optional(z.string()),
   apiKey: z.optional(z.string()),
   accountKey: z.optional(z.string()),
   body: z.lazy(() => CreateBookingProposalRequestBody$outboundSchema),

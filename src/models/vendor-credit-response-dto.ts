@@ -94,7 +94,7 @@ export type VendorCreditResponseDto = {
   oneLineAddress: string | null;
   paidDate: string | null;
   paymentReference: string | null;
-  paymentTermId: string | null;
+  paymentTermCode: string | null;
   paymentStatus: VendorCreditResponseDtoPaymentStatus | null;
   paymentDays: number | null;
   reference: string | null;
@@ -155,7 +155,7 @@ export const VendorCreditResponseDto$inboundSchema: z.ZodMiniType<
   oneLineAddress: types.nullable(types.string()),
   paidDate: types.nullable(types.string()),
   paymentReference: types.nullable(types.string()),
-  paymentTermId: types.nullable(types.string()),
+  paymentTermCode: types.nullable(types.string()),
   paymentStatus: types.nullable(
     VendorCreditResponseDtoPaymentStatus$inboundSchema,
   ),
