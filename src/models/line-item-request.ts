@@ -4,6 +4,11 @@
 
 import * as z from "zod/v4-mini";
 import { ClosedEnum } from "../types/enums.js";
+import {
+  DimensionRequestCommonDtoV2,
+  DimensionRequestCommonDtoV2$Outbound,
+  DimensionRequestCommonDtoV2$outboundSchema,
+} from "./dimension-request-common-dto-v2.js";
 
 export const LineItemRequestType = {
   Goods: "GOODS",
@@ -21,6 +26,7 @@ export type LineItemRequest = {
   description?: string | undefined;
   dimension1?: string | undefined;
   dimension2?: string | undefined;
+  dimensions?: Array<DimensionRequestCommonDtoV2> | undefined;
   discountAmount?: number | undefined;
   discountAmount2?: number | undefined;
   discountPercentage?: number | undefined;
@@ -48,6 +54,7 @@ export type LineItemRequest$Outbound = {
   description?: string | undefined;
   dimension1?: string | undefined;
   dimension2?: string | undefined;
+  dimensions?: Array<DimensionRequestCommonDtoV2$Outbound> | undefined;
   discountAmount?: number | undefined;
   discountAmount2?: number | undefined;
   discountPercentage?: number | undefined;
@@ -73,6 +80,7 @@ export const LineItemRequest$outboundSchema: z.ZodMiniType<
   description: z.optional(z.string()),
   dimension1: z.optional(z.string()),
   dimension2: z.optional(z.string()),
+  dimensions: z.optional(z.array(DimensionRequestCommonDtoV2$outboundSchema)),
   discountAmount: z.optional(z.number()),
   discountAmount2: z.optional(z.number()),
   discountPercentage: z.optional(z.number()),
