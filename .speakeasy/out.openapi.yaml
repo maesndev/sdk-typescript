@@ -10732,6 +10732,9 @@ components:
     InvoiceResponseDto:
       type: object
       properties:
+        id:
+          type: string
+          nullable: true
         invoiceId:
           type: string
           nullable: true
@@ -10867,6 +10870,7 @@ components:
           type: string
           nullable: true
       required:
+        - id
         - invoiceId
         - addresses
         - contactId
