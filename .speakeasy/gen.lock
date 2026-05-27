@@ -1,23 +1,23 @@
 lockVersion: 2.0.0
 id: b4a29653-32d8-43f6-ba1e-9aa569fce206
 management:
-  docChecksum: 46fc87805cc0c7313eaee6bc4c44fa0c
+  docChecksum: 4063cacebcc752857d0d0708b544197d
   docVersion: "1.0"
-  speakeasyVersion: 1.764.0
-  generationVersion: 2.885.0
-  releaseVersion: 0.6.6
-  configChecksum: dec8858536ee4254bf8d30b30970dbc4
+  speakeasyVersion: 1.767.0
+  generationVersion: 2.888.0
+  releaseVersion: 0.6.7
+  configChecksum: 492b76d94060f4b10233daf2f956756e
   repoURL: https://github.com/maesndev/sdk-typescript.git
   installationURL: https://github.com/maesndev/sdk-typescript
   published: true
 persistentEdits:
-  generation_id: f0973fbd-58b4-4a37-84cc-2cab90ad5729
-  pristine_commit_hash: 84cb5a365dc58f9059151546d176a5a3f7bdd243
-  pristine_tree_hash: f198d36e7dc3c7753e3c208b1dba30361f95a687
+  generation_id: a1520e78-453a-477c-b946-ce473299d44c
+  pristine_commit_hash: 30a411245b0776f840b63e2b5b602766197587a5
+  pristine_tree_hash: 3d1d06bdbaaeafb29b543e66b6dffce1ac967b61
 features:
   typescript:
     additionalDependencies: 0.1.0
-    core: 3.26.51
+    core: 3.26.53
     defaultEnabledRetries: 0.1.0
     devContainers: 2.90.1
     enumUnions: 0.1.0
@@ -912,8 +912,8 @@ trackedFiles:
     pristine_git_object: a436abd24498526d6528d08e08218371a363565a
   docs/models/invoice-response-dto.md:
     id: 5fd62187fe7b
-    last_write_checksum: sha1:089748b6c608428d42804e5beec89e48dc2fe0cd
-    pristine_git_object: 9226c9b09cc71b67ec112c472a53d1ee241c79ca
+    last_write_checksum: sha1:4d3d99f73434218852e79969731114e2e29a2c0a
+    pristine_git_object: ae63376dcdd9201a4cb03472defeb2d08683b820
   docs/models/item-response-dto-type.md:
     id: f43b1f5d596b
     last_write_checksum: sha1:c78849942c3b9a1ffbbc1d7e8fe8ceb0d1c0bb7c
@@ -1600,8 +1600,8 @@ trackedFiles:
     pristine_git_object: 5dfabaa6b9dbc4765496be3c44e42f7a6f3803c5
   docs/models/operations/create-invoice-response.md:
     id: 2961a98605b1
-    last_write_checksum: sha1:aaf26657472df8ab86a3028d9a6f9e28fadcfc70
-    pristine_git_object: 77a7e00bf7cc34b5eb61ce4604ca5a0bbf981ace
+    last_write_checksum: sha1:9bdcba7e5c05a2ba26e74ed3647d0bd3bba03fa5
+    pristine_git_object: 4960d25c5d45b638eff90a66c35ecbd4949ea691
   docs/models/operations/create-item-errors.md:
     id: c9e378af63cc
     last_write_checksum: sha1:ff1622a63a5d6e6186702be90c5282e5a85b6caa
@@ -1756,8 +1756,8 @@ trackedFiles:
     pristine_git_object: 937258d982c8cdb4a251d868ab06ee01a1e424a7
   docs/models/operations/create-line-item-response.md:
     id: 702055bd24c9
-    last_write_checksum: sha1:5394ba28c327eb154431a40767d401880d43cbfd
-    pristine_git_object: 69bdd7d3dae3d0b47ae20e1b1f109a8a516c2652
+    last_write_checksum: sha1:be7b2c5dc53f332cffc97da62129ecead72f6719
+    pristine_git_object: a14ba9b0329b01c2173561dd343a5a7e209aa8b2
   docs/models/operations/create-offer-errors.md:
     id: 0258bbe44189
     last_write_checksum: sha1:870d4bdfcbbfe1a853d80e8a7f767b40b71ee9c9
@@ -3380,8 +3380,8 @@ trackedFiles:
     pristine_git_object: c7babf0ffb7447dab279f39b619518e35b6c918a
   docs/models/operations/get-invoice-response.md:
     id: 598ec5f00189
-    last_write_checksum: sha1:48de1e6dd8bd34c10323400d99a0becdfec36be6
-    pristine_git_object: 9e3bf6187e2e750dcb6416c6cb50193b2cc1cd26
+    last_write_checksum: sha1:de325929b2add4fbf37ab30d0814b6b63a206004
+    pristine_git_object: 609ac553f14fc17f5209d1c2901b0eb08c8b9adc
   docs/models/operations/get-invoices-errors.md:
     id: 274d62dadcba
     last_write_checksum: sha1:207fd1d48e68ef6020757a04c172d2e0db47dd56
@@ -3664,8 +3664,8 @@ trackedFiles:
     pristine_git_object: 7270ea350b70f32b3aa7919034ea0f489143c646
   docs/models/operations/get-line-item-response.md:
     id: d320e259460e
-    last_write_checksum: sha1:48bc037aa8c7b5e6d02c8eb8978acedd02a73411
-    pristine_git_object: 3b3f69fee5f4fab1b0eb369c38617820395487aa
+    last_write_checksum: sha1:475eb08131fbd3ffd6341b914630de734a6a12d0
+    pristine_git_object: 69884fb07d6ae828e3cc00dd09cf2d6cab66f58c
   docs/models/operations/get-line-items-errors.md:
     id: 984ada291936
     last_write_checksum: sha1:1810b8009120984f42f8742f110dbbbd58c19684
@@ -4752,8 +4752,8 @@ trackedFiles:
     pristine_git_object: bd6052a499b2f45e19c86ad26cfef55fa1401132
   docs/models/operations/patch-invoice-response.md:
     id: be508de26d02
-    last_write_checksum: sha1:4031fb70b0e160efd40c4820077ee28579297fef
-    pristine_git_object: 1f631d8544833df2e58932ea91689acb47d3e0c6
+    last_write_checksum: sha1:067e7d5afbfa472217295a29a0822dd3befb8656
+    pristine_git_object: c7e5675e68720e59b5af66db36ae9e65023048d0
   docs/models/operations/patch-item-errors.md:
     id: 770b9b46c9e1
     last_write_checksum: sha1:44e641ee7c58469a42423981aac89905af604876
@@ -4808,8 +4808,8 @@ trackedFiles:
     pristine_git_object: 485ba8081deafc5f57c90b7b55da06a460c00628
   docs/models/operations/patch-line-item-response.md:
     id: 4766434b6f20
-    last_write_checksum: sha1:1f1840cb33db392bbfb2b2aef008f16a61933aeb
-    pristine_git_object: 38f8583383bab9bb5849db3b76f9ddd05e04b003
+    last_write_checksum: sha1:a9ba5a470ab803a403d5cb1c61610aa40352bbad
+    pristine_git_object: d84123fb96bdcb59cdadbedb24521b3b8de6a139
   docs/models/operations/patch-supplier-errors.md:
     id: f099bd895a78
     last_write_checksum: sha1:830a75d54ae8c3a8beef53f3e4e967587f29e5e4
@@ -5504,12 +5504,12 @@ trackedFiles:
     pristine_git_object: 620f120672c2be3445356aaae6d877d4d89c43d5
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:f1423be63be81d512a88074d2576a36bbb1b12ff
-    pristine_git_object: 45fa7be38caefa4acc58331ef6b3b428bca0f66a
+    last_write_checksum: sha1:ae7bd60bf78fb71b4aeb32fbfc85004ef535abc7
+    pristine_git_object: 693e0bef726dac6a62080ec3374746794669e6a8
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:eafc4648ed986274b2347fb131f43ae99e13f0d3
-    pristine_git_object: 8499b97592184bfa0c88c94f8581610b8fbeaf30
+    last_write_checksum: sha1:915ae7d6c8808eecde6db3dd15cfa2fbeffeb773
+    pristine_git_object: cdbad00fcc972672d4c2b7568cf9a62e6cbc86ab
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:2eff2a6c77b0c787da6418de861acc36733c433a
@@ -6144,8 +6144,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:7c19ed5a00d42460a76274785a88afa1b2ced42c
-    pristine_git_object: e3b4aa5c2a9d6e7da6eb3bf3b7dc56d4d319ec5e
+    last_write_checksum: sha1:1a7d7884d65e2cd939aed3814e9ec863dd31a6e6
+    pristine_git_object: 32657025121b2e8963f662a2e95eb2d9937d2879
   src/lib/dlv.ts:
     id: b1988214835a
     last_write_checksum: sha1:1dd3e3fbb4550c4bf31f5ef997faff355d6f3250
@@ -6628,8 +6628,8 @@ trackedFiles:
     pristine_git_object: 719d4d4806c450f0ec200bb8737b3266684560d4
   src/models/invoice-response-dto.ts:
     id: f317d077a095
-    last_write_checksum: sha1:693e8b0e33eb1f87f7b6021ce0b224e6cfdffbac
-    pristine_git_object: cc809156e2329cb2fea6db81c9d0d2995ebfd979
+    last_write_checksum: sha1:cf406dbaa15384c1cdcd243c5a78f5a9079cce51
+    pristine_git_object: ee84cf94b9190a2be1f1cda14bab49d0d8e1077d
   src/models/item-response-dto.ts:
     id: d42d49090644
     last_write_checksum: sha1:0415af0d572fd7bad24c57b8a06754094298a8d7
@@ -7504,8 +7504,8 @@ trackedFiles:
     pristine_git_object: beb81e10f0b9eee2ed398a853fe6f737b743f818
   src/types/primitives.ts:
     id: 0cd7f4ac625d
-    last_write_checksum: sha1:c3ce85778bf82bc0f0d464067b04856d99ff4365
-    pristine_git_object: 3db7350c00d08b4a3daa1c2c4d3cf3608d834430
+    last_write_checksum: sha1:a521a09fa18b1af857d29477d3aa7007b42583ed
+    pristine_git_object: 5c4e93d2030e8b820b6d8f060a275502a66c1a87
   src/types/rfcdate.ts:
     id: 9eb64906dcd6
     last_write_checksum: sha1:8e5f382e02fe21c2f2e24deb1b7bbf8cddd3dd16
@@ -7742,7 +7742,7 @@ examples:
         "200":
           application/json: {"meta": {"warnings": ["<value 1>"], "pagination": {"total": 1363.74, "perPage": 2475.76, "currentPage": 2802.03, "totalPages": 3888.9}}, "data": {"invoiceId": "<id>", "addresses": [], "contactId": "<id>", "createdDate": {}, "currency": "New Israeli Sheqel", "discountAmount": 5398.32, "dueDate": {}, "fileId": "<id>", "invoiceDate": {}, "invoiceNumber": "<value>", "invoiceType": "BILL", "journalCode": "<value>", "lineAmountTypes": "NOTAX", "lineItems": [{"lineItemId": "<id>", "accountId": "<id>", "createdDate": {}, "description": "though incomplete boldly once tail designation reluctantly overconfidently publicize", "dimensions": [{"id": "<id>", "categoryName": "<value>", "name": "<value>"}], "discountItemAmount": 9581.22, "discountItemPercentage": 614.51, "grossAmount": 2965.53, "itemsAmount": 772.92, "itemId": "<id>", "name": "<value>", "quantity": 4535.91, "taxCode": "<value>", "taxRatePercentage": 9071.55, "unitAmount": 2977.47, "updatedDate": {}}], "name": "<value>", "oneLineAddress": "<value>", "paidDate": {}, "paymentStatus": "PARTLY_PAID", "paymentTermDuration": 4288.98, "paymentTermId": "<id>", "reference": "<value>", "shippingDate": {}, "status": "DOCUMENT_CREATED", "sumNetAmount": 9412.96, "taxRule": "NON_DOMESTIC_SERVICE", "totalAmount": 7563.82, "totalTaxAmount": 7880.47, "updatedDate": {}}, "errors": {}, "rawData": {}}
         "201":
-          application/json: {"data": {"invoiceId": "<id>", "addresses": [], "contactId": "<id>", "createdDate": "<value>", "currency": "Moroccan Dirham", "discountAmount": null, "dueDate": "<value>", "invoiceDate": "<value>", "invoiceNumber": "<value>", "invoiceType": null, "journalCode": "<value>", "lineAmountTypes": "INCLUSIVE", "lineItems": [], "name": "<value>", "oneLineAddress": "<value>", "paidDate": "<value>", "paymentStatus": "CANCELED", "paymentTermDuration": 3401.73, "paymentTermId": "<id>", "reference": "<value>", "shippingDate": "<value>", "status": "SUBMITTED", "sumNetAmount": 4850.83, "taxRule": "OSS_ELECTRONIC_SERVICES", "totalAmount": 561.1, "totalTaxAmount": 1363.74, "updatedDate": "<value>"}, "errors": {}, "rawData": {}}
+          application/json: {"data": {"id": "<id>", "invoiceId": "<id>", "addresses": [], "contactId": "<id>", "createdDate": "<value>", "currency": "Moroccan Dirham", "discountAmount": null, "dueDate": "<value>", "invoiceDate": "<value>", "invoiceNumber": "<value>", "invoiceType": null, "journalCode": "<value>", "lineAmountTypes": "INCLUSIVE", "lineItems": [], "name": "<value>", "oneLineAddress": "<value>", "paidDate": "<value>", "paymentStatus": "CANCELED", "paymentTermDuration": 3401.73, "paymentTermId": "<id>", "reference": "<value>", "shippingDate": "<value>", "status": "SUBMITTED", "sumNetAmount": 4850.83, "taxRule": "OSS_ELECTRONIC_SERVICES", "totalAmount": 561.1, "totalTaxAmount": 1363.74, "updatedDate": "<value>"}, "errors": {}, "rawData": {}}
   getInvoice:
     speakeasy-default-get-invoice:
       parameters:
@@ -7750,7 +7750,7 @@ examples:
           invoiceId: "<id>"
       responses:
         "200":
-          application/json: {"data": {"invoiceId": "<id>", "addresses": [{"addressLine1": "9603 Nyah Mount", "addressLine2": "-", "city": "East Julie", "countryCode": "ME", "postalCode": "59550-6906", "type": "SELLING"}], "contactId": "<id>", "createdDate": "{}", "currency": "Lari", "discountAmount": 8499.62, "dueDate": "{}", "invoiceDate": "{}", "invoiceNumber": "<value>", "invoiceType": "BILL", "journalCode": "<value>", "lineAmountTypes": "NOTAX", "lineItems": [{"lineItemId": "<id>", "accountId": "<id>", "createdDate": "{}", "description": "who that provided", "dimensions": [], "discountItemAmount": 4458.29, "discountItemPercentage": 9757.66, "grossAmount": 2818.19, "itemsAmount": 4142.76, "itemId": "<id>", "name": "<value>", "quantity": 8909.96, "taxCode": "<value>", "taxRatePercentage": 3585.73, "unitAmount": 9826.75, "updatedDate": "{}"}], "name": "<value>", "oneLineAddress": "<value>", "paidDate": "{}", "paymentStatus": "PARTIAL_CANCELLATION", "paymentTermDuration": 9759.23, "paymentTermId": "<id>", "reference": "<value>", "shippingDate": "{}", "status": "DRAFT", "sumNetAmount": 1201.28, "taxRule": "INTRACOMMUNITY_GOODS", "totalAmount": 6980.37, "totalTaxAmount": 451.07, "updatedDate": "{}"}, "errors": {}, "rawData": {}}
+          application/json: {"data": {"id": "<id>", "invoiceId": "<id>", "addresses": [{"addressLine1": "9603 Nyah Mount", "addressLine2": "-", "city": "East Julie", "countryCode": "ME", "postalCode": "59550-6906", "type": "SELLING"}], "contactId": "<id>", "createdDate": "{}", "currency": "Lari", "discountAmount": 8499.62, "dueDate": "{}", "invoiceDate": "{}", "invoiceNumber": "<value>", "invoiceType": "BILL", "journalCode": "<value>", "lineAmountTypes": "NOTAX", "lineItems": [{"lineItemId": "<id>", "accountId": "<id>", "createdDate": "{}", "description": "who that provided", "dimensions": [], "discountItemAmount": 4458.29, "discountItemPercentage": 9757.66, "grossAmount": 2818.19, "itemsAmount": 4142.76, "itemId": "<id>", "name": "<value>", "quantity": 8909.96, "taxCode": "<value>", "taxRatePercentage": 3585.73, "unitAmount": 9826.75, "updatedDate": "{}"}], "name": "<value>", "oneLineAddress": "<value>", "paidDate": "{}", "paymentStatus": "PARTIAL_CANCELLATION", "paymentTermDuration": 9759.23, "paymentTermId": "<id>", "reference": "<value>", "shippingDate": "{}", "status": "DRAFT", "sumNetAmount": 1201.28, "taxRule": "INTRACOMMUNITY_GOODS", "totalAmount": 6980.37, "totalTaxAmount": 451.07, "updatedDate": "{}"}, "errors": {}, "rawData": {}}
   patchInvoice:
     speakeasy-default-patch-invoice:
       parameters:
@@ -7760,7 +7760,7 @@ examples:
         application/json: {}
       responses:
         "200":
-          application/json: {"data": {"invoiceId": "<id>", "addresses": [{"addressLine1": "795 Washington Boulevard", "addressLine2": "-", "city": "West Kirstin", "countryCode": "CG", "postalCode": "75321", "type": "DELIVERY"}], "contactId": "<id>", "createdDate": "{}", "currency": "Lesotho Loti", "discountAmount": 2714.43, "dueDate": "{}", "invoiceDate": "{}", "invoiceNumber": "<value>", "invoiceType": "STANDARD", "journalCode": "<value>", "lineAmountTypes": "NOTAX", "lineItems": [], "name": "<value>", "oneLineAddress": "<value>", "paidDate": "{}", "paymentStatus": "UNKNOWN", "paymentTermDuration": 8103.8, "paymentTermId": "<id>", "reference": "<value>", "shippingDate": "{}", "status": "OPEN", "sumNetAmount": 3428.13, "taxRule": "OSS_SERVICES", "totalAmount": 6677.03, "totalTaxAmount": 7835.1, "updatedDate": "{}"}, "errors": {}, "rawData": {}}
+          application/json: {"data": {"id": "<id>", "invoiceId": "<id>", "addresses": [{"addressLine1": "795 Washington Boulevard", "addressLine2": "-", "city": "West Kirstin", "countryCode": "CG", "postalCode": "75321", "type": "DELIVERY"}], "contactId": "<id>", "createdDate": "{}", "currency": "Lesotho Loti", "discountAmount": 2714.43, "dueDate": "{}", "invoiceDate": "{}", "invoiceNumber": "<value>", "invoiceType": "STANDARD", "journalCode": "<value>", "lineAmountTypes": "NOTAX", "lineItems": [], "name": "<value>", "oneLineAddress": "<value>", "paidDate": "{}", "paymentStatus": "UNKNOWN", "paymentTermDuration": 8103.8, "paymentTermId": "<id>", "reference": "<value>", "shippingDate": "{}", "status": "OPEN", "sumNetAmount": 3428.13, "taxRule": "OSS_SERVICES", "totalAmount": 6677.03, "totalTaxAmount": 7835.1, "updatedDate": "{}"}, "errors": {}, "rawData": {}}
   getInvoiceDocument:
     speakeasy-default-get-invoice-document:
       parameters:
@@ -8787,4 +8787,9 @@ examples:
         "202":
           application/json: {"data": {"taskId": "<id>"}, "errors": {}, "rawData": null}
 examplesVersion: 1.0.2
-releaseNotes: "## Typescript SDK Changes:\n* `maesn.accounting.getVendorCredits()`:  `response.data[]` **Changed** (Breaking ⚠️)\n* `maesn.accounting.createVendorCredit()`: \n  *  `request.body.paymentTermCode` **Added**\n  *  `response.data` **Changed** (Breaking ⚠️)\n* `maesn.accounting.createBookingProposal()`: \n  *  `request` **Changed**\n  *  `response.data.lineItems[].dimensions` **Added**\n* `maesn.accounting.getBookingProposals()`:  `response.data[].lineItems[].dimensions` **Added**\n* `maesn.accounting.getBookingProposal()`:  `response.data.lineItems[].dimensions` **Added**\n* `maesn.accounting.updateVendorCredit()`: \n  *  `request.body.paymentTermCode` **Added**\n"
+releaseNotes: |
+  ## Typescript SDK Changes:
+  * `maesn.accounting.getInvoices()`:  `response.data[].id` **Added**
+  * `maesn.accounting.createInvoice()`:  `response.data.id` **Added**
+  * `maesn.accounting.getInvoice()`:  `response.data.id` **Added**
+  * `maesn.accounting.patchInvoice()`:  `response.data.id` **Added**

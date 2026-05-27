@@ -86,6 +86,7 @@ export type InvoiceResponseDtoTaxRule = ClosedEnum<
 >;
 
 export type InvoiceResponseDto = {
+  id: string | null;
   invoiceId: string | null;
   addresses: Array<Address> | null;
   contactId: string | null;
@@ -146,6 +147,7 @@ export const InvoiceResponseDto$inboundSchema: z.ZodMiniType<
   InvoiceResponseDto,
   unknown
 > = z.object({
+  id: types.nullable(types.string()),
   invoiceId: types.nullable(types.string()),
   addresses: types.nullable(z.array(Address$inboundSchema)),
   contactId: types.nullable(types.string()),

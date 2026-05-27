@@ -6,16 +6,17 @@
 import { InvoiceResponseDto } from "@maesn/typescript-sdk/models";
 
 let value: InvoiceResponseDto = {
+  id: "<id>",
   invoiceId: "<id>",
   addresses: [],
   contactId: "<id>",
   createdDate: "<value>",
-  currency: "Rupiah",
-  discountAmount: 6540.46,
+  currency: "Yemeni Rial",
+  discountAmount: 3256.21,
   dueDate: "<value>",
   invoiceDate: "<value>",
   invoiceNumber: "<value>",
-  invoiceType: "STANDARD",
+  invoiceType: null,
   journalCode: "<value>",
   lineAmountTypes: null,
   lineItems: [
@@ -23,40 +24,40 @@ let value: InvoiceResponseDto = {
       lineItemId: "<id>",
       accountId: "<id>",
       createdDate: "<value>",
-      description: "diligently odd ah zowie even avow wilt stealthily",
+      description: "atrium worth strange frequent wallop though barring both",
       dimensions: [
         {
           id: "<id>",
           categoryName: "<value>",
-          name: null,
+          name: "<value>",
         },
       ],
-      discountItemAmount: 2836.31,
-      discountItemPercentage: 6807.55,
-      grossAmount: 805.04,
-      itemsAmount: 4417.2,
-      itemId: "<id>",
+      discountItemAmount: 1191.85,
+      discountItemPercentage: 4359.97,
+      grossAmount: 9843.51,
+      itemsAmount: 6379.48,
+      itemId: null,
       name: "<value>",
-      quantity: 985.86,
-      taxRatePercentage: 688.21,
-      unitAmount: 2381.59,
-      updatedDate: "<value>",
+      quantity: 8171.72,
+      taxRatePercentage: 1753.39,
+      unitAmount: 5556.99,
+      updatedDate: null,
     },
   ],
   name: "<value>",
   oneLineAddress: "<value>",
   paidDate: "<value>",
-  paymentStatus: "BAD_DEBT",
-  paymentTermDuration: 5046.51,
+  paymentStatus: "CREDIT_NOTE_CLEARED",
+  paymentTermDuration: 716.86,
   paymentTermId: "<id>",
-  reference: null,
+  reference: "<value>",
   shippingDate: "<value>",
-  status: "DRAFT",
-  sumNetAmount: null,
+  status: "OVERDUE",
+  sumNetAmount: 2893.98,
   taxRule: "SMALL_BUSINESS_EXEMPTION",
-  totalAmount: null,
-  totalTaxAmount: 1490.41,
-  updatedDate: "<value>",
+  totalAmount: 4785.28,
+  totalTaxAmount: 7256.01,
+  updatedDate: null,
 };
 ```
 
@@ -64,6 +65,7 @@ let value: InvoiceResponseDto = {
 
 | Field                                                                                           | Type                                                                                            | Required                                                                                        | Description                                                                                     |
 | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `id`                                                                                            | *string*                                                                                        | :heavy_check_mark:                                                                              | N/A                                                                                             |
 | `invoiceId`                                                                                     | *string*                                                                                        | :heavy_check_mark:                                                                              | N/A                                                                                             |
 | `addresses`                                                                                     | [models.Address](../models/address.md)[]                                                        | :heavy_check_mark:                                                                              | N/A                                                                                             |
 | `contactId`                                                                                     | *string*                                                                                        | :heavy_check_mark:                                                                              | N/A                                                                                             |
