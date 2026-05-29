@@ -2154,6 +2154,12 @@ paths:
               - 50
               - 100
             type: integer
+        - name: rawData
+          required: false
+          in: query
+          description: When true, returns the unprocessed response from the upstream target system
+          schema:
+            type: boolean
         - name: X-API-KEY
           description: API key
           in: header

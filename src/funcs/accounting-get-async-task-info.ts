@@ -93,6 +93,7 @@ async function $do(
     "companyId": payload.companyId,
     "limit": payload.limit,
     "page": payload.page,
+    "rawData": payload.rawData,
   });
 
   const headers = new Headers(compactMap({
