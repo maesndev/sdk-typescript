@@ -33,6 +33,10 @@ export type GetAsyncTaskInfoRequest = {
   page?: number | undefined;
   limit?: GetAsyncTaskInfoLimit | undefined;
   /**
+   * When true, returns the unprocessed response from the upstream target system
+   */
+  rawData?: boolean | undefined;
+  /**
    * API key
    */
   apiKey?: string | undefined;
@@ -79,6 +83,7 @@ export type GetAsyncTaskInfoRequest$Outbound = {
   companyId?: string | undefined;
   page?: number | undefined;
   limit?: number | undefined;
+  rawData?: boolean | undefined;
   apiKey?: string | undefined;
   accountKey?: string | undefined;
 };
@@ -92,6 +97,7 @@ export const GetAsyncTaskInfoRequest$outboundSchema: z.ZodMiniType<
   companyId: z.optional(z.string()),
   page: z.optional(z.number()),
   limit: z.optional(GetAsyncTaskInfoLimit$outboundSchema),
+  rawData: z.optional(z.boolean()),
   apiKey: z.optional(z.string()),
   accountKey: z.optional(z.string()),
 });

@@ -1,23 +1,23 @@
 lockVersion: 2.0.0
 id: b4a29653-32d8-43f6-ba1e-9aa569fce206
 management:
-  docChecksum: 4063cacebcc752857d0d0708b544197d
+  docChecksum: 186df7d3c4d4ae5486d5ed8df2358f11
   docVersion: "1.0"
-  speakeasyVersion: 1.767.0
-  generationVersion: 2.888.0
-  releaseVersion: 0.6.7
-  configChecksum: 492b76d94060f4b10233daf2f956756e
+  speakeasyVersion: 1.768.2
+  generationVersion: 2.889.1
+  releaseVersion: 0.7.0
+  configChecksum: b698a62874de197aeddac4e32fbca0e0
   repoURL: https://github.com/maesndev/sdk-typescript.git
   installationURL: https://github.com/maesndev/sdk-typescript
   published: true
 persistentEdits:
-  generation_id: a1520e78-453a-477c-b946-ce473299d44c
-  pristine_commit_hash: 30a411245b0776f840b63e2b5b602766197587a5
-  pristine_tree_hash: 3d1d06bdbaaeafb29b543e66b6dffce1ac967b61
+  generation_id: 8c343cbb-5f7c-4e7d-85bb-dab9347e6533
+  pristine_commit_hash: 08238d243fb85f46d25f4e72fe21cc96536f1063
+  pristine_tree_hash: 6d002142a8c76d44e778164626aadff13d141dee
 features:
   typescript:
     additionalDependencies: 0.1.0
-    core: 3.26.53
+    core: 3.27.0
     defaultEnabledRetries: 0.1.0
     devContainers: 2.90.1
     enumUnions: 0.1.0
@@ -2316,8 +2316,8 @@ trackedFiles:
     pristine_git_object: 76a47324c567d8cf947f09b6f0a79b3a9b8ffcec
   docs/models/operations/get-async-task-info-request.md:
     id: b66db944d775
-    last_write_checksum: sha1:694360909c05d001f9a7c093af09f13affdc9033
-    pristine_git_object: 2e5998c92169a5e548d7b2267aaf2502bb4a48a8
+    last_write_checksum: sha1:7768b5b76e2d7c6bd7f6cad13f12938f9af82b44
+    pristine_git_object: 9b29b457bb0ae716f25dae04c6b8dd7e99c76041
   docs/models/operations/get-async-task-info-response.md:
     id: c4ff14692929
     last_write_checksum: sha1:5d590d13763a504e24914f688fcfea7806f5959e
@@ -5504,12 +5504,12 @@ trackedFiles:
     pristine_git_object: 620f120672c2be3445356aaae6d877d4d89c43d5
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:ae7bd60bf78fb71b4aeb32fbfc85004ef535abc7
-    pristine_git_object: 693e0bef726dac6a62080ec3374746794669e6a8
+    last_write_checksum: sha1:8e1d1edc54d25c2098a27acb8b4201058d1ddade
+    pristine_git_object: 1bbf0afd47d0c7341d011989c5107d189efa59ac
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:915ae7d6c8808eecde6db3dd15cfa2fbeffeb773
-    pristine_git_object: cdbad00fcc972672d4c2b7568cf9a62e6cbc86ab
+    last_write_checksum: sha1:1560e1337b044f4666a605007a0b251b6e7bd724
+    pristine_git_object: d688f59676bb46257d6fbb095a3ad265fa824a8d
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:2eff2a6c77b0c787da6418de861acc36733c433a
@@ -5652,8 +5652,8 @@ trackedFiles:
     pristine_git_object: 5551f9da736caa28720cb6602e259cffc7d1f256
   src/funcs/accounting-get-async-task-info.ts:
     id: fb51ae7c1882
-    last_write_checksum: sha1:717df4ed541f0f42885ac76842f87ebc3d67936d
-    pristine_git_object: 1532d0201e3bc35ddb8637e6f7f9c88dda170691
+    last_write_checksum: sha1:f8e391fc9c46a3a266babeb1896fdb3307226411
+    pristine_git_object: 3fdd49a8def491c87011f5dd842e0e25f1bbbfa3
   src/funcs/accounting-get-bank-account.ts:
     id: 71584353e8eb
     last_write_checksum: sha1:9c70327c2753883e28248df0be55b0e5f169f579
@@ -6144,8 +6144,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:1a7d7884d65e2cd939aed3814e9ec863dd31a6e6
-    pristine_git_object: 32657025121b2e8963f662a2e95eb2d9937d2879
+    last_write_checksum: sha1:8712ab5e6e2933867ce2f43645cbe481fd863f8f
+    pristine_git_object: c546ef35e77376d8a30bd2777c9a7f2f6fa7b72b
   src/lib/dlv.ts:
     id: b1988214835a
     last_write_checksum: sha1:1dd3e3fbb4550c4bf31f5ef997faff355d6f3250
@@ -6872,8 +6872,8 @@ trackedFiles:
     pristine_git_object: 5c97f2960d00bfd18191477d92b36832703d84f1
   src/models/operations/get-async-task-info.ts:
     id: 487aca25b9e9
-    last_write_checksum: sha1:f302470a557eb86c3e902f1b3eb8f980b78f0e8c
-    pristine_git_object: 7446d6eeb936437e4bb5c0f7dee4929acd1af38d
+    last_write_checksum: sha1:504b48745073dc71ec31c5e002e8656061d08b2c
+    pristine_git_object: 722209b5558ab36c61c8a095172ec2060fee2067
   src/models/operations/get-bank-account.ts:
     id: 4ccb192ef29c
     last_write_checksum: sha1:c46ae57740252bd7b71ae4d03ea8304979f9bbfb
@@ -8787,9 +8787,4 @@ examples:
         "202":
           application/json: {"data": {"taskId": "<id>"}, "errors": {}, "rawData": null}
 examplesVersion: 1.0.2
-releaseNotes: |
-  ## Typescript SDK Changes:
-  * `maesn.accounting.getInvoices()`:  `response.data[].id` **Added**
-  * `maesn.accounting.createInvoice()`:  `response.data.id` **Added**
-  * `maesn.accounting.getInvoice()`:  `response.data.id` **Added**
-  * `maesn.accounting.patchInvoice()`:  `response.data.id` **Added**
+releaseNotes: "## Typescript SDK Changes:\n* `maesn.accounting.getAsyncTaskInfo()`: \n  *  `request.rawData` **Added**\n"
