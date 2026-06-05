@@ -21,7 +21,7 @@ let value: ExpenseLineItemResponse = {
   taxRate: {
     id: "<id>",
     code: "<value>",
-    name: null,
+    name: "<value>",
     taxRatePercentage: "<value>",
   },
   totalGrossAmount: 5570.57,

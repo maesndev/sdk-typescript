@@ -20,8 +20,8 @@ export const EmailAddressType = {
 export type EmailAddressType = ClosedEnum<typeof EmailAddressType>;
 
 export type EmailAddress = {
-  email: string | null;
-  type: EmailAddressType | null;
+  email?: string | null | undefined;
+  type?: EmailAddressType | null | undefined;
 };
 
 /** @internal */
@@ -32,8 +32,8 @@ export const EmailAddressType$inboundSchema: z.ZodMiniEnum<
 /** @internal */
 export const EmailAddress$inboundSchema: z.ZodMiniType<EmailAddress, unknown> =
   z.object({
-    email: types.nullable(types.string()),
-    type: types.nullable(EmailAddressType$inboundSchema),
+    email: z.optional(z.nullable(types.string())),
+    type: z.optional(z.nullable(EmailAddressType$inboundSchema)),
   });
 
 export function emailAddressFromJSON(

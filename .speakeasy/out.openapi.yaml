@@ -3115,6 +3115,12 @@ paths:
           in: path
           schema:
             type: string
+        - name: companyId
+          required: false
+          in: query
+          description: ID of the company (required for multi-company target systems)
+          schema:
+            type: string
         - name: X-API-KEY
           description: API key
           in: header
@@ -10244,9 +10250,6 @@ components:
             - PAYMENT
             - OTHER
           nullable: true
-      required:
-        - email
-        - type
     PhoneNumber:
       type: object
       properties:
@@ -10266,9 +10269,6 @@ components:
             - WHATSAPP
             - OTHER
           nullable: true
-      required:
-        - number
-        - type
     ContactPerson:
       type: object
       properties:
@@ -10376,6 +10376,7 @@ components:
         - projectId
         - role
         - updatedDate
+        - vatId
     Address:
       type: object
       properties:
@@ -10732,6 +10733,7 @@ components:
         - itemId
         - name
         - quantity
+        - taxCode
         - taxRatePercentage
         - unitAmount
         - updatedDate
@@ -10884,6 +10886,7 @@ components:
         - currency
         - discountAmount
         - dueDate
+        - fileId
         - invoiceDate
         - invoiceNumber
         - invoiceType
@@ -11407,6 +11410,26 @@ components:
         - totalNetAmount
         - totalTaxAmount
         - updatedDate
+    AdvancePayment:
+      type: object
+      properties:
+        orderNumber:
+          type: string
+          nullable: true
+        type:
+          type: string
+          enum:
+            - ADVANCE_INVOICE_REQUESTED
+            - ADVANCE_PAYMENT_RECEIVED
+            - ADVANCE_LIABILITY_TRANSFER
+            - FINAL_INVOICE
+            - FINAL_INVOICE_CLEARING
+            - FINAL_PAYMENT_RECEIVED
+            - OTHER
+          nullable: true
+      required:
+        - orderNumber
+        - type
     Dimension:
       type: object
       properties:
@@ -11425,6 +11448,7 @@ components:
       required:
         - id
         - categoryName
+        - code
         - name
     TaxRate:
       type: object
@@ -11676,6 +11700,7 @@ components:
         - id
         - accountCode
         - accountId
+        - accountNumber
         - createdDate
         - currency
         - customerId
@@ -11703,6 +11728,10 @@ components:
         accountingPeriodId:
           type: string
           nullable: true
+        advancePayment:
+          nullable: true
+          allOf:
+            - $ref: '#/components/schemas/AdvancePayment'
         createdDate:
           type: string
           nullable: true
@@ -11927,10 +11956,28 @@ components:
         - description
         - documentId
         - files
+        - isProvisional
+        - journalCode
         - journalLineItems
+        - journalType
         - number
         - transactionDate
         - updatedDate
+    AdvancePaymentInput:
+      type: object
+      properties:
+        orderNumber:
+          type: string
+        type:
+          type: string
+          enum:
+            - ADVANCE_INVOICE_REQUESTED
+            - ADVANCE_PAYMENT_RECEIVED
+            - ADVANCE_LIABILITY_TRANSFER
+            - FINAL_INVOICE
+            - FINAL_INVOICE_CLEARING
+            - FINAL_PAYMENT_RECEIVED
+            - OTHER
     DimensionInput:
       type: object
       properties:
@@ -12159,6 +12206,8 @@ components:
           type: string
         accountingPeriodId:
           type: string
+        advancePayment:
+          $ref: '#/components/schemas/AdvancePaymentInput'
         currency:
           type: string
           enum:
@@ -12797,6 +12846,7 @@ components:
       required:
         - id
         - addresses
+        - contactId
         - createdDate
         - currency
         - lineItems
@@ -14392,6 +14442,7 @@ components:
         - currency
         - deliveryDate
         - lineItems
+        - oneLineAddress
         - orderDate
         - projectId
         - shippingContactId
@@ -15213,6 +15264,8 @@ components:
         - accountId
         - amount
         - contactName
+        - contactId
+        - customerId
         - description
         - invoiceId
         - supplierId
@@ -15502,6 +15555,7 @@ components:
         - taxRatePercentage
         - totalGrossAmount
         - totalNetAmount
+        - type
         - updatedDate
     BookingProposalResponseDto:
       type: object
@@ -16045,6 +16099,7 @@ components:
         - amount
         - bookingDate
         - contraAccountNumber
+        - fileId
         - currency
         - purpose
         - reference

@@ -8,30 +8,32 @@ import { OfferResponseDto } from "@maesn/typescript-sdk/models";
 let value: OfferResponseDto = {
   id: "<id>",
   addresses: [],
+  contactId: "<id>",
   createdDate: "<value>",
-  currency: "Iranian Rial",
+  currency: "Malaysian Ringgit",
   lineItems: [
     {
       id: "<id>",
       accountCode: "<value>",
       accountId: "<id>",
-      createdDate: "<value>",
-      description: null,
+      createdDate: null,
+      description:
+        "hoot digitize peter emerge illiterate pecan internalise furthermore incidentally whup",
       itemId: "<id>",
       name: "<value>",
-      quantity: 4394.36,
+      quantity: 8994.86,
       taxCode: "<value>",
-      taxRatePercentage: 6281.26,
+      taxRatePercentage: null,
       taxType: "<value>",
-      type: "ITEM",
-      totalDiscountAmount: 2936.92,
-      totalDiscountPercentage: 2768.35,
-      totalGrossAmount: 2419.83,
-      totalNetAmount: 7148.04,
-      totalTaxAmount: null,
-      unitAmount: 9628.05,
-      unitDiscountAmount: 6093.33,
-      unitDiscountPercentage: 6742.69,
+      type: "ACCOUNT",
+      totalDiscountAmount: 3787.25,
+      totalDiscountPercentage: 941.61,
+      totalGrossAmount: 8928.34,
+      totalNetAmount: 3345.46,
+      totalTaxAmount: 1923.84,
+      unitAmount: 4943.19,
+      unitDiscountAmount: 2989.25,
+      unitDiscountPercentage: 9129.2,
       unitName: "<value>",
       updatedDate: "<value>",
     },
@@ -41,14 +43,14 @@ let value: OfferResponseDto = {
   offerNumber: "<value>",
   oneLineAddress: "<value>",
   reference: "<value>",
-  status: "DRAFT",
+  status: "ACCEPTED",
   taxText: "<value>",
-  totalDiscountAmount: 2777.54,
-  totalDiscountPercentage: 2088.08,
-  totalGrossAmount: 1042.39,
-  totalNetAmount: 2487.12,
-  totalTaxAmount: 6604.86,
-  updatedDate: null,
+  totalDiscountAmount: 4544.44,
+  totalDiscountPercentage: 6392.07,
+  totalGrossAmount: 5483.87,
+  totalNetAmount: 4385.89,
+  totalTaxAmount: 43.22,
+  updatedDate: "<value>",
 };
 ```
 
@@ -58,7 +60,7 @@ let value: OfferResponseDto = {
 | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
 | `id`                                                                           | *string*                                                                       | :heavy_check_mark:                                                             | N/A                                                                            |
 | `addresses`                                                                    | [models.AddressOffer](../models/address-offer.md)[]                            | :heavy_check_mark:                                                             | N/A                                                                            |
-| `contactId`                                                                    | *string*                                                                       | :heavy_minus_sign:                                                             | N/A                                                                            |
+| `contactId`                                                                    | *string*                                                                       | :heavy_check_mark:                                                             | N/A                                                                            |
 | `createdDate`                                                                  | *string*                                                                       | :heavy_check_mark:                                                             | N/A                                                                            |
 | `currency`                                                                     | *string*                                                                       | :heavy_check_mark:                                                             | N/A                                                                            |
 | `lineItems`                                                                    | [models.OfferLineItemResponseDto](../models/offer-line-item-response-dto.md)[] | :heavy_check_mark:                                                             | N/A                                                                            |

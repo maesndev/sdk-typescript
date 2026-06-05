@@ -18,6 +18,7 @@ let value: ContactResponseDto = {
   projectId: "<id>",
   role: "CONTACT",
   updatedDate: "<value>",
+  vatId: "<id>",
 };
 ```
 
@@ -39,4 +40,4 @@ let value: ContactResponseDto = {
 | `projectId`                                                                            | *string*                                                                               | :heavy_check_mark:                                                                     | N/A                                                                                    |
 | `role`                                                                                 | [models.ContactResponseDtoRole](../models/contact-response-dto-role.md)                | :heavy_check_mark:                                                                     | N/A                                                                                    |
 | `updatedDate`                                                                          | *string*                                                                               | :heavy_check_mark:                                                                     | N/A                                                                                    |
-| `vatId`                                                                                | *string*                                                                               | :heavy_minus_sign:                                                                     | N/A                                                                                    |
+| `vatId`                                                                                | *string*                                                                               | :heavy_check_mark:                                                                     | N/A                                                                                    |

@@ -28,18 +28,16 @@ let value: GetCustomersResponse = {
       emailAddresses: [],
       number: "<value>",
       phoneNumbers: [
-        {
-          number: "<value>",
-          type: "OTHER",
-        },
+        {},
       ],
       projectId: "<id>",
-      role: "CUSTOMER",
-      updatedDate: null,
+      role: "CONTACT",
+      updatedDate: "<value>",
+      vatId: "<id>",
     },
   ],
   errors: {},
-  rawData: {},
+  rawData: null,
 };
 ```
 

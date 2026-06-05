@@ -22,13 +22,14 @@ let value: GetLineItemsResponse = {
       itemId: "<id>",
       name: null,
       quantity: 1681.48,
-      taxRatePercentage: 2840.68,
-      unitAmount: 6368.56,
+      taxCode: "<value>",
+      taxRatePercentage: 5676.43,
+      unitAmount: 5797.29,
       updatedDate: "<value>",
     },
   ],
   errors: {},
-  rawData: {},
+  rawData: null,
 };
 ```
 

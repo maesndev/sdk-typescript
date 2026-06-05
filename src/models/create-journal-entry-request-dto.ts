@@ -5,6 +5,11 @@
 import * as z from "zod/v4-mini";
 import { ClosedEnum } from "../types/enums.js";
 import {
+  AdvancePaymentInput,
+  AdvancePaymentInput$Outbound,
+  AdvancePaymentInput$outboundSchema,
+} from "./advance-payment-input.js";
+import {
   CreateJournalLineItem,
   CreateJournalLineItem$Outbound,
   CreateJournalLineItem$outboundSchema,
@@ -183,6 +188,7 @@ export type CreateJournalEntryRequestDtoDebitCreditIndicator = ClosedEnum<
 export type CreateJournalEntryRequestDto = {
   accountId?: string | undefined;
   accountingPeriodId?: string | undefined;
+  advancePayment?: AdvancePaymentInput | undefined;
   currency?: CreateJournalEntryRequestDtoCurrency | undefined;
   debitCreditIndicator?:
     | CreateJournalEntryRequestDtoDebitCreditIndicator
@@ -215,6 +221,7 @@ export const CreateJournalEntryRequestDtoDebitCreditIndicator$outboundSchema:
 export type CreateJournalEntryRequestDto$Outbound = {
   accountId?: string | undefined;
   accountingPeriodId?: string | undefined;
+  advancePayment?: AdvancePaymentInput$Outbound | undefined;
   currency?: string | undefined;
   debitCreditIndicator?: string | undefined;
   deliveryDate?: string | undefined;
@@ -238,6 +245,7 @@ export const CreateJournalEntryRequestDto$outboundSchema: z.ZodMiniType<
 > = z.object({
   accountId: z.optional(z.string()),
   accountingPeriodId: z.optional(z.string()),
+  advancePayment: z.optional(AdvancePaymentInput$outboundSchema),
   currency: z.optional(CreateJournalEntryRequestDtoCurrency$outboundSchema),
   debitCreditIndicator: z.optional(
     CreateJournalEntryRequestDtoDebitCreditIndicator$outboundSchema,

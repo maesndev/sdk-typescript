@@ -16,14 +16,15 @@ let value: SalesOrderResponseDto = {
   currency: "Dobra",
   deliveryDate: "<value>",
   lineItems: [],
-  orderDate: null,
-  projectId: "<id>",
-  shippingContactId: null,
-  status: "OPEN",
+  oneLineAddress: null,
+  orderDate: "<value>",
+  projectId: null,
+  shippingContactId: "<id>",
+  status: "VOIDED",
   taskId: "<id>",
-  totalDiscountAmount: 9876.8,
-  totalDiscountPercentage: 3789.05,
-  totalGrossAmount: 93.06,
+  totalDiscountAmount: 7755.52,
+  totalDiscountPercentage: 1025.68,
+  totalGrossAmount: null,
   totalNetAmount: 3568.42,
   totalTaxAmount: 883.63,
   updatedDate: "<value>",
@@ -43,7 +44,7 @@ let value: SalesOrderResponseDto = {
 | `currency`                                                                                | *string*                                                                                  | :heavy_check_mark:                                                                        | N/A                                                                                       |
 | `deliveryDate`                                                                            | *string*                                                                                  | :heavy_check_mark:                                                                        | N/A                                                                                       |
 | `lineItems`                                                                               | [models.SalesOrderLineItemResponseDto](../models/sales-order-line-item-response-dto.md)[] | :heavy_check_mark:                                                                        | N/A                                                                                       |
-| `oneLineAddress`                                                                          | *string*                                                                                  | :heavy_minus_sign:                                                                        | N/A                                                                                       |
+| `oneLineAddress`                                                                          | *string*                                                                                  | :heavy_check_mark:                                                                        | N/A                                                                                       |
 | `orderDate`                                                                               | *string*                                                                                  | :heavy_check_mark:                                                                        | N/A                                                                                       |
 | `projectId`                                                                               | *string*                                                                                  | :heavy_check_mark:                                                                        | N/A                                                                                       |
 | `shippingContactId`                                                                       | *string*                                                                                  | :heavy_check_mark:                                                                        | N/A                                                                                       |

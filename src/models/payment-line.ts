@@ -12,8 +12,8 @@ export type PaymentLine = {
   accountId: string | null;
   amount: number | null;
   contactName: string | null;
-  contactId?: string | null | undefined;
-  customerId?: string | null | undefined;
+  contactId: string | null;
+  customerId: string | null;
   description: string | null;
   invoiceId: string | null;
   supplierId: string | null;
@@ -26,8 +26,8 @@ export const PaymentLine$inboundSchema: z.ZodMiniType<PaymentLine, unknown> = z
     accountId: types.nullable(types.string()),
     amount: types.nullable(types.number()),
     contactName: types.nullable(types.string()),
-    contactId: z.optional(z.nullable(types.string())),
-    customerId: z.optional(z.nullable(types.string())),
+    contactId: types.nullable(types.string()),
+    customerId: types.nullable(types.string()),
     description: types.nullable(types.string()),
     invoiceId: types.nullable(types.string()),
     supplierId: types.nullable(types.string()),

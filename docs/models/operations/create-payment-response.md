@@ -22,15 +22,17 @@ let value: CreatePaymentResponse = {
         accountId: "<id>",
         amount: 5456.15,
         contactName: "<value>",
-        description: "up ew productive",
+        contactId: "<id>",
+        customerId: null,
+        description: "lightly membership imaginary",
         invoiceId: "<id>",
         supplierId: "<id>",
-        paymentDate: "<value>",
+        paymentDate: null,
       },
     ],
   },
-  errors: {},
-  rawData: null,
+  errors: null,
+  rawData: {},
 };
 ```
 

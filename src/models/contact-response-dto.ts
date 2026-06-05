@@ -54,7 +54,7 @@ export type ContactResponseDto = {
   projectId: string | null;
   role: ContactResponseDtoRole | null;
   updatedDate: string | null;
-  vatId?: string | null | undefined;
+  vatId: string | null;
 };
 
 /** @internal */
@@ -88,7 +88,7 @@ export const ContactResponseDto$inboundSchema: z.ZodMiniType<
   projectId: types.nullable(types.string()),
   role: types.nullable(ContactResponseDtoRole$inboundSchema),
   updatedDate: types.nullable(types.string()),
-  vatId: z.optional(z.nullable(types.string())),
+  vatId: types.nullable(types.string()),
 });
 
 export function contactResponseDtoFromJSON(

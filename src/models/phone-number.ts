@@ -23,8 +23,8 @@ export const PhoneNumberType = {
 export type PhoneNumberType = ClosedEnum<typeof PhoneNumberType>;
 
 export type PhoneNumber = {
-  number: string | null;
-  type: PhoneNumberType | null;
+  number?: string | null | undefined;
+  type?: PhoneNumberType | null | undefined;
 };
 
 /** @internal */
@@ -35,8 +35,8 @@ export const PhoneNumberType$inboundSchema: z.ZodMiniEnum<
 /** @internal */
 export const PhoneNumber$inboundSchema: z.ZodMiniType<PhoneNumber, unknown> = z
   .object({
-    number: types.nullable(types.string()),
-    type: types.nullable(PhoneNumberType$inboundSchema),
+    number: z.optional(z.nullable(types.string())),
+    type: z.optional(z.nullable(PhoneNumberType$inboundSchema)),
   });
 
 export function phoneNumberFromJSON(

@@ -11,7 +11,7 @@ import { SDKValidationError } from "./errors/sdk-validation-error.js";
 export type Dimension = {
   id: string | null;
   categoryName: string | null;
-  code?: string | null | undefined;
+  code: string | null;
   name: string | null;
 };
 
@@ -20,7 +20,7 @@ export const Dimension$inboundSchema: z.ZodMiniType<Dimension, unknown> = z
   .object({
     id: types.nullable(types.string()),
     categoryName: types.nullable(types.string()),
-    code: z.optional(z.nullable(types.string())),
+    code: types.nullable(types.string()),
     name: types.nullable(types.string()),
   });
 

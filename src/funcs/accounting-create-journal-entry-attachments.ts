@@ -4,7 +4,12 @@
 
 import * as z from "zod/v4-mini";
 import { MaesnCore } from "../core.js";
-import { appendForm, encodeSimple, normalizeBlob } from "../lib/encodings.js";
+import {
+  appendForm,
+  encodeFormQuery,
+  encodeSimple,
+  normalizeBlob,
+} from "../lib/encodings.js";
 import {
   bytesToBlob,
   getContentTypeFromFileName,
@@ -131,6 +136,10 @@ async function $do(
     "/accounting/journalEntries/{journalEntryId}/Attachments",
   )(pathParams);
 
+  const query = encodeFormQuery({
+    "companyId": payload.companyId,
+  });
+
   const headers = new Headers(compactMap({
     Accept: "application/json",
     "X-ACCOUNT-KEY": encodeSimple(
@@ -165,6 +174,7 @@ async function $do(
     baseURL: options?.serverURL,
     path: path,
     headers: headers,
+    query: query,
     body: body,
     userAgent: client._options.userAgent,
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,

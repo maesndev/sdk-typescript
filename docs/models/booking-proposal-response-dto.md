@@ -59,6 +59,7 @@ let value: BookingProposalResponseDto = {
       taxRatePercentage: 1924.1,
       totalGrossAmount: 5440.63,
       totalNetAmount: 3316.85,
+      type: "GOODS",
       updatedDate: "<value>",
     },
   ],

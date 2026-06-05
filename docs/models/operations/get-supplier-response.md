@@ -24,35 +24,25 @@ let value: GetSupplierResponse = {
     contactPersons: [
       {
         emailAddresses: [
-          {
-            email: "Queen25@gmail.com",
-            type: "INVOICE",
-          },
+          {},
         ],
-        firstName: "Name",
-        lastName: null,
-        phoneNumbers: [
-          {
-            number: "<value>",
-            type: "OTHER",
-          },
-        ],
+        firstName: "Devan",
+        lastName: "Stark",
+        phoneNumbers: [],
         salutation: "<value>",
       },
     ],
-    contactType: "CONTACT_PERSON",
+    contactType: "COMPANY",
     documentId: "<id>",
-    emailAddresses: [
-      {
-        email: "Queen25@gmail.com",
-        type: "INVOICE",
-      },
-    ],
+    emailAddresses: [],
     number: "<value>",
-    phoneNumbers: [],
+    phoneNumbers: [
+      {},
+    ],
     projectId: "<id>",
     role: "CUSTOMER",
     updatedDate: "<value>",
+    vatId: "<id>",
   },
   errors: {},
   rawData: {},

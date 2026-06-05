@@ -9,20 +9,33 @@ let value: JournalLineItem = {
   id: null,
   accountCode: "<value>",
   accountId: "<id>",
+  accountNumber: 7240.7,
   createdDate: "<value>",
-  currency: "SCR",
+  currency: "PLN",
   customerId: "<id>",
-  debitCreditIndicator: "DEBIT",
-  description: "bicycle ingratiate perfectly wealthy blossom possession mob",
-  dimensions: [],
+  debitCreditIndicator: "CREDIT",
+  description: "onto ouch so",
+  dimensions: [
+    {
+      id: "<id>",
+      categoryName: "<value>",
+      code: "<value>",
+      name: "<value>",
+    },
+  ],
   documentNumber: "<value>",
-  exchangeRate: 9089.64,
+  exchangeRate: 9445.58,
   supplierId: "<id>",
-  taxRate: null,
+  taxRate: {
+    id: "<id>",
+    code: "<value>",
+    name: "<value>",
+    taxRatePercentage: "<value>",
+  },
   thirdPartyCode: "<value>",
-  totalGrossAmount: 909.93,
-  totalNetAmount: null,
-  totalTaxAmount: 8325.18,
+  totalGrossAmount: 3026.87,
+  totalNetAmount: 840.71,
+  totalTaxAmount: 9871.64,
   updatedDate: "<value>",
 };
 ```
@@ -34,7 +47,7 @@ let value: JournalLineItem = {
 | `id`                                                                                                | *string*                                                                                            | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
 | `accountCode`                                                                                       | *string*                                                                                            | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
 | `accountId`                                                                                         | *string*                                                                                            | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
-| `accountNumber`                                                                                     | *number*                                                                                            | :heavy_minus_sign:                                                                                  | N/A                                                                                                 |
+| `accountNumber`                                                                                     | *number*                                                                                            | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
 | `createdDate`                                                                                       | *string*                                                                                            | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
 | `currency`                                                                                          | [models.JournalLineItemCurrency](../models/journal-line-item-currency.md)                           | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
 | `customerId`                                                                                        | *string*                                                                                            | :heavy_check_mark:                                                                                  | N/A                                                                                                 |

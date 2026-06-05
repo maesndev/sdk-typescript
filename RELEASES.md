@@ -177,3 +177,13 @@ Based on:
 - [typescript v0.7.0] .
 ### Releases
 - [NPM v0.7.0] https://www.npmjs.com/package/@maesn/typescript-sdk/v/0.7.0 - .
+
+## 2026-06-05 12:19:34
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.770.0 (2.893.0) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v0.7.1] .
+### Releases
+- [NPM v0.7.1] https://www.npmjs.com/package/@maesn/typescript-sdk/v/0.7.1 - .

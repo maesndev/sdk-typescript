@@ -6,6 +6,7 @@ export * from "./account-request-common-dto-v2.js";
 export * from "./account-response-dto.js";
 export * from "./address-offer.js";
 export * from "./address.js";
+export * from "./advance-payment-input.js";
 export * from "./async-task-response-dto.js";
 export * from "./bank-account-request-common-dto-v2.js";
 export * from "./bank-account-response-dto.js";

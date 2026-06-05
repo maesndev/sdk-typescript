@@ -94,7 +94,7 @@ export type InvoiceResponseDto = {
   currency: string | null;
   discountAmount: number | null;
   dueDate: string | null;
-  fileId?: string | null | undefined;
+  fileId: string | null;
   invoiceDate: string | null;
   invoiceNumber: string | null;
   invoiceType: InvoiceResponseDtoInvoiceType | null;
@@ -155,7 +155,7 @@ export const InvoiceResponseDto$inboundSchema: z.ZodMiniType<
   currency: types.nullable(types.string()),
   discountAmount: types.nullable(types.number()),
   dueDate: types.nullable(types.string()),
-  fileId: z.optional(z.nullable(types.string())),
+  fileId: types.nullable(types.string()),
   invoiceDate: types.nullable(types.string()),
   invoiceNumber: types.nullable(types.string()),
   invoiceType: types.nullable(InvoiceResponseDtoInvoiceType$inboundSchema),
