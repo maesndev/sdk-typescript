@@ -9,7 +9,9 @@ let value: PaymentLine = {
   accountId: "<id>",
   amount: 278.6,
   contactName: "<value>",
-  description: "intently likely before vet enthusiastically tough aircraft",
+  contactId: "<id>",
+  customerId: "<id>",
+  description: "meal statement whether these bleakly statue freely",
   invoiceId: "<id>",
   supplierId: "<id>",
   paymentDate: "<value>",
@@ -23,8 +25,8 @@ let value: PaymentLine = {
 | `accountId`        | *string*           | :heavy_check_mark: | N/A                |
 | `amount`           | *number*           | :heavy_check_mark: | N/A                |
 | `contactName`      | *string*           | :heavy_check_mark: | N/A                |
-| `contactId`        | *string*           | :heavy_minus_sign: | N/A                |
-| `customerId`       | *string*           | :heavy_minus_sign: | N/A                |
+| `contactId`        | *string*           | :heavy_check_mark: | N/A                |
+| `customerId`       | *string*           | :heavy_check_mark: | N/A                |
 | `description`      | *string*           | :heavy_check_mark: | N/A                |
 | `invoiceId`        | *string*           | :heavy_check_mark: | N/A                |
 | `supplierId`       | *string*           | :heavy_check_mark: | N/A                |

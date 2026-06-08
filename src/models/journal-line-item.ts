@@ -191,7 +191,7 @@ export type JournalLineItem = {
   id: string | null;
   accountCode: string | null;
   accountId: string | null;
-  accountNumber?: number | null | undefined;
+  accountNumber: number | null;
   createdDate: string | null;
   currency: JournalLineItemCurrency | null;
   customerId: string | null;
@@ -249,7 +249,7 @@ export const JournalLineItem$inboundSchema: z.ZodMiniType<
   id: types.nullable(types.string()),
   accountCode: types.nullable(types.string()),
   accountId: types.nullable(types.string()),
-  accountNumber: z.optional(z.nullable(types.number())),
+  accountNumber: types.nullable(types.number()),
   createdDate: types.nullable(types.string()),
   currency: types.nullable(JournalLineItemCurrency$inboundSchema),
   customerId: types.nullable(types.string()),

@@ -5,15 +5,12 @@
 ```typescript
 import { EmailAddress } from "@maesn/typescript-sdk/models";
 
-let value: EmailAddress = {
-  email: "Mike_McClure17@gmail.com",
-  type: "INVOICE",
-};
+let value: EmailAddress = {};
 ```
 
 ## Fields
 
 | Field                                                      | Type                                                       | Required                                                   | Description                                                |
 | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
-| `email`                                                    | *string*                                                   | :heavy_check_mark:                                         | N/A                                                        |
-| `type`                                                     | [models.EmailAddressType](../models/email-address-type.md) | :heavy_check_mark:                                         | N/A                                                        |
+| `email`                                                    | *string*                                                   | :heavy_minus_sign:                                         | N/A                                                        |
+| `type`                                                     | [models.EmailAddressType](../models/email-address-type.md) | :heavy_minus_sign:                                         | N/A                                                        |

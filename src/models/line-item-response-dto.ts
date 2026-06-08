@@ -25,7 +25,7 @@ export type LineItemResponseDto = {
   itemId: string | null;
   name: string | null;
   quantity: number | null;
-  taxCode?: string | null | undefined;
+  taxCode: string | null;
   taxRatePercentage: number | null;
   unitAmount: number | null;
   updatedDate: string | null;
@@ -50,7 +50,7 @@ export const LineItemResponseDto$inboundSchema: z.ZodMiniType<
   itemId: types.nullable(types.string()),
   name: types.nullable(types.string()),
   quantity: types.nullable(types.number()),
-  taxCode: z.optional(z.nullable(types.string())),
+  taxCode: types.nullable(types.string()),
   taxRatePercentage: types.nullable(types.number()),
   unitAmount: types.nullable(types.number()),
   updatedDate: types.nullable(types.string()),

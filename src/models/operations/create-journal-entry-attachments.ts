@@ -27,6 +27,10 @@ export type CreateJournalEntryAttachmentsRequestBody = {
 export type CreateJournalEntryAttachmentsRequest = {
   journalEntryId: string;
   /**
+   * ID of the company (required for multi-company target systems)
+   */
+  companyId?: string | undefined;
+  /**
    * API key
    */
   apiKey?: string | undefined;
@@ -126,6 +130,7 @@ export function createJournalEntryAttachmentsRequestBodyToJSON(
 /** @internal */
 export type CreateJournalEntryAttachmentsRequest$Outbound = {
   journalEntryId: string;
+  companyId?: string | undefined;
   apiKey?: string | undefined;
   accountKey?: string | undefined;
   body: CreateJournalEntryAttachmentsRequestBody$Outbound;
@@ -137,6 +142,7 @@ export const CreateJournalEntryAttachmentsRequest$outboundSchema: z.ZodMiniType<
   CreateJournalEntryAttachmentsRequest
 > = z.object({
   journalEntryId: z.string(),
+  companyId: z.optional(z.string()),
   apiKey: z.optional(z.string()),
   accountKey: z.optional(z.string()),
   body: z.lazy(() => CreateJournalEntryAttachmentsRequestBody$outboundSchema),

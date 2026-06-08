@@ -14,50 +14,46 @@ let value: InvoiceResponseDto = {
   currency: "Yemeni Rial",
   discountAmount: 3256.21,
   dueDate: "<value>",
+  fileId: "<id>",
   invoiceDate: "<value>",
-  invoiceNumber: "<value>",
-  invoiceType: null,
+  invoiceNumber: null,
+  invoiceType: "STANDARD",
   journalCode: "<value>",
-  lineAmountTypes: null,
+  lineAmountTypes: "EXCLUSIVE",
   lineItems: [
     {
       lineItemId: "<id>",
       accountId: "<id>",
       createdDate: "<value>",
-      description: "atrium worth strange frequent wallop though barring both",
-      dimensions: [
-        {
-          id: "<id>",
-          categoryName: "<value>",
-          name: "<value>",
-        },
-      ],
-      discountItemAmount: 1191.85,
-      discountItemPercentage: 4359.97,
-      grossAmount: 9843.51,
-      itemsAmount: 6379.48,
-      itemId: null,
+      description: "sheepishly poppy overcooked commercial opposite",
+      dimensions: [],
+      discountItemAmount: 6563.83,
+      discountItemPercentage: 2599.87,
+      grossAmount: 47.73,
+      itemsAmount: 850.68,
+      itemId: "<id>",
       name: "<value>",
-      quantity: 8171.72,
-      taxRatePercentage: 1753.39,
-      unitAmount: 5556.99,
-      updatedDate: null,
+      quantity: 2497.18,
+      taxCode: "<value>",
+      taxRatePercentage: 7472.13,
+      unitAmount: null,
+      updatedDate: "<value>",
     },
   ],
   name: "<value>",
   oneLineAddress: "<value>",
   paidDate: "<value>",
-  paymentStatus: "CREDIT_NOTE_CLEARED",
-  paymentTermDuration: 716.86,
+  paymentStatus: "DEBITED",
+  paymentTermDuration: 9843.51,
   paymentTermId: "<id>",
   reference: "<value>",
-  shippingDate: "<value>",
-  status: "OVERDUE",
-  sumNetAmount: 2893.98,
-  taxRule: "SMALL_BUSINESS_EXEMPTION",
-  totalAmount: 4785.28,
-  totalTaxAmount: 7256.01,
-  updatedDate: null,
+  shippingDate: null,
+  status: "VOIDED",
+  sumNetAmount: 4740.44,
+  taxRule: "INTRACOMMUNITY_GOODS",
+  totalAmount: 38.41,
+  totalTaxAmount: 2516,
+  updatedDate: "<value>",
 };
 ```
 
@@ -73,7 +69,7 @@ let value: InvoiceResponseDto = {
 | `currency`                                                                                      | *string*                                                                                        | :heavy_check_mark:                                                                              | N/A                                                                                             |
 | `discountAmount`                                                                                | *number*                                                                                        | :heavy_check_mark:                                                                              | N/A                                                                                             |
 | `dueDate`                                                                                       | *string*                                                                                        | :heavy_check_mark:                                                                              | N/A                                                                                             |
-| `fileId`                                                                                        | *string*                                                                                        | :heavy_minus_sign:                                                                              | N/A                                                                                             |
+| `fileId`                                                                                        | *string*                                                                                        | :heavy_check_mark:                                                                              | N/A                                                                                             |
 | `invoiceDate`                                                                                   | *string*                                                                                        | :heavy_check_mark:                                                                              | N/A                                                                                             |
 | `invoiceNumber`                                                                                 | *string*                                                                                        | :heavy_check_mark:                                                                              | N/A                                                                                             |
 | `invoiceType`                                                                                   | [models.InvoiceResponseDtoInvoiceType](../models/invoice-response-dto-invoice-type.md)          | :heavy_check_mark:                                                                              | N/A                                                                                             |

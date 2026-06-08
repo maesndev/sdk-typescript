@@ -27,7 +27,7 @@ export type OfferResponseDtoStatus = ClosedEnum<typeof OfferResponseDtoStatus>;
 export type OfferResponseDto = {
   id: string | null;
   addresses: Array<AddressOffer> | null;
-  contactId?: string | null | undefined;
+  contactId: string | null;
   createdDate: string | null;
   currency: string | null;
   lineItems: Array<OfferLineItemResponseDto> | null;
@@ -58,7 +58,7 @@ export const OfferResponseDto$inboundSchema: z.ZodMiniType<
 > = z.object({
   id: types.nullable(types.string()),
   addresses: types.nullable(z.array(AddressOffer$inboundSchema)),
-  contactId: z.optional(z.nullable(types.string())),
+  contactId: types.nullable(types.string()),
   createdDate: types.nullable(types.string()),
   currency: types.nullable(types.string()),
   lineItems: types.nullable(z.array(OfferLineItemResponseDto$inboundSchema)),

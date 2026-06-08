@@ -35,7 +35,7 @@ export type SalesOrderResponseDto = {
   currency: string | null;
   deliveryDate: string | null;
   lineItems: Array<SalesOrderLineItemResponseDto> | null;
-  oneLineAddress?: string | null | undefined;
+  oneLineAddress: string | null;
   orderDate: string | null;
   projectId: string | null;
   shippingContactId: string | null;
@@ -70,7 +70,7 @@ export const SalesOrderResponseDto$inboundSchema: z.ZodMiniType<
   lineItems: types.nullable(
     z.array(SalesOrderLineItemResponseDto$inboundSchema),
   ),
-  oneLineAddress: z.optional(z.nullable(types.string())),
+  oneLineAddress: types.nullable(types.string()),
   orderDate: types.nullable(types.string()),
   projectId: types.nullable(types.string()),
   shippingContactId: types.nullable(types.string()),

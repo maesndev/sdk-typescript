@@ -39,7 +39,7 @@ export type LineItemResponse = {
   taxRatePercentage: number | null;
   totalGrossAmount: number | null;
   totalNetAmount: number | null;
-  type?: LineItemResponseType | null | undefined;
+  type: LineItemResponseType | null;
   updatedDate: string | null;
 };
 
@@ -74,7 +74,7 @@ export const LineItemResponse$inboundSchema: z.ZodMiniType<
   taxRatePercentage: types.nullable(types.number()),
   totalGrossAmount: types.nullable(types.number()),
   totalNetAmount: types.nullable(types.number()),
-  type: z.optional(z.nullable(LineItemResponseType$inboundSchema)),
+  type: types.nullable(LineItemResponseType$inboundSchema),
   updatedDate: types.nullable(types.string()),
 });
 

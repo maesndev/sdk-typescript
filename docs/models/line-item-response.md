@@ -32,6 +32,7 @@ let value: LineItemResponse = {
   taxRatePercentage: 1405.29,
   totalGrossAmount: 7091.84,
   totalNetAmount: 7987.05,
+  type: "SERVICES",
   updatedDate: "<value>",
 };
 ```
@@ -59,5 +60,5 @@ let value: LineItemResponse = {
 | `taxRatePercentage`                                                                    | *number*                                                                               | :heavy_check_mark:                                                                     | N/A                                                                                    |
 | `totalGrossAmount`                                                                     | *number*                                                                               | :heavy_check_mark:                                                                     | N/A                                                                                    |
 | `totalNetAmount`                                                                       | *number*                                                                               | :heavy_check_mark:                                                                     | N/A                                                                                    |
-| `type`                                                                                 | [models.LineItemResponseType](../models/line-item-response-type.md)                    | :heavy_minus_sign:                                                                     | N/A                                                                                    |
+| `type`                                                                                 | [models.LineItemResponseType](../models/line-item-response-type.md)                    | :heavy_check_mark:                                                                     | N/A                                                                                    |
 | `updatedDate`                                                                          | *string*                                                                               | :heavy_check_mark:                                                                     | N/A                                                                                    |

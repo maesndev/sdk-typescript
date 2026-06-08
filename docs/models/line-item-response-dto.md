@@ -18,8 +18,9 @@ let value: LineItemResponseDto = {
   itemId: "<id>",
   name: "<value>",
   quantity: 9174.54,
-  taxRatePercentage: null,
-  unitAmount: 8890.53,
+  taxCode: null,
+  taxRatePercentage: 8890.53,
+  unitAmount: 3786.28,
   updatedDate: "<value>",
 };
 ```
@@ -40,7 +41,7 @@ let value: LineItemResponseDto = {
 | `itemId`                                                                            | *string*                                                                            | :heavy_check_mark:                                                                  | N/A                                                                                 |
 | `name`                                                                              | *string*                                                                            | :heavy_check_mark:                                                                  | N/A                                                                                 |
 | `quantity`                                                                          | *number*                                                                            | :heavy_check_mark:                                                                  | N/A                                                                                 |
-| `taxCode`                                                                           | *string*                                                                            | :heavy_minus_sign:                                                                  | N/A                                                                                 |
+| `taxCode`                                                                           | *string*                                                                            | :heavy_check_mark:                                                                  | N/A                                                                                 |
 | `taxRatePercentage`                                                                 | *number*                                                                            | :heavy_check_mark:                                                                  | N/A                                                                                 |
 | `unitAmount`                                                                        | *number*                                                                            | :heavy_check_mark:                                                                  | N/A                                                                                 |
 | `updatedDate`                                                                       | *string*                                                                            | :heavy_check_mark:                                                                  | N/A                                                                                 |

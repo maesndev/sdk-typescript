@@ -13,6 +13,24 @@ import {
   JournalLineItem$inboundSchema,
 } from "./journal-line-item.js";
 
+export const JournalEntryResponseDtoType = {
+  AdvanceInvoiceRequested: "ADVANCE_INVOICE_REQUESTED",
+  AdvancePaymentReceived: "ADVANCE_PAYMENT_RECEIVED",
+  AdvanceLiabilityTransfer: "ADVANCE_LIABILITY_TRANSFER",
+  FinalInvoice: "FINAL_INVOICE",
+  FinalInvoiceClearing: "FINAL_INVOICE_CLEARING",
+  FinalPaymentReceived: "FINAL_PAYMENT_RECEIVED",
+  Other: "OTHER",
+} as const;
+export type JournalEntryResponseDtoType = ClosedEnum<
+  typeof JournalEntryResponseDtoType
+>;
+
+export type AdvancePayment = {
+  orderNumber: string | null;
+  type: JournalEntryResponseDtoType | null;
+};
+
 export const JournalEntryResponseDtoCurrency = {
   Aed: "AED",
   Afn: "AFN",
@@ -187,6 +205,7 @@ export type JournalEntryResponseDto = {
   id: string | null;
   accountId: string | null;
   accountingPeriodId: string | null;
+  advancePayment?: AdvancePayment | null | undefined;
   createdDate: string | null;
   currency: JournalEntryResponseDtoCurrency | null;
   debitCreditIndicator?:
@@ -199,15 +218,39 @@ export type JournalEntryResponseDto = {
   dueDate?: string | null | undefined;
   exchangeRate?: string | null | undefined;
   files: Array<string> | null;
-  isProvisional?: boolean | null | undefined;
-  journalCode?: string | null | undefined;
+  isProvisional: boolean | null;
+  journalCode: string | null;
   journalLineItems: Array<JournalLineItem> | null;
-  journalType?: string | null | undefined;
+  journalType: string | null;
   number: string | null;
   taxAssignmentDate?: string | null | undefined;
   transactionDate: string | null;
   updatedDate: string | null;
 };
+
+/** @internal */
+export const JournalEntryResponseDtoType$inboundSchema: z.ZodMiniEnum<
+  typeof JournalEntryResponseDtoType
+> = z.enum(JournalEntryResponseDtoType);
+
+/** @internal */
+export const AdvancePayment$inboundSchema: z.ZodMiniType<
+  AdvancePayment,
+  unknown
+> = z.object({
+  orderNumber: types.nullable(types.string()),
+  type: types.nullable(JournalEntryResponseDtoType$inboundSchema),
+});
+
+export function advancePaymentFromJSON(
+  jsonString: string,
+): SafeParseResult<AdvancePayment, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => AdvancePayment$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AdvancePayment' from JSON`,
+  );
+}
 
 /** @internal */
 export const JournalEntryResponseDtoCurrency$inboundSchema: z.ZodMiniEnum<
@@ -228,6 +271,9 @@ export const JournalEntryResponseDto$inboundSchema: z.ZodMiniType<
   id: types.nullable(types.string()),
   accountId: types.nullable(types.string()),
   accountingPeriodId: types.nullable(types.string()),
+  advancePayment: z.optional(
+    z.nullable(z.lazy(() => AdvancePayment$inboundSchema)),
+  ),
   createdDate: types.nullable(types.string()),
   currency: types.nullable(JournalEntryResponseDtoCurrency$inboundSchema),
   debitCreditIndicator: z.optional(
@@ -239,10 +285,10 @@ export const JournalEntryResponseDto$inboundSchema: z.ZodMiniType<
   dueDate: z.optional(z.nullable(types.string())),
   exchangeRate: z.optional(z.nullable(types.string())),
   files: types.nullable(z.array(types.string())),
-  isProvisional: z.optional(z.nullable(types.boolean())),
-  journalCode: z.optional(z.nullable(types.string())),
+  isProvisional: types.nullable(types.boolean()),
+  journalCode: types.nullable(types.string()),
   journalLineItems: types.nullable(z.array(JournalLineItem$inboundSchema)),
-  journalType: z.optional(z.nullable(types.string())),
+  journalType: types.nullable(types.string()),
   number: types.nullable(types.string()),
   taxAssignmentDate: z.optional(z.nullable(types.string())),
   transactionDate: types.nullable(types.string()),
