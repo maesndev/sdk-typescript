@@ -34,7 +34,7 @@ generation:
     generateNewTests: true
     skipResponseBodyAssertions: false
 typescript:
-  version: 0.7.1
+  version: 0.8.0
   acceptHeaderEnum: false
   additionalDependencies:
     dependencies: {}
@@ -45,6 +45,7 @@ typescript:
       access: restricted
   additionalScripts: {}
   alwaysIncludeInboundAndOutbound: false
+  apiPromiseHelpers: false
   author: Speakeasy
   baseErrorName: MaesnError
   clientServerStatusCodesAsErrors: true
@@ -55,6 +56,7 @@ typescript:
   enableReactQuery: false
   enumFormat: union
   envVarPrefix: MAESN
+  eventStreamClassName: EventStream
   exportZodModelNamespace: false
   fixEnumNameSanitization: false
   flatAdditionalProperties: true
@@ -87,6 +89,7 @@ typescript:
   preApplyUnionDiscriminators: true
   preserveModelFieldNames: false
   privateIdentifierPrefix: '#'
+  requestExtras: false
   responseFormat: flat
   sseFlatResponse: false
   templateVersion: v2

@@ -18847,6 +18847,14 @@ components:
           type: string
         accountNumberLength:
           type: number
+        availableLedgers:
+          type: array
+          items:
+            type: string
+            enum:
+              - ACCOUNT_PAYABLE
+              - ACCOUNT_RECEIVABLE
+              - CASH_LEDGER
         chartOfAccount:
           type: string
           enum:
@@ -18873,6 +18881,7 @@ components:
       required:
         - id
         - accountNumberLength
+        - availableLedgers
         - chartOfAccount
         - createdDate
         - description

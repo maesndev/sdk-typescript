@@ -12,10 +12,10 @@ let value: GetFiscalYearResponse = {
     {
       id: "<id>",
       accountNumberLength: 2914.24,
-      chartOfAccount: "SKR04",
+      availableLedgers: [],
+      chartOfAccount: "SKR42",
       createdDate: "<value>",
-      description:
-        "costume membership weep ugh verve inasmuch ah access repossess from",
+      description: "carefully atop fooey chops",
       endDate: "<value>",
       startDate: "<value>",
       status: "OPEN",
