@@ -9,6 +9,13 @@ import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
+export const AvailableLedger = {
+  AccountPayable: "ACCOUNT_PAYABLE",
+  AccountReceivable: "ACCOUNT_RECEIVABLE",
+  CashLedger: "CASH_LEDGER",
+} as const;
+export type AvailableLedger = ClosedEnum<typeof AvailableLedger>;
+
 export const FiscalYearResponseDtoChartOfAccount = {
   Skr03: "SKR03",
   Skr04: "SKR04",
@@ -31,6 +38,7 @@ export type FiscalYearResponseDtoStatus = ClosedEnum<
 export type FiscalYearResponseDto = {
   id: string;
   accountNumberLength: number;
+  availableLedgers: Array<AvailableLedger>;
   chartOfAccount: FiscalYearResponseDtoChartOfAccount;
   createdDate: string;
   description: string;
@@ -39,6 +47,11 @@ export type FiscalYearResponseDto = {
   status: FiscalYearResponseDtoStatus;
   updatedDate: string;
 };
+
+/** @internal */
+export const AvailableLedger$inboundSchema: z.ZodMiniEnum<
+  typeof AvailableLedger
+> = z.enum(AvailableLedger);
 
 /** @internal */
 export const FiscalYearResponseDtoChartOfAccount$inboundSchema: z.ZodMiniEnum<
@@ -57,6 +70,7 @@ export const FiscalYearResponseDto$inboundSchema: z.ZodMiniType<
 > = z.object({
   id: types.string(),
   accountNumberLength: types.number(),
+  availableLedgers: z.array(AvailableLedger$inboundSchema),
   chartOfAccount: FiscalYearResponseDtoChartOfAccount$inboundSchema,
   createdDate: types.string(),
   description: types.string(),

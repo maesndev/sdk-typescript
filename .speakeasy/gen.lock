@@ -1,23 +1,23 @@
 lockVersion: 2.0.0
 id: b4a29653-32d8-43f6-ba1e-9aa569fce206
 management:
-  docChecksum: eb6fe02caea09145811d6ad27b134d42
+  docChecksum: 93916855e31facaed9c0c8c98b9d5fcd
   docVersion: "1.0"
-  speakeasyVersion: 1.770.0
-  generationVersion: 2.893.0
-  releaseVersion: 0.7.1
-  configChecksum: 117b8174556f7b4223583a3d4a70000a
+  speakeasyVersion: 1.777.2
+  generationVersion: 2.903.5
+  releaseVersion: 0.8.0
+  configChecksum: fb191c97d533f30380a9bca034b350d0
   repoURL: https://github.com/maesndev/sdk-typescript.git
   installationURL: https://github.com/maesndev/sdk-typescript
   published: true
 persistentEdits:
-  generation_id: 3c0df332-3a93-42b9-b3cd-e6897eb4e3c1
-  pristine_commit_hash: 43ec2fb78ec9451d4e2624be1f47467f298c0039
-  pristine_tree_hash: d74b7e312aba236a45a05d12a1dca4ec05bcedcb
+  generation_id: bf7ea129-5d7d-43d6-96f9-ab86d0465a69
+  pristine_commit_hash: 53d09c074bd71796e748bcaf968469632096681c
+  pristine_tree_hash: e78c333be99b8c4a5e3abce4a0d29883bd3305e9
 features:
   typescript:
     additionalDependencies: 0.1.0
-    core: 3.27.0
+    core: 3.31.1
     defaultEnabledRetries: 0.1.0
     devContainers: 2.90.1
     enumUnions: 0.1.0
@@ -146,6 +146,10 @@ trackedFiles:
     id: 0e9736f35ee8
     last_write_checksum: sha1:f9993ab6b870c8f02ee8814a12474d7084aa6908
     pristine_git_object: bd4986ff0c330f0a0fdcc0944435fad439cfaa3a
+  docs/models/available-ledger.md:
+    id: c0ba520eb472
+    last_write_checksum: sha1:581ac4966ac6dc674f8a7e4cc74b09c3281bdd59
+    pristine_git_object: 4686f6f7d7cf5c86f9f557db733c7c9a34f456c9
   docs/models/bank-account-request-common-dto-v2.md:
     id: 805920fc0221
     last_write_checksum: sha1:4228c1a2f3200970312adf14e2b6bf7db5190a67
@@ -876,8 +880,8 @@ trackedFiles:
     pristine_git_object: 5f7608bb0825cb762d32b7b18bc209e0cf9f69ff
   docs/models/fiscal-year-response-dto.md:
     id: cbc70286bfd0
-    last_write_checksum: sha1:9062bafcedfa43eec0ee9e5373438acf67158da8
-    pristine_git_object: 8bc00e29c80f564e8747509eb441ef73120eaa6e
+    last_write_checksum: sha1:af8b94d9fc231aa29109dba474b142921781ba13
+    pristine_git_object: 6842307bd146dd0d59353d9ab222a3721b1641d1
   docs/models/goods-receipt-line-item-response.md:
     id: f29fce236e1c
     last_write_checksum: sha1:2971f6cfd9c3010575a292d21b79d4da00c478d0
@@ -3196,8 +3200,8 @@ trackedFiles:
     pristine_git_object: 2d64c860d0f995d0c3813e97a88ff19f9bbaf855
   docs/models/operations/get-fiscal-year-response.md:
     id: 8a0c5dafce33
-    last_write_checksum: sha1:83ffc0ff6008079f89063ebef561ce1091ce9cc7
-    pristine_git_object: 53fd967272109b709ed04342c684817b6562278d
+    last_write_checksum: sha1:3f28797b5e5fef6c953b1a65cc0895c5b2a3b19f
+    pristine_git_object: 82f3d32210416851573c3c182ee880bcd86204ed
   docs/models/operations/get-fiscal-years-errors.md:
     id: abbb43f18660
     last_write_checksum: sha1:0f2ca807a8adf8cf8348d3ce1e0dc52d58e8cfa2
@@ -5520,12 +5524,12 @@ trackedFiles:
     pristine_git_object: 620f120672c2be3445356aaae6d877d4d89c43d5
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:a54c3f664f01acdbb7e0177bec455257674b3c8d
-    pristine_git_object: 67772b465a600db48511da97f528dec47f678219
+    last_write_checksum: sha1:d3e512db458775e7075582883e10e105534d7b0c
+    pristine_git_object: fc839c43dc78a41270fc3b6ad1f65f584073fe44
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:46d812402499d3b3c3a5f3a464cbc9807a650b86
-    pristine_git_object: dd5afe47789826ebd7744e31108356f283e4beaa
+    last_write_checksum: sha1:453da25ae23311cde252d84373db8d6f3440763a
+    pristine_git_object: 8897b3ccd10b01f195eea82deec5fa65cd18c75f
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:2eff2a6c77b0c787da6418de861acc36733c433a
@@ -6148,8 +6152,8 @@ trackedFiles:
     pristine_git_object: f60ec7acd76141a71d78008c5a362eb0236d8335
   src/hooks/types.ts:
     id: 2a02d86ec24f
-    last_write_checksum: sha1:27a3444c4839bec58ae89820fd8c2483edafc3f4
-    pristine_git_object: 9c36bf01332084f735909a71036c3544cc4c7e3a
+    last_write_checksum: sha1:8e6a1813e04a0a32009cb07e9772e4166658be1b
+    pristine_git_object: a6aa5a25df8f60887455e4b54399fe07b7abe095
   src/index.ts:
     id: c5fb850250c7
     last_write_checksum: sha1:35c9cde3ae14b18b3f893a1afe8b6c44f8760f24
@@ -6160,20 +6164,16 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:80ed581a13e569c6971754be601eda4b696d528b
-    pristine_git_object: a826b43851d3f49bbe4397461c1e829d646bcbb8
-  src/lib/dlv.ts:
-    id: b1988214835a
-    last_write_checksum: sha1:1dd3e3fbb4550c4bf31f5ef997faff355d6f3250
-    pristine_git_object: e81091f5e536f82739f71379b1fddc2d147c49e2
+    last_write_checksum: sha1:b4d20b3eeccd20afa792ea1364b7f41abba98298
+    pristine_git_object: 95eaaa00d129af965745ce52b2b26f402de54522
   src/lib/encodings.ts:
     id: 3bd8ead98afd
-    last_write_checksum: sha1:3e6784ec96431e0d8f98f67b3eae38d7b368264c
-    pristine_git_object: caeae5469fc8bd37da5aa7fd46d928eec5dc4b3a
+    last_write_checksum: sha1:7533dcb79b22b8c84ac7b90aec94317d12bad5f8
+    pristine_git_object: 194a5c58800befc83f6838020550f973eda549d9
   src/lib/env.ts:
     id: c52972a3b198
-    last_write_checksum: sha1:a379ddef6460f5617712be66fec9fc8ef8a2adcf
-    pristine_git_object: 585b46af3c812f10ce3b185b9a8fe3b60c2df885
+    last_write_checksum: sha1:0383fc55db4d69699508c82050eb0dbcc705d59b
+    pristine_git_object: e4dc7e0426bc839d9021acd27ccd18f729178d59
   src/lib/files.ts:
     id: e5efa54fcb95
     last_write_checksum: sha1:795c14026405d547bfc47012f7ad9666e530fa7f
@@ -6182,22 +6182,18 @@ trackedFiles:
     id: 63a80782d37e
     last_write_checksum: sha1:797cbf16d3c7c4d62d3ba0eedb08617524938457
     pristine_git_object: 13cf1fd7894a89f727b8d2db2ad24313a94f68c7
-  src/lib/is-plain-object.ts:
-    id: b9862591096a
-    last_write_checksum: sha1:df687f25a9590b6fd95d39df41a652ae3fd4e517
-    pristine_git_object: 61070d3d7c7e5e95b1ed7e7ea21869eb0767db77
   src/lib/logger.ts:
     id: 7ee7741a02bf
     last_write_checksum: sha1:0ec9d3a2a34c362746b767e4f9a746c055d57a7b
     pristine_git_object: d181f2937d4128afbe9b0327e0f81d1fa9c877b7
   src/lib/matchers.ts:
     id: d54b2253b719
-    last_write_checksum: sha1:dc6ab3db9078b89fcf86821bdbfe9b454450b771
-    pristine_git_object: 422d9077059b295fa32004cb6c1f3fe689e51c8c
+    last_write_checksum: sha1:854af1b722203c59f4f7a9b3a8138f84741217d1
+    pristine_git_object: 474d90ff0805f21f63d064a1a8d5eeb4c04ab538
   src/lib/primitives.ts:
     id: 74859f750b28
-    last_write_checksum: sha1:987869fc54790b9c22e9182099103d6aa7c67016
-    pristine_git_object: d21f1dc49affa4e6d324bdd60811b470fdfa7eb6
+    last_write_checksum: sha1:fe3abb7d6b61596e346873519bcec9b2eaa61467
+    pristine_git_object: 8ce65db0f7c0d6b68f5edc3ebf518121e284e954
   src/lib/retries.ts:
     id: b24a69d15639
     last_write_checksum: sha1:f3da74dffcbe2756c69393f8600205aa1dc06e68
@@ -6208,8 +6204,8 @@ trackedFiles:
     pristine_git_object: cf280491bf54dbd4d78e5c071c3b85cf5ca9e35e
   src/lib/sdks.ts:
     id: 8a6d91f1218d
-    last_write_checksum: sha1:4d9f6822198b077166ee0c3e00182a1e75c167af
-    pristine_git_object: 989458c196e65fe9534ec2838d6d17853dd4e3ee
+    last_write_checksum: sha1:03ff37f27a1ec95a2d615ee3ff3480eb562c736e
+    pristine_git_object: d5620042aafa37f173d60cc6a591056595102a1b
   src/lib/security.ts:
     id: 0502afa7922e
     last_write_checksum: sha1:1d7359985fe9fbb1fdcf7422b3d13103a9f119ed
@@ -6620,8 +6616,8 @@ trackedFiles:
     pristine_git_object: 83f3960349afd4182d73a8569a3cf35c0c802f7c
   src/models/fiscal-year-response-dto.ts:
     id: b8df1499eb90
-    last_write_checksum: sha1:3f95e7b380891c7af08bd628cb8f5b9321ed5884
-    pristine_git_object: 79dbd33c4e35d329fc369eb99669f1259e55af37
+    last_write_checksum: sha1:53ca34a6b6ab8b79ce6469728df6829e9ebac345
+    pristine_git_object: e74c649ea4ee107cec6f634e766740f1f1dff019
   src/models/goods-receipt-line-item-response.ts:
     id: 16efb14a8882
     last_write_checksum: sha1:5e2c41247e5daac15353830b1a34b025c524ced8
@@ -8807,4 +8803,7 @@ examples:
         "202":
           application/json: {"data": {"taskId": "<id>"}, "errors": {}, "rawData": null}
 examplesVersion: 1.0.2
-releaseNotes: "## Typescript SDK Changes:\n* `maesn.accounting.getCustomers()`:  `response.data[]` **Changed**\n* `maesn.accounting.createCustomer()`:  `response.data` **Changed**\n* `maesn.accounting.getCustomer()`:  `response.data` **Changed**\n* `maesn.accounting.updateCustomer()`:  `response.data` **Changed**\n* `maesn.accounting.patchCustomers()`:  `response.data` **Changed**\n* `maesn.accounting.getSuppliers()`:  `response.data[]` **Changed**\n* `maesn.accounting.createSupplier()`:  `response.data` **Changed**\n* `maesn.accounting.getSupplier()`:  `response.data` **Changed**\n* `maesn.accounting.updateSupplier()`:  `response.data` **Changed**\n* `maesn.accounting.patchSupplier()`:  `response.data` **Changed**\n* `maesn.accounting.createContacts()`:  `response.data.entries[]` **Changed**\n* `maesn.accounting.createContactsV1()`:  `response.data.entries[]` **Changed**\n* `maesn.accounting.getInvoices()`:  `response.data[]` **Changed**\n* `maesn.accounting.createInvoice()`:  `response.data` **Changed**\n* `maesn.accounting.getInvoice()`:  `response.data` **Changed**\n* `maesn.accounting.patchInvoice()`:  `response.data` **Changed**\n* `maesn.accounting.getLineItems()`:  `response.data[].taxCode` **Changed**\n* `maesn.accounting.createLineItem()`:  `response.data.taxCode` **Changed**\n* `maesn.accounting.getLineItem()`:  `response.data.taxCode` **Changed**\n* `maesn.accounting.patchLineItem()`:  `response.data.taxCode` **Changed**\n* `maesn.accounting.getJournalEntries()`:  `response.data[]` **Changed**\n* `maesn.accounting.createJournalEntry()`: \n  *  `request.body.journalEntry` **Changed**\n  *  `response.data` **Changed**\n* `maesn.accounting.getJournalEntry()`:  `response.data` **Changed**\n* `maesn.accounting.createJournalEntries()`: \n  *  `request.body.entries[].advancePayment` **Added**\n  *  `response.data.entries[]` **Changed**\n* `maesn.accounting.getJournalEntryAttachments()`:  `response.data[]` **Changed**\n* `maesn.accounting.createJournalEntryAttachments()`: \n  *  `request.companyId` **Added**\n  *  `response.data` **Changed**\n* `maesn.accounting.getJournalEntryAttachmentById()`:  `response.data` **Changed**\n* `maesn.accounting.getOffers()`:  `response.data[].contactId` **Changed**\n* `maesn.accounting.createOffer()`:  `response.data.contactId` **Changed**\n* `maesn.accounting.getOffer()`:  `response.data.contactId` **Changed**\n* `maesn.accounting.createExpense()`:  `response.data.expenseLines[].dimensions[].code` **Changed**\n* `maesn.accounting.getExpenses()`:  `response.data[].expenseLines[].dimensions[].code` **Changed**\n* `maesn.accounting.getExpense()`:  `response.data.expenseLines[].dimensions[].code` **Changed**\n* `maesn.accounting.getSalesOrders()`:  `response.data[].oneLineAddress` **Changed**\n* `maesn.accounting.createSalesOrder()`:  `response.data.oneLineAddress` **Changed**\n* `maesn.accounting.getSalesOrder()`:  `response.data.oneLineAddress` **Changed**\n* `maesn.accounting.getPayments()`:  `response.data[].paymentLines[]` **Changed**\n* `maesn.accounting.createPayment()`:  `response.data.paymentLines[]` **Changed**\n* `maesn.accounting.getPayment()`:  `response.data.paymentLines[]` **Changed**\n* `maesn.accounting.createBookingProposal()`:  `response.data.lineItems[].type` **Changed**\n* `maesn.accounting.getBookingProposals()`:  `response.data[].lineItems[].type` **Changed**\n* `maesn.accounting.getBookingProposal()`:  `response.data.lineItems[].type` **Changed**\n"
+releaseNotes: |
+  ## Typescript SDK Changes:
+  * `maesn.accounting.getFiscalYears()`:  `response.data[].availableLedgers` **Added**
+  * `maesn.accounting.getFiscalYear()`:  `response.data[].availableLedgers` **Added**

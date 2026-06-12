@@ -8,12 +8,13 @@ import { FiscalYearResponseDto } from "@maesn/typescript-sdk/models";
 let value: FiscalYearResponseDto = {
   id: "<id>",
   accountNumberLength: 3809.97,
-  chartOfAccount: "SKR51",
+  availableLedgers: [],
+  chartOfAccount: "SKR03",
   createdDate: "<value>",
-  description: "though gadzooks spiffy",
+  description: "pluck split bruised whose ick meh how sometimes",
   endDate: "<value>",
   startDate: "<value>",
-  status: "OPEN",
+  status: "CLOSED",
   updatedDate: "<value>",
 };
 ```
@@ -24,6 +25,7 @@ let value: FiscalYearResponseDto = {
 | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
 | `id`                                                                                                 | *string*                                                                                             | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
 | `accountNumberLength`                                                                                | *number*                                                                                             | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
+| `availableLedgers`                                                                                   | [models.AvailableLedger](../models/available-ledger.md)[]                                            | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
 | `chartOfAccount`                                                                                     | [models.FiscalYearResponseDtoChartOfAccount](../models/fiscal-year-response-dto-chart-of-account.md) | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
 | `createdDate`                                                                                        | *string*                                                                                             | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
 | `description`                                                                                        | *string*                                                                                             | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
