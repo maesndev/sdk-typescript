@@ -1,6 +1,10 @@
 {
   "name": "@maesn/typescript-sdk",
   "version": "0.8.0",
+  "homepage": "https://github.com/maesndev/sdk-typescript",
+  "bugs": {
+    "url": "https://github.com/maesndev/sdk-typescript/issues"
+  },
   "author": "Speakeasy",
   "publishConfig": {
     "access": "restricted"
@@ -55,9 +59,7 @@
     "build": "tsgo",
     "prepublishOnly": "npm run build"
   },
-  "peerDependencies": {
-    
-  },
+  "peerDependencies": {},
   "devDependencies": {
     "@typescript/native-preview": "7.0.0-dev.20260302.1",
     "oxlint": "^1.60.0",
