@@ -92,6 +92,7 @@ export type CreateInvoiceRequestDto = {
   paymentTermDuration?: number | undefined;
   paymentTermId?: string | undefined;
   reference?: string | undefined;
+  salesOrderId: string | null;
   shippingDate?: string | undefined;
   shippingType?: CreateInvoiceRequestDtoShippingType | undefined;
   shippingEndDate?: string | undefined;
@@ -142,6 +143,7 @@ export type CreateInvoiceRequestDto$Outbound = {
   paymentTermDuration?: number | undefined;
   paymentTermId?: string | undefined;
   reference?: string | undefined;
+  salesOrderId: string | null;
   shippingDate?: string | undefined;
   shippingType?: string | undefined;
   shippingEndDate?: string | undefined;
@@ -175,6 +177,7 @@ export const CreateInvoiceRequestDto$outboundSchema: z.ZodMiniType<
   paymentTermDuration: z.optional(z.number()),
   paymentTermId: z.optional(z.string()),
   reference: z.optional(z.string()),
+  salesOrderId: z.nullable(z.string()),
   shippingDate: z.optional(z.string()),
   shippingType: z.optional(CreateInvoiceRequestDtoShippingType$outboundSchema),
   shippingEndDate: z.optional(z.string()),

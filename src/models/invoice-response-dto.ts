@@ -108,6 +108,7 @@ export type InvoiceResponseDto = {
   paymentTermDuration: number | null;
   paymentTermId: string | null;
   reference: string | null;
+  salesOrderId: string | null;
   shippingDate: string | null;
   status: InvoiceResponseDtoStatus | null;
   sumNetAmount: number | null;
@@ -171,6 +172,7 @@ export const InvoiceResponseDto$inboundSchema: z.ZodMiniType<
   paymentTermDuration: types.nullable(types.number()),
   paymentTermId: types.nullable(types.string()),
   reference: types.nullable(types.string()),
+  salesOrderId: types.nullable(types.string()),
   shippingDate: types.nullable(types.string()),
   status: types.nullable(InvoiceResponseDtoStatus$inboundSchema),
   sumNetAmount: types.nullable(types.number()),

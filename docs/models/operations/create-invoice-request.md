@@ -13,6 +13,7 @@ let value: CreateInvoiceRequest = {
         quantity: 6737.1,
       },
     ],
+    salesOrderId: "<id>",
   },
 };
 ```
