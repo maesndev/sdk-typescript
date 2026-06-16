@@ -3,17 +3,17 @@ id: b4a29653-32d8-43f6-ba1e-9aa569fce206
 management:
   docChecksum: 93916855e31facaed9c0c8c98b9d5fcd
   docVersion: "1.0"
-  speakeasyVersion: 1.777.2
-  generationVersion: 2.903.5
-  releaseVersion: 0.8.0
-  configChecksum: fb191c97d533f30380a9bca034b350d0
+  speakeasyVersion: 1.778.0
+  generationVersion: 2.904.2
+  releaseVersion: 0.8.1
+  configChecksum: d4169edb02f8a396269c3bb05df17ee0
   repoURL: https://github.com/maesndev/sdk-typescript.git
   installationURL: https://github.com/maesndev/sdk-typescript
   published: true
 persistentEdits:
-  generation_id: bf7ea129-5d7d-43d6-96f9-ab86d0465a69
-  pristine_commit_hash: 53d09c074bd71796e748bcaf968469632096681c
-  pristine_tree_hash: e78c333be99b8c4a5e3abce4a0d29883bd3305e9
+  generation_id: cede1b2b-a93e-4647-b928-4e4f1452385c
+  pristine_commit_hash: 23e40673e0c7fc078c5a0af0ff595e730a1e6f0d
+  pristine_tree_hash: 1763da6a4921425d64be8b33ff9ef7cf211936e7
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -5524,12 +5524,12 @@ trackedFiles:
     pristine_git_object: 620f120672c2be3445356aaae6d877d4d89c43d5
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:d3e512db458775e7075582883e10e105534d7b0c
-    pristine_git_object: fc839c43dc78a41270fc3b6ad1f65f584073fe44
+    last_write_checksum: sha1:6ad4c6f0f7af5ea01a557331077244295485b957
+    pristine_git_object: f0c42f187a861a24eaffa4b2d25c0078373cd0f7
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:453da25ae23311cde252d84373db8d6f3440763a
-    pristine_git_object: 8897b3ccd10b01f195eea82deec5fa65cd18c75f
+    last_write_checksum: sha1:c9ba8ec6c7410b536e90bf7c875e88d8c1b29c52
+    pristine_git_object: b201fe0e504aa05ff18dc4e07217497fbd3c929d
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:2eff2a6c77b0c787da6418de861acc36733c433a
@@ -6164,8 +6164,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:b4d20b3eeccd20afa792ea1364b7f41abba98298
-    pristine_git_object: 95eaaa00d129af965745ce52b2b26f402de54522
+    last_write_checksum: sha1:cf387e196b65da2e94fc0daff1f16f733a6b34e7
+    pristine_git_object: ce32d4fde2d6a6fe5d73aad1a400b8ff3a2be1ba
   src/lib/encodings.ts:
     id: 3bd8ead98afd
     last_write_checksum: sha1:7533dcb79b22b8c84ac7b90aec94317d12bad5f8
@@ -8803,7 +8803,3 @@ examples:
         "202":
           application/json: {"data": {"taskId": "<id>"}, "errors": {}, "rawData": null}
 examplesVersion: 1.0.2
-releaseNotes: |
-  ## Typescript SDK Changes:
-  * `maesn.accounting.getFiscalYears()`:  `response.data[].availableLedgers` **Added**
-  * `maesn.accounting.getFiscalYear()`:  `response.data[].availableLedgers` **Added**

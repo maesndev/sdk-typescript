@@ -1,7 +1,8 @@
 {
   "name": "@maesn/typescript-sdk",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "author": "Speakeasy",
+  "license": "MIT",
   "publishConfig": {
     "access": "restricted"
   },

@@ -34,14 +34,14 @@ generation:
     generateNewTests: true
     skipResponseBodyAssertions: false
 typescript:
-  version: 0.8.0
+  version: 0.8.1
   acceptHeaderEnum: false
   additionalDependencies:
     dependencies: {}
     devDependencies: {}
     peerDependencies: {}
   additionalPackageJSON:
-    license: "MIT"
+    license: MIT
     publishConfig:
       access: restricted
   additionalScripts: {}
