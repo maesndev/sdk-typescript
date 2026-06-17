@@ -47,6 +47,27 @@ export type CreditNoteResponseDtoStatus = ClosedEnum<
   typeof CreditNoteResponseDtoStatus
 >;
 
+export const CreditNoteResponseDtoTaxRule = {
+  Net: "NET",
+  Taxfree: "TAXFREE",
+  IntracommunityGoods: "INTRACOMMUNITY_GOODS",
+  IntracommunityService: "INTRACOMMUNITY_SERVICE",
+  ExportService: "EXPORT_SERVICE",
+  ExportGoods: "EXPORT_GOODS",
+  ReverseCharge: "REVERSE_CHARGE",
+  Gross: "GROSS",
+  ConstructionService: "CONSTRUCTION_SERVICE",
+  PhotovoltaicEquipment: "PHOTOVOLTAIC_EQUIPMENT",
+  SmallBusinessExemption: "SMALL_BUSINESS_EXEMPTION",
+  NonDomesticService: "NON_DOMESTIC_SERVICE",
+  OssGoods: "OSS_GOODS",
+  OssElectronicServices: "OSS_ELECTRONIC_SERVICES",
+  OssServices: "OSS_SERVICES",
+} as const;
+export type CreditNoteResponseDtoTaxRule = ClosedEnum<
+  typeof CreditNoteResponseDtoTaxRule
+>;
+
 export type CreditNoteResponseDto = {
   id: string | null;
   addresses: Array<Address> | null;
@@ -60,6 +81,7 @@ export type CreditNoteResponseDto = {
   paymentTermId: string | null;
   reference: string | null;
   status: CreditNoteResponseDtoStatus | null;
+  taxRule: CreditNoteResponseDtoTaxRule | null;
   totalDiscountAmount: number | null;
   totalDiscountPercentage: number | null;
   totalGrossAmount: number | null;
@@ -77,6 +99,11 @@ export const CreditNoteResponseDtoPaymentStatus$inboundSchema: z.ZodMiniEnum<
 export const CreditNoteResponseDtoStatus$inboundSchema: z.ZodMiniEnum<
   typeof CreditNoteResponseDtoStatus
 > = z.enum(CreditNoteResponseDtoStatus);
+
+/** @internal */
+export const CreditNoteResponseDtoTaxRule$inboundSchema: z.ZodMiniEnum<
+  typeof CreditNoteResponseDtoTaxRule
+> = z.enum(CreditNoteResponseDtoTaxRule);
 
 /** @internal */
 export const CreditNoteResponseDto$inboundSchema: z.ZodMiniType<
@@ -97,6 +124,7 @@ export const CreditNoteResponseDto$inboundSchema: z.ZodMiniType<
   paymentTermId: types.nullable(types.string()),
   reference: types.nullable(types.string()),
   status: types.nullable(CreditNoteResponseDtoStatus$inboundSchema),
+  taxRule: types.nullable(CreditNoteResponseDtoTaxRule$inboundSchema),
   totalDiscountAmount: types.nullable(types.number()),
   totalDiscountPercentage: types.nullable(types.number()),
   totalGrossAmount: types.nullable(types.number()),

@@ -4,9 +4,18 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../lib/schemas.js";
+import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
+
+export const CreditNoteLinesDtoType = {
+  ServiceItem: "SERVICE_ITEM",
+  Material: "MATERIAL",
+  Custom: "CUSTOM",
+  Text: "TEXT",
+} as const;
+export type CreditNoteLinesDtoType = ClosedEnum<typeof CreditNoteLinesDtoType>;
 
 export type CreditNoteLinesDto = {
   id: string | null;
@@ -22,12 +31,18 @@ export type CreditNoteLinesDto = {
   totalGrossAmount: number | null;
   totalNetAmount: number | null;
   totalTaxAmount: number | null;
+  type: CreditNoteLinesDtoType | null;
   unitAmount: number | null;
   unitDiscountAmount: number | null;
   unitDiscountPercentage: number | null;
   unitName: string | null;
   updatedDate: string | null;
 };
+
+/** @internal */
+export const CreditNoteLinesDtoType$inboundSchema: z.ZodMiniEnum<
+  typeof CreditNoteLinesDtoType
+> = z.enum(CreditNoteLinesDtoType);
 
 /** @internal */
 export const CreditNoteLinesDto$inboundSchema: z.ZodMiniType<
@@ -47,6 +62,7 @@ export const CreditNoteLinesDto$inboundSchema: z.ZodMiniType<
   totalGrossAmount: types.nullable(types.number()),
   totalNetAmount: types.nullable(types.number()),
   totalTaxAmount: types.nullable(types.number()),
+  type: types.nullable(CreditNoteLinesDtoType$inboundSchema),
   unitAmount: types.nullable(types.number()),
   unitDiscountAmount: types.nullable(types.number()),
   unitDiscountPercentage: types.nullable(types.number()),

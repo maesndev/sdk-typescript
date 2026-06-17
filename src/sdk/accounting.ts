@@ -11,6 +11,7 @@ import { accountingCreateBookingProposal } from "../funcs/accounting-create-book
 import { accountingCreateContact } from "../funcs/accounting-create-contact.js";
 import { accountingCreateContactsV1 } from "../funcs/accounting-create-contacts-v1.js";
 import { accountingCreateContacts } from "../funcs/accounting-create-contacts.js";
+import { accountingCreateCreditNote } from "../funcs/accounting-create-credit-note.js";
 import { accountingCreateCustomer } from "../funcs/accounting-create-customer.js";
 import { accountingCreateEventSubscriptions } from "../funcs/accounting-create-event-subscriptions.js";
 import { accountingCreateExpenseAsync } from "../funcs/accounting-create-expense-async.js";
@@ -1315,6 +1316,17 @@ export class Accounting extends ClientSDK {
     options?: RequestOptions,
   ): Promise<operations.GetCreditNotesResponse> {
     return unwrapAsync(accountingGetCreditNotes(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  async createCreditNote(
+    request: operations.CreateCreditNoteRequest,
+    options?: RequestOptions,
+  ): Promise<operations.CreateCreditNoteResponse> {
+    return unwrapAsync(accountingCreateCreditNote(
       this,
       request,
       options,

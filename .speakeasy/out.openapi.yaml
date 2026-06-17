@@ -7054,6 +7054,40 @@ paths:
         statusCodes:
           - 5XX
         retryConnectionErrors: true
+    post:
+      operationId: createCreditNote
+      parameters:
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCreditNoteRequestDto'
+      responses:
+        "200":
+          description: Credit note created successfully
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BaseResponseDto'
+                  - properties:
+                      data:
+                        $ref: '#/components/schemas/CreditNoteResponseDto'
+      tags:
+        - accounting
   /accounting/creditNotes/{creditNoteId}:
     get:
       operationId: getCreditNote
@@ -18707,6 +18741,14 @@ components:
         totalTaxAmount:
           type: number
           nullable: true
+        type:
+          type: string
+          enum:
+            - SERVICE_ITEM
+            - MATERIAL
+            - CUSTOM
+            - TEXT
+          nullable: true
         unitAmount:
           type: number
           nullable: true
@@ -18736,6 +18778,7 @@ components:
         - totalGrossAmount
         - totalNetAmount
         - totalTaxAmount
+        - type
         - unitAmount
         - unitDiscountAmount
         - unitDiscountPercentage
@@ -18807,6 +18850,25 @@ components:
             - OVERDUE
             - VOIDED
           nullable: true
+        taxRule:
+          type: string
+          enum:
+            - NET
+            - TAXFREE
+            - INTRACOMMUNITY_GOODS
+            - INTRACOMMUNITY_SERVICE
+            - EXPORT_SERVICE
+            - EXPORT_GOODS
+            - REVERSE_CHARGE
+            - GROSS
+            - CONSTRUCTION_SERVICE
+            - PHOTOVOLTAIC_EQUIPMENT
+            - SMALL_BUSINESS_EXEMPTION
+            - NON_DOMESTIC_SERVICE
+            - OSS_GOODS
+            - OSS_ELECTRONIC_SERVICES
+            - OSS_SERVICES
+          nullable: true
         totalDiscountAmount:
           type: number
           nullable: true
@@ -18838,6 +18900,7 @@ components:
         - paymentTermId
         - reference
         - status
+        - taxRule
         - totalDiscountAmount
         - totalDiscountPercentage
         - totalGrossAmount
@@ -20809,6 +20872,129 @@ components:
           type: number
         totalTaxAmount:
           type: number
+    CreateCreditNoteLineItemRequestDto:
+      type: object
+      properties:
+        id:
+          type: string
+        description:
+          type: string
+        itemId:
+          type: string
+        itemName:
+          type: string
+        quantity:
+          type: number
+        taxCode:
+          type: string
+        taxRatePercentage:
+          type: number
+        totalDiscountAmount:
+          type: number
+        totalDiscountPercentage:
+          type: number
+        totalGrossAmount:
+          type: number
+        totalNetAmount:
+          type: number
+        totalTaxAmount:
+          type: number
+        type:
+          type: string
+          enum:
+            - SERVICE_ITEM
+            - MATERIAL
+            - CUSTOM
+            - TEXT
+        unitAmount:
+          type: number
+        unitDiscountAmount:
+          type: number
+        unitDiscountPercentage:
+          type: number
+        unitName:
+          type: string
+    CreateCreditNoteRequestDto:
+      type: object
+      properties:
+        addresses:
+          type: array
+          items:
+            $ref: '#/components/schemas/CreateAddress'
+        contactId:
+          type: string
+        creditNoteDate:
+          type: string
+        creditNoteLines:
+          type: array
+          items:
+            $ref: '#/components/schemas/CreateCreditNoteLineItemRequestDto'
+        creditNoteNumber:
+          type: string
+        currency:
+          type: string
+        paymentStatus:
+          type: string
+          enum:
+            - NO_OPEN_ITEM
+            - PENDING
+            - PARTLY_PAID
+            - PAID
+            - DEBITED
+            - CREDIT_NOTE_CLEARED
+            - CLEARED_WITH_CREDIT_NOTE
+            - BAD_DEBT
+            - PARTIAL_CANCELLATION
+            - CANCELED
+            - UNKNOWN
+        paymentTermId:
+          type: string
+        reference:
+          type: string
+        status:
+          type: string
+          enum:
+            - DRAFT
+            - CORRECTIVE
+            - SUBMITTED
+            - DOCUMENT_CREATED
+            - OPEN
+            - PARTIALLY_PAID
+            - PAID
+            - PARTIALLY_OVERDUE
+            - OVERDUE
+            - VOIDED
+        taxRule:
+          type: string
+          enum:
+            - NET
+            - TAXFREE
+            - INTRACOMMUNITY_GOODS
+            - INTRACOMMUNITY_SERVICE
+            - EXPORT_SERVICE
+            - EXPORT_GOODS
+            - REVERSE_CHARGE
+            - GROSS
+            - CONSTRUCTION_SERVICE
+            - PHOTOVOLTAIC_EQUIPMENT
+            - SMALL_BUSINESS_EXEMPTION
+            - NON_DOMESTIC_SERVICE
+            - OSS_GOODS
+            - OSS_ELECTRONIC_SERVICES
+            - OSS_SERVICES
+        totalDiscountAmount:
+          type: number
+        totalDiscountPercentage:
+          type: number
+        totalGrossAmount:
+          type: number
+        totalNetAmount:
+          type: number
+        totalTaxAmount:
+          type: number
+      required:
+        - creditNoteDate
+        - creditNoteLines
     BookingProposalAddressResponseDtoV2:
       type: object
       properties:

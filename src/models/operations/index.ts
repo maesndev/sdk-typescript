@@ -16,6 +16,7 @@ export * from "./create-contact-v2.js";
 export * from "./create-contact.js";
 export * from "./create-contacts-v1.js";
 export * from "./create-contacts.js";
+export * from "./create-credit-note.js";
 export * from "./create-customer.js";
 export * from "./create-end-user-account.js";
 export * from "./create-event-subscriptions.js";

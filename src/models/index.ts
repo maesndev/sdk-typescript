@@ -51,6 +51,8 @@ export * from "./create-contact-person-dto-v2.js";
 export * from "./create-contact-person.js";
 export * from "./create-contact-request-dto-v2.js";
 export * from "./create-contact-request-dto.js";
+export * from "./create-credit-note-line-item-request-dto.js";
+export * from "./create-credit-note-request-dto.js";
 export * from "./create-email-address.js";
 export * from "./create-end-user-request-dto.js";
 export * from "./create-event-subscription-request-dto.js";
