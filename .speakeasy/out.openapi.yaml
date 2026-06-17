@@ -10829,6 +10829,9 @@ components:
         reference:
           type: string
           nullable: true
+        salesOrderId:
+          type: string
+          nullable: true
         shippingDate:
           type: string
           nullable: true
@@ -10900,6 +10903,7 @@ components:
         - paymentTermDuration
         - paymentTermId
         - reference
+        - salesOrderId
         - shippingDate
         - status
         - sumNetAmount
@@ -20247,6 +20251,9 @@ components:
           type: string
         reference:
           type: string
+        salesOrderId:
+          type: string
+          nullable: true
         shippingDate:
           type: string
         shippingType:
@@ -20295,6 +20302,7 @@ components:
       required:
         - invoiceDate
         - lineItems
+        - salesOrderId
     PatchAddress:
       type: object
       properties:

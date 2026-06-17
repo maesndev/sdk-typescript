@@ -47,11 +47,12 @@ let value: InvoiceResponseDto = {
   paymentTermDuration: 9843.51,
   paymentTermId: "<id>",
   reference: "<value>",
-  shippingDate: null,
-  status: "VOIDED",
-  sumNetAmount: 4740.44,
-  taxRule: "INTRACOMMUNITY_GOODS",
-  totalAmount: 38.41,
+  salesOrderId: null,
+  shippingDate: "<value>",
+  status: "OVERDUE",
+  sumNetAmount: 1753.39,
+  taxRule: "CONSTRUCTION_SERVICE",
+  totalAmount: null,
   totalTaxAmount: 2516,
   updatedDate: "<value>",
 };
@@ -83,6 +84,7 @@ let value: InvoiceResponseDto = {
 | `paymentTermDuration`                                                                           | *number*                                                                                        | :heavy_check_mark:                                                                              | N/A                                                                                             |
 | `paymentTermId`                                                                                 | *string*                                                                                        | :heavy_check_mark:                                                                              | N/A                                                                                             |
 | `reference`                                                                                     | *string*                                                                                        | :heavy_check_mark:                                                                              | N/A                                                                                             |
+| `salesOrderId`                                                                                  | *string*                                                                                        | :heavy_check_mark:                                                                              | N/A                                                                                             |
 | `shippingDate`                                                                                  | *string*                                                                                        | :heavy_check_mark:                                                                              | N/A                                                                                             |
 | `status`                                                                                        | [models.InvoiceResponseDtoStatus](../models/invoice-response-dto-status.md)                     | :heavy_check_mark:                                                                              | N/A                                                                                             |
 | `sumNetAmount`                                                                                  | *number*                                                                                        | :heavy_check_mark:                                                                              | N/A                                                                                             |

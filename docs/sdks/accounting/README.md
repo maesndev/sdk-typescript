@@ -2216,6 +2216,7 @@ async function run() {
     body: {
       invoiceDate: "<value>",
       lineItems: [],
+      salesOrderId: "<id>",
     },
   });
 
@@ -2246,6 +2247,7 @@ async function run() {
     body: {
       invoiceDate: "<value>",
       lineItems: [],
+      salesOrderId: "<id>",
     },
   });
   if (res.ok) {

@@ -12,6 +12,7 @@ let value: CreateInvoiceRequestDto = {
       quantity: 6737.1,
     },
   ],
+  salesOrderId: "<id>",
 };
 ```
 
@@ -39,6 +40,7 @@ let value: CreateInvoiceRequestDto = {
 | `paymentTermDuration`                                                                               | *number*                                                                                            | :heavy_minus_sign:                                                                                  | N/A                                                                                                 |
 | `paymentTermId`                                                                                     | *string*                                                                                            | :heavy_minus_sign:                                                                                  | N/A                                                                                                 |
 | `reference`                                                                                         | *string*                                                                                            | :heavy_minus_sign:                                                                                  | N/A                                                                                                 |
+| `salesOrderId`                                                                                      | *string*                                                                                            | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
 | `shippingDate`                                                                                      | *string*                                                                                            | :heavy_minus_sign:                                                                                  | N/A                                                                                                 |
 | `shippingType`                                                                                      | [models.CreateInvoiceRequestDtoShippingType](../models/create-invoice-request-dto-shipping-type.md) | :heavy_minus_sign:                                                                                  | N/A                                                                                                 |
 | `shippingEndDate`                                                                                   | *string*                                                                                            | :heavy_minus_sign:                                                                                  | N/A                                                                                                 |
