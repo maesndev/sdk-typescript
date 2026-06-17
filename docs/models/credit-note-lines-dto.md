@@ -19,9 +19,10 @@ let value: CreditNoteLinesDto = {
   totalGrossAmount: 5342.95,
   totalNetAmount: 1148.71,
   totalTaxAmount: 5983.5,
-  unitAmount: 6718.31,
-  unitDiscountAmount: 4980.38,
-  unitDiscountPercentage: null,
+  type: "CUSTOM",
+  unitAmount: 4980.38,
+  unitDiscountAmount: null,
+  unitDiscountPercentage: 3395.01,
   unitName: "<value>",
   updatedDate: "<value>",
 };
@@ -29,23 +30,24 @@ let value: CreditNoteLinesDto = {
 
 ## Fields
 
-| Field                     | Type                      | Required                  | Description               |
-| ------------------------- | ------------------------- | ------------------------- | ------------------------- |
-| `id`                      | *string*                  | :heavy_check_mark:        | N/A                       |
-| `createdDate`             | *string*                  | :heavy_check_mark:        | N/A                       |
-| `description`             | *string*                  | :heavy_check_mark:        | N/A                       |
-| `itemId`                  | *string*                  | :heavy_check_mark:        | N/A                       |
-| `itemName`                | *string*                  | :heavy_check_mark:        | N/A                       |
-| `quantity`                | *number*                  | :heavy_check_mark:        | N/A                       |
-| `taxCode`                 | *string*                  | :heavy_check_mark:        | N/A                       |
-| `taxRatePercentage`       | *number*                  | :heavy_check_mark:        | N/A                       |
-| `totalDiscountAmount`     | *number*                  | :heavy_check_mark:        | N/A                       |
-| `totalDiscountPercentage` | *number*                  | :heavy_check_mark:        | N/A                       |
-| `totalGrossAmount`        | *number*                  | :heavy_check_mark:        | N/A                       |
-| `totalNetAmount`          | *number*                  | :heavy_check_mark:        | N/A                       |
-| `totalTaxAmount`          | *number*                  | :heavy_check_mark:        | N/A                       |
-| `unitAmount`              | *number*                  | :heavy_check_mark:        | N/A                       |
-| `unitDiscountAmount`      | *number*                  | :heavy_check_mark:        | N/A                       |
-| `unitDiscountPercentage`  | *number*                  | :heavy_check_mark:        | N/A                       |
-| `unitName`                | *string*                  | :heavy_check_mark:        | N/A                       |
-| `updatedDate`             | *string*                  | :heavy_check_mark:        | N/A                       |
+| Field                                                                    | Type                                                                     | Required                                                                 | Description                                                              |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
+| `id`                                                                     | *string*                                                                 | :heavy_check_mark:                                                       | N/A                                                                      |
+| `createdDate`                                                            | *string*                                                                 | :heavy_check_mark:                                                       | N/A                                                                      |
+| `description`                                                            | *string*                                                                 | :heavy_check_mark:                                                       | N/A                                                                      |
+| `itemId`                                                                 | *string*                                                                 | :heavy_check_mark:                                                       | N/A                                                                      |
+| `itemName`                                                               | *string*                                                                 | :heavy_check_mark:                                                       | N/A                                                                      |
+| `quantity`                                                               | *number*                                                                 | :heavy_check_mark:                                                       | N/A                                                                      |
+| `taxCode`                                                                | *string*                                                                 | :heavy_check_mark:                                                       | N/A                                                                      |
+| `taxRatePercentage`                                                      | *number*                                                                 | :heavy_check_mark:                                                       | N/A                                                                      |
+| `totalDiscountAmount`                                                    | *number*                                                                 | :heavy_check_mark:                                                       | N/A                                                                      |
+| `totalDiscountPercentage`                                                | *number*                                                                 | :heavy_check_mark:                                                       | N/A                                                                      |
+| `totalGrossAmount`                                                       | *number*                                                                 | :heavy_check_mark:                                                       | N/A                                                                      |
+| `totalNetAmount`                                                         | *number*                                                                 | :heavy_check_mark:                                                       | N/A                                                                      |
+| `totalTaxAmount`                                                         | *number*                                                                 | :heavy_check_mark:                                                       | N/A                                                                      |
+| `type`                                                                   | [models.CreditNoteLinesDtoType](../models/credit-note-lines-dto-type.md) | :heavy_check_mark:                                                       | N/A                                                                      |
+| `unitAmount`                                                             | *number*                                                                 | :heavy_check_mark:                                                       | N/A                                                                      |
+| `unitDiscountAmount`                                                     | *number*                                                                 | :heavy_check_mark:                                                       | N/A                                                                      |
+| `unitDiscountPercentage`                                                 | *number*                                                                 | :heavy_check_mark:                                                       | N/A                                                                      |
+| `unitName`                                                               | *string*                                                                 | :heavy_check_mark:                                                       | N/A                                                                      |
+| `updatedDate`                                                            | *string*                                                                 | :heavy_check_mark:                                                       | N/A                                                                      |
