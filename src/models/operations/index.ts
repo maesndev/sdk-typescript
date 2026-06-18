@@ -91,6 +91,7 @@ export * from "./get-invoice.js";
 export * from "./get-invoices.js";
 export * from "./get-item.js";
 export * from "./get-items.js";
+export * from "./get-journal-entries-async.js";
 export * from "./get-journal-entries.js";
 export * from "./get-journal-entry-attachment-by-id.js";
 export * from "./get-journal-entry-attachments.js";

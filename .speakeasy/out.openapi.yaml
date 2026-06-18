@@ -2940,6 +2940,57 @@ paths:
                         $ref: '#/components/schemas/JournalEntryResponseDto'
       tags:
         - accounting
+  /accounting/journalEntries/async:
+    get:
+      operationId: getJournalEntriesAsync
+      parameters:
+        - name: environmentName
+          required: false
+          in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
+          schema:
+            type: string
+        - name: companyId
+          required: false
+          in: query
+          description: ID of the company (required for multi-company target systems)
+          schema:
+            type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
+      responses:
+        "202":
+          description: Journal entries fetch queued successfully. Processed asynchronously and returns 202 with taskId.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BaseResponseDto'
+                  - properties:
+                      data:
+                        $ref: '#/components/schemas/TaskIdResponseDto'
+      tags:
+        - accounting
+      x-speakeasy-retries:
+        strategy: backoff
+        backoff:
+          initialInterval: 500
+          maxInterval: 60000
+          maxElapsedTime: 3600000
+          exponent: 1.5
+        statusCodes:
+          - 5XX
+        retryConnectionErrors: true
   /accounting/journalEntries/{journalEntryId}:
     get:
       operationId: getJournalEntry

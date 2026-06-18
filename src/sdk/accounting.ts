@@ -69,6 +69,7 @@ import { accountingGetInvoice } from "../funcs/accounting-get-invoice.js";
 import { accountingGetInvoices } from "../funcs/accounting-get-invoices.js";
 import { accountingGetItem } from "../funcs/accounting-get-item.js";
 import { accountingGetItems } from "../funcs/accounting-get-items.js";
+import { accountingGetJournalEntriesAsync } from "../funcs/accounting-get-journal-entries-async.js";
 import { accountingGetJournalEntries } from "../funcs/accounting-get-journal-entries.js";
 import { accountingGetJournalEntryAttachmentById } from "../funcs/accounting-get-journal-entry-attachment-by-id.js";
 import { accountingGetJournalEntryAttachments } from "../funcs/accounting-get-journal-entry-attachments.js";
@@ -623,6 +624,17 @@ export class Accounting extends ClientSDK {
     options?: RequestOptions,
   ): Promise<operations.CreateJournalEntryResponse> {
     return unwrapAsync(accountingCreateJournalEntry(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  async getJournalEntriesAsync(
+    request?: operations.GetJournalEntriesAsyncRequest | undefined,
+    options?: RequestOptions,
+  ): Promise<operations.GetJournalEntriesAsyncResponse> {
+    return unwrapAsync(accountingGetJournalEntriesAsync(
       this,
       request,
       options,
