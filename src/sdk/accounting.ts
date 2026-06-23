@@ -49,6 +49,7 @@ import { accountingGetBookingProposal } from "../funcs/accounting-get-booking-pr
 import { accountingGetBookingProposals } from "../funcs/accounting-get-booking-proposals.js";
 import { accountingGetContact } from "../funcs/accounting-get-contact.js";
 import { accountingGetContacts } from "../funcs/accounting-get-contacts.js";
+import { accountingGetCreditNoteDocuments } from "../funcs/accounting-get-credit-note-documents.js";
 import { accountingGetCreditNote } from "../funcs/accounting-get-credit-note.js";
 import { accountingGetCreditNotes } from "../funcs/accounting-get-credit-notes.js";
 import { accountingGetCustomer } from "../funcs/accounting-get-customer.js";
@@ -1350,6 +1351,17 @@ export class Accounting extends ClientSDK {
     options?: RequestOptions,
   ): Promise<operations.GetCreditNoteResponse> {
     return unwrapAsync(accountingGetCreditNote(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  async getCreditNoteDocuments(
+    request: operations.GetCreditNoteDocumentsRequest,
+    options?: RequestOptions,
+  ): Promise<operations.GetCreditNoteDocumentsResponse> {
+    return unwrapAsync(accountingGetCreditNoteDocuments(
       this,
       request,
       options,

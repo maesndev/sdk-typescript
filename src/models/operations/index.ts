@@ -67,6 +67,7 @@ export * from "./get-contact-v2.js";
 export * from "./get-contact.js";
 export * from "./get-contacts-v2.js";
 export * from "./get-contacts.js";
+export * from "./get-credit-note-documents.js";
 export * from "./get-credit-note.js";
 export * from "./get-credit-notes.js";
 export * from "./get-customer.js";

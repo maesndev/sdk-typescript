@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: b4a29653-32d8-43f6-ba1e-9aa569fce206
 management:
-  docChecksum: 787e718e762a6f3fdfd024c81a6b50f9
+  docChecksum: 7864e928b725f19447625d8c2747371c
   docVersion: "1.0"
-  speakeasyVersion: 1.783.1
-  generationVersion: 2.910.1
-  releaseVersion: 0.8.4
-  configChecksum: b1cf45e4fe7df392c6953c7f0664af71
+  speakeasyVersion: 1.784.0
+  generationVersion: 2.911.0
+  releaseVersion: 0.8.5
+  configChecksum: 53096d58d17d9bc502aacaab3ad3f544
   repoURL: https://github.com/maesndev/sdk-typescript.git
   installationURL: https://github.com/maesndev/sdk-typescript
   published: true
 persistentEdits:
-  generation_id: 28126377-d77a-4c79-81d0-37b8d629c818
-  pristine_commit_hash: bf1d4150333880bb7297154244a1ab35b7fc3f24
-  pristine_tree_hash: bff51a9efe5c71fc0dea52fc05d4202be99ca907
+  generation_id: c734fd96-9d95-4407-bade-4c6b80831f52
+  pristine_commit_hash: 1333653c6a2f7652161c6f29abc9dec90dbfab1e
+  pristine_tree_hash: c06e1be1beb6416275e0ea3ee952fd221cc428a7
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -2866,6 +2866,34 @@ trackedFiles:
     id: fea6e90e3da3
     last_write_checksum: sha1:0ce8ff43ddbfc745b746aa388ff059e51aac0013
     pristine_git_object: d20562cc481ee67f482649cc405288b0d3ecf952
+  docs/models/operations/get-credit-note-documents-errors.md:
+    id: f39cda7b70e3
+    last_write_checksum: sha1:65c4e3f10229dfb9703eb6e5d16b53623c57ecca
+    pristine_git_object: 99f94fc0f3c293b58c117e63492452e8426ce7db
+  docs/models/operations/get-credit-note-documents-globals.md:
+    id: 5d261870719f
+    last_write_checksum: sha1:53eaa0182319fff7d8cced98ea5f9629037be161
+    pristine_git_object: 4a2eaf214d615234b8b03c67bdcdcfb1c677988a
+  docs/models/operations/get-credit-note-documents-meta.md:
+    id: 426126486dd3
+    last_write_checksum: sha1:d8a0a3d613c5a30a1da8a1640fe37da9fb24306e
+    pristine_git_object: 1a3319b6b77aec6d776789eeb00c012a53e00307
+  docs/models/operations/get-credit-note-documents-pagination.md:
+    id: 58278a2ded75
+    last_write_checksum: sha1:3e4bd82414d8df21f761063cf80167a3bcb95a17
+    pristine_git_object: 1ed77465ba4362e693cef3d2ddaa06c86dd1f490
+  docs/models/operations/get-credit-note-documents-raw-data.md:
+    id: 594cd464fcd3
+    last_write_checksum: sha1:68b86b1afc85b23e0137b9806e56842a643e745f
+    pristine_git_object: 12bfa1eb996df44c4298c70b517086c13f23bd41
+  docs/models/operations/get-credit-note-documents-request.md:
+    id: 9a43a8dee2e8
+    last_write_checksum: sha1:a70d8b3a3af80175ad2f817d5e6863a424fef8df
+    pristine_git_object: ebb630614909538c3f7c8c960c662feedb7a8c61
+  docs/models/operations/get-credit-note-documents-response.md:
+    id: a622ccc20986
+    last_write_checksum: sha1:a8248fb05057be152182094043c5d6b05dff7d43
+    pristine_git_object: db9c5a67880c45774e2ed7e5c3461f1172bd79a0
   docs/models/operations/get-credit-note-errors.md:
     id: 66c5219da96a
     last_write_checksum: sha1:27f99b9dd10f337af636a4836e21be1e5b9a3ed5
@@ -5564,8 +5592,8 @@ trackedFiles:
     pristine_git_object: 22dd5f08bac5ea8e40e42de4ebb0a5876ef875c5
   docs/sdks/accounting/README.md:
     id: 6abb8976ed95
-    last_write_checksum: sha1:ecb071ef90463b6924e77bb25c5bc2adcd230de3
-    pristine_git_object: e4d3e61d3c21974061991003b061290fb4deeefa
+    last_write_checksum: sha1:8889dad9f9b53a96e46c3327ea7b28e962f3a206
+    pristine_git_object: 0ad37333ea2972a7dd3ea222b03068e6ca8d139f
   docs/sdks/accountingv2/README.md:
     id: 24a9f287e358
     last_write_checksum: sha1:765e4f7e309c786a09d025f9fa47c5fef1d973a2
@@ -5612,12 +5640,12 @@ trackedFiles:
     pristine_git_object: 620f120672c2be3445356aaae6d877d4d89c43d5
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:8eaf87d6dc11041ba92a551758f50781c6389159
-    pristine_git_object: 23eaa3983bc2c68c0389d60c89d4b9c65ff35883
+    last_write_checksum: sha1:81aaea754430c4009e2a3159bda6e1758fe4bfda
+    pristine_git_object: 8a18bc50d5ab9da17b0eb1484cf5dc5d26daf7f0
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:38ebb9e6fd8816efc633ae4d9cf278688db1f69a
-    pristine_git_object: 24e7d6a7bea6d9465653e6c456c5d7eaa765d1ee
+    last_write_checksum: sha1:7857efb7dd5e21b73bb29258bfd1ba5ab2a048cf
+    pristine_git_object: cacbf46d3d156bbe962cc8ad37f787c7e3c8437a
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:2eff2a6c77b0c787da6418de861acc36733c433a
@@ -5810,6 +5838,10 @@ trackedFiles:
     id: f70cf8339e31
     last_write_checksum: sha1:903805f9bbd44cb79d2731bfb67ad71c19cc6e5a
     pristine_git_object: 4ff2afe4518e662f32d272d08279afa3cce6aaa7
+  src/funcs/accounting-get-credit-note-documents.ts:
+    id: 0cc39db30422
+    last_write_checksum: sha1:32ef1327dc96adc4f66b3cfe6c60e282ac854981
+    pristine_git_object: 601ab9cf06a28b21e5710250b38fb761892970ee
   src/funcs/accounting-get-credit-note.ts:
     id: 8235fd497364
     last_write_checksum: sha1:69235ab10999b0420863072ec16c197ba6ca5201
@@ -6260,8 +6292,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:59aa91c1c208e158724530eb1dbb970eb0dfaf9e
-    pristine_git_object: a0471b50709281ef86aabca1925a76b456593005
+    last_write_checksum: sha1:ebd2504c23109ef1aed80c75c44f2f2a158caf0f
+    pristine_git_object: 1a131aad1a6469519a813338424a061d35876efc
   src/lib/encodings.ts:
     id: 3bd8ead98afd
     last_write_checksum: sha1:7533dcb79b22b8c84ac7b90aec94317d12bad5f8
@@ -7062,6 +7094,10 @@ trackedFiles:
     id: 37b97cc0d046
     last_write_checksum: sha1:409a4b44533706904b2e3e7f00d33460ce6dc8e5
     pristine_git_object: 0c8d79357baaa3d9eff9d0197d5b18705480b702
+  src/models/operations/get-credit-note-documents.ts:
+    id: 121cfc06ceb9
+    last_write_checksum: sha1:18fe4cd0c8615306ec7f71f9c15567c3b78d9c81
+    pristine_git_object: 9fa5ae9f2b2622efcba3fb991b0c65d83ba53718
   src/models/operations/get-credit-note.ts:
     id: 31ea829c1c5e
     last_write_checksum: sha1:cf320c25b189155ae47de90663cb2c3458ea3e98
@@ -7340,8 +7376,8 @@ trackedFiles:
     pristine_git_object: 280f1620aebacc2c71e8145432da2a8d8076a896
   src/models/operations/index.ts:
     id: 0d9ffaf774d2
-    last_write_checksum: sha1:0eadc9e0ffc49b975f441e821745d498c2a854f7
-    pristine_git_object: c99c9432e82f28068554e26397bdfb2a0573525d
+    last_write_checksum: sha1:a04f21d7e3f50412587be71f3e4e525883b31e1d
+    pristine_git_object: 6398dcba9e0cfe9d1472e453b154a4f546535c63
   src/models/operations/patch-contact-v2.ts:
     id: 645bafde5f35
     last_write_checksum: sha1:906ae3cebc20c7b3a07de8645ea49ec636a38e61
@@ -7564,8 +7600,8 @@ trackedFiles:
     pristine_git_object: 375dba6308060ba4fc099050048b93c9303fd5f2
   src/sdk/accounting.ts:
     id: e0128a734bc9
-    last_write_checksum: sha1:2f19e9be2badf9cd4480dc7db5901df6b7fe0642
-    pristine_git_object: 16265417716ce8cdcdbab01d600fe377ff692edd
+    last_write_checksum: sha1:82cde964e42132731651de30269a3a6f0d26a3ad
+    pristine_git_object: 8e1c480bc42646c2272e11fda84491de1e11c30e
   src/sdk/auth.ts:
     id: b29b1fc6bdf5
     last_write_checksum: sha1:9b8371badc23b9d6dc6c37c1294c2c774c356c9f
@@ -8926,7 +8962,15 @@ examples:
       responses:
         "202":
           application/json: {"data": {"taskId": "<id>"}, "errors": {}, "rawData": {}}
+  getCreditNoteDocuments:
+    speakeasy-default-get-credit-note-documents:
+      parameters:
+        path:
+          creditNoteId: "<id>"
+      responses:
+        "200":
+          application/json: {"data": [{"id": "<id>", "base64Encoded": true, "content": "<value>", "contentType": "<value>", "fileName": "example.file"}], "errors": null, "rawData": {}}
 examplesVersion: 1.0.2
 releaseNotes: |
   ## Typescript SDK Changes:
-  * `maesn.accounting.getJournalEntriesAsync()`: **Added**
+  * `maesn.accounting.getCreditNoteDocuments()`: **Added**
