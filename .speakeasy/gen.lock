@@ -1,23 +1,23 @@
 lockVersion: 2.0.0
 id: b4a29653-32d8-43f6-ba1e-9aa569fce206
 management:
-  docChecksum: 7864e928b725f19447625d8c2747371c
+  docChecksum: 79ede930fa67f7e735a4af7934afc068
   docVersion: "1.0"
-  speakeasyVersion: 1.784.0
-  generationVersion: 2.911.0
-  releaseVersion: 0.8.5
-  configChecksum: 53096d58d17d9bc502aacaab3ad3f544
+  speakeasyVersion: 1.785.0
+  generationVersion: 2.912.1
+  releaseVersion: 0.8.6
+  configChecksum: 5f7af287d598f736cd3ad655a9484c29
   repoURL: https://github.com/maesndev/sdk-typescript.git
   installationURL: https://github.com/maesndev/sdk-typescript
   published: true
 persistentEdits:
-  generation_id: c734fd96-9d95-4407-bade-4c6b80831f52
-  pristine_commit_hash: 1333653c6a2f7652161c6f29abc9dec90dbfab1e
-  pristine_tree_hash: c06e1be1beb6416275e0ea3ee952fd221cc428a7
+  generation_id: 9a199408-30c0-43ce-89eb-4baa1e56a021
+  pristine_commit_hash: 66791b0d8ff5e0846851ddaaf63a7956dcd24b03
+  pristine_tree_hash: 0719560d943a29015261afc1b6bb9d5b0325389f
 features:
   typescript:
     additionalDependencies: 0.1.0
-    core: 3.31.1
+    core: 3.31.2
     defaultEnabledRetries: 0.1.0
     devContainers: 2.90.1
     enumUnions: 0.1.0
@@ -212,8 +212,8 @@ trackedFiles:
     pristine_git_object: f60f029e08b1f120f33800fb690d7f3662256e17
   docs/models/bill-response-dto.md:
     id: 87ad5993b9ed
-    last_write_checksum: sha1:b7b5c609bc53f7c2eb64b5dffa44d7e500d7c6c0
-    pristine_git_object: 4749b653eb7fd96af63322ccb2e5bba0623ee1d9
+    last_write_checksum: sha1:bdbaeeec74525d9cb040fc555c340357e316a6a1
+    pristine_git_object: 4d7df6e11f51ce997859d4e0fd5bab0c4e14b4d5
   docs/models/body.md:
     id: 3612a7201bb5
     last_write_checksum: sha1:1e0d283834c9cb52b8cccd4ee01b4397b5392181
@@ -636,8 +636,8 @@ trackedFiles:
     pristine_git_object: f606a1980dfe0dc265f53ea6434c5ce9ac308458
   docs/models/create-journal-line-item.md:
     id: 67df814bad95
-    last_write_checksum: sha1:e9af1e5bafcf14abda9fb56b2607726899bc9e73
-    pristine_git_object: c5dbdb32cdcaad4e61c952db70eb8c5661e21ccf
+    last_write_checksum: sha1:73181be753529fe26d6194f476fa2cf9d3236400
+    pristine_git_object: d266d758e592c6df00b4927dd1e6e80e4e6f5e0e
   docs/models/create-line-item-request-dto.md:
     id: d37047e399bb
     last_write_checksum: sha1:a0ed2993ae995a88afe3fd2605d14d40c507a0da
@@ -976,8 +976,8 @@ trackedFiles:
     pristine_git_object: c7a67d0ab9762c8d0c9085427999f5241271b942
   docs/models/journal-entries-by-batch-meta-data-response-dto.md:
     id: de3ca8600866
-    last_write_checksum: sha1:fef86bf68e9c3fa2e5ea78af3cc033b838c9c5df
-    pristine_git_object: fb0b439d3325a59eaa23bc39896c40fa8ff4f7b0
+    last_write_checksum: sha1:01659c55dd7f6df371ce34a99f047b1185f79700
+    pristine_git_object: c7308e6ea11e72fbf0d1e7b9e3fd6e62cc2f41af
   docs/models/journal-entry-response-dto-currency.md:
     id: 3a41950af342
     last_write_checksum: sha1:1962fcfd38ce0a301e9ee1653326d36442a2853d
@@ -1008,8 +1008,8 @@ trackedFiles:
     pristine_git_object: 864559b1484463773facc6ed460b72ef6266994d
   docs/models/journal-line-item.md:
     id: b95ea232b87e
-    last_write_checksum: sha1:77e477e3e6c4cd73366c2b867a0f35d28eda58e0
-    pristine_git_object: be98811ffd7943f4eba940694ff98cd51d1d3b24
+    last_write_checksum: sha1:7d6964556742f6d95db838aea993bbdcfd7c2ee0
+    pristine_git_object: c64da786f31c2c7d6322093f5d1f934afca67045
   docs/models/journal-response-dto.md:
     id: 6e9ca5249367
     last_write_checksum: sha1:7d51283a3d64aea66812f8ac79697f4c69d923e4
@@ -1240,8 +1240,8 @@ trackedFiles:
     pristine_git_object: d6f6cad3a4018302b6c04d6f88b60cc04497fe99
   docs/models/operations/create-bill-response.md:
     id: 69f5ddc1c663
-    last_write_checksum: sha1:b0279f670ae5df4febf38c3ebde2c4ff04281b99
-    pristine_git_object: 8cbd655a1270cd817e9c8bca1fcd208c4d48cfcc
+    last_write_checksum: sha1:c70531b31252c1533487cd80ddcc20635769584d
+    pristine_git_object: 48796b7cb67bf534718bcc280cf89b2d520c393a
   docs/models/operations/create-booking-proposal-async-booking-type.md:
     id: 1c2c66d910b7
     last_write_checksum: sha1:2de8ed87e213c33002c99660f3d78c0e79bbce8d
@@ -1772,8 +1772,8 @@ trackedFiles:
     pristine_git_object: 835411b6e60dfe1365dc625423f183198130f364
   docs/models/operations/create-journal-entry-attachments-response.md:
     id: 75ab0398b55a
-    last_write_checksum: sha1:fb75a1a6f6804953e0d274925f38fc8f95ff4472
-    pristine_git_object: 17bdfda003d7f1a07a27dc8d8cd902cf739ca885
+    last_write_checksum: sha1:1c2debcb743d7b7fc351c8d5e3dadbe579ba01eb
+    pristine_git_object: d98ee28240b8ce8f86eb5365e8a14be0af51d262
   docs/models/operations/create-journal-entry-errors.md:
     id: a12981dc956e
     last_write_checksum: sha1:d8c330f56f214d1a054a3dbe724df8f4690094bf
@@ -1808,8 +1808,8 @@ trackedFiles:
     pristine_git_object: 2921d610e92fe94dea4f1f6a48776774d8b66777
   docs/models/operations/create-journal-entry-response.md:
     id: f4a216496f57
-    last_write_checksum: sha1:c2685f07367721bbab9754d23db43d8d28ec357b
-    pristine_git_object: 3bcf150544a41083f2decba0acc60d25ce5a018d
+    last_write_checksum: sha1:b88bb0e4d557cdfc5baee5fc22b77f634bebc7ef
+    pristine_git_object: 173d23a48701227370245b32e98af2458becf19c
   docs/models/operations/create-line-item-errors.md:
     id: 769656c9b916
     last_write_checksum: sha1:9282ee7ef7cddda3bdadf86e059bc457cd4beae7
@@ -2544,8 +2544,8 @@ trackedFiles:
     pristine_git_object: 17ff8e39f64e5ad705ffd9a6b997ec49efe44e84
   docs/models/operations/get-bill-response.md:
     id: c6fe24a35605
-    last_write_checksum: sha1:a33d36958389d34c8e3468ee7494b97d9f91ea61
-    pristine_git_object: 501e6597efd7fc1044a813d6d3468d41c06721ad
+    last_write_checksum: sha1:e8e8fd442ac4825f084505f42e62671c145c569c
+    pristine_git_object: 10b58bbbd25b8d555124fafcc2f858dcdb852935
   docs/models/operations/get-bills-errors.md:
     id: 563087dd840e
     last_write_checksum: sha1:d6b7b87f0407ed4328e16b254dec7995be976084
@@ -2802,6 +2802,34 @@ trackedFiles:
     id: bf620a1f3fe1
     last_write_checksum: sha1:0be1871e55f524e3244ecb45c6165243e4fe9416
     pristine_git_object: 2b848d2074020501d2b45ea631621fe2081b3d18
+  docs/models/operations/get-contacts-async-errors.md:
+    id: aa43543e800f
+    last_write_checksum: sha1:f49ca156669636219256cd3570df0387c1239b5b
+    pristine_git_object: a992965fbdb64569d2ce1e9509501657ad8b32cd
+  docs/models/operations/get-contacts-async-globals.md:
+    id: caa7946cfd59
+    last_write_checksum: sha1:148931bf49da03d7d397c9de940a14cafe7020d7
+    pristine_git_object: e92986341c64d9bdebe1f86df3a8413c52463287
+  docs/models/operations/get-contacts-async-meta.md:
+    id: b4e3e6ac9234
+    last_write_checksum: sha1:f1d6c15c17313d86e6bf37d2277b8570ae6a4c12
+    pristine_git_object: 655e6e4587b4b80bb6d29a0e7e50ca0b635cdf67
+  docs/models/operations/get-contacts-async-pagination.md:
+    id: bb80c339550f
+    last_write_checksum: sha1:33c5d13db227aef187c12518b8da0281cdbd5165
+    pristine_git_object: a1c46c3ba7496211dd96b36e7d3578c42254c8a4
+  docs/models/operations/get-contacts-async-raw-data.md:
+    id: 1b13aaccce81
+    last_write_checksum: sha1:08f11d72b4e429fc6bfa9c68a55906341a6e5697
+    pristine_git_object: 30efd46117771aa63a2e81f547f3edb7bd3c4582
+  docs/models/operations/get-contacts-async-request.md:
+    id: 14d58233b96d
+    last_write_checksum: sha1:beac570a8d7e7f72ca4d06996bd505eb5c3196b3
+    pristine_git_object: 96ace0dfe94e032291e58d572821556fa5aeee66
+  docs/models/operations/get-contacts-async-response.md:
+    id: ba3c725cb634
+    last_write_checksum: sha1:7aa17254bfa548a615230a537656ad20f958cd34
+    pristine_git_object: a24c867d6b5e044cba35fca42783f8fe107b55c2
   docs/models/operations/get-contacts-errors.md:
     id: 8fe4c0371d28
     last_write_checksum: sha1:7a956ce6bbe02d67da3c1bc5505627e7f61ab07e
@@ -3656,8 +3684,8 @@ trackedFiles:
     pristine_git_object: 9daf0e4f0d4a3f11b33e6532415421f863fec12f
   docs/models/operations/get-journal-entries-response.md:
     id: 318d83ba9bfb
-    last_write_checksum: sha1:06c195e3f30eb7b218de0ceed8a36fa6498a4095
-    pristine_git_object: e1ca4193c8a1ae756accf3ba2de2655b6efcf4cb
+    last_write_checksum: sha1:c8e028a45e9bb26c7aea10ac66e7585dcd1c4a81
+    pristine_git_object: 4f549256cebb8d0bdbfb7d25bf871bdbc6582acd
   docs/models/operations/get-journal-entry-attachment-by-id-errors.md:
     id: aad0313b2b3a
     last_write_checksum: sha1:9ef83c2f7dda71124d2458cfd7d57f1d7430d0d3
@@ -3684,8 +3712,8 @@ trackedFiles:
     pristine_git_object: 0cf4b444ebcbcbc3c025408f9eb55331667e733a
   docs/models/operations/get-journal-entry-attachment-by-id-response.md:
     id: 9ebf9355f29a
-    last_write_checksum: sha1:44e0c19f8cb3fb46575babd59c425036ff41ea22
-    pristine_git_object: 702118912ead1d286545ce7158e6a91ff3bbbb80
+    last_write_checksum: sha1:9fa27fa7144cd04ff06ea48fe61d279fd26b931b
+    pristine_git_object: f720030081aa994922dbdc8fcdf6d5ddd3fd698d
   docs/models/operations/get-journal-entry-attachments-errors.md:
     id: aec78398ddff
     last_write_checksum: sha1:3837f0822693d9aedbe7c8bb34beecc0f49762d3
@@ -3740,8 +3768,8 @@ trackedFiles:
     pristine_git_object: d9b467cd76d2a5855749a39864079b470912753c
   docs/models/operations/get-journal-entry-response.md:
     id: aecd74f16542
-    last_write_checksum: sha1:cd6a0d504cc38aa6ea7723edc6a524d567b3cc22
-    pristine_git_object: 1d84ce773ab92326e21db67ea6b4acbd6ba1ba7c
+    last_write_checksum: sha1:3d453cb240c7579ff371af968b51e5f4d24c0443
+    pristine_git_object: f74df78871b8ef61b3197b8fc1ed6dd95808a70f
   docs/models/operations/get-journals-errors.md:
     id: 443be9b348d8
     last_write_checksum: sha1:2edb2263933ae9a487ba35ed24169c2022a4574d
@@ -4174,6 +4202,34 @@ trackedFiles:
     id: 70527c203028
     last_write_checksum: sha1:7503a2c61d85f034a7c0b4928baf0c1edcf55dd8
     pristine_git_object: 94eae69a1a9723917a769d1da123ff7d65ad8a0d
+  docs/models/operations/get-projects-async-errors.md:
+    id: aa005693a12a
+    last_write_checksum: sha1:bc009c6e35375a452a9ce48d75eab3985fd5bdde
+    pristine_git_object: 636b54cc9506baf53a69aaf95654de8ead7db436
+  docs/models/operations/get-projects-async-globals.md:
+    id: 7fc8ed33a195
+    last_write_checksum: sha1:2c8a697c149493a4090eceef3f46f5eb9e199f58
+    pristine_git_object: c88e4cac3bfc9c8f63b287776f005d0f5869e6f3
+  docs/models/operations/get-projects-async-meta.md:
+    id: 124a1efc4bb1
+    last_write_checksum: sha1:acdb6f0901561c1a6232baa06b2149ae16b95dc1
+    pristine_git_object: 1a71327cada9a25adb40a46c175a7eb93546bf26
+  docs/models/operations/get-projects-async-pagination.md:
+    id: 489f6587a5d4
+    last_write_checksum: sha1:1a1346ee5985cd85afd15d61274bf2dff0f2410c
+    pristine_git_object: 14602fc2661f653ccb54590ef79d5a75d0e77df4
+  docs/models/operations/get-projects-async-raw-data.md:
+    id: 9df262e13c1c
+    last_write_checksum: sha1:81784526400453e88272f1a743c51fc097cf20fc
+    pristine_git_object: 3c5b333f6bf6bc984c5310272a342f77752da780
+  docs/models/operations/get-projects-async-request.md:
+    id: f01dacf05acb
+    last_write_checksum: sha1:ea675d58e6a432467b4786aade8f827920738b6a
+    pristine_git_object: 74ee021811d77b856e8706ae70963e9b55102d81
+  docs/models/operations/get-projects-async-response.md:
+    id: 6f6e3d6a4183
+    last_write_checksum: sha1:4e7a9f38eea2f4604992d1e0e429038e19b2152d
+    pristine_git_object: 5554b4b63000c8cd4f821c77a3600aff397c9ded
   docs/models/operations/get-projects-errors.md:
     id: 2c8d5872ba8e
     last_write_checksum: sha1:6c94207e161271ab0b485444a43234bffaa0dfee
@@ -5204,8 +5260,8 @@ trackedFiles:
     pristine_git_object: 11c862bfe9727be957c1d5629de429f3cd10b499
   docs/models/operations/update-bill-response.md:
     id: e275d08e9631
-    last_write_checksum: sha1:29d8863e1ff04d7d918531d51ef21b6f472f72d4
-    pristine_git_object: a894dc85ae3bb5ad021dc0ee829d43e7d77c434e
+    last_write_checksum: sha1:d7a01cca3d0e04dd3d62d416d7fdb90656ef9753
+    pristine_git_object: 23c6abfe1393e24105a899f4a78458bcc2986154
   docs/models/operations/update-customer-errors.md:
     id: 5e3b1649ab2f
     last_write_checksum: sha1:d0285339b15a9faa36b7fddcc91256a108d8bf5f
@@ -5300,8 +5356,8 @@ trackedFiles:
     pristine_git_object: bddcabf586e797b7a64c9e32708f53c514325311
   docs/models/operations/update-vendor-credit-response.md:
     id: 4ee809835a3f
-    last_write_checksum: sha1:9c412a84f4d4fdab41f436ebf0f1bf4adac57287
-    pristine_git_object: 7fa734a98c0e406d89cfbb22f3fca53a03be19de
+    last_write_checksum: sha1:efc9cf6f2151456a3dfcf21e852dd7055b7bf94b
+    pristine_git_object: 42b64cd08478b223b33e65ad2fa13a79055180f8
   docs/models/pagination.md:
     id: a9ff902f6a16
     last_write_checksum: sha1:17b6827c7de64a94f1a2ce7c939c6c0cae1dfe36
@@ -5592,8 +5648,8 @@ trackedFiles:
     pristine_git_object: 22dd5f08bac5ea8e40e42de4ebb0a5876ef875c5
   docs/sdks/accounting/README.md:
     id: 6abb8976ed95
-    last_write_checksum: sha1:8889dad9f9b53a96e46c3327ea7b28e962f3a206
-    pristine_git_object: 0ad37333ea2972a7dd3ea222b03068e6ca8d139f
+    last_write_checksum: sha1:9e6d41e640ccaba009cd00e89958b28ed02c89c4
+    pristine_git_object: 97742244cc138f323375f1e08210e9bde4a6d532
   docs/sdks/accountingv2/README.md:
     id: 24a9f287e358
     last_write_checksum: sha1:765e4f7e309c786a09d025f9fa47c5fef1d973a2
@@ -5640,12 +5696,12 @@ trackedFiles:
     pristine_git_object: 620f120672c2be3445356aaae6d877d4d89c43d5
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:81aaea754430c4009e2a3159bda6e1758fe4bfda
-    pristine_git_object: 8a18bc50d5ab9da17b0eb1484cf5dc5d26daf7f0
+    last_write_checksum: sha1:2af012b6be6d1ea1e3637f11a0c2da36f11a9625
+    pristine_git_object: a5bbb08ffffcfa696b36491f6a859738d6f2f203
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:7857efb7dd5e21b73bb29258bfd1ba5ab2a048cf
-    pristine_git_object: cacbf46d3d156bbe962cc8ad37f787c7e3c8437a
+    last_write_checksum: sha1:3b0720d63e9a9704e8e267578be9bb01cf487581
+    pristine_git_object: ec7b9a791b9a13510afed69a8bc4146a58e3b7c6
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:2eff2a6c77b0c787da6418de861acc36733c433a
@@ -5834,6 +5890,10 @@ trackedFiles:
     id: e96d2a324892
     last_write_checksum: sha1:c9c57160e0f8907a14b7b07c59c2e41dc6fb3a99
     pristine_git_object: 2407b8229e950ae349ceb8281bf37cefc3ca70fe
+  src/funcs/accounting-get-contacts-async.ts:
+    id: 55723292cb4c
+    last_write_checksum: sha1:f0e895fa017fe8de0398a45b211a521f24f78409
+    pristine_git_object: c289ac8ed553747b6d17583195b51f9d845825f7
   src/funcs/accounting-get-contacts.ts:
     id: f70cf8339e31
     last_write_checksum: sha1:903805f9bbd44cb79d2731bfb67ad71c19cc6e5a
@@ -6002,6 +6062,10 @@ trackedFiles:
     id: 2fc31da3305e
     last_write_checksum: sha1:cf921807f91f9f56509e6912eebc83730f9b1ac6
     pristine_git_object: 3d4179711297433b9430a4ef44f59662a444b897
+  src/funcs/accounting-get-projects-async.ts:
+    id: 04b18fcc95b7
+    last_write_checksum: sha1:5f8b46664be56fc6c7e3c05ac64d1c1adcf13372
+    pristine_git_object: c25bdeb94abe293d0ce99c3c29ca0d57580840a1
   src/funcs/accounting-get-projects.ts:
     id: dffbfbb27cba
     last_write_checksum: sha1:e18a5a27b6e1c81ef10dc90c1c7e2397542718d7
@@ -6292,8 +6356,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:ebd2504c23109ef1aed80c75c44f2f2a158caf0f
-    pristine_git_object: 1a131aad1a6469519a813338424a061d35876efc
+    last_write_checksum: sha1:c7d10022d3afed6163b7f42e267d1de107e9cc27
+    pristine_git_object: 7b2c96fc56e6c13fbd7150c2fa8d53195d1ad897
   src/lib/encodings.ts:
     id: 3bd8ead98afd
     last_write_checksum: sha1:7533dcb79b22b8c84ac7b90aec94317d12bad5f8
@@ -6400,8 +6464,8 @@ trackedFiles:
     pristine_git_object: 08c7cd5d2567f1f6eb3e654c779f66b1d0212c1e
   src/models/bill-response-dto.ts:
     id: 344394d68863
-    last_write_checksum: sha1:8353d7c0dba598de060fc8e53fea1736e63df271
-    pristine_git_object: 92b6baa9d0025708b941625576555c3320df2b77
+    last_write_checksum: sha1:8968d7ebe42a525606be9bd38d85bdc23d73bbe9
+    pristine_git_object: d632fc2786ed5085456fa795d4934bfdfd6b3874
   src/models/booking-proposal-address-request-dto-v2.ts:
     id: 74a5c9c33f77
     last_write_checksum: sha1:9bd515b4abf7c9a8bf1217778f366e817d669c80
@@ -6584,8 +6648,8 @@ trackedFiles:
     pristine_git_object: 51b515c67a90e30434e97eaffa0637e488204917
   src/models/create-journal-line-item.ts:
     id: 2a72ced786b1
-    last_write_checksum: sha1:7531e5399f7132ca3dda9e45407cbd5828787b98
-    pristine_git_object: b7d6cfef0a1de3f66e45efbffddc9c75bd9ea883
+    last_write_checksum: sha1:ff336556acdaf336d4bc11ea41b2abc3ee3213a1
+    pristine_git_object: 62beb7e17bf30e4cabb65bae6c262e2632ec4967
   src/models/create-line-item-request-dto.ts:
     id: 3272d45c3340
     last_write_checksum: sha1:5ea281e63ed9432e0b26481a6b6b5864bf90265c
@@ -6796,8 +6860,8 @@ trackedFiles:
     pristine_git_object: ec785390f750dbc74ebe7d02d646fbad2963737e
   src/models/journal-line-item.ts:
     id: 74d31fb46548
-    last_write_checksum: sha1:ef65bf861536bf81b02719de1f500a2341b755aa
-    pristine_git_object: 02e30583b0e828fdea1473d08776f0f84f3ecf0a
+    last_write_checksum: sha1:b82cfdbe9080e4731befc3a608cf52d5a25e653c
+    pristine_git_object: 20ca4adfab67e40c2cb3e0c0b4318c07dd3baa03
   src/models/journal-response-dto.ts:
     id: e9edfe118e04
     last_write_checksum: sha1:cab8e57f19ecae836abf2d30ec41d7dba56f3f09
@@ -7086,6 +7150,10 @@ trackedFiles:
     id: df5b3894296d
     last_write_checksum: sha1:4a2a049481758368e51bf6665f4515c100b7bdd0
     pristine_git_object: e3a42e871f629caa22d6efdb557fbe3157a7ca72
+  src/models/operations/get-contacts-async.ts:
+    id: 2e8258fd1aaf
+    last_write_checksum: sha1:6d6ec6fddc8c31e8bb795af35d0ff93646a979bf
+    pristine_git_object: be0b10d099870a479beb3f8440e61c56386011a4
   src/models/operations/get-contacts-v2.ts:
     id: 792cf0be349c
     last_write_checksum: sha1:210fb9e281c9e7b523fa3f69aa90622c6d54609c
@@ -7274,6 +7342,10 @@ trackedFiles:
     id: e86b507a408d
     last_write_checksum: sha1:786efeb7e7521e63f2516cbcc74f43b0fd45a6b5
     pristine_git_object: 40afa77378bd40260b09c7f34dcdc53b75d0865e
+  src/models/operations/get-projects-async.ts:
+    id: 093921a5ca9b
+    last_write_checksum: sha1:e19b386d82652a5c50646077901b3551ef9f852f
+    pristine_git_object: 33790827cae2574f9a0b7d7ad6474610bf145e43
   src/models/operations/get-projects.ts:
     id: eff3bda4d685
     last_write_checksum: sha1:80c5631cfcec9b6fdf0cc1806c7bfe39d7cf84bb
@@ -7376,8 +7448,8 @@ trackedFiles:
     pristine_git_object: 280f1620aebacc2c71e8145432da2a8d8076a896
   src/models/operations/index.ts:
     id: 0d9ffaf774d2
-    last_write_checksum: sha1:a04f21d7e3f50412587be71f3e4e525883b31e1d
-    pristine_git_object: 6398dcba9e0cfe9d1472e453b154a4f546535c63
+    last_write_checksum: sha1:4e4ace01749015759f4dec1b48a48961ae9418d4
+    pristine_git_object: e31c3e926263173bdd719ea935ac47e9ae9305a5
   src/models/operations/patch-contact-v2.ts:
     id: 645bafde5f35
     last_write_checksum: sha1:906ae3cebc20c7b3a07de8645ea49ec636a38e61
@@ -7600,8 +7672,8 @@ trackedFiles:
     pristine_git_object: 375dba6308060ba4fc099050048b93c9303fd5f2
   src/sdk/accounting.ts:
     id: e0128a734bc9
-    last_write_checksum: sha1:82cde964e42132731651de30269a3a6f0d26a3ad
-    pristine_git_object: 8e1c480bc42646c2272e11fda84491de1e11c30e
+    last_write_checksum: sha1:0fb0c9fb4c842d7a750b14842fbb94518e27664a
+    pristine_git_object: a6a73c2fd0821ea33bf7ebb7583c944e2928cda0
   src/sdk/auth.ts:
     id: b29b1fc6bdf5
     last_write_checksum: sha1:9b8371badc23b9d6dc6c37c1294c2c774c356c9f
@@ -8050,7 +8122,7 @@ examples:
         "200":
           application/json: {"meta": {"warnings": ["<value 1>"], "pagination": {"total": 5600.4, "perPage": 9444.42, "currentPage": 8630.6, "totalPages": 367.42}}, "data": [], "errors": {}, "rawData": {}}
         "201":
-          application/json: {"data": {"id": "<id>", "accountId": "<id>", "accountingPeriodId": "<id>", "createdDate": "<value>", "currency": null, "description": null, "documentId": "<id>", "files": ["<value 1>", "<value 2>"], "isProvisional": false, "journalCode": "<value>", "journalLineItems": [{"id": "<id>", "accountCode": "<value>", "accountId": "<id>", "accountNumber": 367.42, "createdDate": "<value>", "currency": "SOS", "customerId": "<id>", "debitCreditIndicator": "DEBIT", "description": "stall agreeable uh-huh ah inquisitively", "dimensions": [], "documentNumber": "<value>", "exchangeRate": 2464.7, "supplierId": null, "taxRate": {"id": "<id>", "code": "<value>", "name": "<value>", "taxRatePercentage": "<value>"}, "thirdPartyCode": "<value>", "totalGrossAmount": 8174.61, "totalNetAmount": 1783.71, "totalTaxAmount": 9440.85, "updatedDate": "<value>"}], "journalType": null, "number": "<value>", "transactionDate": "<value>", "updatedDate": "<value>"}, "errors": null, "rawData": {}}
+          application/json: {"data": {"id": "<id>", "accountId": "<id>", "accountingPeriodId": "<id>", "createdDate": "<value>", "currency": null, "description": null, "documentId": "<id>", "files": ["<value 1>", "<value 2>"], "isProvisional": false, "journalCode": "<value>", "journalLineItems": [{"id": "<id>", "accountCode": "<value>", "accountId": "<id>", "accountNumber": 367.42, "createdDate": "<value>", "currency": "SOS", "customerId": "<id>", "debitCreditIndicator": "DEBIT", "description": "stall agreeable uh-huh ah inquisitively", "dimensions": [], "documentId": "<id>", "documentNumber": "<value>", "exchangeRate": 2464.7, "supplierId": null, "taxRate": {"id": "<id>", "code": "<value>", "name": "<value>", "taxRatePercentage": "<value>"}, "thirdPartyCode": "<value>", "totalGrossAmount": 8174.61, "totalNetAmount": 1783.71, "totalTaxAmount": 9440.85, "updatedDate": "<value>"}], "journalType": null, "number": "<value>", "transactionDate": "<value>", "updatedDate": "<value>"}, "errors": null, "rawData": {}}
   getJournalEntry:
     speakeasy-default-get-journal-entry:
       parameters:
@@ -8067,7 +8139,7 @@ examples:
         "200":
           application/json: {"meta": {"warnings": ["<value 1>", "<value 2>", "<value 3>"], "pagination": {"total": 3665.41, "perPage": 8420.39, "currentPage": 9506.66, "totalPages": 9985.07}}, "data": {"id": "<id>", "accountNumberLength": 75.3, "chartOfAccount": "<value>", "createdDate": "<value>", "entries": [], "fiscalYearStartDate": "<value>", "taskId": "<id>"}, "errors": {}, "rawData": {}}
         "201":
-          application/json: {"data": {"id": "<id>", "accountNumberLength": 5873.79, "chartOfAccount": "<value>", "createdDate": "<value>", "entries": [{"id": "<id>", "accountId": "<id>", "accountingPeriodId": "<id>", "createdDate": "<value>", "currency": "NZD", "description": "glorious bonfire once settler", "documentId": "<id>", "files": ["<value 1>"], "isProvisional": false, "journalCode": "<value>", "journalLineItems": [{"id": "<id>", "accountCode": "<value>", "accountId": "<id>", "accountNumber": 8330.22, "createdDate": "<value>", "currency": "BBD", "customerId": "<id>", "debitCreditIndicator": "DEBIT", "description": "ameliorate ugh regarding direct ah", "dimensions": [{"id": "<id>", "categoryName": "<value>", "code": "<value>", "name": "<value>"}], "documentNumber": "<value>", "exchangeRate": 9555.41, "supplierId": "<id>", "taxRate": {"id": "<id>", "code": "<value>", "name": null, "taxRatePercentage": null}, "thirdPartyCode": "<value>", "totalGrossAmount": null, "totalNetAmount": 4129.5, "totalTaxAmount": 118.58, "updatedDate": "<value>"}], "journalType": "<value>", "number": "<value>", "transactionDate": "<value>", "updatedDate": "<value>"}], "fiscalYearStartDate": "<value>", "taskId": "<id>"}, "errors": null, "rawData": {}}
+          application/json: {"data": {"id": "<id>", "accountNumberLength": 5873.79, "chartOfAccount": "<value>", "createdDate": "<value>", "entries": [{"id": "<id>", "accountId": "<id>", "accountingPeriodId": "<id>", "createdDate": "<value>", "currency": "NZD", "description": "glorious bonfire once settler", "documentId": "<id>", "files": ["<value 1>"], "isProvisional": false, "journalCode": "<value>", "journalLineItems": [{"id": "<id>", "accountCode": "<value>", "accountId": "<id>", "accountNumber": 8330.22, "createdDate": "<value>", "currency": "BBD", "customerId": "<id>", "debitCreditIndicator": "DEBIT", "description": "ameliorate ugh regarding direct ah", "dimensions": [{"id": "<id>", "categoryName": "<value>", "code": "<value>", "name": "<value>"}], "documentId": "<id>", "documentNumber": "<value>", "exchangeRate": 9555.41, "supplierId": "<id>", "taxRate": {"id": "<id>", "code": "<value>", "name": null, "taxRatePercentage": null}, "thirdPartyCode": "<value>", "totalGrossAmount": null, "totalNetAmount": 4129.5, "totalTaxAmount": 118.58, "updatedDate": "<value>"}], "journalType": "<value>", "number": "<value>", "transactionDate": "<value>", "updatedDate": "<value>"}], "fiscalYearStartDate": "<value>", "taskId": "<id>"}, "errors": null, "rawData": {}}
   getJournalEntryAttachments:
     speakeasy-default-get-journal-entry-attachments:
       parameters:
@@ -8325,7 +8397,7 @@ examples:
         "200":
           application/json: {"meta": {"warnings": ["<value 1>"], "pagination": {"total": 1071.3, "perPage": 6016.29, "currentPage": 926.65, "totalPages": 4864.43}}, "data": {"id": "<id>", "accountId": "<id>", "addresses": [], "billDate": "<value>", "billNumber": "<value>", "contactId": "<id>", "createdDate": {}, "currency": "Balboa", "deliveryDate": "<value>", "dueDate": "<value>", "fileId": "<id>", "journalCode": "<value>", "lineItems": [], "name": "<value>", "oneLineAddress": "<value>", "paidDate": {}, "paymentTermCode": "<value>", "paymentStatus": "PARTIAL_CANCELLATION", "paymentDays": 833.77, "reference": "<value>", "shippingDate": {}, "shippingType": "SERVICE", "status": "DRAFT", "taxRule": "EXPORT_GOODS", "taxText": "<value>", "totalDiscountAmount": 3715.63, "totalDiscountPercentage": 4607.63, "totalGrossAmount": 3652.4, "totalNetAmount": 5540.39, "totalTaxAmount": 6869.6, "updatedDate": "<value>"}, "errors": {}, "rawData": {}}
         "201":
-          application/json: {"data": {"id": "<id>", "accountId": "<id>", "addresses": [], "billDate": "<value>", "billNumber": "<value>", "contactId": "<id>", "createdDate": "<value>", "currency": "Zimbabwe Dollar", "deliveryDate": null, "dueDate": "<value>", "fileId": "<id>", "journalCode": "<value>", "lineItems": [{"id": null, "accountId": "<id>", "accountNumber": "<value>", "createdDate": "<value>", "deferredEndDate": "<value>", "deferredStartDate": "<value>", "description": null, "dimensions": [], "itemId": "<id>", "itemName": "<value>", "quantity": 3652.4, "taxCode": "<value>", "taxRatePercentage": 4357.83, "totalDiscountAmount": 5040.8, "totalDiscountPercentage": 9107.97, "totalGrossAmount": 7783.18, "totalNetAmount": 1430.71, "totalTaxAmount": null, "unitAmount": null, "unitDiscountAmount": 3657.06, "unitDiscountPercentage": 1753.99, "unitName": "<value>", "updatedDate": null}], "name": "<value>", "oneLineAddress": "<value>", "paidDate": "<value>", "paymentReference": "<value>", "paymentTermCode": "<value>", "paymentStatus": "PARTLY_PAID", "paymentDays": 8156.98, "reference": "<value>", "shippingDate": "<value>", "shippingType": "DELIVERY", "status": "OPEN", "taxRule": "SMALL_BUSINESS_EXEMPTION", "taxText": "<value>", "totalDiscountAmount": 8895.49, "totalDiscountPercentage": 3803.82, "totalGrossAmount": 9273.69, "totalNetAmount": 8663.38, "totalTaxAmount": 584.65, "updatedDate": "<value>"}, "errors": {}, "rawData": {}}
+          application/json: {"data": {"id": "<id>", "accountId": "<id>", "addresses": [], "billDate": "<value>", "billNumber": "<value>", "contactId": "<id>", "createdDate": "<value>", "currency": "Zimbabwe Dollar", "deliveryDate": null, "dueDate": "<value>", "fileId": "<id>", "journalCode": "<value>", "lineItems": [{"id": null, "accountId": "<id>", "accountNumber": "<value>", "createdDate": "<value>", "deferredEndDate": "<value>", "deferredStartDate": "<value>", "description": null, "dimensions": [], "itemId": "<id>", "itemName": "<value>", "quantity": 3652.4, "taxCode": "<value>", "taxRatePercentage": 4357.83, "totalDiscountAmount": 5040.8, "totalDiscountPercentage": 9107.97, "totalGrossAmount": 7783.18, "totalNetAmount": 1430.71, "totalTaxAmount": null, "unitAmount": null, "unitDiscountAmount": 3657.06, "unitDiscountPercentage": 1753.99, "unitName": "<value>", "updatedDate": null}], "name": "<value>", "oneLineAddress": "<value>", "paidDate": "<value>", "paymentDays": 8156.98, "paymentReference": "<value>", "paymentStatus": "PARTLY_PAID", "paymentTermCode": "<value>", "reference": "<value>", "shippingDate": "<value>", "shippingType": "DELIVERY", "status": "OPEN", "taxRule": "SMALL_BUSINESS_EXEMPTION", "taxText": "<value>", "totalDiscountAmount": 8895.49, "totalDiscountPercentage": 3803.82, "totalGrossAmount": 9273.69, "totalNetAmount": 8663.38, "totalTaxAmount": 584.65, "updatedDate": "<value>"}, "errors": {}, "rawData": {}}
   getBill:
     speakeasy-default-get-bill:
       parameters:
@@ -8333,7 +8405,7 @@ examples:
           billId: "<id>"
       responses:
         "200":
-          application/json: {"data": {"id": "<id>", "accountId": "<id>", "addresses": [{}], "billDate": "<value>", "billNumber": "<value>", "contactId": "<id>", "createdDate": "<value>", "currency": "Saudi Riyal", "deliveryDate": "<value>", "dueDate": "<value>", "fileId": "<id>", "journalCode": "<value>", "lineItems": null, "name": null, "oneLineAddress": "<value>", "paidDate": "<value>", "paymentReference": "<value>", "paymentTermCode": "<value>", "paymentStatus": "BAD_DEBT", "paymentDays": 9459.62, "reference": "<value>", "shippingDate": "<value>", "shippingType": null, "status": "PAID", "taxRule": "REVERSE_CHARGE", "taxText": "<value>", "totalDiscountAmount": 5592.13, "totalDiscountPercentage": 2405.11, "totalGrossAmount": 5580.83, "totalNetAmount": 9289.43, "totalTaxAmount": 8968.7, "updatedDate": "<value>"}, "errors": {}, "rawData": {}}
+          application/json: {"data": {"id": "<id>", "accountId": "<id>", "addresses": [{}], "billDate": "<value>", "billNumber": "<value>", "contactId": "<id>", "createdDate": "<value>", "currency": "Saudi Riyal", "deliveryDate": "<value>", "dueDate": "<value>", "fileId": "<id>", "journalCode": "<value>", "lineItems": null, "name": null, "oneLineAddress": "<value>", "paidDate": "<value>", "paymentDays": 9459.62, "paymentReference": "<value>", "paymentStatus": "BAD_DEBT", "paymentTermCode": "<value>", "reference": "<value>", "shippingDate": "<value>", "shippingType": null, "status": "PAID", "taxRule": "REVERSE_CHARGE", "taxText": "<value>", "totalDiscountAmount": 5592.13, "totalDiscountPercentage": 2405.11, "totalGrossAmount": 5580.83, "totalNetAmount": 9289.43, "totalTaxAmount": 8968.7, "updatedDate": "<value>"}, "errors": {}, "rawData": {}}
   updateBill:
     speakeasy-default-update-bill:
       parameters:
@@ -8343,7 +8415,7 @@ examples:
         application/json: {}
       responses:
         "200":
-          application/json: {"data": {"id": "<id>", "accountId": "<id>", "addresses": [], "billDate": "<value>", "billNumber": "<value>", "contactId": "<id>", "createdDate": "{}", "currency": "Libyan Dinar", "deliveryDate": "<value>", "dueDate": "<value>", "fileId": "<id>", "journalCode": "<value>", "lineItems": [], "name": "<value>", "oneLineAddress": "<value>", "paidDate": "{}", "paymentReference": "<value>", "paymentTermCode": "<value>", "paymentStatus": "CLEARED_WITH_CREDIT_NOTE", "paymentDays": 1821.91, "reference": "<value>", "shippingDate": "{}", "shippingType": "DELIVERY", "status": "PARTIALLY_PAID", "taxRule": "EXPORT_GOODS", "taxText": "<value>", "totalDiscountAmount": 1821.38, "totalDiscountPercentage": 4846.28, "totalGrossAmount": 8689.8, "totalNetAmount": 1557.73, "totalTaxAmount": 5385.37, "updatedDate": "<value>"}, "errors": {}, "rawData": {}}
+          application/json: {"data": {"id": "<id>", "accountId": "<id>", "addresses": [], "billDate": "<value>", "billNumber": "<value>", "contactId": "<id>", "createdDate": "{}", "currency": "Libyan Dinar", "deliveryDate": "<value>", "dueDate": "<value>", "fileId": "<id>", "journalCode": "<value>", "lineItems": [], "name": "<value>", "oneLineAddress": "<value>", "paidDate": "{}", "paymentDays": 1821.91, "paymentReference": "<value>", "paymentStatus": "CLEARED_WITH_CREDIT_NOTE", "paymentTermCode": "<value>", "reference": "<value>", "shippingDate": "{}", "shippingType": "DELIVERY", "status": "PARTIALLY_PAID", "taxRule": "EXPORT_GOODS", "taxText": "<value>", "totalDiscountAmount": 1821.38, "totalDiscountPercentage": 4846.28, "totalGrossAmount": 8689.8, "totalNetAmount": 1557.73, "totalTaxAmount": 5385.37, "updatedDate": "<value>"}, "errors": {}, "rawData": {}}
   deleteBill:
     speakeasy-default-delete-bill:
       parameters:
@@ -8422,7 +8494,7 @@ examples:
         application/json: {"vendorCreditDate": "<value>", "vendorCreditNumber": "<value>"}
       responses:
         "200":
-          application/json: {"data": {"id": "<id>", "accountId": "<id>", "addresses": [], "billDate": "<value>", "billNumber": "<value>", "contactId": "<id>", "createdDate": "{}", "currency": "Kwanza", "deliveryDate": "<value>", "dueDate": "<value>", "fileId": "<id>", "journalCode": "<value>", "lineItems": [], "name": "<value>", "oneLineAddress": "<value>", "paidDate": "{}", "paymentReference": "<value>", "paymentTermCode": "<value>", "paymentStatus": "PARTIAL_CANCELLATION", "paymentDays": 7526.3, "reference": "<value>", "shippingDate": "{}", "shippingType": "SERVICE_PERIOD", "status": "SUBMITTED", "taxRule": "NET", "taxText": "<value>", "totalDiscountAmount": 4545.53, "totalDiscountPercentage": 930.14, "totalGrossAmount": 1190.54, "totalNetAmount": 1249.49, "totalTaxAmount": 1144.03, "updatedDate": "<value>"}, "errors": {}, "rawData": {}}
+          application/json: {"data": {"id": "<id>", "accountId": "<id>", "addresses": [], "billDate": "<value>", "billNumber": "<value>", "contactId": "<id>", "createdDate": "{}", "currency": "Kwanza", "deliveryDate": "<value>", "dueDate": "<value>", "fileId": "<id>", "journalCode": "<value>", "lineItems": [], "name": "<value>", "oneLineAddress": "<value>", "paidDate": "{}", "paymentDays": 7526.3, "paymentReference": "<value>", "paymentStatus": "PARTIAL_CANCELLATION", "paymentTermCode": "<value>", "reference": "<value>", "shippingDate": "{}", "shippingType": "SERVICE_PERIOD", "status": "SUBMITTED", "taxRule": "NET", "taxText": "<value>", "totalDiscountAmount": 4545.53, "totalDiscountPercentage": 930.14, "totalGrossAmount": 1190.54, "totalNetAmount": 1249.49, "totalTaxAmount": 1144.03, "updatedDate": "<value>"}, "errors": {}, "rawData": {}}
   deleteVendorCredit:
     speakeasy-default-delete-vendor-credit:
       parameters:
@@ -8970,7 +9042,15 @@ examples:
       responses:
         "200":
           application/json: {"data": [{"id": "<id>", "base64Encoded": true, "content": "<value>", "contentType": "<value>", "fileName": "example.file"}], "errors": null, "rawData": {}}
+  getContactsAsync:
+    speakeasy-default-get-contacts-async:
+      responses:
+        "202":
+          application/json: {"data": {"taskId": "<id>"}, "errors": {}, "rawData": {}}
+  getProjectsAsync:
+    speakeasy-default-get-projects-async:
+      responses:
+        "202":
+          application/json: {"data": {"taskId": "<id>"}, "errors": {}, "rawData": {}}
 examplesVersion: 1.0.2
-releaseNotes: |
-  ## Typescript SDK Changes:
-  * `maesn.accounting.getCreditNoteDocuments()`: **Added**
+releaseNotes: "## Typescript SDK Changes:\n* `maesn.accounting.getContactsAsync()`: **Added**\n* `maesn.accounting.getProjectsAsync()`: **Added**\n* `maesn.accounting.getJournalEntries()`:  `response.data[].journalLineItems[].documentId` **Added**\n* `maesn.accounting.createJournalEntry()`: \n  *  `request.body.journalEntry` **Changed**\n  *  `response.data.journalLineItems[].documentId` **Added**\n* `maesn.accounting.getJournalEntry()`:  `response.data.journalLineItems[].documentId` **Added**\n* `maesn.accounting.createJournalEntries()`: \n  *  `request.body.entries[].journalLineItems[]` **Changed**\n  *  `response.data.entries[].journalLineItems[].documentId` **Added**\n* `maesn.accounting.getJournalEntryAttachments()`:  `response.data[].journalLineItems[].documentId` **Added**\n* `maesn.accounting.createJournalEntryAttachments()`:  `response.data.journalLineItems[].documentId` **Added**\n* `maesn.accounting.getJournalEntryAttachmentById()`:  `response.data.journalLineItems[].documentId` **Added**\n"
