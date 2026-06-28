@@ -23,8 +23,9 @@ let value: JournalLineItem = {
       name: "<value>",
     },
   ],
+  documentId: "<id>",
   documentNumber: "<value>",
-  exchangeRate: 9445.58,
+  exchangeRate: 5675.31,
   supplierId: "<id>",
   taxRate: {
     id: "<id>",
@@ -33,8 +34,8 @@ let value: JournalLineItem = {
     taxRatePercentage: "<value>",
   },
   thirdPartyCode: "<value>",
-  totalGrossAmount: 3026.87,
-  totalNetAmount: 840.71,
+  totalGrossAmount: 1071.3,
+  totalNetAmount: null,
   totalTaxAmount: 9871.64,
   updatedDate: "<value>",
 };
@@ -55,6 +56,7 @@ let value: JournalLineItem = {
 | `description`                                                                                       | *string*                                                                                            | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
 | `dimensions`                                                                                        | [models.Dimension](../models/dimension.md)[]                                                        | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
 | `discountAmount`                                                                                    | *number*                                                                                            | :heavy_minus_sign:                                                                                  | N/A                                                                                                 |
+| `documentId`                                                                                        | *string*                                                                                            | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
 | `documentNumber`                                                                                    | *string*                                                                                            | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
 | `exchangeRate`                                                                                      | *number*                                                                                            | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
 | `supplierId`                                                                                        | *string*                                                                                            | :heavy_check_mark:                                                                                  | N/A                                                                                                 |

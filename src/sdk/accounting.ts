@@ -48,6 +48,7 @@ import { accountingGetBookingProposalDocument } from "../funcs/accounting-get-bo
 import { accountingGetBookingProposal } from "../funcs/accounting-get-booking-proposal.js";
 import { accountingGetBookingProposals } from "../funcs/accounting-get-booking-proposals.js";
 import { accountingGetContact } from "../funcs/accounting-get-contact.js";
+import { accountingGetContactsAsync } from "../funcs/accounting-get-contacts-async.js";
 import { accountingGetContacts } from "../funcs/accounting-get-contacts.js";
 import { accountingGetCreditNoteDocuments } from "../funcs/accounting-get-credit-note-documents.js";
 import { accountingGetCreditNote } from "../funcs/accounting-get-credit-note.js";
@@ -90,6 +91,7 @@ import { accountingGetPayment } from "../funcs/accounting-get-payment.js";
 import { accountingGetPayments } from "../funcs/accounting-get-payments.js";
 import { accountingGetProfile } from "../funcs/accounting-get-profile.js";
 import { accountingGetProject } from "../funcs/accounting-get-project.js";
+import { accountingGetProjectsAsync } from "../funcs/accounting-get-projects-async.js";
 import { accountingGetProjects } from "../funcs/accounting-get-projects.js";
 import { accountingGetPurchaseOrderLineItem } from "../funcs/accounting-get-purchase-order-line-item.js";
 import { accountingGetPurchaseOrderLineItems } from "../funcs/accounting-get-purchase-order-line-items.js";
@@ -317,6 +319,17 @@ export class Accounting extends ClientSDK {
     options?: RequestOptions,
   ): Promise<operations.PatchSupplierResponse> {
     return unwrapAsync(accountingPatchSupplier(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  async getContactsAsync(
+    request?: operations.GetContactsAsyncRequest | undefined,
+    options?: RequestOptions,
+  ): Promise<operations.GetContactsAsyncResponse> {
+    return unwrapAsync(accountingGetContactsAsync(
       this,
       request,
       options,
@@ -812,6 +825,17 @@ export class Accounting extends ClientSDK {
     options?: RequestOptions,
   ): Promise<operations.CreateProjectResponse> {
     return unwrapAsync(accountingCreateProject(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  async getProjectsAsync(
+    request?: operations.GetProjectsAsyncRequest | undefined,
+    options?: RequestOptions,
+  ): Promise<operations.GetProjectsAsyncResponse> {
+    return unwrapAsync(accountingGetProjectsAsync(
       this,
       request,
       options,

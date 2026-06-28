@@ -199,6 +199,7 @@ export type JournalLineItem = {
   description: string | null;
   dimensions: Array<Dimension> | null;
   discountAmount?: number | null | undefined;
+  documentId: string | null;
   documentNumber: string | null;
   exchangeRate: number | null;
   supplierId: string | null;
@@ -259,6 +260,7 @@ export const JournalLineItem$inboundSchema: z.ZodMiniType<
   description: types.nullable(types.string()),
   dimensions: types.nullable(z.array(Dimension$inboundSchema)),
   discountAmount: z.optional(z.nullable(types.number())),
+  documentId: types.nullable(types.string()),
   documentNumber: types.nullable(types.string()),
   exchangeRate: types.nullable(types.number()),
   supplierId: types.nullable(types.string()),

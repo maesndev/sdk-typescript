@@ -1153,6 +1153,45 @@ paths:
                         $ref: '#/components/schemas/ContactResponseDto'
       tags:
         - accounting
+  /accounting/contacts/async:
+    get:
+      operationId: getContactsAsync
+      parameters:
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
+      responses:
+        "202":
+          description: Contacts fetch queued successfully. Processed asynchronously and returns 202 with taskId.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BaseResponseDto'
+                  - properties:
+                      data:
+                        $ref: '#/components/schemas/TaskIdResponseDto'
+      tags:
+        - accounting
+      x-speakeasy-retries:
+        strategy: backoff
+        backoff:
+          initialInterval: 500
+          maxInterval: 60000
+          maxElapsedTime: 3600000
+          exponent: 1.5
+        statusCodes:
+          - 5XX
+        retryConnectionErrors: true
   /accounting/contacts:
     get:
       operationId: getContacts
@@ -3997,6 +4036,45 @@ paths:
                         $ref: '#/components/schemas/ProjectResponseDto'
       tags:
         - accounting
+  /accounting/projects/async:
+    get:
+      operationId: getProjectsAsync
+      parameters:
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
+      responses:
+        "202":
+          description: Projects fetch queued successfully. Processed asynchronously and returns 202 with taskId.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BaseResponseDto'
+                  - properties:
+                      data:
+                        $ref: '#/components/schemas/TaskIdResponseDto'
+      tags:
+        - accounting
+      x-speakeasy-retries:
+        strategy: backoff
+        backoff:
+          initialInterval: 500
+          maxInterval: 60000
+          maxElapsedTime: 3600000
+          exponent: 1.5
+        statusCodes:
+          - 5XX
+        retryConnectionErrors: true
   /accounting/projects/{projectId}:
     get:
       operationId: getProject
@@ -11432,10 +11510,10 @@ components:
         paidDate:
           type: string
           nullable: true
-        paymentReference:
-          type: string
+        paymentDays:
+          type: number
           nullable: true
-        paymentTermCode:
+        paymentReference:
           type: string
           nullable: true
         paymentStatus:
@@ -11453,8 +11531,8 @@ components:
             - CANCELED
             - UNKNOWN
           nullable: true
-        paymentDays:
-          type: number
+        paymentTermCode:
+          type: string
           nullable: true
         reference:
           type: string
@@ -11541,10 +11619,10 @@ components:
         - name
         - oneLineAddress
         - paidDate
-        - paymentReference
-        - paymentTermCode
-        - paymentStatus
         - paymentDays
+        - paymentReference
+        - paymentStatus
+        - paymentTermCode
         - reference
         - shippingDate
         - shippingType
@@ -11815,6 +11893,9 @@ components:
         discountAmount:
           type: number
           nullable: true
+        documentId:
+          type: string
+          nullable: true
         documentNumber:
           type: string
           nullable: true
@@ -11854,6 +11935,7 @@ components:
         - debitCreditIndicator
         - description
         - dimensions
+        - documentId
         - documentNumber
         - exchangeRate
         - supplierId
@@ -12150,6 +12232,8 @@ components:
     CreateJournalLineItem:
       type: object
       properties:
+        id:
+          type: string
         accountCode:
           type: string
         accountId:
@@ -12330,6 +12414,8 @@ components:
             $ref: '#/components/schemas/DimensionInput'
         discountAmount:
           type: number
+        documentId:
+          type: string
         documentNumber:
           type: string
         exchangeRate:

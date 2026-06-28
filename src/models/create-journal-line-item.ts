@@ -186,6 +186,7 @@ export type CreateJournalLineItemDebitCreditIndicator = ClosedEnum<
 >;
 
 export type CreateJournalLineItem = {
+  id?: string | undefined;
   accountCode?: string | undefined;
   accountId?: string | undefined;
   accountNumber?: string | undefined;
@@ -195,6 +196,7 @@ export type CreateJournalLineItem = {
   description?: string | undefined;
   dimensions?: Array<DimensionInput> | undefined;
   discountAmount?: number | undefined;
+  documentId?: string | undefined;
   documentNumber?: string | undefined;
   exchangeRate?: string | undefined;
   supplierId?: string | undefined;
@@ -218,6 +220,7 @@ export const CreateJournalLineItemDebitCreditIndicator$outboundSchema:
 
 /** @internal */
 export type CreateJournalLineItem$Outbound = {
+  id?: string | undefined;
   accountCode?: string | undefined;
   accountId?: string | undefined;
   accountNumber?: string | undefined;
@@ -227,6 +230,7 @@ export type CreateJournalLineItem$Outbound = {
   description?: string | undefined;
   dimensions?: Array<DimensionInput$Outbound> | undefined;
   discountAmount?: number | undefined;
+  documentId?: string | undefined;
   documentNumber?: string | undefined;
   exchangeRate?: string | undefined;
   supplierId?: string | undefined;
@@ -242,6 +246,7 @@ export const CreateJournalLineItem$outboundSchema: z.ZodMiniType<
   CreateJournalLineItem$Outbound,
   CreateJournalLineItem
 > = z.object({
+  id: z.optional(z.string()),
   accountCode: z.optional(z.string()),
   accountId: z.optional(z.string()),
   accountNumber: z.optional(z.string()),
@@ -253,6 +258,7 @@ export const CreateJournalLineItem$outboundSchema: z.ZodMiniType<
   description: z.optional(z.string()),
   dimensions: z.optional(z.array(DimensionInput$outboundSchema)),
   discountAmount: z.optional(z.number()),
+  documentId: z.optional(z.string()),
   documentNumber: z.optional(z.string()),
   exchangeRate: z.optional(z.string()),
   supplierId: z.optional(z.string()),
