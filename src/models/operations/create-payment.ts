@@ -20,6 +20,10 @@ export type CreatePaymentRequest = {
    */
   companyId?: string | undefined;
   /**
+   * Environment name (required for multi-environment systems such as Business Central)
+   */
+  environmentName?: string | undefined;
+  /**
    * API key
    */
   apiKey?: string | undefined;
@@ -59,6 +63,7 @@ export type CreatePaymentResponse = {
 /** @internal */
 export type CreatePaymentRequest$Outbound = {
   companyId?: string | undefined;
+  environmentName?: string | undefined;
   apiKey?: string | undefined;
   accountKey?: string | undefined;
   body: models.CreatePaymentRequestDto$Outbound;
@@ -70,6 +75,7 @@ export const CreatePaymentRequest$outboundSchema: z.ZodMiniType<
   CreatePaymentRequest
 > = z.object({
   companyId: z.optional(z.string()),
+  environmentName: z.optional(z.string()),
   apiKey: z.optional(z.string()),
   accountKey: z.optional(z.string()),
   body: models.CreatePaymentRequestDto$outboundSchema,

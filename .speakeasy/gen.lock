@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: b4a29653-32d8-43f6-ba1e-9aa569fce206
 management:
-  docChecksum: 79ede930fa67f7e735a4af7934afc068
+  docChecksum: cce58d25d77e2fc6794f8c5974036048
   docVersion: "1.0"
-  speakeasyVersion: 1.785.0
-  generationVersion: 2.912.1
-  releaseVersion: 0.8.6
-  configChecksum: 5f7af287d598f736cd3ad655a9484c29
+  speakeasyVersion: 1.786.1
+  generationVersion: 2.913.3
+  releaseVersion: 0.8.7
+  configChecksum: 70be1586b315058c7f32ca9d64c9c3cb
   repoURL: https://github.com/maesndev/sdk-typescript.git
   installationURL: https://github.com/maesndev/sdk-typescript
   published: true
 persistentEdits:
-  generation_id: 9a199408-30c0-43ce-89eb-4baa1e56a021
-  pristine_commit_hash: 66791b0d8ff5e0846851ddaaf63a7956dcd24b03
-  pristine_tree_hash: 0719560d943a29015261afc1b6bb9d5b0325389f
+  generation_id: df7d55be-108f-49c7-8d49-4644cd80c1ee
+  pristine_commit_hash: bb1dff3cdea477f46ed3acf8dce9d5d01e689e7e
+  pristine_tree_hash: e594c75d9a4a47c90ade5da55028b914e3deb727
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -1916,8 +1916,8 @@ trackedFiles:
     pristine_git_object: e9caa886b9f2abcb0f626594677afd0cf82c48e9
   docs/models/operations/create-payment-request.md:
     id: 22e130a0a6ca
-    last_write_checksum: sha1:967daf7e3da772b85d9c85d5159ba3f7fa646177
-    pristine_git_object: da02cb95435c2a3be8be83876e74d2a686f998a6
+    last_write_checksum: sha1:3c2baae75be33551c2b8a272624a808d5ab21734
+    pristine_git_object: 38fdf6580edcdf49512550aba926ce1847733f7d
   docs/models/operations/create-payment-response.md:
     id: 5f46e6cb309a
     last_write_checksum: sha1:9b7f2a49a7d01ee4130a1ef95d316c397daa67dd
@@ -5696,12 +5696,12 @@ trackedFiles:
     pristine_git_object: 620f120672c2be3445356aaae6d877d4d89c43d5
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:2af012b6be6d1ea1e3637f11a0c2da36f11a9625
-    pristine_git_object: a5bbb08ffffcfa696b36491f6a859738d6f2f203
+    last_write_checksum: sha1:4875f0934cceeb33118decae19524f0e1e68694b
+    pristine_git_object: 0e973c97024596f60a8ef581744c7e4f1894f2c8
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:3b0720d63e9a9704e8e267578be9bb01cf487581
-    pristine_git_object: ec7b9a791b9a13510afed69a8bc4146a58e3b7c6
+    last_write_checksum: sha1:8add9108c3c6e7f5b96020853a4350a8e3def815
+    pristine_git_object: 8f31dc0de786e5276ca4a8fadc61e6d6494a48f5
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:2eff2a6c77b0c787da6418de861acc36733c433a
@@ -5800,8 +5800,8 @@ trackedFiles:
     pristine_git_object: 610fced9b14383155d7c002146604d07b1207a4c
   src/funcs/accounting-create-payment.ts:
     id: 88e6d488efcb
-    last_write_checksum: sha1:ba94b75e564c1570e92ed730df68bea24eaca7aa
-    pristine_git_object: 5410cba2b377c8b9da1391ae09f83c0a430932b1
+    last_write_checksum: sha1:b65687e11b0708923888ce041305eaf0051a46ae
+    pristine_git_object: 0f2cff00992a7202ade1f9e794bfc4a8f15a097f
   src/funcs/accounting-create-project.ts:
     id: b05abe971dae
     last_write_checksum: sha1:17ef1cdd4e7c4dad2e9e7a8bd964545770725179
@@ -6356,8 +6356,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:c7d10022d3afed6163b7f42e267d1de107e9cc27
-    pristine_git_object: 7b2c96fc56e6c13fbd7150c2fa8d53195d1ad897
+    last_write_checksum: sha1:a25e300e49d9263d935c7caed0c41100e79bb639
+    pristine_git_object: a24244eec1b252764b2a9b7ce2db74f058e5803b
   src/lib/encodings.ts:
     id: 3bd8ead98afd
     last_write_checksum: sha1:7533dcb79b22b8c84ac7b90aec94317d12bad5f8
@@ -7016,8 +7016,8 @@ trackedFiles:
     pristine_git_object: 8bf6672239b184ce7581af870323436dfb696478
   src/models/operations/create-payment.ts:
     id: 4529b4cdd9d2
-    last_write_checksum: sha1:733b27350389914a298586e01d2e60b4b8358e38
-    pristine_git_object: cfac1f126293cde4163bc69bda8c6becc7559c9e
+    last_write_checksum: sha1:08fef1b3feb6c35bc3e928003256253aa9b195d4
+    pristine_git_object: 34dca2ba6aa56d83769477db6eefe423f4136c33
   src/models/operations/create-project.ts:
     id: c5e1aa6ba56e
     last_write_checksum: sha1:2279177989edf447bba20cc47d70a2079245e107
@@ -9053,4 +9053,4 @@ examples:
         "202":
           application/json: {"data": {"taskId": "<id>"}, "errors": {}, "rawData": {}}
 examplesVersion: 1.0.2
-releaseNotes: "## Typescript SDK Changes:\n* `maesn.accounting.getContactsAsync()`: **Added**\n* `maesn.accounting.getProjectsAsync()`: **Added**\n* `maesn.accounting.getJournalEntries()`:  `response.data[].journalLineItems[].documentId` **Added**\n* `maesn.accounting.createJournalEntry()`: \n  *  `request.body.journalEntry` **Changed**\n  *  `response.data.journalLineItems[].documentId` **Added**\n* `maesn.accounting.getJournalEntry()`:  `response.data.journalLineItems[].documentId` **Added**\n* `maesn.accounting.createJournalEntries()`: \n  *  `request.body.entries[].journalLineItems[]` **Changed**\n  *  `response.data.entries[].journalLineItems[].documentId` **Added**\n* `maesn.accounting.getJournalEntryAttachments()`:  `response.data[].journalLineItems[].documentId` **Added**\n* `maesn.accounting.createJournalEntryAttachments()`:  `response.data.journalLineItems[].documentId` **Added**\n* `maesn.accounting.getJournalEntryAttachmentById()`:  `response.data.journalLineItems[].documentId` **Added**\n"
+releaseNotes: "## Typescript SDK Changes:\n* `maesn.accounting.createPayment()`: \n  *  `request.environmentName` **Added**\n"
