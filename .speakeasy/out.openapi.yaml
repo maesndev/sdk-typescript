@@ -4864,6 +4864,12 @@ paths:
           description: ID of the company (required for multi-company target systems)
           schema:
             type: string
+        - name: environmentName
+          required: false
+          in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
+          schema:
+            type: string
         - name: X-API-KEY
           description: API key
           in: header
