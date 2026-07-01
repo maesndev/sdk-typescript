@@ -25,7 +25,7 @@ import * as operations from "../models/operations/index.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
-export function accountingV2GetDimensionsByDimension(
+export function accountingGetDimensionsByDimension(
   client: MaesnCore,
   request: operations.GetDimensionsByDimensionRequest,
   options?: RequestOptions,
@@ -87,7 +87,7 @@ async function $do(
       charEncoding: "percent",
     }),
   };
-  const path = pathToFunc("/accounting/v2/dimensions/{dimension}")(pathParams);
+  const path = pathToFunc("/accounting/dimensions/{dimension}")(pathParams);
 
   const query = encodeFormQuery({
     "companyId": payload.companyId,

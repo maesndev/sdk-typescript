@@ -36,16 +36,16 @@ export type FiscalYearResponseDtoStatus = ClosedEnum<
 >;
 
 export type FiscalYearResponseDto = {
-  id: string;
-  accountNumberLength: number;
-  availableLedgers: Array<AvailableLedger>;
-  chartOfAccount: FiscalYearResponseDtoChartOfAccount;
-  createdDate: string;
-  description: string;
-  endDate: string;
-  startDate: string;
-  status: FiscalYearResponseDtoStatus;
-  updatedDate: string;
+  id: string | null;
+  accountNumberLength: number | null;
+  availableLedgers: Array<AvailableLedger> | null;
+  chartOfAccount: FiscalYearResponseDtoChartOfAccount | null;
+  createdDate: string | null;
+  description: string | null;
+  endDate: string | null;
+  startDate: string | null;
+  status: FiscalYearResponseDtoStatus | null;
+  updatedDate: string | null;
 };
 
 /** @internal */
@@ -68,16 +68,18 @@ export const FiscalYearResponseDto$inboundSchema: z.ZodMiniType<
   FiscalYearResponseDto,
   unknown
 > = z.object({
-  id: types.string(),
-  accountNumberLength: types.number(),
-  availableLedgers: z.array(AvailableLedger$inboundSchema),
-  chartOfAccount: FiscalYearResponseDtoChartOfAccount$inboundSchema,
-  createdDate: types.string(),
-  description: types.string(),
-  endDate: types.string(),
-  startDate: types.string(),
-  status: FiscalYearResponseDtoStatus$inboundSchema,
-  updatedDate: types.string(),
+  id: types.nullable(types.string()),
+  accountNumberLength: types.nullable(types.number()),
+  availableLedgers: types.nullable(z.array(AvailableLedger$inboundSchema)),
+  chartOfAccount: types.nullable(
+    FiscalYearResponseDtoChartOfAccount$inboundSchema,
+  ),
+  createdDate: types.nullable(types.string()),
+  description: types.nullable(types.string()),
+  endDate: types.nullable(types.string()),
+  startDate: types.nullable(types.string()),
+  status: types.nullable(FiscalYearResponseDtoStatus$inboundSchema),
+  updatedDate: types.nullable(types.string()),
 });
 
 export function fiscalYearResponseDtoFromJSON(

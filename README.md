@@ -122,6 +122,7 @@ run();
 * [createBankAccount](docs/sdks/accounting/README.md#createbankaccount)
 * [getBankAccount](docs/sdks/accounting/README.md#getbankaccount)
 * [getDimensions](docs/sdks/accounting/README.md#getdimensions)
+* [getDimensionsByDimension](docs/sdks/accounting/README.md#getdimensionsbydimension)
 * [createTransaction](docs/sdks/accounting/README.md#createtransaction)
 * [getCustomers](docs/sdks/accounting/README.md#getcustomers)
 * [createCustomer](docs/sdks/accounting/README.md#createcustomer)
@@ -244,7 +245,7 @@ run();
 * [putContactV2](docs/sdks/accountingv2/README.md#putcontactv2)
 * [patchContactV2](docs/sdks/accountingv2/README.md#patchcontactv2)
 * [getDimensionsV2](docs/sdks/accountingv2/README.md#getdimensionsv2)
-* [getDimensionsByDimension](docs/sdks/accountingv2/README.md#getdimensionsbydimension)
+* [getDimensionsByDimensionV2](docs/sdks/accountingv2/README.md#getdimensionsbydimensionv2)
 
 ### [Auth](docs/sdks/auth/README.md)
 
@@ -366,6 +367,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`accountingGetCustomer`](docs/sdks/accounting/README.md#getcustomer)
 - [`accountingGetCustomers`](docs/sdks/accounting/README.md#getcustomers)
 - [`accountingGetDimensions`](docs/sdks/accounting/README.md#getdimensions)
+- [`accountingGetDimensionsByDimension`](docs/sdks/accounting/README.md#getdimensionsbydimension)
 - [`accountingGetDocumentExtensions`](docs/sdks/accounting/README.md#getdocumentextensions)
 - [`accountingGetDocumentTypes`](docs/sdks/accounting/README.md#getdocumenttypes)
 - [`accountingGetExpense`](docs/sdks/accounting/README.md#getexpense)
@@ -435,7 +437,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`accountingV2CreateContactV2`](docs/sdks/accountingv2/README.md#createcontactv2)
 - [`accountingV2GetContactsV2`](docs/sdks/accountingv2/README.md#getcontactsv2)
 - [`accountingV2GetContactV2`](docs/sdks/accountingv2/README.md#getcontactv2)
-- [`accountingV2GetDimensionsByDimension`](docs/sdks/accountingv2/README.md#getdimensionsbydimension)
+- [`accountingV2GetDimensionsByDimensionV2`](docs/sdks/accountingv2/README.md#getdimensionsbydimensionv2)
 - [`accountingV2GetDimensionsV2`](docs/sdks/accountingv2/README.md#getdimensionsv2)
 - [`accountingV2PatchContactV2`](docs/sdks/accountingv2/README.md#patchcontactv2)
 - [`accountingV2PutContactV2`](docs/sdks/accountingv2/README.md#putcontactv2)

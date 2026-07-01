@@ -7,14 +7,16 @@ import { FiscalYearResponseDto } from "@maesn/typescript-sdk/models";
 
 let value: FiscalYearResponseDto = {
   id: "<id>",
-  accountNumberLength: 3809.97,
-  availableLedgers: [],
-  chartOfAccount: "SKR03",
+  accountNumberLength: 770.44,
+  availableLedgers: [
+    "ACCOUNT_PAYABLE",
+  ],
+  chartOfAccount: "SKR14",
   createdDate: "<value>",
-  description: "pluck split bruised whose ick meh how sometimes",
+  description: "split bruised whose ick meh how sometimes",
   endDate: "<value>",
   startDate: "<value>",
-  status: "CLOSED",
+  status: "OPEN",
   updatedDate: "<value>",
 };
 ```

@@ -22,8 +22,9 @@ let value: JournalEntryResponseDto = {
   journalLineItems: [],
   journalType: "<value>",
   number: "<value>",
+  recordType: "STANDARD",
   transactionDate: "<value>",
-  updatedDate: null,
+  updatedDate: "<value>",
 };
 ```
 
@@ -49,6 +50,7 @@ let value: JournalEntryResponseDto = {
 | `journalLineItems`                                                                                                   | [models.JournalLineItem](../models/journal-line-item.md)[]                                                           | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
 | `journalType`                                                                                                        | *string*                                                                                                             | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
 | `number`                                                                                                             | *string*                                                                                                             | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
+| `recordType`                                                                                                         | [models.JournalEntryResponseDtoRecordType](../models/journal-entry-response-dto-record-type.md)                      | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
 | `taxAssignmentDate`                                                                                                  | *string*                                                                                                             | :heavy_minus_sign:                                                                                                   | N/A                                                                                                                  |
 | `transactionDate`                                                                                                    | *string*                                                                                                             | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
 | `updatedDate`                                                                                                        | *string*                                                                                                             | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |

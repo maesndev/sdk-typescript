@@ -62,6 +62,7 @@ let value: GetJournalEntriesResponse = {
       ],
       journalType: "<value>",
       number: "<value>",
+      recordType: "CLOSING",
       transactionDate: "<value>",
       updatedDate: "<value>",
     },
