@@ -201,6 +201,15 @@ export type JournalEntryResponseDtoDebitCreditIndicator = ClosedEnum<
   typeof JournalEntryResponseDtoDebitCreditIndicator
 >;
 
+export const JournalEntryResponseDtoRecordType = {
+  Standard: "STANDARD",
+  Closing: "CLOSING",
+  Opening: "OPENING",
+} as const;
+export type JournalEntryResponseDtoRecordType = ClosedEnum<
+  typeof JournalEntryResponseDtoRecordType
+>;
+
 export type JournalEntryResponseDto = {
   id: string | null;
   accountId: string | null;
@@ -223,6 +232,7 @@ export type JournalEntryResponseDto = {
   journalLineItems: Array<JournalLineItem> | null;
   journalType: string | null;
   number: string | null;
+  recordType: JournalEntryResponseDtoRecordType | null;
   taxAssignmentDate?: string | null | undefined;
   transactionDate: string | null;
   updatedDate: string | null;
@@ -264,6 +274,11 @@ export const JournalEntryResponseDtoDebitCreditIndicator$inboundSchema:
   );
 
 /** @internal */
+export const JournalEntryResponseDtoRecordType$inboundSchema: z.ZodMiniEnum<
+  typeof JournalEntryResponseDtoRecordType
+> = z.enum(JournalEntryResponseDtoRecordType);
+
+/** @internal */
 export const JournalEntryResponseDto$inboundSchema: z.ZodMiniType<
   JournalEntryResponseDto,
   unknown
@@ -290,6 +305,7 @@ export const JournalEntryResponseDto$inboundSchema: z.ZodMiniType<
   journalLineItems: types.nullable(z.array(JournalLineItem$inboundSchema)),
   journalType: types.nullable(types.string()),
   number: types.nullable(types.string()),
+  recordType: types.nullable(JournalEntryResponseDtoRecordType$inboundSchema),
   taxAssignmentDate: z.optional(z.nullable(types.string())),
   transactionDate: types.nullable(types.string()),
   updatedDate: types.nullable(types.string()),

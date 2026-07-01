@@ -6,7 +6,7 @@ import { accountingV2CreateBookingProposalV2 } from "../funcs/accounting-v2-crea
 import { accountingV2CreateContactV2 } from "../funcs/accounting-v2-create-contact-v2.js";
 import { accountingV2GetContactV2 } from "../funcs/accounting-v2-get-contact-v2.js";
 import { accountingV2GetContactsV2 } from "../funcs/accounting-v2-get-contacts-v2.js";
-import { accountingV2GetDimensionsByDimension } from "../funcs/accounting-v2-get-dimensions-by-dimension.js";
+import { accountingV2GetDimensionsByDimensionV2 } from "../funcs/accounting-v2-get-dimensions-by-dimension-v2.js";
 import { accountingV2GetDimensionsV2 } from "../funcs/accounting-v2-get-dimensions-v2.js";
 import { accountingV2PatchContactV2 } from "../funcs/accounting-v2-patch-contact-v2.js";
 import { accountingV2PutContactV2 } from "../funcs/accounting-v2-put-contact-v2.js";
@@ -92,11 +92,11 @@ export class AccountingV2 extends ClientSDK {
     ));
   }
 
-  async getDimensionsByDimension(
-    request: operations.GetDimensionsByDimensionRequest,
+  async getDimensionsByDimensionV2(
+    request: operations.GetDimensionsByDimensionV2Request,
     options?: RequestOptions,
-  ): Promise<operations.GetDimensionsByDimensionResponse> {
-    return unwrapAsync(accountingV2GetDimensionsByDimension(
+  ): Promise<operations.GetDimensionsByDimensionV2Response> {
+    return unwrapAsync(accountingV2GetDimensionsByDimensionV2(
       this,
       request,
       options,

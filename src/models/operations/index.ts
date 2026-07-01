@@ -73,6 +73,7 @@ export * from "./get-credit-note.js";
 export * from "./get-credit-notes.js";
 export * from "./get-customer.js";
 export * from "./get-customers.js";
+export * from "./get-dimensions-by-dimension-v2.js";
 export * from "./get-dimensions-by-dimension.js";
 export * from "./get-dimensions-v2.js";
 export * from "./get-dimensions.js";

@@ -185,6 +185,15 @@ export type CreateJournalEntryRequestDtoDebitCreditIndicator = ClosedEnum<
   typeof CreateJournalEntryRequestDtoDebitCreditIndicator
 >;
 
+export const CreateJournalEntryRequestDtoRecordType = {
+  Standard: "STANDARD",
+  Closing: "CLOSING",
+  Opening: "OPENING",
+} as const;
+export type CreateJournalEntryRequestDtoRecordType = ClosedEnum<
+  typeof CreateJournalEntryRequestDtoRecordType
+>;
+
 export type CreateJournalEntryRequestDto = {
   accountId?: string | undefined;
   accountingPeriodId?: string | undefined;
@@ -203,6 +212,7 @@ export type CreateJournalEntryRequestDto = {
   journalLineItems?: Array<CreateJournalLineItem> | undefined;
   journalType?: string | undefined;
   number?: string | undefined;
+  recordType?: CreateJournalEntryRequestDtoRecordType | undefined;
   taxAssignmentDate?: string | undefined;
   transactionDate?: string | undefined;
 };
@@ -216,6 +226,12 @@ export const CreateJournalEntryRequestDtoCurrency$outboundSchema: z.ZodMiniEnum<
 export const CreateJournalEntryRequestDtoDebitCreditIndicator$outboundSchema:
   z.ZodMiniEnum<typeof CreateJournalEntryRequestDtoDebitCreditIndicator> = z
     .enum(CreateJournalEntryRequestDtoDebitCreditIndicator);
+
+/** @internal */
+export const CreateJournalEntryRequestDtoRecordType$outboundSchema:
+  z.ZodMiniEnum<typeof CreateJournalEntryRequestDtoRecordType> = z.enum(
+    CreateJournalEntryRequestDtoRecordType,
+  );
 
 /** @internal */
 export type CreateJournalEntryRequestDto$Outbound = {
@@ -234,6 +250,7 @@ export type CreateJournalEntryRequestDto$Outbound = {
   journalLineItems?: Array<CreateJournalLineItem$Outbound> | undefined;
   journalType?: string | undefined;
   number?: string | undefined;
+  recordType?: string | undefined;
   taxAssignmentDate?: string | undefined;
   transactionDate?: string | undefined;
 };
@@ -260,6 +277,7 @@ export const CreateJournalEntryRequestDto$outboundSchema: z.ZodMiniType<
   journalLineItems: z.optional(z.array(CreateJournalLineItem$outboundSchema)),
   journalType: z.optional(z.string()),
   number: z.optional(z.string()),
+  recordType: z.optional(CreateJournalEntryRequestDtoRecordType$outboundSchema),
   taxAssignmentDate: z.optional(z.string()),
   transactionDate: z.optional(z.string()),
 });

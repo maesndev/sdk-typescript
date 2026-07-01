@@ -498,6 +498,92 @@ paths:
         statusCodes:
           - 5XX
         retryConnectionErrors: true
+  /accounting/dimensions/{dimension}:
+    get:
+      operationId: getDimensionsByDimension
+      parameters:
+        - name: dimension
+          required: true
+          in: path
+          schema:
+            type: string
+        - name: page
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: limit
+          required: false
+          in: query
+          schema:
+            enum:
+              - 5
+              - 10
+              - 20
+              - 50
+              - 100
+            type: integer
+        - name: lastModifiedAt
+          required: false
+          in: query
+          description: ISO 8601 timestamp; only records modified after this date are returned
+          schema:
+            type: string
+        - name: environmentName
+          required: false
+          in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
+          schema:
+            type: string
+        - name: companyId
+          required: false
+          in: query
+          description: ID of the company (required for multi-company target systems)
+          schema:
+            type: string
+        - name: rawData
+          required: false
+          in: query
+          description: When true, returns the unprocessed response from the upstream target system
+          schema:
+            type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
+      responses:
+        "200":
+          description: List of dimension values for the authenticated end user's connected target system
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BaseResponseDto'
+                  - properties:
+                      data:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/DimensionMetaResponseDto'
+      tags:
+        - accounting
+      x-speakeasy-retries:
+        strategy: backoff
+        backoff:
+          initialInterval: 500
+          maxInterval: 60000
+          maxElapsedTime: 3600000
+          exponent: 1.5
+        statusCodes:
+          - 5XX
+        retryConnectionErrors: true
   /accounting/transactions:
     post:
       operationId: createTransaction
@@ -8022,7 +8108,7 @@ paths:
         retryConnectionErrors: true
   /accounting/v2/dimensions/{dimension}:
     get:
-      operationId: getDimensionsByDimension
+      operationId: getDimensionsByDimensionV2
       parameters:
         - name: dimension
           required: true
@@ -12173,6 +12259,13 @@ components:
         number:
           type: string
           nullable: true
+        recordType:
+          type: string
+          enum:
+            - STANDARD
+            - CLOSING
+            - OPENING
+          nullable: true
         taxAssignmentDate:
           type: string
           nullable: true
@@ -12196,6 +12289,7 @@ components:
         - journalLineItems
         - journalType
         - number
+        - recordType
         - transactionDate
         - updatedDate
     AdvancePaymentInput:
@@ -12633,6 +12727,12 @@ components:
           type: string
         number:
           type: string
+        recordType:
+          type: string
+          enum:
+            - STANDARD
+            - CLOSING
+            - OPENING
         taxAssignmentDate:
           type: string
         transactionDate:
@@ -19113,10 +19213,13 @@ components:
       properties:
         id:
           type: string
+          nullable: true
         accountNumberLength:
           type: number
+          nullable: true
         availableLedgers:
           type: array
+          nullable: true
           items:
             type: string
             enum:
@@ -19131,21 +19234,28 @@ components:
             - SKR51
             - SKR14
             - SKR42
+          nullable: true
         createdDate:
           type: string
+          nullable: true
         description:
           type: string
+          nullable: true
         endDate:
           type: string
+          nullable: true
         startDate:
           type: string
+          nullable: true
         status:
           type: string
           enum:
             - OPEN
             - CLOSED
+          nullable: true
         updatedDate:
           type: string
+          nullable: true
       required:
         - id
         - accountNumberLength
@@ -19392,6 +19502,18 @@ components:
           type: number
         vatId:
           type: string
+    DimensionMetaResponseDto:
+      type: object
+      properties:
+        description:
+          type: string
+          nullable: true
+        dimension:
+          type: string
+          nullable: true
+      required:
+        - description
+        - dimension
     CreateAccountRequestDto:
       type: object
       properties:
@@ -21473,18 +21595,6 @@ components:
         - totalGrossAmount
         - updatedDate
         - vatId
-    DimensionMetaResponseDto:
-      type: object
-      properties:
-        description:
-          type: string
-          nullable: true
-        dimension:
-          type: string
-          nullable: true
-      required:
-        - description
-        - dimension
     DimensionResponseDtoV2:
       type: object
       properties:

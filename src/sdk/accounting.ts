@@ -55,6 +55,7 @@ import { accountingGetCreditNote } from "../funcs/accounting-get-credit-note.js"
 import { accountingGetCreditNotes } from "../funcs/accounting-get-credit-notes.js";
 import { accountingGetCustomer } from "../funcs/accounting-get-customer.js";
 import { accountingGetCustomers } from "../funcs/accounting-get-customers.js";
+import { accountingGetDimensionsByDimension } from "../funcs/accounting-get-dimensions-by-dimension.js";
 import { accountingGetDimensions } from "../funcs/accounting-get-dimensions.js";
 import { accountingGetDocumentExtensions } from "../funcs/accounting-get-document-extensions.js";
 import { accountingGetDocumentTypes } from "../funcs/accounting-get-document-types.js";
@@ -198,6 +199,17 @@ export class Accounting extends ClientSDK {
     options?: RequestOptions,
   ): Promise<operations.GetDimensionsResponse> {
     return unwrapAsync(accountingGetDimensions(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  async getDimensionsByDimension(
+    request: operations.GetDimensionsByDimensionRequest,
+    options?: RequestOptions,
+  ): Promise<operations.GetDimensionsByDimensionResponse> {
+    return unwrapAsync(accountingGetDimensionsByDimension(
       this,
       request,
       options,
