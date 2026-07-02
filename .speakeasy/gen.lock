@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: b4a29653-32d8-43f6-ba1e-9aa569fce206
 management:
-  docChecksum: f7539a4eac35c4dfe922c34b5bf0c6bb
+  docChecksum: 8e9dd86b35528fa23c546b6ca89bc03f
   docVersion: "1.0"
   speakeasyVersion: 1.787.0
   generationVersion: 2.914.0
-  releaseVersion: 0.8.8
-  configChecksum: 40a119da96f6390ae5f131fc189979d5
+  releaseVersion: 0.8.9
+  configChecksum: 520be2b072d3452ba8c97d57fc306e64
   repoURL: https://github.com/maesndev/sdk-typescript.git
   installationURL: https://github.com/maesndev/sdk-typescript
   published: true
 persistentEdits:
-  generation_id: a29b5b6d-5f92-49ab-8a49-398867fb55a2
-  pristine_commit_hash: dbf4aeb7ee51a4a9b26dd7ccf85bc77b1edbcb50
-  pristine_tree_hash: e74437255b61db730c85093f3fb3516aeeb82de1
+  generation_id: 7a064966-5f2b-42cc-ac1e-21cff142958a
+  pristine_commit_hash: 8d47d6dcf81ff61f9390d1221415fc1762ed4f8f
+  pristine_tree_hash: 19bd8a5f1ef3ce18d76bab1f61b90a59f4a4fc29
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -708,8 +708,8 @@ trackedFiles:
     pristine_git_object: 0d1a745df5111069eabe5949d046c4239c8b659c
   docs/models/create-sales-order-line-item-request-dto.md:
     id: b50556870363
-    last_write_checksum: sha1:62f2e19d04651f9ad4d5f38766cdf17b5fdd3b70
-    pristine_git_object: 5839630cc4fdddcf5cd7e5c6853f3d9623e53938
+    last_write_checksum: sha1:32a20e222666de8e4709109f37487bcd21629a90
+    pristine_git_object: ebf7878ee978062964ace12ac1820c632b0e784e
   docs/models/create-sales-order-request-dto-status.md:
     id: 87e1f27b8e90
     last_write_checksum: sha1:1f98eb083dacea70d7f9362c40606cf3f2569915
@@ -5736,12 +5736,12 @@ trackedFiles:
     pristine_git_object: 620f120672c2be3445356aaae6d877d4d89c43d5
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:bb9e813a74ad29155c5a7498952f9f2cf7d0962c
-    pristine_git_object: bb86c1f0c23badbf7b1eb13f9b1bc8f898a759b0
+    last_write_checksum: sha1:e9a1d8e976016854efe05edb1b177b0904a2fea0
+    pristine_git_object: 0604a1051d9caf1fee9fe77512598ed2f780b64c
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:a1f86566589bc1528af0f42d16de89eb5f9af6c4
-    pristine_git_object: c0ae44e6ef0d6ab514ae8353475e04b2f973354d
+    last_write_checksum: sha1:c848af1ea6a63ce98397f033c7d633d744964de1
+    pristine_git_object: daec6aea489e9e3f19f2c39d9a3b55189d88900a
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:2eff2a6c77b0c787da6418de861acc36733c433a
@@ -6400,8 +6400,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:b29c4cc3374fda9123f6e77cf70bce706d8bd316
-    pristine_git_object: 7dab623a379b1443f374e281f70e118196593bde
+    last_write_checksum: sha1:e03666160ee7b547d344c58dc259ab9fd6b8a7e7
+    pristine_git_object: 4e6765a50552feb89f5b49fdf84053893cc59b82
   src/lib/encodings.ts:
     id: 3bd8ead98afd
     last_write_checksum: sha1:7533dcb79b22b8c84ac7b90aec94317d12bad5f8
@@ -6732,8 +6732,8 @@ trackedFiles:
     pristine_git_object: d0f52edc9ef802fb77015a64c175a4a598aafa8f
   src/models/create-sales-order-line-item-request-dto.ts:
     id: bbf37ab2b507
-    last_write_checksum: sha1:1758176c31ac278f5d88de51510b907299095b67
-    pristine_git_object: 13b9b4aa8d94149ab3b0f8f3f32e0753673e2252
+    last_write_checksum: sha1:c3ca14854f0b888209e2dbdecc013e7aee1af526
+    pristine_git_object: ca69069637f23a8a5ca23f7451f2a4705e46a630
   src/models/create-sales-order-request-dto.ts:
     id: b7a95384b736
     last_write_checksum: sha1:5f9f34d7973378897d4face74a1fb1f54f0e18f8
@@ -9109,4 +9109,4 @@ examples:
         "200":
           application/json: {"data": [{"description": "blah and finally lightly knavishly", "dimension": "<value>"}], "errors": {}, "rawData": {}}
 examplesVersion: 1.0.2
-releaseNotes: "## Typescript SDK Changes:\n* `maesn.accounting.getFiscalYears()`:  `response.data[]` **Changed** (Breaking ⚠️)\n* `maesn.accounting.getFiscalYear()`:  `response.data[]` **Changed** (Breaking ⚠️)\n* `maesn.accounting.getDimensionsByDimension()`: **Added**\n* `maesn.accountingV2.getDimensionsByDimensionV2()`: **Added**\n* `maesn.accountingV2.getDimensionsByDimension()`: **Removed** (Breaking ⚠️)\n* `maesn.accounting.getJournalEntries()`:  `response.data[].recordType` **Added**\n* `maesn.accounting.createJournalEntry()`: \n  *  `request.body.journalEntry` **Changed**\n  *  `response.data.recordType` **Added**\n* `maesn.accounting.getJournalEntry()`:  `response.data.recordType` **Added**\n* `maesn.accounting.createJournalEntries()`: \n  *  `request.body.entries[].recordType` **Added**\n  *  `response.data.entries[].recordType` **Added**\n* `maesn.accounting.getJournalEntryAttachments()`:  `response.data[].recordType` **Added**\n* `maesn.accounting.createJournalEntryAttachments()`:  `response.data.recordType` **Added**\n* `maesn.accounting.getJournalEntryAttachmentById()`:  `response.data.recordType` **Added**\n"
+releaseNotes: "## Typescript SDK Changes:\n* `maesn.accounting.createSalesOrder()`: \n  *  `request.body.lineItems[].optional` **Added**\n"
