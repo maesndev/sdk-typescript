@@ -15,6 +15,7 @@ let value: CreateSalesOrderLineItemRequestDto = {};
 | `itemId`                  | *string*                  | :heavy_minus_sign:        | N/A                       |
 | `description`             | *string*                  | :heavy_minus_sign:        | N/A                       |
 | `itemName`                | *string*                  | :heavy_minus_sign:        | N/A                       |
+| `optional`                | *boolean*                 | :heavy_minus_sign:        | N/A                       |
 | `quantity`                | *number*                  | :heavy_minus_sign:        | N/A                       |
 | `taxCode`                 | *string*                  | :heavy_minus_sign:        | N/A                       |
 | `taxRatePercentage`       | *number*                  | :heavy_minus_sign:        | N/A                       |

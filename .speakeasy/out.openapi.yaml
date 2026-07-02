@@ -14802,6 +14802,8 @@ components:
           type: string
         itemName:
           type: string
+        optional:
+          type: boolean
         quantity:
           type: number
         taxCode:

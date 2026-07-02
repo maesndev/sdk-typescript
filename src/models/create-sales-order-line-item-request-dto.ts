@@ -8,6 +8,7 @@ export type CreateSalesOrderLineItemRequestDto = {
   itemId?: string | undefined;
   description?: string | undefined;
   itemName?: string | undefined;
+  optional?: boolean | undefined;
   quantity?: number | undefined;
   taxCode?: string | undefined;
   taxRatePercentage?: number | undefined;
@@ -27,6 +28,7 @@ export type CreateSalesOrderLineItemRequestDto$Outbound = {
   itemId?: string | undefined;
   description?: string | undefined;
   itemName?: string | undefined;
+  optional?: boolean | undefined;
   quantity?: number | undefined;
   taxCode?: string | undefined;
   taxRatePercentage?: number | undefined;
@@ -49,6 +51,7 @@ export const CreateSalesOrderLineItemRequestDto$outboundSchema: z.ZodMiniType<
   itemId: z.optional(z.string()),
   description: z.optional(z.string()),
   itemName: z.optional(z.string()),
+  optional: z.optional(z.boolean()),
   quantity: z.optional(z.number()),
   taxCode: z.optional(z.string()),
   taxRatePercentage: z.optional(z.number()),
