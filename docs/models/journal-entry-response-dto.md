@@ -9,20 +9,50 @@ let value: JournalEntryResponseDto = {
   id: "<id>",
   accountId: null,
   accountingPeriodId: "<id>",
+  accountingReason: "TAX",
   createdDate: "<value>",
-  currency: "UGX",
-  description: "tiny rundown crossly dream shoulder unexpectedly excited",
+  currency: "LTL",
+  description: "positively quietly integer instead",
   documentId: "<id>",
   files: [
     "<value 1>",
     "<value 2>",
   ],
-  isProvisional: true,
+  isProvisional: false,
+  isReversal: null,
   journalCode: "<value>",
-  journalLineItems: [],
+  journalLineItems: [
+    {
+      id: "<id>",
+      accountCode: "<value>",
+      accountId: "<id>",
+      accountNumber: 9591.91,
+      createdDate: "<value>",
+      currency: "KYD",
+      customerId: "<id>",
+      debitCreditIndicator: "CREDIT",
+      description: "after to content scrap aw",
+      dimensions: null,
+      documentId: "<id>",
+      documentNumber: "<value>",
+      exchangeRate: 9682.62,
+      supplierId: "<id>",
+      taxRate: {
+        id: "<id>",
+        code: "<value>",
+        name: "<value>",
+        taxRatePercentage: "<value>",
+      },
+      thirdPartyCode: "<value>",
+      totalGrossAmount: 5036,
+      totalNetAmount: 9416.06,
+      totalTaxAmount: 8710.22,
+      updatedDate: "<value>",
+    },
+  ],
   journalType: "<value>",
   number: "<value>",
-  recordType: "STANDARD",
+  recordType: "OPENING",
   transactionDate: "<value>",
   updatedDate: "<value>",
 };
@@ -35,6 +65,7 @@ let value: JournalEntryResponseDto = {
 | `id`                                                                                                                 | *string*                                                                                                             | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
 | `accountId`                                                                                                          | *string*                                                                                                             | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
 | `accountingPeriodId`                                                                                                 | *string*                                                                                                             | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
+| `accountingReason`                                                                                                   | [models.JournalEntryResponseDtoAccountingReason](../models/journal-entry-response-dto-accounting-reason.md)          | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
 | `advancePayment`                                                                                                     | [models.AdvancePayment](../models/advance-payment.md)                                                                | :heavy_minus_sign:                                                                                                   | N/A                                                                                                                  |
 | `createdDate`                                                                                                        | *string*                                                                                                             | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
 | `currency`                                                                                                           | [models.JournalEntryResponseDtoCurrency](../models/journal-entry-response-dto-currency.md)                           | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
@@ -46,6 +77,7 @@ let value: JournalEntryResponseDto = {
 | `exchangeRate`                                                                                                       | *string*                                                                                                             | :heavy_minus_sign:                                                                                                   | N/A                                                                                                                  |
 | `files`                                                                                                              | *string*[]                                                                                                           | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
 | `isProvisional`                                                                                                      | *boolean*                                                                                                            | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
+| `isReversal`                                                                                                         | *boolean*                                                                                                            | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
 | `journalCode`                                                                                                        | *string*                                                                                                             | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
 | `journalLineItems`                                                                                                   | [models.JournalLineItem](../models/journal-line-item.md)[]                                                           | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
 | `journalType`                                                                                                        | *string*                                                                                                             | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |

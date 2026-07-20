@@ -81,6 +81,7 @@ export type CreditNoteResponseDto = {
   paymentTermId: string | null;
   reference: string | null;
   status: CreditNoteResponseDtoStatus | null;
+  taxRatePercentage: number | null;
   taxRule: CreditNoteResponseDtoTaxRule | null;
   totalDiscountAmount: number | null;
   totalDiscountPercentage: number | null;
@@ -124,6 +125,7 @@ export const CreditNoteResponseDto$inboundSchema: z.ZodMiniType<
   paymentTermId: types.nullable(types.string()),
   reference: types.nullable(types.string()),
   status: types.nullable(CreditNoteResponseDtoStatus$inboundSchema),
+  taxRatePercentage: types.nullable(types.number()),
   taxRule: types.nullable(CreditNoteResponseDtoTaxRule$inboundSchema),
   totalDiscountAmount: types.nullable(types.number()),
   totalDiscountPercentage: types.nullable(types.number()),

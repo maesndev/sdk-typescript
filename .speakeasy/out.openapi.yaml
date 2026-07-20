@@ -8855,6 +8855,39 @@ paths:
         statusCodes:
           - 5XX
         retryConnectionErrors: true
+    post:
+      operationId: callbackPost
+      tags:
+        - auth
+      parameters:
+        - name: TARGET_SYSTEM
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: X-API-KEY
+          in: header
+          description: API key
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          in: header
+          description: Account key
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
+      responses:
+        "200":
+          description: Callback payload received and logged successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  received:
+                    type: boolean
+      x-speakeasy-ignore: true
   /auth/accounts/{TARGET_SYSTEM}:
     post:
       operationId: createEndUserAccount
@@ -12049,6 +12082,16 @@ components:
         accountingPeriodId:
           type: string
           nullable: true
+        accountingReason:
+          type: string
+          enum:
+            - COMMERCIAL
+            - TAX
+            - IFRS
+            - CALCULATION
+            - INDEPENDENT
+            - OTHER
+          nullable: true
         advancePayment:
           nullable: true
           allOf:
@@ -12245,6 +12288,9 @@ components:
         isProvisional:
           type: boolean
           nullable: true
+        isReversal:
+          type: boolean
+          nullable: true
         journalCode:
           type: string
           nullable: true
@@ -12279,12 +12325,14 @@ components:
         - id
         - accountId
         - accountingPeriodId
+        - accountingReason
         - createdDate
         - currency
         - description
         - documentId
         - files
         - isProvisional
+        - isReversal
         - journalCode
         - journalLineItems
         - journalType
@@ -12539,6 +12587,15 @@ components:
           type: string
         accountingPeriodId:
           type: string
+        accountingReason:
+          type: string
+          enum:
+            - COMMERCIAL
+            - TAX
+            - IFRS
+            - CALCULATION
+            - INDEPENDENT
+            - OTHER
         advancePayment:
           $ref: '#/components/schemas/AdvancePaymentInput'
         currency:
@@ -12716,6 +12773,8 @@ components:
         exchangeRate:
           type: string
         isProvisional:
+          type: boolean
+        isReversal:
           type: boolean
         journalCode:
           type: string
@@ -19153,6 +19212,9 @@ components:
             - OVERDUE
             - VOIDED
           nullable: true
+        taxRatePercentage:
+          type: number
+          nullable: true
         taxRule:
           type: string
           enum:
@@ -19203,6 +19265,7 @@ components:
         - paymentTermId
         - reference
         - status
+        - taxRatePercentage
         - taxRule
         - totalDiscountAmount
         - totalDiscountPercentage
