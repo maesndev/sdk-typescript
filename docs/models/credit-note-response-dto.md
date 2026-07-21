@@ -20,12 +20,13 @@ let value: CreditNoteResponseDto = {
   paymentTermId: "<id>",
   reference: "<value>",
   status: "VOIDED",
-  taxRule: "OSS_SERVICES",
-  totalDiscountAmount: 3957.71,
-  totalDiscountPercentage: 5304.94,
-  totalGrossAmount: 1831.02,
-  totalNetAmount: 7011.77,
-  totalTaxAmount: 3933.72,
+  taxRatePercentage: 9899.06,
+  taxRule: "EXPORT_GOODS",
+  totalDiscountAmount: 5304.94,
+  totalDiscountPercentage: 1831.02,
+  totalGrossAmount: 7011.77,
+  totalNetAmount: 3933.72,
+  totalTaxAmount: 6099.6,
   updatedDate: "<value>",
 };
 ```
@@ -46,6 +47,7 @@ let value: CreditNoteResponseDto = {
 | `paymentTermId`                                                                                   | *string*                                                                                          | :heavy_check_mark:                                                                                | N/A                                                                                               |
 | `reference`                                                                                       | *string*                                                                                          | :heavy_check_mark:                                                                                | N/A                                                                                               |
 | `status`                                                                                          | [models.CreditNoteResponseDtoStatus](../models/credit-note-response-dto-status.md)                | :heavy_check_mark:                                                                                | N/A                                                                                               |
+| `taxRatePercentage`                                                                               | *number*                                                                                          | :heavy_check_mark:                                                                                | N/A                                                                                               |
 | `taxRule`                                                                                         | [models.CreditNoteResponseDtoTaxRule](../models/credit-note-response-dto-tax-rule.md)             | :heavy_check_mark:                                                                                | N/A                                                                                               |
 | `totalDiscountAmount`                                                                             | *number*                                                                                          | :heavy_check_mark:                                                                                | N/A                                                                                               |
 | `totalDiscountPercentage`                                                                         | *number*                                                                                          | :heavy_check_mark:                                                                                | N/A                                                                                               |

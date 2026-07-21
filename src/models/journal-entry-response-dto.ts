@@ -13,6 +13,18 @@ import {
   JournalLineItem$inboundSchema,
 } from "./journal-line-item.js";
 
+export const JournalEntryResponseDtoAccountingReason = {
+  Commercial: "COMMERCIAL",
+  Tax: "TAX",
+  Ifrs: "IFRS",
+  Calculation: "CALCULATION",
+  Independent: "INDEPENDENT",
+  Other: "OTHER",
+} as const;
+export type JournalEntryResponseDtoAccountingReason = ClosedEnum<
+  typeof JournalEntryResponseDtoAccountingReason
+>;
+
 export const JournalEntryResponseDtoType = {
   AdvanceInvoiceRequested: "ADVANCE_INVOICE_REQUESTED",
   AdvancePaymentReceived: "ADVANCE_PAYMENT_RECEIVED",
@@ -214,6 +226,7 @@ export type JournalEntryResponseDto = {
   id: string | null;
   accountId: string | null;
   accountingPeriodId: string | null;
+  accountingReason: JournalEntryResponseDtoAccountingReason | null;
   advancePayment?: AdvancePayment | null | undefined;
   createdDate: string | null;
   currency: JournalEntryResponseDtoCurrency | null;
@@ -228,6 +241,7 @@ export type JournalEntryResponseDto = {
   exchangeRate?: string | null | undefined;
   files: Array<string> | null;
   isProvisional: boolean | null;
+  isReversal: boolean | null;
   journalCode: string | null;
   journalLineItems: Array<JournalLineItem> | null;
   journalType: string | null;
@@ -237,6 +251,12 @@ export type JournalEntryResponseDto = {
   transactionDate: string | null;
   updatedDate: string | null;
 };
+
+/** @internal */
+export const JournalEntryResponseDtoAccountingReason$inboundSchema:
+  z.ZodMiniEnum<typeof JournalEntryResponseDtoAccountingReason> = z.enum(
+    JournalEntryResponseDtoAccountingReason,
+  );
 
 /** @internal */
 export const JournalEntryResponseDtoType$inboundSchema: z.ZodMiniEnum<
@@ -286,6 +306,9 @@ export const JournalEntryResponseDto$inboundSchema: z.ZodMiniType<
   id: types.nullable(types.string()),
   accountId: types.nullable(types.string()),
   accountingPeriodId: types.nullable(types.string()),
+  accountingReason: types.nullable(
+    JournalEntryResponseDtoAccountingReason$inboundSchema,
+  ),
   advancePayment: z.optional(
     z.nullable(z.lazy(() => AdvancePayment$inboundSchema)),
   ),
@@ -301,6 +324,7 @@ export const JournalEntryResponseDto$inboundSchema: z.ZodMiniType<
   exchangeRate: z.optional(z.nullable(types.string())),
   files: types.nullable(z.array(types.string())),
   isProvisional: types.nullable(types.boolean()),
+  isReversal: types.nullable(types.boolean()),
   journalCode: types.nullable(types.string()),
   journalLineItems: types.nullable(z.array(JournalLineItem$inboundSchema)),
   journalType: types.nullable(types.string()),

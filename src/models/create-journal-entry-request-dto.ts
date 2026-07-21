@@ -15,6 +15,18 @@ import {
   CreateJournalLineItem$outboundSchema,
 } from "./create-journal-line-item.js";
 
+export const CreateJournalEntryRequestDtoAccountingReason = {
+  Commercial: "COMMERCIAL",
+  Tax: "TAX",
+  Ifrs: "IFRS",
+  Calculation: "CALCULATION",
+  Independent: "INDEPENDENT",
+  Other: "OTHER",
+} as const;
+export type CreateJournalEntryRequestDtoAccountingReason = ClosedEnum<
+  typeof CreateJournalEntryRequestDtoAccountingReason
+>;
+
 export const CreateJournalEntryRequestDtoCurrency = {
   Aed: "AED",
   Afn: "AFN",
@@ -197,6 +209,7 @@ export type CreateJournalEntryRequestDtoRecordType = ClosedEnum<
 export type CreateJournalEntryRequestDto = {
   accountId?: string | undefined;
   accountingPeriodId?: string | undefined;
+  accountingReason?: CreateJournalEntryRequestDtoAccountingReason | undefined;
   advancePayment?: AdvancePaymentInput | undefined;
   currency?: CreateJournalEntryRequestDtoCurrency | undefined;
   debitCreditIndicator?:
@@ -208,6 +221,7 @@ export type CreateJournalEntryRequestDto = {
   dueDate?: string | undefined;
   exchangeRate?: string | undefined;
   isProvisional?: boolean | undefined;
+  isReversal?: boolean | undefined;
   journalCode?: string | undefined;
   journalLineItems?: Array<CreateJournalLineItem> | undefined;
   journalType?: string | undefined;
@@ -216,6 +230,12 @@ export type CreateJournalEntryRequestDto = {
   taxAssignmentDate?: string | undefined;
   transactionDate?: string | undefined;
 };
+
+/** @internal */
+export const CreateJournalEntryRequestDtoAccountingReason$outboundSchema:
+  z.ZodMiniEnum<typeof CreateJournalEntryRequestDtoAccountingReason> = z.enum(
+    CreateJournalEntryRequestDtoAccountingReason,
+  );
 
 /** @internal */
 export const CreateJournalEntryRequestDtoCurrency$outboundSchema: z.ZodMiniEnum<
@@ -237,6 +257,7 @@ export const CreateJournalEntryRequestDtoRecordType$outboundSchema:
 export type CreateJournalEntryRequestDto$Outbound = {
   accountId?: string | undefined;
   accountingPeriodId?: string | undefined;
+  accountingReason?: string | undefined;
   advancePayment?: AdvancePaymentInput$Outbound | undefined;
   currency?: string | undefined;
   debitCreditIndicator?: string | undefined;
@@ -246,6 +267,7 @@ export type CreateJournalEntryRequestDto$Outbound = {
   dueDate?: string | undefined;
   exchangeRate?: string | undefined;
   isProvisional?: boolean | undefined;
+  isReversal?: boolean | undefined;
   journalCode?: string | undefined;
   journalLineItems?: Array<CreateJournalLineItem$Outbound> | undefined;
   journalType?: string | undefined;
@@ -262,6 +284,9 @@ export const CreateJournalEntryRequestDto$outboundSchema: z.ZodMiniType<
 > = z.object({
   accountId: z.optional(z.string()),
   accountingPeriodId: z.optional(z.string()),
+  accountingReason: z.optional(
+    CreateJournalEntryRequestDtoAccountingReason$outboundSchema,
+  ),
   advancePayment: z.optional(AdvancePaymentInput$outboundSchema),
   currency: z.optional(CreateJournalEntryRequestDtoCurrency$outboundSchema),
   debitCreditIndicator: z.optional(
@@ -273,6 +298,7 @@ export const CreateJournalEntryRequestDto$outboundSchema: z.ZodMiniType<
   dueDate: z.optional(z.string()),
   exchangeRate: z.optional(z.string()),
   isProvisional: z.optional(z.boolean()),
+  isReversal: z.optional(z.boolean()),
   journalCode: z.optional(z.string()),
   journalLineItems: z.optional(z.array(CreateJournalLineItem$outboundSchema)),
   journalType: z.optional(z.string()),

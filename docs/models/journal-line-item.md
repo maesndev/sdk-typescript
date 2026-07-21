@@ -25,18 +25,13 @@ let value: JournalLineItem = {
   ],
   documentId: "<id>",
   documentNumber: "<value>",
-  exchangeRate: 5675.31,
+  exchangeRate: 3026.87,
   supplierId: "<id>",
-  taxRate: {
-    id: "<id>",
-    code: "<value>",
-    name: "<value>",
-    taxRatePercentage: "<value>",
-  },
+  taxRate: null,
   thirdPartyCode: "<value>",
-  totalGrossAmount: 1071.3,
-  totalNetAmount: null,
-  totalTaxAmount: 9871.64,
+  totalGrossAmount: 6117.13,
+  totalNetAmount: 4345.68,
+  totalTaxAmount: 6967.36,
   updatedDate: "<value>",
 };
 ```
