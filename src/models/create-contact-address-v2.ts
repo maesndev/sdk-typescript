@@ -188,6 +188,7 @@ export const CreateContactAddressV2CountryCode = {
   Pm: "PM",
   Pn: "PN",
   Pr: "PR",
+  Ps: "PS",
   Pt: "PT",
   Pw: "PW",
   Py: "PY",
