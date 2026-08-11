@@ -13,21 +13,25 @@ let value: SubmissionPageStyleDto = {
   textColor: "<value>",
   inputBackgroundColor: "<value>",
   submitButtonColor: "<value>",
+  submitButtonTextColor: "<value>",
   cancelButtonColor: "<value>",
+  cancelButtonTextColor: "<value>",
   errorTextColor: "<value>",
 };
 ```
 
 ## Fields
 
-| Field                  | Type                   | Required               | Description            |
-| ---------------------- | ---------------------- | ---------------------- | ---------------------- |
-| `logoSvg`              | *string*               | :heavy_check_mark:     | N/A                    |
-| `logoPng`              | *string*               | :heavy_check_mark:     | N/A                    |
-| `backgroundColor`      | *string*               | :heavy_check_mark:     | N/A                    |
-| `titleColor`           | *string*               | :heavy_check_mark:     | N/A                    |
-| `textColor`            | *string*               | :heavy_check_mark:     | N/A                    |
-| `inputBackgroundColor` | *string*               | :heavy_check_mark:     | N/A                    |
-| `submitButtonColor`    | *string*               | :heavy_check_mark:     | N/A                    |
-| `cancelButtonColor`    | *string*               | :heavy_check_mark:     | N/A                    |
-| `errorTextColor`       | *string*               | :heavy_check_mark:     | N/A                    |
+| Field                   | Type                    | Required                | Description             |
+| ----------------------- | ----------------------- | ----------------------- | ----------------------- |
+| `logoSvg`               | *string*                | :heavy_check_mark:      | N/A                     |
+| `logoPng`               | *string*                | :heavy_check_mark:      | N/A                     |
+| `backgroundColor`       | *string*                | :heavy_check_mark:      | N/A                     |
+| `titleColor`            | *string*                | :heavy_check_mark:      | N/A                     |
+| `textColor`             | *string*                | :heavy_check_mark:      | N/A                     |
+| `inputBackgroundColor`  | *string*                | :heavy_check_mark:      | N/A                     |
+| `submitButtonColor`     | *string*                | :heavy_check_mark:      | N/A                     |
+| `submitButtonTextColor` | *string*                | :heavy_check_mark:      | N/A                     |
+| `cancelButtonColor`     | *string*                | :heavy_check_mark:      | N/A                     |
+| `cancelButtonTextColor` | *string*                | :heavy_check_mark:      | N/A                     |
+| `errorTextColor`        | *string*                | :heavy_check_mark:      | N/A                     |

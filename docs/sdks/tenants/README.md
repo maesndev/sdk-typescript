@@ -938,7 +938,9 @@ async function run() {
       textColor: "<value>",
       inputBackgroundColor: "<value>",
       submitButtonColor: "<value>",
+      submitButtonTextColor: "<value>",
       cancelButtonColor: "<value>",
+      cancelButtonTextColor: "<value>",
       errorTextColor: "<value>",
     },
   });
@@ -975,7 +977,9 @@ async function run() {
       textColor: "<value>",
       inputBackgroundColor: "<value>",
       submitButtonColor: "<value>",
+      submitButtonTextColor: "<value>",
       cancelButtonColor: "<value>",
+      cancelButtonTextColor: "<value>",
       errorTextColor: "<value>",
     },
   });

@@ -12,7 +12,9 @@ export type SubmissionPageStyleDto = {
   textColor: string;
   inputBackgroundColor: string;
   submitButtonColor: string;
+  submitButtonTextColor: string;
   cancelButtonColor: string;
+  cancelButtonTextColor: string;
   errorTextColor: string;
 };
 
@@ -25,7 +27,9 @@ export type SubmissionPageStyleDto$Outbound = {
   textColor: string;
   inputBackgroundColor: string;
   submitButtonColor: string;
+  submitButtonTextColor: string;
   cancelButtonColor: string;
+  cancelButtonTextColor: string;
   errorTextColor: string;
 };
 
@@ -41,7 +45,9 @@ export const SubmissionPageStyleDto$outboundSchema: z.ZodMiniType<
   textColor: z.string(),
   inputBackgroundColor: z.string(),
   submitButtonColor: z.string(),
+  submitButtonTextColor: z.string(),
   cancelButtonColor: z.string(),
+  cancelButtonTextColor: z.string(),
   errorTextColor: z.string(),
 });
 
