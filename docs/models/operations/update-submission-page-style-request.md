@@ -14,7 +14,9 @@ let value: UpdateSubmissionPageStyleRequest = {
     textColor: "<value>",
     inputBackgroundColor: "<value>",
     submitButtonColor: "<value>",
+    submitButtonTextColor: "<value>",
     cancelButtonColor: "<value>",
+    cancelButtonTextColor: "<value>",
     errorTextColor: "<value>",
   },
 };

@@ -15842,6 +15842,8 @@ components:
           type: string
         totalGrossAmount:
           type: number
+        useCollectiveContact:
+          type: boolean
         vatId:
           type: string
       required:
@@ -19569,6 +19571,8 @@ components:
             - CANCELLED
         totalGrossAmount:
           type: number
+        useCollectiveContact:
+          type: boolean
         vatId:
           type: string
     DimensionMetaResponseDto:
@@ -22281,7 +22285,11 @@ components:
           type: string
         submitButtonColor:
           type: string
+        submitButtonTextColor:
+          type: string
         cancelButtonColor:
+          type: string
+        cancelButtonTextColor:
           type: string
         errorTextColor:
           type: string
@@ -22293,7 +22301,9 @@ components:
         - textColor
         - inputBackgroundColor
         - submitButtonColor
+        - submitButtonTextColor
         - cancelButtonColor
+        - cancelButtonTextColor
         - errorTextColor
     WebhookResponseDto:
       type: object

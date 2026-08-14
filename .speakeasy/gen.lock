@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: b4a29653-32d8-43f6-ba1e-9aa569fce206
 management:
-  docChecksum: 0e883628daf6a3eb36debe7ba1445652
+  docChecksum: 43ec279eb9951dd8f0dabde10fb13d4a
   docVersion: "1.0"
-  speakeasyVersion: 1.791.0
-  generationVersion: 2.924.0
-  releaseVersion: 0.8.11
-  configChecksum: d5401e1c37483e7554a6a7f3f7c054cb
+  speakeasyVersion: 1.793.0
+  generationVersion: 2.928.0
+  releaseVersion: 0.8.12
+  configChecksum: 40e8a6674c6654b525e6a581711b8e8b
   repoURL: https://github.com/maesndev/sdk-typescript.git
   installationURL: https://github.com/maesndev/sdk-typescript
   published: true
 persistentEdits:
-  generation_id: 48cc0b17-ba51-45d2-b9c6-e75a5d44772f
-  pristine_commit_hash: e9edd603b73a8b423f827dd109cd0a9a8f8618d6
-  pristine_tree_hash: 94adaf03771159e6916b33ab2181e4a7d9c37df1
+  generation_id: 42ee8e94-7a57-4445-8888-7fd863b50a2f
+  pristine_commit_hash: c8b1c4cba8f96b6c92d46cfb9693a7e3418dd27b
+  pristine_tree_hash: bc1de991109774d5b64ac0628cc754405144eb2c
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -440,12 +440,12 @@ trackedFiles:
     pristine_git_object: 379e0ee1e1d6ea9e38dbc0cd0eadda247eddf356
   docs/models/create-booking-proposal-request-dto-v2.md:
     id: b4d11c3c92bb
-    last_write_checksum: sha1:4497dd332d352d56a2ce79f5634f8a3f865eb8c7
-    pristine_git_object: 92fc62d7e8dd7c129bbfdac0b84c3d3b259c5777
+    last_write_checksum: sha1:78b2e59f26cfe123fc99b8c4671b2fbdd276fd18
+    pristine_git_object: acf4b14929043f80fb4e3661dbad6eaf9cf2500b
   docs/models/create-booking-proposal-request-dto.md:
     id: 9a22ee84c451
-    last_write_checksum: sha1:787f4a3e99fecec8cae0a6d27e2c11d6243f4d6e
-    pristine_git_object: dea1ffd96da87bbc546643e0ad57c4a855268d4f
+    last_write_checksum: sha1:d4fc712d5968db427aafe9e773b1f1e8a5dabe83
+    pristine_git_object: b5d59539fd1a0ef8dafb42423ac9d4022805d4a1
   docs/models/create-contact-address-country-code.md:
     id: 297abaf809a8
     last_write_checksum: sha1:a733085036030fdfd53cf1fa155998dabcdd9d66
@@ -5344,8 +5344,8 @@ trackedFiles:
     pristine_git_object: c2bde796598ae1a815eabd8a0acdc54c423cf4c8
   docs/models/operations/update-submission-page-style-request.md:
     id: b6b0da48d0e1
-    last_write_checksum: sha1:d699af25e71e0ead5b676cd75badf95ab32aa90c
-    pristine_git_object: da35b4df984b86d5994b0323186a5216ce192c10
+    last_write_checksum: sha1:d70574232814ea0a66e7e10f5db08d61a05ad25f
+    pristine_git_object: 3f0160f35e7dd04794ac9c2e934c7253dcc4b885
   docs/models/operations/update-submission-page-style-response.md:
     id: c8dfa421cf16
     last_write_checksum: sha1:8ae4196ec42687a421f6527410acde25267579ee
@@ -5588,8 +5588,8 @@ trackedFiles:
     pristine_git_object: 755fbc1198978294470bc654f5c1fd86ad1bb2ad
   docs/models/submission-page-style-dto.md:
     id: 77d78a0dbb70
-    last_write_checksum: sha1:4f52a2c0fccd852b21a42abe8f214a960c6d2686
-    pristine_git_object: 0ec0b078e3c45498f48a2616c19290cc8dd03177
+    last_write_checksum: sha1:a429df24a2fd32aa6cc87e06b958b1e1a21fdf2f
+    pristine_git_object: 82ba24bf590e14166075b7a56f710f08ea81a32e
   docs/models/subscription.md:
     id: 4a200793e0f4
     last_write_checksum: sha1:047ff13d088c36972acefeb3775974dcfee14bcd
@@ -5716,8 +5716,8 @@ trackedFiles:
     pristine_git_object: e11712569867315854fa09e986e36a366b9b715e
   docs/sdks/tenants/README.md:
     id: 68a2b19779b5
-    last_write_checksum: sha1:32c258a9338f8da95b8f259655a8941d377da00e
-    pristine_git_object: c9401d4566edd9354e6d1e81e5c007687dc1056c
+    last_write_checksum: sha1:817b2cfca881231dc3f0510343a7737c549ccecc
+    pristine_git_object: faab082b784b224dde1d924768c62b78e9b2dd9c
   docs/sdks/user/README.md:
     id: 437dd7dc6e30
     last_write_checksum: sha1:6e14f2d303b48789910dac6df20f924f4cc92135
@@ -5744,12 +5744,12 @@ trackedFiles:
     pristine_git_object: 620f120672c2be3445356aaae6d877d4d89c43d5
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:674aa25d998e2961ea6e7c70a94b25cccd6fe3f1
-    pristine_git_object: d78fb5b1a0f3be72314837cffff6762f25117859
+    last_write_checksum: sha1:bb94c2db307ebda57cdc4a990d089840eef790a1
+    pristine_git_object: ecc7494c864e1a56134ec56c0185fa61809b73c8
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:cdd363386f4cf9af1b6d7abadd1b6f8880e2a44c
-    pristine_git_object: cf6ae31f0f761fa61a9548a550480ea23d31e454
+    last_write_checksum: sha1:bf49976939af1ee8c3b849bab2d1a6cec587e842
+    pristine_git_object: 9637b97358469ebecf2bbeec2a4837eb60e22b6b
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:2eff2a6c77b0c787da6418de861acc36733c433a
@@ -6408,8 +6408,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:6bd2abfe9f0f1caa8d2334a0ff97b493424b67cd
-    pristine_git_object: c531a9a5ac016e75afa2bec071f884318cc83972
+    last_write_checksum: sha1:9ab8540066a9ad0dea21b5a5943d03afcbbfe445
+    pristine_git_object: 8950fa0bd3ac0bf44b4faecf04ccf699f603f5bc
   src/lib/encodings.ts:
     id: 3bd8ead98afd
     last_write_checksum: sha1:7533dcb79b22b8c84ac7b90aec94317d12bad5f8
@@ -6620,12 +6620,12 @@ trackedFiles:
     pristine_git_object: 26e48ee483f2f2f79c4c0c411a10b47cc44bb4ca
   src/models/create-booking-proposal-request-dto-v2.ts:
     id: 03c9ae709ad8
-    last_write_checksum: sha1:eff43b790107b98a1394ac0f89598087b0794d1d
-    pristine_git_object: ca621616cfc21ed0adb7ab8bd633fa21d46ed4e5
+    last_write_checksum: sha1:844eb6dddd6dae170b6c2e1047ca0d73d8fc034f
+    pristine_git_object: cf649eb808fff7b28ba5407e633cfe46f089c22a
   src/models/create-booking-proposal-request-dto.ts:
     id: b764fdc0a724
-    last_write_checksum: sha1:b61abb2e6731d13b00d7724c604df968356ea99e
-    pristine_git_object: a4ced992825eb0418822d187b8f5903ada118afe
+    last_write_checksum: sha1:467aea26ac1d83839738e4fc3d561b2538063d08
+    pristine_git_object: cdc3fba56f72e304a74eef7f1425dc50858a9302
   src/models/create-contact-address-v2.ts:
     id: 82637105be25
     last_write_checksum: sha1:0309b50b1e84c3744af8a192d32f17e1537cae2f
@@ -7660,8 +7660,8 @@ trackedFiles:
     pristine_git_object: 909fd603779e169d2d3078b3704333bc93c4159b
   src/models/submission-page-style-dto.ts:
     id: 1f683542b28f
-    last_write_checksum: sha1:23abefa96f36d4e70693ac53698c45ef68245273
-    pristine_git_object: 9b2e5972c1d1864585fe0b4d83ce685de2bae858
+    last_write_checksum: sha1:1edd76d647e585a5e5a8087006c54f559ca06f76
+    pristine_git_object: f16f0fe77f9631b88d7ce2dd2f47a712b1ee112e
   src/models/subscription.ts:
     id: 3936c55e9647
     last_write_checksum: sha1:acd0bb0c8a709f91c2c53e286793116d05737921
@@ -9033,7 +9033,7 @@ examples:
   updateSubmissionPageStyle:
     speakeasy-default-update-submission-page-style:
       requestBody:
-        application/json: {"logoSvg": "<value>", "logoPng": "<value>", "backgroundColor": "<value>", "titleColor": "<value>", "textColor": "<value>", "inputBackgroundColor": "<value>", "submitButtonColor": "<value>", "cancelButtonColor": "<value>", "errorTextColor": "<value>"}
+        application/json: {"logoSvg": "<value>", "logoPng": "<value>", "backgroundColor": "<value>", "titleColor": "<value>", "textColor": "<value>", "inputBackgroundColor": "<value>", "submitButtonColor": "<value>", "submitButtonTextColor": "<value>", "cancelButtonColor": "<value>", "cancelButtonTextColor": "<value>", "errorTextColor": "<value>"}
       responses:
         "201":
           application/json: {}
@@ -9117,4 +9117,4 @@ examples:
         "200":
           application/json: {"data": [{"description": "blah and finally lightly knavishly", "dimension": "<value>"}], "errors": {}, "rawData": {}}
 examplesVersion: 1.0.2
-releaseNotes: "## Typescript SDK Changes:\n* `maesn.accounting.getCustomers()`:  `response.data[].addresses[].countryCode.enum(ps)` **Added** (Breaking ⚠️)\n* `maesn.accounting.createCustomer()`: \n  *  `request.body.addresses[].countryCode.enum(ps)` **Added**\n  *  `response.data.addresses[].countryCode.enum(ps)` **Added** (Breaking ⚠️)\n* `maesn.accounting.getCustomer()`:  `response.data.addresses[].countryCode.enum(ps)` **Added** (Breaking ⚠️)\n* `maesn.accounting.updateCustomer()`: \n  *  `request.body.addresses[].countryCode.enum(ps)` **Added**\n  *  `response.data.addresses[].countryCode.enum(ps)` **Added** (Breaking ⚠️)\n* `maesn.accounting.patchCustomers()`: \n  *  `request.body.addresses[].countryCode.enum(ps)` **Added**\n  *  `response.data.addresses[].countryCode.enum(ps)` **Added** (Breaking ⚠️)\n* `maesn.accounting.getSuppliers()`:  `response.data[].addresses[].countryCode.enum(ps)` **Added** (Breaking ⚠️)\n* `maesn.accounting.createSupplier()`: \n  *  `request.body.addresses[].countryCode.enum(ps)` **Added**\n  *  `response.data.addresses[].countryCode.enum(ps)` **Added** (Breaking ⚠️)\n* `maesn.accounting.getSupplier()`:  `response.data.addresses[].countryCode.enum(ps)` **Added** (Breaking ⚠️)\n* `maesn.accounting.updateSupplier()`: \n  *  `request.body.addresses[].countryCode.enum(ps)` **Added**\n  *  `response.data.addresses[].countryCode.enum(ps)` **Added** (Breaking ⚠️)\n* `maesn.accounting.patchSupplier()`: \n  *  `request.body.addresses[].countryCode.enum(ps)` **Added**\n  *  `response.data.addresses[].countryCode.enum(ps)` **Added** (Breaking ⚠️)\n* `maesn.accounting.getContacts()`:  `response.data[].addresses[].countryCode.enum(ps)` **Added** (Breaking ⚠️)\n* `maesn.accounting.createContact()`: \n  *  `request.body.addresses[].countryCode.enum(ps)` **Added**\n  *  `response.data.addresses[].countryCode.enum(ps)` **Added** (Breaking ⚠️)\n* `maesn.accounting.getContact()`:  `response.data.addresses[].countryCode.enum(ps)` **Added** (Breaking ⚠️)\n* `maesn.accounting.putContact()`: \n  *  `request.body.addresses[].countryCode.enum(ps)` **Added**\n  *  `response.data.addresses[].countryCode.enum(ps)` **Added** (Breaking ⚠️)\n* `maesn.accounting.patchContact()`: \n  *  `request.body.addresses[].countryCode.enum(ps)` **Added**\n  *  `response.data.addresses[].countryCode.enum(ps)` **Added** (Breaking ⚠️)\n* `maesn.accounting.createContacts()`: \n  *  `request.body.entries[].addresses[].countryCode.enum(ps)` **Added**\n  *  `response.data.entries[].addresses[].countryCode.enum(ps)` **Added** (Breaking ⚠️)\n* `maesn.accounting.createContactsV1()`: \n  *  `request.body.entries[].addresses[].countryCode.enum(ps)` **Added**\n  *  `response.data.entries[].addresses[].countryCode.enum(ps)` **Added** (Breaking ⚠️)\n* `maesn.accounting.getInvoices()`:  `response.data[].addresses[].countryCode.enum(ps)` **Added** (Breaking ⚠️)\n* `maesn.accounting.createInvoice()`:  `response.data.addresses[].countryCode.enum(ps)` **Added** (Breaking ⚠️)\n* `maesn.accounting.getInvoice()`:  `response.data.addresses[].countryCode.enum(ps)` **Added** (Breaking ⚠️)\n* `maesn.accounting.patchInvoice()`:  `response.data.addresses[].countryCode.enum(ps)` **Added** (Breaking ⚠️)\n* `maesn.accounting.getOffers()`:  `response.data[].addresses[].countryCode.enum(ps)` **Added** (Breaking ⚠️)\n* `maesn.accounting.createOffer()`: \n  *  `request.body.addresses[].countryCode.enum(ps)` **Added**\n  *  `response.data.addresses[].countryCode.enum(ps)` **Added** (Breaking ⚠️)\n* `maesn.accounting.getOffer()`:  `response.data.addresses[].countryCode.enum(ps)` **Added** (Breaking ⚠️)\n* `maesn.accounting.getSalesOrders()`:  `response.data[].addresses[].countryCode.enum(ps)` **Added** (Breaking ⚠️)\n* `maesn.accounting.createSalesOrder()`: \n  *  `request.body.addresses[].countryCode.enum(ps)` **Added**\n  *  `response.data.addresses[].countryCode.enum(ps)` **Added** (Breaking ⚠️)\n* `maesn.accounting.getSalesOrder()`:  `response.data.addresses[].countryCode.enum(ps)` **Added** (Breaking ⚠️)\n* `maesn.accounting.getBills()`:  `response.data[].addresses[].countryCode.enum(ps)` **Added** (Breaking ⚠️)\n* `maesn.accounting.createBill()`: \n  *  `request.body.addresses[].countryCode.enum(ps)` **Added**\n  *  `response.data.addresses[].countryCode.enum(ps)` **Added** (Breaking ⚠️)\n* `maesn.accounting.getBill()`:  `response.data.addresses[].countryCode.enum(ps)` **Added** (Breaking ⚠️)\n* `maesn.accounting.updateBill()`: \n  *  `request.body.addresses[].countryCode.enum(ps)` **Added**\n  *  `response.data.addresses[].countryCode.enum(ps)` **Added** (Breaking ⚠️)\n* `maesn.accounting.getVendorCredits()`:  `response.data[].addresses[].countryCode.enum(ps)` **Added** (Breaking ⚠️)\n* `maesn.accounting.createVendorCredit()`: \n  *  `request.body.addresses[].countryCode.enum(ps)` **Added**\n  *  `response.data.addresses[].countryCode.enum(ps)` **Added** (Breaking ⚠️)\n* `maesn.accounting.updateVendorCredit()`: \n  *  `request.body.addresses[].countryCode.enum(ps)` **Added**\n  *  `response.data.addresses[].countryCode.enum(ps)` **Added** (Breaking ⚠️)\n* `maesn.accounting.getPurchaseOrders()`:  `response.data[].addresses[].countryCode.enum(ps)` **Added** (Breaking ⚠️)\n* `maesn.accounting.getPurchaseOrder()`:  `response.data.addresses[].countryCode.enum(ps)` **Added** (Breaking ⚠️)\n* `maesn.accounting.getCreditNotes()`:  `response.data[].addresses[].countryCode.enum(ps)` **Added** (Breaking ⚠️)\n* `maesn.accounting.createCreditNote()`:  `response.data.addresses[].countryCode.enum(ps)` **Added** (Breaking ⚠️)\n* `maesn.accounting.getCreditNote()`:  `response.data.addresses[].countryCode.enum(ps)` **Added** (Breaking ⚠️)\n* `maesn.accountingV2.getContactsV2()`:  `response.data[].addresses[].countryCode.enum(ps)` **Added** (Breaking ⚠️)\n* `maesn.accountingV2.createContactV2()`: \n  *  `request.body.addresses[].countryCode.enum(ps)` **Added**\n  *  `response.data.addresses[].countryCode.enum(ps)` **Added** (Breaking ⚠️)\n* `maesn.accountingV2.getContactV2()`:  `response.data.addresses[].countryCode.enum(ps)` **Added** (Breaking ⚠️)\n* `maesn.accountingV2.putContactV2()`: \n  *  `request.body.addresses[].countryCode.enum(ps)` **Added**\n  *  `response.data.addresses[].countryCode.enum(ps)` **Added** (Breaking ⚠️)\n* `maesn.accountingV2.patchContactV2()`: \n  *  `request.body.addresses[].countryCode.enum(ps)` **Added**\n  *  `response.data.addresses[].countryCode.enum(ps)` **Added** (Breaking ⚠️)\n"
+releaseNotes: "## Typescript SDK Changes:\n* `maesn.tenants.updateSubmissionPageStyle()`: \n  *  `request.body` **Changed** (Breaking ⚠️)\n* `maesn.accounting.createBookingProposal()`: \n  *  `request.body.bookingProposal` **Changed**\n* `maesn.accounting.createBookingProposalAsync()`: \n  *  `request.body.bookingProposal` **Changed**\n* `maesn.accountingV2.createBookingProposalV2()`: \n  *  `request.body.bookingProposal` **Changed**\n"
