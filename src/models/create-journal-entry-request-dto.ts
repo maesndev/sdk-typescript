@@ -229,6 +229,7 @@ export type CreateJournalEntryRequestDto = {
   recordType?: CreateJournalEntryRequestDtoRecordType | undefined;
   taxAssignmentDate?: string | undefined;
   transactionDate?: string | undefined;
+  version?: string | undefined;
 };
 
 /** @internal */
@@ -275,6 +276,7 @@ export type CreateJournalEntryRequestDto$Outbound = {
   recordType?: string | undefined;
   taxAssignmentDate?: string | undefined;
   transactionDate?: string | undefined;
+  version?: string | undefined;
 };
 
 /** @internal */
@@ -306,6 +308,7 @@ export const CreateJournalEntryRequestDto$outboundSchema: z.ZodMiniType<
   recordType: z.optional(CreateJournalEntryRequestDtoRecordType$outboundSchema),
   taxAssignmentDate: z.optional(z.string()),
   transactionDate: z.optional(z.string()),
+  version: z.optional(z.string()),
 });
 
 export function createJournalEntryRequestDtoToJSON(

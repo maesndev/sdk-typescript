@@ -29,6 +29,10 @@ export type GetJournalEntryRequest = {
    */
   journalCode?: string | undefined;
   /**
+   * Version of the journal entry
+   */
+  version?: string | undefined;
+  /**
    * When true, returns the unprocessed response from the upstream target system
    */
   rawData?: boolean | undefined;
@@ -74,6 +78,7 @@ export type GetJournalEntryRequest$Outbound = {
   environmentName?: string | undefined;
   companyId?: string | undefined;
   journalCode?: string | undefined;
+  version?: string | undefined;
   rawData?: boolean | undefined;
   apiKey?: string | undefined;
   accountKey?: string | undefined;
@@ -88,6 +93,7 @@ export const GetJournalEntryRequest$outboundSchema: z.ZodMiniType<
   environmentName: z.optional(z.string()),
   companyId: z.optional(z.string()),
   journalCode: z.optional(z.string()),
+  version: z.optional(z.string()),
   rawData: z.optional(z.boolean()),
   apiKey: z.optional(z.string()),
   accountKey: z.optional(z.string()),

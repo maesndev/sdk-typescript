@@ -2573,6 +2573,102 @@ paths:
                         $ref: '#/components/schemas/ItemResponseDto'
       tags:
         - accounting
+    put:
+      operationId: updateItem
+      parameters:
+        - name: itemId
+          required: true
+          in: path
+          schema:
+            type: string
+        - name: environmentName
+          required: false
+          in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
+          schema:
+            type: string
+        - name: companyId
+          required: false
+          in: query
+          description: ID of the company (required for multi-company target systems)
+          schema:
+            type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateItemRequestDto'
+      responses:
+        "200":
+          description: Item updated successfully
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BaseResponseDto'
+                  - properties:
+                      data:
+                        $ref: '#/components/schemas/ItemResponseDto'
+      tags:
+        - accounting
+    delete:
+      operationId: deleteItem
+      parameters:
+        - name: itemId
+          required: true
+          in: path
+          schema:
+            type: string
+        - name: environmentName
+          required: false
+          in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
+          schema:
+            type: string
+        - name: companyId
+          required: false
+          in: query
+          description: ID of the company (required for multi-company target systems)
+          schema:
+            type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
+      responses:
+        "200":
+          description: Item deleted successfully
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BaseResponseDto'
+                  - properties:
+                      data:
+                        $ref: '#/components/schemas/ItemResponseDto'
+      tags:
+        - accounting
   /accounting/invoices/{invoiceId}/lineItems:
     get:
       operationId: getLineItems
@@ -3143,6 +3239,12 @@ paths:
           description: Journal code used to scope the journal entry lookup on systems that require it
           schema:
             type: string
+        - name: version
+          required: false
+          in: query
+          description: Version of the journal entry
+          schema:
+            type: string
         - name: rawData
           required: false
           in: query
@@ -3184,6 +3286,59 @@ paths:
         statusCodes:
           - 5XX
         retryConnectionErrors: true
+    put:
+      operationId: updateJournalEntry
+      parameters:
+        - name: journalEntryId
+          required: true
+          in: path
+          schema:
+            type: string
+        - name: companyId
+          required: false
+          in: query
+          description: ID of the company (required for multi-company target systems)
+          schema:
+            type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                files:
+                  type: array
+                  items:
+                    type: string
+                    format: binary
+                journal_entry:
+                  $ref: '#/components/schemas/CreateJournalEntryRequestDto'
+      responses:
+        "200":
+          description: Journal entry updated successfully
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BaseResponseDto'
+                  - properties:
+                      data:
+                        $ref: '#/components/schemas/JournalEntryResponseDto'
+      tags:
+        - accounting
   /accounting/journalEntries/bulk:
     post:
       operationId: createJournalEntries
@@ -12323,6 +12478,9 @@ components:
         updatedDate:
           type: string
           nullable: true
+        version:
+          type: string
+          nullable: true
       required:
         - id
         - accountId
@@ -12332,6 +12490,7 @@ components:
         - currency
         - description
         - documentId
+        - exchangeRate
         - files
         - isProvisional
         - isReversal
@@ -12342,6 +12501,7 @@ components:
         - recordType
         - transactionDate
         - updatedDate
+        - version
     AdvancePaymentInput:
       type: object
       properties:
@@ -12797,6 +12957,8 @@ components:
         taxAssignmentDate:
           type: string
         transactionDate:
+          type: string
+        version:
           type: string
     AddressOffer:
       type: object
@@ -14864,8 +15026,12 @@ components:
           type: string
         itemName:
           type: string
+        lineNumber:
+          type: string
         optional:
           type: boolean
+        parentLineNumber:
+          type: string
         quantity:
           type: number
         taxCode:

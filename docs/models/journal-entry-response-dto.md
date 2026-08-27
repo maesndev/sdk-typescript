@@ -14,47 +14,18 @@ let value: JournalEntryResponseDto = {
   currency: "LTL",
   description: "positively quietly integer instead",
   documentId: "<id>",
-  files: [
-    "<value 1>",
-    "<value 2>",
-  ],
-  isProvisional: false,
-  isReversal: null,
+  exchangeRate: "<value>",
+  files: [],
+  isProvisional: true,
+  isReversal: false,
   journalCode: "<value>",
-  journalLineItems: [
-    {
-      id: "<id>",
-      accountCode: "<value>",
-      accountId: "<id>",
-      accountNumber: 9591.91,
-      createdDate: "<value>",
-      currency: "KYD",
-      customerId: "<id>",
-      debitCreditIndicator: "CREDIT",
-      description: "after to content scrap aw",
-      dimensions: null,
-      documentId: "<id>",
-      documentNumber: "<value>",
-      exchangeRate: 9682.62,
-      supplierId: "<id>",
-      taxRate: {
-        id: "<id>",
-        code: "<value>",
-        name: "<value>",
-        taxRatePercentage: "<value>",
-      },
-      thirdPartyCode: "<value>",
-      totalGrossAmount: 5036,
-      totalNetAmount: 9416.06,
-      totalTaxAmount: 8710.22,
-      updatedDate: "<value>",
-    },
-  ],
+  journalLineItems: [],
   journalType: "<value>",
   number: "<value>",
-  recordType: "OPENING",
+  recordType: "CLOSING",
   transactionDate: "<value>",
   updatedDate: "<value>",
+  version: "<value>",
 };
 ```
 
@@ -74,7 +45,7 @@ let value: JournalEntryResponseDto = {
 | `description`                                                                                                        | *string*                                                                                                             | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
 | `documentId`                                                                                                         | *string*                                                                                                             | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
 | `dueDate`                                                                                                            | *string*                                                                                                             | :heavy_minus_sign:                                                                                                   | N/A                                                                                                                  |
-| `exchangeRate`                                                                                                       | *string*                                                                                                             | :heavy_minus_sign:                                                                                                   | N/A                                                                                                                  |
+| `exchangeRate`                                                                                                       | *string*                                                                                                             | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
 | `files`                                                                                                              | *string*[]                                                                                                           | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
 | `isProvisional`                                                                                                      | *boolean*                                                                                                            | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
 | `isReversal`                                                                                                         | *boolean*                                                                                                            | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
@@ -86,3 +57,4 @@ let value: JournalEntryResponseDto = {
 | `taxAssignmentDate`                                                                                                  | *string*                                                                                                             | :heavy_minus_sign:                                                                                                   | N/A                                                                                                                  |
 | `transactionDate`                                                                                                    | *string*                                                                                                             | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
 | `updatedDate`                                                                                                        | *string*                                                                                                             | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
+| `version`                                                                                                            | *string*                                                                                                             | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |

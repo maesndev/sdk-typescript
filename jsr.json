@@ -2,7 +2,7 @@
 
 {
   "name": "@maesn/typescript-sdk",
-  "version": "0.8.12",
+  "version": "0.8.13",
   "exports": {
     ".": "./src/index.ts",    
     "./models/errors": "./src/models/errors/index.ts",    

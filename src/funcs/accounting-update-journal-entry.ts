@@ -4,7 +4,18 @@
 
 import * as z from "zod/v4-mini";
 import { MaesnCore } from "../core.js";
-import { encodeFormQuery, encodeSimple } from "../lib/encodings.js";
+import {
+  appendForm,
+  encodeFormQuery,
+  encodeJSON,
+  encodeSimple,
+  normalizeBlob,
+} from "../lib/encodings.js";
+import {
+  bytesToBlob,
+  getContentTypeFromFileName,
+  readableStreamToArrayBuffer,
+} from "../lib/files.js";
 import { matchStatusCode } from "../lib/http.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
@@ -23,15 +34,17 @@ import { ResponseValidationError } from "../models/errors/response-validation-er
 import { SDKValidationError } from "../models/errors/sdk-validation-error.js";
 import * as operations from "../models/operations/index.js";
 import { APICall, APIPromise } from "../types/async.js";
+import { isBlobLike } from "../types/blobs.js";
 import { Result } from "../types/fp.js";
+import { isReadableStream } from "../types/streams.js";
 
-export function accountingGetJournalEntry(
+export function accountingUpdateJournalEntry(
   client: MaesnCore,
-  request: operations.GetJournalEntryRequest,
+  request: operations.UpdateJournalEntryRequest,
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    operations.GetJournalEntryResponse,
+    operations.UpdateJournalEntryResponse,
     | MaesnError
     | ResponseValidationError
     | ConnectionError
@@ -51,12 +64,12 @@ export function accountingGetJournalEntry(
 
 async function $do(
   client: MaesnCore,
-  request: operations.GetJournalEntryRequest,
+  request: operations.UpdateJournalEntryRequest,
   options?: RequestOptions,
 ): Promise<
   [
     Result<
-      operations.GetJournalEntryResponse,
+      operations.UpdateJournalEntryResponse,
       | MaesnError
       | ResponseValidationError
       | ConnectionError
@@ -71,14 +84,54 @@ async function $do(
 > {
   const parsed = safeParse(
     request,
-    (value) => z.parse(operations.GetJournalEntryRequest$outboundSchema, value),
+    (value) =>
+      z.parse(operations.UpdateJournalEntryRequest$outboundSchema, value),
     "Input validation failed",
   );
   if (!parsed.ok) {
     return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
-  const body = null;
+  const body = new FormData();
+
+  if (payload.body.files !== undefined) {
+    for (const fileItem of payload.body.files ?? []) {
+      if (isBlobLike(fileItem)) {
+        const file = fileItem;
+        const blob = await normalizeBlob(file);
+        const name = "name" in file ? (file.name as string) : undefined;
+        appendForm(body, "files", blob, name);
+      } else if (isReadableStream(fileItem.content)) {
+        const buffer = await readableStreamToArrayBuffer(fileItem.content);
+        const contentType = getContentTypeFromFileName(fileItem.fileName)
+          || "application/octet-stream";
+        appendForm(
+          body,
+          "files",
+          bytesToBlob(buffer, contentType),
+          fileItem.fileName,
+        );
+      } else {
+        const contentType = getContentTypeFromFileName(fileItem.fileName)
+          || "application/octet-stream";
+        appendForm(
+          body,
+          "files",
+          bytesToBlob(fileItem.content, contentType),
+          fileItem.fileName,
+        );
+      }
+    }
+  }
+  if (payload.body.journal_entry !== undefined) {
+    appendForm(
+      body,
+      "journal_entry",
+      encodeJSON("journal_entry", payload.body.journal_entry, {
+        explode: true,
+      }),
+    );
+  }
 
   const pathParams = {
     journalEntryId: encodeSimple("journalEntryId", payload.journalEntryId, {
@@ -92,10 +145,6 @@ async function $do(
 
   const query = encodeFormQuery({
     "companyId": payload.companyId,
-    "environmentName": payload.environmentName,
-    "journalCode": payload.journalCode,
-    "rawData": payload.rawData,
-    "version": payload.version,
   });
 
   const headers = new Headers(compactMap({
@@ -115,7 +164,7 @@ async function $do(
   const context = {
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "getJournalEntry",
+    operationID: "updateJournalEntry",
     oAuth2Scopes: null,
 
     resolvedSecurity: null,
@@ -123,22 +172,12 @@ async function $do(
     securitySource: null,
     retryConfig: options?.retries
       || client._options.retryConfig
-      || {
-        strategy: "backoff",
-        backoff: {
-          initialInterval: 500,
-          maxInterval: 60000,
-          exponent: 1.5,
-          maxElapsedTime: 3600000,
-        },
-        retryConnectionErrors: true,
-      }
       || { strategy: "none" },
-    retryCodes: options?.retryCodes || ["5XX"],
+    retryCodes: options?.retryCodes || ["429", "500", "502", "503", "504"],
   };
 
   const requestRes = client._createRequest(context, {
-    method: "GET",
+    method: "PUT",
     baseURL: options?.serverURL,
     path: path,
     headers: headers,
@@ -165,7 +204,7 @@ async function $do(
   const response = doResult.value;
 
   const [result] = await M.match<
-    operations.GetJournalEntryResponse,
+    operations.UpdateJournalEntryResponse,
     | MaesnError
     | ResponseValidationError
     | ConnectionError
@@ -175,7 +214,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, operations.GetJournalEntryResponse$inboundSchema),
+    M.json(200, operations.UpdateJournalEntryResponse$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req);

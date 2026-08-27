@@ -238,7 +238,7 @@ export type JournalEntryResponseDto = {
   description: string | null;
   documentId: string | null;
   dueDate?: string | null | undefined;
-  exchangeRate?: string | null | undefined;
+  exchangeRate: string | null;
   files: Array<string> | null;
   isProvisional: boolean | null;
   isReversal: boolean | null;
@@ -250,6 +250,7 @@ export type JournalEntryResponseDto = {
   taxAssignmentDate?: string | null | undefined;
   transactionDate: string | null;
   updatedDate: string | null;
+  version: string | null;
 };
 
 /** @internal */
@@ -321,7 +322,7 @@ export const JournalEntryResponseDto$inboundSchema: z.ZodMiniType<
   description: types.nullable(types.string()),
   documentId: types.nullable(types.string()),
   dueDate: z.optional(z.nullable(types.string())),
-  exchangeRate: z.optional(z.nullable(types.string())),
+  exchangeRate: types.nullable(types.string()),
   files: types.nullable(z.array(types.string())),
   isProvisional: types.nullable(types.boolean()),
   isReversal: types.nullable(types.boolean()),
@@ -333,6 +334,7 @@ export const JournalEntryResponseDto$inboundSchema: z.ZodMiniType<
   taxAssignmentDate: z.optional(z.nullable(types.string())),
   transactionDate: types.nullable(types.string()),
   updatedDate: types.nullable(types.string()),
+  version: types.nullable(types.string()),
 });
 
 export function journalEntryResponseDtoFromJSON(
