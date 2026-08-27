@@ -25,13 +25,13 @@ import * as operations from "../models/operations/index.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
-export function accountingGetJournalEntry(
+export function accountingDeleteItem(
   client: MaesnCore,
-  request: operations.GetJournalEntryRequest,
+  request: operations.DeleteItemRequest,
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    operations.GetJournalEntryResponse,
+    operations.DeleteItemResponse,
     | MaesnError
     | ResponseValidationError
     | ConnectionError
@@ -51,12 +51,12 @@ export function accountingGetJournalEntry(
 
 async function $do(
   client: MaesnCore,
-  request: operations.GetJournalEntryRequest,
+  request: operations.DeleteItemRequest,
   options?: RequestOptions,
 ): Promise<
   [
     Result<
-      operations.GetJournalEntryResponse,
+      operations.DeleteItemResponse,
       | MaesnError
       | ResponseValidationError
       | ConnectionError
@@ -71,7 +71,7 @@ async function $do(
 > {
   const parsed = safeParse(
     request,
-    (value) => z.parse(operations.GetJournalEntryRequest$outboundSchema, value),
+    (value) => z.parse(operations.DeleteItemRequest$outboundSchema, value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -81,21 +81,16 @@ async function $do(
   const body = null;
 
   const pathParams = {
-    journalEntryId: encodeSimple("journalEntryId", payload.journalEntryId, {
+    itemId: encodeSimple("itemId", payload.itemId, {
       explode: false,
       charEncoding: "percent",
     }),
   };
-  const path = pathToFunc("/accounting/journalEntries/{journalEntryId}")(
-    pathParams,
-  );
+  const path = pathToFunc("/accounting/items/{itemId}")(pathParams);
 
   const query = encodeFormQuery({
     "companyId": payload.companyId,
     "environmentName": payload.environmentName,
-    "journalCode": payload.journalCode,
-    "rawData": payload.rawData,
-    "version": payload.version,
   });
 
   const headers = new Headers(compactMap({
@@ -115,7 +110,7 @@ async function $do(
   const context = {
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "getJournalEntry",
+    operationID: "deleteItem",
     oAuth2Scopes: null,
 
     resolvedSecurity: null,
@@ -123,22 +118,12 @@ async function $do(
     securitySource: null,
     retryConfig: options?.retries
       || client._options.retryConfig
-      || {
-        strategy: "backoff",
-        backoff: {
-          initialInterval: 500,
-          maxInterval: 60000,
-          exponent: 1.5,
-          maxElapsedTime: 3600000,
-        },
-        retryConnectionErrors: true,
-      }
       || { strategy: "none" },
-    retryCodes: options?.retryCodes || ["5XX"],
+    retryCodes: options?.retryCodes || ["429", "500", "502", "503", "504"],
   };
 
   const requestRes = client._createRequest(context, {
-    method: "GET",
+    method: "DELETE",
     baseURL: options?.serverURL,
     path: path,
     headers: headers,
@@ -165,7 +150,7 @@ async function $do(
   const response = doResult.value;
 
   const [result] = await M.match<
-    operations.GetJournalEntryResponse,
+    operations.DeleteItemResponse,
     | MaesnError
     | ResponseValidationError
     | ConnectionError
@@ -175,7 +160,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, operations.GetJournalEntryResponse$inboundSchema),
+    M.json(200, operations.DeleteItemResponse$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req);

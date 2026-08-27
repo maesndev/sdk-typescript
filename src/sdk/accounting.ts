@@ -33,6 +33,7 @@ import { accountingCreateTransaction } from "../funcs/accounting-create-transact
 import { accountingCreateVendorCredit } from "../funcs/accounting-create-vendor-credit.js";
 import { accountingDeleteBill } from "../funcs/accounting-delete-bill.js";
 import { accountingDeleteEventSubscriptions } from "../funcs/accounting-delete-event-subscriptions.js";
+import { accountingDeleteItem } from "../funcs/accounting-delete-item.js";
 import { accountingDeletePayment } from "../funcs/accounting-delete-payment.js";
 import { accountingDeleteVendorCredit } from "../funcs/accounting-delete-vendor-credit.js";
 import { accountingGetAccount } from "../funcs/accounting-get-account.js";
@@ -120,6 +121,8 @@ import { accountingPutContact } from "../funcs/accounting-put-contact.js";
 import { accountingUpdateBillLineItem } from "../funcs/accounting-update-bill-line-item.js";
 import { accountingUpdateBill } from "../funcs/accounting-update-bill.js";
 import { accountingUpdateCustomer } from "../funcs/accounting-update-customer.js";
+import { accountingUpdateItem } from "../funcs/accounting-update-item.js";
+import { accountingUpdateJournalEntry } from "../funcs/accounting-update-journal-entry.js";
 import { accountingUpdateSupplier } from "../funcs/accounting-update-supplier.js";
 import { accountingUpdateVendorCredit } from "../funcs/accounting-update-vendor-credit.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
@@ -579,6 +582,28 @@ export class Accounting extends ClientSDK {
     ));
   }
 
+  async updateItem(
+    request: operations.UpdateItemRequest,
+    options?: RequestOptions,
+  ): Promise<operations.UpdateItemResponse> {
+    return unwrapAsync(accountingUpdateItem(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  async deleteItem(
+    request: operations.DeleteItemRequest,
+    options?: RequestOptions,
+  ): Promise<operations.DeleteItemResponse> {
+    return unwrapAsync(accountingDeleteItem(
+      this,
+      request,
+      options,
+    ));
+  }
+
   async getLineItems(
     request: operations.GetLineItemsRequest,
     options?: RequestOptions,
@@ -672,6 +697,17 @@ export class Accounting extends ClientSDK {
     options?: RequestOptions,
   ): Promise<operations.GetJournalEntryResponse> {
     return unwrapAsync(accountingGetJournalEntry(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  async updateJournalEntry(
+    request: operations.UpdateJournalEntryRequest,
+    options?: RequestOptions,
+  ): Promise<operations.UpdateJournalEntryResponse> {
+    return unwrapAsync(accountingUpdateJournalEntry(
       this,
       request,
       options,

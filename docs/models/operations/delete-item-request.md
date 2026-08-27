@@ -1,12 +1,12 @@
-# GetJournalEntryRequest
+# DeleteItemRequest
 
 ## Example Usage
 
 ```typescript
-import { GetJournalEntryRequest } from "@maesn/typescript-sdk/models/operations";
+import { DeleteItemRequest } from "@maesn/typescript-sdk/models/operations";
 
-let value: GetJournalEntryRequest = {
-  journalEntryId: "<id>",
+let value: DeleteItemRequest = {
+  itemId: "<id>",
 };
 ```
 
@@ -14,11 +14,8 @@ let value: GetJournalEntryRequest = {
 
 | Field                                                                              | Type                                                                               | Required                                                                           | Description                                                                        |
 | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `journalEntryId`                                                                   | *string*                                                                           | :heavy_check_mark:                                                                 | N/A                                                                                |
+| `itemId`                                                                           | *string*                                                                           | :heavy_check_mark:                                                                 | N/A                                                                                |
 | `environmentName`                                                                  | *string*                                                                           | :heavy_minus_sign:                                                                 | Environment name (required for multi-environment systems such as Business Central) |
 | `companyId`                                                                        | *string*                                                                           | :heavy_minus_sign:                                                                 | ID of the company (required for multi-company target systems)                      |
-| `journalCode`                                                                      | *string*                                                                           | :heavy_minus_sign:                                                                 | Journal code used to scope the journal entry lookup on systems that require it     |
-| `version`                                                                          | *string*                                                                           | :heavy_minus_sign:                                                                 | Version of the journal entry                                                       |
-| `rawData`                                                                          | *boolean*                                                                          | :heavy_minus_sign:                                                                 | When true, returns the unprocessed response from the upstream target system        |
 | `apiKey`                                                                           | *string*                                                                           | :heavy_minus_sign:                                                                 | API key                                                                            |
 | `accountKey`                                                                       | *string*                                                                           | :heavy_minus_sign:                                                                 | Account key                                                                        |

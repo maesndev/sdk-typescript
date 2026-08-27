@@ -1,13 +1,13 @@
-# CreateJournalEntryResponse
+# UpdateJournalEntryResponse
 
-Journal entry created successfully
+Journal entry updated successfully
 
 ## Example Usage
 
 ```typescript
-import { CreateJournalEntryResponse } from "@maesn/typescript-sdk/models/operations";
+import { UpdateJournalEntryResponse } from "@maesn/typescript-sdk/models/operations";
 
-let value: CreateJournalEntryResponse = {
+let value: UpdateJournalEntryResponse = {
   data: {
     id: "<id>",
     accountId: "<id>",
@@ -42,7 +42,7 @@ let value: CreateJournalEntryResponse = {
 
 | Field                                                                                            | Type                                                                                             | Required                                                                                         | Description                                                                                      |
 | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `meta`                                                                                           | [operations.CreateJournalEntryMeta](../../models/operations/create-journal-entry-meta.md)        | :heavy_minus_sign:                                                                               | N/A                                                                                              |
+| `meta`                                                                                           | [operations.UpdateJournalEntryMeta](../../models/operations/update-journal-entry-meta.md)        | :heavy_minus_sign:                                                                               | N/A                                                                                              |
 | `data`                                                                                           | [models.JournalEntryResponseDto](../../models/journal-entry-response-dto.md)                     | :heavy_check_mark:                                                                               | N/A                                                                                              |
-| `errors`                                                                                         | [operations.CreateJournalEntryErrors](../../models/operations/create-journal-entry-errors.md)    | :heavy_check_mark:                                                                               | N/A                                                                                              |
-| `rawData`                                                                                        | [operations.CreateJournalEntryRawData](../../models/operations/create-journal-entry-raw-data.md) | :heavy_check_mark:                                                                               | N/A                                                                                              |
+| `errors`                                                                                         | [operations.UpdateJournalEntryErrors](../../models/operations/update-journal-entry-errors.md)    | :heavy_check_mark:                                                                               | N/A                                                                                              |
+| `rawData`                                                                                        | [operations.UpdateJournalEntryRawData](../../models/operations/update-journal-entry-raw-data.md) | :heavy_check_mark:                                                                               | N/A                                                                                              |
