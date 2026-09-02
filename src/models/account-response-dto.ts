@@ -198,6 +198,13 @@ export type AccountResponseDtoStatus = ClosedEnum<
   typeof AccountResponseDtoStatus
 >;
 
+export type AccountResponseDtoTaxRate = {
+  id: string | null;
+  code: string | null;
+  name: string | null;
+  percentage: number | null;
+};
+
 export type AccountResponseDto = {
   id: string | null;
   balance: number | null;
@@ -211,6 +218,7 @@ export type AccountResponseDto = {
   number: string | null;
   parentAccountId: string | null;
   status: AccountResponseDtoStatus | null;
+  taxRate: AccountResponseDtoTaxRate | null;
   type: string | null;
   updatedDate: string | null;
 };
@@ -237,6 +245,27 @@ export const AccountResponseDtoStatus$inboundSchema: z.ZodMiniEnum<
 > = z.enum(AccountResponseDtoStatus);
 
 /** @internal */
+export const AccountResponseDtoTaxRate$inboundSchema: z.ZodMiniType<
+  AccountResponseDtoTaxRate,
+  unknown
+> = z.object({
+  id: types.nullable(types.string()),
+  code: types.nullable(types.string()),
+  name: types.nullable(types.string()),
+  percentage: types.nullable(types.number()),
+});
+
+export function accountResponseDtoTaxRateFromJSON(
+  jsonString: string,
+): SafeParseResult<AccountResponseDtoTaxRate, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => AccountResponseDtoTaxRate$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AccountResponseDtoTaxRate' from JSON`,
+  );
+}
+
+/** @internal */
 export const AccountResponseDto$inboundSchema: z.ZodMiniType<
   AccountResponseDto,
   unknown
@@ -255,6 +284,9 @@ export const AccountResponseDto$inboundSchema: z.ZodMiniType<
   number: types.nullable(types.string()),
   parentAccountId: types.nullable(types.string()),
   status: types.nullable(AccountResponseDtoStatus$inboundSchema),
+  taxRate: types.nullable(
+    z.lazy(() => AccountResponseDtoTaxRate$inboundSchema),
+  ),
   type: types.nullable(types.string()),
   updatedDate: types.nullable(types.string()),
 });

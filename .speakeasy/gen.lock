@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: b4a29653-32d8-43f6-ba1e-9aa569fce206
 management:
-  docChecksum: 0d80c467452285e1a673951681205be6
+  docChecksum: 4a2e7e20a90611be9cfabbdf4cc5ec62
   docVersion: "1.0"
-  speakeasyVersion: 1.796.0
-  generationVersion: 2.932.15
-  releaseVersion: 0.8.13
-  configChecksum: 6cd6ed27e7f8ea4aceea3c62e4bc7314
+  speakeasyVersion: 1.796.2
+  generationVersion: 2.933.0
+  releaseVersion: 0.8.14
+  configChecksum: e4106fbb6eca95de09e8bf10aa19bf49
   repoURL: https://github.com/maesndev/sdk-typescript.git
   installationURL: https://github.com/maesndev/sdk-typescript
   published: true
 persistentEdits:
-  generation_id: dbdd08af-05e1-4d1c-b9be-4f65e4692aeb
-  pristine_commit_hash: d49751cae03d093b677b6ec232ac865e397fb28b
-  pristine_tree_hash: 34b124ae14a10d35fb384fc4496ea983f06295e1
+  generation_id: fecf2263-ed64-4d0b-bb82-a430935db2f5
+  pristine_commit_hash: e845cd89a90dbc2c86411c0ca23e95a3c4de0062
+  pristine_tree_hash: 52d0c9c4dba26ca96236a6a0d5cdffecab52565b
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -94,10 +94,14 @@ trackedFiles:
     id: a0b1a5fb9f4e
     last_write_checksum: sha1:cce8f66a3e8f299a3ffcb360a4824d3085948dd9
     pristine_git_object: 3861a71f332388ef3a46eb63277187718bf78116
+  docs/models/account-response-dto-tax-rate.md:
+    id: f59c1855630a
+    last_write_checksum: sha1:c05ec99c8b4a0dd4ab5266939a2c87703e5f6c52
+    pristine_git_object: 08d583f4e7e8cfd55356a6258e1e3eb6de9de15f
   docs/models/account-response-dto.md:
     id: 63cf2facd38f
-    last_write_checksum: sha1:070341803a956b5258a8e90c52460c837a1c59be
-    pristine_git_object: 71d7f3b12b9e315fbe4b6ae3bad2e7bc5f6e726a
+    last_write_checksum: sha1:dda91afdced6f2ffddcd74a0e6d18ba1e2fa3cee
+    pristine_git_object: 461824d28cd8828bb8f2c484689cfbccfb0c6e75
   docs/models/account.md:
     id: f7d1e7e7409d
     last_write_checksum: sha1:9969bab1e29c3f61a4589c937c854dbe80ce493c
@@ -364,8 +368,8 @@ trackedFiles:
     pristine_git_object: 84e4e2de4acc6326b4270ae351b395eb58a2d669
   docs/models/create-account-request-dto.md:
     id: ffdb350499d9
-    last_write_checksum: sha1:a604eeb9d2dfd070eb70c01d1e8094fa42e1fe2c
-    pristine_git_object: da2e5d8e0640e4b787655250aa400b5aabfabcd3
+    last_write_checksum: sha1:1f471e2438858c62a016c9c20af079f61759f2ff
+    pristine_git_object: 200692190966d7e33537c602d262e7cb681854a6
   docs/models/create-accounting-webhook-request-dto.md:
     id: 61adb1787280
     last_write_checksum: sha1:cdc85cb3807b18a726aeef9f09fbd0b6ace9c5f2
@@ -1172,8 +1176,8 @@ trackedFiles:
     pristine_git_object: 8753010e12517e4334ee701b0f9c53bf8b318a62
   docs/models/operations/create-account-response.md:
     id: 350bbe206915
-    last_write_checksum: sha1:2519ffb6e6b0a67c73f4ff6639720a8cc9c84452
-    pristine_git_object: e4fd0d2a15b276f50bfd7539a678c773753f7cab
+    last_write_checksum: sha1:dbc86c551070521a6e74de635d9fd3958f8620a4
+    pristine_git_object: a10c1c6af07e1233baca68388ccf726f3aed43b2
   docs/models/operations/create-bank-account-errors.md:
     id: 2be760c6a20f
     last_write_checksum: sha1:38b3a62ebdbecf3212c005dccb72b596232ba8c0
@@ -2380,8 +2384,8 @@ trackedFiles:
     pristine_git_object: 8f1a4f12515d6f72df7ccc9816d94242362dcbf9
   docs/models/operations/get-account-response.md:
     id: d8038de4a9d7
-    last_write_checksum: sha1:114f03e34e2995782dcd58bb2eedf15155ec1e15
-    pristine_git_object: b9a39b5602af8be3217733060d4582d31f3c659d
+    last_write_checksum: sha1:a8c40507380f1862347c7688679c9b836d5df021
+    pristine_git_object: 2e50176e870fbce9b0831c3ccf48f562a587c855
   docs/models/operations/get-accounts-errors.md:
     id: 2d8157b01efa
     last_write_checksum: sha1:3a3658cdf72cf16f6efc35f75bb5b14b08033e4f
@@ -5698,6 +5702,10 @@ trackedFiles:
     id: 0b7aa58db8f7
     last_write_checksum: sha1:d784a5ea3c4040d4a1a54775c02ce51926ce0a86
     pristine_git_object: 96058d719f066bacadb4864b069170d00a836577
+  docs/models/tax-rate-request-common-dto.md:
+    id: bfe902517273
+    last_write_checksum: sha1:cd7b10515a562cfa937cf0c070d8b0d846263cdc
+    pristine_git_object: 3db469f92b6dfb3a11a83227cf396cb822271ae2
   docs/models/tax-rate-request-dto-v2.md:
     id: 7f517136244d
     last_write_checksum: sha1:b64a1aeb23626ad3474014d8bae8560af3a4428c
@@ -5836,12 +5844,12 @@ trackedFiles:
     pristine_git_object: 620f120672c2be3445356aaae6d877d4d89c43d5
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:b4cad311816ad9687c726c6e55a1336a9f319cbe
-    pristine_git_object: 0a6b0863e628645cb8c9a6042637850dc663ea07
+    last_write_checksum: sha1:a31c6fd36fc040a8c11ee62e143b5661510d48c9
+    pristine_git_object: c51a9d3d7743b2226413a19d9388f4c47ac57419
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:ce2cf5a894b1efbacea41853036fa5f83b1b56ae
-    pristine_git_object: b635f3267ab9a1c8e2feb0f67d44a155a44a2f82
+    last_write_checksum: sha1:ac20cc52c43af2c4f00f1933d5b7297a78fba328
+    pristine_git_object: 9327e893d30be81ad8b3c241051f809cfe7806c6
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:2eff2a6c77b0c787da6418de861acc36733c433a
@@ -6512,8 +6520,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:b9b01718bce75ee2d06e9f943bb320784ffb35cf
-    pristine_git_object: 59ece6b459f37eab1c335065a703fecf08cef0a1
+    last_write_checksum: sha1:99023fb094a3d05518ec084c219f0849de7caa60
+    pristine_git_object: c23305413fdf10a5158efd6634f683d26a40fb3a
   src/lib/encodings.ts:
     id: 3bd8ead98afd
     last_write_checksum: sha1:4481b2a380f8a16856ef92c66fb370299f56d135
@@ -6568,8 +6576,8 @@ trackedFiles:
     pristine_git_object: 1b1dd32faa894a8103f09a92bf4af3a3c4e446a1
   src/models/account-response-dto.ts:
     id: 6df1fb856039
-    last_write_checksum: sha1:4a7c6390c6a294a6767f6806fbe6873f9784cfd3
-    pristine_git_object: 2993d73f1a905bbc20d0dd6cc0b97f4f5df53dcb
+    last_write_checksum: sha1:8ba612d63c18e6eb4e905a67efc04c9543360462
+    pristine_git_object: 0b92bb9793efc9686e7c68b64e17a346ce87658b
   src/models/address-offer.ts:
     id: a4c9806f2b8b
     last_write_checksum: sha1:6705ccbd259f04ef1994a4acd6de2408e1c3e39f
@@ -6692,8 +6700,8 @@ trackedFiles:
     pristine_git_object: f0602156b7230ea7cc69fc91528a68cbc4d166ab
   src/models/create-account-request-dto.ts:
     id: a61b16bf83c7
-    last_write_checksum: sha1:f926a90f7e622f4228899fad293d36b5ccf34b49
-    pristine_git_object: b3f2181ab460360a304931ab3f63d0ebde1a8159
+    last_write_checksum: sha1:f9a06a07c6d432a571ada206885204d9fabf204f
+    pristine_git_object: 3de5252ccb07b886288ec287e99c0b1ac9fee538
   src/models/create-accounting-webhook-request-dto.ts:
     id: 366a77b8c5d2
     last_write_checksum: sha1:b9a4689a240585ac80619b5ebd01eebeaa5073dd
@@ -6984,8 +6992,8 @@ trackedFiles:
     pristine_git_object: 0f650341562665a862a8fd22dd4a9bd323d6267c
   src/models/index.ts:
     id: f93644b0f37e
-    last_write_checksum: sha1:98355397063a66d3b6c594bbc3a8cfcec51082c5
-    pristine_git_object: e13dc12217fc162a9353fac974f67f1ad2b526b6
+    last_write_checksum: sha1:610b47488a2fb861fac892c908cfdcea471dc5ad
+    pristine_git_object: ceee2f15cd0793904a6f6963fc40ffdbb6109c84
   src/models/information-response-dto.ts:
     id: 8761a5569682
     last_write_checksum: sha1:8e1393b9ab6dd61835979fb45437cc51161bf390
@@ -7794,6 +7802,10 @@ trackedFiles:
     id: d371485fdff3
     last_write_checksum: sha1:795cba63ca874113b9816a3e26811a946c77a0dd
     pristine_git_object: b3d345a23583823f3f363cf3599425d863106308
+  src/models/tax-rate-request-common-dto.ts:
+    id: 5e54e49bffe1
+    last_write_checksum: sha1:1eb07b23c6f1aaff35e213eac8fa6512ff199ed3
+    pristine_git_object: f46f4625fe6e099387ea5d56e88b1234aa7b4eb0
   src/models/tax-rate-request-dto-v2.ts:
     id: 044383218f20
     last_write_checksum: sha1:b9a0549c811b48227a518e825460997bb4a1781f
@@ -7942,7 +7954,7 @@ examples:
           accountId: "<id>"
       responses:
         "200":
-          application/json: {"data": {"id": "<id>", "balance": 3779.77, "class": "LIABILITY", "code": "<value>", "createdDate": "<value>", "currency": "WST", "debitCreditIndicator": "DEBIT", "description": "athwart bah furthermore woot upbeat at bidet pick", "name": "<value>", "number": "<value>", "parentAccountId": "<id>", "status": "ACTIVE", "type": "<value>", "updatedDate": "<value>"}, "errors": {}, "rawData": {}}
+          application/json: {"data": {"id": "<id>", "balance": 3779.77, "class": "LIABILITY", "code": "<value>", "createdDate": "<value>", "currency": "WST", "debitCreditIndicator": "DEBIT", "description": "athwart bah furthermore woot upbeat at bidet pick", "name": "<value>", "number": "<value>", "parentAccountId": "<id>", "status": "ACTIVE", "taxRate": {"id": "<id>", "code": "<value>", "name": "<value>", "percentage": 3779.77}, "type": "<value>", "updatedDate": "<value>"}, "errors": {}, "rawData": {}}
   getAccounts:
     speakeasy-default-get-accounts:
       responses:
@@ -7956,7 +7968,7 @@ examples:
         "200":
           application/json: {"meta": {"warnings": [], "pagination": {"total": 3937.7, "perPage": 150.91, "currentPage": 1440.84, "totalPages": 7216.78}}, "data": {"id": "<id>", "balance": 367.04, "class": "LIABILITY", "code": "<value>", "createdDate": "<value>", "currency": "CNY", "debitCreditIndicator": "CREDIT", "description": "until absent politely bah circa joyous aware viciously whenever", "name": "<value>", "number": "<value>", "parentAccountId": "<id>", "status": "ACTIVE", "type": "<value>", "updatedDate": "<value>"}, "errors": {}, "rawData": {}}
         "201":
-          application/json: {"data": {"id": "<id>", "balance": 6988.14, "class": "REVENUE", "code": "<value>", "createdDate": "<value>", "currency": "UYU", "debitCreditIndicator": "CREDIT", "description": "across militate produce quaintly toward satirise chunder about than", "name": "<value>", "number": "<value>", "parentAccountId": "<id>", "status": "ARCHIVED", "type": "<value>", "updatedDate": "<value>"}, "errors": {}, "rawData": {}}
+          application/json: {"data": {"id": "<id>", "balance": 6988.14, "class": "REVENUE", "code": "<value>", "createdDate": "<value>", "currency": "UYU", "debitCreditIndicator": "CREDIT", "description": "across militate produce quaintly toward satirise chunder about than", "name": "<value>", "number": "<value>", "parentAccountId": "<id>", "status": "ARCHIVED", "taxRate": {"id": "<id>", "code": "<value>", "name": "<value>", "percentage": 7723.43}, "type": "<value>", "updatedDate": "<value>"}, "errors": {}, "rawData": {}}
   getBankAccounts:
     speakeasy-default-get-bank-accounts:
       responses:
@@ -9261,4 +9273,4 @@ examples:
         "200":
           application/json: {"data": {"id": "<id>", "accountId": null, "accountingPeriodId": null, "accountingReason": "TAX", "createdDate": "<value>", "currency": "NOK", "description": "comb times quantify gosh assail", "documentId": "<id>", "exchangeRate": "<value>", "files": [], "isProvisional": false, "isReversal": null, "journalCode": "<value>", "journalLineItems": [{"id": "<id>", "accountCode": "<value>", "accountId": "<id>", "accountNumber": 7550.87, "createdDate": "<value>", "currency": "BND", "customerId": null, "debitCreditIndicator": null, "description": "via some incidentally", "dimensions": [], "documentId": "<id>", "documentNumber": "<value>", "exchangeRate": 3017.63, "supplierId": "<id>", "taxRate": null, "thirdPartyCode": "<value>", "totalGrossAmount": 51.5, "totalNetAmount": 6402.95, "totalTaxAmount": 8880.26, "updatedDate": "<value>"}], "journalType": "<value>", "number": "<value>", "recordType": "OPENING", "transactionDate": "<value>", "updatedDate": "<value>", "version": "<value>"}, "errors": {}, "rawData": {}}
 examplesVersion: 1.0.2
-releaseNotes: "## Typescript SDK Changes:\n* `maesn.accounting.updateItem()`: **Added**\n* `maesn.accounting.deleteItem()`: **Added**\n* `maesn.accounting.updateJournalEntry()`: **Added**\n* `maesn.accounting.getJournalEntries()`:  `response.data[]` **Changed**\n* `maesn.accounting.createJournalEntry()`: \n  *  `request.body.journalEntry` **Changed**\n  *  `response.data` **Changed**\n* `maesn.accounting.getJournalEntry()`: \n  *  `request.version` **Added**\n  *  `response.data` **Changed**\n* `maesn.accounting.createJournalEntries()`: \n  *  `request.body.entries[].version` **Added**\n  *  `response.data.entries[]` **Changed**\n* `maesn.accounting.getJournalEntryAttachments()`:  `response.data[]` **Changed**\n* `maesn.accounting.createJournalEntryAttachments()`:  `response.data` **Changed**\n* `maesn.accounting.getJournalEntryAttachmentById()`:  `response.data` **Changed**\n* `maesn.accounting.createSalesOrder()`: \n  *  `request.body.lineItems[]` **Changed**\n"
+releaseNotes: "## Typescript SDK Changes:\n* `maesn.accounting.getAccount()`:  `response.data.taxRate` **Added**\n* `maesn.accounting.getAccounts()`:  `response.data[].taxRate` **Added**\n* `maesn.accounting.createAccount()`: \n  *  `request.body.taxRate` **Added**\n  *  `response.data.taxRate` **Added**\n"

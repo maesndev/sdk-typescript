@@ -10194,6 +10194,26 @@ tags:
 servers: []
 components:
   schemas:
+    TaxRateResponseCommonDto:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: true
+        code:
+          type: string
+          nullable: true
+        name:
+          type: string
+          nullable: true
+        percentage:
+          type: number
+          nullable: true
+      required:
+        - id
+        - code
+        - name
+        - percentage
     AccountResponseDto:
       type: object
       properties:
@@ -10402,6 +10422,10 @@ components:
             - ACTIVE
             - ARCHIVED
           nullable: true
+        taxRate:
+          nullable: true
+          allOf:
+            - $ref: '#/components/schemas/TaxRateResponseCommonDto'
         type:
           type: string
           nullable: true
@@ -10421,6 +10445,7 @@ components:
         - number
         - parentAccountId
         - status
+        - taxRate
         - type
         - updatedDate
     ContactAddress:
@@ -19753,6 +19778,17 @@ components:
       required:
         - description
         - dimension
+    TaxRateRequestCommonDto:
+      type: object
+      properties:
+        id:
+          type: string
+        code:
+          type: string
+        name:
+          type: string
+        percentage:
+          type: number
     CreateAccountRequestDto:
       type: object
       properties:
@@ -19940,6 +19976,8 @@ components:
           enum:
             - ACTIVE
             - ARCHIVED
+        taxRate:
+          $ref: '#/components/schemas/TaxRateRequestCommonDto'
         type:
           type: string
           enum:

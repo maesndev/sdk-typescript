@@ -18,8 +18,14 @@ let value: AccountResponseDto = {
   number: "<value>",
   parentAccountId: "<id>",
   status: "ARCHIVED",
+  taxRate: {
+    id: "<id>",
+    code: "<value>",
+    name: "<value>",
+    percentage: 3112.13,
+  },
   type: "<value>",
-  updatedDate: "<value>",
+  updatedDate: null,
 };
 ```
 
@@ -39,5 +45,6 @@ let value: AccountResponseDto = {
 | `number`                                                                                                  | *string*                                                                                                  | :heavy_check_mark:                                                                                        | N/A                                                                                                       |
 | `parentAccountId`                                                                                         | *string*                                                                                                  | :heavy_check_mark:                                                                                        | N/A                                                                                                       |
 | `status`                                                                                                  | [models.AccountResponseDtoStatus](../models/account-response-dto-status.md)                               | :heavy_check_mark:                                                                                        | N/A                                                                                                       |
+| `taxRate`                                                                                                 | [models.AccountResponseDtoTaxRate](../models/account-response-dto-tax-rate.md)                            | :heavy_check_mark:                                                                                        | N/A                                                                                                       |
 | `type`                                                                                                    | *string*                                                                                                  | :heavy_check_mark:                                                                                        | N/A                                                                                                       |
 | `updatedDate`                                                                                             | *string*                                                                                                  | :heavy_check_mark:                                                                                        | N/A                                                                                                       |

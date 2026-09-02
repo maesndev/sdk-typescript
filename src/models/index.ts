@@ -141,6 +141,7 @@ export * from "./subscription.js";
 export * from "./system-registration-dto.js";
 export * from "./task-id-response-dto.js";
 export * from "./tax-rate-input.js";
+export * from "./tax-rate-request-common-dto.js";
 export * from "./tax-rate-request-dto-v2.js";
 export * from "./tax-rate-response-dto.js";
 export * from "./transaction-response-dto.js";
