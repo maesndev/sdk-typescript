@@ -4,6 +4,11 @@
 
 import * as z from "zod/v4-mini";
 import { ClosedEnum } from "../types/enums.js";
+import {
+  TaxRateRequestCommonDto,
+  TaxRateRequestCommonDto$Outbound,
+  TaxRateRequestCommonDto$outboundSchema,
+} from "./tax-rate-request-common-dto.js";
 
 export const CreateAccountRequestDtoClass = {
   Asset: "ASSET",
@@ -266,6 +271,7 @@ export type CreateAccountRequestDto = {
   number?: string | undefined;
   parentAccountId?: string | undefined;
   status?: CreateAccountRequestDtoStatus | undefined;
+  taxRate?: TaxRateRequestCommonDto | undefined;
   type?: CreateAccountRequestDtoType | undefined;
 };
 
@@ -300,6 +306,7 @@ export type CreateAccountRequestDto$Outbound = {
   number?: string | undefined;
   parentAccountId?: string | undefined;
   status?: string | undefined;
+  taxRate?: TaxRateRequestCommonDto$Outbound | undefined;
   type?: string | undefined;
 };
 
@@ -317,6 +324,7 @@ export const CreateAccountRequestDto$outboundSchema: z.ZodMiniType<
   number: z.optional(z.string()),
   parentAccountId: z.optional(z.string()),
   status: z.optional(CreateAccountRequestDtoStatus$outboundSchema),
+  taxRate: z.optional(TaxRateRequestCommonDto$outboundSchema),
   type: z.optional(CreateAccountRequestDtoType$outboundSchema),
 });
 

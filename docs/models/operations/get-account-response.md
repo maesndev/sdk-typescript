@@ -21,6 +21,12 @@ let value: GetAccountResponse = {
     number: "<value>",
     parentAccountId: "<id>",
     status: "ARCHIVED",
+    taxRate: {
+      id: "<id>",
+      code: "<value>",
+      name: "<value>",
+      percentage: 3112.13,
+    },
     type: "<value>",
     updatedDate: "<value>",
   },
