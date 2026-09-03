@@ -17,7 +17,7 @@ let value: OfferLineItemResponseDto = {
   taxCode: "<value>",
   taxRatePercentage: 622.21,
   taxType: "<value>",
-  type: "FIXED_ASSET",
+  type: "CHARGE",
   totalDiscountAmount: 4313.14,
   totalDiscountPercentage: 9286.18,
   totalGrossAmount: 6372.22,

@@ -13306,6 +13306,7 @@ components:
             - VALUE
             - FIXED_ASSET
             - CHARGE
+            - SERVICE
           nullable: true
         totalDiscountAmount:
           type: number
@@ -13380,6 +13381,9 @@ components:
         currency:
           type: string
           nullable: true
+        expirationDate:
+          type: string
+          nullable: true
         lineItems:
           nullable: true
           type: array
@@ -13437,6 +13441,7 @@ components:
         - contactId
         - createdDate
         - currency
+        - expirationDate
         - lineItems
         - name
         - offerDate
@@ -13482,6 +13487,7 @@ components:
             - VALUE
             - FIXED_ASSET
             - CHARGE
+            - SERVICE
         totalDiscountAmount:
           type: number
         totalDiscountPercentage:
@@ -13530,6 +13536,8 @@ components:
         contactId:
           type: string
         currency:
+          type: string
+        expirationDate:
           type: string
         lineItems:
           type: array

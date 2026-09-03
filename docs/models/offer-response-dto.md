@@ -11,29 +11,30 @@ let value: OfferResponseDto = {
   contactId: "<id>",
   createdDate: "<value>",
   currency: "Malaysian Ringgit",
+  expirationDate: "<value>",
   lineItems: [
     {
       id: "<id>",
       accountCode: "<value>",
-      accountId: "<id>",
-      createdDate: null,
+      accountId: null,
+      createdDate: "<value>",
       description:
-        "hoot digitize peter emerge illiterate pecan internalise furthermore incidentally whup",
+        "gracefully sarong obsess jaggedly disadvantage guacamole well",
       itemId: "<id>",
       name: "<value>",
-      quantity: 8994.86,
+      quantity: 730.11,
       taxCode: "<value>",
-      taxRatePercentage: null,
+      taxRatePercentage: 5122.1,
       taxType: "<value>",
-      type: "ACCOUNT",
-      totalDiscountAmount: 3787.25,
-      totalDiscountPercentage: 941.61,
-      totalGrossAmount: 8928.34,
-      totalNetAmount: 3345.46,
-      totalTaxAmount: 1923.84,
-      unitAmount: 4943.19,
-      unitDiscountAmount: 2989.25,
-      unitDiscountPercentage: 9129.2,
+      type: "SERVICE",
+      totalDiscountAmount: 983.67,
+      totalDiscountPercentage: 6658.39,
+      totalGrossAmount: 2655.77,
+      totalNetAmount: 8750.91,
+      totalTaxAmount: 9870.2,
+      unitAmount: 6984.27,
+      unitDiscountAmount: 8994.86,
+      unitDiscountPercentage: 705.72,
       unitName: "<value>",
       updatedDate: "<value>",
     },
@@ -43,13 +44,13 @@ let value: OfferResponseDto = {
   offerNumber: "<value>",
   oneLineAddress: "<value>",
   reference: "<value>",
-  status: "ACCEPTED",
+  status: "VOIDED",
   taxText: "<value>",
-  totalDiscountAmount: 4544.44,
-  totalDiscountPercentage: 6392.07,
-  totalGrossAmount: 5483.87,
-  totalNetAmount: 4385.89,
-  totalTaxAmount: 43.22,
+  totalDiscountAmount: 2088.08,
+  totalDiscountPercentage: 1042.39,
+  totalGrossAmount: 2487.12,
+  totalNetAmount: 6604.86,
+  totalTaxAmount: null,
   updatedDate: "<value>",
 };
 ```
@@ -63,6 +64,7 @@ let value: OfferResponseDto = {
 | `contactId`                                                                    | *string*                                                                       | :heavy_check_mark:                                                             | N/A                                                                            |
 | `createdDate`                                                                  | *string*                                                                       | :heavy_check_mark:                                                             | N/A                                                                            |
 | `currency`                                                                     | *string*                                                                       | :heavy_check_mark:                                                             | N/A                                                                            |
+| `expirationDate`                                                               | *string*                                                                       | :heavy_check_mark:                                                             | N/A                                                                            |
 | `lineItems`                                                                    | [models.OfferLineItemResponseDto](../models/offer-line-item-response-dto.md)[] | :heavy_check_mark:                                                             | N/A                                                                            |
 | `name`                                                                         | *string*                                                                       | :heavy_check_mark:                                                             | N/A                                                                            |
 | `offerDate`                                                                    | *string*                                                                       | :heavy_check_mark:                                                             | N/A                                                                            |

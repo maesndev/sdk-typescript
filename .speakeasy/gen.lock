@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: b4a29653-32d8-43f6-ba1e-9aa569fce206
 management:
-  docChecksum: 4a2e7e20a90611be9cfabbdf4cc5ec62
+  docChecksum: 2f91de45e2a2c73837694fdbf226bfe0
   docVersion: "1.0"
   speakeasyVersion: 1.796.2
   generationVersion: 2.933.0
-  releaseVersion: 0.8.14
-  configChecksum: e4106fbb6eca95de09e8bf10aa19bf49
+  releaseVersion: 0.8.15
+  configChecksum: 48cbd736d65f4d4e85efe25f6fc66120
   repoURL: https://github.com/maesndev/sdk-typescript.git
   installationURL: https://github.com/maesndev/sdk-typescript
   published: true
 persistentEdits:
-  generation_id: fecf2263-ed64-4d0b-bb82-a430935db2f5
-  pristine_commit_hash: e845cd89a90dbc2c86411c0ca23e95a3c4de0062
-  pristine_tree_hash: 52d0c9c4dba26ca96236a6a0d5cdffecab52565b
+  generation_id: c517f438-15b5-4087-a36c-d50786412b24
+  pristine_commit_hash: 3f96bf9361fcf2d0f959cc75c58250e9398eb5b8
+  pristine_tree_hash: 7f2282b0d46dcad3d7e002af1a12728f3966723b
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -656,20 +656,20 @@ trackedFiles:
     pristine_git_object: 125fa3803dd7b4cfd7d766bd76063a3abe19b2bb
   docs/models/create-offer-line-item-request-dto-type.md:
     id: 4ea3e62cdf3d
-    last_write_checksum: sha1:8fd002faf4c4a27a951109bd2086ef37912e344e
-    pristine_git_object: bf178c8ddd6ac8e23d58c51411e4fd3dfd341d26
+    last_write_checksum: sha1:ded9bcd4c5a55a0a2e99fc5718e71f7e5f217995
+    pristine_git_object: 0b09ea10050ad9d13b41edb3b4e8215099df63a9
   docs/models/create-offer-line-item-request-dto.md:
     id: c9ecf96bffed
-    last_write_checksum: sha1:5c996c18e4c1c3eb3abcfdd6bb5919d65afd1fbe
-    pristine_git_object: e82bf5afaad2a1c2f8d085fd809736e1ab7d710b
+    last_write_checksum: sha1:2016278c09f80bae6d6763668a933f3656a7bad1
+    pristine_git_object: f3476240c8dc9755bb64751e157a2489acfdd46c
   docs/models/create-offer-request-dto-status.md:
     id: faae463c99bd
     last_write_checksum: sha1:2ca06b1d1af81b7d4b646f8bcde52a934dc96bc9
     pristine_git_object: a0caf5d0f5dabd96210ed2b369a8c4780dbd04e9
   docs/models/create-offer-request-dto.md:
     id: 6fa2861cc8db
-    last_write_checksum: sha1:194d1421ddbc6d54b32599c8c3a35f295153235e
-    pristine_git_object: a58f52104ae4f459ebc5822904237114e36d1964
+    last_write_checksum: sha1:60fb080f7906653fa2e87808c0992d6ee7d23dc5
+    pristine_git_object: 122d1531bdedbd94030b55f45b5277202bf4fa76
   docs/models/create-pass-through-request-dto.md:
     id: f66d605e2e55
     last_write_checksum: sha1:dd7cb4eed0b822ab1d517df4edaaf9d8e6de7d48
@@ -1076,20 +1076,20 @@ trackedFiles:
     pristine_git_object: 696505377ff207bf70e54b3800ba63befc24fe87
   docs/models/offer-line-item-response-dto-type.md:
     id: 1f6482796374
-    last_write_checksum: sha1:dbf43211e55f233dcfe67fbca38165c6165aeece
-    pristine_git_object: ee35b587acb009bc40bf8ffa5012318563c5c81d
+    last_write_checksum: sha1:9619995baa72d8af2bfc99c372a2c968911eb2df
+    pristine_git_object: dc51d79095347e45aca37a5d4dfb4150ba698d2f
   docs/models/offer-line-item-response-dto.md:
     id: fa7a1db8580a
-    last_write_checksum: sha1:587ef279e2824113369ec7423023b3d22c92b42f
-    pristine_git_object: b66edb4ab74198a749f4129947a9aff4bf9480d3
+    last_write_checksum: sha1:c659da65f209195ab17f32984660f12404c71f6e
+    pristine_git_object: 601d962abfbda802717aa4474aa7d7cc61cdde9b
   docs/models/offer-response-dto-status.md:
     id: c7cd1a5afcdc
     last_write_checksum: sha1:0092935ab0a00991f73023372053b4ffacc75316
     pristine_git_object: 7fc109a7f27e8ecd5aabb0e2d63fd8ec74be46ef
   docs/models/offer-response-dto.md:
     id: 9ca095036202
-    last_write_checksum: sha1:a54f670fa81caebc197dfbfdf374eda86f8621df
-    pristine_git_object: 51629ccffc015b716a7484e5733f65c1b99f8bf5
+    last_write_checksum: sha1:6e9ea6e48280fadbd5c702151e8134ade33fffed
+    pristine_git_object: 2e79b2a3372dfa080a823439d3a38be0b3cbf917
   docs/models/open-balance.md:
     id: 03569c170813
     last_write_checksum: sha1:1407461a3d52e7ae36a74a73c39dcc390d3aa724
@@ -1884,8 +1884,8 @@ trackedFiles:
     pristine_git_object: 1d2d75bcea58f009ffc9676a2f52aad2b6c0803b
   docs/models/operations/create-offer-response.md:
     id: 3c7378e2b472
-    last_write_checksum: sha1:ffaea1dfd43cd3c44ae28196d32128620c68b3a5
-    pristine_git_object: 2e87c8a12b6022e222a97006573ca7a15df0bc69
+    last_write_checksum: sha1:caf466c4a7b5d981c1c6e11b97f8298ae41f8f8f
+    pristine_git_object: c23597150cb113d923c6c6da433d039cb04c2de1
   docs/models/operations/create-pass-through-request-errors.md:
     id: 5831060b3341
     last_write_checksum: sha1:e7dd4a49327336435e245e6d01f8b4948efc6866
@@ -4036,8 +4036,8 @@ trackedFiles:
     pristine_git_object: c3e0c88858aade55ea898c7ff0f110e80e962a9e
   docs/models/operations/get-offer-line-items-response.md:
     id: d4215c45f9b4
-    last_write_checksum: sha1:79c364ab8d2961025836a4ce004bbb3c626b784a
-    pristine_git_object: 6f920ecc299561842aed96d3d89cf42a43d4e426
+    last_write_checksum: sha1:a432cde4a37bf49fd2c066d022f73c7803fd2214
+    pristine_git_object: d562efcb9822bcb1fc413f085aec7710dab1a93a
   docs/models/operations/get-offer-meta.md:
     id: 3e29d4a9d848
     last_write_checksum: sha1:67e5e0aab8becbf14ab278758aba29bb14d383cc
@@ -4056,8 +4056,8 @@ trackedFiles:
     pristine_git_object: d9efc37e70f10c17c977a7e4f61625f72d222e99
   docs/models/operations/get-offer-response.md:
     id: 0802fd3ed9fe
-    last_write_checksum: sha1:008baea1e7bdcf1e7ca3608ae182334733af7442
-    pristine_git_object: bdbd23d069bbf5f66f0713216922953d68fee380
+    last_write_checksum: sha1:0e3ec27f24bd07694b2e8bee27c8c7e20ab7d930
+    pristine_git_object: 058c9055392ba2c56c0bae168aa112b7ce3e4476
   docs/models/operations/get-offers-errors.md:
     id: 3819225375d4
     last_write_checksum: sha1:fefa674986fc486b01eeb379835be9f92d5d138f
@@ -4088,8 +4088,8 @@ trackedFiles:
     pristine_git_object: 1d74a3d553539f67fdf1d490d2c7351894620050
   docs/models/operations/get-offers-response.md:
     id: e5254bad1b72
-    last_write_checksum: sha1:1133cea6ad1122ed148c06439e196ac70b57b2de
-    pristine_git_object: 518b71ecfea0fb686f1be3a7f2b0f4dd8a4e029b
+    last_write_checksum: sha1:008dbdeb106ab8c875a3356fb2ab5a5c2e764f60
+    pristine_git_object: 6436c56d562035eace51bf68e30c3a6e2efd0e22
   docs/models/operations/get-offers-status.md:
     id: 9ac47a087007
     last_write_checksum: sha1:2146435d069f766b9426e25221521735801d08f4
@@ -5844,12 +5844,12 @@ trackedFiles:
     pristine_git_object: 620f120672c2be3445356aaae6d877d4d89c43d5
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:a31c6fd36fc040a8c11ee62e143b5661510d48c9
-    pristine_git_object: c51a9d3d7743b2226413a19d9388f4c47ac57419
+    last_write_checksum: sha1:8e76e62a47c5807d36e8359f1f4cf95d930fa0c5
+    pristine_git_object: 4957be133cb1989a801e7ee94c7e1120ac4dbb62
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:ac20cc52c43af2c4f00f1933d5b7297a78fba328
-    pristine_git_object: 9327e893d30be81ad8b3c241051f809cfe7806c6
+    last_write_checksum: sha1:13abfb89106bcd170364aff31d058a179e1f5483
+    pristine_git_object: 8e07b6bde04faa931d797603d644efb9f1925f9d
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:2eff2a6c77b0c787da6418de861acc36733c433a
@@ -6520,8 +6520,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:99023fb094a3d05518ec084c219f0849de7caa60
-    pristine_git_object: c23305413fdf10a5158efd6634f683d26a40fb3a
+    last_write_checksum: sha1:aec467390e498ebdd47632e6462f010bb08f1234
+    pristine_git_object: 85d2ada727be42faff8fe2c01ee01797edcd6b57
   src/lib/encodings.ts:
     id: 3bd8ead98afd
     last_write_checksum: sha1:4481b2a380f8a16856ef92c66fb370299f56d135
@@ -6820,12 +6820,12 @@ trackedFiles:
     pristine_git_object: 868849e809813f74f56fe954822a4107a0e098b6
   src/models/create-offer-line-item-request-dto.ts:
     id: e3dfacec47db
-    last_write_checksum: sha1:acd39e8aee5c3d24447ecfae50f4c2b745d58a36
-    pristine_git_object: 4722079e54a78d327b581df7514b7b1b3684bca3
+    last_write_checksum: sha1:0048ab7d037cd29c24167ff785a4773ef5fe7e6a
+    pristine_git_object: 401f578ae09c43747a1dabb028c41a461165ff10
   src/models/create-offer-request-dto.ts:
     id: ff3d8808c6e4
-    last_write_checksum: sha1:ae0f0f1d39116c1a054a6d7542f455565b9a58a4
-    pristine_git_object: ff3a8430fac01492fd5a1fe7f6e800ac66f159a7
+    last_write_checksum: sha1:96819bb898f1e5798c695be552a89d7da18b79f6
+    pristine_git_object: f0966cd26b8f6394365e277e8ba88bf8082e4a4e
   src/models/create-pass-through-request-dto.ts:
     id: 61c22c45a7d1
     last_write_checksum: sha1:887bf8fca6d3615f975bb545c85d706b495cd49c
@@ -7048,12 +7048,12 @@ trackedFiles:
     pristine_git_object: 25087ebd6fe2c6a593079eb4651be7f09a4a2e12
   src/models/offer-line-item-response-dto.ts:
     id: ef7a1e7f3039
-    last_write_checksum: sha1:d1954779a9aab510cadf833b34eac27bb864ed18
-    pristine_git_object: 14e52f4aa7240caed9d8628c83d51471d89a7d74
+    last_write_checksum: sha1:ec2ea05b537d040682af1af5edeac00720035cd4
+    pristine_git_object: 8138392cea687a1ea666a1ff326318a0569f25a1
   src/models/offer-response-dto.ts:
     id: 13d3d91fda86
-    last_write_checksum: sha1:d0f0809b4a1a0e5da373c41e312abcd1918b4633
-    pristine_git_object: 8404102d02a668046f8086b12d3b51d88d0faa58
+    last_write_checksum: sha1:a902b13e06bc3138b6026e4edc98096ef895d85d
+    pristine_git_object: f7dfdb860057dbb45dd34a232c45137cf408d408
   src/models/open-item-entry-response-dto.ts:
     id: 5f506825cf84
     last_write_checksum: sha1:f4601c73e73bb84a05adc65a7f3bbf912789f433
@@ -8357,7 +8357,7 @@ examples:
     speakeasy-default-get-offers:
       responses:
         "200":
-          application/json: {"data": [{"id": "<id>", "addresses": [{"addressLine1": "3516 N Poplar Street", "addressLine2": "-", "city": "Camarillo", "countryCode": "BS", "postalCode": "37972-0269", "type": "SELLING"}], "contactId": "<id>", "createdDate": "<value>", "currency": "Libyan Dinar", "lineItems": [{"id": "<id>", "accountCode": "<value>", "accountId": "<id>", "createdDate": "<value>", "description": "community hunt given if over fiercely catalog", "itemId": "<id>", "name": "<value>", "quantity": 5342.07, "taxCode": "<value>", "taxRatePercentage": 2607.61, "taxType": "<value>", "type": "RESOURCE", "totalDiscountAmount": 8546.25, "totalDiscountPercentage": 6214.47, "totalGrossAmount": 1477, "totalNetAmount": 1778.21, "totalTaxAmount": 8554.22, "unitAmount": 3356.34, "unitDiscountAmount": 7451.61, "unitDiscountPercentage": 1232.94, "unitName": "<value>", "updatedDate": "<value>"}], "name": "<value>", "offerDate": "<value>", "offerNumber": "<value>", "oneLineAddress": "<value>", "reference": "<value>", "status": "ACCEPTED", "taxText": "<value>", "totalDiscountAmount": 6647.48, "totalDiscountPercentage": 3185.39, "totalGrossAmount": 497.66, "totalNetAmount": 1480.73, "totalTaxAmount": 8531.29, "updatedDate": "<value>"}], "errors": {}, "rawData": {}}
+          application/json: {"data": [{"id": "<id>", "addresses": [{"addressLine1": "3516 N Poplar Street", "addressLine2": "-", "city": "Camarillo", "countryCode": "BS", "postalCode": "37972-0269", "type": "SELLING"}], "contactId": "<id>", "createdDate": "<value>", "currency": "Libyan Dinar", "expirationDate": null, "lineItems": [{"id": "<id>", "accountCode": "<value>", "accountId": "<id>", "createdDate": "<value>", "description": "community hunt given if over fiercely catalog", "itemId": "<id>", "name": "<value>", "quantity": 5342.07, "taxCode": "<value>", "taxRatePercentage": 2607.61, "taxType": "<value>", "type": "RESOURCE", "totalDiscountAmount": 8546.25, "totalDiscountPercentage": 6214.47, "totalGrossAmount": 1477, "totalNetAmount": 1778.21, "totalTaxAmount": 8554.22, "unitAmount": 3356.34, "unitDiscountAmount": 7451.61, "unitDiscountPercentage": 1232.94, "unitName": "<value>", "updatedDate": "<value>"}], "name": "<value>", "offerDate": "<value>", "offerNumber": "<value>", "oneLineAddress": "<value>", "reference": "<value>", "status": "ACCEPTED", "taxText": "<value>", "totalDiscountAmount": 6647.48, "totalDiscountPercentage": 3185.39, "totalGrossAmount": 497.66, "totalNetAmount": 1480.73, "totalTaxAmount": 8531.29, "updatedDate": "<value>"}], "errors": {}, "rawData": {}}
   createOffer:
     speakeasy-default-create-offer:
       requestBody:
@@ -8366,7 +8366,7 @@ examples:
         "200":
           application/json: {"meta": {"warnings": [], "pagination": {"total": 3284.96, "perPage": 8133.66, "currentPage": 6875.9, "totalPages": 6372.28}}, "data": {"id": "<id>", "addresses": [{"addressLine1": "914 Mann Ridge", "addressLine2": "-", "city": "Franeyshire", "countryCode": "RS", "postalCode": "73463", "type": "SELLING"}], "contactId": "<id>", "createdDate": "<value>", "currency": "Qatari Rial", "lineItems": [{"id": "<id>", "accountCode": "<value>", "accountId": "<id>", "createdDate": "<value>", "description": "since chiffonier bah furthermore", "itemId": "<id>", "name": "<value>", "quantity": 1043.09, "taxCode": "<value>", "taxRatePercentage": 1469.1, "taxType": "<value>", "type": "COMMENT", "totalDiscountAmount": 5007.8, "totalDiscountPercentage": 7029.46, "totalGrossAmount": 6716.91, "totalNetAmount": 7719.79, "totalTaxAmount": 9643.33, "unitAmount": 9193.21, "unitDiscountAmount": 1949.72, "unitDiscountPercentage": 1233.03, "unitName": "<value>", "updatedDate": "<value>"}], "name": "<value>", "offerDate": "<value>", "offerNumber": "<value>", "oneLineAddress": "<value>", "reference": "<value>", "status": "DECLINED", "taxText": "<value>", "totalDiscountAmount": 5293.48, "totalDiscountPercentage": 1202.42, "totalGrossAmount": 5055.72, "totalNetAmount": 9085.02, "totalTaxAmount": 3363.23, "updatedDate": "<value>"}, "errors": {}, "rawData": {}}
         "201":
-          application/json: {"data": {"id": "<id>", "addresses": [{}], "contactId": "<id>", "createdDate": "<value>", "currency": "Kip", "lineItems": [{"id": "<id>", "accountCode": "<value>", "accountId": "<id>", "createdDate": "<value>", "description": "overload gleefully typeface jubilantly er gosh excluding concerning", "itemId": null, "name": "<value>", "quantity": 4080.5, "taxCode": null, "taxRatePercentage": 9228.49, "taxType": null, "type": "ACCOUNT", "totalDiscountAmount": 6160.87, "totalDiscountPercentage": 7097.98, "totalGrossAmount": 8705.35, "totalNetAmount": 9099.91, "totalTaxAmount": 3284.96, "unitAmount": 6875.9, "unitDiscountAmount": 5513, "unitDiscountPercentage": 9368.79, "unitName": "<value>", "updatedDate": "<value>"}], "name": "<value>", "offerDate": null, "offerNumber": null, "oneLineAddress": "<value>", "reference": "<value>", "status": "VOIDED", "taxText": "<value>", "totalDiscountAmount": 6816.03, "totalDiscountPercentage": 4560.33, "totalGrossAmount": 6873.4, "totalNetAmount": 9508.91, "totalTaxAmount": null, "updatedDate": "<value>"}, "errors": {}, "rawData": {}}
+          application/json: {"data": {"id": "<id>", "addresses": [{}], "contactId": "<id>", "createdDate": "<value>", "currency": "Kip", "expirationDate": "<value>", "lineItems": [{"id": "<id>", "accountCode": "<value>", "accountId": "<id>", "createdDate": "<value>", "description": "overload gleefully typeface jubilantly er gosh excluding concerning", "itemId": null, "name": "<value>", "quantity": 4080.5, "taxCode": null, "taxRatePercentage": 9228.49, "taxType": null, "type": "ACCOUNT", "totalDiscountAmount": 6160.87, "totalDiscountPercentage": 7097.98, "totalGrossAmount": 8705.35, "totalNetAmount": 9099.91, "totalTaxAmount": 3284.96, "unitAmount": 6875.9, "unitDiscountAmount": 5513, "unitDiscountPercentage": 9368.79, "unitName": "<value>", "updatedDate": "<value>"}], "name": "<value>", "offerDate": null, "offerNumber": null, "oneLineAddress": "<value>", "reference": "<value>", "status": "VOIDED", "taxText": "<value>", "totalDiscountAmount": 6816.03, "totalDiscountPercentage": 4560.33, "totalGrossAmount": 6873.4, "totalNetAmount": 9508.91, "totalTaxAmount": null, "updatedDate": "<value>"}, "errors": {}, "rawData": {}}
   getOffer:
     speakeasy-default-get-offer:
       parameters:
@@ -8374,7 +8374,7 @@ examples:
           offerId: "<id>"
       responses:
         "200":
-          application/json: {"data": {"id": "<id>", "addresses": [{"addressLine1": "26605 DuBuque Points", "addressLine2": "-", "city": "Hirthefort", "countryCode": "IN", "postalCode": "94861-7288", "type": "SELLING"}], "contactId": null, "createdDate": "<value>", "currency": "Dong", "lineItems": [], "name": "<value>", "offerDate": "<value>", "offerNumber": "<value>", "oneLineAddress": "<value>", "reference": "<value>", "status": "SENT", "taxText": "<value>", "totalDiscountAmount": 393.75, "totalDiscountPercentage": 9300.81, "totalGrossAmount": 1654.86, "totalNetAmount": 4297.64, "totalTaxAmount": 3239.79, "updatedDate": "<value>"}, "errors": {}, "rawData": {}}
+          application/json: {"data": {"id": "<id>", "addresses": [{"addressLine1": "26605 DuBuque Points", "addressLine2": "-", "city": "Hirthefort", "countryCode": "IN", "postalCode": "94861-7288", "type": "SELLING"}], "contactId": null, "createdDate": "<value>", "currency": "Dong", "expirationDate": null, "lineItems": [], "name": "<value>", "offerDate": "<value>", "offerNumber": "<value>", "oneLineAddress": "<value>", "reference": "<value>", "status": "SENT", "taxText": "<value>", "totalDiscountAmount": 393.75, "totalDiscountPercentage": 9300.81, "totalGrossAmount": 1654.86, "totalNetAmount": 4297.64, "totalTaxAmount": 3239.79, "updatedDate": "<value>"}, "errors": {}, "rawData": {}}
   getOfferLineItems:
     speakeasy-default-get-offer-line-items:
       parameters:
@@ -9273,4 +9273,4 @@ examples:
         "200":
           application/json: {"data": {"id": "<id>", "accountId": null, "accountingPeriodId": null, "accountingReason": "TAX", "createdDate": "<value>", "currency": "NOK", "description": "comb times quantify gosh assail", "documentId": "<id>", "exchangeRate": "<value>", "files": [], "isProvisional": false, "isReversal": null, "journalCode": "<value>", "journalLineItems": [{"id": "<id>", "accountCode": "<value>", "accountId": "<id>", "accountNumber": 7550.87, "createdDate": "<value>", "currency": "BND", "customerId": null, "debitCreditIndicator": null, "description": "via some incidentally", "dimensions": [], "documentId": "<id>", "documentNumber": "<value>", "exchangeRate": 3017.63, "supplierId": "<id>", "taxRate": null, "thirdPartyCode": "<value>", "totalGrossAmount": 51.5, "totalNetAmount": 6402.95, "totalTaxAmount": 8880.26, "updatedDate": "<value>"}], "journalType": "<value>", "number": "<value>", "recordType": "OPENING", "transactionDate": "<value>", "updatedDate": "<value>", "version": "<value>"}, "errors": {}, "rawData": {}}
 examplesVersion: 1.0.2
-releaseNotes: "## Typescript SDK Changes:\n* `maesn.accounting.getAccount()`:  `response.data.taxRate` **Added**\n* `maesn.accounting.getAccounts()`:  `response.data[].taxRate` **Added**\n* `maesn.accounting.createAccount()`: \n  *  `request.body.taxRate` **Added**\n  *  `response.data.taxRate` **Added**\n"
+releaseNotes: "## Typescript SDK Changes:\n* `maesn.accounting.getOffers()`:  `response.data[]` **Changed** (Breaking ⚠️)\n* `maesn.accounting.createOffer()`: \n  *  `request.body` **Changed**\n  *  `response.data` **Changed** (Breaking ⚠️)\n* `maesn.accounting.getOffer()`:  `response.data` **Changed** (Breaking ⚠️)\n* `maesn.accounting.getOfferLineItems()`:  `response.data[].type.enum(service)` **Added** (Breaking ⚠️)\n* `maesn.accounting.getOfferLineItem()`:  `response.data.type.enum(service)` **Added** (Breaking ⚠️)\n"
