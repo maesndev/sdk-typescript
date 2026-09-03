@@ -31,6 +31,7 @@ export type CreateOfferRequestDto = {
   addresses: Array<AddressOffer>;
   contactId?: string | undefined;
   currency: string;
+  expirationDate?: string | undefined;
   lineItems?: Array<CreateOfferLineItemRequestDto> | undefined;
   name?: string | undefined;
   offerDate: string;
@@ -56,6 +57,7 @@ export type CreateOfferRequestDto$Outbound = {
   addresses: Array<AddressOffer$Outbound>;
   contactId?: string | undefined;
   currency: string;
+  expirationDate?: string | undefined;
   lineItems?: Array<CreateOfferLineItemRequestDto$Outbound> | undefined;
   name?: string | undefined;
   offerDate: string;
@@ -79,6 +81,7 @@ export const CreateOfferRequestDto$outboundSchema: z.ZodMiniType<
   addresses: z.array(AddressOffer$outboundSchema),
   contactId: z.optional(z.string()),
   currency: z.string(),
+  expirationDate: z.optional(z.string()),
   lineItems: z.optional(z.array(CreateOfferLineItemRequestDto$outboundSchema)),
   name: z.optional(z.string()),
   offerDate: z.string(),

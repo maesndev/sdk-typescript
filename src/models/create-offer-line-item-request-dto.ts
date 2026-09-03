@@ -13,6 +13,7 @@ export const CreateOfferLineItemRequestDtoType = {
   Value: "VALUE",
   FixedAsset: "FIXED_ASSET",
   Charge: "CHARGE",
+  Service: "SERVICE",
 } as const;
 export type CreateOfferLineItemRequestDtoType = ClosedEnum<
   typeof CreateOfferLineItemRequestDtoType

@@ -15,7 +15,7 @@ let value: CreateOfferLineItemRequestDto = {
   taxCode: "<value>",
   taxRatePercentage: 8146.67,
   taxType: "<value>",
-  type: "ITEM",
+  type: "RESOURCE",
   totalDiscountAmount: 546.91,
   totalDiscountPercentage: 4074.27,
   totalGrossAmount: 6808.08,

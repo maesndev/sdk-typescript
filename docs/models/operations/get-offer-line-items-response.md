@@ -22,7 +22,7 @@ let value: GetOfferLineItemsResponse = {
       taxCode: "<value>",
       taxRatePercentage: 8606.06,
       taxType: "<value>",
-      type: "ITEM",
+      type: "RESOURCE",
       totalDiscountAmount: 5233.91,
       totalDiscountPercentage: 1324.14,
       totalGrossAmount: 3681.02,

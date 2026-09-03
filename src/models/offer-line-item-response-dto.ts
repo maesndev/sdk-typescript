@@ -17,6 +17,7 @@ export const OfferLineItemResponseDtoType = {
   Value: "VALUE",
   FixedAsset: "FIXED_ASSET",
   Charge: "CHARGE",
+  Service: "SERVICE",
 } as const;
 export type OfferLineItemResponseDtoType = ClosedEnum<
   typeof OfferLineItemResponseDtoType

@@ -30,6 +30,7 @@ export type OfferResponseDto = {
   contactId: string | null;
   createdDate: string | null;
   currency: string | null;
+  expirationDate: string | null;
   lineItems: Array<OfferLineItemResponseDto> | null;
   name: string | null;
   offerDate: string | null;
@@ -61,6 +62,7 @@ export const OfferResponseDto$inboundSchema: z.ZodMiniType<
   contactId: types.nullable(types.string()),
   createdDate: types.nullable(types.string()),
   currency: types.nullable(types.string()),
+  expirationDate: types.nullable(types.string()),
   lineItems: types.nullable(z.array(OfferLineItemResponseDto$inboundSchema)),
   name: types.nullable(types.string()),
   offerDate: types.nullable(types.string()),
