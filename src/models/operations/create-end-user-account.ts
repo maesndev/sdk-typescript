@@ -18,6 +18,10 @@ export type CreateEndUserAccountGlobals = {
 export type CreateEndUserAccountRequest = {
   targetSystem: string;
   /**
+   * Optional company id to store as the end user's company selection (e.g. a Tripletex accountant client company), so the account and its company are set up in one call.
+   */
+  companyId?: string | undefined;
+  /**
    * API key
    */
   apiKey?: string | undefined;
@@ -38,6 +42,7 @@ export type CreateEndUserAccountResponse = {
 /** @internal */
 export type CreateEndUserAccountRequest$Outbound = {
   TARGET_SYSTEM: string;
+  companyId?: string | undefined;
   apiKey?: string | undefined;
   accountKey?: string | undefined;
   body: models.CreateEndUserRequestDto$Outbound;
@@ -50,6 +55,7 @@ export const CreateEndUserAccountRequest$outboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     targetSystem: z.string(),
+    companyId: z.optional(z.string()),
     apiKey: z.optional(z.string()),
     accountKey: z.optional(z.string()),
     body: models.CreateEndUserRequestDto$outboundSchema,

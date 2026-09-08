@@ -11,22 +11,52 @@ let value: PutContactResponse = {
   data: {
     id: "<id>",
     addresses: [],
-    companyName: "Kuhn and Sons",
-    contactPersons: [],
-    contactType: "UNDEFINED",
+    bankAccounts: [],
+    businessRegistrationNumber: "<value>",
+    companyName: "Bradtke, Klocko and Volkman",
+    contactPersons: [
+      {
+        id: "<id>",
+        birthDate: "1994-04-10",
+        emailAddresses: [
+          {
+            email: "Theodora_Herman91@hotmail.com",
+            type: "OTHER",
+          },
+        ],
+        firstName: "Albert",
+        jobTitle: "Dynamic Accountability Manager",
+        lastName: "Christiansen",
+        phoneNumbers: [
+          {
+            number: "<value>",
+            type: "OFFICE",
+          },
+        ],
+        salutation: "<value>",
+      },
+    ],
+    contactType: "CONTACT_PERSON",
     createdDate: "<value>",
-    emailAddresses: [],
+    emailAddresses: [
+      {
+        email: "Theodora_Herman91@hotmail.com",
+        type: "OTHER",
+      },
+    ],
     isCustomer: false,
-    isSupplier: false,
+    isSupplier: true,
     number: "<value>",
+    parentId: "<id>",
     phoneNumbers: [
       {
         number: "<value>",
-        type: "PRIVATE",
+        type: "OFFICE",
       },
     ],
     projectId: "<id>",
     updatedDate: "<value>",
+    vatId: null,
     website: "<value>",
   },
   errors: null,

@@ -5,6 +5,11 @@
 import * as z from "zod/v4-mini";
 import { ClosedEnum } from "../types/enums.js";
 import {
+  BankAccountRequestCommonDtoV2,
+  BankAccountRequestCommonDtoV2$Outbound,
+  BankAccountRequestCommonDtoV2$outboundSchema,
+} from "./bank-account-request-common-dto-v2.js";
+import {
   CreateContactAddressV2,
   CreateContactAddressV2$Outbound,
   CreateContactAddressV2$outboundSchema,
@@ -37,6 +42,8 @@ export type CreateContactRequestDtoV2ContactType = ClosedEnum<
 export type CreateContactRequestDtoV2 = {
   id?: string | undefined;
   addresses?: Array<CreateContactAddressV2> | undefined;
+  bankAccounts?: Array<BankAccountRequestCommonDtoV2> | undefined;
+  businessRegistrationNumber?: string | undefined;
   companyName?: string | undefined;
   contactPersons?: Array<CreateContactPersonDtoV2> | undefined;
   contactType: CreateContactRequestDtoV2ContactType;
@@ -44,8 +51,10 @@ export type CreateContactRequestDtoV2 = {
   isCustomer?: boolean | undefined;
   isSupplier?: boolean | undefined;
   number?: string | undefined;
+  parentId?: string | undefined;
   phoneNumbers?: Array<PhoneNumberV2> | undefined;
   projectId?: string | undefined;
+  vatId?: string | undefined;
   website?: string | undefined;
 };
 
@@ -58,6 +67,8 @@ export const CreateContactRequestDtoV2ContactType$outboundSchema: z.ZodMiniEnum<
 export type CreateContactRequestDtoV2$Outbound = {
   id?: string | undefined;
   addresses?: Array<CreateContactAddressV2$Outbound> | undefined;
+  bankAccounts?: Array<BankAccountRequestCommonDtoV2$Outbound> | undefined;
+  businessRegistrationNumber?: string | undefined;
   companyName?: string | undefined;
   contactPersons?: Array<CreateContactPersonDtoV2$Outbound> | undefined;
   contactType: string;
@@ -65,8 +76,10 @@ export type CreateContactRequestDtoV2$Outbound = {
   isCustomer?: boolean | undefined;
   isSupplier?: boolean | undefined;
   number?: string | undefined;
+  parentId?: string | undefined;
   phoneNumbers?: Array<PhoneNumberV2$Outbound> | undefined;
   projectId?: string | undefined;
+  vatId?: string | undefined;
   website?: string | undefined;
 };
 
@@ -77,6 +90,10 @@ export const CreateContactRequestDtoV2$outboundSchema: z.ZodMiniType<
 > = z.object({
   id: z.optional(z.string()),
   addresses: z.optional(z.array(CreateContactAddressV2$outboundSchema)),
+  bankAccounts: z.optional(
+    z.array(BankAccountRequestCommonDtoV2$outboundSchema),
+  ),
+  businessRegistrationNumber: z.optional(z.string()),
   companyName: z.optional(z.string()),
   contactPersons: z.optional(z.array(CreateContactPersonDtoV2$outboundSchema)),
   contactType: CreateContactRequestDtoV2ContactType$outboundSchema,
@@ -84,8 +101,10 @@ export const CreateContactRequestDtoV2$outboundSchema: z.ZodMiniType<
   isCustomer: z.optional(z.boolean()),
   isSupplier: z.optional(z.boolean()),
   number: z.optional(z.string()),
+  parentId: z.optional(z.string()),
   phoneNumbers: z.optional(z.array(PhoneNumberV2$outboundSchema)),
   projectId: z.optional(z.string()),
+  vatId: z.optional(z.string()),
   website: z.optional(z.string()),
 });
 

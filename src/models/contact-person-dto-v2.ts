@@ -18,8 +18,10 @@ import {
 
 export type ContactPersonDtoV2 = {
   id: string | null;
+  birthDate: string | null;
   emailAddresses: Array<EmailAddressV2> | null;
   firstName: string | null;
+  jobTitle: string | null;
   lastName: string | null;
   phoneNumbers: Array<PhoneNumberV2> | null;
   salutation: string | null;
@@ -31,8 +33,10 @@ export const ContactPersonDtoV2$inboundSchema: z.ZodMiniType<
   unknown
 > = z.object({
   id: types.nullable(types.string()),
+  birthDate: types.nullable(types.string()),
   emailAddresses: types.nullable(z.array(EmailAddressV2$inboundSchema)),
   firstName: types.nullable(types.string()),
+  jobTitle: types.nullable(types.string()),
   lastName: types.nullable(types.string()),
   phoneNumbers: types.nullable(z.array(PhoneNumberV2$inboundSchema)),
   salutation: types.nullable(types.string()),

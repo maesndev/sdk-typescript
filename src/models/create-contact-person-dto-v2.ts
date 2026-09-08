@@ -16,8 +16,10 @@ import {
 
 export type CreateContactPersonDtoV2 = {
   id?: string | undefined;
+  birthDate?: string | undefined;
   emailAddresses?: Array<EmailAddressV2> | undefined;
   firstName?: string | undefined;
+  jobTitle?: string | undefined;
   lastName?: string | undefined;
   phoneNumbers?: Array<PhoneNumberV2> | undefined;
   salutation?: string | undefined;
@@ -26,8 +28,10 @@ export type CreateContactPersonDtoV2 = {
 /** @internal */
 export type CreateContactPersonDtoV2$Outbound = {
   id?: string | undefined;
+  birthDate?: string | undefined;
   emailAddresses?: Array<EmailAddressV2$Outbound> | undefined;
   firstName?: string | undefined;
+  jobTitle?: string | undefined;
   lastName?: string | undefined;
   phoneNumbers?: Array<PhoneNumberV2$Outbound> | undefined;
   salutation?: string | undefined;
@@ -39,8 +43,10 @@ export const CreateContactPersonDtoV2$outboundSchema: z.ZodMiniType<
   CreateContactPersonDtoV2
 > = z.object({
   id: z.optional(z.string()),
+  birthDate: z.optional(z.string()),
   emailAddresses: z.optional(z.array(EmailAddressV2$outboundSchema)),
   firstName: z.optional(z.string()),
+  jobTitle: z.optional(z.string()),
   lastName: z.optional(z.string()),
   phoneNumbers: z.optional(z.array(PhoneNumberV2$outboundSchema)),
   salutation: z.optional(z.string()),

@@ -9,6 +9,7 @@ export * from "./address.js";
 export * from "./advance-payment-input.js";
 export * from "./async-task-response-dto.js";
 export * from "./bank-account-request-common-dto-v2.js";
+export * from "./bank-account-response-common-dto-v2.js";
 export * from "./bank-account-response-dto.js";
 export * from "./bank-account-response.js";
 export * from "./bank-account.js";

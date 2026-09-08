@@ -8,6 +8,10 @@ import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import {
+  BankAccountResponseCommonDtoV2,
+  BankAccountResponseCommonDtoV2$inboundSchema,
+} from "./bank-account-response-common-dto-v2.js";
+import {
   ContactAddressV2,
   ContactAddressV2$inboundSchema,
 } from "./contact-address-v2.js";
@@ -37,6 +41,8 @@ export type ContactResponseDtoV2ContactType = ClosedEnum<
 export type ContactResponseDtoV2 = {
   id: string | null;
   addresses: Array<ContactAddressV2> | null;
+  bankAccounts: Array<BankAccountResponseCommonDtoV2> | null;
+  businessRegistrationNumber: string | null;
   companyName: string | null;
   contactPersons: Array<ContactPersonDtoV2> | null;
   contactType: ContactResponseDtoV2ContactType | null;
@@ -45,9 +51,11 @@ export type ContactResponseDtoV2 = {
   isCustomer: boolean | null;
   isSupplier: boolean | null;
   number: string | null;
+  parentId: string | null;
   phoneNumbers: Array<PhoneNumberV2> | null;
   projectId: string | null;
   updatedDate: string | null;
+  vatId: string | null;
   website: string | null;
 };
 
@@ -63,6 +71,10 @@ export const ContactResponseDtoV2$inboundSchema: z.ZodMiniType<
 > = z.object({
   id: types.nullable(types.string()),
   addresses: types.nullable(z.array(ContactAddressV2$inboundSchema)),
+  bankAccounts: types.nullable(
+    z.array(BankAccountResponseCommonDtoV2$inboundSchema),
+  ),
+  businessRegistrationNumber: types.nullable(types.string()),
   companyName: types.nullable(types.string()),
   contactPersons: types.nullable(z.array(ContactPersonDtoV2$inboundSchema)),
   contactType: types.nullable(ContactResponseDtoV2ContactType$inboundSchema),
@@ -71,9 +83,11 @@ export const ContactResponseDtoV2$inboundSchema: z.ZodMiniType<
   isCustomer: types.nullable(types.boolean()),
   isSupplier: types.nullable(types.boolean()),
   number: types.nullable(types.string()),
+  parentId: types.nullable(types.string()),
   phoneNumbers: types.nullable(z.array(PhoneNumberV2$inboundSchema)),
   projectId: types.nullable(types.string()),
   updatedDate: types.nullable(types.string()),
+  vatId: types.nullable(types.string()),
   website: types.nullable(types.string()),
 });
 

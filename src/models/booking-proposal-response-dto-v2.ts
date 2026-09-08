@@ -19,6 +19,7 @@ import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
 export type BookingProposalResponseDtoV2BankAccount = {
   id: string | null;
+  bankName: string | null;
   bic: string | null;
   code: string | null;
   iban: string | null;
@@ -94,6 +95,7 @@ export type BookingProposalResponseDtoV2 = {
 export const BookingProposalResponseDtoV2BankAccount$inboundSchema:
   z.ZodMiniType<BookingProposalResponseDtoV2BankAccount, unknown> = z.object({
     id: types.nullable(types.string()),
+    bankName: types.nullable(types.string()),
     bic: types.nullable(types.string()),
     code: types.nullable(types.string()),
     iban: types.nullable(types.string()),

@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: b4a29653-32d8-43f6-ba1e-9aa569fce206
 management:
-  docChecksum: 2f91de45e2a2c73837694fdbf226bfe0
+  docChecksum: deddf909a4c8346cb4db5364b570807f
   docVersion: "1.0"
-  speakeasyVersion: 1.796.2
-  generationVersion: 2.933.0
-  releaseVersion: 0.8.15
-  configChecksum: 48cbd736d65f4d4e85efe25f6fc66120
+  speakeasyVersion: 1.796.4
+  generationVersion: 2.935.1
+  releaseVersion: 0.8.16
+  configChecksum: 17d6dcf9adfe68b9a5f4db9b29604435
   repoURL: https://github.com/maesndev/sdk-typescript.git
   installationURL: https://github.com/maesndev/sdk-typescript
   published: true
 persistentEdits:
-  generation_id: c517f438-15b5-4087-a36c-d50786412b24
-  pristine_commit_hash: 3f96bf9361fcf2d0f959cc75c58250e9398eb5b8
-  pristine_tree_hash: 7f2282b0d46dcad3d7e002af1a12728f3966723b
+  generation_id: 8d9a6ab8-cac6-46d9-8420-6373442f2136
+  pristine_commit_hash: 0b04d7c42c3a1c94e00b1d8344d1a5d1572c530f
+  pristine_tree_hash: dccb66f02cc3b92bf582dad21b3886f16ba440f2
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -30,7 +30,7 @@ features:
     nameOverrides: 2.81.4
     nullables: 0.1.1
     responseFormat: 0.3.0
-    retries: 2.83.1
+    retries: 2.83.2
     sdkHooks: 0.4.0
     uploadStreams: 0.1.1
 trackedFiles:
@@ -156,8 +156,12 @@ trackedFiles:
     pristine_git_object: 4686f6f7d7cf5c86f9f557db733c7c9a34f456c9
   docs/models/bank-account-request-common-dto-v2.md:
     id: 805920fc0221
-    last_write_checksum: sha1:4228c1a2f3200970312adf14e2b6bf7db5190a67
-    pristine_git_object: 8fef17882832c1b60f5dddbc81a089f73b13331a
+    last_write_checksum: sha1:dd4397ccdfb154f5e54b52cc536aa4d2e14d8f57
+    pristine_git_object: 96d32d021df016cf2699fc187fd5ee366ff17aaa
+  docs/models/bank-account-response-common-dto-v2.md:
+    id: 1338840291ff
+    last_write_checksum: sha1:bcff93cd81246a0854f1ab4afc609a1e0d95bc60
+    pristine_git_object: 3a374d4353dd62525497d6a48e2f40894edb3458
   docs/models/bank-account-response-dto-currency.md:
     id: f276a982ad12
     last_write_checksum: sha1:bd19e75b4ca81329324652f618cb2a9fa2ccdb0d
@@ -260,8 +264,8 @@ trackedFiles:
     pristine_git_object: 2b6208f9f05b581d0c3859404404da3677cef479
   docs/models/booking-proposal-response-dto-v2-bank-account.md:
     id: 03697f7f8c22
-    last_write_checksum: sha1:ce86bbb43e4463c8adb14b97fbd79b0473260c21
-    pristine_git_object: 496d91d51cc86c8d7dd48847ee27b0c8097b9ad2
+    last_write_checksum: sha1:2f5452e51656bee5b8162ca48a461d6efa701fc5
+    pristine_git_object: 2c4b342e3b7bab585fe20477ebcb8512495733de
   docs/models/booking-proposal-response-dto-v2-booking-type.md:
     id: cc35d813e899
     last_write_checksum: sha1:14390c2970f1248958b71dc77bff066a051387b7
@@ -272,8 +276,8 @@ trackedFiles:
     pristine_git_object: b92287b5e92672b2e82ed891c799985a88f2abe4
   docs/models/booking-proposal-response-dto-v2.md:
     id: d3a16147edc6
-    last_write_checksum: sha1:8ca0fbb5a74486a60a8df5d4117c2f7b9fdac7bf
-    pristine_git_object: 2354546efcd21e125283f6e7ba1aa26a2b46c7a6
+    last_write_checksum: sha1:5824343df2a0b9295921fc47ca8468caf641be35
+    pristine_git_object: 524756c2588c885f0cdb6d9a158a6a47bd0b6292
   docs/models/booking-proposal-response-dto.md:
     id: 78005a9d9d18
     last_write_checksum: sha1:53a1ebf511958cbd71ca7fba3c5620b07cb31080
@@ -316,8 +320,8 @@ trackedFiles:
     pristine_git_object: 8d11b7ec59562fcf8d0976785a8d13bb74069855
   docs/models/contact-person-dto-v2.md:
     id: 55c2f6895b36
-    last_write_checksum: sha1:ea6e4249ec5f7ba4ecaf66de365069f31a7b55cc
-    pristine_git_object: e9dbf14bfd6fe1fc642af5acbe85d15c871b8384
+    last_write_checksum: sha1:f923bfa68005ea200f803ad43e9f3ab4216c018b
+    pristine_git_object: d8cd66aac6f2bca10961b5bfe71807483db7cb6a
   docs/models/contact-person.md:
     id: 8016551bc003
     last_write_checksum: sha1:83962dbbd2f9b115677c6bb81b5fcb9844b65766
@@ -340,8 +344,8 @@ trackedFiles:
     pristine_git_object: e5af56764bb81957eb94c57e1b9d292439504f23
   docs/models/contact-response-dto-v2.md:
     id: eb889deaca32
-    last_write_checksum: sha1:157fd7248b269dab7ba6e17072d4f197e2a05511
-    pristine_git_object: 3176c098ba981cc3d9724d097350acf00f9bf110
+    last_write_checksum: sha1:6f0ccb4241c70a6f626266efdd3d6a92da54c880
+    pristine_git_object: 53b304786f5c6a24ffc3758e2202ca199bd321d7
   docs/models/contact-response-dto.md:
     id: c7ccb374d2bf
     last_write_checksum: sha1:082f5dac168cd5938a72e1e7077e22ce7f2388fa
@@ -484,8 +488,8 @@ trackedFiles:
     pristine_git_object: 4a49ce68f4f6f9f83a957ff5f687f7a20952a11a
   docs/models/create-contact-person-dto-v2.md:
     id: 18d92d9334a1
-    last_write_checksum: sha1:90b5122de212d14acab66eebd33e9ca99e0b36c2
-    pristine_git_object: fecd336e4e61b5e0d76dabb25a02b54eb307e3c9
+    last_write_checksum: sha1:c720d6bf818b4119bfe1dd3f2bf23e18962212b8
+    pristine_git_object: 92d4baa96fb838a17f1d3d07895ec08df864ec25
   docs/models/create-contact-person.md:
     id: ec021706cd0f
     last_write_checksum: sha1:b42dee3dd3bfff6651bd54947ad322240d0a9296
@@ -504,8 +508,8 @@ trackedFiles:
     pristine_git_object: 2b4130830c12fd1fe649345a761075d3d48fb484
   docs/models/create-contact-request-dto-v2.md:
     id: 2daf1f1b5c0e
-    last_write_checksum: sha1:436f5379ba08928fd96bc46cdbd36f7f87195757
-    pristine_git_object: 88b27b73ddbfcbcadfb49ae667be3f49d82abc78
+    last_write_checksum: sha1:dc39472e83596bf6fbd3957320832d3268df0b13
+    pristine_git_object: 548d3a051f36283a8b1d9d61084d791357ebd035
   docs/models/create-contact-request-dto.md:
     id: 31b1755447c5
     last_write_checksum: sha1:c9d58c42fc9e66f1d673ba9bae0fa683f3d756b2
@@ -1404,16 +1408,16 @@ trackedFiles:
     pristine_git_object: 3b111289aa17475138f3fe7ff4f61c5864c03103
   docs/models/operations/create-booking-proposal-v2-response-body1.md:
     id: dee356c857c3
-    last_write_checksum: sha1:20672d5924d2d71ef6cb51c5398f1254699c2f70
-    pristine_git_object: 66e0abb429c1a6418b02d4607c5a2b6e960e4051
+    last_write_checksum: sha1:9276c430e6d1282e298c839195b7afb9bc44389b
+    pristine_git_object: 313eb7537665f3f47616ebf2258c06cf49ef7c40
   docs/models/operations/create-booking-proposal-v2-response-body2.md:
     id: 6e94bf0937ec
     last_write_checksum: sha1:f1bc6d632a8f962b61fadb12d1c1ae8703f56ad3
     pristine_git_object: 41a8d70829266461b7b2921dd0965b269d7195c8
   docs/models/operations/create-booking-proposal-v2-response.md:
     id: 94ec928df60c
-    last_write_checksum: sha1:9a2011159a1b94dbfbe7cc1734b49a40e30ca708
-    pristine_git_object: ff32ec3b84d21a3086f2bbcf5f4c837d9d88ea57
+    last_write_checksum: sha1:357895ac839cf1051aa22645b794e60ac45d8477
+    pristine_git_object: 3a438aba43da5b852682de5cd86f155715cd7338
   docs/models/operations/create-contact-errors.md:
     id: 6d55159a252c
     last_write_checksum: sha1:93c85cea498e54e66c949f975aaeb8b452a1e3ee
@@ -1440,8 +1444,8 @@ trackedFiles:
     pristine_git_object: beaf57743ffdb09a490af4c92e897da34c7f766d
   docs/models/operations/create-contact-response.md:
     id: 0f98fc5ebe9d
-    last_write_checksum: sha1:9d7aece592749aa531872744efbfc821ef0f5f4c
-    pristine_git_object: 4adfc176219949a85d4b464237e39119cd348754
+    last_write_checksum: sha1:e0797b48ce2619a78c466b845834f81bcf44dcda
+    pristine_git_object: 8b905f4e2bac1d4136b6e52bd2fd34e04d2467bc
   docs/models/operations/create-contact-v2-errors.md:
     id: 4088f386d722
     last_write_checksum: sha1:3d29e953bb485dcf80c92bd1fb4406fca159ea3d
@@ -1468,8 +1472,8 @@ trackedFiles:
     pristine_git_object: 7c477c502b17abd4262f84c768f5479cb55ee5f3
   docs/models/operations/create-contact-v2-response.md:
     id: 88c0d8bef823
-    last_write_checksum: sha1:b8635225f30405e4158fd9eb3add63a2cb0aa9ef
-    pristine_git_object: 8d5a3854f97d1c1e9be9e6748bd7b08a8f4b9cb3
+    last_write_checksum: sha1:c1ec4e51ba2db8b3ca36554e3465375fa42513eb
+    pristine_git_object: 5befd1d136812d8ced80de72d001bacf74d997fb
   docs/models/operations/create-contacts-errors.md:
     id: fea5c8c2c2c3
     last_write_checksum: sha1:33b5c22f687abbe255e9913c94f1a95fa2cbe366
@@ -1588,8 +1592,8 @@ trackedFiles:
     pristine_git_object: fd68fcae46ba742604c1d3393f5239bc2cab6ae5
   docs/models/operations/create-end-user-account-request.md:
     id: 489b1827b437
-    last_write_checksum: sha1:0612e96c207d0e35971ebad8cbe890c6e0a160dd
-    pristine_git_object: f533c33ed6b9f3f3d56326e51232a072bbf28d93
+    last_write_checksum: sha1:db7c50dbb77d290a866ec8b1d14bd2ee1db42740
+    pristine_git_object: 505f0c034acdc0eeea1bb957343bce44e7196097
   docs/models/operations/create-end-user-account-response.md:
     id: fe80255c614c
     last_write_checksum: sha1:abf6842377066d318a9bc5d2212927a087fa8675
@@ -2820,8 +2824,8 @@ trackedFiles:
     pristine_git_object: ceea1faf3a553c453dee9825e31c69f191588837
   docs/models/operations/get-contact-response.md:
     id: b3c1c9f0243e
-    last_write_checksum: sha1:51af89f028f4bc00a6fca488dd557385f844505e
-    pristine_git_object: 83195d9e0101766a8d9456d4703834e3d225c158
+    last_write_checksum: sha1:a780bc84e39a234d281344c6a94f7404c1138cff
+    pristine_git_object: ecfb5b5f13a031a93683b3c057966f9ef9fdc1a8
   docs/models/operations/get-contact-v2-errors.md:
     id: e91022c54db0
     last_write_checksum: sha1:e20e650ad683f5c3661088227d52575815f91096
@@ -2848,8 +2852,8 @@ trackedFiles:
     pristine_git_object: f700a9db11142e7ad915b26ade962191e601caa9
   docs/models/operations/get-contact-v2-response.md:
     id: bf620a1f3fe1
-    last_write_checksum: sha1:0be1871e55f524e3244ecb45c6165243e4fe9416
-    pristine_git_object: 2b848d2074020501d2b45ea631621fe2081b3d18
+    last_write_checksum: sha1:c9d259f39585484465d47494bc8cbdd111e138ad
+    pristine_git_object: bdcbc217f9efcca77b0df9fd42000e3ab62ccfc5
   docs/models/operations/get-contacts-async-errors.md:
     id: aa43543e800f
     last_write_checksum: sha1:f49ca156669636219256cd3570df0387c1239b5b
@@ -4940,8 +4944,8 @@ trackedFiles:
     pristine_git_object: 5782bf741abd3dfbe04b7e5c5355bdb2df39d60e
   docs/models/operations/patch-contact-response.md:
     id: 1171df2737ac
-    last_write_checksum: sha1:34e97b8646e6d617b8402933728e117e836c7e91
-    pristine_git_object: 7073820a3922054289ec494979a744bb38faf86a
+    last_write_checksum: sha1:e9384cddae9b72141f870dbdda9ab9bcdd1a9e70
+    pristine_git_object: 4a24068bf6e135ea7a8a426b3eac379939c5eeb1
   docs/models/operations/patch-contact-v2-errors.md:
     id: 51717631e5ae
     last_write_checksum: sha1:78b7a751a6701e776512a3f2b4765879a10b8cb9
@@ -4968,8 +4972,8 @@ trackedFiles:
     pristine_git_object: 6d1b69677806a5c7e3bb38f3302d135b8ac5f4e0
   docs/models/operations/patch-contact-v2-response.md:
     id: 069d332ba113
-    last_write_checksum: sha1:0eea46b2c7bf2b2e91c0d3f544241c414d85c61d
-    pristine_git_object: ce7c13bd8e039ed0fccb8a9e25783cb038c1378a
+    last_write_checksum: sha1:fd1ca38a7604b4e805b0dea4f3f1c7af0d3c3f9d
+    pristine_git_object: 16063d3438a2e26026ddebef26eb233571829ce8
   docs/models/operations/patch-customers-errors.md:
     id: 49c20eee8700
     last_write_checksum: sha1:b4ee942e6b678dd95b9cffc7c50b5022923dacf9
@@ -5208,8 +5212,8 @@ trackedFiles:
     pristine_git_object: 40351ada341501bf69860488f9d251f7dac7dee3
   docs/models/operations/put-contact-response.md:
     id: 3ebb0bf4ee73
-    last_write_checksum: sha1:b96d118ffe62b514699ad67c09b77b09fb5fcffc
-    pristine_git_object: 180295b6a816b95294f304ea33465df92bff047f
+    last_write_checksum: sha1:d818a443548c1df2c6f77b2dc6b22d335a75b678
+    pristine_git_object: ab81e5123a07c1945e42bb3d793c9cfa56644e21
   docs/models/operations/put-contact-v2-errors1.md:
     id: b4a3152a53e5
     last_write_checksum: sha1:a4b239c8430fec33f1c861743e75a784c17bdbbe
@@ -5252,16 +5256,16 @@ trackedFiles:
     pristine_git_object: 7be9fac4ef99877a7db4ab9b5c060f5786e56976
   docs/models/operations/put-contact-v2-response-body1.md:
     id: d69c9c4e041e
-    last_write_checksum: sha1:e9eeac1c437133da47816915ab640f43097dfde8
-    pristine_git_object: 0d17bce3db073eb7090782f6efbd09d7f41d61e9
+    last_write_checksum: sha1:ed52cceeb3bfb47ab4e346ddec2e679f0c565f55
+    pristine_git_object: 45782ba0d55c3eac6d93e19356ecf8e3e06c011f
   docs/models/operations/put-contact-v2-response-body2.md:
     id: b0dc9b20a99b
-    last_write_checksum: sha1:29b7c3450c118f80c7109b19d6d2aa87b9e0035b
-    pristine_git_object: 2c9474f9c736b01294240e6d35ddb136d3c3d297
+    last_write_checksum: sha1:3ff834f42781366b1cd13a0b275b7544cce27508
+    pristine_git_object: e37ffc07a339c0e58974bbce73864495385af8c2
   docs/models/operations/put-contact-v2-response.md:
     id: 6bf786c60d89
-    last_write_checksum: sha1:7573e1890ee0670167f48f5abe796518b58f78fa
-    pristine_git_object: 596541ebd263c46050c3d4544652c7255b9c7ee6
+    last_write_checksum: sha1:981c9a9f23b4c7aaaab26d07cba75cabc082b16a
+    pristine_git_object: 6ff8209ca0d22ebc4dd2c81b8b0009a7a880551e
   docs/models/operations/system-login-url-globals.md:
     id: e2a0f045557d
     last_write_checksum: sha1:c7cc7d4140dc3a83a492fd20e5d0cefbb1cd649c
@@ -5844,12 +5848,12 @@ trackedFiles:
     pristine_git_object: 620f120672c2be3445356aaae6d877d4d89c43d5
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:8e76e62a47c5807d36e8359f1f4cf95d930fa0c5
-    pristine_git_object: 4957be133cb1989a801e7ee94c7e1120ac4dbb62
+    last_write_checksum: sha1:0460c01afe180ed09cc2a16a6292c8699023efcb
+    pristine_git_object: d1831e2f51a6ea8d65dde3c9b3959ee93eb47413
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:13abfb89106bcd170364aff31d058a179e1f5483
-    pristine_git_object: 8e07b6bde04faa931d797603d644efb9f1925f9d
+    last_write_checksum: sha1:9417219dcac2154ca05c48a969e9639ea981ae6c
+    pristine_git_object: 8c4c4e0ab98cc9605f4db210ce445515a521e846
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:2eff2a6c77b0c787da6418de861acc36733c433a
@@ -6380,8 +6384,8 @@ trackedFiles:
     pristine_git_object: 1cb9159674f9b9473b1001ad799d5bd30538dac4
   src/funcs/auth-create-end-user-account.ts:
     id: 59e111d2801a
-    last_write_checksum: sha1:6b7ce1bd8d5b2b1ae934bce28d39dd2ff4213e1e
-    pristine_git_object: 5c42f7351880eaf2b51ad8b434843bf145e3ee6a
+    last_write_checksum: sha1:5874b5e1d77be7c4319db2c6a1e2d5b8bfc8db06
+    pristine_git_object: bc37a37f15dfcaf6ded76abdab078a2363bcd173
   src/funcs/auth-get-companies.ts:
     id: 0078a5510bfa
     last_write_checksum: sha1:18ad2e38400968063db4db11244433b1875d304d
@@ -6520,8 +6524,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:aec467390e498ebdd47632e6462f010bb08f1234
-    pristine_git_object: 85d2ada727be42faff8fe2c01ee01797edcd6b57
+    last_write_checksum: sha1:155ef62d1bc3298cc792951ec32d2ba398263bf6
+    pristine_git_object: 1f14662ca5f45a4b89a29af887589c510c1132b0
   src/lib/encodings.ts:
     id: 3bd8ead98afd
     last_write_checksum: sha1:4481b2a380f8a16856ef92c66fb370299f56d135
@@ -6596,8 +6600,12 @@ trackedFiles:
     pristine_git_object: d0764d708bff47ce13f69ce9b32d221c2db00722
   src/models/bank-account-request-common-dto-v2.ts:
     id: 4ae44cd17790
-    last_write_checksum: sha1:84732745005915e5502fb7a4e67da92b5f84a0f4
-    pristine_git_object: c112f49676b6a6ba650fe8babc8ff5c1196b3d28
+    last_write_checksum: sha1:9bed51312b1b1b66a36cf9f50d01eaee6621fe76
+    pristine_git_object: e7f4d06aac2639fbba234abd79e5506c98c8c918
+  src/models/bank-account-response-common-dto-v2.ts:
+    id: e618249119d4
+    last_write_checksum: sha1:f7184fc7eb3604b1c01cc29f38a48c3c7112aa16
+    pristine_git_object: 89825ab4301b93e84fe8eb60d6ddf69325f4bb61
   src/models/bank-account-response-dto.ts:
     id: 96448186b342
     last_write_checksum: sha1:273db8d4a414dbbfd7e96c347c2bb0b30716ad80
@@ -6652,8 +6660,8 @@ trackedFiles:
     pristine_git_object: 55c083c720bd204a921f09dd1c9b6f493a4cf3eb
   src/models/booking-proposal-response-dto-v2.ts:
     id: 2722e31f30f6
-    last_write_checksum: sha1:f975b03b7f9011da91f152aaaaa153a59790683e
-    pristine_git_object: a46853fb07b548d195877a8505ae3db7b1c43b2f
+    last_write_checksum: sha1:30c34149ff0382eb85eb3b8dd9e0da637100efba
+    pristine_git_object: c89d8391f24f7d10f65770ea407be4e3128b1361
   src/models/booking-proposal-response-dto.ts:
     id: 1b5ae8303d77
     last_write_checksum: sha1:34e2e21b183b92670c39ebcd3407a7e0ca0d2405
@@ -6680,8 +6688,8 @@ trackedFiles:
     pristine_git_object: 4623d75ba2ddf15d6d44d4abca16e61138493ef8
   src/models/contact-person-dto-v2.ts:
     id: 8c8a52d322d2
-    last_write_checksum: sha1:d1d1e44a6d08b1a74e088352e64a9dc9511d9440
-    pristine_git_object: a090b97ccafe8907e64a82c70a493ad1182e8f79
+    last_write_checksum: sha1:fd3191661702e214edccef44238f29789b7310b1
+    pristine_git_object: ae9f15e9d3128d3ed6d429d3cd5d1821cf86b45b
   src/models/contact-person.ts:
     id: 8a9d5c724af6
     last_write_checksum: sha1:ca8de7e8272ceb9995306607bf2b9a5c47692dcb
@@ -6692,8 +6700,8 @@ trackedFiles:
     pristine_git_object: 8e0dbe05d9c613a0dc3c4568a4fbff59fc21ce4e
   src/models/contact-response-dto-v2.ts:
     id: d9767c49d5fd
-    last_write_checksum: sha1:5360277d2d66105535ba87d381576339fa7c4751
-    pristine_git_object: 8cfaa356bb50a31ba06d83c22265f78a8c7d004d
+    last_write_checksum: sha1:72c7ef25e24e1adfb0c56d06acd3c3c92015b5df
+    pristine_git_object: 092b29f979a075b4f623c75244c8c58aeb0f1645
   src/models/contact-response-dto.ts:
     id: dd4172f051db
     last_write_checksum: sha1:540c789e977a17b4c3bfad09c5c56b79e202a392
@@ -6752,16 +6760,16 @@ trackedFiles:
     pristine_git_object: a0d8db68f91f15549caea9b08d8e7f3a93a49ddd
   src/models/create-contact-person-dto-v2.ts:
     id: 105556158de0
-    last_write_checksum: sha1:bf728fcd44d135d19799bf343f1d5ab13deb64ef
-    pristine_git_object: 458371cb69f12b4d90492c1ed7932f7247faeb9e
+    last_write_checksum: sha1:62a4f18cdc18509041207df19cfe735219ace78a
+    pristine_git_object: 5a8d8785ce2d241c27ee639733ed2687897de5bb
   src/models/create-contact-person.ts:
     id: 225009b05814
     last_write_checksum: sha1:8032ef00c17de40160ff71292522148280b69c54
     pristine_git_object: 7ee7b8a700eb94cb83c2894328e8d6eed996001f
   src/models/create-contact-request-dto-v2.ts:
     id: 4a7871712d95
-    last_write_checksum: sha1:867d1175c65a0bae7b1404bd0aa4c7c5ddb60e11
-    pristine_git_object: 9c662a806536b6479cb64fda29dc09e103f2fa77
+    last_write_checksum: sha1:f74d96e7256a20e65ebbfee6fd128cf334a85ce0
+    pristine_git_object: 88bf730f73f926c1823d59965f83070d1c490bef
   src/models/create-contact-request-dto.ts:
     id: 3508c2b9e72a
     last_write_checksum: sha1:52636f13e472f82e83bf92263ab8c1d44c76987a
@@ -6992,8 +7000,8 @@ trackedFiles:
     pristine_git_object: 0f650341562665a862a8fd22dd4a9bd323d6267c
   src/models/index.ts:
     id: f93644b0f37e
-    last_write_checksum: sha1:610b47488a2fb861fac892c908cfdcea471dc5ad
-    pristine_git_object: ceee2f15cd0793904a6f6963fc40ffdbb6109c84
+    last_write_checksum: sha1:9e79dc636152e82bfeb6571510994820ecdbdda0
+    pristine_git_object: 84e54da1e74c46a393b024d5fe37be83194439f7
   src/models/information-response-dto.ts:
     id: 8761a5569682
     last_write_checksum: sha1:8e1393b9ab6dd61835979fb45437cc51161bf390
@@ -7128,8 +7136,8 @@ trackedFiles:
     pristine_git_object: 305ef648e116d9a1e9ede29f6b065d2257f35e5e
   src/models/operations/create-end-user-account.ts:
     id: 3fb7a4baee44
-    last_write_checksum: sha1:8a3f6034d8a7f8f415b4582e1267b438f1e75a28
-    pristine_git_object: 7379e027f86671f974e358efac90d3818232dd7a
+    last_write_checksum: sha1:9bba791324e9dbec3d42211ace40fb40ced45df6
+    pristine_git_object: f0f62085e25fb302bce71efb4ecd51c85a109b5c
   src/models/operations/create-event-subscriptions.ts:
     id: 5bb4027be10d
     last_write_checksum: sha1:6862ea39631247bbfbe82a9b9d0ba99f6aa06671
@@ -8102,7 +8110,7 @@ examples:
         "200":
           application/json: {"meta": {"warnings": ["<value 1>", "<value 2>", "<value 3>"], "pagination": {"total": 9367.28, "perPage": 9572.61, "currentPage": 2403.74, "totalPages": 3616.65}}, "data": {"id": "<id>", "addresses": [], "companyName": "Watsica - Grimes", "contactPersons": [{"id": "<id>", "emailAddresses": [], "firstName": "Geovany", "lastName": "Ortiz", "phoneNumbers": [], "salutation": "<value>"}], "contactType": "UNDEFINED", "createdDate": "<value>", "emailAddresses": [], "isCustomer": false, "isSupplier": true, "number": "<value>", "phoneNumbers": [{"number": "<value>", "type": "FAX"}], "projectId": "<id>", "updatedDate": "<value>", "website": "<value>"}, "errors": {}, "rawData": {}}
         "201":
-          application/json: {"data": {"id": "<id>", "addresses": [], "companyName": "O'Hara LLC", "contactPersons": [{"id": null, "emailAddresses": [], "firstName": "Tyrese", "lastName": "Jakubowski", "phoneNumbers": [{"number": "<value>", "type": "MOBILE"}], "salutation": "<value>"}], "contactType": "CONTACT_PERSON", "createdDate": "<value>", "emailAddresses": [{"email": null, "type": "BUSINESS"}], "isCustomer": true, "isSupplier": true, "number": "<value>", "phoneNumbers": [{"number": "<value>", "type": "MOBILE"}], "projectId": "<id>", "updatedDate": "<value>", "website": "<value>"}, "errors": {}, "rawData": {}}
+          application/json: {"data": {"id": "<id>", "addresses": [], "bankAccounts": [], "businessRegistrationNumber": "<value>", "companyName": "O'Hara LLC", "contactPersons": [{"id": null, "birthDate": "1973-11-04", "emailAddresses": [], "firstName": "Tyrese", "jobTitle": "Customer Tactics Planner", "lastName": "Jakubowski", "phoneNumbers": [{"number": "<value>", "type": "MOBILE"}], "salutation": "<value>"}], "contactType": "CONTACT_PERSON", "createdDate": "<value>", "emailAddresses": [{"email": null, "type": "BUSINESS"}], "isCustomer": true, "isSupplier": true, "number": "<value>", "parentId": null, "phoneNumbers": [{"number": "<value>", "type": "MOBILE"}], "projectId": "<id>", "updatedDate": "<value>", "vatId": "<id>", "website": "<value>"}, "errors": {}, "rawData": {}}
   getContact:
     speakeasy-default-get-contact:
       parameters:
@@ -8110,7 +8118,7 @@ examples:
           contactId: "<id>"
       responses:
         "200":
-          application/json: {"data": {"id": "<id>", "addresses": [], "companyName": "Runte, Wuckert and Haley", "contactPersons": [{"id": "<id>", "emailAddresses": [], "firstName": "Keegan", "lastName": "Williamson", "phoneNumbers": [{"number": "<value>", "type": "OFFICE"}], "salutation": "<value>"}], "contactType": "CONTACT_PERSON", "createdDate": "<value>", "emailAddresses": [{"email": "Maximillia21@yahoo.com", "type": "OFFICE"}], "isCustomer": false, "isSupplier": false, "number": "<value>", "phoneNumbers": [{"number": "<value>", "type": "OFFICE"}], "projectId": "<id>", "updatedDate": "<value>", "website": "<value>"}, "errors": {}, "rawData": {}}
+          application/json: {"data": {"id": "<id>", "addresses": [], "bankAccounts": [], "businessRegistrationNumber": "<value>", "companyName": "Runte, Wuckert and Haley", "contactPersons": [{"id": "<id>", "birthDate": "1988-12-04", "emailAddresses": [], "firstName": "Keegan", "jobTitle": "Human Accounts Strategist", "lastName": "Williamson", "phoneNumbers": [{"number": "<value>", "type": "OFFICE"}], "salutation": "<value>"}], "contactType": "CONTACT_PERSON", "createdDate": "<value>", "emailAddresses": [{"email": "Maximillia21@yahoo.com", "type": "OFFICE"}], "isCustomer": false, "isSupplier": false, "number": "<value>", "parentId": "<id>", "phoneNumbers": [{"number": "<value>", "type": "OFFICE"}], "projectId": "<id>", "updatedDate": "<value>", "vatId": "<id>", "website": "<value>"}, "errors": {}, "rawData": {}}
   putContact:
     speakeasy-default-put-contact:
       parameters:
@@ -8120,7 +8128,7 @@ examples:
         application/json: {"contactType": "COMPANY"}
       responses:
         "200":
-          application/json: {"data": {"id": "<id>", "addresses": [], "companyName": "Quitzon - Corwin", "contactPersons": [], "contactType": "COMPANY", "createdDate": "<value>", "emailAddresses": [{"email": "Sunny.Koch@gmail.com", "type": "OTHER"}], "isCustomer": false, "isSupplier": true, "number": "<value>", "phoneNumbers": [], "projectId": "<id>", "updatedDate": "<value>", "website": "<value>"}, "errors": {}, "rawData": {}}
+          application/json: {"data": {"id": "<id>", "addresses": [], "bankAccounts": [], "businessRegistrationNumber": "<value>", "companyName": "Quitzon - Corwin", "contactPersons": [], "contactType": "COMPANY", "createdDate": "<value>", "emailAddresses": [{"email": "Sunny.Koch@gmail.com", "type": "OTHER"}], "isCustomer": false, "isSupplier": true, "number": "<value>", "parentId": "<id>", "phoneNumbers": [], "projectId": "<id>", "updatedDate": "<value>", "vatId": "<id>", "website": "<value>"}, "errors": {}, "rawData": {}}
   patchContact:
     speakeasy-default-patch-contact:
       parameters:
@@ -8130,7 +8138,7 @@ examples:
         application/json: {"contactType": "CONTACT_PERSON"}
       responses:
         "200":
-          application/json: {"data": {"id": "<id>", "addresses": [], "companyName": "Cremin - Purdy", "contactPersons": [{"id": "<id>", "emailAddresses": [], "firstName": "Annie", "lastName": "Casper", "phoneNumbers": [], "salutation": "<value>"}], "contactType": "CONTACT_PERSON", "createdDate": "<value>", "emailAddresses": [{"email": "Wilbert.Volkman12@gmail.com", "type": "OTHER"}], "isCustomer": true, "isSupplier": true, "number": "<value>", "phoneNumbers": [], "projectId": "<id>", "updatedDate": "<value>", "website": "<value>"}, "errors": {}, "rawData": {}}
+          application/json: {"data": {"id": "<id>", "addresses": [], "bankAccounts": [{"id": "<id>", "bankName": "<value>", "bic": "<value>", "code": "<value>", "iban": "DE38728500274002111411", "number": 2507.16}], "businessRegistrationNumber": "<value>", "companyName": "Cremin - Purdy", "contactPersons": [{"id": "<id>", "birthDate": null, "emailAddresses": [], "firstName": "Annie", "jobTitle": "Senior Branding Administrator", "lastName": "Casper", "phoneNumbers": [], "salutation": "<value>"}], "contactType": "CONTACT_PERSON", "createdDate": "<value>", "emailAddresses": [{"email": "Wilbert.Volkman12@gmail.com", "type": "OTHER"}], "isCustomer": true, "isSupplier": true, "number": "<value>", "parentId": "<id>", "phoneNumbers": [], "projectId": "<id>", "updatedDate": "<value>", "vatId": "<id>", "website": "<value>"}, "errors": {}, "rawData": {}}
   createContacts:
     speakeasy-default-create-contacts:
       requestBody:
@@ -8829,12 +8837,12 @@ examples:
         "202":
           application/json: {"data": {"taskId": "<id>"}, "errors": {}, "rawData": null}
         "201":
-          application/json: {"data": {"id": "<id>", "addresses": [], "bankAccount": {"id": "<id>", "bic": "<value>", "code": "<value>", "iban": "SK0200138014990091009054", "number": 2896.43}, "bookingProposalDate": "<value>", "bookingType": "DOWN_PAYMENT", "contact": {"id": null, "accountNumber": 7260.17, "name": "<value>"}, "createdDate": null, "currency": "Yemeni Rial", "deliveryDate": "<value>", "discountPaymentDate": "<value>", "discountPaymentDate2": "<value>", "dueDate": null, "files": ["<value 1>", "<value 2>"], "generatorName": "<value>", "journalCode": "<value>", "isPaymentOrder": false, "ledgerName": "<value>", "lineItems": [], "notes": "<value>", "number": "<value>", "orderId": "<id>", "paidDate": "<value>", "paymentTermId": "<id>", "status": "VOIDED", "totalGrossAmount": 7632.02, "updatedDate": "<value>", "vatId": "<id>"}, "errors": {}, "rawData": {}}
+          application/json: {"data": {"id": "<id>", "addresses": [], "bankAccount": {"id": "<id>", "bankName": "<value>", "bic": "<value>", "code": "<value>", "iban": "SK0200138014990091009054", "number": 2896.43}, "bookingProposalDate": "<value>", "bookingType": "DOWN_PAYMENT", "contact": {"id": null, "accountNumber": 7260.17, "name": "<value>"}, "createdDate": null, "currency": "Yemeni Rial", "deliveryDate": "<value>", "discountPaymentDate": "<value>", "discountPaymentDate2": "<value>", "dueDate": null, "files": ["<value 1>", "<value 2>"], "generatorName": "<value>", "journalCode": "<value>", "isPaymentOrder": false, "ledgerName": "<value>", "lineItems": [], "notes": "<value>", "number": "<value>", "orderId": "<id>", "paidDate": "<value>", "paymentTermId": "<id>", "status": "VOIDED", "totalGrossAmount": 7632.02, "updatedDate": "<value>", "vatId": "<id>"}, "errors": {}, "rawData": {}}
   getContactsV2:
     speakeasy-default-get-contacts-v2:
       responses:
         "200":
-          application/json: {"data": [{"id": "<id>", "addresses": [], "companyName": "Hackett, Turner and Gulgowski", "contactPersons": [], "contactType": "CONTACT_PERSON", "createdDate": "<value>", "emailAddresses": [{"email": "Giles.Dicki@yahoo.com", "type": "PAYMENT"}], "isCustomer": false, "isSupplier": true, "number": "<value>", "phoneNumbers": [], "projectId": "<id>", "updatedDate": "<value>", "website": "<value>"}], "errors": {}, "rawData": {}}
+          application/json: {"data": [{"id": "<id>", "addresses": [], "bankAccounts": [], "businessRegistrationNumber": "<value>", "companyName": "Hackett, Turner and Gulgowski", "contactPersons": [], "contactType": "CONTACT_PERSON", "createdDate": "<value>", "emailAddresses": [{"email": "Giles.Dicki@yahoo.com", "type": "PAYMENT"}], "isCustomer": false, "isSupplier": true, "number": "<value>", "parentId": "<id>", "phoneNumbers": [], "projectId": "<id>", "updatedDate": "<value>", "vatId": "<id>", "website": "<value>"}], "errors": {}, "rawData": {}}
   createContactV2:
     speakeasy-default-create-contact-v2:
       requestBody:
@@ -8843,7 +8851,7 @@ examples:
         "200":
           application/json: {"data": {"id": "<id>", "addresses": [], "companyName": "McDermott - Cruickshank", "contactPersons": [], "contactType": "CONTACT_PERSON", "createdDate": "<value>", "emailAddresses": [{"email": "Karine91@hotmail.com", "type": "INVOICE"}], "isCustomer": false, "isSupplier": true, "number": "<value>", "phoneNumbers": [{"number": "<value>", "type": "BUSINESS"}], "projectId": "<id>", "updatedDate": "<value>", "website": "<value>"}, "errors": {}, "rawData": {}}
         "201":
-          application/json: {"data": {"id": null, "addresses": [], "companyName": null, "contactPersons": [], "contactType": "UNDEFINED", "createdDate": "<value>", "emailAddresses": [{"email": "Marjorie98@hotmail.com", "type": "INVOICE"}], "isCustomer": null, "isSupplier": false, "number": "<value>", "phoneNumbers": [{"number": "<value>", "type": "BUSINESS"}], "projectId": "<id>", "updatedDate": "<value>", "website": "<value>"}, "errors": {}, "rawData": {}}
+          application/json: {"data": {"id": null, "addresses": [], "bankAccounts": null, "businessRegistrationNumber": "<value>", "companyName": null, "contactPersons": [], "contactType": "UNDEFINED", "createdDate": "<value>", "emailAddresses": [{"email": "Marjorie98@hotmail.com", "type": "INVOICE"}], "isCustomer": null, "isSupplier": false, "number": "<value>", "parentId": null, "phoneNumbers": [{"number": "<value>", "type": "BUSINESS"}], "projectId": "<id>", "updatedDate": "<value>", "vatId": null, "website": "<value>"}, "errors": {}, "rawData": {}}
   getContactV2:
     speakeasy-default-get-contact-v2:
       parameters:
@@ -8851,7 +8859,7 @@ examples:
           contactId: "<id>"
       responses:
         "200":
-          application/json: {"data": {"id": "<id>", "addresses": [{"addressLine1": "6453 Clifton Road", "addressLine2": "-", "city": "Schneiderburgh", "countryCode": "JM", "postalCode": "10501", "type": "BILLING"}], "companyName": "Homenick - Abbott", "contactPersons": [], "contactType": "CONTACT_PERSON", "createdDate": "<value>", "emailAddresses": [], "isCustomer": false, "isSupplier": false, "number": "<value>", "phoneNumbers": [{"number": "<value>", "type": "FAX"}], "projectId": "<id>", "updatedDate": "<value>", "website": "<value>"}, "errors": {}, "rawData": {}}
+          application/json: {"data": {"id": "<id>", "addresses": [{"addressLine1": "6453 Clifton Road", "addressLine2": "-", "city": "Schneiderburgh", "countryCode": "JM", "postalCode": "10501", "type": "BILLING"}], "bankAccounts": [{"id": "<id>", "bankName": "<value>", "bic": "<value>", "code": "<value>", "iban": "MT92KNIR080030003225RP3F3296776", "number": 7621.7}], "businessRegistrationNumber": "<value>", "companyName": "Homenick - Abbott", "contactPersons": [], "contactType": "CONTACT_PERSON", "createdDate": "<value>", "emailAddresses": [], "isCustomer": false, "isSupplier": false, "number": "<value>", "parentId": null, "phoneNumbers": [{"number": "<value>", "type": "FAX"}], "projectId": "<id>", "updatedDate": "<value>", "vatId": "<id>", "website": "<value>"}, "errors": {}, "rawData": {}}
   putContactV2:
     speakeasy-default-put-contact-v2:
       parameters:
@@ -8861,9 +8869,9 @@ examples:
         application/json: {"contactType": "CONTACT_PERSON"}
       responses:
         "200":
-          application/json: {"data": {"id": "<id>", "addresses": [], "companyName": "Kris Group", "contactPersons": [], "contactType": "UNDEFINED", "createdDate": "<value>", "emailAddresses": [], "isCustomer": false, "isSupplier": false, "number": "<value>", "phoneNumbers": [], "projectId": "<id>", "updatedDate": "<value>", "website": "<value>"}, "errors": {}, "rawData": {}}
+          application/json: {"data": {"id": "<id>", "addresses": [], "bankAccounts": [{"id": "<id>", "bankName": "<value>", "bic": "<value>", "code": "<value>", "iban": null, "number": 5089.07}], "businessRegistrationNumber": "<value>", "companyName": "Kris Group", "contactPersons": [], "contactType": "UNDEFINED", "createdDate": "<value>", "emailAddresses": [], "isCustomer": false, "isSupplier": false, "number": "<value>", "parentId": "<id>", "phoneNumbers": [], "projectId": "<id>", "updatedDate": "<value>", "vatId": "<id>", "website": "<value>"}, "errors": {}, "rawData": {}}
         "201":
-          application/json: {"data": {"id": "<id>", "addresses": [], "companyName": "Kris Group", "contactPersons": [], "contactType": "UNDEFINED", "createdDate": "<value>", "emailAddresses": [], "isCustomer": false, "isSupplier": false, "number": "<value>", "phoneNumbers": [], "projectId": "<id>", "updatedDate": "<value>", "website": "<value>"}, "errors": {}, "rawData": {}}
+          application/json: {"data": {"id": "<id>", "addresses": [], "bankAccounts": [{"id": "<id>", "bankName": "<value>", "bic": "<value>", "code": "<value>", "iban": null, "number": 5089.07}], "businessRegistrationNumber": "<value>", "companyName": "Kris Group", "contactPersons": [], "contactType": "UNDEFINED", "createdDate": "<value>", "emailAddresses": [], "isCustomer": false, "isSupplier": false, "number": "<value>", "parentId": "<id>", "phoneNumbers": [], "projectId": "<id>", "updatedDate": "<value>", "vatId": "<id>", "website": "<value>"}, "errors": {}, "rawData": {}}
   patchContactV2:
     speakeasy-default-patch-contact-v2:
       parameters:
@@ -8873,7 +8881,7 @@ examples:
         application/json: {"contactType": "COMPANY"}
       responses:
         "200":
-          application/json: {"data": {"id": "<id>", "addresses": [{"addressLine1": "43274 America Meadow", "addressLine2": "-", "city": "Lake Vernie", "countryCode": "NE", "postalCode": "45991", "type": "WORK"}], "companyName": "Brakus and Sons", "contactPersons": [{"id": "<id>", "emailAddresses": [], "firstName": "Nelle", "lastName": "Schiller", "phoneNumbers": [{"number": "<value>", "type": "OFFICE"}], "salutation": "<value>"}], "contactType": "CONTACT_PERSON", "createdDate": "<value>", "emailAddresses": [], "isCustomer": true, "isSupplier": true, "number": "<value>", "phoneNumbers": [], "projectId": "<id>", "updatedDate": "<value>", "website": "<value>"}, "errors": {}, "rawData": {}}
+          application/json: {"data": {"id": "<id>", "addresses": [{"addressLine1": "43274 America Meadow", "addressLine2": "-", "city": "Lake Vernie", "countryCode": "NE", "postalCode": "45991", "type": "WORK"}], "bankAccounts": [], "businessRegistrationNumber": "<value>", "companyName": "Brakus and Sons", "contactPersons": [{"id": "<id>", "birthDate": "1982-07-01", "emailAddresses": [], "firstName": "Nelle", "jobTitle": "Regional Optimization Assistant", "lastName": "Schiller", "phoneNumbers": [{"number": "<value>", "type": "OFFICE"}], "salutation": "<value>"}], "contactType": "CONTACT_PERSON", "createdDate": "<value>", "emailAddresses": [], "isCustomer": true, "isSupplier": true, "number": "<value>", "parentId": "<id>", "phoneNumbers": [], "projectId": "<id>", "updatedDate": "<value>", "vatId": "<id>", "website": "<value>"}, "errors": {}, "rawData": {}}
   getDimensionsV2:
     speakeasy-default-get-dimensions-v2:
       responses:
@@ -9273,4 +9281,4 @@ examples:
         "200":
           application/json: {"data": {"id": "<id>", "accountId": null, "accountingPeriodId": null, "accountingReason": "TAX", "createdDate": "<value>", "currency": "NOK", "description": "comb times quantify gosh assail", "documentId": "<id>", "exchangeRate": "<value>", "files": [], "isProvisional": false, "isReversal": null, "journalCode": "<value>", "journalLineItems": [{"id": "<id>", "accountCode": "<value>", "accountId": "<id>", "accountNumber": 7550.87, "createdDate": "<value>", "currency": "BND", "customerId": null, "debitCreditIndicator": null, "description": "via some incidentally", "dimensions": [], "documentId": "<id>", "documentNumber": "<value>", "exchangeRate": 3017.63, "supplierId": "<id>", "taxRate": null, "thirdPartyCode": "<value>", "totalGrossAmount": 51.5, "totalNetAmount": 6402.95, "totalTaxAmount": 8880.26, "updatedDate": "<value>"}], "journalType": "<value>", "number": "<value>", "recordType": "OPENING", "transactionDate": "<value>", "updatedDate": "<value>", "version": "<value>"}, "errors": {}, "rawData": {}}
 examplesVersion: 1.0.2
-releaseNotes: "## Typescript SDK Changes:\n* `maesn.accounting.getOffers()`:  `response.data[]` **Changed** (Breaking ⚠️)\n* `maesn.accounting.createOffer()`: \n  *  `request.body` **Changed**\n  *  `response.data` **Changed** (Breaking ⚠️)\n* `maesn.accounting.getOffer()`:  `response.data` **Changed** (Breaking ⚠️)\n* `maesn.accounting.getOfferLineItems()`:  `response.data[].type.enum(service)` **Added** (Breaking ⚠️)\n* `maesn.accounting.getOfferLineItem()`:  `response.data.type.enum(service)` **Added** (Breaking ⚠️)\n"
+releaseNotes: "## Typescript SDK Changes:\n* `maesn.accounting.getContacts()`:  `response.data[]` **Changed**\n* `maesn.accounting.createContact()`: \n  *  `request.body` **Changed**\n  *  `response.data` **Changed**\n* `maesn.accounting.getContact()`:  `response.data` **Changed**\n* `maesn.accounting.putContact()`: \n  *  `request.body` **Changed**\n  *  `response.data` **Changed**\n* `maesn.accounting.patchContact()`: \n  *  `request.body` **Changed**\n  *  `response.data` **Changed**\n* `maesn.accounting.createContacts()`: \n  *  `request.body.entries[]` **Changed**\n* `maesn.accounting.createContactsV1()`: \n  *  `request.body.entries[]` **Changed**\n* `maesn.accounting.createBookingProposalAsync()`: \n  *  `request.body.bookingProposal` **Changed**\n* `maesn.accountingV2.createBookingProposalV2()`: \n  *  `request.body.bookingProposal` **Changed**\n  *  `response.data.bankAccount.bankName` **Added**\n* `maesn.accountingV2.getContactsV2()`:  `response.data[]` **Changed**\n* `maesn.accountingV2.createContactV2()`: \n  *  `request.body` **Changed**\n  *  `response.data` **Changed**\n* `maesn.accountingV2.getContactV2()`:  `response.data` **Changed**\n* `maesn.accountingV2.putContactV2()`: \n  *  `request.body` **Changed**\n  *  `response.data` **Changed**\n* `maesn.accountingV2.patchContactV2()`: \n  *  `request.body` **Changed**\n  *  `response.data` **Changed**\n* `maesn.auth.createEndUserAccount()`: \n  *  `request.companyId` **Added**\n"

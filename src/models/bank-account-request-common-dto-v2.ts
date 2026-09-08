@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 
 export type BankAccountRequestCommonDtoV2 = {
   id?: string | undefined;
+  bankName?: string | undefined;
   bic?: string | undefined;
   code?: string | undefined;
   iban?: string | undefined;
@@ -15,6 +16,7 @@ export type BankAccountRequestCommonDtoV2 = {
 /** @internal */
 export type BankAccountRequestCommonDtoV2$Outbound = {
   id?: string | undefined;
+  bankName?: string | undefined;
   bic?: string | undefined;
   code?: string | undefined;
   iban?: string | undefined;
@@ -27,6 +29,7 @@ export const BankAccountRequestCommonDtoV2$outboundSchema: z.ZodMiniType<
   BankAccountRequestCommonDtoV2
 > = z.object({
   id: z.optional(z.string()),
+  bankName: z.optional(z.string()),
   bic: z.optional(z.string()),
   code: z.optional(z.string()),
   iban: z.optional(z.string()),

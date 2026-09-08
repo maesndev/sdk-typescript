@@ -13,6 +13,7 @@ let value: BankAccountRequestCommonDtoV2 = {};
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
 | `id`               | *string*           | :heavy_minus_sign: | N/A                |
+| `bankName`         | *string*           | :heavy_minus_sign: | N/A                |
 | `bic`              | *string*           | :heavy_minus_sign: | N/A                |
 | `code`             | *string*           | :heavy_minus_sign: | N/A                |
 | `iban`             | *string*           | :heavy_minus_sign: | N/A                |
