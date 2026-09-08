@@ -9054,6 +9054,12 @@ paths:
           required: true
           schema:
             type: string
+        - name: companyId
+          in: query
+          description: Optional company id to store as the end user's company selection (e.g. a Tripletex accountant client company), so the account and its company are set up in one call.
+          required: false
+          schema:
+            type: string
         - name: X-API-KEY
           in: header
           description: API key
@@ -18032,6 +18038,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/CreateContactAddressV2'
+        bankAccounts:
+          type: array
+          items:
+            $ref: '#/components/schemas/BankAccountRequestCommonDtoV2'
+        businessRegistrationNumber:
+          type: string
         companyName:
           type: string
         contactPersons:
@@ -18054,11 +18066,15 @@ components:
           type: boolean
         number:
           type: string
+        parentId:
+          type: string
         phoneNumbers:
           type: array
           items:
             $ref: '#/components/schemas/PhoneNumberV2'
         projectId:
+          type: string
+        vatId:
           type: string
         website:
           type: string
@@ -19658,6 +19674,8 @@ components:
       properties:
         id:
           type: string
+        bankName:
+          type: string
         bic:
           type: string
         code:
@@ -20799,11 +20817,15 @@ components:
       properties:
         id:
           type: string
+        birthDate:
+          type: string
         emailAddresses:
           type: array
           items:
             $ref: '#/components/schemas/EmailAddressV2'
         firstName:
+          type: string
+        jobTitle:
           type: string
         lastName:
           type: string
@@ -21619,6 +21641,9 @@ components:
         id:
           type: string
           nullable: true
+        bankName:
+          type: string
+          nullable: true
         bic:
           type: string
           nullable: true
@@ -21633,6 +21658,7 @@ components:
           nullable: true
       required:
         - id
+        - bankName
         - bic
         - code
         - iban
@@ -22207,6 +22233,9 @@ components:
         id:
           type: string
           nullable: true
+        birthDate:
+          type: string
+          nullable: true
         emailAddresses:
           default: []
           nullable: true
@@ -22214,6 +22243,9 @@ components:
           items:
             $ref: '#/components/schemas/EmailAddressV2'
         firstName:
+          type: string
+          nullable: true
+        jobTitle:
           type: string
           nullable: true
         lastName:
@@ -22230,8 +22262,10 @@ components:
           nullable: true
       required:
         - id
+        - birthDate
         - emailAddresses
         - firstName
+        - jobTitle
         - lastName
         - phoneNumbers
         - salutation
@@ -22247,6 +22281,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ContactAddressV2'
+        bankAccounts:
+          default: []
+          nullable: true
+          type: array
+          items:
+            $ref: '#/components/schemas/BankAccountResponseCommonDtoV2'
+        businessRegistrationNumber:
+          type: string
+          nullable: true
         companyName:
           type: string
           nullable: true
@@ -22281,6 +22324,9 @@ components:
         number:
           type: string
           nullable: true
+        parentId:
+          type: string
+          nullable: true
         phoneNumbers:
           default: []
           nullable: true
@@ -22293,12 +22339,17 @@ components:
         updatedDate:
           type: string
           nullable: true
+        vatId:
+          type: string
+          nullable: true
         website:
           type: string
           nullable: true
       required:
         - id
         - addresses
+        - bankAccounts
+        - businessRegistrationNumber
         - companyName
         - contactPersons
         - contactType
@@ -22307,9 +22358,11 @@ components:
         - isCustomer
         - isSupplier
         - number
+        - parentId
         - phoneNumbers
         - projectId
         - updatedDate
+        - vatId
         - website
     UserInfoResponseDto:
       type: object

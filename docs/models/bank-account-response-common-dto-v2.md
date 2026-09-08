@@ -1,17 +1,17 @@
-# BookingProposalResponseDtoV2BankAccount
+# BankAccountResponseCommonDtoV2
 
 ## Example Usage
 
 ```typescript
-import { BookingProposalResponseDtoV2BankAccount } from "@maesn/typescript-sdk/models";
+import { BankAccountResponseCommonDtoV2 } from "@maesn/typescript-sdk/models";
 
-let value: BookingProposalResponseDtoV2BankAccount = {
+let value: BankAccountResponseCommonDtoV2 = {
   id: "<id>",
   bankName: "<value>",
   bic: "<value>",
   code: "<value>",
-  iban: "SK8435150393105700600699",
-  number: 9849.49,
+  iban: "PT92100511164020791002006",
+  number: 916.78,
 };
 ```
 
