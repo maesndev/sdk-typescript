@@ -52,6 +52,10 @@ export type GetJournalEntriesRequest = {
    */
   fiscalYearStartDate?: string | undefined;
   /**
+   * ISO 8601 date to only return journal entries with a transaction date after the specified date.
+   */
+  transactionDateFrom?: string | undefined;
+  /**
    * API key
    */
   apiKey?: string | undefined;
@@ -102,6 +106,7 @@ export type GetJournalEntriesRequest$Outbound = {
   rawData?: boolean | undefined;
   fiscalYear?: number | undefined;
   fiscalYearStartDate?: string | undefined;
+  transactionDateFrom?: string | undefined;
   apiKey?: string | undefined;
   accountKey?: string | undefined;
 };
@@ -119,6 +124,7 @@ export const GetJournalEntriesRequest$outboundSchema: z.ZodMiniType<
   rawData: z.optional(z.boolean()),
   fiscalYear: z.optional(z.number()),
   fiscalYearStartDate: z.optional(z.string()),
+  transactionDateFrom: z.optional(z.string()),
   apiKey: z.optional(z.string()),
   accountKey: z.optional(z.string()),
 });

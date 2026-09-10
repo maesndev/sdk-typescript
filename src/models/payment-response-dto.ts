@@ -14,6 +14,8 @@ export const PaymentResponseDtoDocumentType = {
   Invoice: "INVOICE",
   Bill: "BILL",
   BookingProposal: "BOOKING_PROPOSAL",
+  InvoiceBookingProposal: "INVOICE_BOOKING_PROPOSAL",
+  BillBookingProposal: "BILL_BOOKING_PROPOSAL",
 } as const;
 export type PaymentResponseDtoDocumentType = ClosedEnum<
   typeof PaymentResponseDtoDocumentType
@@ -23,10 +25,13 @@ export type PaymentResponseDto = {
   id: string | null;
   currency: string | null;
   createdDate: string | null;
+  description: string | null;
   documentType: PaymentResponseDtoDocumentType | null;
   exchangeRate: number | null;
+  journalId: string | null;
   journalCode: string | null;
   updatedDate: string | null;
+  paymentDate: string | null;
   paymentType: string | null;
   paymentLines: Array<PaymentLine> | null;
 };
@@ -44,10 +49,13 @@ export const PaymentResponseDto$inboundSchema: z.ZodMiniType<
   id: types.nullable(types.string()),
   currency: types.nullable(types.string()),
   createdDate: types.nullable(types.string()),
+  description: types.nullable(types.string()),
   documentType: types.nullable(PaymentResponseDtoDocumentType$inboundSchema),
   exchangeRate: types.nullable(types.number()),
+  journalId: types.nullable(types.string()),
   journalCode: types.nullable(types.string()),
   updatedDate: types.nullable(types.string()),
+  paymentDate: types.nullable(types.string()),
   paymentType: types.nullable(types.string()),
   paymentLines: types.nullable(z.array(PaymentLine$inboundSchema)),
 });
