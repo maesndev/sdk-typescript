@@ -95,6 +95,7 @@ async function $do(
     "limit": payload?.limit,
     "page": payload?.page,
     "rawData": payload?.rawData,
+    "transactionDateFrom": payload?.transactionDateFrom,
   });
 
   const headers = new Headers(compactMap({

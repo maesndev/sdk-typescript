@@ -14,6 +14,8 @@ export const CreatePaymentRequestDtoDocumentType = {
   Invoice: "INVOICE",
   Bill: "BILL",
   BookingProposal: "BOOKING_PROPOSAL",
+  InvoiceBookingProposal: "INVOICE_BOOKING_PROPOSAL",
+  BillBookingProposal: "BILL_BOOKING_PROPOSAL",
 } as const;
 export type CreatePaymentRequestDtoDocumentType = ClosedEnum<
   typeof CreatePaymentRequestDtoDocumentType
@@ -21,9 +23,12 @@ export type CreatePaymentRequestDtoDocumentType = ClosedEnum<
 
 export type CreatePaymentRequestDto = {
   currency?: string | undefined;
+  description?: string | undefined;
   documentType?: CreatePaymentRequestDtoDocumentType | undefined;
   exchangeRate?: number | undefined;
+  journalId?: string | undefined;
   journalCode?: string | undefined;
+  paymentDate?: string | undefined;
   paymentType?: string | undefined;
   paymentLines?: Array<CreatePaymentLine> | undefined;
 };
@@ -36,9 +41,12 @@ export const CreatePaymentRequestDtoDocumentType$outboundSchema: z.ZodMiniEnum<
 /** @internal */
 export type CreatePaymentRequestDto$Outbound = {
   currency?: string | undefined;
+  description?: string | undefined;
   documentType?: string | undefined;
   exchangeRate?: number | undefined;
+  journalId?: string | undefined;
   journalCode?: string | undefined;
+  paymentDate?: string | undefined;
   paymentType?: string | undefined;
   paymentLines?: Array<CreatePaymentLine$Outbound> | undefined;
 };
@@ -49,9 +57,12 @@ export const CreatePaymentRequestDto$outboundSchema: z.ZodMiniType<
   CreatePaymentRequestDto
 > = z.object({
   currency: z.optional(z.string()),
+  description: z.optional(z.string()),
   documentType: z.optional(CreatePaymentRequestDtoDocumentType$outboundSchema),
   exchangeRate: z.optional(z.number()),
+  journalId: z.optional(z.string()),
   journalCode: z.optional(z.string()),
+  paymentDate: z.optional(z.string()),
   paymentType: z.optional(z.string()),
   paymentLines: z.optional(z.array(CreatePaymentLine$outboundSchema)),
 });

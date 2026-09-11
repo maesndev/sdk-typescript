@@ -3066,6 +3066,12 @@ paths:
           description: ISO 8601 start date of the fiscal year used for scoping results
           schema:
             type: string
+        - name: transactionDateFrom
+          required: false
+          in: query
+          description: ISO 8601 date to only return journal entries with a transaction date after the specified date.
+          schema:
+            type: string
         - name: X-API-KEY
           description: API key
           in: header
@@ -15890,20 +15896,31 @@ components:
         createdDate:
           type: string
           nullable: true
+        description:
+          type: string
+          nullable: true
         documentType:
           type: string
           enum:
             - INVOICE
             - BILL
             - BOOKING_PROPOSAL
+            - INVOICE_BOOKING_PROPOSAL
+            - BILL_BOOKING_PROPOSAL
           nullable: true
         exchangeRate:
           type: number
+          nullable: true
+        journalId:
+          type: string
           nullable: true
         journalCode:
           type: string
           nullable: true
         updatedDate:
+          type: string
+          nullable: true
+        paymentDate:
           type: string
           nullable: true
         paymentType:
@@ -15918,10 +15935,13 @@ components:
         - id
         - currency
         - createdDate
+        - description
         - documentType
         - exchangeRate
+        - journalId
         - journalCode
         - updatedDate
+        - paymentDate
         - paymentType
         - paymentLines
     BookingProposalAddress:
@@ -21312,15 +21332,23 @@ components:
       properties:
         currency:
           type: string
+        description:
+          type: string
         documentType:
           type: string
           enum:
             - INVOICE
             - BILL
             - BOOKING_PROPOSAL
+            - INVOICE_BOOKING_PROPOSAL
+            - BILL_BOOKING_PROPOSAL
         exchangeRate:
           type: number
+        journalId:
+          type: string
         journalCode:
+          type: string
+        paymentDate:
           type: string
         paymentType:
           type: string
