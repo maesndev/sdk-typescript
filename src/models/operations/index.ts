@@ -146,6 +146,7 @@ export * from "./patch-contact.js";
 export * from "./patch-customers.js";
 export * from "./patch-invoice.js";
 export * from "./patch-item.js";
+export * from "./patch-journal-entry.js";
 export * from "./patch-line-item.js";
 export * from "./patch-supplier.js";
 export * from "./post-file-async.js";
