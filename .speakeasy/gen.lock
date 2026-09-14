@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: b4a29653-32d8-43f6-ba1e-9aa569fce206
 management:
-  docChecksum: 3f857c75f2c8a56a8561ad9cae00902e
+  docChecksum: 247932fdfed969742a39a3c427b5f15c
   docVersion: "1.0"
   speakeasyVersion: 1.796.4
   generationVersion: 2.935.1
-  releaseVersion: 0.8.17
-  configChecksum: 30f2c5f087449b02e0b3731c835557db
+  releaseVersion: 0.8.18
+  configChecksum: 4cfd6aea5574180864a83b624778ffff
   repoURL: https://github.com/maesndev/sdk-typescript.git
   installationURL: https://github.com/maesndev/sdk-typescript
   published: true
 persistentEdits:
-  generation_id: 96cab07b-ce33-49cb-9174-a4419d1fd57a
-  pristine_commit_hash: 7e11ebb2cab3f051905d57cd9fe2364b1dfd449f
-  pristine_tree_hash: 6b93973640b77ee8745bc8c1aa4224b12be7ce51
+  generation_id: b9b45a0f-77d8-4c8b-8b92-192d46ae6590
+  pristine_commit_hash: a19bb2e61fdc468710e3f8624d7d6d68ea726ab5
+  pristine_tree_hash: 3d1aea21246b1da4d1e535ac859037902e587242
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -5058,6 +5058,42 @@ trackedFiles:
     id: 0b1d311c6e02
     last_write_checksum: sha1:d0c4ce27629e6051cf17bebbdce8dde2b319ef72
     pristine_git_object: fc557c090375b92e42467a6e229d728528d93eb6
+  docs/models/operations/patch-journal-entry-errors.md:
+    id: 92d25b1ad787
+    last_write_checksum: sha1:f22a49ac4e6c50a83896a6934bc77e2405b11bff
+    pristine_git_object: de45762bab8d11ae06f74dadacd85d1e8249b78c
+  docs/models/operations/patch-journal-entry-file.md:
+    id: 7d0dbb6fd071
+    last_write_checksum: sha1:a51392d0f472e5df8c1653113a3dccdd476efc8d
+    pristine_git_object: 7c86025bd98d5ed60dc133fdc5b9d97fb3666f09
+  docs/models/operations/patch-journal-entry-globals.md:
+    id: 8fda805c03b9
+    last_write_checksum: sha1:a152f21ddd6d6e73cb45ae4ec84681c368021883
+    pristine_git_object: 2eddd1524d586f85cd45c4fb2212e4718b5f2d0a
+  docs/models/operations/patch-journal-entry-meta.md:
+    id: 7a5b27c28584
+    last_write_checksum: sha1:912db1d4cc0793afaac606769eb2de6db34fcd6a
+    pristine_git_object: fc0770a50092f5f0f98fc9eb0482f737562fae54
+  docs/models/operations/patch-journal-entry-pagination.md:
+    id: 233b384da351
+    last_write_checksum: sha1:d3c12dbc6bc999d5d381035d205852d881d9b460
+    pristine_git_object: 8a3ebb89037dedffbea7d91663032221c7be2cf9
+  docs/models/operations/patch-journal-entry-raw-data.md:
+    id: 214cfd879945
+    last_write_checksum: sha1:47e38faa079f506b032f7566064e267792dce823
+    pristine_git_object: e5c573dc3643f6c36c5cdbf273cb59bee6235ac8
+  docs/models/operations/patch-journal-entry-request-body.md:
+    id: dc6ed833ccc6
+    last_write_checksum: sha1:a08001b9401815303ad6fbb13d76972788816ab8
+    pristine_git_object: 71c204455f597e8841a2ac1c00f1ec02e994d8b1
+  docs/models/operations/patch-journal-entry-request.md:
+    id: 7c0ebad06b2b
+    last_write_checksum: sha1:fe7a8cce6ac00e51d83f96dcf5104d5925483cb5
+    pristine_git_object: ebfc94e269cedde47950fcfdaeb03506a926cd66
+  docs/models/operations/patch-journal-entry-response.md:
+    id: 0fe63074337b
+    last_write_checksum: sha1:8b075674cb0558a217ee325266a7f1ddd72a46c4
+    pristine_git_object: 93c72bf7b695c3f69104ea0cb15d1a65fa172358
   docs/models/operations/patch-line-item-errors.md:
     id: 830df60cc03e
     last_write_checksum: sha1:9339efff83edad3f83efcf56282b027bd0cd7e5c
@@ -5800,8 +5836,8 @@ trackedFiles:
     pristine_git_object: 22dd5f08bac5ea8e40e42de4ebb0a5876ef875c5
   docs/sdks/accounting/README.md:
     id: 6abb8976ed95
-    last_write_checksum: sha1:4c494da9515f6ee66a235a385b2f68149eda0dbc
-    pristine_git_object: af8c7b0e58fab39b45b9c95b425fa6e4139babed
+    last_write_checksum: sha1:e656fbc464996da942abc2231716461f8040bd2b
+    pristine_git_object: e12cdc836e1dd75130a79d177a78c25451759622
   docs/sdks/accountingv2/README.md:
     id: 24a9f287e358
     last_write_checksum: sha1:500b8cea57ac71e42f511ba1868fbbcbcf756650
@@ -5848,12 +5884,12 @@ trackedFiles:
     pristine_git_object: 620f120672c2be3445356aaae6d877d4d89c43d5
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:055c58ff32b66f7ab7b33f4a50773984a4a7aa7f
-    pristine_git_object: 16dc31fc5d0f92605debae00f688033aaf29227c
+    last_write_checksum: sha1:e36d0a1e95739947cfc703d6389c4dbe519d20e8
+    pristine_git_object: 4eaf7f040b9cd22a4b0c8282733147f7b71ad825
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:382d894a9c6ed10ca89166c91d4ac0710bdaeb0b
-    pristine_git_object: ffa80973584ca26b637592bb1e0369ba9df5e666
+    last_write_checksum: sha1:35164aca96efa9ec56a4644a6990315b18689663
+    pristine_git_object: 81f4246056731374ae2471b47e7bce7da04f5c35
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:2eff2a6c77b0c787da6418de861acc36733c433a
@@ -6302,6 +6338,10 @@ trackedFiles:
     id: 0fdb5589c59e
     last_write_checksum: sha1:d4ff36125f4ced577fa0dee44acca536308e85be
     pristine_git_object: c40b78f03007c32e11114b834c404661334fa921
+  src/funcs/accounting-patch-journal-entry.ts:
+    id: 7485387b47d7
+    last_write_checksum: sha1:3822e3b86597faf86e9560718d44cd466c9bd5f3
+    pristine_git_object: e40470fd5b162a7ff9c4dcf72b63b76458d00301
   src/funcs/accounting-patch-line-item.ts:
     id: 01c2fc64931c
     last_write_checksum: sha1:30dcf4db50cc140727d69b725f97576526e95458
@@ -6524,8 +6564,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:f8e19696e7b14971c1f6c88aac49b3ded9a99783
-    pristine_git_object: b67d69eb29de72545f6d257b6945b98b76842523
+    last_write_checksum: sha1:58d969306ca80bba118da37932940092612a6a00
+    pristine_git_object: f5d6c0eec8f1c273bd9cb96ee6ac2f1850004346
   src/lib/encodings.ts:
     id: 3bd8ead98afd
     last_write_checksum: sha1:4481b2a380f8a16856ef92c66fb370299f56d135
@@ -7628,8 +7668,8 @@ trackedFiles:
     pristine_git_object: 280f1620aebacc2c71e8145432da2a8d8076a896
   src/models/operations/index.ts:
     id: 0d9ffaf774d2
-    last_write_checksum: sha1:584ecbca137b60e175985d65cf7c1b9b27fd261f
-    pristine_git_object: a552606871865568e7ba4546346886e1da676dc0
+    last_write_checksum: sha1:5f42ca8dc3bc1d7bbb43f2c96c500c6684b58297
+    pristine_git_object: 7e7cfb007b222f7877fa0543cea00ef853cc3ab1
   src/models/operations/patch-contact-v2.ts:
     id: 645bafde5f35
     last_write_checksum: sha1:906ae3cebc20c7b3a07de8645ea49ec636a38e61
@@ -7650,6 +7690,10 @@ trackedFiles:
     id: 9864a626d488
     last_write_checksum: sha1:8cb7d0a6679c7ef2cd8709348365d990585a1317
     pristine_git_object: 9f0e7ce7341892df727a4254d496b33cd7d63e36
+  src/models/operations/patch-journal-entry.ts:
+    id: 5efd6af1450a
+    last_write_checksum: sha1:81068ab6b328a695359b031402c1d858191e2455
+    pristine_git_object: 9efa2e7d4adab5e491d29fdb24670408e0fbd6e6
   src/models/operations/patch-line-item.ts:
     id: 94ae523952a0
     last_write_checksum: sha1:def4724a63b2670cd481c6538e1f351df7e9f6d3
@@ -7864,8 +7908,8 @@ trackedFiles:
     pristine_git_object: 321ceb160da6038dd8f1866f40ae80e8f9d278cd
   src/sdk/accounting.ts:
     id: e0128a734bc9
-    last_write_checksum: sha1:df6cf6491b09b34fbc3fd1590ac7c3e56749f297
-    pristine_git_object: 66024079b9c5978a2c64421f901c3e37aa82852f
+    last_write_checksum: sha1:d7b66d0a748ee1c27c3ffd41fee0e52f7be6f8a5
+    pristine_git_object: fab6dbad1ad23faa41709540779b663ac0099394
   src/sdk/auth.ts:
     id: b29b1fc6bdf5
     last_write_checksum: sha1:9b8371badc23b9d6dc6c37c1294c2c774c356c9f
@@ -9280,5 +9324,17 @@ examples:
       responses:
         "200":
           application/json: {"data": {"id": "<id>", "accountId": null, "accountingPeriodId": null, "accountingReason": "TAX", "createdDate": "<value>", "currency": "NOK", "description": "comb times quantify gosh assail", "documentId": "<id>", "exchangeRate": "<value>", "files": [], "isProvisional": false, "isReversal": null, "journalCode": "<value>", "journalLineItems": [{"id": "<id>", "accountCode": "<value>", "accountId": "<id>", "accountNumber": 7550.87, "createdDate": "<value>", "currency": "BND", "customerId": null, "debitCreditIndicator": null, "description": "via some incidentally", "dimensions": [], "documentId": "<id>", "documentNumber": "<value>", "exchangeRate": 3017.63, "supplierId": "<id>", "taxRate": null, "thirdPartyCode": "<value>", "totalGrossAmount": 51.5, "totalNetAmount": 6402.95, "totalTaxAmount": 8880.26, "updatedDate": "<value>"}], "journalType": "<value>", "number": "<value>", "recordType": "OPENING", "transactionDate": "<value>", "updatedDate": "<value>", "version": "<value>"}, "errors": {}, "rawData": {}}
+  patchJournalEntry:
+    speakeasy-default-patch-journal-entry:
+      parameters:
+        path:
+          journalEntryId: "<id>"
+      requestBody:
+        multipart/form-data: {}
+      responses:
+        "200":
+          application/json: {"data": {"id": "<id>", "accountId": "<id>", "accountingPeriodId": "<id>", "accountingReason": "COMMERCIAL", "createdDate": "<value>", "currency": "MMK", "description": "respray deduce tired likewise which which incidentally toward cautiously", "documentId": "<id>", "exchangeRate": null, "files": ["<value 1>", "<value 2>", "<value 3>"], "isProvisional": null, "isReversal": true, "journalCode": "<value>", "journalLineItems": [{"id": "<id>", "accountCode": "<value>", "accountId": "<id>", "accountNumber": 4450.3, "createdDate": "<value>", "currency": "LSL", "customerId": null, "debitCreditIndicator": "DEBIT", "description": "for needily boldly", "dimensions": [{"id": "<id>", "categoryName": "<value>", "code": "<value>", "name": "<value>"}], "documentId": "<id>", "documentNumber": "<value>", "exchangeRate": 2274.08, "supplierId": "<id>", "taxRate": {"id": "<id>", "code": "<value>", "name": "<value>", "taxRatePercentage": "<value>"}, "thirdPartyCode": "<value>", "totalGrossAmount": 7315.24, "totalNetAmount": null, "totalTaxAmount": 6688.39, "updatedDate": null}], "journalType": "<value>", "number": "<value>", "recordType": "STANDARD", "transactionDate": null, "updatedDate": "<value>", "version": "<value>"}, "errors": null, "rawData": {}}
 examplesVersion: 1.0.2
-releaseNotes: "## Typescript SDK Changes:\n* `maesn.accounting.getPayments()`:  `response.data[]` **Changed** (Breaking ⚠️)\n* `maesn.accounting.createPayment()`: \n  *  `request.body` **Changed**\n  *  `response.data` **Changed** (Breaking ⚠️)\n* `maesn.accounting.getPayment()`:  `response.data` **Changed** (Breaking ⚠️)\n* `maesn.accounting.getJournalEntries()`: \n  *  `request.transactionDateFrom` **Added**\n"
+releaseNotes: |
+  ## Typescript SDK Changes:
+  * `maesn.accounting.patchJournalEntry()`: **Added**

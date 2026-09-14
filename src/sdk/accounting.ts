@@ -113,6 +113,7 @@ import { accountingPatchContact } from "../funcs/accounting-patch-contact.js";
 import { accountingPatchCustomers } from "../funcs/accounting-patch-customers.js";
 import { accountingPatchInvoice } from "../funcs/accounting-patch-invoice.js";
 import { accountingPatchItem } from "../funcs/accounting-patch-item.js";
+import { accountingPatchJournalEntry } from "../funcs/accounting-patch-journal-entry.js";
 import { accountingPatchLineItem } from "../funcs/accounting-patch-line-item.js";
 import { accountingPatchSupplier } from "../funcs/accounting-patch-supplier.js";
 import { accountingPostFileAsync } from "../funcs/accounting-post-file-async.js";
@@ -708,6 +709,17 @@ export class Accounting extends ClientSDK {
     options?: RequestOptions,
   ): Promise<operations.UpdateJournalEntryResponse> {
     return unwrapAsync(accountingUpdateJournalEntry(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  async patchJournalEntry(
+    request: operations.PatchJournalEntryRequest,
+    options?: RequestOptions,
+  ): Promise<operations.PatchJournalEntryResponse> {
+    return unwrapAsync(accountingPatchJournalEntry(
       this,
       request,
       options,
