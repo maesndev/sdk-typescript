@@ -19702,8 +19702,12 @@ components:
         taskId:
           type: string
           nullable: true
+        objectId:
+          type: string
+          nullable: true
       required:
         - taskId
+        - objectId
     BookingProposalAddressRequestDtoV2:
       type: object
       properties:

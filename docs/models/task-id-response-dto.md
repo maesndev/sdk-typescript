@@ -7,6 +7,7 @@ import { TaskIdResponseDto } from "@maesn/typescript-sdk/models";
 
 let value: TaskIdResponseDto = {
   taskId: "<id>",
+  objectId: "<id>",
 };
 ```
 
@@ -15,3 +16,4 @@ let value: TaskIdResponseDto = {
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
 | `taskId`           | *string*           | :heavy_check_mark: | N/A                |
+| `objectId`         | *string*           | :heavy_check_mark: | N/A                |

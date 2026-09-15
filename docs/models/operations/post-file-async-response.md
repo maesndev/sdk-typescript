@@ -10,6 +10,7 @@ import { PostFileAsyncResponse } from "@maesn/typescript-sdk/models/operations";
 let value: PostFileAsyncResponse = {
   data: {
     taskId: "<id>",
+    objectId: "<id>",
   },
   errors: {},
   rawData: {},

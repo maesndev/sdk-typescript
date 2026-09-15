@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: b4a29653-32d8-43f6-ba1e-9aa569fce206
 management:
-  docChecksum: 0a6eab864f5dd1a5fa3ad835e0eb422a
+  docChecksum: 08c604a71e02f83c32b4c86767570f00
   docVersion: "1.0"
   speakeasyVersion: 1.797.0
   generationVersion: 2.937.18
-  releaseVersion: 0.8.19
-  configChecksum: 35b051e5bf008383b8be80f26bb1340c
+  releaseVersion: 0.8.20
+  configChecksum: 8886250101cbc5a23532f3ed7de463ed
   repoURL: https://github.com/maesndev/sdk-typescript.git
   installationURL: https://github.com/maesndev/sdk-typescript
   published: true
 persistentEdits:
-  generation_id: 8aeacbb9-5c38-46a2-b1c5-59de5edd65d5
-  pristine_commit_hash: d921f458964ff0f1602240eb6241f1e51bfc54ec
-  pristine_tree_hash: 8351f4b46e40d4641ca15e95d58771da9bb613a8
+  generation_id: 0db8023f-6f61-4dec-a86e-f6f0bafef94e
+  pristine_commit_hash: 9c85e771e753ddce04f85a20a29a9ca1f4a51d88
+  pristine_tree_hash: 8ec57f3eb0a8dcc344d7b4e90d41792d735181c1
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -1304,8 +1304,8 @@ trackedFiles:
     pristine_git_object: f9db717b8b9a5fc4f02c57b852a3b4c402b1bd91
   docs/models/operations/create-booking-proposal-async-response.md:
     id: c0448fbecde4
-    last_write_checksum: sha1:76077da6f49a85c8cc90329683cd580a8d5e9e31
-    pristine_git_object: 8dd70ee17c54b802a598e37c4d8f242dcf94468f
+    last_write_checksum: sha1:1fe305e53c1cfb67ca992d2f30a88cfc511348e0
+    pristine_git_object: b6dd68387662177455b8cd295a4699415bc72d0d
   docs/models/operations/create-booking-proposal-errors.md:
     id: 2bbcc94035a4
     last_write_checksum: sha1:ed5d8fc77a31dd8d42233901465338b1d74b7c03
@@ -1408,12 +1408,12 @@ trackedFiles:
     pristine_git_object: 313eb7537665f3f47616ebf2258c06cf49ef7c40
   docs/models/operations/create-booking-proposal-v2-response-body2.md:
     id: 6e94bf0937ec
-    last_write_checksum: sha1:f1bc6d632a8f962b61fadb12d1c1ae8703f56ad3
-    pristine_git_object: 41a8d70829266461b7b2921dd0965b269d7195c8
+    last_write_checksum: sha1:93bc68a22b1502c409a1f22937d7228bb9cac2cf
+    pristine_git_object: a8a99c6fc30ddbc6f380f98c83e46a54bcc1be92
   docs/models/operations/create-booking-proposal-v2-response.md:
     id: 94ec928df60c
-    last_write_checksum: sha1:357895ac839cf1051aa22645b794e60ac45d8477
-    pristine_git_object: 3a438aba43da5b852682de5cd86f155715cd7338
+    last_write_checksum: sha1:796f079b34225ee0ea1f71fe296689bcf253b859
+    pristine_git_object: 98a0ccea3be032a9da3ace7ea4f0693842edbc27
   docs/models/operations/create-contact-errors.md:
     id: 6d55159a252c
     last_write_checksum: sha1:93c85cea498e54e66c949f975aaeb8b452a1e3ee
@@ -1636,8 +1636,8 @@ trackedFiles:
     pristine_git_object: 71873ed5705f88ec6cf03a79354d54868d660d0f
   docs/models/operations/create-expense-async-response.md:
     id: fcf99a1b1ca5
-    last_write_checksum: sha1:5249accb1064cb553afb3c9be42e0bd9f3facfc9
-    pristine_git_object: f8ca9f03542b97f971abe6bf2f6d0178d32f733b
+    last_write_checksum: sha1:a73706102bb54d16cebde20f396270ef8a3614f7
+    pristine_git_object: 71eb9196c638d44fbc00ed16eb3126c4cace2a2a
   docs/models/operations/create-expense-errors.md:
     id: b9b657138b27
     last_write_checksum: sha1:2ec565e6b261f47f8936763f7278da0805dd7bfa
@@ -2876,8 +2876,8 @@ trackedFiles:
     pristine_git_object: 96ace0dfe94e032291e58d572821556fa5aeee66
   docs/models/operations/get-contacts-async-response.md:
     id: ba3c725cb634
-    last_write_checksum: sha1:7aa17254bfa548a615230a537656ad20f958cd34
-    pristine_git_object: a24c867d6b5e044cba35fca42783f8fe107b55c2
+    last_write_checksum: sha1:c622be5aea66bb89b2952da719a8d6ae9df2170e
+    pristine_git_object: 7df55e261f5c1ade39054eda0617046e8e17dd71
   docs/models/operations/get-contacts-errors.md:
     id: 8fe4c0371d28
     last_write_checksum: sha1:7a956ce6bbe02d67da3c1bc5505627e7f61ab07e
@@ -3728,8 +3728,8 @@ trackedFiles:
     pristine_git_object: 6df5933b856c2ba90f401b307bb7b4d5984e609b
   docs/models/operations/get-journal-entries-async-response.md:
     id: 1223faebe2f9
-    last_write_checksum: sha1:59e3febc44afd9f4d3a21a2d5b4d3014a9a16762
-    pristine_git_object: dc4ec62e04481bcf20e50177d44c258f9fc8416f
+    last_write_checksum: sha1:841742250365bc337a99385413efd3d2a6308fce
+    pristine_git_object: e8aca4076abc84e7024ea5716bae9f635ec3b553
   docs/models/operations/get-journal-entries-errors.md:
     id: d0f4b8725994
     last_write_checksum: sha1:acc72b5631b1da1125fb9a42ce96bc1983631881
@@ -4304,8 +4304,8 @@ trackedFiles:
     pristine_git_object: 74ee021811d77b856e8706ae70963e9b55102d81
   docs/models/operations/get-projects-async-response.md:
     id: 6f6e3d6a4183
-    last_write_checksum: sha1:4e7a9f38eea2f4604992d1e0e429038e19b2152d
-    pristine_git_object: 5554b4b63000c8cd4f821c77a3600aff397c9ded
+    last_write_checksum: sha1:58459e1a27a1b5ba4bd9f06372fa381c6b9bc22b
+    pristine_git_object: 8547337868b88de3794da6e2ee43906082017507
   docs/models/operations/get-projects-errors.md:
     id: 2c8d5872ba8e
     last_write_checksum: sha1:6c94207e161271ab0b485444a43234bffaa0dfee
@@ -5176,8 +5176,8 @@ trackedFiles:
     pristine_git_object: eba8ce690433d3c32864674b8dd67a94c7366cc2
   docs/models/operations/post-file-async-response.md:
     id: 3dd337152171
-    last_write_checksum: sha1:5b2e7ba6d51bfbd51736d8a0d3405442181e3f92
-    pristine_git_object: 2e485fe733489c19b47dfc537883cf5da68b0787
+    last_write_checksum: sha1:7d19209cd688e373ec4e715a1b8abc6c5ee9c430
+    pristine_git_object: e2309cb4a97c01aabd64f8bec9db7a2336d51d04
   docs/models/operations/post-file-errors.md:
     id: 5c1fdfe88ae9
     last_write_checksum: sha1:ef49cdb7a422c6e79cb901b0cf46d2f74a276fd8
@@ -5728,8 +5728,8 @@ trackedFiles:
     pristine_git_object: dfa00eb3969792d2d98e5453ddcac50faa8aa8d0
   docs/models/task-id-response-dto.md:
     id: 65f89671175f
-    last_write_checksum: sha1:500084a3389dfc1a9f48da89514a5f1fa4478d87
-    pristine_git_object: dd50b5ddcd4ac7178eaa6ede8c758e62cbc044b3
+    last_write_checksum: sha1:f89b2bb7bcbc78c6c6c954625744eefc8099ad1d
+    pristine_git_object: 12e70cdb4ef74e015afb1d41a1452cdcf79a1c66
   docs/models/tax-rate-input.md:
     id: 0b7aa58db8f7
     last_write_checksum: sha1:d784a5ea3c4040d4a1a54775c02ce51926ce0a86
@@ -5876,12 +5876,12 @@ trackedFiles:
     pristine_git_object: 620f120672c2be3445356aaae6d877d4d89c43d5
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:720bb9f629b052a41b73ab57a61f03a3341243d5
-    pristine_git_object: f40d28daf17b97cb4ae01c00c483fac53a6d2fc4
+    last_write_checksum: sha1:e382d3bbeb9bfe371dbfeb56dad4825d059a32dd
+    pristine_git_object: 62ef0899728f58396b06f8f496beb6fcb1a1a3eb
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:c35b3f84a3538f897949009582d90afa678c4d9d
-    pristine_git_object: c42f09e0b88b2a695ac8b587805e95a827376a50
+    last_write_checksum: sha1:ec7c453e7a739b2196540340812f0fa4fa81b12e
+    pristine_git_object: 0e15d8c2835b1f31dfdb003bbd433cf4dc7cbf08
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:2eff2a6c77b0c787da6418de861acc36733c433a
@@ -6556,8 +6556,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:46e6ac4ed32ad8e38ee6288e6f36bb35d6207365
-    pristine_git_object: b97393d9a83012d5b88e61f7f2225ba7c03d5384
+    last_write_checksum: sha1:60ea27a776264b1a38ce9fc4327fafa2a9fb71e6
+    pristine_git_object: d6583b4597368ce3854f1a253a3707256a7c297b
   src/lib/encodings.ts:
     id: 3bd8ead98afd
     last_write_checksum: sha1:4481b2a380f8a16856ef92c66fb370299f56d135
@@ -7836,8 +7836,8 @@ trackedFiles:
     pristine_git_object: 7ec0754b7589a95b847ae940826fe14a872cdb57
   src/models/task-id-response-dto.ts:
     id: f93a2feb5a88
-    last_write_checksum: sha1:96a27ab507a1d0ed3d1b0002db028376f607f571
-    pristine_git_object: d9493cb3a10d4437b1da1ee42a9d9d89dad9aa6f
+    last_write_checksum: sha1:462fe4c50ecf65d952c0e099a956ca64e0a60210
+    pristine_git_object: e58303673f3d860dc49e6d9159a6d1bf84dd1dc8
   src/models/tax-rate-input.ts:
     id: d371485fdff3
     last_write_checksum: sha1:795cba63ca874113b9816a3e26811a946c77a0dd
@@ -8867,7 +8867,7 @@ examples:
         "200":
           application/json: {"data": {"id": "<id>", "addresses": [{"city": "Binghamton"}], "bankAccount": {"id": "<id>", "bic": "<value>", "code": "<value>", "iban": "SM34V0038014990B9D1E429W070", "number": 5284.81}, "bookingProposalDate": "<value>", "bookingType": "OTHER", "contact": {"id": "<id>", "accountNumber": 9870.71, "name": "<value>"}, "createdDate": "<value>", "currency": "Seychelles Rupee", "deliveryDate": "<value>", "discountPaymentDate": "<value>", "discountPaymentDate2": "<value>", "dueDate": "<value>", "files": ["<value 1>"], "journalCode": "<value>", "isPaymentOrder": true, "ledgerName": "<value>", "lineItems": [], "notes": "<value>", "number": "<value>", "orderId": "<id>", "paidDate": "<value>", "paymentTermId": "<id>", "status": "PAID", "totalGrossAmount": 9441.91, "updatedDate": "<value>", "vatId": "<id>"}, "errors": {}, "rawData": {}}
         "202":
-          application/json: {"data": {"taskId": "<id>"}, "errors": {}, "rawData": null}
+          application/json: {"data": {"taskId": "<id>", "objectId": "<id>"}, "errors": {}, "rawData": null}
         "201":
           application/json: {"data": {"id": "<id>", "addresses": [], "bankAccount": {"id": "<id>", "bankName": "<value>", "bic": "<value>", "code": "<value>", "iban": "SK0200138014990091009054", "number": 2896.43}, "bookingProposalDate": "<value>", "bookingType": "DOWN_PAYMENT", "contact": {"id": null, "accountNumber": 7260.17, "name": "<value>"}, "createdDate": null, "currency": "Yemeni Rial", "deliveryDate": "<value>", "discountPaymentDate": "<value>", "discountPaymentDate2": "<value>", "dueDate": null, "files": ["<value 1>", "<value 2>"], "generatorName": "<value>", "journalCode": "<value>", "isPaymentOrder": false, "ledgerName": "<value>", "lineItems": [], "notes": "<value>", "number": "<value>", "orderId": "<id>", "paidDate": "<value>", "paymentTermId": "<id>", "status": "VOIDED", "totalGrossAmount": 7632.02, "updatedDate": "<value>", "vatId": "<id>"}, "errors": {}, "rawData": {}}
   getContactsV2:
@@ -9216,14 +9216,14 @@ examples:
         multipart/form-data: {"documentDate": "2025-03-26T08:25:54.060Z", "documentId": "b5e624e5-fb9e-4836-a443-87a3820f5b48", "documentType": "Rechnungsausgang", "integrationSource": "3rd party app", "note": "note for the document", "folderName": "Invoices-2026"}
       responses:
         "202":
-          application/json: {"data": {"taskId": "<id>"}, "errors": null, "rawData": {}}
+          application/json: {"data": {"taskId": "<id>", "objectId": "<id>"}, "errors": null, "rawData": {}}
   createExpenseAsync:
     speakeasy-default-create-expense-async:
       requestBody:
         multipart/form-data: {}
       responses:
         "202":
-          application/json: {"data": {"taskId": "<id>"}, "errors": {}, "rawData": {}}
+          application/json: {"data": {"taskId": "<id>", "objectId": "<id>"}, "errors": {}, "rawData": {}}
   generateTenantSigningSecret:
     speakeasy-default-generate-tenant-signing-secret:
       responses:
@@ -9245,7 +9245,7 @@ examples:
         multipart/form-data: {}
       responses:
         "202":
-          application/json: {"data": {"taskId": "<id>"}, "errors": {}, "rawData": null}
+          application/json: {"data": {"taskId": "<id>", "objectId": "<id>"}, "errors": {}, "rawData": null}
   createCreditNote:
     speakeasy-default-create-credit-note:
       requestBody:
@@ -9257,7 +9257,7 @@ examples:
     speakeasy-default-get-journal-entries-async:
       responses:
         "202":
-          application/json: {"data": {"taskId": "<id>"}, "errors": {}, "rawData": {}}
+          application/json: {"data": {"taskId": "<id>", "objectId": "<id>"}, "errors": {}, "rawData": {}}
   getCreditNoteDocuments:
     speakeasy-default-get-credit-note-documents:
       parameters:
@@ -9270,12 +9270,12 @@ examples:
     speakeasy-default-get-contacts-async:
       responses:
         "202":
-          application/json: {"data": {"taskId": "<id>"}, "errors": {}, "rawData": {}}
+          application/json: {"data": {"taskId": "<id>", "objectId": "<id>"}, "errors": {}, "rawData": {}}
   getProjectsAsync:
     speakeasy-default-get-projects-async:
       responses:
         "202":
-          application/json: {"data": {"taskId": "<id>"}, "errors": {}, "rawData": {}}
+          application/json: {"data": {"taskId": "<id>", "objectId": "<id>"}, "errors": {}, "rawData": {}}
   getDimensionsByDimensionV2:
     speakeasy-default-get-dimensions-by-dimension-v2:
       parameters:
@@ -9323,4 +9323,12 @@ examples:
         "200":
           application/json: {"data": {"id": "<id>", "accountId": "<id>", "accountingPeriodId": "<id>", "accountingReason": "COMMERCIAL", "createdDate": "<value>", "currency": "MMK", "description": "respray deduce tired likewise which which incidentally toward cautiously", "documentId": "<id>", "exchangeRate": null, "files": ["<value 1>", "<value 2>", "<value 3>"], "isProvisional": null, "isReversal": true, "journalCode": "<value>", "journalLineItems": [{"id": "<id>", "accountCode": "<value>", "accountId": "<id>", "accountNumber": 4450.3, "createdDate": "<value>", "currency": "LSL", "customerId": null, "debitCreditIndicator": "DEBIT", "description": "for needily boldly", "dimensions": [{"id": "<id>", "categoryName": "<value>", "code": "<value>", "name": "<value>"}], "documentId": "<id>", "documentNumber": "<value>", "exchangeRate": 2274.08, "supplierId": "<id>", "taxRate": {"id": "<id>", "code": "<value>", "name": "<value>", "taxRatePercentage": "<value>"}, "thirdPartyCode": "<value>", "totalGrossAmount": 7315.24, "totalNetAmount": null, "totalTaxAmount": 6688.39, "updatedDate": null}], "journalType": "<value>", "number": "<value>", "recordType": "STANDARD", "transactionDate": null, "updatedDate": "<value>", "version": "<value>"}, "errors": null, "rawData": {}}
 examplesVersion: 1.0.2
-releaseNotes: "## Typescript SDK Changes:\n* `maesn.accounting.getDimensions()`: \n  *  `request` **Changed** (Breaking ⚠️)\n  *  `response.data[]` **Changed** (Breaking ⚠️)\n* `maesn.accounting.getFiscalYears()`:  `response.data[].chartOfAccount.enum(skr07)` **Added** (Breaking ⚠️)\n* `maesn.accounting.getFiscalYear()`:  `response.data[].chartOfAccount.enum(skr07)` **Added** (Breaking ⚠️)\n* `maesn.accounting.createContacts()`: \n  *  `request.body.chartOfAccount.enum(skr07)` **Added**\n* `maesn.accounting.createContactsV1()`: \n  *  `request.body.chartOfAccount.enum(skr07)` **Added**\n* `maesn.accounting.postFile()`: \n  *  `request.body.folderName` **Added**\n* `maesn.accounting.postFileAsync()`: \n  *  `request.body.folderName` **Added**\n* `maesn.accounting.createJournalEntries()`: \n  *  `request.body.chartOfAccount.enum(skr07)` **Added**\n"
+releaseNotes: |
+  ## Typescript SDK Changes:
+  * `maesn.accounting.getContactsAsync()`:  `response.data.objectId` **Added**
+  * `maesn.accounting.postFileAsync()`:  `response.data.objectId` **Added**
+  * `maesn.accounting.getJournalEntriesAsync()`:  `response.data.objectId` **Added**
+  * `maesn.accounting.getProjectsAsync()`:  `response.data.objectId` **Added**
+  * `maesn.accounting.createExpenseAsync()`:  `response.data.objectId` **Added**
+  * `maesn.accounting.createBookingProposalAsync()`:  `response.data.objectId` **Added**
+  * `maesn.accountingV2.createBookingProposalV2()`:  `response.data.objectId` **Added**
