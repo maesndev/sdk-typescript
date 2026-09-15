@@ -5,11 +5,11 @@
 ```typescript
 import { CreateContactByBatchMetaDataDtoChartOfAccount } from "@maesn/typescript-sdk/models";
 
-let value: CreateContactByBatchMetaDataDtoChartOfAccount = "SKR51";
+let value: CreateContactByBatchMetaDataDtoChartOfAccount = "SKR42";
 ```
 
 ## Values
 
 ```typescript
-"SKR03" | "SKR04" | "SKR42" | "SKR51" | "SKR14"
+"SKR03" | "SKR04" | "SKR07" | "SKR42" | "SKR51" | "SKR14"
 ```

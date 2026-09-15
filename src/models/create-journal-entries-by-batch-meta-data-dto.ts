@@ -13,6 +13,7 @@ import {
 export const CreateJournalEntriesByBatchMetaDataDtoChartOfAccount = {
   Skr03: "SKR03",
   Skr04: "SKR04",
+  Skr07: "SKR07",
   Skr42: "SKR42",
   Skr51: "SKR51",
   Skr14: "SKR14",

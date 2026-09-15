@@ -85,7 +85,6 @@ export * from "./dimension-input.js";
 export * from "./dimension-meta-response-dto.js";
 export * from "./dimension-request-common-dto-v2.js";
 export * from "./dimension-response-common-dto-v2.js";
-export * from "./dimension-response-dto.js";
 export * from "./dimension.js";
 export * from "./discount-period-request.js";
 export * from "./discount-period-response.js";

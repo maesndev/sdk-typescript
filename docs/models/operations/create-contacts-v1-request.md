@@ -8,7 +8,7 @@ import { CreateContactsV1Request } from "@maesn/typescript-sdk/models/operations
 let value: CreateContactsV1Request = {
   body: {
     accountNumberLength: 1615.04,
-    chartOfAccount: "SKR42",
+    chartOfAccount: "SKR07",
     entries: [],
     fiscalYearStartDate: "<value>",
   },

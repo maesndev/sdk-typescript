@@ -421,22 +421,6 @@ paths:
     get:
       operationId: getDimensions
       parameters:
-        - name: page
-          required: false
-          in: query
-          schema:
-            type: number
-        - name: limit
-          required: false
-          in: query
-          schema:
-            enum:
-              - 5
-              - 10
-              - 20
-              - 50
-              - 100
-            type: integer
         - name: lastModifiedAt
           required: false
           in: query
@@ -475,7 +459,7 @@ paths:
           x-speakeasy-name-override: accountKey
       responses:
         "200":
-          description: List of dimensions for the authenticated end user's connected target system
+          description: List of dimension categories for the authenticated end user's connected target system
           content:
             application/json:
               schema:
@@ -485,7 +469,7 @@ paths:
                       data:
                         type: array
                         items:
-                          $ref: '#/components/schemas/DimensionResponseDto'
+                          $ref: '#/components/schemas/DimensionMetaResponseDto'
       tags:
         - accounting
       x-speakeasy-retries:
@@ -2061,6 +2045,9 @@ paths:
                 resourceId:
                   type: string
                   example: Id of the reference object (bill or invoice id).
+                folderName:
+                  type: string
+                  example: Invoices-2026
       responses:
         "201":
           description: File uploaded successfully
@@ -2121,6 +2108,9 @@ paths:
                 note:
                   type: string
                   example: note for the document
+                folderName:
+                  type: string
+                  example: Invoices-2026
       responses:
         "202":
           description: File queued successfully. Processed asynchronously and returns 202 with taskId.
@@ -15661,34 +15651,6 @@ components:
         - type
         - updatedDate
         - usage
-    DimensionResponseDto:
-      type: object
-      properties:
-        id:
-          type: string
-          nullable: true
-        categoryName:
-          type: string
-          nullable: true
-        createdDate:
-          type: string
-          nullable: true
-        name:
-          type: string
-          nullable: true
-        status:
-          type: string
-          nullable: true
-        updatedDate:
-          type: string
-          nullable: true
-      required:
-        - id
-        - categoryName
-        - createdDate
-        - name
-        - status
-        - updatedDate
     CreateTransactionRequestDto:
       type: object
       properties:
@@ -17450,6 +17412,7 @@ components:
           enum:
             - SKR03
             - SKR04
+            - SKR07
             - SKR42
             - SKR51
             - SKR14
@@ -17702,6 +17665,7 @@ components:
           enum:
             - SKR03
             - SKR04
+            - SKR07
             - SKR42
             - SKR51
             - SKR14
@@ -18163,6 +18127,7 @@ components:
           enum:
             - SKR03
             - SKR04
+            - SKR07
             - SKR42
             - SKR51
             - SKR14
@@ -18509,6 +18474,7 @@ components:
           enum:
             - SKR03
             - SKR04
+            - SKR07
             - SKR42
             - SKR51
             - SKR14
@@ -19590,9 +19556,10 @@ components:
           enum:
             - SKR03
             - SKR04
+            - SKR07
+            - SKR42
             - SKR51
             - SKR14
-            - SKR42
           nullable: true
         createdDate:
           type: string

@@ -90,8 +90,6 @@ async function $do(
     "companyId": payload?.companyId,
     "environmentName": payload?.environmentName,
     "lastModifiedAt": payload?.lastModifiedAt,
-    "limit": payload?.limit,
-    "page": payload?.page,
     "rawData": payload?.rawData,
   });
 

@@ -11,7 +11,7 @@ let value: FiscalYearResponseDto = {
   availableLedgers: [
     "ACCOUNT_PAYABLE",
   ],
-  chartOfAccount: "SKR14",
+  chartOfAccount: "SKR42",
   createdDate: "<value>",
   description: "split bruised whose ick meh how sometimes",
   endDate: "<value>",

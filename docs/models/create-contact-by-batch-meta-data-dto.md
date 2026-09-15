@@ -7,7 +7,7 @@ import { CreateContactByBatchMetaDataDto } from "@maesn/typescript-sdk/models";
 
 let value: CreateContactByBatchMetaDataDto = {
   accountNumberLength: 9374.86,
-  chartOfAccount: "SKR42",
+  chartOfAccount: "SKR07",
   entries: [],
   fiscalYearStartDate: "<value>",
 };
