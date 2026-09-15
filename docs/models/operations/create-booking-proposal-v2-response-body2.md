@@ -10,6 +10,7 @@ import { CreateBookingProposalV2ResponseBody2 } from "@maesn/typescript-sdk/mode
 let value: CreateBookingProposalV2ResponseBody2 = {
   data: {
     taskId: "<id>",
+    objectId: "<id>",
   },
   errors: {},
   rawData: {},

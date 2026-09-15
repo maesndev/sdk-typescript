@@ -10,6 +10,7 @@ import { GetContactsAsyncResponse } from "@maesn/typescript-sdk/models/operation
 let value: GetContactsAsyncResponse = {
   data: {
     taskId: "<id>",
+    objectId: "<id>",
   },
   errors: {},
   rawData: {},
