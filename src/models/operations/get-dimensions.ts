@@ -4,7 +4,6 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -15,18 +14,7 @@ export type GetDimensionsGlobals = {
   accountKey?: string | undefined;
 };
 
-export const GetDimensionsLimit = {
-  Five: 5,
-  Ten: 10,
-  Twenty: 20,
-  Fifty: 50,
-  OneHundred: 100,
-} as const;
-export type GetDimensionsLimit = ClosedEnum<typeof GetDimensionsLimit>;
-
 export type GetDimensionsRequest = {
-  page?: number | undefined;
-  limit?: GetDimensionsLimit | undefined;
   /**
    * ISO 8601 timestamp; only records modified after this date are returned
    */
@@ -70,24 +58,17 @@ export type GetDimensionsErrors = {};
 export type GetDimensionsRawData = {};
 
 /**
- * List of dimensions for the authenticated end user's connected target system
+ * List of dimension categories for the authenticated end user's connected target system
  */
 export type GetDimensionsResponse = {
   meta?: GetDimensionsMeta | null | undefined;
-  data: Array<models.DimensionResponseDto>;
+  data: Array<models.DimensionMetaResponseDto>;
   errors: GetDimensionsErrors | null;
   rawData: GetDimensionsRawData | null;
 };
 
 /** @internal */
-export const GetDimensionsLimit$outboundSchema: z.ZodMiniEnum<
-  typeof GetDimensionsLimit
-> = z.enum(GetDimensionsLimit);
-
-/** @internal */
 export type GetDimensionsRequest$Outbound = {
-  page?: number | undefined;
-  limit?: number | undefined;
   lastModifiedAt?: string | undefined;
   environmentName?: string | undefined;
   companyId?: string | undefined;
@@ -101,8 +82,6 @@ export const GetDimensionsRequest$outboundSchema: z.ZodMiniType<
   GetDimensionsRequest$Outbound,
   GetDimensionsRequest
 > = z.object({
-  page: z.optional(z.number()),
-  limit: z.optional(GetDimensionsLimit$outboundSchema),
   lastModifiedAt: z.optional(z.string()),
   environmentName: z.optional(z.string()),
   companyId: z.optional(z.string()),
@@ -199,7 +178,7 @@ export const GetDimensionsResponse$inboundSchema: z.ZodMiniType<
   unknown
 > = z.object({
   meta: z.optional(z.nullable(z.lazy(() => GetDimensionsMeta$inboundSchema))),
-  data: z.array(models.DimensionResponseDto$inboundSchema),
+  data: z.array(models.DimensionMetaResponseDto$inboundSchema),
   errors: types.nullable(z.lazy(() => GetDimensionsErrors$inboundSchema)),
   rawData: types.nullable(z.lazy(() => GetDimensionsRawData$inboundSchema)),
 });

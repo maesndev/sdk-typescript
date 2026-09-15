@@ -130,6 +130,9 @@ async function $do(
       );
     }
   }
+  if (payload.body.folderName !== undefined) {
+    appendForm(body, "folderName", payload.body.folderName);
+  }
   if (payload.body.integrationSource !== undefined) {
     appendForm(body, "integrationSource", payload.body.integrationSource);
   }

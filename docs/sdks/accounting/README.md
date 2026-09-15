@@ -2687,6 +2687,7 @@ async function run() {
       integrationSource: "3rd party app",
       note: "note for the document",
       resourceId: "Id of the reference object (bill or invoice id).",
+      folderName: "Invoices-2026",
     },
   });
 
@@ -2722,6 +2723,7 @@ async function run() {
       integrationSource: "3rd party app",
       note: "note for the document",
       resourceId: "Id of the reference object (bill or invoice id).",
+      folderName: "Invoices-2026",
     },
   });
   if (res.ok) {
@@ -2776,6 +2778,7 @@ async function run() {
       documentType: "Rechnungsausgang",
       integrationSource: "3rd party app",
       note: "note for the document",
+      folderName: "Invoices-2026",
     },
   });
 
@@ -2809,6 +2812,7 @@ async function run() {
       documentType: "Rechnungsausgang",
       integrationSource: "3rd party app",
       note: "note for the document",
+      folderName: "Invoices-2026",
     },
   });
   if (res.ok) {

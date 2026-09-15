@@ -1,6 +1,6 @@
 # GetDimensionsResponse
 
-List of dimensions for the authenticated end user's connected target system
+List of dimension categories for the authenticated end user's connected target system
 
 ## Example Usage
 
@@ -19,6 +19,6 @@ let value: GetDimensionsResponse = {
 | Field                                                                                 | Type                                                                                  | Required                                                                              | Description                                                                           |
 | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
 | `meta`                                                                                | [operations.GetDimensionsMeta](../../models/operations/get-dimensions-meta.md)        | :heavy_minus_sign:                                                                    | N/A                                                                                   |
-| `data`                                                                                | [models.DimensionResponseDto](../../models/dimension-response-dto.md)[]               | :heavy_check_mark:                                                                    | N/A                                                                                   |
+| `data`                                                                                | [models.DimensionMetaResponseDto](../../models/dimension-meta-response-dto.md)[]      | :heavy_check_mark:                                                                    | N/A                                                                                   |
 | `errors`                                                                              | [operations.GetDimensionsErrors](../../models/operations/get-dimensions-errors.md)    | :heavy_check_mark:                                                                    | N/A                                                                                   |
 | `rawData`                                                                             | [operations.GetDimensionsRawData](../../models/operations/get-dimensions-raw-data.md) | :heavy_check_mark:                                                                    | N/A                                                                                   |

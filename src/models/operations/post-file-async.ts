@@ -27,6 +27,7 @@ export type PostFileAsyncRequestBody = {
   documentType?: string | undefined;
   integrationSource?: string | undefined;
   note?: string | undefined;
+  folderName?: string | undefined;
 };
 
 export type PostFileAsyncRequest = {
@@ -107,6 +108,7 @@ export type PostFileAsyncRequestBody$Outbound = {
   documentType?: string | undefined;
   integrationSource?: string | undefined;
   note?: string | undefined;
+  folderName?: string | undefined;
 };
 
 /** @internal */
@@ -122,6 +124,7 @@ export const PostFileAsyncRequestBody$outboundSchema: z.ZodMiniType<
   documentType: z.optional(z.string()),
   integrationSource: z.optional(z.string()),
   note: z.optional(z.string()),
+  folderName: z.optional(z.string()),
 });
 
 export function postFileAsyncRequestBodyToJSON(
