@@ -227,6 +227,7 @@ export type JournalEntryResponseDto = {
   accountId: string | null;
   accountingPeriodId: string | null;
   accountingReason: JournalEntryResponseDtoAccountingReason | null;
+  additionalInformation?: string | null | undefined;
   advancePayment?: AdvancePayment | null | undefined;
   createdDate: string | null;
   currency: JournalEntryResponseDtoCurrency | null;
@@ -310,6 +311,7 @@ export const JournalEntryResponseDto$inboundSchema: z.ZodMiniType<
   accountingReason: types.nullable(
     JournalEntryResponseDtoAccountingReason$inboundSchema,
   ),
+  additionalInformation: z.optional(z.nullable(types.string())),
   advancePayment: z.optional(
     z.nullable(z.lazy(() => AdvancePayment$inboundSchema)),
   ),
