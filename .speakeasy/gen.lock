@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: b4a29653-32d8-43f6-ba1e-9aa569fce206
 management:
-  docChecksum: 08c604a71e02f83c32b4c86767570f00
+  docChecksum: e713ff7085eda8f2701a1eb02047be3a
   docVersion: "1.0"
   speakeasyVersion: 1.797.0
   generationVersion: 2.937.18
-  releaseVersion: 0.8.20
-  configChecksum: 8886250101cbc5a23532f3ed7de463ed
+  releaseVersion: 0.8.21
+  configChecksum: 7238f467fa2d35c1c094c1bd8418c222
   repoURL: https://github.com/maesndev/sdk-typescript.git
   installationURL: https://github.com/maesndev/sdk-typescript
   published: true
 persistentEdits:
-  generation_id: 0db8023f-6f61-4dec-a86e-f6f0bafef94e
-  pristine_commit_hash: 9c85e771e753ddce04f85a20a29a9ca1f4a51d88
-  pristine_tree_hash: 8ec57f3eb0a8dcc344d7b4e90d41792d735181c1
+  generation_id: d7cdeb53-286c-488c-9d3b-4efae6356ef1
+  pristine_commit_hash: a3493b398453cdda2b21848843503ebac7756a8a
+  pristine_tree_hash: 20f9aa3e2f72ca95c7f1ef1095ef5c56f5ada724
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -640,8 +640,8 @@ trackedFiles:
     pristine_git_object: 6ffcbbdb033ab2cca63f521dfa651e5eec109667
   docs/models/create-journal-entry-request-dto.md:
     id: 3e1e927bee52
-    last_write_checksum: sha1:a0d32396ec95405f5ab3e35922a83d2bd312d707
-    pristine_git_object: b9432d09d489616173eb778fad9f9a251c611d87
+    last_write_checksum: sha1:95b196bd91002e10711e76967a28d28a6fcb9526
+    pristine_git_object: 8dbc112685c21cb778b0e2a452e749d6f71b9a41
   docs/models/create-journal-line-item-currency.md:
     id: a400d4a02833
     last_write_checksum: sha1:ee9902804e3f5d923512571d481b3fa05f152477
@@ -1012,8 +1012,8 @@ trackedFiles:
     pristine_git_object: ab12f342623acc8b53788fbfc7805c3eefa4a6ce
   docs/models/journal-entry-response-dto.md:
     id: 2c757dfa86c3
-    last_write_checksum: sha1:688b4a37cb2fd34e2ef2986e50c9d8b5c102a2e8
-    pristine_git_object: c3d7a5dcb1f337a6593af34295d8ce18ba563c1d
+    last_write_checksum: sha1:aee70a926a2e994e68369092368944314bd3d69c
+    pristine_git_object: 6296e5d628bee52ee3849a383e5e6f41f5f14385
   docs/models/journal-line-item-currency.md:
     id: 6669a9154aaf
     last_write_checksum: sha1:b46f55f5e227df313a7234ac83d20beacf1ad574
@@ -4090,6 +4090,38 @@ trackedFiles:
     id: 9ac47a087007
     last_write_checksum: sha1:2146435d069f766b9426e25221521735801d08f4
     pristine_git_object: 4f4a10b17efa7ea49d82d0dfeb4c4a0230b164e3
+  docs/models/operations/get-open-items-async-errors.md:
+    id: 6843a43da7bc
+    last_write_checksum: sha1:ea1dcd1f53bc5b800f9d3faa761bbf2c0d885b80
+    pristine_git_object: df53b063145262b180fe73a3bbf6af895693e6d1
+  docs/models/operations/get-open-items-async-globals.md:
+    id: d4d184028708
+    last_write_checksum: sha1:9040b7053cda932d2ee1df84266926edb2bb3341
+    pristine_git_object: 19dbfe7c9eab3987d3a085dbe2e437359f7e6b84
+  docs/models/operations/get-open-items-async-limit.md:
+    id: 38bdc0a8e8b5
+    last_write_checksum: sha1:3d2d25124953d0dfcaaa97575d20d569a9370686
+    pristine_git_object: feffbc0b59d47bc1c2b7fe32887dae50a50f2ca3
+  docs/models/operations/get-open-items-async-meta.md:
+    id: 8dfd33bba856
+    last_write_checksum: sha1:b681464e3946b257b4cca0ebf9bc3af86f921121
+    pristine_git_object: 4ca71dfcbd136e286f3204c973698cb3bd42239f
+  docs/models/operations/get-open-items-async-pagination.md:
+    id: 44058824ebfc
+    last_write_checksum: sha1:9215815365956f2da0caca98884813bcea40ca0b
+    pristine_git_object: 7784eb7cdd5e828ff980daa5bb32f89878883392
+  docs/models/operations/get-open-items-async-raw-data.md:
+    id: aa80d0c5df93
+    last_write_checksum: sha1:d4f11107075108a0153d366cf34566bdbcad2167
+    pristine_git_object: 405244657396544e6e41f2c038aaa5a372f9e3f4
+  docs/models/operations/get-open-items-async-request.md:
+    id: 2ebff1a327d8
+    last_write_checksum: sha1:f015b9415a7edbaeb284760ecb23d7bd6e9573d2
+    pristine_git_object: 0fde71952de0ae30ffe8d4f122955e031fd58d99
+  docs/models/operations/get-open-items-async-response.md:
+    id: 176977b087d0
+    last_write_checksum: sha1:8350214aed5516eae4f67e7509c115ebe4e2308e
+    pristine_git_object: b6d05e0fcecb8bc34e0c2540da97a773ab0bb582
   docs/models/operations/get-open-items-errors.md:
     id: 988a9a7a7fbc
     last_write_checksum: sha1:a96ba269cfe9d4678beb1a2c496a3299ca2de5cd
@@ -5828,8 +5860,8 @@ trackedFiles:
     pristine_git_object: 22dd5f08bac5ea8e40e42de4ebb0a5876ef875c5
   docs/sdks/accounting/README.md:
     id: 6abb8976ed95
-    last_write_checksum: sha1:d3d52e24f3803a34e8d2155553ebcc302e9d6a31
-    pristine_git_object: 0ff42071e3e5592fd9ecc54b7365cee59b0b1a50
+    last_write_checksum: sha1:b0080879ed8c8694a144689716ae9f500b909de4
+    pristine_git_object: d72fb5fee778cf6dd663efd69db659c90fd9bf61
   docs/sdks/accountingv2/README.md:
     id: 24a9f287e358
     last_write_checksum: sha1:500b8cea57ac71e42f511ba1868fbbcbcf756650
@@ -5876,12 +5908,12 @@ trackedFiles:
     pristine_git_object: 620f120672c2be3445356aaae6d877d4d89c43d5
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:e382d3bbeb9bfe371dbfeb56dad4825d059a32dd
-    pristine_git_object: 62ef0899728f58396b06f8f496beb6fcb1a1a3eb
+    last_write_checksum: sha1:a5d0a2c4ce2b8b801b341a60d33b036e4b728e55
+    pristine_git_object: e16df91d7d0b469c0b13bc1fcd9f80d6dff55ac0
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:ec7c453e7a739b2196540340812f0fa4fa81b12e
-    pristine_git_object: 0e15d8c2835b1f31dfdb003bbd433cf4dc7cbf08
+    last_write_checksum: sha1:1c4ae18ad8be768abb43f6bc125530068cb8e025
+    pristine_git_object: 2685d9b0ae2657d3198abfe2b8fd4259560176d5
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:2eff2a6c77b0c787da6418de861acc36733c433a
@@ -6222,6 +6254,10 @@ trackedFiles:
     id: e3f63c5196a1
     last_write_checksum: sha1:8ea8076f23890428d155710368a4e0ea665003db
     pristine_git_object: e5d8e195570dc38b303c2c41f92011d6e1456414
+  src/funcs/accounting-get-open-items-async.ts:
+    id: dace60301316
+    last_write_checksum: sha1:62b726776f30a1497e7abe80d8a63e0a0ecae8d7
+    pristine_git_object: 37247edb291d7c454f0ff7eeefabaf43a79dc47a
   src/funcs/accounting-get-open-items.ts:
     id: ff490dc8dab7
     last_write_checksum: sha1:ac575875e27fefcc5eb0027e9d695f4d0f408682
@@ -6556,8 +6592,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:60ea27a776264b1a38ce9fc4327fafa2a9fb71e6
-    pristine_git_object: d6583b4597368ce3854f1a253a3707256a7c297b
+    last_write_checksum: sha1:1b5237daacd2f5b0e855e8688ba3155a69436eb7
+    pristine_git_object: 5831e623d5f8f5fcac09b0688a0a39f8129f9004
   src/lib/encodings.ts:
     id: 3bd8ead98afd
     last_write_checksum: sha1:4481b2a380f8a16856ef92c66fb370299f56d135
@@ -6848,8 +6884,8 @@ trackedFiles:
     pristine_git_object: abf96e4de3c3d008bbf75c8092e50c71ee0be247
   src/models/create-journal-entry-request-dto.ts:
     id: 5e7a7ec2823d
-    last_write_checksum: sha1:02f523be051cf512aba0eda0b850bdac20746086
-    pristine_git_object: 7acd1ab7fcaf827d06dd3b51c75ebe6f41a99806
+    last_write_checksum: sha1:0639997abb016f1ef49d854278c28c9a387dd833
+    pristine_git_object: e062dd6af5371c05c79b73a8410c3f8485f1f1f1
   src/models/create-journal-line-item.ts:
     id: 2a72ced786b1
     last_write_checksum: sha1:ff336556acdaf336d4bc11ea41b2abc3ee3213a1
@@ -7056,8 +7092,8 @@ trackedFiles:
     pristine_git_object: e57b2af5dc138d8e4d6949ccefe161eff67b388a
   src/models/journal-entry-response-dto.ts:
     id: ef08a0979024
-    last_write_checksum: sha1:e8ed42d855ccf678dec375973b1413d73da5eafa
-    pristine_git_object: a1f9f0a61cf1cbd3fddc41957d3c198b7c504523
+    last_write_checksum: sha1:25c897758fec6e686830dc0ad25cf025a50967b2
+    pristine_git_object: 4ab9bf0c070634f30d1bbcd3d8130a5b425dc4c3
   src/models/journal-line-item.ts:
     id: 74d31fb46548
     last_write_checksum: sha1:b82cfdbe9080e4731befc3a608cf52d5a25e653c
@@ -7522,6 +7558,10 @@ trackedFiles:
     id: 8ba157fee472
     last_write_checksum: sha1:780c400e650f0dfe5e1b74d1ad463e1d7388dbd3
     pristine_git_object: 5cf4262638d2e481a75078e6f60ef40403fe13ed
+  src/models/operations/get-open-items-async.ts:
+    id: eb1ac301eb17
+    last_write_checksum: sha1:502cb221e97818b9942b0528e0c42f9fcda1df31
+    pristine_git_object: 845592480b7bb98580c89421a6d49680def42988
   src/models/operations/get-open-items.ts:
     id: bc05d0f379ee
     last_write_checksum: sha1:10a05deb60403b3b50aca6721fc7f03b9f3cc60d
@@ -7656,8 +7696,8 @@ trackedFiles:
     pristine_git_object: 280f1620aebacc2c71e8145432da2a8d8076a896
   src/models/operations/index.ts:
     id: 0d9ffaf774d2
-    last_write_checksum: sha1:5f42ca8dc3bc1d7bbb43f2c96c500c6684b58297
-    pristine_git_object: 7e7cfb007b222f7877fa0543cea00ef853cc3ab1
+    last_write_checksum: sha1:a012c33bc0bbe916ee1c5d1e96ab12bf13bd0767
+    pristine_git_object: d920a8e3996a95d9d647a96c7a624b98a57337d8
   src/models/operations/patch-contact-v2.ts:
     id: 645bafde5f35
     last_write_checksum: sha1:906ae3cebc20c7b3a07de8645ea49ec636a38e61
@@ -7896,8 +7936,8 @@ trackedFiles:
     pristine_git_object: 321ceb160da6038dd8f1866f40ae80e8f9d278cd
   src/sdk/accounting.ts:
     id: e0128a734bc9
-    last_write_checksum: sha1:d7b66d0a748ee1c27c3ffd41fee0e52f7be6f8a5
-    pristine_git_object: fab6dbad1ad23faa41709540779b663ac0099394
+    last_write_checksum: sha1:e929a97245763e303abcf2f0dbe1f3d2a6f2e042
+    pristine_git_object: 3896840b0cdc6782f3256337de270d53fcb8ae54
   src/sdk/auth.ts:
     id: b29b1fc6bdf5
     last_write_checksum: sha1:9b8371badc23b9d6dc6c37c1294c2c774c356c9f
@@ -9322,13 +9362,10 @@ examples:
       responses:
         "200":
           application/json: {"data": {"id": "<id>", "accountId": "<id>", "accountingPeriodId": "<id>", "accountingReason": "COMMERCIAL", "createdDate": "<value>", "currency": "MMK", "description": "respray deduce tired likewise which which incidentally toward cautiously", "documentId": "<id>", "exchangeRate": null, "files": ["<value 1>", "<value 2>", "<value 3>"], "isProvisional": null, "isReversal": true, "journalCode": "<value>", "journalLineItems": [{"id": "<id>", "accountCode": "<value>", "accountId": "<id>", "accountNumber": 4450.3, "createdDate": "<value>", "currency": "LSL", "customerId": null, "debitCreditIndicator": "DEBIT", "description": "for needily boldly", "dimensions": [{"id": "<id>", "categoryName": "<value>", "code": "<value>", "name": "<value>"}], "documentId": "<id>", "documentNumber": "<value>", "exchangeRate": 2274.08, "supplierId": "<id>", "taxRate": {"id": "<id>", "code": "<value>", "name": "<value>", "taxRatePercentage": "<value>"}, "thirdPartyCode": "<value>", "totalGrossAmount": 7315.24, "totalNetAmount": null, "totalTaxAmount": 6688.39, "updatedDate": null}], "journalType": "<value>", "number": "<value>", "recordType": "STANDARD", "transactionDate": null, "updatedDate": "<value>", "version": "<value>"}, "errors": null, "rawData": {}}
+  getOpenItemsAsync:
+    speakeasy-default-get-open-items-async:
+      responses:
+        "202":
+          application/json: {"data": {"taskId": "<id>", "objectId": "<id>"}, "errors": {}, "rawData": {}}
 examplesVersion: 1.0.2
-releaseNotes: |
-  ## Typescript SDK Changes:
-  * `maesn.accounting.getContactsAsync()`:  `response.data.objectId` **Added**
-  * `maesn.accounting.postFileAsync()`:  `response.data.objectId` **Added**
-  * `maesn.accounting.getJournalEntriesAsync()`:  `response.data.objectId` **Added**
-  * `maesn.accounting.getProjectsAsync()`:  `response.data.objectId` **Added**
-  * `maesn.accounting.createExpenseAsync()`:  `response.data.objectId` **Added**
-  * `maesn.accounting.createBookingProposalAsync()`:  `response.data.objectId` **Added**
-  * `maesn.accountingV2.createBookingProposalV2()`:  `response.data.objectId` **Added**
+releaseNotes: "## Typescript SDK Changes:\n* `maesn.accounting.getOpenItemsAsync()`: **Added**\n* `maesn.accounting.getJournalEntries()`:  `response.data[].additionalInformation` **Added**\n* `maesn.accounting.createJournalEntry()`: \n  *  `request.body.journalEntry` **Changed**\n  *  `response.data.additionalInformation` **Added**\n* `maesn.accounting.getJournalEntry()`:  `response.data.additionalInformation` **Added**\n* `maesn.accounting.updateJournalEntry()`: \n  *  `request.body.journalEntry` **Changed**\n  *  `response.data.additionalInformation` **Added**\n* `maesn.accounting.patchJournalEntry()`: \n  *  `request.body.journalEntry` **Changed**\n  *  `response.data.additionalInformation` **Added**\n* `maesn.accounting.createJournalEntries()`: \n  *  `request.body.entries[].additionalInformation` **Added**\n  *  `response.data.entries[].additionalInformation` **Added**\n* `maesn.accounting.getJournalEntryAttachments()`:  `response.data[].additionalInformation` **Added**\n* `maesn.accounting.createJournalEntryAttachments()`:  `response.data.additionalInformation` **Added**\n* `maesn.accounting.getJournalEntryAttachmentById()`:  `response.data.additionalInformation` **Added**\n"

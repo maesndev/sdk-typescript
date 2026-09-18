@@ -108,6 +108,7 @@ export * from "./get-offer-line-item.js";
 export * from "./get-offer-line-items.js";
 export * from "./get-offer.js";
 export * from "./get-offers.js";
+export * from "./get-open-items-async.js";
 export * from "./get-open-items.js";
 export * from "./get-payment-term.js";
 export * from "./get-payment-terms.js";

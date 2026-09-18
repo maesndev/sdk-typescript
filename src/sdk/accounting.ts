@@ -86,6 +86,7 @@ import { accountingGetOfferLineItem } from "../funcs/accounting-get-offer-line-i
 import { accountingGetOfferLineItems } from "../funcs/accounting-get-offer-line-items.js";
 import { accountingGetOffer } from "../funcs/accounting-get-offer.js";
 import { accountingGetOffers } from "../funcs/accounting-get-offers.js";
+import { accountingGetOpenItemsAsync } from "../funcs/accounting-get-open-items-async.js";
 import { accountingGetOpenItems } from "../funcs/accounting-get-open-items.js";
 import { accountingGetPaymentTerm } from "../funcs/accounting-get-payment-term.js";
 import { accountingGetPaymentTerms } from "../funcs/accounting-get-payment-terms.js";
@@ -1391,6 +1392,17 @@ export class Accounting extends ClientSDK {
     options?: RequestOptions,
   ): Promise<operations.GetOpenItemsResponse> {
     return unwrapAsync(accountingGetOpenItems(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  async getOpenItemsAsync(
+    request?: operations.GetOpenItemsAsyncRequest | undefined,
+    options?: RequestOptions,
+  ): Promise<operations.GetOpenItemsAsyncResponse> {
+    return unwrapAsync(accountingGetOpenItemsAsync(
       this,
       request,
       options,
