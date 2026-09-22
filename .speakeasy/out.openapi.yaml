@@ -7293,6 +7293,85 @@ paths:
         statusCodes:
           - 5XX
         retryConnectionErrors: true
+  /accounting/openItems/async:
+    get:
+      operationId: getOpenItemsAsync
+      parameters:
+        - name: page
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: limit
+          required: false
+          in: query
+          schema:
+            enum:
+              - 5
+              - 10
+              - 20
+              - 50
+              - 100
+            type: integer
+        - name: environmentName
+          required: false
+          in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
+          schema:
+            type: string
+        - name: companyId
+          required: false
+          in: query
+          description: ID of the company (required for multi-company target systems)
+          schema:
+            type: string
+        - name: rawData
+          required: false
+          in: query
+          description: When true, returns the unprocessed response from the upstream target system
+          schema:
+            type: boolean
+        - name: fiscalYearStartDate
+          required: false
+          in: query
+          description: ISO 8601 start date of the fiscal year used for balance calculation
+          schema:
+            type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
+      responses:
+        "202":
+          description: Open items fetch queued successfully. Processed asynchronously and returns 202 with taskId.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BaseResponseDto'
+                  - properties:
+                      data:
+                        $ref: '#/components/schemas/TaskIdResponseDto'
+      tags:
+        - accounting
+      x-speakeasy-retries:
+        strategy: backoff
+        backoff:
+          initialInterval: 500
+          maxInterval: 60000
+          maxElapsedTime: 3600000
+          exponent: 1.5
+        statusCodes:
+          - 5XX
+        retryConnectionErrors: true
   /accounting/trialBalance:
     get:
       operationId: getTrialBalance
@@ -12329,6 +12408,9 @@ components:
             - INDEPENDENT
             - OTHER
           nullable: true
+        additionalInformation:
+          type: string
+          nullable: true
         advancePayment:
           nullable: true
           allOf:
@@ -12838,6 +12920,8 @@ components:
             - CALCULATION
             - INDEPENDENT
             - OTHER
+        additionalInformation:
+          type: string
         advancePayment:
           $ref: '#/components/schemas/AdvancePaymentInput'
         currency:

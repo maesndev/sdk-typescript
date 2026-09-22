@@ -397,3 +397,13 @@ Based on:
 - [typescript v0.8.20] .
 ### Releases
 - [NPM v0.8.20] https://www.npmjs.com/package/@maesn/typescript-sdk/v/0.8.20 - .
+
+## 2026-09-22 09:24:06
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.798.0 (2.938.0) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v0.8.21] .
+### Releases
+- [NPM v0.8.21] https://www.npmjs.com/package/@maesn/typescript-sdk/v/0.8.21 - .
