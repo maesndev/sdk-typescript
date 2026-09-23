@@ -210,6 +210,7 @@ export type CreateJournalEntryRequestDto = {
   accountId?: string | undefined;
   accountingPeriodId?: string | undefined;
   accountingReason?: CreateJournalEntryRequestDtoAccountingReason | undefined;
+  additionalInformation?: string | undefined;
   advancePayment?: AdvancePaymentInput | undefined;
   currency?: CreateJournalEntryRequestDtoCurrency | undefined;
   debitCreditIndicator?:
@@ -259,6 +260,7 @@ export type CreateJournalEntryRequestDto$Outbound = {
   accountId?: string | undefined;
   accountingPeriodId?: string | undefined;
   accountingReason?: string | undefined;
+  additionalInformation?: string | undefined;
   advancePayment?: AdvancePaymentInput$Outbound | undefined;
   currency?: string | undefined;
   debitCreditIndicator?: string | undefined;
@@ -289,6 +291,7 @@ export const CreateJournalEntryRequestDto$outboundSchema: z.ZodMiniType<
   accountingReason: z.optional(
     CreateJournalEntryRequestDtoAccountingReason$outboundSchema,
   ),
+  additionalInformation: z.optional(z.string()),
   advancePayment: z.optional(AdvancePaymentInput$outboundSchema),
   currency: z.optional(CreateJournalEntryRequestDtoCurrency$outboundSchema),
   debitCreditIndicator: z.optional(
