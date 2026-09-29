@@ -96,6 +96,7 @@ async function $do(
     "companyId": payload.companyId,
     "environmentSelection": payload.environmentSelection,
     "include_signature": payload.include_signature,
+    "locale": payload.locale,
     "tenantId": payload.tenantId,
   });
 

@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: b4a29653-32d8-43f6-ba1e-9aa569fce206
 management:
-  docChecksum: e713ff7085eda8f2701a1eb02047be3a
+  docChecksum: b93e55bca196f47b8a4a1f891cf718f0
   docVersion: "1.0"
-  speakeasyVersion: 1.798.0
-  generationVersion: 2.938.0
-  releaseVersion: 0.8.21
-  configChecksum: 7238f467fa2d35c1c094c1bd8418c222
+  speakeasyVersion: 1.799.0
+  generationVersion: 2.941.0
+  releaseVersion: 0.8.22
+  configChecksum: 55c67dd4a806dcb1578d6ad3f18d8227
   repoURL: https://github.com/maesndev/sdk-typescript.git
   installationURL: https://github.com/maesndev/sdk-typescript
   published: true
 persistentEdits:
-  generation_id: e8a20e04-3a8b-4c80-ae23-58f4237c39b0
-  pristine_commit_hash: a0d31c3a6441a3ef6dc192aaf720f64e1bc4c21b
-  pristine_tree_hash: 5cfae45ba9217338a4bd5e58c8b95b8a4abaf55b
+  generation_id: 3b22282c-45c5-470a-afe1-4491df8eba08
+  pristine_commit_hash: b603249919fcf9397b2c3382c111fa2459bd254b
+  pristine_tree_hash: 106b46ba4032fc8d6b0b68bebd96753d12d6c0de
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -384,8 +384,8 @@ trackedFiles:
     pristine_git_object: 7da06ab0ea3a144cfe0772c8d6a2fbc57de8061b
   docs/models/create-auth-webhook-request-dto.md:
     id: ed5198d445f1
-    last_write_checksum: sha1:ec31c6ea3869ec2d27c9313f75606a65e80af822
-    pristine_git_object: 924578aa5849bad301108122b817a86218aeff53
+    last_write_checksum: sha1:6c343b3595eae95a8e2ccb35f1af932349c2ec98
+    pristine_git_object: 8d4ae09057986814b641e029fd9379474c070d8d
   docs/models/create-bank-account-request-dto-currency.md:
     id: fc0e9b26b9f5
     last_write_checksum: sha1:c2b16665939896ba667a7f97878458b5711b0f3e
@@ -5340,8 +5340,8 @@ trackedFiles:
     pristine_git_object: 943af4bb9beddcf8d5cc354bae054d3a0ef7f542
   docs/models/operations/system-login-url-request.md:
     id: 1e41222cc029
-    last_write_checksum: sha1:55ac253bb0b01c2d65df7a44fd08b8ffa2759fe1
-    pristine_git_object: 044e3aee812e163965fc52760df39bc88141da30
+    last_write_checksum: sha1:54b8c1e92019ae47e33c0e2ee538aac04d7934c9
+    pristine_git_object: e8021e0fe752d5eba3fe0b6901421ee8639af035
   docs/models/operations/system-registration-globals.md:
     id: f876ffbbf9e5
     last_write_checksum: sha1:a23c56039143645583aff77e7641aec0adf7fb40
@@ -5746,10 +5746,14 @@ trackedFiles:
     id: 54202ee05cd4
     last_write_checksum: sha1:85898ee5d8eedcb3b20c0b67dad6089dda3d8dd0
     pristine_git_object: 755fbc1198978294470bc654f5c1fd86ad1bb2ad
+  docs/models/submission-page-localization-dto.md:
+    id: 2496b0622b71
+    last_write_checksum: sha1:6daadf557aafbd2e6d23c0d5bb86b36d47af5517
+    pristine_git_object: efc6429a2f1baa696a037ff1579e06aa354033cb
   docs/models/submission-page-style-dto.md:
     id: 77d78a0dbb70
-    last_write_checksum: sha1:a429df24a2fd32aa6cc87e06b958b1e1a21fdf2f
-    pristine_git_object: 82ba24bf590e14166075b7a56f710f08ea81a32e
+    last_write_checksum: sha1:f07661024e3d7fdb6b7d2994f8e003954a96c04b
+    pristine_git_object: 9dfa2d096e4876fdf2d03ecfadaf2d9285d6c186
   docs/models/subscription.md:
     id: 4a200793e0f4
     last_write_checksum: sha1:047ff13d088c36972acefeb3775974dcfee14bcd
@@ -5908,12 +5912,12 @@ trackedFiles:
     pristine_git_object: 620f120672c2be3445356aaae6d877d4d89c43d5
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:a5d0a2c4ce2b8b801b341a60d33b036e4b728e55
-    pristine_git_object: e16df91d7d0b469c0b13bc1fcd9f80d6dff55ac0
+    last_write_checksum: sha1:7e106224f46779737b00725e838a08303f2ebb89
+    pristine_git_object: 5fbced663e04fed5bc75fdec6d9b46ffc24eb4ec
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:1c4ae18ad8be768abb43f6bc125530068cb8e025
-    pristine_git_object: 2685d9b0ae2657d3198abfe2b8fd4259560176d5
+    last_write_checksum: sha1:c8d66ad65a4b7752de411f18f297e03c64b2ec91
+    pristine_git_object: 1e0db1d210e4bd537f82469edbf0a4bb9fbc583c
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:2eff2a6c77b0c787da6418de861acc36733c433a
@@ -6468,8 +6472,8 @@ trackedFiles:
     pristine_git_object: 0a6328fab83c3bd37f29a08311e6161d98f7603b
   src/funcs/auth-system-login-url.ts:
     id: f8baf1bcb5ec
-    last_write_checksum: sha1:b611a7ce8feacf2a06fbf09d9e88a550b1803bb0
-    pristine_git_object: 322f678f6afae1f506328f45c2b42e47eb3260d8
+    last_write_checksum: sha1:f2a699e2c8c6ca8aabd405aca045612bc4b8198a
+    pristine_git_object: 646280673a72f991d816ebfd1ec66634468b4055
   src/funcs/events-get-code.ts:
     id: 5f17524c2778
     last_write_checksum: sha1:fb6c7a6ca1f4bc21a1e43fca2ee1a1979fa96a2e
@@ -6592,8 +6596,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:001178dd11d207d8403315f0c23b9b5db1db127f
-    pristine_git_object: ed3518af5eec8daae63595bc675bcb72bb5134ac
+    last_write_checksum: sha1:878ad9cdf6641244d71464267d1b0c0d0680652f
+    pristine_git_object: 6605f456e25814f4213d567a9106803548dbb36f
   src/lib/encodings.ts:
     id: 3bd8ead98afd
     last_write_checksum: sha1:4481b2a380f8a16856ef92c66fb370299f56d135
@@ -6788,8 +6792,8 @@ trackedFiles:
     pristine_git_object: 520eeecde775b5facd1c5e4c238a9b29d5fec884
   src/models/create-auth-webhook-request-dto.ts:
     id: 5c73290e1555
-    last_write_checksum: sha1:14d634b5457d1cee2a9d8d73e65b0090e3fe47f6
-    pristine_git_object: 20c3030c2e84f385dae096ce4db34f575e241284
+    last_write_checksum: sha1:cb2bd3d6155075d5d1fca565fe0a21cf390e193a
+    pristine_git_object: b03bf5bfbfc9d570527c5289dfb99e0eb8289483
   src/models/create-bank-account-request-dto.ts:
     id: fefe968099e3
     last_write_checksum: sha1:f2ae16afb843f76dccccedfb670be275d7cb2bb0
@@ -7064,8 +7068,8 @@ trackedFiles:
     pristine_git_object: 0f650341562665a862a8fd22dd4a9bd323d6267c
   src/models/index.ts:
     id: f93644b0f37e
-    last_write_checksum: sha1:44d71797df5b431b7ca388fdfa2cf1a5d6031898
-    pristine_git_object: 167481927b15630bffc553f55ca24b874fb762a0
+    last_write_checksum: sha1:912cee03bcd2ad09ad479737447410004c7dcf70
+    pristine_git_object: 3b2d9330a753806e132663a7451e9739b6350249
   src/models/information-response-dto.ts:
     id: 8761a5569682
     last_write_checksum: sha1:8e1393b9ab6dd61835979fb45437cc51161bf390
@@ -7752,8 +7756,8 @@ trackedFiles:
     pristine_git_object: 0bf272d79638fe5aadfb6c0f992f6358057d3760
   src/models/operations/system-login-url.ts:
     id: f670809f3542
-    last_write_checksum: sha1:1f376386d4114033df80c4804685cc9c74e52757
-    pristine_git_object: 00956b12ba0788230713ba0d3e09880b1796762e
+    last_write_checksum: sha1:cf1cfdb7fc4095ce4b3f4098d9e55df0a8488632
+    pristine_git_object: cd38ba18534a6bf3274b0919330088c9384b6b08
   src/models/operations/system-registration.ts:
     id: 76d951ac6338
     last_write_checksum: sha1:120571ea984fabe3322b40125e9e3530d21675a0
@@ -7862,10 +7866,14 @@ trackedFiles:
     id: a846c5191df1
     last_write_checksum: sha1:b35651d101ea4ac11288580774f5f8ba1a56e070
     pristine_git_object: 909fd603779e169d2d3078b3704333bc93c4159b
+  src/models/submission-page-localization-dto.ts:
+    id: dec720c92bba
+    last_write_checksum: sha1:d3d4add792d56a24ea58deb2f60e3c8ff4466117
+    pristine_git_object: e58373cb166352f289f8b741fbe51085b48e025d
   src/models/submission-page-style-dto.ts:
     id: 1f683542b28f
-    last_write_checksum: sha1:1edd76d647e585a5e5a8087006c54f559ca06f76
-    pristine_git_object: f16f0fe77f9631b88d7ce2dd2f47a712b1ee112e
+    last_write_checksum: sha1:8643a6dd248f1759d999411d3c2c536d99f5fe1f
+    pristine_git_object: 504c0668ca20f539ffce53d63eee7a72747e86fa
   src/models/subscription.ts:
     id: 3936c55e9647
     last_write_checksum: sha1:acd0bb0c8a709f91c2c53e286793116d05737921
@@ -9368,4 +9376,4 @@ examples:
         "202":
           application/json: {"data": {"taskId": "<id>", "objectId": "<id>"}, "errors": {}, "rawData": {}}
 examplesVersion: 1.0.2
-releaseNotes: "## Typescript SDK Changes:\n* `maesn.accounting.getOpenItemsAsync()`: **Added**\n* `maesn.accounting.getJournalEntries()`:  `response.data[].additionalInformation` **Added**\n* `maesn.accounting.createJournalEntry()`: \n  *  `request.body.journalEntry` **Changed**\n  *  `response.data.additionalInformation` **Added**\n* `maesn.accounting.getJournalEntry()`:  `response.data.additionalInformation` **Added**\n* `maesn.accounting.updateJournalEntry()`: \n  *  `request.body.journalEntry` **Changed**\n  *  `response.data.additionalInformation` **Added**\n* `maesn.accounting.patchJournalEntry()`: \n  *  `request.body.journalEntry` **Changed**\n  *  `response.data.additionalInformation` **Added**\n* `maesn.accounting.createJournalEntries()`: \n  *  `request.body.entries[].additionalInformation` **Added**\n  *  `response.data.entries[].additionalInformation` **Added**\n* `maesn.accounting.getJournalEntryAttachments()`:  `response.data[].additionalInformation` **Added**\n* `maesn.accounting.createJournalEntryAttachments()`:  `response.data.additionalInformation` **Added**\n* `maesn.accounting.getJournalEntryAttachmentById()`:  `response.data.additionalInformation` **Added**\n"
+releaseNotes: "## Typescript SDK Changes:\n* `maesn.auth.systemLoginUrl()`: \n  *  `request.locale` **Added**\n* `maesn.auth.systemLoginUrlPostAuth()`: \n  *  `request.body.locale` **Added**\n* `maesn.tenants.updateSubmissionPageStyle()`: \n  *  `request.body.pageLocalizations` **Added**\n"

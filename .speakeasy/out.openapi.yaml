@@ -9006,6 +9006,12 @@ paths:
           required: false
           schema:
             type: boolean
+        - name: locale
+          in: query
+          description: BCP-47 language tag (for example de or de-DE) the authentication pages should be shown in. Falls back to the texts configured without a locale.
+          required: false
+          schema:
+            type: string
         - name: X-API-KEY
           in: header
           description: API key
@@ -22597,6 +22603,8 @@ components:
           type: string
         webhookCallbackUrl:
           type: string
+        locale:
+          type: string
     CreateEndUserRequestDto:
       type: object
       properties:
@@ -22669,6 +22677,19 @@ components:
       required:
         - callbackUrl
         - cancelCallbackUrl
+    SubmissionPageLocalizationDto:
+      type: object
+      properties:
+        locale:
+          type: string
+        titleText:
+          type: string
+        freeText:
+          type: string
+        submitButtonText:
+          type: string
+        cancelButtonText:
+          type: string
     SubmissionPageStyleDto:
       type: object
       properties:
@@ -22694,6 +22715,10 @@ components:
           type: string
         errorTextColor:
           type: string
+        pageLocalizations:
+          type: array
+          items:
+            $ref: '#/components/schemas/SubmissionPageLocalizationDto'
       required:
         - logoSvg
         - logoPng
