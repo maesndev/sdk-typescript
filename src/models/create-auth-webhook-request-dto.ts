@@ -11,6 +11,7 @@ export type CreateAuthWebhookRequestDto = {
   includeSignature?: boolean | undefined;
   tenantId?: string | undefined;
   webhookCallbackUrl?: string | undefined;
+  locale?: string | undefined;
 };
 
 /** @internal */
@@ -21,6 +22,7 @@ export type CreateAuthWebhookRequestDto$Outbound = {
   includeSignature?: boolean | undefined;
   tenantId?: string | undefined;
   webhookCallbackUrl?: string | undefined;
+  locale?: string | undefined;
 };
 
 /** @internal */
@@ -34,6 +36,7 @@ export const CreateAuthWebhookRequestDto$outboundSchema: z.ZodMiniType<
   includeSignature: z.optional(z.boolean()),
   tenantId: z.optional(z.string()),
   webhookCallbackUrl: z.optional(z.string()),
+  locale: z.optional(z.string()),
 });
 
 export function createAuthWebhookRequestDtoToJSON(

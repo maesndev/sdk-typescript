@@ -41,6 +41,10 @@ export type SystemLoginUrlRequest = {
    */
   includeSignature?: boolean | undefined;
   /**
+   * BCP-47 language tag (for example de or de-DE) the authentication pages should be shown in. Falls back to the texts configured without a locale.
+   */
+  locale?: string | undefined;
+  /**
    * API key
    */
   apiKey?: string | undefined;
@@ -60,6 +64,7 @@ export type SystemLoginUrlRequest$Outbound = {
   baseUrl?: string | undefined;
   environmentSelection?: boolean | undefined;
   include_signature?: boolean | undefined;
+  locale?: string | undefined;
   apiKey?: string | undefined;
   accountKey?: string | undefined;
 };
@@ -78,6 +83,7 @@ export const SystemLoginUrlRequest$outboundSchema: z.ZodMiniType<
     baseUrl: z.optional(z.string()),
     environmentSelection: z.optional(z.boolean()),
     includeSignature: z.optional(z.boolean()),
+    locale: z.optional(z.string()),
     apiKey: z.optional(z.string()),
     accountKey: z.optional(z.string()),
   }),

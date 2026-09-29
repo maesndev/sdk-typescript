@@ -18,3 +18,4 @@ let value: CreateAuthWebhookRequestDto = {};
 | `includeSignature`   | *boolean*            | :heavy_minus_sign:   | N/A                  |
 | `tenantId`           | *string*             | :heavy_minus_sign:   | N/A                  |
 | `webhookCallbackUrl` | *string*             | :heavy_minus_sign:   | N/A                  |
+| `locale`             | *string*             | :heavy_minus_sign:   | N/A                  |

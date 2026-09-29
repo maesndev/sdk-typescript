@@ -3,6 +3,11 @@
  */
 
 import * as z from "zod/v4-mini";
+import {
+  SubmissionPageLocalizationDto,
+  SubmissionPageLocalizationDto$Outbound,
+  SubmissionPageLocalizationDto$outboundSchema,
+} from "./submission-page-localization-dto.js";
 
 export type SubmissionPageStyleDto = {
   logoSvg: string;
@@ -16,6 +21,7 @@ export type SubmissionPageStyleDto = {
   cancelButtonColor: string;
   cancelButtonTextColor: string;
   errorTextColor: string;
+  pageLocalizations?: Array<SubmissionPageLocalizationDto> | undefined;
 };
 
 /** @internal */
@@ -31,6 +37,7 @@ export type SubmissionPageStyleDto$Outbound = {
   cancelButtonColor: string;
   cancelButtonTextColor: string;
   errorTextColor: string;
+  pageLocalizations?: Array<SubmissionPageLocalizationDto$Outbound> | undefined;
 };
 
 /** @internal */
@@ -49,6 +56,9 @@ export const SubmissionPageStyleDto$outboundSchema: z.ZodMiniType<
   cancelButtonColor: z.string(),
   cancelButtonTextColor: z.string(),
   errorTextColor: z.string(),
+  pageLocalizations: z.optional(
+    z.array(SubmissionPageLocalizationDto$outboundSchema),
+  ),
 });
 
 export function submissionPageStyleDtoToJSON(

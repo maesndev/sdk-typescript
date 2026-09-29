@@ -136,6 +136,7 @@ export * from "./purchase-order-line-item-response-dto.js";
 export * from "./purchase-order-response-dto.js";
 export * from "./sales-order-line-item-response-dto.js";
 export * from "./sales-order-response-dto.js";
+export * from "./submission-page-localization-dto.js";
 export * from "./submission-page-style-dto.js";
 export * from "./subscription.js";
 export * from "./system-registration-dto.js";
