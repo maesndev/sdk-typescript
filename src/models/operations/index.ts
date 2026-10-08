@@ -10,6 +10,7 @@ export * from "./create-bank-account.js";
 export * from "./create-bill-line-item.js";
 export * from "./create-bill.js";
 export * from "./create-booking-proposal-async.js";
+export * from "./create-booking-proposal-attachment.js";
 export * from "./create-booking-proposal-v2.js";
 export * from "./create-booking-proposal.js";
 export * from "./create-contact-v2.js";

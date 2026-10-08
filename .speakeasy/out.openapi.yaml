@@ -6029,6 +6029,67 @@ paths:
         statusCodes:
           - 5XX
         retryConnectionErrors: true
+  /accounting/bookingProposals/{bookingProposalId}/attachments:
+    post:
+      operationId: createBookingProposalAttachment
+      parameters:
+        - name: bookingProposalId
+          required: true
+          in: path
+          schema:
+            type: string
+        - name: companyId
+          required: false
+          in: query
+          description: ID of the company (required for multi-company target systems)
+          schema:
+            type: string
+        - name: environmentName
+          required: false
+          in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
+          schema:
+            type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                documentType:
+                  type: string
+                  enum:
+                    - BILL
+                    - INVOICE
+      responses:
+        "201":
+          description: Booking proposal attachment uploaded successfully
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BaseResponseDto'
+                  - properties:
+                      data:
+                        $ref: '#/components/schemas/DocumentResponseDto'
+      tags:
+        - accounting
   /accounting/bookingProposals/{bookingProposalId}:
     get:
       operationId: getBookingProposal
