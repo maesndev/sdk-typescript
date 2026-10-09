@@ -1,11 +1,11 @@
-# Data
+# DeleteJournalEntryErrors
 
 ## Example Usage
 
 ```typescript
-import { Data } from "@maesn/typescript-sdk/models/operations";
+import { DeleteJournalEntryErrors } from "@maesn/typescript-sdk/models/operations";
 
-let value: Data = {};
+let value: DeleteJournalEntryErrors = {};
 ```
 
 ## Fields

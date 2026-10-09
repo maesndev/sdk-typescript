@@ -35,6 +35,7 @@ import { accountingCreateVendorCredit } from "../funcs/accounting-create-vendor-
 import { accountingDeleteBill } from "../funcs/accounting-delete-bill.js";
 import { accountingDeleteEventSubscriptions } from "../funcs/accounting-delete-event-subscriptions.js";
 import { accountingDeleteItem } from "../funcs/accounting-delete-item.js";
+import { accountingDeleteJournalEntry } from "../funcs/accounting-delete-journal-entry.js";
 import { accountingDeletePayment } from "../funcs/accounting-delete-payment.js";
 import { accountingDeleteVendorCredit } from "../funcs/accounting-delete-vendor-credit.js";
 import { accountingGetAccount } from "../funcs/accounting-get-account.js";
@@ -722,6 +723,17 @@ export class Accounting extends ClientSDK {
     options?: RequestOptions,
   ): Promise<operations.PatchJournalEntryResponse> {
     return unwrapAsync(accountingPatchJournalEntry(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  async deleteJournalEntry(
+    request: operations.DeleteJournalEntryRequest,
+    options?: RequestOptions,
+  ): Promise<operations.DeleteJournalEntryResponse> {
+    return unwrapAsync(accountingDeleteJournalEntry(
       this,
       request,
       options,

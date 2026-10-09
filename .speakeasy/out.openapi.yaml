@@ -3388,6 +3388,54 @@ paths:
                         $ref: '#/components/schemas/JournalEntryResponseDto'
       tags:
         - accounting
+    delete:
+      operationId: deleteJournalEntry
+      parameters:
+        - name: journalEntryId
+          required: true
+          in: path
+          schema:
+            type: string
+        - name: environmentName
+          required: false
+          in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
+          schema:
+            type: string
+        - name: companyId
+          required: false
+          in: query
+          description: ID of the company (required for multi-company target systems)
+          schema:
+            type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
+      responses:
+        "200":
+          description: Journal entry deleted successfully
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BaseResponseDto'
+                  - properties:
+                      data:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+      tags:
+        - accounting
   /accounting/journalEntries/bulk:
     post:
       operationId: createJournalEntries
@@ -6312,7 +6360,6 @@ paths:
         statusCodes:
           - 5XX
         retryConnectionErrors: true
-  /accounting/vendorCredit:
     post:
       operationId: createVendorCredit
       parameters:
