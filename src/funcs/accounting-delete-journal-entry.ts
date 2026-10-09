@@ -4,7 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { MaesnCore } from "../core.js";
-import { encodeFormQuery, encodeJSON, encodeSimple } from "../lib/encodings.js";
+import { encodeFormQuery, encodeSimple } from "../lib/encodings.js";
 import { matchStatusCode } from "../lib/http.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
@@ -25,13 +25,13 @@ import * as operations from "../models/operations/index.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
-export function accountingCreateVendorCredit(
+export function accountingDeleteJournalEntry(
   client: MaesnCore,
-  request: operations.CreateVendorCreditRequest,
+  request: operations.DeleteJournalEntryRequest,
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    operations.CreateVendorCreditResponse,
+    operations.DeleteJournalEntryResponse,
     | MaesnError
     | ResponseValidationError
     | ConnectionError
@@ -51,12 +51,12 @@ export function accountingCreateVendorCredit(
 
 async function $do(
   client: MaesnCore,
-  request: operations.CreateVendorCreditRequest,
+  request: operations.DeleteJournalEntryRequest,
   options?: RequestOptions,
 ): Promise<
   [
     Result<
-      operations.CreateVendorCreditResponse,
+      operations.DeleteJournalEntryResponse,
       | MaesnError
       | ResponseValidationError
       | ConnectionError
@@ -72,16 +72,24 @@ async function $do(
   const parsed = safeParse(
     request,
     (value) =>
-      z.parse(operations.CreateVendorCreditRequest$outboundSchema, value),
+      z.parse(operations.DeleteJournalEntryRequest$outboundSchema, value),
     "Input validation failed",
   );
   if (!parsed.ok) {
     return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
-  const body = encodeJSON("body", payload.body, { explode: true });
+  const body = null;
 
-  const path = pathToFunc("/accounting/vendorCredits")();
+  const pathParams = {
+    journalEntryId: encodeSimple("journalEntryId", payload.journalEntryId, {
+      explode: false,
+      charEncoding: "percent",
+    }),
+  };
+  const path = pathToFunc("/accounting/journalEntries/{journalEntryId}")(
+    pathParams,
+  );
 
   const query = encodeFormQuery({
     "companyId": payload.companyId,
@@ -89,7 +97,6 @@ async function $do(
   });
 
   const headers = new Headers(compactMap({
-    "Content-Type": "application/json",
     Accept: "application/json",
     "X-ACCOUNT-KEY": encodeSimple(
       "X-ACCOUNT-KEY",
@@ -106,7 +113,7 @@ async function $do(
   const context = {
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "createVendorCredit",
+    operationID: "deleteJournalEntry",
     oAuth2Scopes: null,
 
     resolvedSecurity: null,
@@ -119,7 +126,7 @@ async function $do(
   };
 
   const requestRes = client._createRequest(context, {
-    method: "POST",
+    method: "DELETE",
     baseURL: options?.serverURL,
     path: path,
     headers: headers,
@@ -146,7 +153,7 @@ async function $do(
   const response = doResult.value;
 
   const [result] = await M.match<
-    operations.CreateVendorCreditResponse,
+    operations.DeleteJournalEntryResponse,
     | MaesnError
     | ResponseValidationError
     | ConnectionError
@@ -156,7 +163,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(201, operations.CreateVendorCreditResponse$inboundSchema),
+    M.json(200, operations.DeleteJournalEntryResponse$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req);

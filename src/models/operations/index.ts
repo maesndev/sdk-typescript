@@ -44,6 +44,7 @@ export * from "./delete-bill.js";
 export * from "./delete-end-user.js";
 export * from "./delete-event-subscriptions.js";
 export * from "./delete-item.js";
+export * from "./delete-journal-entry.js";
 export * from "./delete-payment.js";
 export * from "./delete-registered-system.js";
 export * from "./delete-vendor-credit.js";

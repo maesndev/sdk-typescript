@@ -46,7 +46,7 @@ export type CreatePassThroughRequestMeta = {
   pagination?: CreatePassThroughRequestPagination | null | undefined;
 };
 
-export type Data = {};
+export type CreatePassThroughRequestData = {};
 
 export type CreatePassThroughRequestErrors = {};
 
@@ -57,7 +57,7 @@ export type CreatePassThroughRequestRawData = {};
  */
 export type CreatePassThroughRequestResponse = {
   meta?: CreatePassThroughRequestMeta | null | undefined;
-  data: Data;
+  data: CreatePassThroughRequestData;
   errors: CreatePassThroughRequestErrors | null;
   rawData: CreatePassThroughRequestRawData | null;
 };
@@ -137,15 +137,18 @@ export function createPassThroughRequestMetaFromJSON(
 }
 
 /** @internal */
-export const Data$inboundSchema: z.ZodMiniType<Data, unknown> = z.object({});
+export const CreatePassThroughRequestData$inboundSchema: z.ZodMiniType<
+  CreatePassThroughRequestData,
+  unknown
+> = z.object({});
 
-export function dataFromJSON(
+export function createPassThroughRequestDataFromJSON(
   jsonString: string,
-): SafeParseResult<Data, SDKValidationError> {
+): SafeParseResult<CreatePassThroughRequestData, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => Data$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Data' from JSON`,
+    (x) => CreatePassThroughRequestData$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreatePassThroughRequestData' from JSON`,
   );
 }
 
@@ -189,7 +192,7 @@ export const CreatePassThroughRequestResponse$inboundSchema: z.ZodMiniType<
   meta: z.optional(
     z.nullable(z.lazy(() => CreatePassThroughRequestMeta$inboundSchema)),
   ),
-  data: z.lazy(() => Data$inboundSchema),
+  data: z.lazy(() => CreatePassThroughRequestData$inboundSchema),
   errors: types.nullable(
     z.lazy(() => CreatePassThroughRequestErrors$inboundSchema),
   ),

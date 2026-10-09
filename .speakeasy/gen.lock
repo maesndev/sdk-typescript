@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: b4a29653-32d8-43f6-ba1e-9aa569fce206
 management:
-  docChecksum: 56f87575faa49161237960f6958fa119
+  docChecksum: 56d71698d7c14c78ddd742bf9ccc8913
   docVersion: "1.0"
   speakeasyVersion: 1.801.0
   generationVersion: 2.946.0
-  releaseVersion: 0.8.23
-  configChecksum: 647992460704e3b944ba2112febc1b99
+  releaseVersion: 0.8.24
+  configChecksum: 16c293bcc70bdde46a7667c5f6b93339
   repoURL: https://github.com/maesndev/sdk-typescript.git
   installationURL: https://github.com/maesndev/sdk-typescript
   published: true
 persistentEdits:
-  generation_id: 216944fe-7c07-46c1-97c9-347d4f115f17
-  pristine_commit_hash: 1d242bf4f38748a2c3ea596f336ef2a8e328f30b
-  pristine_tree_hash: 15609e84d35f3395545f7b06326380f05a8ce689
+  generation_id: 6c81023d-7824-4a96-9e3d-b1783fb7510a
+  pristine_commit_hash: 44dc2c1b85718309033b5f111942c7db55efc281
+  pristine_tree_hash: 33c28c9a5882542df31988d89a5faad68a664581
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -1922,6 +1922,10 @@ trackedFiles:
     id: 3c7378e2b472
     last_write_checksum: sha1:caf466c4a7b5d981c1c6e11b97f8298ae41f8f8f
     pristine_git_object: c23597150cb113d923c6c6da433d039cb04c2de1
+  docs/models/operations/create-pass-through-request-data.md:
+    id: e638b4c227ad
+    last_write_checksum: sha1:8d4c9f74386ba701e7f89658bb8464b5a350fe6a
+    pristine_git_object: ad01bdb4d3e755f37d02dee908e15b1bd690c942
   docs/models/operations/create-pass-through-request-errors.md:
     id: 5831060b3341
     last_write_checksum: sha1:e7dd4a49327336435e245e6d01f8b4948efc6866
@@ -1948,8 +1952,8 @@ trackedFiles:
     pristine_git_object: ec8a0de83d9ed1212cb229c78fa188eaf576fcb6
   docs/models/operations/create-pass-through-request-response.md:
     id: f3e54013b5b2
-    last_write_checksum: sha1:640f7bc42537e027c25ed89a2e19291e1dac3cbf
-    pristine_git_object: c6858ab7da68dcb0c3a1d7f98cb550dffabfef36
+    last_write_checksum: sha1:6b595804029bb241977250aff80487a49f09a72b
+    pristine_git_object: 08e74d08783a6199b7d68f24a2d838556ca25c2e
   docs/models/operations/create-payment-errors.md:
     id: 6a35f05526d2
     last_write_checksum: sha1:d70ebf93bc8f3394284c9d6b6c25ac6e06ef738b
@@ -2210,10 +2214,6 @@ trackedFiles:
     id: a5e7eda5d256
     last_write_checksum: sha1:2ebe5275f24a953eb6edf11e4a780a095664f52c
     pristine_git_object: 602a18748c9851dc157a9c4ec71eddd166f7cdd5
-  docs/models/operations/data.md:
-    id: acd9ffac9680
-    last_write_checksum: sha1:18ef375efbdf4afe801baf3c1faca91570f191af
-    pristine_git_object: e6aafcecb1a9946768bd37ad7f61b17d2821cd87
   docs/models/operations/debit-credit-indicator.md:
     id: 0516531c3c89
     last_write_checksum: sha1:482721544264f9f48fb8ccc7ae641ad372693a4b
@@ -2294,6 +2294,38 @@ trackedFiles:
     id: 989556f23d95
     last_write_checksum: sha1:81967e0fdfc652a39aff050b1dcb653b057fe46c
     pristine_git_object: 7534acdc047821e77356c215e5813f0f17cc0266
+  docs/models/operations/delete-journal-entry-data.md:
+    id: 6eab4965962a
+    last_write_checksum: sha1:8d9e212d0728225b736d3e1dd4b1c0c6d46a344f
+    pristine_git_object: 820c0ab77aa7dcf47a3c71e3ed825264de28799b
+  docs/models/operations/delete-journal-entry-errors.md:
+    id: a656848b8b78
+    last_write_checksum: sha1:16b4977453a8a9d81a3960b064b0d3b0fbe4da86
+    pristine_git_object: 37a9ce353732c85cc31af9a97c89c8575e2ae6c4
+  docs/models/operations/delete-journal-entry-globals.md:
+    id: 47a6ba6e6a70
+    last_write_checksum: sha1:369f7083e81fcf3f639f1c55ea531e9c1fa8fb96
+    pristine_git_object: e8546dd07c3fed093c8f4b381734dcbbb78c72ef
+  docs/models/operations/delete-journal-entry-meta.md:
+    id: ef777e390482
+    last_write_checksum: sha1:3f57cce2ac145209e6a1bc62667374ea223a6fef
+    pristine_git_object: e846e952d4223b6d9935ef1f76dd46cd681b6583
+  docs/models/operations/delete-journal-entry-pagination.md:
+    id: 235846cbe084
+    last_write_checksum: sha1:41f0bc6ef8dd23d06ef45537670abc4e1d85fb37
+    pristine_git_object: d9e20455fa75b3c559b6c9151f8f786f2b476441
+  docs/models/operations/delete-journal-entry-raw-data.md:
+    id: eb5d9d5b362d
+    last_write_checksum: sha1:40374d28c6b2a079e7ee6d79440e1ae82c7627ce
+    pristine_git_object: b4d8cee0ae994cee1b690dadd0ecd8b9fbda6df8
+  docs/models/operations/delete-journal-entry-request.md:
+    id: 80a492066daf
+    last_write_checksum: sha1:d4d5155db6f821e251130f76bb8318c6b552a63c
+    pristine_git_object: a40552cdf1ee4ff9eae0e0e13d3ca9aaddf0a6a7
+  docs/models/operations/delete-journal-entry-response.md:
+    id: e08ba698564f
+    last_write_checksum: sha1:cef0221a32cc3a9921baf59591862880c6eaaad1
+    pristine_git_object: 55ab47f559201cc64e1a41b047a71e9665c03583
   docs/models/operations/delete-payment-errors.md:
     id: bdfef3cc1a49
     last_write_checksum: sha1:adcebb4496e239f579568d33a6a43d2c5f1a8b92
@@ -5904,8 +5936,8 @@ trackedFiles:
     pristine_git_object: 22dd5f08bac5ea8e40e42de4ebb0a5876ef875c5
   docs/sdks/accounting/README.md:
     id: 6abb8976ed95
-    last_write_checksum: sha1:428c9e9299768944edc5a3b5bf5fa54561478b50
-    pristine_git_object: c6cc2fde906bdf4b5c5981dfdbfb0a72f4759162
+    last_write_checksum: sha1:cf4a680ee94f5d2cbdaf177376ee3828e4108d4a
+    pristine_git_object: 3f5bbb6daa097f6249398f42ce6d54df0c1d7e40
   docs/sdks/accountingv2/README.md:
     id: 24a9f287e358
     last_write_checksum: sha1:500b8cea57ac71e42f511ba1868fbbcbcf756650
@@ -5952,12 +5984,12 @@ trackedFiles:
     pristine_git_object: 620f120672c2be3445356aaae6d877d4d89c43d5
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:4d796ac3c457395e7cd981f0c74f7637f7ef3630
-    pristine_git_object: 22624d4c6e18e3a69e04779f556508c9fc613121
+    last_write_checksum: sha1:68ab785eb801fb4844eadc1a26ebaf833fcfba77
+    pristine_git_object: 01661b93fffe9ab49d1b4c0164ebca403ec5873c
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:75ac950263593bbd4da03b17036b7064b014e6cf
-    pristine_git_object: 37a54f9206052c79fa06fffdf609443f79ff3549
+    last_write_checksum: sha1:223bf8edac5ce829e11b7844d8fef83024935b40
+    pristine_git_object: 4c599fe470d7479c5d13095f9be6435df3754537
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:2eff2a6c77b0c787da6418de861acc36733c433a
@@ -6080,8 +6112,8 @@ trackedFiles:
     pristine_git_object: 3b4a26745c176e59e11f71d7b205c0c7e4749fd0
   src/funcs/accounting-create-vendor-credit.ts:
     id: 5edc43f6df2a
-    last_write_checksum: sha1:26cd7ce2275537de6f7d8430cd90bb47bc8a839e
-    pristine_git_object: b41c50174c50d08476a61da7c4b325015dae6342
+    last_write_checksum: sha1:d1be77d0c4e56a114441593ae7f249e62cafd66e
+    pristine_git_object: 37dfea2796641b5a258a41e7360f65d52f3bddb2
   src/funcs/accounting-delete-bill.ts:
     id: 8962c4c35866
     last_write_checksum: sha1:9b2c582792d3571247016369302083245a24cdbc
@@ -6094,6 +6126,10 @@ trackedFiles:
     id: 615ca27ec23a
     last_write_checksum: sha1:ba37f603b6726a342bed033e1a92138ff43956df
     pristine_git_object: 460a24c889fb979f51a06a9fb79aa57ee2bcae43
+  src/funcs/accounting-delete-journal-entry.ts:
+    id: e12f232a3c88
+    last_write_checksum: sha1:1411df8b0e484a0f531849f669a7d2527258cf62
+    pristine_git_object: 1ce9d0796bb825adcf383b20dc72de7f302b4150
   src/funcs/accounting-delete-payment.ts:
     id: 697418c86a66
     last_write_checksum: sha1:ece2b2b0e105a6311b625d666399a581629257b0
@@ -6640,8 +6676,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:334f6393caccc7da3c225ab97391bcf463406133
-    pristine_git_object: 68d747854821ac4ac372a7eb901b1e5138bdca60
+    last_write_checksum: sha1:7cd9b111d3e282163f1a7e3cc569b4431ee6c10d
+    pristine_git_object: b6418e90467d9cfaaba85c71641bcdab2d6c2b92
   src/lib/encodings.ts:
     id: 3bd8ead98afd
     last_write_checksum: sha1:4481b2a380f8a16856ef92c66fb370299f56d135
@@ -7296,8 +7332,8 @@ trackedFiles:
     pristine_git_object: e6ed083150a1d3971b7a24fb5eebe30d8757bf9d
   src/models/operations/create-pass-through-request.ts:
     id: 5d886eefec97
-    last_write_checksum: sha1:60104b85099ff82e4d970e10f494a900ac64d3a1
-    pristine_git_object: cc238dc2cffebd4922e12ff44f61d67db1f3797d
+    last_write_checksum: sha1:830d71ff9065245339df8ce9866fa1bee8ece3e3
+    pristine_git_object: d4ece2ef98fd54f12a949c8028aef1d6cdc923cd
   src/models/operations/create-payment-term.ts:
     id: f942acce32e3
     last_write_checksum: sha1:67c1570257bc7ec1d86e43a467435e9a6b718d35
@@ -7350,6 +7386,10 @@ trackedFiles:
     id: 521022ca42a7
     last_write_checksum: sha1:db1674f49f96501dbfa84e8d9ddf73d613533f60
     pristine_git_object: 921c89e84d9bcbefc5625823f72bd73ba900f4cb
+  src/models/operations/delete-journal-entry.ts:
+    id: 280f4d4e9ee0
+    last_write_checksum: sha1:87e9eb93ec205cf72779cf026ada96e3a037c486
+    pristine_git_object: 7840d8b9c8947e130d1464052a5d7fa1aa4ea0af
   src/models/operations/delete-payment.ts:
     id: e3155bc712da
     last_write_checksum: sha1:9f62ff486b3ec18c72e1d15566a57ce0f1707cd3
@@ -7748,8 +7788,8 @@ trackedFiles:
     pristine_git_object: 280f1620aebacc2c71e8145432da2a8d8076a896
   src/models/operations/index.ts:
     id: 0d9ffaf774d2
-    last_write_checksum: sha1:3f804d63154f7963981f361a7cc54e1cd3ba4a8d
-    pristine_git_object: 9ed96c6aff6405cdb1542364b770d22be217851b
+    last_write_checksum: sha1:e0f14a7cdb6317cecd062306ed60b9d83ded76a8
+    pristine_git_object: 0e74d8db699e817ef2176c04a96dced58093de01
   src/models/operations/patch-contact-v2.ts:
     id: 645bafde5f35
     last_write_checksum: sha1:906ae3cebc20c7b3a07de8645ea49ec636a38e61
@@ -7992,8 +8032,8 @@ trackedFiles:
     pristine_git_object: 321ceb160da6038dd8f1866f40ae80e8f9d278cd
   src/sdk/accounting.ts:
     id: e0128a734bc9
-    last_write_checksum: sha1:717961d85263b79d23a5c17aa3ddcc8cc9f2bd6a
-    pristine_git_object: 5d432904fde2110d0efa35e0e118b2f5eb082c67
+    last_write_checksum: sha1:08f045a621a1ee0fc4c9d85ab565d80517dbe9fd
+    pristine_git_object: 8b0fb1dc3887f111e120ec3b9ee60b534615333f
   src/sdk/auth.ts:
     id: b29b1fc6bdf5
     last_write_checksum: sha1:9b8371badc23b9d6dc6c37c1294c2c774c356c9f
@@ -9433,7 +9473,15 @@ examples:
       responses:
         "201":
           application/json: {"data": {"id": "<id>", "base64Encoded": false, "content": "<value>", "contentType": null, "fileName": "example.file"}, "errors": {}, "rawData": {}}
+  deleteJournalEntry:
+    speakeasy-default-delete-journal-entry:
+      parameters:
+        path:
+          journalEntryId: "<id>"
+      responses:
+        "200":
+          application/json: {"data": {}, "errors": {}, "rawData": {}}
 examplesVersion: 1.0.2
 releaseNotes: |
   ## Typescript SDK Changes:
-  * `maesn.accounting.createBookingProposalAttachment()`: **Added**
+  * `maesn.accounting.deleteJournalEntry()`: **Added**
