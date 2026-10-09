@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: b4a29653-32d8-43f6-ba1e-9aa569fce206
 management:
-  docChecksum: b93e55bca196f47b8a4a1f891cf718f0
+  docChecksum: 56f87575faa49161237960f6958fa119
   docVersion: "1.0"
-  speakeasyVersion: 1.799.0
-  generationVersion: 2.941.0
-  releaseVersion: 0.8.22
-  configChecksum: 55c67dd4a806dcb1578d6ad3f18d8227
+  speakeasyVersion: 1.801.0
+  generationVersion: 2.946.0
+  releaseVersion: 0.8.23
+  configChecksum: 647992460704e3b944ba2112febc1b99
   repoURL: https://github.com/maesndev/sdk-typescript.git
   installationURL: https://github.com/maesndev/sdk-typescript
   published: true
 persistentEdits:
-  generation_id: 3b22282c-45c5-470a-afe1-4491df8eba08
-  pristine_commit_hash: b603249919fcf9397b2c3382c111fa2459bd254b
-  pristine_tree_hash: 106b46ba4032fc8d6b0b68bebd96753d12d6c0de
+  generation_id: 216944fe-7c07-46c1-97c9-347d4f115f17
+  pristine_commit_hash: 1d242bf4f38748a2c3ea596f336ef2a8e328f30b
+  pristine_tree_hash: 15609e84d35f3395545f7b06326380f05a8ce689
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -1306,6 +1306,42 @@ trackedFiles:
     id: c0448fbecde4
     last_write_checksum: sha1:1fe305e53c1cfb67ca992d2f30a88cfc511348e0
     pristine_git_object: b6dd68387662177455b8cd295a4699415bc72d0d
+  docs/models/operations/create-booking-proposal-attachment-errors.md:
+    id: 6df20d996ee8
+    last_write_checksum: sha1:85bc13408decd1a82eead6e8a8078d5ba3055f1c
+    pristine_git_object: 3d1a98b4dc97be79f9e9677140b784ab83f584f5
+  docs/models/operations/create-booking-proposal-attachment-file.md:
+    id: e4cb0a171896
+    last_write_checksum: sha1:cef68af40f60ac7ed5c5a019aa1b44a96b1f1d1b
+    pristine_git_object: a669f915c2509f8bdbc90781a86162ab5ea13c9e
+  docs/models/operations/create-booking-proposal-attachment-globals.md:
+    id: 49cfdad16b09
+    last_write_checksum: sha1:ad32afa756ad494b8b49668bfff4fc736d304a2b
+    pristine_git_object: 6ac45d13edbb917453d270e5a1559551cfd45de7
+  docs/models/operations/create-booking-proposal-attachment-meta.md:
+    id: 6739fe37d333
+    last_write_checksum: sha1:547f534ce5c594559a6e895d3f069414fd66712b
+    pristine_git_object: 15a8b7dc1c0590e948d9ac9b2394db2b9b113f8f
+  docs/models/operations/create-booking-proposal-attachment-pagination.md:
+    id: 5f351e6c7001
+    last_write_checksum: sha1:42d882d3437ed6859cbd93fcb713117a78b88b56
+    pristine_git_object: b7f94ddb3c80873f2e9757c3a06685cf86f1b9bd
+  docs/models/operations/create-booking-proposal-attachment-raw-data.md:
+    id: 1e1693de53ab
+    last_write_checksum: sha1:7a4db457a84acc6caeb5fadbcf7c02678b5facb0
+    pristine_git_object: 8224cc13f5a2b8f8ddc24daec7c43edde04c68c5
+  docs/models/operations/create-booking-proposal-attachment-request-body.md:
+    id: 7036bc8e9496
+    last_write_checksum: sha1:286ffaf20aff2e575121ac796a6c65e5772b072b
+    pristine_git_object: 8ccde8b1d5aa210da6a10175c43b3b7e8df1e1ae
+  docs/models/operations/create-booking-proposal-attachment-request.md:
+    id: 126ad9fda430
+    last_write_checksum: sha1:df1c377cd103d973e0982a08ff9cd8fe415dbe58
+    pristine_git_object: 57376819cb4cea9ec8b6943d0e8943b380d2c258
+  docs/models/operations/create-booking-proposal-attachment-response.md:
+    id: 99db58fb23c4
+    last_write_checksum: sha1:e4c081cb7d01590bc8627d3edb7f9a13ae72f83b
+    pristine_git_object: 9ee4b2a168eac4534831aac5c569588e8723946e
   docs/models/operations/create-booking-proposal-errors.md:
     id: 2bbcc94035a4
     last_write_checksum: sha1:ed5d8fc77a31dd8d42233901465338b1d74b7c03
@@ -2346,6 +2382,10 @@ trackedFiles:
     id: 94ab63919fb5
     last_write_checksum: sha1:1dc08bad57c830929adb2e12f60f6689857f325a
     pristine_git_object: 26b75877619f041aba7cf41fefa78f8c87bb316f
+  docs/models/operations/document-type.md:
+    id: 019a933b9cf2
+    last_write_checksum: sha1:82157850305808e4bb57ec67c1b19b1890b7c96b
+    pristine_git_object: 990632f4a2d01fc7eb7918e5c4c624008f552fd1
   docs/models/operations/generate-tenant-signing-secret-globals.md:
     id: 79eca64ee40d
     last_write_checksum: sha1:54dd23e8176df420e20901d445063da0814b4c08
@@ -5864,8 +5904,8 @@ trackedFiles:
     pristine_git_object: 22dd5f08bac5ea8e40e42de4ebb0a5876ef875c5
   docs/sdks/accounting/README.md:
     id: 6abb8976ed95
-    last_write_checksum: sha1:b0080879ed8c8694a144689716ae9f500b909de4
-    pristine_git_object: d72fb5fee778cf6dd663efd69db659c90fd9bf61
+    last_write_checksum: sha1:428c9e9299768944edc5a3b5bf5fa54561478b50
+    pristine_git_object: c6cc2fde906bdf4b5c5981dfdbfb0a72f4759162
   docs/sdks/accountingv2/README.md:
     id: 24a9f287e358
     last_write_checksum: sha1:500b8cea57ac71e42f511ba1868fbbcbcf756650
@@ -5912,12 +5952,12 @@ trackedFiles:
     pristine_git_object: 620f120672c2be3445356aaae6d877d4d89c43d5
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:7e106224f46779737b00725e838a08303f2ebb89
-    pristine_git_object: 5fbced663e04fed5bc75fdec6d9b46ffc24eb4ec
+    last_write_checksum: sha1:4d796ac3c457395e7cd981f0c74f7637f7ef3630
+    pristine_git_object: 22624d4c6e18e3a69e04779f556508c9fc613121
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:c8d66ad65a4b7752de411f18f297e03c64b2ec91
-    pristine_git_object: 1e0db1d210e4bd537f82469edbf0a4bb9fbc583c
+    last_write_checksum: sha1:75ac950263593bbd4da03b17036b7064b014e6cf
+    pristine_git_object: 37a54f9206052c79fa06fffdf609443f79ff3549
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:2eff2a6c77b0c787da6418de861acc36733c433a
@@ -5942,6 +5982,10 @@ trackedFiles:
     id: 8d67d89998a0
     last_write_checksum: sha1:eca65de23cc6447905543e15393df7653a5e5866
     pristine_git_object: a840f3e1c23920e73ee9df53a31d5a406b83f014
+  src/funcs/accounting-create-booking-proposal-attachment.ts:
+    id: c98cc151286a
+    last_write_checksum: sha1:0f72938b33860172ce2ab1f749633477a2a65429
+    pristine_git_object: ae3b8944daaa384c3d71c3dfa58d83c1359572f0
   src/funcs/accounting-create-booking-proposal.ts:
     id: ecd89515fa83
     last_write_checksum: sha1:f07b4c0087e6923a7e8bf3bb711848fbea750f8f
@@ -6596,8 +6640,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:878ad9cdf6641244d71464267d1b0c0d0680652f
-    pristine_git_object: 6605f456e25814f4213d567a9106803548dbb36f
+    last_write_checksum: sha1:334f6393caccc7da3c225ab97391bcf463406133
+    pristine_git_object: 68d747854821ac4ac372a7eb901b1e5138bdca60
   src/lib/encodings.ts:
     id: 3bd8ead98afd
     last_write_checksum: sha1:4481b2a380f8a16856ef92c66fb370299f56d135
@@ -7170,6 +7214,10 @@ trackedFiles:
     id: d1bbf660d143
     last_write_checksum: sha1:9fe148769f3b95844b614a6bbb21749f472336b3
     pristine_git_object: cbca7f79b3d238da7a2692911f4edb2443cdb654
+  src/models/operations/create-booking-proposal-attachment.ts:
+    id: 9071c735eb06
+    last_write_checksum: sha1:adcbc70112e671754f240355efe7b8c8e16d1580
+    pristine_git_object: d3047b63b6c7a556e9d1df005247ca7a41090713
   src/models/operations/create-booking-proposal-v2.ts:
     id: 39c781b62afc
     last_write_checksum: sha1:405fadc2c7d45f980d7703f72dcf0597c5c06fcd
@@ -7700,8 +7748,8 @@ trackedFiles:
     pristine_git_object: 280f1620aebacc2c71e8145432da2a8d8076a896
   src/models/operations/index.ts:
     id: 0d9ffaf774d2
-    last_write_checksum: sha1:a012c33bc0bbe916ee1c5d1e96ab12bf13bd0767
-    pristine_git_object: d920a8e3996a95d9d647a96c7a624b98a57337d8
+    last_write_checksum: sha1:3f804d63154f7963981f361a7cc54e1cd3ba4a8d
+    pristine_git_object: 9ed96c6aff6405cdb1542364b770d22be217851b
   src/models/operations/patch-contact-v2.ts:
     id: 645bafde5f35
     last_write_checksum: sha1:906ae3cebc20c7b3a07de8645ea49ec636a38e61
@@ -7944,8 +7992,8 @@ trackedFiles:
     pristine_git_object: 321ceb160da6038dd8f1866f40ae80e8f9d278cd
   src/sdk/accounting.ts:
     id: e0128a734bc9
-    last_write_checksum: sha1:e929a97245763e303abcf2f0dbe1f3d2a6f2e042
-    pristine_git_object: 3896840b0cdc6782f3256337de270d53fcb8ae54
+    last_write_checksum: sha1:717961d85263b79d23a5c17aa3ddcc8cc9f2bd6a
+    pristine_git_object: 5d432904fde2110d0efa35e0e118b2f5eb082c67
   src/sdk/auth.ts:
     id: b29b1fc6bdf5
     last_write_checksum: sha1:9b8371badc23b9d6dc6c37c1294c2c774c356c9f
@@ -8020,8 +8068,8 @@ trackedFiles:
     pristine_git_object: c79b3f53a3dd922aa2ace5a4191c8652cf9a8e89
   src/types/smart-union.ts:
     id: 2e3af2ad4ea7
-    last_write_checksum: sha1:9928dbec2d8ad501da8518c10ec6df3b441eb5c9
-    pristine_git_object: a9db55cfc1d1cbdcc480dfa5eeead3ee526d6953
+    last_write_checksum: sha1:a81f09ceb76cb40d41f4b0ac9efee243318b4cfc
+    pristine_git_object: 3e1d6726bb10ad1ce1bdefa6750f69d6b6d7ae08
   src/types/streams.ts:
     id: f99be9c4bf14
     last_write_checksum: sha1:cc9ced2dd34a76c3a1bd7784ccda1cc3b37ab9a9
@@ -9375,5 +9423,17 @@ examples:
       responses:
         "202":
           application/json: {"data": {"taskId": "<id>", "objectId": "<id>"}, "errors": {}, "rawData": {}}
+  createBookingProposalAttachment:
+    speakeasy-default-create-booking-proposal-attachment:
+      parameters:
+        path:
+          bookingProposalId: "<id>"
+      requestBody:
+        multipart/form-data: {}
+      responses:
+        "201":
+          application/json: {"data": {"id": "<id>", "base64Encoded": false, "content": "<value>", "contentType": null, "fileName": "example.file"}, "errors": {}, "rawData": {}}
 examplesVersion: 1.0.2
-releaseNotes: "## Typescript SDK Changes:\n* `maesn.auth.systemLoginUrl()`: \n  *  `request.locale` **Added**\n* `maesn.auth.systemLoginUrlPostAuth()`: \n  *  `request.body.locale` **Added**\n* `maesn.tenants.updateSubmissionPageStyle()`: \n  *  `request.body.pageLocalizations` **Added**\n"
+releaseNotes: |
+  ## Typescript SDK Changes:
+  * `maesn.accounting.createBookingProposalAttachment()`: **Added**
