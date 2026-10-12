@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: b4a29653-32d8-43f6-ba1e-9aa569fce206
 management:
-  docChecksum: 56d71698d7c14c78ddd742bf9ccc8913
+  docChecksum: 53c3d6d49995c93a347d8f6bd07f65c0
   docVersion: "1.0"
-  speakeasyVersion: 1.801.0
-  generationVersion: 2.946.0
-  releaseVersion: 0.8.24
-  configChecksum: 16c293bcc70bdde46a7667c5f6b93339
+  speakeasyVersion: 1.802.0
+  generationVersion: 2.948.4
+  releaseVersion: 0.8.25
+  configChecksum: 448d058ae6db63c6eed9b61a04541fe6
   repoURL: https://github.com/maesndev/sdk-typescript.git
   installationURL: https://github.com/maesndev/sdk-typescript
   published: true
 persistentEdits:
-  generation_id: 6c81023d-7824-4a96-9e3d-b1783fb7510a
-  pristine_commit_hash: 44dc2c1b85718309033b5f111942c7db55efc281
-  pristine_tree_hash: 33c28c9a5882542df31988d89a5faad68a664581
+  generation_id: 0b6a0e43-ee26-40c6-be7e-532b86a733c9
+  pristine_commit_hash: ebc758a2b131e207c28c895361d4409dadc63a2b
+  pristine_tree_hash: df8ef3998f24e3b00a68ab5248cff0932fe3ab50
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -2008,8 +2008,8 @@ trackedFiles:
     pristine_git_object: a427df50c5d38d5eac7a6890ad161b220caa7164
   docs/models/operations/create-payment-term-response.md:
     id: 00f7f1469c14
-    last_write_checksum: sha1:233641a0de90a957a320ac68e025928329169a4a
-    pristine_git_object: 50d74d59a2432ac9e8f3bc144a97a2fc46a83716
+    last_write_checksum: sha1:7930ec4d3a04efccf37ab5f4da9607de4b058a90
+    pristine_git_object: d321254896652dbf34cc07c79b3f3f79eca79a4e
   docs/models/operations/create-project-errors.md:
     id: 40c11d78aa2e
     last_write_checksum: sha1:43a47faae7891db9fc7e0e73290120be961c33b0
@@ -4280,8 +4280,8 @@ trackedFiles:
     pristine_git_object: cf4d61468d44f690f8247fd5c7c8a182cc397212
   docs/models/operations/get-payment-term-response.md:
     id: 2ec196142879
-    last_write_checksum: sha1:2d36cb4f0825250cff38e1f6516e6569f9d57667
-    pristine_git_object: 70a45ef644058bc9d1a68d8bf9a5faaa89b57dc9
+    last_write_checksum: sha1:032c531badeada79ff712324d1351f8d441d49dc
+    pristine_git_object: 98bbd6681f9d79985102a0d836aa833861bfa627
   docs/models/operations/get-payment-terms-errors.md:
     id: 3e11fde4db3e
     last_write_checksum: sha1:716c0f43286428651d24d6f0b4fe6566a0a1655b
@@ -4312,8 +4312,8 @@ trackedFiles:
     pristine_git_object: dbaa40d92a7cdc427b723fe1229951d4dd9d1351
   docs/models/operations/get-payment-terms-response.md:
     id: e2df997415e6
-    last_write_checksum: sha1:a8c46eea643b063c8ece10bcf548bddb17795246
-    pristine_git_object: 4cf14534a91cc1bdda773f213b5eedec3d1dd42c
+    last_write_checksum: sha1:9d03e7c682d02e8a4dda5b1b023e6279021284f8
+    pristine_git_object: ad7701704e538977eed2c7248bf1e9d7f67c4a3b
   docs/models/operations/get-payments-errors.md:
     id: 022a006d8713
     last_write_checksum: sha1:02c7912bdcbb683309dc07e5c22469304dff747b
@@ -5748,8 +5748,8 @@ trackedFiles:
     pristine_git_object: b4695db41eac2e750262321d28ddaf1649844eda
   docs/models/payment-term-response-dto.md:
     id: ea86d4c84e34
-    last_write_checksum: sha1:e70a4bda80cdb7de7c434c59ab8f655213793073
-    pristine_git_object: 64fb36eaaeaaa681bc4698c8e072eb213c0feab4
+    last_write_checksum: sha1:2d036767b59a1cf8b382b44f52e624276b123dd6
+    pristine_git_object: acdf95fe0baae98b558f4e873796b419e350da2a
   docs/models/phone-number-type.md:
     id: 47214abd4281
     last_write_checksum: sha1:1e1b5d36c8e62fb275f715bcf615f0db13b7b319
@@ -5984,12 +5984,12 @@ trackedFiles:
     pristine_git_object: 620f120672c2be3445356aaae6d877d4d89c43d5
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:68ab785eb801fb4844eadc1a26ebaf833fcfba77
-    pristine_git_object: 01661b93fffe9ab49d1b4c0164ebca403ec5873c
+    last_write_checksum: sha1:104a694a79598d60a157c89264c1ae9801928632
+    pristine_git_object: ceda8f54b07e93f9003f2b1e1e67235c65e91539
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:223bf8edac5ce829e11b7844d8fef83024935b40
-    pristine_git_object: 4c599fe470d7479c5d13095f9be6435df3754537
+    last_write_checksum: sha1:22f159a1ac951ea14ce7c4697a8817bae761515c
+    pristine_git_object: 356e7a3a255ce32a992dbe30d6af3ab9f8295d9f
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:2eff2a6c77b0c787da6418de861acc36733c433a
@@ -6676,8 +6676,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:7cd9b111d3e282163f1a7e3cc569b4431ee6c10d
-    pristine_git_object: b6418e90467d9cfaaba85c71641bcdab2d6c2b92
+    last_write_checksum: sha1:5fb6a013adce891da7dede1cb0c012e7f8709247
+    pristine_git_object: e4fb66474f6ed0b3ac0bdf04a80f069eb51722de
   src/lib/encodings.ts:
     id: 3bd8ead98afd
     last_write_checksum: sha1:4481b2a380f8a16856ef92c66fb370299f56d135
@@ -7924,8 +7924,8 @@ trackedFiles:
     pristine_git_object: 11ee36a4cc048f22f64fdc965143565f027edf78
   src/models/payment-term-response-dto.ts:
     id: c1bd66fe9711
-    last_write_checksum: sha1:e6213f191fce4936efcc8eac16bccd90de8025e6
-    pristine_git_object: f91e7ff37e3e65e80f3d9d7e0e7910062891209c
+    last_write_checksum: sha1:2a45928e1bd799d81f50a6436764937575bfc841
+    pristine_git_object: ef621b7a509296116976a30669ea1fa3c63cae23
   src/models/phone-number-v2.ts:
     id: 33713c24f879
     last_write_checksum: sha1:f7cbf1c22e45a0416956b5cd4b67f52dca18dd1f
@@ -8654,7 +8654,7 @@ examples:
     speakeasy-default-get-payment-terms:
       responses:
         "200":
-          application/json: {"data": [{"id": "<id>", "code": "<value>", "createdDate": "<value>", "description": "from like metal notwithstanding congregate front until uh-huh whenever once", "discountDays": 3031.08, "discountDays2": 1724.47, "discountPercentage": 971.89, "discountPercentage2": 7836.38, "discountPeriods": [{"invoiceRange": "<value>", "discountDeadline": "<value>", "discountDeadline2": "<value>", "paymentDeadline": "<value>"}], "dueType": "DUE_IN_DAYS", "name": "<value>", "paymentDays": 6906.16, "paymentMethod": "CASH", "updatedDate": "{}"}], "errors": {}, "rawData": {}}
+          application/json: {"data": [{"id": "<id>", "code": "<value>", "createdDate": "<value>", "description": "from like metal notwithstanding congregate front until uh-huh whenever once", "discountDays": 3031.08, "discountDays2": 1724.47, "discountDaysCalculation": "<value>", "discountPercentage": 971.89, "discountPercentage2": 7836.38, "discountPeriods": [{"invoiceRange": "<value>", "discountDeadline": "<value>", "discountDeadline2": "<value>", "paymentDeadline": "<value>"}], "dueType": "DUE_IN_DAYS", "name": "<value>", "paymentDays": 6906.16, "paymentDaysCalculation": "<value>", "paymentMethod": "CASH", "updatedDate": "{}"}], "errors": {}, "rawData": {}}
   createPaymentTerm:
     speakeasy-default-create-payment-term:
       requestBody:
@@ -8663,7 +8663,7 @@ examples:
         "200":
           application/json: {"meta": {"warnings": ["<value 1>"], "pagination": {"total": 3329.46, "perPage": 7386.09, "currentPage": 5231.34, "totalPages": 5036.48}}, "data": {"id": "<id>", "code": "<value>", "createdDate": "<value>", "description": "peony selfishly gracefully frantically", "discountDays": 9994.04, "discountDays2": 2500.8, "discountPercentage": 3527.21, "discountPercentage2": 8334.86, "discountPeriods": [], "dueType": "DUE_IN_DAYS", "name": "<value>", "paymentDays": 1243.33, "paymentMethod": "<value>", "updatedDate": {}}, "errors": {}, "rawData": {}}
         "201":
-          application/json: {"data": {"id": "<id>", "code": "<value>", "createdDate": "<value>", "description": "gracefully hmph apostrophize retrospectivity blind qua coexist or or whereas", "discountDays": null, "discountDays2": 4097.27, "discountPercentage": 6588.49, "discountPercentage2": 9558.23, "discountPeriods": [], "dueType": null, "name": "<value>", "paymentDays": 8866.04, "paymentMethod": "BANK_TRANSFER", "updatedDate": "<value>"}, "errors": {}, "rawData": {}}
+          application/json: {"data": {"id": "<id>", "code": "<value>", "createdDate": "<value>", "description": "gracefully hmph apostrophize retrospectivity blind qua coexist or or whereas", "discountDays": null, "discountDays2": 4097.27, "discountDaysCalculation": "<value>", "discountPercentage": 6588.49, "discountPercentage2": 9558.23, "discountPeriods": [], "dueType": null, "name": "<value>", "paymentDays": 8866.04, "paymentDaysCalculation": "<value>", "paymentMethod": "BANK_TRANSFER", "updatedDate": "<value>"}, "errors": {}, "rawData": {}}
   getPaymentTerm:
     speakeasy-default-get-payment-term:
       parameters:
@@ -8671,7 +8671,7 @@ examples:
           paymentTermId: "<id>"
       responses:
         "200":
-          application/json: {"data": {"id": "<id>", "code": "<value>", "createdDate": "<value>", "description": "after however so meanwhile intervention gosh kiddingly", "discountDays": 4903.85, "discountDays2": 1806.04, "discountPercentage": 6285.13, "discountPercentage2": 5456.37, "discountPeriods": [{"invoiceRange": "<value>", "discountDeadline": "<value>", "discountDeadline2": "<value>", "paymentDeadline": "<value>"}], "dueType": "DUE_AS_PERIOD", "name": "<value>", "paymentDays": 7833.15, "paymentMethod": "BANK_TRANSFER", "updatedDate": "{}"}, "errors": {}, "rawData": {}}
+          application/json: {"data": {"id": "<id>", "code": "<value>", "createdDate": "<value>", "description": "after however so meanwhile intervention gosh kiddingly", "discountDays": 4903.85, "discountDays2": 1806.04, "discountDaysCalculation": "<value>", "discountPercentage": 6285.13, "discountPercentage2": 5456.37, "discountPeriods": [{"invoiceRange": "<value>", "discountDeadline": "<value>", "discountDeadline2": "<value>", "paymentDeadline": "<value>"}], "dueType": "DUE_AS_PERIOD", "name": "<value>", "paymentDays": 7833.15, "paymentDaysCalculation": "<value>", "paymentMethod": "BANK_TRANSFER", "updatedDate": "{}"}, "errors": {}, "rawData": {}}
   getTaxRates:
     speakeasy-default-get-tax-rates:
       responses:
@@ -9484,4 +9484,6 @@ examples:
 examplesVersion: 1.0.2
 releaseNotes: |
   ## Typescript SDK Changes:
-  * `maesn.accounting.deleteJournalEntry()`: **Added**
+  * `maesn.accounting.getPaymentTerms()`:  `response.data[]` **Changed**
+  * `maesn.accounting.createPaymentTerm()`:  `response.data` **Changed**
+  * `maesn.accounting.getPaymentTerm()`:  `response.data` **Changed**

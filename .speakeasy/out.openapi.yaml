@@ -15749,6 +15749,9 @@ components:
         discountDays2:
           type: number
           nullable: true
+        discountDaysCalculation:
+          type: string
+          nullable: true
         discountPercentage:
           type: number
           nullable: true
@@ -15772,6 +15775,9 @@ components:
         paymentDays:
           type: number
           nullable: true
+        paymentDaysCalculation:
+          type: string
+          nullable: true
         paymentMethod:
           type: string
           enum:
@@ -15790,12 +15796,14 @@ components:
         - description
         - discountDays
         - discountDays2
+        - discountDaysCalculation
         - discountPercentage
         - discountPercentage2
         - discountPeriods
         - dueType
         - name
         - paymentDays
+        - paymentDaysCalculation
         - paymentMethod
         - updatedDate
     TaxRateResponseDto:
