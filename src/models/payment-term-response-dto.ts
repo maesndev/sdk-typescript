@@ -36,12 +36,14 @@ export type PaymentTermResponseDto = {
   description: string | null;
   discountDays: number | null;
   discountDays2: number | null;
+  discountDaysCalculation: string | null;
   discountPercentage: number | null;
   discountPercentage2: number | null;
   discountPeriods: Array<DiscountPeriodResponse> | null;
   dueType: PaymentTermResponseDtoDueType | null;
   name: string | null;
   paymentDays: number | null;
+  paymentDaysCalculation: string | null;
   paymentMethod: PaymentMethod | null;
   updatedDate: string | null;
 };
@@ -66,6 +68,7 @@ export const PaymentTermResponseDto$inboundSchema: z.ZodMiniType<
   description: types.nullable(types.string()),
   discountDays: types.nullable(types.number()),
   discountDays2: types.nullable(types.number()),
+  discountDaysCalculation: types.nullable(types.string()),
   discountPercentage: types.nullable(types.number()),
   discountPercentage2: types.nullable(types.number()),
   discountPeriods: types.nullable(
@@ -74,6 +77,7 @@ export const PaymentTermResponseDto$inboundSchema: z.ZodMiniType<
   dueType: types.nullable(PaymentTermResponseDtoDueType$inboundSchema),
   name: types.nullable(types.string()),
   paymentDays: types.nullable(types.number()),
+  paymentDaysCalculation: types.nullable(types.string()),
   paymentMethod: types.nullable(PaymentMethod$inboundSchema),
   updatedDate: types.nullable(types.string()),
 });
