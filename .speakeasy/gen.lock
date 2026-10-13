@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: b4a29653-32d8-43f6-ba1e-9aa569fce206
 management:
-  docChecksum: 53c3d6d49995c93a347d8f6bd07f65c0
+  docChecksum: 78b88757ab75182ed8603ed84079f135
   docVersion: "1.0"
   speakeasyVersion: 1.802.0
   generationVersion: 2.948.4
-  releaseVersion: 0.8.25
-  configChecksum: 448d058ae6db63c6eed9b61a04541fe6
+  releaseVersion: 0.8.26
+  configChecksum: e3a07febb01d668b866f8e2d4b55574b
   repoURL: https://github.com/maesndev/sdk-typescript.git
   installationURL: https://github.com/maesndev/sdk-typescript
   published: true
 persistentEdits:
-  generation_id: 0b6a0e43-ee26-40c6-be7e-532b86a733c9
-  pristine_commit_hash: ebc758a2b131e207c28c895361d4409dadc63a2b
-  pristine_tree_hash: df8ef3998f24e3b00a68ab5248cff0932fe3ab50
+  generation_id: 29a9512c-cebd-412d-87e0-608022bf641f
+  pristine_commit_hash: 0aa2e77dcdc69b4a0e1a22922550609a355142cb
+  pristine_tree_hash: 11fb40954fa0d5017276d57f00066b2a58e8535f
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -800,8 +800,12 @@ trackedFiles:
     pristine_git_object: 134ad4092316dab25a0c81f0bce5f0bf77ac3b34
   docs/models/credit-note-response-dto.md:
     id: 5f28c4b237c1
-    last_write_checksum: sha1:1e27a105be3a043334d411b145154461d30ea92d
-    pristine_git_object: 06a362582343e8d791d19daa56d10480cec9365a
+    last_write_checksum: sha1:242df44b292b7ea22c98c55a9326344e536a9517
+    pristine_git_object: 98c953ae6e994ddb73e715cf92d03fbfc41a3bf9
+  docs/models/currency-response-dto.md:
+    id: 75e40a293dfe
+    last_write_checksum: sha1:14ee54cb8bc5dbb539a33a9321b34abd815ee669
+    pristine_git_object: b98d84cf8696e1d5026c6047b060e81635f1721d
   docs/models/custom-values.md:
     id: cc254590149d
     last_write_checksum: sha1:17c02c0b1298067a5736e84bafc3c6d9f4bf7a57
@@ -1588,8 +1592,8 @@ trackedFiles:
     pristine_git_object: 138c8e280a488f5c930d947508e0bd3cbac0b193
   docs/models/operations/create-credit-note-response.md:
     id: 9b7775c8cb43
-    last_write_checksum: sha1:0d874f8d2cb49edcd8ff5280cc36dffe0953c678
-    pristine_git_object: 898d2906c4abeafbeba32c8204069f2694f0d844
+    last_write_checksum: sha1:bbab11ae12532ff9facdc290d7deb5c383cff065
+    pristine_git_object: 4b4a6eb805daf6173942a2deb4919aad9808b881
   docs/models/operations/create-customer-errors.md:
     id: fbd9abf92df3
     last_write_checksum: sha1:3b1b6dea19284e56d0752e4a456cb1199fb96833
@@ -3068,8 +3072,8 @@ trackedFiles:
     pristine_git_object: c172b3ccad77ce32de36e9d943700e9dd2bfe0e9
   docs/models/operations/get-credit-note-response.md:
     id: 80c503a29d6c
-    last_write_checksum: sha1:1f0a8601202774c895c2e5c7ab5787642431db3f
-    pristine_git_object: c88432473e1ab6866175e7c57115f8536957240a
+    last_write_checksum: sha1:076b0bd8d27189b27a3e58148a79d836ec1695bf
+    pristine_git_object: 6c6790f30e796d28f9ac664cf4db1fe2a8f8fd02
   docs/models/operations/get-credit-notes-errors.md:
     id: 9b3f48944acb
     last_write_checksum: sha1:76bad72b85cc9cf2e00a867f5d5e4bbbc402233d
@@ -3100,8 +3104,40 @@ trackedFiles:
     pristine_git_object: b8bf890b76744c6bcbecaa15681cd5bc481da75d
   docs/models/operations/get-credit-notes-response.md:
     id: 16bca18de576
-    last_write_checksum: sha1:f9e9a9d986a81a5d72a7a993d6ac9de96586c275
-    pristine_git_object: f4a349473bce8d1d9a9c46a1e2552cc833e97d0f
+    last_write_checksum: sha1:44062d6515e3bb7f26599d830e41928730ed71c0
+    pristine_git_object: 58470b769b924c8383a09c31b3d08899b5605d62
+  docs/models/operations/get-currencies-errors.md:
+    id: cde9e8fc42a0
+    last_write_checksum: sha1:adeeb03795f9840631a285405ecdd076b7c5fa7d
+    pristine_git_object: f48527845d91e51b1f2532d2cdbaacceeb816af7
+  docs/models/operations/get-currencies-globals.md:
+    id: 964774afbf10
+    last_write_checksum: sha1:82b2938962e1dcb708c05814500d8b7b225592eb
+    pristine_git_object: b0984880d3c84e7012fd39fd49af597599ead88c
+  docs/models/operations/get-currencies-limit.md:
+    id: 4637232cd1d0
+    last_write_checksum: sha1:01e99acab54db74a5656aee7c3024f7731691de2
+    pristine_git_object: 168213839c42e9eaceacbd5352f8f84d4055d3ff
+  docs/models/operations/get-currencies-meta.md:
+    id: 1fa85d966ac4
+    last_write_checksum: sha1:1dee445ed6845f749d91ee35f29b9a247f927036
+    pristine_git_object: 938fdd4d60132e3a50870df75bac1c1efbfce4b7
+  docs/models/operations/get-currencies-pagination.md:
+    id: 7062e91130a0
+    last_write_checksum: sha1:09a6f89c00b3f57545db9ed83a66e9a9874df5d5
+    pristine_git_object: f170f8bcfae5b21c365724d29a73e933b51dba9d
+  docs/models/operations/get-currencies-raw-data.md:
+    id: 71f929ec6580
+    last_write_checksum: sha1:c57e01739e1bf5a6017809b619518d521bb4e483
+    pristine_git_object: bb8404ce147d826a6de450e2bd262e08e56bfb78
+  docs/models/operations/get-currencies-request.md:
+    id: 37b59d84e766
+    last_write_checksum: sha1:670a2f2eeddcd2843b3d50e7b5c4f06b0c17b1aa
+    pristine_git_object: 2b20db80e4fbdaff9b29d3a8660252ca62ed5c27
+  docs/models/operations/get-currencies-response.md:
+    id: 7f368b52b417
+    last_write_checksum: sha1:38a57e4fba79bf169f1e47744b20f771da16a626
+    pristine_git_object: 5fea3ae37977628ab9aed3ad71d012985f4324bd
   docs/models/operations/get-customer-errors.md:
     id: b26793567b2e
     last_write_checksum: sha1:36692ed39c89b118ea8050be1ffa6dbad60954a4
@@ -4558,6 +4594,38 @@ trackedFiles:
     id: 7be9ead1d5c4
     last_write_checksum: sha1:c7cb69572085cfde8619ba12fb180171a0dbfd04
     pristine_git_object: 967db95ff191352e3aa7858aa33276f7986b7764
+  docs/models/operations/get-reason-codes-errors.md:
+    id: 1ffefd94ce3d
+    last_write_checksum: sha1:2a04bcfae5c05f1dd84eb3c0f423dfbe134d258c
+    pristine_git_object: cc3fa9df950b634db6ed0b58482bdf1231caec00
+  docs/models/operations/get-reason-codes-globals.md:
+    id: 72a7f7e8cf8f
+    last_write_checksum: sha1:9c8a0f88f99d0ac0d95adb63d71262dda2ee17dc
+    pristine_git_object: b802cd4c08094e9623a3c25d3fab66ac5546a0ac
+  docs/models/operations/get-reason-codes-limit.md:
+    id: bef771017cbc
+    last_write_checksum: sha1:d49a93a04335916a790bd138fa7f4abba61b46d9
+    pristine_git_object: 86bad437cdd817074338b15b459944dea2d93ef3
+  docs/models/operations/get-reason-codes-meta.md:
+    id: 378bc347a511
+    last_write_checksum: sha1:26690633a60e82ef8ceb59f34e582614801c5da7
+    pristine_git_object: 319ff63c2835180bbffec5c0647cc9cccb93aae5
+  docs/models/operations/get-reason-codes-pagination.md:
+    id: cdcbf0211397
+    last_write_checksum: sha1:ab4aca3186087631bc54e9906cdade4c2d140bd0
+    pristine_git_object: a136c2597bea22a1a0ac2fa7a8f8c23c74f216b8
+  docs/models/operations/get-reason-codes-raw-data.md:
+    id: 183a3f0458e3
+    last_write_checksum: sha1:727100c87f611f7c7c8cb4eb968c06fe1773875d
+    pristine_git_object: 96d443aa5c6ba572c947dc156736126cdc5d4fad
+  docs/models/operations/get-reason-codes-request.md:
+    id: 54e8da1692e0
+    last_write_checksum: sha1:e9b53c8007ec8dde91f8e8d78f0078437fa4b11b
+    pristine_git_object: 30f3f0f9f484f889d130a7f8474d18d897c81809
+  docs/models/operations/get-reason-codes-response.md:
+    id: 82e664433738
+    last_write_checksum: sha1:40820972f88e3c75e18ec297d4b036227d6f1665
+    pristine_git_object: 6a0135fc31daa7fe61151c521380f141b061eed4
   docs/models/operations/get-registered-systems-globals.md:
     id: 72d2da668a82
     last_write_checksum: sha1:add9c37bab6fb48307d1f03f143462a54195954f
@@ -5802,6 +5870,10 @@ trackedFiles:
     id: 0a1c205c2fc2
     last_write_checksum: sha1:2bd3a74619eace5f8d83117a63241c9e2a6a53b4
     pristine_git_object: 56ca1cb4f92fb2a2577d026d3a8946c14b5bde92
+  docs/models/reason-code-response-dto.md:
+    id: f108771ae506
+    last_write_checksum: sha1:977b54baf606aee33c5479c5286e43cad75d9fd9
+    pristine_git_object: 13af141e22db9ff9fd3577908c7d6e5727d3e943
   docs/models/response-data.md:
     id: 6bf9d6aed35b
     last_write_checksum: sha1:67e8c57831528b4856af7c6701476ebb1eceb4be
@@ -5936,8 +6008,8 @@ trackedFiles:
     pristine_git_object: 22dd5f08bac5ea8e40e42de4ebb0a5876ef875c5
   docs/sdks/accounting/README.md:
     id: 6abb8976ed95
-    last_write_checksum: sha1:cf4a680ee94f5d2cbdaf177376ee3828e4108d4a
-    pristine_git_object: 3f5bbb6daa097f6249398f42ce6d54df0c1d7e40
+    last_write_checksum: sha1:4b143c690754b2409d3276921e91d92a95efdb34
+    pristine_git_object: 59067b97d794ae56dcfa70d977b20fc4f9ab78c4
   docs/sdks/accountingv2/README.md:
     id: 24a9f287e358
     last_write_checksum: sha1:500b8cea57ac71e42f511ba1868fbbcbcf756650
@@ -5984,12 +6056,12 @@ trackedFiles:
     pristine_git_object: 620f120672c2be3445356aaae6d877d4d89c43d5
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:104a694a79598d60a157c89264c1ae9801928632
-    pristine_git_object: ceda8f54b07e93f9003f2b1e1e67235c65e91539
+    last_write_checksum: sha1:6529d82a39a74fb91c37644c02e4542b45d5970a
+    pristine_git_object: 4c30d94edad208e7641e578a32cd23b96ec9273a
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:22f159a1ac951ea14ce7c4697a8817bae761515c
-    pristine_git_object: 356e7a3a255ce32a992dbe30d6af3ab9f8295d9f
+    last_write_checksum: sha1:4cdfa19792a24b052195131fde4e57757a7a4fd5
+    pristine_git_object: e7b792227e105b639717efcfb5cb6545816d8555
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:2eff2a6c77b0c787da6418de861acc36733c433a
@@ -6210,6 +6282,10 @@ trackedFiles:
     id: 0d4f9546969a
     last_write_checksum: sha1:2889fd1e18308e7ff2021ec49bf9c516877370ab
     pristine_git_object: 487036713272e3f6cdb779183928e1d0d7174bb8
+  src/funcs/accounting-get-currencies.ts:
+    id: f479bf60da14
+    last_write_checksum: sha1:5d96bf0a985394d7802e9a249399590429ac467a
+    pristine_git_object: 5a67fa5a8f7dfdb79ec8c742fc1de82af4ff897b
   src/funcs/accounting-get-customer.ts:
     id: 75404d3f95f7
     last_write_checksum: sha1:cd48fef29ad367d258ae8ce8b246c6b877631944
@@ -6394,6 +6470,10 @@ trackedFiles:
     id: 6b2bb557f4c2
     last_write_checksum: sha1:8e85f7975a88327d34ac4a1d4cbf21fda8e67fcc
     pristine_git_object: 8e0ed20f26ae9a100bc8618123147b0a3f141045
+  src/funcs/accounting-get-reason-codes.ts:
+    id: 0dca93ed179d
+    last_write_checksum: sha1:7e7d3b254f4a945c87887d8551bf5c8f20a0bd08
+    pristine_git_object: 2794e2c52d36dbde9aa216b7788475545bb21208
   src/funcs/accounting-get-sales-order-lines.ts:
     id: 7b1a50ca948f
     last_write_checksum: sha1:5894d386d3190fa29a099a9ced9120fd8b6b2a03
@@ -6676,8 +6756,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:5fb6a013adce891da7dede1cb0c012e7f8709247
-    pristine_git_object: e4fb66474f6ed0b3ac0bdf04a80f069eb51722de
+    last_write_checksum: sha1:4149820cab6808bcfb0be544177a7d4e6df0588a
+    pristine_git_object: b4d266defb6ac1b8aec8523a1918a41652b12787
   src/lib/encodings.ts:
     id: 3bd8ead98afd
     last_write_checksum: sha1:4481b2a380f8a16856ef92c66fb370299f56d135
@@ -7036,8 +7116,12 @@ trackedFiles:
     pristine_git_object: cef63883421e730dfbd8842248d299d1b7f15cf1
   src/models/credit-note-response-dto.ts:
     id: 9a874cec11d5
-    last_write_checksum: sha1:8dfffc9e0314f9f0f9d7bd6dbb391d98d9725ac5
-    pristine_git_object: 532555804a4f23b18aa70080728c79ca62dc98a8
+    last_write_checksum: sha1:771702e280689e035ebffad33948a49738fad111
+    pristine_git_object: fd33a59e4f406646c04a7e221b6dec16f0dc51c8
+  src/models/currency-response-dto.ts:
+    id: e3b379ccd18c
+    last_write_checksum: sha1:7f314f9d5bcb575d0ccd5ecd39708fdf701c908d
+    pristine_git_object: df8e142267c9faef74385ded32e454b48d9e7cfe
   src/models/custom-values.ts:
     id: 0fd5fd3e5f30
     last_write_checksum: sha1:801dbf76f89ee0944cb85e20e6089031c9f30b65
@@ -7148,8 +7232,8 @@ trackedFiles:
     pristine_git_object: 0f650341562665a862a8fd22dd4a9bd323d6267c
   src/models/index.ts:
     id: f93644b0f37e
-    last_write_checksum: sha1:912cee03bcd2ad09ad479737447410004c7dcf70
-    pristine_git_object: 3b2d9330a753806e132663a7451e9739b6350249
+    last_write_checksum: sha1:ac91580ba9ef00ef7ddd9a2260633a191c8d9da4
+    pristine_git_object: bd798b0dc1adca02c3416611045a92bf0d4840f9
   src/models/information-response-dto.ts:
     id: 8761a5569682
     last_write_checksum: sha1:8e1393b9ab6dd61835979fb45437cc51161bf390
@@ -7506,6 +7590,10 @@ trackedFiles:
     id: d6db646ce383
     last_write_checksum: sha1:20d162340efbdd131d75791e4f8f5bd36af547bf
     pristine_git_object: b0ec257c5ef84f8729bc61ecd0b99915de50f8f8
+  src/models/operations/get-currencies.ts:
+    id: db9b5194cfb2
+    last_write_checksum: sha1:fffcbb69f0a86fc1f0be78821e877f15ddf68c40
+    pristine_git_object: f7c3afc0caf80af9f089dd333bcb43069c29e6c3
   src/models/operations/get-customer.ts:
     id: cc2b6e992d77
     last_write_checksum: sha1:b52b0ac3aa88d9eaf7a4f7cd5acd3eee2de6ee83
@@ -7706,6 +7794,10 @@ trackedFiles:
     id: 036ea172f2eb
     last_write_checksum: sha1:9e8498e0b9d24c95b6b56530e8456cbadd79737f
     pristine_git_object: fb191729f0424b58e225d4b5bf5d5cac1861c811
+  src/models/operations/get-reason-codes.ts:
+    id: a73fe1550577
+    last_write_checksum: sha1:8b8e5561d5d873bcd6e6f5e7f01b9b18509bb1ad
+    pristine_git_object: ef8cf8eea5206734e45ba63ddf623bd75737b818
   src/models/operations/get-registered-systems-masked.ts:
     id: 9d8e32afc393
     last_write_checksum: sha1:7bd4dee3dffde234a6e1ae547c0f1e21c7acb142
@@ -7788,8 +7880,8 @@ trackedFiles:
     pristine_git_object: 280f1620aebacc2c71e8145432da2a8d8076a896
   src/models/operations/index.ts:
     id: 0d9ffaf774d2
-    last_write_checksum: sha1:e0f14a7cdb6317cecd062306ed60b9d83ded76a8
-    pristine_git_object: 0e74d8db699e817ef2176c04a96dced58093de01
+    last_write_checksum: sha1:9645c481a1e4d519e687ed5a652a1cb9536e0d5c
+    pristine_git_object: e72aeaac60a87e55f0a9d816bed176298e16dc20
   src/models/operations/patch-contact-v2.ts:
     id: 645bafde5f35
     last_write_checksum: sha1:906ae3cebc20c7b3a07de8645ea49ec636a38e61
@@ -7946,6 +8038,10 @@ trackedFiles:
     id: 7e7900a78058
     last_write_checksum: sha1:91a86227e7103478d25f68b166154e3a57ae835e
     pristine_git_object: 9f627392343fa127e4eb0092737d45418c8f44ec
+  src/models/reason-code-response-dto.ts:
+    id: 3f251d7d2ad3
+    last_write_checksum: sha1:0b7553a984bb0d75d8441b05fe2aa9883d3d7491
+    pristine_git_object: 7d4d584265dde059c4cc12a9f6ce2cb86ce90409
   src/models/sales-order-line-item-response-dto.ts:
     id: b15ac0c2efcd
     last_write_checksum: sha1:7773f75b091b35995b3ec40db485e7e5f6244f2c
@@ -8032,8 +8128,8 @@ trackedFiles:
     pristine_git_object: 321ceb160da6038dd8f1866f40ae80e8f9d278cd
   src/sdk/accounting.ts:
     id: e0128a734bc9
-    last_write_checksum: sha1:08f045a621a1ee0fc4c9d85ab565d80517dbe9fd
-    pristine_git_object: 8b0fb1dc3887f111e120ec3b9ee60b534615333f
+    last_write_checksum: sha1:8928ec9cb7a08e750c5bb351f958a1aa9db01b84
+    pristine_git_object: c447128d90824d5466722629b09bb1137fa575ea
   src/sdk/auth.ts:
     id: b29b1fc6bdf5
     last_write_checksum: sha1:9b8371badc23b9d6dc6c37c1294c2c774c356c9f
@@ -8981,7 +9077,7 @@ examples:
           creditNoteId: "<id>"
       responses:
         "200":
-          application/json: {"data": {"id": "<id>", "addresses": [{"addressLine1": "7473 Hermiston Fall", "addressLine2": "-", "city": "East Rhiannaburgh", "countryCode": "ET", "postalCode": "51337", "type": "DELIVERY"}], "contactId": "<id>", "createdDate": "<value>", "creditNoteDate": "<value>", "creditNoteLines": [{"id": "<id>", "createdDate": "<value>", "description": "after what amidst", "itemId": "<id>", "itemName": "<value>", "quantity": 3438.22, "taxCode": "<value>", "taxRatePercentage": 4875.47, "totalDiscountAmount": 1041.7, "totalDiscountPercentage": 6721.6, "totalGrossAmount": 9529.87, "totalNetAmount": 3173.15, "totalTaxAmount": 9198.81, "type": "CUSTOM", "unitAmount": 599.36, "unitDiscountAmount": 4045.04, "unitDiscountPercentage": 5512.15, "unitName": "<value>", "updatedDate": "<value>"}], "creditNoteNumber": "<value>", "currency": "South Sudanese pound", "paymentStatus": "NO_OPEN_ITEM", "paymentTermId": "<id>", "reference": "<value>", "status": "SUBMITTED", "taxRatePercentage": 5047.11, "taxRule": "OSS_SERVICES", "totalDiscountAmount": 6674.82, "totalDiscountPercentage": 4467.57, "totalGrossAmount": 305.25, "totalNetAmount": 8188.59, "totalTaxAmount": 3120.18, "updatedDate": "<value>"}, "errors": {}, "rawData": {}}
+          application/json: {"data": {"id": "<id>", "addresses": [{"addressLine1": "7473 Hermiston Fall", "addressLine2": "-", "city": "East Rhiannaburgh", "countryCode": "ET", "postalCode": "51337", "type": "DELIVERY"}], "contactId": "<id>", "createdDate": "<value>", "creditNoteDate": "<value>", "creditNoteLines": [{"id": "<id>", "createdDate": "<value>", "description": "after what amidst", "itemId": "<id>", "itemName": "<value>", "quantity": 3438.22, "taxCode": "<value>", "taxRatePercentage": 4875.47, "totalDiscountAmount": 1041.7, "totalDiscountPercentage": 6721.6, "totalGrossAmount": 9529.87, "totalNetAmount": 3173.15, "totalTaxAmount": 9198.81, "type": "CUSTOM", "unitAmount": 599.36, "unitDiscountAmount": 4045.04, "unitDiscountPercentage": 5512.15, "unitName": "<value>", "updatedDate": "<value>"}], "creditNoteNumber": "<value>", "currency": "South Sudanese pound", "paymentStatus": "NO_OPEN_ITEM", "paymentTermId": "<id>", "reasonCodeId": "<id>", "reference": "<value>", "status": "SUBMITTED", "taxRatePercentage": 5047.11, "taxRule": "OSS_SERVICES", "totalDiscountAmount": 6674.82, "totalDiscountPercentage": 4467.57, "totalGrossAmount": 305.25, "totalNetAmount": 8188.59, "totalTaxAmount": 3120.18, "updatedDate": "<value>"}, "errors": {}, "rawData": {}}
   getFiscalYears:
     speakeasy-default-get-fiscal-years:
       responses:
@@ -9388,7 +9484,7 @@ examples:
         application/json: {"creditNoteDate": "<value>", "creditNoteLines": []}
       responses:
         "200":
-          application/json: {"data": {"id": "<id>", "addresses": [], "contactId": "<id>", "createdDate": "<value>", "creditNoteDate": null, "creditNoteLines": [{"id": "<id>", "createdDate": "<value>", "description": null, "itemId": null, "itemName": "<value>", "quantity": null, "taxCode": "<value>", "taxRatePercentage": 6040.01, "totalDiscountAmount": 6392.59, "totalDiscountPercentage": 6404.28, "totalGrossAmount": 2552.71, "totalNetAmount": 5259.5, "totalTaxAmount": 5430.98, "type": "TEXT", "unitAmount": 2522.41, "unitDiscountAmount": 9632.51, "unitDiscountPercentage": 5328.47, "unitName": "<value>", "updatedDate": "<value>"}], "creditNoteNumber": "<value>", "currency": "Baht", "paymentStatus": "NO_OPEN_ITEM", "paymentTermId": "<id>", "reference": "<value>", "status": "PARTIALLY_OVERDUE", "taxRatePercentage": 8344.55, "taxRule": "EXPORT_GOODS", "totalDiscountAmount": 8735.55, "totalDiscountPercentage": 6492.68, "totalGrossAmount": 9953.44, "totalNetAmount": 3460.28, "totalTaxAmount": 5896.26, "updatedDate": "<value>"}, "errors": {}, "rawData": {}}
+          application/json: {"data": {"id": "<id>", "addresses": [], "contactId": "<id>", "createdDate": "<value>", "creditNoteDate": null, "creditNoteLines": [{"id": "<id>", "createdDate": "<value>", "description": null, "itemId": null, "itemName": "<value>", "quantity": null, "taxCode": "<value>", "taxRatePercentage": 6040.01, "totalDiscountAmount": 6392.59, "totalDiscountPercentage": 6404.28, "totalGrossAmount": 2552.71, "totalNetAmount": 5259.5, "totalTaxAmount": 5430.98, "type": "TEXT", "unitAmount": 2522.41, "unitDiscountAmount": 9632.51, "unitDiscountPercentage": 5328.47, "unitName": "<value>", "updatedDate": "<value>"}], "creditNoteNumber": "<value>", "currency": "Baht", "paymentStatus": "NO_OPEN_ITEM", "paymentTermId": "<id>", "reasonCodeId": "<id>", "reference": "<value>", "status": "PARTIALLY_OVERDUE", "taxRatePercentage": 8344.55, "taxRule": "EXPORT_GOODS", "totalDiscountAmount": 8735.55, "totalDiscountPercentage": 6492.68, "totalGrossAmount": 9953.44, "totalNetAmount": 3460.28, "totalTaxAmount": 5896.26, "updatedDate": "<value>"}, "errors": {}, "rawData": {}}
   getJournalEntriesAsync:
     speakeasy-default-get-journal-entries-async:
       responses:
@@ -9481,9 +9577,21 @@ examples:
       responses:
         "200":
           application/json: {"data": {}, "errors": {}, "rawData": {}}
+  getCurrencies:
+    speakeasy-default-get-currencies:
+      responses:
+        "200":
+          application/json: {"data": [], "errors": {}, "rawData": null}
+  getReasonCodes:
+    speakeasy-default-get-reason-codes:
+      responses:
+        "200":
+          application/json: {"data": [{"id": "<id>", "code": "<value>", "description": "lay healthily times bell norm"}], "errors": {}, "rawData": {}}
 examplesVersion: 1.0.2
 releaseNotes: |
   ## Typescript SDK Changes:
-  * `maesn.accounting.getPaymentTerms()`:  `response.data[]` **Changed**
-  * `maesn.accounting.createPaymentTerm()`:  `response.data` **Changed**
-  * `maesn.accounting.getPaymentTerm()`:  `response.data` **Changed**
+  * `maesn.accounting.getCurrencies()`: **Added**
+  * `maesn.accounting.getReasonCodes()`: **Added**
+  * `maesn.accounting.getCreditNotes()`:  `response.data[].reasonCodeId` **Added**
+  * `maesn.accounting.createCreditNote()`:  `response.data.reasonCodeId` **Added**
+  * `maesn.accounting.getCreditNote()`:  `response.data.reasonCodeId` **Added**
