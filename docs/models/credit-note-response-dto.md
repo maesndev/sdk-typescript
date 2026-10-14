@@ -18,16 +18,17 @@ let value: CreditNoteResponseDto = {
   currency: "Danish Krone",
   paymentStatus: "CANCELED",
   paymentTermId: "<id>",
+  reasonCodeId: "<id>",
   reference: "<value>",
-  status: "VOIDED",
-  taxRatePercentage: 9899.06,
-  taxRule: "EXPORT_GOODS",
-  totalDiscountAmount: 5304.94,
-  totalDiscountPercentage: 1831.02,
-  totalGrossAmount: 7011.77,
-  totalNetAmount: 3933.72,
-  totalTaxAmount: 6099.6,
-  updatedDate: "<value>",
+  status: "OPEN",
+  taxRatePercentage: 5217.14,
+  taxRule: "INTRACOMMUNITY_SERVICE",
+  totalDiscountAmount: 2223.15,
+  totalDiscountPercentage: 2747.28,
+  totalGrossAmount: 7229.52,
+  totalNetAmount: 3922.08,
+  totalTaxAmount: 8235.9,
+  updatedDate: null,
 };
 ```
 
@@ -45,6 +46,7 @@ let value: CreditNoteResponseDto = {
 | `currency`                                                                                        | *string*                                                                                          | :heavy_check_mark:                                                                                | N/A                                                                                               |
 | `paymentStatus`                                                                                   | [models.CreditNoteResponseDtoPaymentStatus](../models/credit-note-response-dto-payment-status.md) | :heavy_check_mark:                                                                                | N/A                                                                                               |
 | `paymentTermId`                                                                                   | *string*                                                                                          | :heavy_check_mark:                                                                                | N/A                                                                                               |
+| `reasonCodeId`                                                                                    | *string*                                                                                          | :heavy_check_mark:                                                                                | N/A                                                                                               |
 | `reference`                                                                                       | *string*                                                                                          | :heavy_check_mark:                                                                                | N/A                                                                                               |
 | `status`                                                                                          | [models.CreditNoteResponseDtoStatus](../models/credit-note-response-dto-status.md)                | :heavy_check_mark:                                                                                | N/A                                                                                               |
 | `taxRatePercentage`                                                                               | *number*                                                                                          | :heavy_check_mark:                                                                                | N/A                                                                                               |

@@ -131,6 +131,8 @@
 * [getFiscalYear](#getfiscalyear)
 * [createExpenseAsync](#createexpenseasync)
 * [createBookingProposalAsync](#createbookingproposalasync)
+* [getCurrencies](#getcurrencies)
+* [getReasonCodes](#getreasoncodes)
 
 ## getAccount
 
@@ -9912,6 +9914,148 @@ run();
 ### Response
 
 **Promise\<[operations.CreateBookingProposalAsyncResponse](../../models/operations/create-booking-proposal-async-response.md)\>**
+
+### Errors
+
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
+
+## getCurrencies
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="getCurrencies" method="get" path="/accounting/currencies" -->
+```typescript
+import { Maesn } from "@maesn/typescript-sdk";
+
+const maesn = new Maesn({
+  serverURL: "https://api.example.com",
+  apiKey: "<value>",
+  accountKey: "<value>",
+});
+
+async function run() {
+  const result = await maesn.accounting.getCurrencies();
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingGetCurrencies } from "@maesn/typescript-sdk/funcs/accounting-get-currencies.js";
+
+// Use `MaesnCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const maesn = new MaesnCore({
+  serverURL: "https://api.example.com",
+  apiKey: "<value>",
+  accountKey: "<value>",
+});
+
+async function run() {
+  const res = await accountingGetCurrencies(maesn);
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingGetCurrencies failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetCurrenciesRequest](../../models/operations/get-currencies-request.md)                                                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.GetCurrenciesResponse](../../models/operations/get-currencies-response.md)\>**
+
+### Errors
+
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
+
+## getReasonCodes
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="getReasonCodes" method="get" path="/accounting/reasonCodes" -->
+```typescript
+import { Maesn } from "@maesn/typescript-sdk";
+
+const maesn = new Maesn({
+  serverURL: "https://api.example.com",
+  apiKey: "<value>",
+  accountKey: "<value>",
+});
+
+async function run() {
+  const result = await maesn.accounting.getReasonCodes();
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingGetReasonCodes } from "@maesn/typescript-sdk/funcs/accounting-get-reason-codes.js";
+
+// Use `MaesnCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const maesn = new MaesnCore({
+  serverURL: "https://api.example.com",
+  apiKey: "<value>",
+  accountKey: "<value>",
+});
+
+async function run() {
+  const res = await accountingGetReasonCodes(maesn);
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingGetReasonCodes failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetReasonCodesRequest](../../models/operations/get-reason-codes-request.md)                                                                                        | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.GetReasonCodesResponse](../../models/operations/get-reason-codes-response.md)\>**
 
 ### Errors
 

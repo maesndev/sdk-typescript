@@ -242,6 +242,8 @@ run();
 * [getFiscalYear](docs/sdks/accounting/README.md#getfiscalyear)
 * [createExpenseAsync](docs/sdks/accounting/README.md#createexpenseasync)
 * [createBookingProposalAsync](docs/sdks/accounting/README.md#createbookingproposalasync)
+* [getCurrencies](docs/sdks/accounting/README.md#getcurrencies)
+* [getReasonCodes](docs/sdks/accounting/README.md#getreasoncodes)
 
 ### [AccountingV2](docs/sdks/accountingv2/README.md)
 
@@ -374,6 +376,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`accountingGetCreditNote`](docs/sdks/accounting/README.md#getcreditnote)
 - [`accountingGetCreditNoteDocuments`](docs/sdks/accounting/README.md#getcreditnotedocuments)
 - [`accountingGetCreditNotes`](docs/sdks/accounting/README.md#getcreditnotes)
+- [`accountingGetCurrencies`](docs/sdks/accounting/README.md#getcurrencies)
 - [`accountingGetCustomer`](docs/sdks/accounting/README.md#getcustomer)
 - [`accountingGetCustomers`](docs/sdks/accounting/README.md#getcustomers)
 - [`accountingGetDimensions`](docs/sdks/accounting/README.md#getdimensions)
@@ -420,6 +423,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`accountingGetPurchaseOrderLineItem`](docs/sdks/accounting/README.md#getpurchaseorderlineitem)
 - [`accountingGetPurchaseOrderLineItems`](docs/sdks/accounting/README.md#getpurchaseorderlineitems)
 - [`accountingGetPurchaseOrders`](docs/sdks/accounting/README.md#getpurchaseorders)
+- [`accountingGetReasonCodes`](docs/sdks/accounting/README.md#getreasoncodes)
 - [`accountingGetSalesOrder`](docs/sdks/accounting/README.md#getsalesorder)
 - [`accountingGetSalesOrderLines`](docs/sdks/accounting/README.md#getsalesorderlines)
 - [`accountingGetSalesOrders`](docs/sdks/accounting/README.md#getsalesorders)

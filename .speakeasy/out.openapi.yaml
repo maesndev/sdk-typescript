@@ -8056,6 +8056,168 @@ paths:
                         $ref: '#/components/schemas/TaskIdResponseDto'
       tags:
         - accounting
+  /accounting/currencies:
+    get:
+      operationId: getCurrencies
+      parameters:
+        - name: page
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: limit
+          required: false
+          in: query
+          schema:
+            enum:
+              - 5
+              - 10
+              - 20
+              - 50
+              - 100
+            type: integer
+        - name: lastModifiedAt
+          required: false
+          in: query
+          description: ISO 8601 timestamp; only records modified after this date are returned
+          schema:
+            type: string
+        - name: environmentName
+          required: false
+          in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
+          schema:
+            type: string
+        - name: companyId
+          required: false
+          in: query
+          description: ID of the company (required for multi-company target systems)
+          schema:
+            type: string
+        - name: rawData
+          required: false
+          in: query
+          description: When true, returns the unprocessed response from the upstream target system
+          schema:
+            type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
+      responses:
+        "200":
+          description: List of currencies for the authenticated end user's connected target system
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BaseResponseDto'
+                  - properties:
+                      data:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/CurrencyResponseDto'
+      tags:
+        - accounting
+      x-speakeasy-retries:
+        strategy: backoff
+        backoff:
+          initialInterval: 500
+          maxInterval: 60000
+          maxElapsedTime: 3600000
+          exponent: 1.5
+        statusCodes:
+          - 5XX
+        retryConnectionErrors: true
+  /accounting/reasonCodes:
+    get:
+      operationId: getReasonCodes
+      parameters:
+        - name: page
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: limit
+          required: false
+          in: query
+          schema:
+            enum:
+              - 5
+              - 10
+              - 20
+              - 50
+              - 100
+            type: integer
+        - name: lastModifiedAt
+          required: false
+          in: query
+          description: ISO 8601 timestamp; only records modified after this date are returned
+          schema:
+            type: string
+        - name: environmentName
+          required: false
+          in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
+          schema:
+            type: string
+        - name: companyId
+          required: false
+          in: query
+          description: ID of the company (required for multi-company target systems)
+          schema:
+            type: string
+        - name: rawData
+          required: false
+          in: query
+          description: When true, returns the unprocessed response from the upstream target system
+          schema:
+            type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
+      responses:
+        "200":
+          description: List of reason codes for the authenticated end user's connected target system
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BaseResponseDto'
+                  - properties:
+                      data:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/ReasonCodeResponseDto'
+      tags:
+        - accounting
+      x-speakeasy-retries:
+        strategy: backoff
+        backoff:
+          initialInterval: 500
+          maxInterval: 60000
+          maxElapsedTime: 3600000
+          exponent: 1.5
+        statusCodes:
+          - 5XX
+        retryConnectionErrors: true
   /accounting/v2/bookingProposals:
     post:
       operationId: createBookingProposalV2
@@ -19661,6 +19823,9 @@ components:
         paymentTermId:
           type: string
           nullable: true
+        reasonCodeId:
+          type: string
+          nullable: true
         reference:
           type: string
           nullable: true
@@ -19729,6 +19894,7 @@ components:
         - currency
         - paymentStatus
         - paymentTermId
+        - reasonCodeId
         - reference
         - status
         - taxRatePercentage
@@ -20054,6 +20220,50 @@ components:
       required:
         - description
         - dimension
+    ReasonCodeResponseDto:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: true
+        code:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+      required:
+        - id
+        - code
+        - description
+    CurrencyResponseDto:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: true
+        code:
+          type: string
+          nullable: true
+        decimalPlaces:
+          type: number
+          nullable: true
+        name:
+          type: string
+          nullable: true
+        roundingPrecision:
+          type: number
+          nullable: true
+        updatedDate:
+          type: string
+          nullable: true
+      required:
+        - id
+        - code
+        - decimalPlaces
+        - name
+        - roundingPrecision
+        - updatedDate
     TaxRateRequestCommonDto:
       type: object
       properties:

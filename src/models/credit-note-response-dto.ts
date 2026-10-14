@@ -79,6 +79,7 @@ export type CreditNoteResponseDto = {
   currency: string | null;
   paymentStatus: CreditNoteResponseDtoPaymentStatus | null;
   paymentTermId: string | null;
+  reasonCodeId: string | null;
   reference: string | null;
   status: CreditNoteResponseDtoStatus | null;
   taxRatePercentage: number | null;
@@ -123,6 +124,7 @@ export const CreditNoteResponseDto$inboundSchema: z.ZodMiniType<
     CreditNoteResponseDtoPaymentStatus$inboundSchema,
   ),
   paymentTermId: types.nullable(types.string()),
+  reasonCodeId: types.nullable(types.string()),
   reference: types.nullable(types.string()),
   status: types.nullable(CreditNoteResponseDtoStatus$inboundSchema),
   taxRatePercentage: types.nullable(types.number()),

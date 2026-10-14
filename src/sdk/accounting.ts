@@ -56,6 +56,7 @@ import { accountingGetContacts } from "../funcs/accounting-get-contacts.js";
 import { accountingGetCreditNoteDocuments } from "../funcs/accounting-get-credit-note-documents.js";
 import { accountingGetCreditNote } from "../funcs/accounting-get-credit-note.js";
 import { accountingGetCreditNotes } from "../funcs/accounting-get-credit-notes.js";
+import { accountingGetCurrencies } from "../funcs/accounting-get-currencies.js";
 import { accountingGetCustomer } from "../funcs/accounting-get-customer.js";
 import { accountingGetCustomers } from "../funcs/accounting-get-customers.js";
 import { accountingGetDimensionsByDimension } from "../funcs/accounting-get-dimensions-by-dimension.js";
@@ -102,6 +103,7 @@ import { accountingGetPurchaseOrderLineItem } from "../funcs/accounting-get-purc
 import { accountingGetPurchaseOrderLineItems } from "../funcs/accounting-get-purchase-order-line-items.js";
 import { accountingGetPurchaseOrder } from "../funcs/accounting-get-purchase-order.js";
 import { accountingGetPurchaseOrders } from "../funcs/accounting-get-purchase-orders.js";
+import { accountingGetReasonCodes } from "../funcs/accounting-get-reason-codes.js";
 import { accountingGetSalesOrderLines } from "../funcs/accounting-get-sales-order-lines.js";
 import { accountingGetSalesOrder } from "../funcs/accounting-get-sales-order.js";
 import { accountingGetSalesOrders } from "../funcs/accounting-get-sales-orders.js";
@@ -1526,6 +1528,28 @@ export class Accounting extends ClientSDK {
     options?: RequestOptions,
   ): Promise<operations.CreateBookingProposalAsyncResponse> {
     return unwrapAsync(accountingCreateBookingProposalAsync(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  async getCurrencies(
+    request?: operations.GetCurrenciesRequest | undefined,
+    options?: RequestOptions,
+  ): Promise<operations.GetCurrenciesResponse> {
+    return unwrapAsync(accountingGetCurrencies(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  async getReasonCodes(
+    request?: operations.GetReasonCodesRequest | undefined,
+    options?: RequestOptions,
+  ): Promise<operations.GetReasonCodesResponse> {
+    return unwrapAsync(accountingGetReasonCodes(
       this,
       request,
       options,
