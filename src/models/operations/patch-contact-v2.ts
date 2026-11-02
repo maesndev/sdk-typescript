@@ -45,6 +45,7 @@ export type PatchContactV2Pagination = {
 export type PatchContactV2Meta = {
   warnings?: Array<string> | null | undefined;
   pagination?: PatchContactV2Pagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type PatchContactV2Errors = {};
@@ -121,6 +122,9 @@ export const PatchContactV2Meta$inboundSchema: z.ZodMiniType<
   warnings: z.optional(z.nullable(z.array(types.string()))),
   pagination: z.optional(
     z.nullable(z.lazy(() => PatchContactV2Pagination$inboundSchema)),
+  ),
+  partialErrors: z.optional(
+    z.nullable(z.array(models.PartialError$inboundSchema)),
   ),
 });
 

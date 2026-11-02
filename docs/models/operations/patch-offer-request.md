@@ -1,0 +1,23 @@
+# PatchOfferRequest
+
+## Example Usage
+
+```typescript
+import { PatchOfferRequest } from "@maesn/typescript-sdk/models/operations";
+
+let value: PatchOfferRequest = {
+  offerId: "<id>",
+  body: {},
+};
+```
+
+## Fields
+
+| Field                                                                              | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `offerId`                                                                          | *string*                                                                           | :heavy_check_mark:                                                                 | N/A                                                                                |
+| `environmentName`                                                                  | *string*                                                                           | :heavy_minus_sign:                                                                 | Environment name (required for multi-environment systems such as Business Central) |
+| `companyId`                                                                        | *string*                                                                           | :heavy_minus_sign:                                                                 | ID of the company (required for multi-company target systems)                      |
+| `apiKey`                                                                           | *string*                                                                           | :heavy_minus_sign:                                                                 | API key                                                                            |
+| `accountKey`                                                                       | *string*                                                                           | :heavy_minus_sign:                                                                 | Account key                                                                        |
+| `body`                                                                             | [models.CreateOfferRequestDto](../../models/create-offer-request-dto.md)           | :heavy_check_mark:                                                                 | N/A                                                                                |

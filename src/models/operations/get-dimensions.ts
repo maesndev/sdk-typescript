@@ -51,6 +51,7 @@ export type GetDimensionsPagination = {
 export type GetDimensionsMeta = {
   warnings?: Array<string> | null | undefined;
   pagination?: GetDimensionsPagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type GetDimensionsErrors = {};
@@ -127,6 +128,9 @@ export const GetDimensionsMeta$inboundSchema: z.ZodMiniType<
   warnings: z.optional(z.nullable(z.array(types.string()))),
   pagination: z.optional(
     z.nullable(z.lazy(() => GetDimensionsPagination$inboundSchema)),
+  ),
+  partialErrors: z.optional(
+    z.nullable(z.array(models.PartialError$inboundSchema)),
   ),
 });
 

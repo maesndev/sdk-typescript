@@ -28,13 +28,13 @@ export type CreateOfferRequestDtoStatus = ClosedEnum<
 >;
 
 export type CreateOfferRequestDto = {
-  addresses: Array<AddressOffer>;
+  addresses?: Array<AddressOffer> | undefined;
   contactId?: string | undefined;
-  currency: string;
+  currency?: string | undefined;
   expirationDate?: string | undefined;
   lineItems?: Array<CreateOfferLineItemRequestDto> | undefined;
   name?: string | undefined;
-  offerDate: string;
+  offerDate?: string | undefined;
   offerNumber?: string | undefined;
   oneLineAddress?: string | undefined;
   reference?: string | undefined;
@@ -54,13 +54,13 @@ export const CreateOfferRequestDtoStatus$outboundSchema: z.ZodMiniEnum<
 
 /** @internal */
 export type CreateOfferRequestDto$Outbound = {
-  addresses: Array<AddressOffer$Outbound>;
+  addresses?: Array<AddressOffer$Outbound> | undefined;
   contactId?: string | undefined;
-  currency: string;
+  currency?: string | undefined;
   expirationDate?: string | undefined;
   lineItems?: Array<CreateOfferLineItemRequestDto$Outbound> | undefined;
   name?: string | undefined;
-  offerDate: string;
+  offerDate?: string | undefined;
   offerNumber?: string | undefined;
   oneLineAddress?: string | undefined;
   reference?: string | undefined;
@@ -78,13 +78,13 @@ export const CreateOfferRequestDto$outboundSchema: z.ZodMiniType<
   CreateOfferRequestDto$Outbound,
   CreateOfferRequestDto
 > = z.object({
-  addresses: z.array(AddressOffer$outboundSchema),
+  addresses: z.optional(z.array(AddressOffer$outboundSchema)),
   contactId: z.optional(z.string()),
-  currency: z.string(),
+  currency: z.optional(z.string()),
   expirationDate: z.optional(z.string()),
   lineItems: z.optional(z.array(CreateOfferLineItemRequestDto$outboundSchema)),
   name: z.optional(z.string()),
-  offerDate: z.string(),
+  offerDate: z.optional(z.string()),
   offerNumber: z.optional(z.string()),
   oneLineAddress: z.optional(z.string()),
   reference: z.optional(z.string()),

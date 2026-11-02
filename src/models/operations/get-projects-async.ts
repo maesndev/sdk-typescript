@@ -35,6 +35,7 @@ export type GetProjectsAsyncPagination = {
 export type GetProjectsAsyncMeta = {
   warnings?: Array<string> | null | undefined;
   pagination?: GetProjectsAsyncPagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type GetProjectsAsyncErrors = {};
@@ -103,6 +104,9 @@ export const GetProjectsAsyncMeta$inboundSchema: z.ZodMiniType<
   warnings: z.optional(z.nullable(z.array(types.string()))),
   pagination: z.optional(
     z.nullable(z.lazy(() => GetProjectsAsyncPagination$inboundSchema)),
+  ),
+  partialErrors: z.optional(
+    z.nullable(z.array(models.PartialError$inboundSchema)),
   ),
 });
 

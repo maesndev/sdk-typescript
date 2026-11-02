@@ -40,6 +40,7 @@ export type CreatePaymentTermPagination = {
 export type CreatePaymentTermMeta = {
   warnings?: Array<string> | null | undefined;
   pagination?: CreatePaymentTermPagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type CreatePaymentTermErrors = {};
@@ -112,6 +113,9 @@ export const CreatePaymentTermMeta$inboundSchema: z.ZodMiniType<
   warnings: z.optional(z.nullable(z.array(types.string()))),
   pagination: z.optional(
     z.nullable(z.lazy(() => CreatePaymentTermPagination$inboundSchema)),
+  ),
+  partialErrors: z.optional(
+    z.nullable(z.array(models.PartialError$inboundSchema)),
   ),
 });
 

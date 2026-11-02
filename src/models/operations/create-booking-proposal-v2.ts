@@ -70,6 +70,7 @@ export type CreateBookingProposalV2Pagination2 = {
 export type CreateBookingProposalV2Meta2 = {
   warnings?: Array<string> | null | undefined;
   pagination?: CreateBookingProposalV2Pagination2 | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type CreateBookingProposalV2Errors2 = {};
@@ -96,6 +97,7 @@ export type CreateBookingProposalV2Pagination1 = {
 export type CreateBookingProposalV2Meta1 = {
   warnings?: Array<string> | null | undefined;
   pagination?: CreateBookingProposalV2Pagination1 | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type CreateBookingProposalV2Errors1 = {};
@@ -279,6 +281,9 @@ export const CreateBookingProposalV2Meta2$inboundSchema: z.ZodMiniType<
   pagination: z.optional(
     z.nullable(z.lazy(() => CreateBookingProposalV2Pagination2$inboundSchema)),
   ),
+  partialErrors: z.optional(
+    z.nullable(z.array(models.PartialError$inboundSchema)),
+  ),
 });
 
 export function createBookingProposalV2Meta2FromJSON(
@@ -381,6 +386,9 @@ export const CreateBookingProposalV2Meta1$inboundSchema: z.ZodMiniType<
   warnings: z.optional(z.nullable(z.array(types.string()))),
   pagination: z.optional(
     z.nullable(z.lazy(() => CreateBookingProposalV2Pagination1$inboundSchema)),
+  ),
+  partialErrors: z.optional(
+    z.nullable(z.array(models.PartialError$inboundSchema)),
   ),
 });
 

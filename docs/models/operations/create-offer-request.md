@@ -6,11 +6,7 @@
 import { CreateOfferRequest } from "@maesn/typescript-sdk/models/operations";
 
 let value: CreateOfferRequest = {
-  body: {
-    addresses: [],
-    currency: "Barbados Dollar",
-    offerDate: "<value>",
-  },
+  body: {},
 };
 ```
 

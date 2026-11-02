@@ -44,6 +44,7 @@ export type CreateInvoicePagination = {
 export type CreateInvoiceMeta = {
   warnings?: Array<string> | null | undefined;
   pagination?: CreateInvoicePagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type CreateInvoiceErrors = {};
@@ -118,6 +119,9 @@ export const CreateInvoiceMeta$inboundSchema: z.ZodMiniType<
   warnings: z.optional(z.nullable(z.array(types.string()))),
   pagination: z.optional(
     z.nullable(z.lazy(() => CreateInvoicePagination$inboundSchema)),
+  ),
+  partialErrors: z.optional(
+    z.nullable(z.array(models.PartialError$inboundSchema)),
   ),
 });
 

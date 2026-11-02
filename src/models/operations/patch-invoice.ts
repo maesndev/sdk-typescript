@@ -45,6 +45,7 @@ export type PatchInvoicePagination = {
 export type PatchInvoiceMeta = {
   warnings?: Array<string> | null | undefined;
   pagination?: PatchInvoicePagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type PatchInvoiceErrors = {};
@@ -121,6 +122,9 @@ export const PatchInvoiceMeta$inboundSchema: z.ZodMiniType<
   warnings: z.optional(z.nullable(z.array(types.string()))),
   pagination: z.optional(
     z.nullable(z.lazy(() => PatchInvoicePagination$inboundSchema)),
+  ),
+  partialErrors: z.optional(
+    z.nullable(z.array(models.PartialError$inboundSchema)),
   ),
 });
 

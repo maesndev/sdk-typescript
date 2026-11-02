@@ -47,6 +47,7 @@ export type GetWebhooksPagination = {
 export type GetWebhooksMeta = {
   warnings?: Array<string> | null | undefined;
   pagination?: GetWebhooksPagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type GetWebhooksErrors = {};
@@ -121,6 +122,9 @@ export const GetWebhooksMeta$inboundSchema: z.ZodMiniType<
   warnings: z.optional(z.nullable(z.array(types.string()))),
   pagination: z.optional(
     z.nullable(z.lazy(() => GetWebhooksPagination$inboundSchema)),
+  ),
+  partialErrors: z.optional(
+    z.nullable(z.array(models.PartialError$inboundSchema)),
   ),
 });
 

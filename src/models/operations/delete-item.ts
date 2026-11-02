@@ -44,6 +44,7 @@ export type DeleteItemPagination = {
 export type DeleteItemMeta = {
   warnings?: Array<string> | null | undefined;
   pagination?: DeleteItemPagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type DeleteItemErrors = {};
@@ -118,6 +119,9 @@ export const DeleteItemMeta$inboundSchema: z.ZodMiniType<
   warnings: z.optional(z.nullable(z.array(types.string()))),
   pagination: z.optional(
     z.nullable(z.lazy(() => DeleteItemPagination$inboundSchema)),
+  ),
+  partialErrors: z.optional(
+    z.nullable(z.array(models.PartialError$inboundSchema)),
   ),
 });
 

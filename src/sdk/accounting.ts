@@ -9,6 +9,7 @@ import { accountingCreateBill } from "../funcs/accounting-create-bill.js";
 import { accountingCreateBookingProposalAsync } from "../funcs/accounting-create-booking-proposal-async.js";
 import { accountingCreateBookingProposalAttachment } from "../funcs/accounting-create-booking-proposal-attachment.js";
 import { accountingCreateBookingProposal } from "../funcs/accounting-create-booking-proposal.js";
+import { accountingCreateContactAsync } from "../funcs/accounting-create-contact-async.js";
 import { accountingCreateContact } from "../funcs/accounting-create-contact.js";
 import { accountingCreateContactsV1 } from "../funcs/accounting-create-contacts-v1.js";
 import { accountingCreateContacts } from "../funcs/accounting-create-contacts.js";
@@ -27,7 +28,9 @@ import { accountingCreateOffer } from "../funcs/accounting-create-offer.js";
 import { accountingCreatePassThroughRequest } from "../funcs/accounting-create-pass-through-request.js";
 import { accountingCreatePaymentTerm } from "../funcs/accounting-create-payment-term.js";
 import { accountingCreatePayment } from "../funcs/accounting-create-payment.js";
+import { accountingCreateProjectAsync } from "../funcs/accounting-create-project-async.js";
 import { accountingCreateProject } from "../funcs/accounting-create-project.js";
+import { accountingCreateSalesOrderAsync } from "../funcs/accounting-create-sales-order-async.js";
 import { accountingCreateSalesOrder } from "../funcs/accounting-create-sales-order.js";
 import { accountingCreateSupplier } from "../funcs/accounting-create-supplier.js";
 import { accountingCreateTransaction } from "../funcs/accounting-create-transaction.js";
@@ -36,6 +39,7 @@ import { accountingDeleteBill } from "../funcs/accounting-delete-bill.js";
 import { accountingDeleteEventSubscriptions } from "../funcs/accounting-delete-event-subscriptions.js";
 import { accountingDeleteItem } from "../funcs/accounting-delete-item.js";
 import { accountingDeleteJournalEntry } from "../funcs/accounting-delete-journal-entry.js";
+import { accountingDeleteOffer } from "../funcs/accounting-delete-offer.js";
 import { accountingDeletePayment } from "../funcs/accounting-delete-payment.js";
 import { accountingDeleteVendorCredit } from "../funcs/accounting-delete-vendor-credit.js";
 import { accountingGetAccount } from "../funcs/accounting-get-account.js";
@@ -50,6 +54,7 @@ import { accountingGetBills } from "../funcs/accounting-get-bills.js";
 import { accountingGetBookingProposalDocument } from "../funcs/accounting-get-booking-proposal-document.js";
 import { accountingGetBookingProposal } from "../funcs/accounting-get-booking-proposal.js";
 import { accountingGetBookingProposals } from "../funcs/accounting-get-booking-proposals.js";
+import { accountingGetContactAsync } from "../funcs/accounting-get-contact-async.js";
 import { accountingGetContact } from "../funcs/accounting-get-contact.js";
 import { accountingGetContactsAsync } from "../funcs/accounting-get-contacts-async.js";
 import { accountingGetContacts } from "../funcs/accounting-get-contacts.js";
@@ -96,6 +101,7 @@ import { accountingGetPaymentTerms } from "../funcs/accounting-get-payment-terms
 import { accountingGetPayment } from "../funcs/accounting-get-payment.js";
 import { accountingGetPayments } from "../funcs/accounting-get-payments.js";
 import { accountingGetProfile } from "../funcs/accounting-get-profile.js";
+import { accountingGetProjectAsync } from "../funcs/accounting-get-project-async.js";
 import { accountingGetProject } from "../funcs/accounting-get-project.js";
 import { accountingGetProjectsAsync } from "../funcs/accounting-get-projects-async.js";
 import { accountingGetProjects } from "../funcs/accounting-get-projects.js";
@@ -111,6 +117,7 @@ import { accountingGetSupplier } from "../funcs/accounting-get-supplier.js";
 import { accountingGetSuppliers } from "../funcs/accounting-get-suppliers.js";
 import { accountingGetTaxRate } from "../funcs/accounting-get-tax-rate.js";
 import { accountingGetTaxRates } from "../funcs/accounting-get-tax-rates.js";
+import { accountingGetToleranceLimits } from "../funcs/accounting-get-tolerance-limits.js";
 import { accountingGetTrialBalance } from "../funcs/accounting-get-trial-balance.js";
 import { accountingGetUnits } from "../funcs/accounting-get-units.js";
 import { accountingGetVendorCredits } from "../funcs/accounting-get-vendor-credits.js";
@@ -120,12 +127,15 @@ import { accountingPatchInvoice } from "../funcs/accounting-patch-invoice.js";
 import { accountingPatchItem } from "../funcs/accounting-patch-item.js";
 import { accountingPatchJournalEntry } from "../funcs/accounting-patch-journal-entry.js";
 import { accountingPatchLineItem } from "../funcs/accounting-patch-line-item.js";
+import { accountingPatchOffer } from "../funcs/accounting-patch-offer.js";
 import { accountingPatchSupplier } from "../funcs/accounting-patch-supplier.js";
 import { accountingPostFileAsync } from "../funcs/accounting-post-file-async.js";
 import { accountingPostFile } from "../funcs/accounting-post-file.js";
 import { accountingPutContact } from "../funcs/accounting-put-contact.js";
 import { accountingUpdateBillLineItem } from "../funcs/accounting-update-bill-line-item.js";
 import { accountingUpdateBill } from "../funcs/accounting-update-bill.js";
+import { accountingUpdateBookingProposalAsync } from "../funcs/accounting-update-booking-proposal-async.js";
+import { accountingUpdateBookingProposal } from "../funcs/accounting-update-booking-proposal.js";
 import { accountingUpdateCustomer } from "../funcs/accounting-update-customer.js";
 import { accountingUpdateItem } from "../funcs/accounting-update-item.js";
 import { accountingUpdateJournalEntry } from "../funcs/accounting-update-journal-entry.js";
@@ -357,6 +367,17 @@ export class Accounting extends ClientSDK {
     ));
   }
 
+  async createContactAsync(
+    request: operations.CreateContactAsyncRequest,
+    options?: RequestOptions,
+  ): Promise<operations.CreateContactAsyncResponse> {
+    return unwrapAsync(accountingCreateContactAsync(
+      this,
+      request,
+      options,
+    ));
+  }
+
   async getContacts(
     request?: operations.GetContactsRequest | undefined,
     options?: RequestOptions,
@@ -406,6 +427,17 @@ export class Accounting extends ClientSDK {
     options?: RequestOptions,
   ): Promise<operations.PatchContactResponse> {
     return unwrapAsync(accountingPatchContact(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  async getContactAsync(
+    request: operations.GetContactAsyncRequest,
+    options?: RequestOptions,
+  ): Promise<operations.GetContactAsyncResponse> {
+    return unwrapAsync(accountingGetContactAsync(
       this,
       request,
       options,
@@ -819,6 +851,28 @@ export class Accounting extends ClientSDK {
     ));
   }
 
+  async patchOffer(
+    request: operations.PatchOfferRequest,
+    options?: RequestOptions,
+  ): Promise<operations.PatchOfferResponse> {
+    return unwrapAsync(accountingPatchOffer(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  async deleteOffer(
+    request: operations.DeleteOfferRequest,
+    options?: RequestOptions,
+  ): Promise<operations.DeleteOfferResponse> {
+    return unwrapAsync(accountingDeleteOffer(
+      this,
+      request,
+      options,
+    ));
+  }
+
   async getOfferLineItems(
     request: operations.GetOfferLineItemsRequest,
     options?: RequestOptions,
@@ -918,11 +972,33 @@ export class Accounting extends ClientSDK {
     ));
   }
 
+  async createProjectAsync(
+    request: operations.CreateProjectAsyncRequest,
+    options?: RequestOptions,
+  ): Promise<operations.CreateProjectAsyncResponse> {
+    return unwrapAsync(accountingCreateProjectAsync(
+      this,
+      request,
+      options,
+    ));
+  }
+
   async getProject(
     request: operations.GetProjectRequest,
     options?: RequestOptions,
   ): Promise<operations.GetProjectResponse> {
     return unwrapAsync(accountingGetProject(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  async getProjectAsync(
+    request: operations.GetProjectAsyncRequest,
+    options?: RequestOptions,
+  ): Promise<operations.GetProjectAsyncResponse> {
+    return unwrapAsync(accountingGetProjectAsync(
       this,
       request,
       options,
@@ -956,6 +1032,17 @@ export class Accounting extends ClientSDK {
     options?: RequestOptions,
   ): Promise<operations.GetSalesOrderResponse> {
     return unwrapAsync(accountingGetSalesOrder(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  async createSalesOrderAsync(
+    request: operations.CreateSalesOrderAsyncRequest,
+    options?: RequestOptions,
+  ): Promise<operations.CreateSalesOrderAsyncResponse> {
+    return unwrapAsync(accountingCreateSalesOrderAsync(
       this,
       request,
       options,
@@ -1204,11 +1291,11 @@ export class Accounting extends ClientSDK {
     ));
   }
 
-  async createBookingProposalAttachment(
-    request: operations.CreateBookingProposalAttachmentRequest,
+  async updateBookingProposal(
+    request: operations.UpdateBookingProposalRequest,
     options?: RequestOptions,
-  ): Promise<operations.CreateBookingProposalAttachmentResponse> {
-    return unwrapAsync(accountingCreateBookingProposalAttachment(
+  ): Promise<operations.UpdateBookingProposalResponse> {
+    return unwrapAsync(accountingUpdateBookingProposal(
       this,
       request,
       options,
@@ -1220,6 +1307,28 @@ export class Accounting extends ClientSDK {
     options?: RequestOptions,
   ): Promise<operations.GetBookingProposalResponse> {
     return unwrapAsync(accountingGetBookingProposal(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  async updateBookingProposalAsync(
+    request: operations.UpdateBookingProposalAsyncRequest,
+    options?: RequestOptions,
+  ): Promise<operations.UpdateBookingProposalAsyncResponse> {
+    return unwrapAsync(accountingUpdateBookingProposalAsync(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  async createBookingProposalAttachment(
+    request: operations.CreateBookingProposalAttachmentRequest,
+    options?: RequestOptions,
+  ): Promise<operations.CreateBookingProposalAttachmentResponse> {
+    return unwrapAsync(accountingCreateBookingProposalAttachment(
       this,
       request,
       options,
@@ -1550,6 +1659,17 @@ export class Accounting extends ClientSDK {
     options?: RequestOptions,
   ): Promise<operations.GetReasonCodesResponse> {
     return unwrapAsync(accountingGetReasonCodes(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  async getToleranceLimits(
+    request?: operations.GetToleranceLimitsRequest | undefined,
+    options?: RequestOptions,
+  ): Promise<operations.GetToleranceLimitsResponse> {
+    return unwrapAsync(accountingGetToleranceLimits(
       this,
       request,
       options,

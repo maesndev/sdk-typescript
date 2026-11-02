@@ -45,6 +45,7 @@ export type CreateLineItemPagination = {
 export type CreateLineItemMeta = {
   warnings?: Array<string> | null | undefined;
   pagination?: CreateLineItemPagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type CreateLineItemErrors = {};
@@ -121,6 +122,9 @@ export const CreateLineItemMeta$inboundSchema: z.ZodMiniType<
   warnings: z.optional(z.nullable(z.array(types.string()))),
   pagination: z.optional(
     z.nullable(z.lazy(() => CreateLineItemPagination$inboundSchema)),
+  ),
+  partialErrors: z.optional(
+    z.nullable(z.array(models.PartialError$inboundSchema)),
   ),
 });
 

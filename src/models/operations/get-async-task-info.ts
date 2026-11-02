@@ -56,6 +56,7 @@ export type GetAsyncTaskInfoPagination = {
 export type GetAsyncTaskInfoMeta = {
   warnings?: Array<string> | null | undefined;
   pagination?: GetAsyncTaskInfoPagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type GetAsyncTaskInfoErrors = {};
@@ -139,6 +140,9 @@ export const GetAsyncTaskInfoMeta$inboundSchema: z.ZodMiniType<
   warnings: z.optional(z.nullable(z.array(types.string()))),
   pagination: z.optional(
     z.nullable(z.lazy(() => GetAsyncTaskInfoPagination$inboundSchema)),
+  ),
+  partialErrors: z.optional(
+    z.nullable(z.array(models.PartialError$inboundSchema)),
   ),
 });
 

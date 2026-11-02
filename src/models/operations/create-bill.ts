@@ -44,6 +44,7 @@ export type CreateBillPagination = {
 export type CreateBillMeta = {
   warnings?: Array<string> | null | undefined;
   pagination?: CreateBillPagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type CreateBillErrors = {};
@@ -118,6 +119,9 @@ export const CreateBillMeta$inboundSchema: z.ZodMiniType<
   warnings: z.optional(z.nullable(z.array(types.string()))),
   pagination: z.optional(
     z.nullable(z.lazy(() => CreateBillPagination$inboundSchema)),
+  ),
+  partialErrors: z.optional(
+    z.nullable(z.array(models.PartialError$inboundSchema)),
   ),
 });
 

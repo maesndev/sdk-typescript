@@ -39,6 +39,7 @@ export type GetCompaniesPagination = {
 export type GetCompaniesMeta = {
   warnings?: Array<string> | null | undefined;
   pagination?: GetCompaniesPagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type GetCompaniesErrors = {};
@@ -109,6 +110,9 @@ export const GetCompaniesMeta$inboundSchema: z.ZodMiniType<
   warnings: z.optional(z.nullable(z.array(types.string()))),
   pagination: z.optional(
     z.nullable(z.lazy(() => GetCompaniesPagination$inboundSchema)),
+  ),
+  partialErrors: z.optional(
+    z.nullable(z.array(models.PartialError$inboundSchema)),
   ),
 });
 

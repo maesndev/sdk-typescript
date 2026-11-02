@@ -8,7 +8,7 @@ import { PatchContactV2Request } from "@maesn/typescript-sdk/models/operations";
 let value: PatchContactV2Request = {
   contactId: "<id>",
   body: {
-    contactType: "COMPANY",
+    contactType: "CONTACT_PERSON",
   },
 };
 ```

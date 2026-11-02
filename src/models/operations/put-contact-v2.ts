@@ -46,6 +46,7 @@ export type PutContactV2Pagination2 = {
 export type PutContactV2Meta2 = {
   warnings?: Array<string> | null | undefined;
   pagination?: PutContactV2Pagination2 | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type PutContactV2Errors2 = {};
@@ -72,6 +73,7 @@ export type PutContactV2Pagination1 = {
 export type PutContactV2Meta1 = {
   warnings?: Array<string> | null | undefined;
   pagination?: PutContactV2Pagination1 | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type PutContactV2Errors1 = {};
@@ -152,6 +154,9 @@ export const PutContactV2Meta2$inboundSchema: z.ZodMiniType<
   warnings: z.optional(z.nullable(z.array(types.string()))),
   pagination: z.optional(
     z.nullable(z.lazy(() => PutContactV2Pagination2$inboundSchema)),
+  ),
+  partialErrors: z.optional(
+    z.nullable(z.array(models.PartialError$inboundSchema)),
   ),
 });
 
@@ -247,6 +252,9 @@ export const PutContactV2Meta1$inboundSchema: z.ZodMiniType<
   warnings: z.optional(z.nullable(z.array(types.string()))),
   pagination: z.optional(
     z.nullable(z.lazy(() => PutContactV2Pagination1$inboundSchema)),
+  ),
+  partialErrors: z.optional(
+    z.nullable(z.array(models.PartialError$inboundSchema)),
   ),
 });
 

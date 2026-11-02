@@ -63,6 +63,7 @@ export type GetCreditNotesPagination = {
 export type GetCreditNotesMeta = {
   warnings?: Array<string> | null | undefined;
   pagination?: GetCreditNotesPagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type GetCreditNotesErrors = {};
@@ -148,6 +149,9 @@ export const GetCreditNotesMeta$inboundSchema: z.ZodMiniType<
   warnings: z.optional(z.nullable(z.array(types.string()))),
   pagination: z.optional(
     z.nullable(z.lazy(() => GetCreditNotesPagination$inboundSchema)),
+  ),
+  partialErrors: z.optional(
+    z.nullable(z.array(models.PartialError$inboundSchema)),
   ),
 });
 

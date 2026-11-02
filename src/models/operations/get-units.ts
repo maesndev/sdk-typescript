@@ -59,6 +59,7 @@ export type GetUnitsPagination = {
 export type GetUnitsMeta = {
   warnings?: Array<string> | null | undefined;
   pagination?: GetUnitsPagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type GetUnitsErrors = {};
@@ -137,6 +138,9 @@ export const GetUnitsMeta$inboundSchema: z.ZodMiniType<GetUnitsMeta, unknown> =
     warnings: z.optional(z.nullable(z.array(types.string()))),
     pagination: z.optional(
       z.nullable(z.lazy(() => GetUnitsPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
     ),
   });
 

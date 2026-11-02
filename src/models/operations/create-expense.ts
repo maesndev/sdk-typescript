@@ -54,6 +54,7 @@ export type CreateExpensePagination = {
 export type CreateExpenseMeta = {
   warnings?: Array<string> | null | undefined;
   pagination?: CreateExpensePagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type CreateExpenseErrors = {};
@@ -179,6 +180,9 @@ export const CreateExpenseMeta$inboundSchema: z.ZodMiniType<
   warnings: z.optional(z.nullable(z.array(types.string()))),
   pagination: z.optional(
     z.nullable(z.lazy(() => CreateExpensePagination$inboundSchema)),
+  ),
+  partialErrors: z.optional(
+    z.nullable(z.array(models.PartialError$inboundSchema)),
   ),
 });
 

@@ -40,6 +40,7 @@ export type CreateContactsV1Pagination = {
 export type CreateContactsV1Meta = {
   warnings?: Array<string> | null | undefined;
   pagination?: CreateContactsV1Pagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type CreateContactsV1Errors = {};
@@ -112,6 +113,9 @@ export const CreateContactsV1Meta$inboundSchema: z.ZodMiniType<
   warnings: z.optional(z.nullable(z.array(types.string()))),
   pagination: z.optional(
     z.nullable(z.lazy(() => CreateContactsV1Pagination$inboundSchema)),
+  ),
+  partialErrors: z.optional(
+    z.nullable(z.array(models.PartialError$inboundSchema)),
   ),
 });
 

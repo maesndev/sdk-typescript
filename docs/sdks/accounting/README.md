@@ -24,11 +24,13 @@
 * [updateSupplier](#updatesupplier)
 * [patchSupplier](#patchsupplier)
 * [getContactsAsync](#getcontactsasync)
+* [createContactAsync](#createcontactasync)
 * [getContacts](#getcontacts)
 * [createContact](#createcontact)
 * [getContact](#getcontact)
 * [putContact](#putcontact)
 * [patchContact](#patchcontact)
+* [getContactAsync](#getcontactasync)
 * [createContacts](#createcontacts)
 * [createContactsV1](#createcontactsv1)
 * [getInvoices](#getinvoices)
@@ -66,6 +68,8 @@
 * [getOffers](#getoffers)
 * [createOffer](#createoffer)
 * [getOffer](#getoffer)
+* [patchOffer](#patchoffer)
+* [deleteOffer](#deleteoffer)
 * [getOfferLineItems](#getofferlineitems)
 * [getOfferLineItem](#getofferlineitem)
 * [getOfferDocument](#getofferdocument)
@@ -75,10 +79,13 @@
 * [getProjects](#getprojects)
 * [createProject](#createproject)
 * [getProjectsAsync](#getprojectsasync)
+* [createProjectAsync](#createprojectasync)
 * [getProject](#getproject)
+* [getProjectAsync](#getprojectasync)
 * [getSalesOrders](#getsalesorders)
 * [createSalesOrder](#createsalesorder)
 * [getSalesOrder](#getsalesorder)
+* [createSalesOrderAsync](#createsalesorderasync)
 * [getSalesOrderLines](#getsalesorderlines)
 * [getPaymentTerms](#getpaymentterms)
 * [createPaymentTerm](#createpaymentterm)
@@ -101,8 +108,10 @@
 * [getBillDocument](#getbilldocument)
 * [createBookingProposal](#createbookingproposal)
 * [getBookingProposals](#getbookingproposals)
-* [createBookingProposalAttachment](#createbookingproposalattachment)
+* [updateBookingProposal](#updatebookingproposal)
 * [getBookingProposal](#getbookingproposal)
+* [updateBookingProposalAsync](#updatebookingproposalasync)
+* [createBookingProposalAttachment](#createbookingproposalattachment)
 * [getBookingProposalDocument](#getbookingproposaldocument)
 * [getVendorCredits](#getvendorcredits)
 * [createVendorCredit](#createvendorcredit)
@@ -133,6 +142,7 @@
 * [createBookingProposalAsync](#createbookingproposalasync)
 * [getCurrencies](#getcurrencies)
 * [getReasonCodes](#getreasoncodes)
+* [getToleranceLimits](#gettolerancelimits)
 
 ## getAccount
 
@@ -1634,6 +1644,85 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
+## createContactAsync
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="createContactAsync" method="post" path="/accounting/contacts/async" -->
+```typescript
+import { Maesn } from "@maesn/typescript-sdk";
+
+const maesn = new Maesn({
+  serverURL: "https://api.example.com",
+  apiKey: "<value>",
+  accountKey: "<value>",
+});
+
+async function run() {
+  const result = await maesn.accounting.createContactAsync({
+    body: {
+      contactType: "UNDEFINED",
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingCreateContactAsync } from "@maesn/typescript-sdk/funcs/accounting-create-contact-async.js";
+
+// Use `MaesnCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const maesn = new MaesnCore({
+  serverURL: "https://api.example.com",
+  apiKey: "<value>",
+  accountKey: "<value>",
+});
+
+async function run() {
+  const res = await accountingCreateContactAsync(maesn, {
+    body: {
+      contactType: "UNDEFINED",
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingCreateContactAsync failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.CreateContactAsyncRequest](../../models/operations/create-contact-async-request.md)                                                                                | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.CreateContactAsyncResponse](../../models/operations/create-contact-async-response.md)\>**
+
+### Errors
+
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
+
 ## getContacts
 
 ### Example Usage
@@ -2014,6 +2103,81 @@ run();
 ### Response
 
 **Promise\<[operations.PatchContactResponse](../../models/operations/patch-contact-response.md)\>**
+
+### Errors
+
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
+
+## getContactAsync
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="getContactAsync" method="get" path="/accounting/contacts/{contactId}/async" -->
+```typescript
+import { Maesn } from "@maesn/typescript-sdk";
+
+const maesn = new Maesn({
+  serverURL: "https://api.example.com",
+  apiKey: "<value>",
+  accountKey: "<value>",
+});
+
+async function run() {
+  const result = await maesn.accounting.getContactAsync({
+    contactId: "<id>",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingGetContactAsync } from "@maesn/typescript-sdk/funcs/accounting-get-contact-async.js";
+
+// Use `MaesnCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const maesn = new MaesnCore({
+  serverURL: "https://api.example.com",
+  apiKey: "<value>",
+  accountKey: "<value>",
+});
+
+async function run() {
+  const res = await accountingGetContactAsync(maesn, {
+    contactId: "<id>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingGetContactAsync failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetContactAsyncRequest](../../models/operations/get-contact-async-request.md)                                                                                      | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.GetContactAsyncResponse](../../models/operations/get-contact-async-response.md)\>**
 
 ### Errors
 
@@ -4914,20 +5078,7 @@ const maesn = new Maesn({
 
 async function run() {
   const result = await maesn.accounting.createOffer({
-    body: {
-      addresses: [
-        {
-          addressLine1: "914 Mann Ridge",
-          addressLine2: "-",
-          city: "Franeyshire",
-          countryCode: "RS",
-          postalCode: "73463",
-          type: "SELLING",
-        },
-      ],
-      currency: "Ethiopian Birr",
-      offerDate: "<value>",
-    },
+    body: {},
   });
 
   console.log(result);
@@ -4954,20 +5105,7 @@ const maesn = new MaesnCore({
 
 async function run() {
   const res = await accountingCreateOffer(maesn, {
-    body: {
-      addresses: [
-        {
-          addressLine1: "914 Mann Ridge",
-          addressLine2: "-",
-          city: "Franeyshire",
-          countryCode: "RS",
-          postalCode: "73463",
-          type: "SELLING",
-        },
-      ],
-      currency: "Ethiopian Birr",
-      offerDate: "<value>",
-    },
+    body: {},
   });
   if (res.ok) {
     const { value: result } = res;
@@ -5067,6 +5205,158 @@ run();
 ### Response
 
 **Promise\<[operations.GetOfferResponse](../../models/operations/get-offer-response.md)\>**
+
+### Errors
+
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
+
+## patchOffer
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="patchOffer" method="patch" path="/accounting/offers/{offerId}" -->
+```typescript
+import { Maesn } from "@maesn/typescript-sdk";
+
+const maesn = new Maesn({
+  serverURL: "https://api.example.com",
+  apiKey: "<value>",
+  accountKey: "<value>",
+});
+
+async function run() {
+  const result = await maesn.accounting.patchOffer({
+    offerId: "<id>",
+    body: {},
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingPatchOffer } from "@maesn/typescript-sdk/funcs/accounting-patch-offer.js";
+
+// Use `MaesnCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const maesn = new MaesnCore({
+  serverURL: "https://api.example.com",
+  apiKey: "<value>",
+  accountKey: "<value>",
+});
+
+async function run() {
+  const res = await accountingPatchOffer(maesn, {
+    offerId: "<id>",
+    body: {},
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingPatchOffer failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.PatchOfferRequest](../../models/operations/patch-offer-request.md)                                                                                                 | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.PatchOfferResponse](../../models/operations/patch-offer-response.md)\>**
+
+### Errors
+
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
+
+## deleteOffer
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="deleteOffer" method="delete" path="/accounting/offers/{offerId}" -->
+```typescript
+import { Maesn } from "@maesn/typescript-sdk";
+
+const maesn = new Maesn({
+  serverURL: "https://api.example.com",
+  apiKey: "<value>",
+  accountKey: "<value>",
+});
+
+async function run() {
+  const result = await maesn.accounting.deleteOffer({
+    offerId: "<id>",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingDeleteOffer } from "@maesn/typescript-sdk/funcs/accounting-delete-offer.js";
+
+// Use `MaesnCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const maesn = new MaesnCore({
+  serverURL: "https://api.example.com",
+  apiKey: "<value>",
+  accountKey: "<value>",
+});
+
+async function run() {
+  const res = await accountingDeleteOffer(maesn, {
+    offerId: "<id>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingDeleteOffer failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.DeleteOfferRequest](../../models/operations/delete-offer-request.md)                                                                                               | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.DeleteOfferResponse](../../models/operations/delete-offer-response.md)\>**
 
 ### Errors
 
@@ -5739,6 +6029,81 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
+## createProjectAsync
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="createProjectAsync" method="post" path="/accounting/projects/async" -->
+```typescript
+import { Maesn } from "@maesn/typescript-sdk";
+
+const maesn = new Maesn({
+  serverURL: "https://api.example.com",
+  apiKey: "<value>",
+  accountKey: "<value>",
+});
+
+async function run() {
+  const result = await maesn.accounting.createProjectAsync({
+    body: {},
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingCreateProjectAsync } from "@maesn/typescript-sdk/funcs/accounting-create-project-async.js";
+
+// Use `MaesnCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const maesn = new MaesnCore({
+  serverURL: "https://api.example.com",
+  apiKey: "<value>",
+  accountKey: "<value>",
+});
+
+async function run() {
+  const res = await accountingCreateProjectAsync(maesn, {
+    body: {},
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingCreateProjectAsync failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.CreateProjectAsyncRequest](../../models/operations/create-project-async-request.md)                                                                                | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.CreateProjectAsyncResponse](../../models/operations/create-project-async-response.md)\>**
+
+### Errors
+
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
+
 ## getProject
 
 ### Example Usage
@@ -5807,6 +6172,81 @@ run();
 ### Response
 
 **Promise\<[operations.GetProjectResponse](../../models/operations/get-project-response.md)\>**
+
+### Errors
+
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
+
+## getProjectAsync
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="getProjectAsync" method="get" path="/accounting/projects/{projectId}/async" -->
+```typescript
+import { Maesn } from "@maesn/typescript-sdk";
+
+const maesn = new Maesn({
+  serverURL: "https://api.example.com",
+  apiKey: "<value>",
+  accountKey: "<value>",
+});
+
+async function run() {
+  const result = await maesn.accounting.getProjectAsync({
+    projectId: "<id>",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingGetProjectAsync } from "@maesn/typescript-sdk/funcs/accounting-get-project-async.js";
+
+// Use `MaesnCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const maesn = new MaesnCore({
+  serverURL: "https://api.example.com",
+  apiKey: "<value>",
+  accountKey: "<value>",
+});
+
+async function run() {
+  const res = await accountingGetProjectAsync(maesn, {
+    projectId: "<id>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingGetProjectAsync failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetProjectAsyncRequest](../../models/operations/get-project-async-request.md)                                                                                      | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.GetProjectAsyncResponse](../../models/operations/get-project-async-response.md)\>**
 
 ### Errors
 
@@ -6028,6 +6468,81 @@ run();
 ### Response
 
 **Promise\<[operations.GetSalesOrderResponse](../../models/operations/get-sales-order-response.md)\>**
+
+### Errors
+
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
+
+## createSalesOrderAsync
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="createSalesOrderAsync" method="post" path="/accounting/salesOrders/async" -->
+```typescript
+import { Maesn } from "@maesn/typescript-sdk";
+
+const maesn = new Maesn({
+  serverURL: "https://api.example.com",
+  apiKey: "<value>",
+  accountKey: "<value>",
+});
+
+async function run() {
+  const result = await maesn.accounting.createSalesOrderAsync({
+    body: {},
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingCreateSalesOrderAsync } from "@maesn/typescript-sdk/funcs/accounting-create-sales-order-async.js";
+
+// Use `MaesnCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const maesn = new MaesnCore({
+  serverURL: "https://api.example.com",
+  apiKey: "<value>",
+  accountKey: "<value>",
+});
+
+async function run() {
+  const res = await accountingCreateSalesOrderAsync(maesn, {
+    body: {},
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingCreateSalesOrderAsync failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.CreateSalesOrderAsyncRequest](../../models/operations/create-sales-order-async-request.md)                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.CreateSalesOrderAsyncResponse](../../models/operations/create-sales-order-async-response.md)\>**
 
 ### Errors
 
@@ -7675,11 +8190,11 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
-## createBookingProposalAttachment
+## updateBookingProposal
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="createBookingProposalAttachment" method="post" path="/accounting/bookingProposals/{bookingProposalId}/attachments" -->
+<!-- UsageSnippet language="typescript" operationID="updateBookingProposal" method="put" path="/accounting/bookingProposals/{bookingProposalId}" -->
 ```typescript
 import { Maesn } from "@maesn/typescript-sdk";
 
@@ -7690,7 +8205,7 @@ const maesn = new Maesn({
 });
 
 async function run() {
-  const result = await maesn.accounting.createBookingProposalAttachment({
+  const result = await maesn.accounting.updateBookingProposal({
     bookingProposalId: "<id>",
     body: {},
   });
@@ -7707,7 +8222,7 @@ The standalone function version of this method:
 
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
-import { accountingCreateBookingProposalAttachment } from "@maesn/typescript-sdk/funcs/accounting-create-booking-proposal-attachment.js";
+import { accountingUpdateBookingProposal } from "@maesn/typescript-sdk/funcs/accounting-update-booking-proposal.js";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -7718,7 +8233,7 @@ const maesn = new MaesnCore({
 });
 
 async function run() {
-  const res = await accountingCreateBookingProposalAttachment(maesn, {
+  const res = await accountingUpdateBookingProposal(maesn, {
     bookingProposalId: "<id>",
     body: {},
   });
@@ -7726,7 +8241,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("accountingCreateBookingProposalAttachment failed:", res.error);
+    console.log("accountingUpdateBookingProposal failed:", res.error);
   }
 }
 
@@ -7737,14 +8252,14 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.CreateBookingProposalAttachmentRequest](../../models/operations/create-booking-proposal-attachment-request.md)                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.UpdateBookingProposalRequest](../../models/operations/update-booking-proposal-request.md)                                                                          | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise\<[operations.CreateBookingProposalAttachmentResponse](../../models/operations/create-booking-proposal-attachment-response.md)\>**
+**Promise\<[operations.UpdateBookingProposalResponse](../../models/operations/update-booking-proposal-response.md)\>**
 
 ### Errors
 
@@ -7820,6 +8335,160 @@ run();
 ### Response
 
 **Promise\<[operations.GetBookingProposalResponse](../../models/operations/get-booking-proposal-response.md)\>**
+
+### Errors
+
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
+
+## updateBookingProposalAsync
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="updateBookingProposalAsync" method="put" path="/accounting/bookingProposals/{bookingProposalId}/async" -->
+```typescript
+import { Maesn } from "@maesn/typescript-sdk";
+
+const maesn = new Maesn({
+  serverURL: "https://api.example.com",
+  apiKey: "<value>",
+  accountKey: "<value>",
+});
+
+async function run() {
+  const result = await maesn.accounting.updateBookingProposalAsync({
+    bookingProposalId: "<id>",
+    body: {},
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingUpdateBookingProposalAsync } from "@maesn/typescript-sdk/funcs/accounting-update-booking-proposal-async.js";
+
+// Use `MaesnCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const maesn = new MaesnCore({
+  serverURL: "https://api.example.com",
+  apiKey: "<value>",
+  accountKey: "<value>",
+});
+
+async function run() {
+  const res = await accountingUpdateBookingProposalAsync(maesn, {
+    bookingProposalId: "<id>",
+    body: {},
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingUpdateBookingProposalAsync failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.UpdateBookingProposalAsyncRequest](../../models/operations/update-booking-proposal-async-request.md)                                                               | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.UpdateBookingProposalAsyncResponse](../../models/operations/update-booking-proposal-async-response.md)\>**
+
+### Errors
+
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
+
+## createBookingProposalAttachment
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="createBookingProposalAttachment" method="post" path="/accounting/bookingProposals/{bookingProposalId}/attachments" -->
+```typescript
+import { Maesn } from "@maesn/typescript-sdk";
+
+const maesn = new Maesn({
+  serverURL: "https://api.example.com",
+  apiKey: "<value>",
+  accountKey: "<value>",
+});
+
+async function run() {
+  const result = await maesn.accounting.createBookingProposalAttachment({
+    bookingProposalId: "<id>",
+    body: {},
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingCreateBookingProposalAttachment } from "@maesn/typescript-sdk/funcs/accounting-create-booking-proposal-attachment.js";
+
+// Use `MaesnCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const maesn = new MaesnCore({
+  serverURL: "https://api.example.com",
+  apiKey: "<value>",
+  accountKey: "<value>",
+});
+
+async function run() {
+  const res = await accountingCreateBookingProposalAttachment(maesn, {
+    bookingProposalId: "<id>",
+    body: {},
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingCreateBookingProposalAttachment failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.CreateBookingProposalAttachmentRequest](../../models/operations/create-booking-proposal-attachment-request.md)                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.CreateBookingProposalAttachmentResponse](../../models/operations/create-booking-proposal-attachment-response.md)\>**
 
 ### Errors
 
@@ -10056,6 +10725,77 @@ run();
 ### Response
 
 **Promise\<[operations.GetReasonCodesResponse](../../models/operations/get-reason-codes-response.md)\>**
+
+### Errors
+
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
+
+## getToleranceLimits
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="getToleranceLimits" method="get" path="/accounting/toleranceLimits" -->
+```typescript
+import { Maesn } from "@maesn/typescript-sdk";
+
+const maesn = new Maesn({
+  serverURL: "https://api.example.com",
+  apiKey: "<value>",
+  accountKey: "<value>",
+});
+
+async function run() {
+  const result = await maesn.accounting.getToleranceLimits();
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingGetToleranceLimits } from "@maesn/typescript-sdk/funcs/accounting-get-tolerance-limits.js";
+
+// Use `MaesnCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const maesn = new MaesnCore({
+  serverURL: "https://api.example.com",
+  apiKey: "<value>",
+  accountKey: "<value>",
+});
+
+async function run() {
+  const res = await accountingGetToleranceLimits(maesn);
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingGetToleranceLimits failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetToleranceLimitsRequest](../../models/operations/get-tolerance-limits-request.md)                                                                                | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.GetToleranceLimitsResponse](../../models/operations/get-tolerance-limits-response.md)\>**
 
 ### Errors
 

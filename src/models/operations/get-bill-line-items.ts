@@ -44,6 +44,7 @@ export type GetBillLineItemsPagination = {
 export type GetBillLineItemsMeta = {
   warnings?: Array<string> | null | undefined;
   pagination?: GetBillLineItemsPagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type GetBillLineItemsErrors = {};
@@ -118,6 +119,9 @@ export const GetBillLineItemsMeta$inboundSchema: z.ZodMiniType<
   warnings: z.optional(z.nullable(z.array(types.string()))),
   pagination: z.optional(
     z.nullable(z.lazy(() => GetBillLineItemsPagination$inboundSchema)),
+  ),
+  partialErrors: z.optional(
+    z.nullable(z.array(models.PartialError$inboundSchema)),
   ),
 });
 

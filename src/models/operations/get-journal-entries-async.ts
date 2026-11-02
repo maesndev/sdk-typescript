@@ -43,6 +43,7 @@ export type GetJournalEntriesAsyncPagination = {
 export type GetJournalEntriesAsyncMeta = {
   warnings?: Array<string> | null | undefined;
   pagination?: GetJournalEntriesAsyncPagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type GetJournalEntriesAsyncErrors = {};
@@ -117,6 +118,9 @@ export const GetJournalEntriesAsyncMeta$inboundSchema: z.ZodMiniType<
   warnings: z.optional(z.nullable(z.array(types.string()))),
   pagination: z.optional(
     z.nullable(z.lazy(() => GetJournalEntriesAsyncPagination$inboundSchema)),
+  ),
+  partialErrors: z.optional(
+    z.nullable(z.array(models.PartialError$inboundSchema)),
   ),
 });
 

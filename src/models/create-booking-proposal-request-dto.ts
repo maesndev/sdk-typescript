@@ -43,6 +43,7 @@ export type CreateBookingProposalRequestDto = {
   paymentTermsId?: string | undefined;
   status?: string | undefined;
   totalGrossAmount?: number | undefined;
+  totalTaxAmount?: number | undefined;
   useCollectiveContact?: boolean | undefined;
   vatId?: string | undefined;
 };
@@ -77,6 +78,7 @@ export type CreateBookingProposalRequestDto$Outbound = {
   paymentTermsId?: string | undefined;
   status?: string | undefined;
   totalGrossAmount?: number | undefined;
+  totalTaxAmount?: number | undefined;
   useCollectiveContact?: boolean | undefined;
   vatId?: string | undefined;
 };
@@ -114,6 +116,7 @@ export const CreateBookingProposalRequestDto$outboundSchema: z.ZodMiniType<
   paymentTermsId: z.optional(z.string()),
   status: z.optional(z.string()),
   totalGrossAmount: z.optional(z.number()),
+  totalTaxAmount: z.optional(z.number()),
   useCollectiveContact: z.optional(z.boolean()),
   vatId: z.optional(z.string()),
 });

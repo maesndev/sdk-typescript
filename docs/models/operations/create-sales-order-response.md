@@ -1,6 +1,6 @@
 # CreateSalesOrderResponse
 
-Sales order created successfully. Returns 202 with taskId if processed asynchronously.
+Sales order created successfully.
 
 ## Example Usage
 

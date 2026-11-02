@@ -10,7 +10,6 @@ import { GetProjectsAsyncResponse } from "@maesn/typescript-sdk/models/operation
 let value: GetProjectsAsyncResponse = {
   data: {
     taskId: "<id>",
-    objectId: "<id>",
   },
   errors: {},
   rawData: {},

@@ -63,6 +63,7 @@ export type GetReasonCodesPagination = {
 export type GetReasonCodesMeta = {
   warnings?: Array<string> | null | undefined;
   pagination?: GetReasonCodesPagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type GetReasonCodesErrors = {};
@@ -148,6 +149,9 @@ export const GetReasonCodesMeta$inboundSchema: z.ZodMiniType<
   warnings: z.optional(z.nullable(z.array(types.string()))),
   pagination: z.optional(
     z.nullable(z.lazy(() => GetReasonCodesPagination$inboundSchema)),
+  ),
+  partialErrors: z.optional(
+    z.nullable(z.array(models.PartialError$inboundSchema)),
   ),
 });
 

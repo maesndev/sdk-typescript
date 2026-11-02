@@ -20,25 +20,26 @@ export type CreateOfferLineItemRequestDtoType = ClosedEnum<
 >;
 
 export type CreateOfferLineItemRequestDto = {
-  accountCode: string;
-  accountId: string;
-  description: string;
-  itemId: string;
-  name: string;
-  quantity: number;
-  taxCode: string;
-  taxRatePercentage: number;
-  taxType: string;
-  type: CreateOfferLineItemRequestDtoType;
-  totalDiscountAmount: number;
-  totalDiscountPercentage: number;
-  totalGrossAmount: number;
-  totalNetAmount: number;
-  totalTaxAmount: number;
-  unitAmount: number;
-  unitDiscountAmount: number;
-  unitDiscountPercentage: number;
-  unitName: string;
+  accountCode?: string | undefined;
+  accountId?: string | undefined;
+  description?: string | undefined;
+  id?: string | undefined;
+  itemId?: string | undefined;
+  name?: string | undefined;
+  quantity?: number | undefined;
+  taxCode?: string | undefined;
+  taxRatePercentage?: number | undefined;
+  taxType?: string | undefined;
+  type?: CreateOfferLineItemRequestDtoType | undefined;
+  totalDiscountAmount?: number | undefined;
+  totalDiscountPercentage?: number | undefined;
+  totalGrossAmount?: number | undefined;
+  totalNetAmount?: number | undefined;
+  totalTaxAmount?: number | undefined;
+  unitAmount?: number | undefined;
+  unitDiscountAmount?: number | undefined;
+  unitDiscountPercentage?: number | undefined;
+  unitName?: string | undefined;
 };
 
 /** @internal */
@@ -48,25 +49,26 @@ export const CreateOfferLineItemRequestDtoType$outboundSchema: z.ZodMiniEnum<
 
 /** @internal */
 export type CreateOfferLineItemRequestDto$Outbound = {
-  accountCode: string;
-  accountId: string;
-  description: string;
-  itemId: string;
-  name: string;
-  quantity: number;
-  taxCode: string;
-  taxRatePercentage: number;
-  taxType: string;
-  type: string;
-  totalDiscountAmount: number;
-  totalDiscountPercentage: number;
-  totalGrossAmount: number;
-  totalNetAmount: number;
-  totalTaxAmount: number;
-  unitAmount: number;
-  unitDiscountAmount: number;
-  unitDiscountPercentage: number;
-  unitName: string;
+  accountCode?: string | undefined;
+  accountId?: string | undefined;
+  description?: string | undefined;
+  id?: string | undefined;
+  itemId?: string | undefined;
+  name?: string | undefined;
+  quantity?: number | undefined;
+  taxCode?: string | undefined;
+  taxRatePercentage?: number | undefined;
+  taxType?: string | undefined;
+  type?: string | undefined;
+  totalDiscountAmount?: number | undefined;
+  totalDiscountPercentage?: number | undefined;
+  totalGrossAmount?: number | undefined;
+  totalNetAmount?: number | undefined;
+  totalTaxAmount?: number | undefined;
+  unitAmount?: number | undefined;
+  unitDiscountAmount?: number | undefined;
+  unitDiscountPercentage?: number | undefined;
+  unitName?: string | undefined;
 };
 
 /** @internal */
@@ -74,25 +76,26 @@ export const CreateOfferLineItemRequestDto$outboundSchema: z.ZodMiniType<
   CreateOfferLineItemRequestDto$Outbound,
   CreateOfferLineItemRequestDto
 > = z.object({
-  accountCode: z.string(),
-  accountId: z.string(),
-  description: z.string(),
-  itemId: z.string(),
-  name: z.string(),
-  quantity: z.number(),
-  taxCode: z.string(),
-  taxRatePercentage: z.number(),
-  taxType: z.string(),
-  type: CreateOfferLineItemRequestDtoType$outboundSchema,
-  totalDiscountAmount: z.number(),
-  totalDiscountPercentage: z.number(),
-  totalGrossAmount: z.number(),
-  totalNetAmount: z.number(),
-  totalTaxAmount: z.number(),
-  unitAmount: z.number(),
-  unitDiscountAmount: z.number(),
-  unitDiscountPercentage: z.number(),
-  unitName: z.string(),
+  accountCode: z.optional(z.string()),
+  accountId: z.optional(z.string()),
+  description: z.optional(z.string()),
+  id: z.optional(z.string()),
+  itemId: z.optional(z.string()),
+  name: z.optional(z.string()),
+  quantity: z.optional(z.number()),
+  taxCode: z.optional(z.string()),
+  taxRatePercentage: z.optional(z.number()),
+  taxType: z.optional(z.string()),
+  type: z.optional(CreateOfferLineItemRequestDtoType$outboundSchema),
+  totalDiscountAmount: z.optional(z.number()),
+  totalDiscountPercentage: z.optional(z.number()),
+  totalGrossAmount: z.optional(z.number()),
+  totalNetAmount: z.optional(z.number()),
+  totalTaxAmount: z.optional(z.number()),
+  unitAmount: z.optional(z.number()),
+  unitDiscountAmount: z.optional(z.number()),
+  unitDiscountPercentage: z.optional(z.number()),
+  unitName: z.optional(z.string()),
 });
 
 export function createOfferLineItemRequestDtoToJSON(

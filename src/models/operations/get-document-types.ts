@@ -55,6 +55,7 @@ export type GetDocumentTypesPagination = {
 export type GetDocumentTypesMeta = {
   warnings?: Array<string> | null | undefined;
   pagination?: GetDocumentTypesPagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type GetDocumentTypesErrors = {};
@@ -136,6 +137,9 @@ export const GetDocumentTypesMeta$inboundSchema: z.ZodMiniType<
   warnings: z.optional(z.nullable(z.array(types.string()))),
   pagination: z.optional(
     z.nullable(z.lazy(() => GetDocumentTypesPagination$inboundSchema)),
+  ),
+  partialErrors: z.optional(
+    z.nullable(z.array(models.PartialError$inboundSchema)),
   ),
 });
 

@@ -10,7 +10,6 @@ import { GetOpenItemsAsyncResponse } from "@maesn/typescript-sdk/models/operatio
 let value: GetOpenItemsAsyncResponse = {
   data: {
     taskId: "<id>",
-    objectId: "<id>",
   },
   errors: {},
   rawData: {},

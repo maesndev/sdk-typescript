@@ -35,6 +35,7 @@ export type GetEnvironmentsPagination = {
 export type GetEnvironmentsMeta = {
   warnings?: Array<string> | null | undefined;
   pagination?: GetEnvironmentsPagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type GetEnvironmentsErrors = {};
@@ -103,6 +104,9 @@ export const GetEnvironmentsMeta$inboundSchema: z.ZodMiniType<
   warnings: z.optional(z.nullable(z.array(types.string()))),
   pagination: z.optional(
     z.nullable(z.lazy(() => GetEnvironmentsPagination$inboundSchema)),
+  ),
+  partialErrors: z.optional(
+    z.nullable(z.array(models.PartialError$inboundSchema)),
   ),
 });
 

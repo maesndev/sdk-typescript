@@ -35,6 +35,7 @@ export type GetUserInfoPagination = {
 export type GetUserInfoMeta = {
   warnings?: Array<string> | null | undefined;
   pagination?: GetUserInfoPagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type GetUserInfoErrors = {};
@@ -100,6 +101,9 @@ export const GetUserInfoMeta$inboundSchema: z.ZodMiniType<
   warnings: z.optional(z.nullable(z.array(types.string()))),
   pagination: z.optional(
     z.nullable(z.lazy(() => GetUserInfoPagination$inboundSchema)),
+  ),
+  partialErrors: z.optional(
+    z.nullable(z.array(models.PartialError$inboundSchema)),
   ),
 });
 

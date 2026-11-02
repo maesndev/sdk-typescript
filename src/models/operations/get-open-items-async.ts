@@ -63,6 +63,7 @@ export type GetOpenItemsAsyncPagination = {
 export type GetOpenItemsAsyncMeta = {
   warnings?: Array<string> | null | undefined;
   pagination?: GetOpenItemsAsyncPagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type GetOpenItemsAsyncErrors = {};
@@ -148,6 +149,9 @@ export const GetOpenItemsAsyncMeta$inboundSchema: z.ZodMiniType<
   warnings: z.optional(z.nullable(z.array(types.string()))),
   pagination: z.optional(
     z.nullable(z.lazy(() => GetOpenItemsAsyncPagination$inboundSchema)),
+  ),
+  partialErrors: z.optional(
+    z.nullable(z.array(models.PartialError$inboundSchema)),
   ),
 });
 

@@ -44,6 +44,7 @@ export type CreateBankAccountPagination = {
 export type CreateBankAccountMeta = {
   warnings?: Array<string> | null | undefined;
   pagination?: CreateBankAccountPagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type CreateBankAccountErrors = {};
@@ -118,6 +119,9 @@ export const CreateBankAccountMeta$inboundSchema: z.ZodMiniType<
   warnings: z.optional(z.nullable(z.array(types.string()))),
   pagination: z.optional(
     z.nullable(z.lazy(() => CreateBankAccountPagination$inboundSchema)),
+  ),
+  partialErrors: z.optional(
+    z.nullable(z.array(models.PartialError$inboundSchema)),
   ),
 });
 

@@ -63,6 +63,7 @@ export type GetCurrenciesPagination = {
 export type GetCurrenciesMeta = {
   warnings?: Array<string> | null | undefined;
   pagination?: GetCurrenciesPagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type GetCurrenciesErrors = {};
@@ -148,6 +149,9 @@ export const GetCurrenciesMeta$inboundSchema: z.ZodMiniType<
   warnings: z.optional(z.nullable(z.array(types.string()))),
   pagination: z.optional(
     z.nullable(z.lazy(() => GetCurrenciesPagination$inboundSchema)),
+  ),
+  partialErrors: z.optional(
+    z.nullable(z.array(models.PartialError$inboundSchema)),
   ),
 });
 

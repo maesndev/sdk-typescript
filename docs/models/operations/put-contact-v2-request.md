@@ -8,7 +8,7 @@ import { PutContactV2Request } from "@maesn/typescript-sdk/models/operations";
 let value: PutContactV2Request = {
   contactId: "<id>",
   body: {
-    contactType: "COMPANY",
+    contactType: "CONTACT_PERSON",
   },
 };
 ```

@@ -67,6 +67,7 @@ export type GetTaxRatesPagination = {
 export type GetTaxRatesMeta = {
   warnings?: Array<string> | null | undefined;
   pagination?: GetTaxRatesPagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type GetTaxRatesErrors = {};
@@ -154,6 +155,9 @@ export const GetTaxRatesMeta$inboundSchema: z.ZodMiniType<
   warnings: z.optional(z.nullable(z.array(types.string()))),
   pagination: z.optional(
     z.nullable(z.lazy(() => GetTaxRatesPagination$inboundSchema)),
+  ),
+  partialErrors: z.optional(
+    z.nullable(z.array(models.PartialError$inboundSchema)),
   ),
 });
 
