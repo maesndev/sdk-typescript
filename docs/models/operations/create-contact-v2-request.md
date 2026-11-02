@@ -7,7 +7,7 @@ import { CreateContactV2Request } from "@maesn/typescript-sdk/models/operations"
 
 let value: CreateContactV2Request = {
   body: {
-    contactType: "COMPANY",
+    contactType: "CONTACT_PERSON",
   },
 };
 ```

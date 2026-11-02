@@ -10,7 +10,6 @@ import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
 export type TaskIdResponseDto = {
   taskId: string | null;
-  objectId: string | null;
 };
 
 /** @internal */
@@ -19,7 +18,6 @@ export const TaskIdResponseDto$inboundSchema: z.ZodMiniType<
   unknown
 > = z.object({
   taskId: types.nullable(types.string()),
-  objectId: types.nullable(types.string()),
 });
 
 export function taskIdResponseDtoFromJSON(

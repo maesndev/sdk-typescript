@@ -44,6 +44,7 @@ export type GetInvoiceDocumentPagination = {
 export type GetInvoiceDocumentMeta = {
   warnings?: Array<string> | null | undefined;
   pagination?: GetInvoiceDocumentPagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type GetInvoiceDocumentErrors = {};
@@ -118,6 +119,9 @@ export const GetInvoiceDocumentMeta$inboundSchema: z.ZodMiniType<
   warnings: z.optional(z.nullable(z.array(types.string()))),
   pagination: z.optional(
     z.nullable(z.lazy(() => GetInvoiceDocumentPagination$inboundSchema)),
+  ),
+  partialErrors: z.optional(
+    z.nullable(z.array(models.PartialError$inboundSchema)),
   ),
 });
 

@@ -7,6 +7,7 @@ import { safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
+import { PartialError, PartialError$inboundSchema } from "./partial-error.js";
 
 export type Pagination = {
   total: number;
@@ -18,6 +19,7 @@ export type Pagination = {
 export type Meta = {
   warnings?: Array<string> | null | undefined;
   pagination?: Pagination | null | undefined;
+  partialErrors?: Array<PartialError> | null | undefined;
 };
 
 export type Data = {};
@@ -56,6 +58,7 @@ export function paginationFromJSON(
 export const Meta$inboundSchema: z.ZodMiniType<Meta, unknown> = z.object({
   warnings: z.optional(z.nullable(z.array(types.string()))),
   pagination: z.optional(z.nullable(z.lazy(() => Pagination$inboundSchema))),
+  partialErrors: z.optional(z.nullable(z.array(PartialError$inboundSchema))),
 });
 
 export function metaFromJSON(

@@ -44,6 +44,7 @@ export type CreateSalesOrderPagination = {
 export type CreateSalesOrderMeta = {
   warnings?: Array<string> | null | undefined;
   pagination?: CreateSalesOrderPagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type CreateSalesOrderErrors = {};
@@ -51,7 +52,7 @@ export type CreateSalesOrderErrors = {};
 export type CreateSalesOrderRawData = {};
 
 /**
- * Sales order created successfully. Returns 202 with taskId if processed asynchronously.
+ * Sales order created successfully.
  */
 export type CreateSalesOrderResponse = {
   meta?: CreateSalesOrderMeta | null | undefined;
@@ -118,6 +119,9 @@ export const CreateSalesOrderMeta$inboundSchema: z.ZodMiniType<
   warnings: z.optional(z.nullable(z.array(types.string()))),
   pagination: z.optional(
     z.nullable(z.lazy(() => CreateSalesOrderPagination$inboundSchema)),
+  ),
+  partialErrors: z.optional(
+    z.nullable(z.array(models.PartialError$inboundSchema)),
   ),
 });
 

@@ -63,6 +63,7 @@ export type GetBankAccountsPagination = {
 export type GetBankAccountsMeta = {
   warnings?: Array<string> | null | undefined;
   pagination?: GetBankAccountsPagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type GetBankAccountsErrors = {};
@@ -148,6 +149,9 @@ export const GetBankAccountsMeta$inboundSchema: z.ZodMiniType<
   warnings: z.optional(z.nullable(z.array(types.string()))),
   pagination: z.optional(
     z.nullable(z.lazy(() => GetBankAccountsPagination$inboundSchema)),
+  ),
+  partialErrors: z.optional(
+    z.nullable(z.array(models.PartialError$inboundSchema)),
   ),
 });
 

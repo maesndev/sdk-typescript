@@ -45,6 +45,7 @@ export type PatchCustomersPagination = {
 export type PatchCustomersMeta = {
   warnings?: Array<string> | null | undefined;
   pagination?: PatchCustomersPagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type PatchCustomersErrors = {};
@@ -121,6 +122,9 @@ export const PatchCustomersMeta$inboundSchema: z.ZodMiniType<
   warnings: z.optional(z.nullable(z.array(types.string()))),
   pagination: z.optional(
     z.nullable(z.lazy(() => PatchCustomersPagination$inboundSchema)),
+  ),
+  partialErrors: z.optional(
+    z.nullable(z.array(models.PartialError$inboundSchema)),
   ),
 });
 

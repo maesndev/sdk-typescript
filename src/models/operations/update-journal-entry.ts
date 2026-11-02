@@ -52,6 +52,7 @@ export type UpdateJournalEntryPagination = {
 export type UpdateJournalEntryMeta = {
   warnings?: Array<string> | null | undefined;
   pagination?: UpdateJournalEntryPagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type UpdateJournalEntryErrors = {};
@@ -190,6 +191,9 @@ export const UpdateJournalEntryMeta$inboundSchema: z.ZodMiniType<
   warnings: z.optional(z.nullable(z.array(types.string()))),
   pagination: z.optional(
     z.nullable(z.lazy(() => UpdateJournalEntryPagination$inboundSchema)),
+  ),
+  partialErrors: z.optional(
+    z.nullable(z.array(models.PartialError$inboundSchema)),
   ),
 });
 

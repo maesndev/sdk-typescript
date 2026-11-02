@@ -7,6 +7,7 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
+import * as models from "../index.js";
 
 export type DeleteVendorCreditGlobals = {
   apiKey?: string | undefined;
@@ -43,6 +44,7 @@ export type DeleteVendorCreditPagination = {
 export type DeleteVendorCreditMeta = {
   warnings?: Array<string> | null | undefined;
   pagination?: DeleteVendorCreditPagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type DeleteVendorCreditErrors = {};
@@ -117,6 +119,9 @@ export const DeleteVendorCreditMeta$inboundSchema: z.ZodMiniType<
   warnings: z.optional(z.nullable(z.array(types.string()))),
   pagination: z.optional(
     z.nullable(z.lazy(() => DeleteVendorCreditPagination$inboundSchema)),
+  ),
+  partialErrors: z.optional(
+    z.nullable(z.array(models.PartialError$inboundSchema)),
   ),
 });
 

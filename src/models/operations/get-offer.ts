@@ -48,6 +48,7 @@ export type GetOfferPagination = {
 export type GetOfferMeta = {
   warnings?: Array<string> | null | undefined;
   pagination?: GetOfferPagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type GetOfferErrors = {};
@@ -120,6 +121,9 @@ export const GetOfferMeta$inboundSchema: z.ZodMiniType<GetOfferMeta, unknown> =
     warnings: z.optional(z.nullable(z.array(types.string()))),
     pagination: z.optional(
       z.nullable(z.lazy(() => GetOfferPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
     ),
   });
 

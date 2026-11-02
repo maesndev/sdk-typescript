@@ -71,6 +71,7 @@ export type GetItemsPagination = {
 export type GetItemsMeta = {
   warnings?: Array<string> | null | undefined;
   pagination?: GetItemsPagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type GetItemsErrors = {};
@@ -155,6 +156,9 @@ export const GetItemsMeta$inboundSchema: z.ZodMiniType<GetItemsMeta, unknown> =
     warnings: z.optional(z.nullable(z.array(types.string()))),
     pagination: z.optional(
       z.nullable(z.lazy(() => GetItemsPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
     ),
   });
 

@@ -58,6 +58,7 @@ export type PostFilePagination = {
 export type PostFileMeta = {
   warnings?: Array<string> | null | undefined;
   pagination?: PostFilePagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type PostFileErrors = {};
@@ -189,6 +190,9 @@ export const PostFileMeta$inboundSchema: z.ZodMiniType<PostFileMeta, unknown> =
     warnings: z.optional(z.nullable(z.array(types.string()))),
     pagination: z.optional(
       z.nullable(z.lazy(() => PostFilePagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
     ),
   });
 

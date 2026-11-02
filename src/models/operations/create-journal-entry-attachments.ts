@@ -51,6 +51,7 @@ export type CreateJournalEntryAttachmentsPagination = {
 export type CreateJournalEntryAttachmentsMeta = {
   warnings?: Array<string> | null | undefined;
   pagination?: CreateJournalEntryAttachmentsPagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type CreateJournalEntryAttachmentsErrors = {};
@@ -193,6 +194,9 @@ export const CreateJournalEntryAttachmentsMeta$inboundSchema: z.ZodMiniType<
     z.nullable(z.lazy(() =>
       CreateJournalEntryAttachmentsPagination$inboundSchema
     )),
+  ),
+  partialErrors: z.optional(
+    z.nullable(z.array(models.PartialError$inboundSchema)),
   ),
 });
 

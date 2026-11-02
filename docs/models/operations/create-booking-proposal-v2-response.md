@@ -62,7 +62,6 @@ const value: operations.CreateBookingProposalV2ResponseBody1 = {
 const value: operations.CreateBookingProposalV2ResponseBody2 = {
   data: {
     taskId: "<id>",
-    objectId: "<id>",
   },
   errors: {},
   rawData: {},

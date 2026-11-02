@@ -24,6 +24,8 @@ export type CreateBookingProposalAttachmentFile = {
 export const DocumentType = {
   Bill: "BILL",
   Invoice: "INVOICE",
+  BillCreditNote: "BILL_CREDIT_NOTE",
+  InvoiceCreditNote: "INVOICE_CREDIT_NOTE",
 } as const;
 export type DocumentType = ClosedEnum<typeof DocumentType>;
 
@@ -63,6 +65,7 @@ export type CreateBookingProposalAttachmentPagination = {
 export type CreateBookingProposalAttachmentMeta = {
   warnings?: Array<string> | null | undefined;
   pagination?: CreateBookingProposalAttachmentPagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type CreateBookingProposalAttachmentErrors = {};
@@ -217,6 +220,9 @@ export const CreateBookingProposalAttachmentMeta$inboundSchema: z.ZodMiniType<
     z.nullable(z.lazy(() =>
       CreateBookingProposalAttachmentPagination$inboundSchema
     )),
+  ),
+  partialErrors: z.optional(
+    z.nullable(z.array(models.PartialError$inboundSchema)),
   ),
 });
 

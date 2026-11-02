@@ -44,6 +44,7 @@ export type GetPaymentPagination = {
 export type GetPaymentMeta = {
   warnings?: Array<string> | null | undefined;
   pagination?: GetPaymentPagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type GetPaymentErrors = {};
@@ -118,6 +119,9 @@ export const GetPaymentMeta$inboundSchema: z.ZodMiniType<
   warnings: z.optional(z.nullable(z.array(types.string()))),
   pagination: z.optional(
     z.nullable(z.lazy(() => GetPaymentPagination$inboundSchema)),
+  ),
+  partialErrors: z.optional(
+    z.nullable(z.array(models.PartialError$inboundSchema)),
   ),
 });
 

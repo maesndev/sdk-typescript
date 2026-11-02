@@ -10,7 +10,6 @@ import { GetJournalEntriesAsyncResponse } from "@maesn/typescript-sdk/models/ope
 let value: GetJournalEntriesAsyncResponse = {
   data: {
     taskId: "<id>",
-    objectId: "<id>",
   },
   errors: {},
   rawData: {},

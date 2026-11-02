@@ -39,6 +39,7 @@ export type GetDocumentExtensionsPagination = {
 export type GetDocumentExtensionsMeta = {
   warnings?: Array<string> | null | undefined;
   pagination?: GetDocumentExtensionsPagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type GetDocumentExtensionsErrors = {};
@@ -111,6 +112,9 @@ export const GetDocumentExtensionsMeta$inboundSchema: z.ZodMiniType<
   warnings: z.optional(z.nullable(z.array(types.string()))),
   pagination: z.optional(
     z.nullable(z.lazy(() => GetDocumentExtensionsPagination$inboundSchema)),
+  ),
+  partialErrors: z.optional(
+    z.nullable(z.array(models.PartialError$inboundSchema)),
   ),
 });
 

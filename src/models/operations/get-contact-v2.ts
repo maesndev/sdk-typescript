@@ -48,6 +48,7 @@ export type GetContactV2Pagination = {
 export type GetContactV2Meta = {
   warnings?: Array<string> | null | undefined;
   pagination?: GetContactV2Pagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type GetContactV2Errors = {};
@@ -124,6 +125,9 @@ export const GetContactV2Meta$inboundSchema: z.ZodMiniType<
   warnings: z.optional(z.nullable(z.array(types.string()))),
   pagination: z.optional(
     z.nullable(z.lazy(() => GetContactV2Pagination$inboundSchema)),
+  ),
+  partialErrors: z.optional(
+    z.nullable(z.array(models.PartialError$inboundSchema)),
   ),
 });
 

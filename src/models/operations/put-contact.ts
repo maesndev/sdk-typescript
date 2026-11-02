@@ -45,6 +45,7 @@ export type PutContactPagination = {
 export type PutContactMeta = {
   warnings?: Array<string> | null | undefined;
   pagination?: PutContactPagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type PutContactErrors = {};
@@ -121,6 +122,9 @@ export const PutContactMeta$inboundSchema: z.ZodMiniType<
   warnings: z.optional(z.nullable(z.array(types.string()))),
   pagination: z.optional(
     z.nullable(z.lazy(() => PutContactPagination$inboundSchema)),
+  ),
+  partialErrors: z.optional(
+    z.nullable(z.array(models.PartialError$inboundSchema)),
   ),
 });
 

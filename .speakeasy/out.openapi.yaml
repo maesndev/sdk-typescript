@@ -1262,6 +1262,40 @@ paths:
         statusCodes:
           - 5XX
         retryConnectionErrors: true
+    post:
+      operationId: createContactAsync
+      parameters:
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateContactRequestDtoV2'
+      responses:
+        "202":
+          description: Contact creation queued successfully. Processed asynchronously and returns 202 with taskId.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BaseResponseDto'
+                  - properties:
+                      data:
+                        $ref: '#/components/schemas/TaskIdResponseDto'
+      tags:
+        - accounting
   /accounting/contacts:
     get:
       operationId: getContacts
@@ -1378,7 +1412,7 @@ paths:
               $ref: '#/components/schemas/CreateContactRequestDtoV2'
       responses:
         "201":
-          description: Contact created successfully. Returns 202 with taskId if processed asynchronously.
+          description: Contact created successfully.
           content:
             application/json:
               schema:
@@ -1553,6 +1587,50 @@ paths:
                         $ref: '#/components/schemas/ContactResponseDtoV2'
       tags:
         - accounting
+  /accounting/contacts/{contactId}/async:
+    get:
+      operationId: getContactAsync
+      parameters:
+        - name: contactId
+          required: true
+          in: path
+          schema:
+            type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
+      responses:
+        "202":
+          description: Contact fetch queued successfully. Processed asynchronously and returns 202 with taskId.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BaseResponseDto'
+                  - properties:
+                      data:
+                        $ref: '#/components/schemas/TaskIdResponseDto'
+      tags:
+        - accounting
+      x-speakeasy-retries:
+        strategy: backoff
+        backoff:
+          initialInterval: 500
+          maxInterval: 60000
+          maxElapsedTime: 3600000
+          exponent: 1.5
+        statusCodes:
+          - 5XX
+        retryConnectionErrors: true
   /accounting/contacts/bulk:
     post:
       operationId: createContacts
@@ -3847,6 +3925,105 @@ paths:
         statusCodes:
           - 5XX
         retryConnectionErrors: true
+    patch:
+      operationId: patchOffer
+      parameters:
+        - name: offerId
+          required: true
+          in: path
+          schema:
+            type: string
+        - name: environmentName
+          required: false
+          in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
+          schema:
+            type: string
+        - name: companyId
+          required: false
+          in: query
+          description: ID of the company (required for multi-company target systems)
+          schema:
+            type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateOfferRequestDto'
+      responses:
+        "200":
+          description: Offer updated successfully
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BaseResponseDto'
+                  - properties:
+                      data:
+                        $ref: '#/components/schemas/OfferResponseDto'
+      tags:
+        - accounting
+    delete:
+      operationId: deleteOffer
+      parameters:
+        - name: offerId
+          required: true
+          in: path
+          schema:
+            type: string
+        - name: environmentName
+          required: false
+          in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
+          schema:
+            type: string
+        - name: companyId
+          required: false
+          in: query
+          description: ID of the company (required for multi-company target systems)
+          schema:
+            type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
+      responses:
+        "200":
+          description: Offer deleted successfully
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BaseResponseDto'
+                  - properties:
+                      data:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+      tags:
+        - accounting
   /accounting/offers/{offerId}/lineItems:
     get:
       operationId: getOfferLineItems
@@ -4363,7 +4540,7 @@ paths:
               $ref: '#/components/schemas/CreateProjectRequestDto'
       responses:
         "201":
-          description: Project created successfully. Returns 202 with taskId if processed asynchronously.
+          description: Project created successfully.
           content:
             application/json:
               schema:
@@ -4413,6 +4590,40 @@ paths:
         statusCodes:
           - 5XX
         retryConnectionErrors: true
+    post:
+      operationId: createProjectAsync
+      parameters:
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateProjectRequestDto'
+      responses:
+        "202":
+          description: Project creation queued successfully. Processed asynchronously and returns 202 with taskId.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BaseResponseDto'
+                  - properties:
+                      data:
+                        $ref: '#/components/schemas/TaskIdResponseDto'
+      tags:
+        - accounting
   /accounting/projects/{projectId}:
     get:
       operationId: getProject
@@ -4463,6 +4674,50 @@ paths:
                   - properties:
                       data:
                         $ref: '#/components/schemas/ProjectResponseDto'
+      tags:
+        - accounting
+      x-speakeasy-retries:
+        strategy: backoff
+        backoff:
+          initialInterval: 500
+          maxInterval: 60000
+          maxElapsedTime: 3600000
+          exponent: 1.5
+        statusCodes:
+          - 5XX
+        retryConnectionErrors: true
+  /accounting/projects/{projectId}/async:
+    get:
+      operationId: getProjectAsync
+      parameters:
+        - name: projectId
+          required: true
+          in: path
+          schema:
+            type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
+      responses:
+        "202":
+          description: Project fetch queued successfully. Processed asynchronously and returns 202 with taskId.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BaseResponseDto'
+                  - properties:
+                      data:
+                        $ref: '#/components/schemas/TaskIdResponseDto'
       tags:
         - accounting
       x-speakeasy-retries:
@@ -4603,7 +4858,7 @@ paths:
               $ref: '#/components/schemas/CreateSalesOrderRequestDto'
       responses:
         "201":
-          description: Sales order created successfully. Returns 202 with taskId if processed asynchronously.
+          description: Sales order created successfully.
           content:
             application/json:
               schema:
@@ -4676,6 +4931,41 @@ paths:
         statusCodes:
           - 5XX
         retryConnectionErrors: true
+  /accounting/salesOrders/async:
+    post:
+      operationId: createSalesOrderAsync
+      parameters:
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateSalesOrderRequestDto'
+      responses:
+        "202":
+          description: Sales order creation queued successfully. Processed asynchronously and returns 202 with taskId.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BaseResponseDto'
+                  - properties:
+                      data:
+                        $ref: '#/components/schemas/TaskIdResponseDto'
+      tags:
+        - accounting
   /accounting/salesOrders/{salesOrderId}/lineItems:
     get:
       operationId: getSalesOrderLines
@@ -6077,9 +6367,9 @@ paths:
         statusCodes:
           - 5XX
         retryConnectionErrors: true
-  /accounting/bookingProposals/{bookingProposalId}/attachments:
-    post:
-      operationId: createBookingProposalAttachment
+  /accounting/bookingProposals/{bookingProposalId}:
+    put:
+      operationId: updateBookingProposal
       parameters:
         - name: bookingProposalId
           required: true
@@ -6117,17 +6407,23 @@ paths:
             schema:
               type: object
               properties:
-                file:
-                  type: string
-                  format: binary
-                documentType:
+                files:
+                  type: array
+                  items:
+                    type: string
+                    format: binary
+                bookingType:
                   type: string
                   enum:
                     - BILL
                     - INVOICE
+                    - INVOICE_CREDIT_NOTE
+                    - BILL_CREDIT_NOTE
+                bookingProposal:
+                  $ref: '#/components/schemas/CreateBookingProposalRequestDto'
       responses:
-        "201":
-          description: Booking proposal attachment uploaded successfully
+        "200":
+          description: Booking proposal updated successfully
           content:
             application/json:
               schema:
@@ -6135,10 +6431,9 @@ paths:
                   - $ref: '#/components/schemas/BaseResponseDto'
                   - properties:
                       data:
-                        $ref: '#/components/schemas/DocumentResponseDto'
+                        $ref: '#/components/schemas/BookingProposalResponseDto'
       tags:
         - accounting
-  /accounting/bookingProposals/{bookingProposalId}:
     get:
       operationId: getBookingProposal
       parameters:
@@ -6200,6 +6495,130 @@ paths:
         statusCodes:
           - 5XX
         retryConnectionErrors: true
+  /accounting/bookingProposals/{bookingProposalId}/async:
+    put:
+      operationId: updateBookingProposalAsync
+      parameters:
+        - name: bookingProposalId
+          required: true
+          in: path
+          schema:
+            type: string
+        - name: companyId
+          required: false
+          in: query
+          description: ID of the company (required for multi-company target systems)
+          schema:
+            type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                files:
+                  type: array
+                  items:
+                    type: string
+                    format: binary
+                bookingType:
+                  type: string
+                  enum:
+                    - INVOICE
+                    - BILL
+                    - CREDIT_NOTE
+                    - VENDOR_CREDIT
+                bookingProposal:
+                  $ref: '#/components/schemas/CreateBookingProposalRequestDtoV2'
+      responses:
+        "202":
+          description: Booking proposal update request accepted for async processing
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BaseResponseDto'
+                  - properties:
+                      data:
+                        $ref: '#/components/schemas/TaskIdResponseDto'
+      tags:
+        - accounting
+  /accounting/bookingProposals/{bookingProposalId}/attachments:
+    post:
+      operationId: createBookingProposalAttachment
+      parameters:
+        - name: bookingProposalId
+          required: true
+          in: path
+          schema:
+            type: string
+        - name: companyId
+          required: false
+          in: query
+          description: ID of the company (required for multi-company target systems)
+          schema:
+            type: string
+        - name: environmentName
+          required: false
+          in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
+          schema:
+            type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                documentType:
+                  type: string
+                  enum:
+                    - BILL
+                    - INVOICE
+                    - BILL_CREDIT_NOTE
+                    - INVOICE_CREDIT_NOTE
+      responses:
+        "201":
+          description: Booking proposal attachment uploaded successfully
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BaseResponseDto'
+                  - properties:
+                      data:
+                        $ref: '#/components/schemas/DocumentResponseDto'
+      tags:
+        - accounting
   /accounting/bookingProposals/{bookingProposalId}/document:
     get:
       operationId: getBookingProposalDocument
@@ -8206,6 +8625,87 @@ paths:
                         type: array
                         items:
                           $ref: '#/components/schemas/ReasonCodeResponseDto'
+      tags:
+        - accounting
+      x-speakeasy-retries:
+        strategy: backoff
+        backoff:
+          initialInterval: 500
+          maxInterval: 60000
+          maxElapsedTime: 3600000
+          exponent: 1.5
+        statusCodes:
+          - 5XX
+        retryConnectionErrors: true
+  /accounting/toleranceLimits:
+    get:
+      operationId: getToleranceLimits
+      parameters:
+        - name: page
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: limit
+          required: false
+          in: query
+          schema:
+            enum:
+              - 5
+              - 10
+              - 20
+              - 50
+              - 100
+            type: integer
+        - name: lastModifiedAt
+          required: false
+          in: query
+          description: ISO 8601 timestamp; only records modified after this date are returned
+          schema:
+            type: string
+        - name: environmentName
+          required: false
+          in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
+          schema:
+            type: string
+        - name: companyId
+          required: false
+          in: query
+          description: ID of the company (required for multi-company target systems)
+          schema:
+            type: string
+        - name: rawData
+          required: false
+          in: query
+          description: When true, returns the unprocessed response from the upstream target system
+          schema:
+            type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
+      responses:
+        "200":
+          description: List of tolerance limits for the authenticated end user's connected target system
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BaseResponseDto'
+                  - properties:
+                      data:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/ToleranceLimitResponseDto'
       tags:
         - accounting
       x-speakeasy-retries:
@@ -11865,6 +12365,16 @@ components:
         - perPage
         - currentPage
         - totalPages
+    PartialError:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+      required:
+        - code
+        - message
     MetaResponse:
       type: object
       properties:
@@ -11877,6 +12387,11 @@ components:
           nullable: true
           allOf:
             - $ref: '#/components/schemas/PaginationResponse'
+        partialErrors:
+          nullable: true
+          type: array
+          items:
+            $ref: '#/components/schemas/PartialError'
     BaseResponseDto:
       type: object
       properties:
@@ -13880,6 +14395,8 @@ components:
           type: string
         description:
           type: string
+        id:
+          type: string
         itemId:
           type: string
         name:
@@ -13921,26 +14438,6 @@ components:
           type: number
         unitName:
           type: string
-      required:
-        - accountCode
-        - accountId
-        - description
-        - itemId
-        - name
-        - quantity
-        - taxCode
-        - taxRatePercentage
-        - taxType
-        - type
-        - totalDiscountAmount
-        - totalDiscountPercentage
-        - totalGrossAmount
-        - totalNetAmount
-        - totalTaxAmount
-        - unitAmount
-        - unitDiscountAmount
-        - unitDiscountPercentage
-        - unitName
     CreateOfferRequestDto:
       type: object
       properties:
@@ -13989,10 +14486,6 @@ components:
           type: number
         totalTaxAmount:
           type: number
-      required:
-        - addresses
-        - currency
-        - offerDate
     ExpenseLineItem:
       type: object
       properties:
@@ -16449,6 +16942,8 @@ components:
         status:
           type: string
         totalGrossAmount:
+          type: number
+        totalTaxAmount:
           type: number
         useCollectiveContact:
           type: boolean
@@ -20074,12 +20569,8 @@ components:
         taskId:
           type: string
           nullable: true
-        objectId:
-          type: string
-          nullable: true
       required:
         - taskId
-        - objectId
     BookingProposalAddressRequestDtoV2:
       type: object
       properties:
@@ -20263,6 +20754,30 @@ components:
         - decimalPlaces
         - name
         - roundingPrecision
+        - updatedDate
+    ToleranceLimitResponseDto:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: true
+        currency:
+          type: string
+          nullable: true
+        toleranceAmount:
+          type: number
+          nullable: true
+        tolerancePercent:
+          type: number
+          nullable: true
+        updatedDate:
+          type: string
+          nullable: true
+      required:
+        - id
+        - currency
+        - toleranceAmount
+        - tolerancePercent
         - updatedDate
     TaxRateRequestCommonDto:
       type: object

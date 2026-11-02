@@ -10,7 +10,6 @@ import { CreateBookingProposalAsyncResponse } from "@maesn/typescript-sdk/models
 let value: CreateBookingProposalAsyncResponse = {
   data: {
     taskId: "<id>",
-    objectId: "<id>",
   },
   errors: {},
   rawData: {},

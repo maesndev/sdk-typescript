@@ -42,6 +42,7 @@ export type UpdateBillLineItemPagination = {
 export type UpdateBillLineItemMeta = {
   warnings?: Array<string> | null | undefined;
   pagination?: UpdateBillLineItemPagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type UpdateBillLineItemErrors = {};
@@ -118,6 +119,9 @@ export const UpdateBillLineItemMeta$inboundSchema: z.ZodMiniType<
   warnings: z.optional(z.nullable(z.array(types.string()))),
   pagination: z.optional(
     z.nullable(z.lazy(() => UpdateBillLineItemPagination$inboundSchema)),
+  ),
+  partialErrors: z.optional(
+    z.nullable(z.array(models.PartialError$inboundSchema)),
   ),
 });
 

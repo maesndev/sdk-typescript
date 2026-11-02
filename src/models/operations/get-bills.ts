@@ -150,6 +150,7 @@ export type GetBillsPagination = {
 export type GetBillsMeta = {
   warnings?: Array<string> | null | undefined;
   pagination?: GetBillsPagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type GetBillsErrors = {};
@@ -260,6 +261,9 @@ export const GetBillsMeta$inboundSchema: z.ZodMiniType<GetBillsMeta, unknown> =
     warnings: z.optional(z.nullable(z.array(types.string()))),
     pagination: z.optional(
       z.nullable(z.lazy(() => GetBillsPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
     ),
   });
 

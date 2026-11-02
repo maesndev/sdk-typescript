@@ -1,6 +1,6 @@
 # CreateProjectResponse
 
-Project created successfully. Returns 202 with taskId if processed asynchronously.
+Project created successfully.
 
 ## Example Usage
 

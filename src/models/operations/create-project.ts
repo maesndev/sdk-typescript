@@ -44,6 +44,7 @@ export type CreateProjectPagination = {
 export type CreateProjectMeta = {
   warnings?: Array<string> | null | undefined;
   pagination?: CreateProjectPagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type CreateProjectErrors = {};
@@ -51,7 +52,7 @@ export type CreateProjectErrors = {};
 export type CreateProjectRawData = {};
 
 /**
- * Project created successfully. Returns 202 with taskId if processed asynchronously.
+ * Project created successfully.
  */
 export type CreateProjectResponse = {
   meta?: CreateProjectMeta | null | undefined;
@@ -118,6 +119,9 @@ export const CreateProjectMeta$inboundSchema: z.ZodMiniType<
   warnings: z.optional(z.nullable(z.array(types.string()))),
   pagination: z.optional(
     z.nullable(z.lazy(() => CreateProjectPagination$inboundSchema)),
+  ),
+  partialErrors: z.optional(
+    z.nullable(z.array(models.PartialError$inboundSchema)),
   ),
 });
 

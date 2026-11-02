@@ -48,6 +48,7 @@ export type GetCustomerPagination = {
 export type GetCustomerMeta = {
   warnings?: Array<string> | null | undefined;
   pagination?: GetCustomerPagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type GetCustomerErrors = {};
@@ -124,6 +125,9 @@ export const GetCustomerMeta$inboundSchema: z.ZodMiniType<
   warnings: z.optional(z.nullable(z.array(types.string()))),
   pagination: z.optional(
     z.nullable(z.lazy(() => GetCustomerPagination$inboundSchema)),
+  ),
+  partialErrors: z.optional(
+    z.nullable(z.array(models.PartialError$inboundSchema)),
   ),
 });
 

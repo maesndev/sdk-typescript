@@ -48,6 +48,7 @@ export type GetGoodsReceiptPagination = {
 export type GetGoodsReceiptMeta = {
   warnings?: Array<string> | null | undefined;
   pagination?: GetGoodsReceiptPagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type GetGoodsReceiptErrors = {};
@@ -124,6 +125,9 @@ export const GetGoodsReceiptMeta$inboundSchema: z.ZodMiniType<
   warnings: z.optional(z.nullable(z.array(types.string()))),
   pagination: z.optional(
     z.nullable(z.lazy(() => GetGoodsReceiptPagination$inboundSchema)),
+  ),
+  partialErrors: z.optional(
+    z.nullable(z.array(models.PartialError$inboundSchema)),
   ),
 });
 

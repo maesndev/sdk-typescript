@@ -45,6 +45,7 @@ export type GetJournalEntryAttachmentByIdPagination = {
 export type GetJournalEntryAttachmentByIdMeta = {
   warnings?: Array<string> | null | undefined;
   pagination?: GetJournalEntryAttachmentByIdPagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type GetJournalEntryAttachmentByIdErrors = {};
@@ -129,6 +130,9 @@ export const GetJournalEntryAttachmentByIdMeta$inboundSchema: z.ZodMiniType<
     z.nullable(z.lazy(() =>
       GetJournalEntryAttachmentByIdPagination$inboundSchema
     )),
+  ),
+  partialErrors: z.optional(
+    z.nullable(z.array(models.PartialError$inboundSchema)),
   ),
 });
 

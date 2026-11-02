@@ -153,6 +153,7 @@ export type GetBookingProposalsPagination = {
 export type GetBookingProposalsMeta = {
   warnings?: Array<string> | null | undefined;
   pagination?: GetBookingProposalsPagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type GetBookingProposalsErrors = {};
@@ -266,6 +267,9 @@ export const GetBookingProposalsMeta$inboundSchema: z.ZodMiniType<
   warnings: z.optional(z.nullable(z.array(types.string()))),
   pagination: z.optional(
     z.nullable(z.lazy(() => GetBookingProposalsPagination$inboundSchema)),
+  ),
+  partialErrors: z.optional(
+    z.nullable(z.array(models.PartialError$inboundSchema)),
   ),
 });
 

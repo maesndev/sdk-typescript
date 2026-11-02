@@ -44,6 +44,7 @@ export type CreateVendorCreditPagination = {
 export type CreateVendorCreditMeta = {
   warnings?: Array<string> | null | undefined;
   pagination?: CreateVendorCreditPagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type CreateVendorCreditErrors = {};
@@ -118,6 +119,9 @@ export const CreateVendorCreditMeta$inboundSchema: z.ZodMiniType<
   warnings: z.optional(z.nullable(z.array(types.string()))),
   pagination: z.optional(
     z.nullable(z.lazy(() => CreateVendorCreditPagination$inboundSchema)),
+  ),
+  partialErrors: z.optional(
+    z.nullable(z.array(models.PartialError$inboundSchema)),
   ),
 });
 

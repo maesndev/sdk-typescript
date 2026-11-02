@@ -82,6 +82,7 @@ export type GetSalesOrdersPagination = {
 export type GetSalesOrdersMeta = {
   warnings?: Array<string> | null | undefined;
   pagination?: GetSalesOrdersPagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type GetSalesOrdersErrors = {};
@@ -174,6 +175,9 @@ export const GetSalesOrdersMeta$inboundSchema: z.ZodMiniType<
   warnings: z.optional(z.nullable(z.array(types.string()))),
   pagination: z.optional(
     z.nullable(z.lazy(() => GetSalesOrdersPagination$inboundSchema)),
+  ),
+  partialErrors: z.optional(
+    z.nullable(z.array(models.PartialError$inboundSchema)),
   ),
 });
 

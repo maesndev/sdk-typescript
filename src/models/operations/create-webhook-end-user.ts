@@ -44,6 +44,7 @@ export type CreateWebhookEndUserPagination = {
 export type CreateWebhookEndUserMeta = {
   warnings?: Array<string> | null | undefined;
   pagination?: CreateWebhookEndUserPagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type CreateWebhookEndUserErrors = {};
@@ -120,6 +121,9 @@ export const CreateWebhookEndUserMeta$inboundSchema: z.ZodMiniType<
   warnings: z.optional(z.nullable(z.array(types.string()))),
   pagination: z.optional(
     z.nullable(z.lazy(() => CreateWebhookEndUserPagination$inboundSchema)),
+  ),
+  partialErrors: z.optional(
+    z.nullable(z.array(models.PartialError$inboundSchema)),
   ),
 });
 

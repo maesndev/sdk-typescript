@@ -10,7 +10,6 @@ import { CreateExpenseAsyncResponse } from "@maesn/typescript-sdk/models/operati
 let value: CreateExpenseAsyncResponse = {
   data: {
     taskId: "<id>",
-    objectId: "<id>",
   },
   errors: {},
   rawData: {},

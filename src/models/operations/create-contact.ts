@@ -44,6 +44,7 @@ export type CreateContactPagination = {
 export type CreateContactMeta = {
   warnings?: Array<string> | null | undefined;
   pagination?: CreateContactPagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type CreateContactErrors = {};
@@ -51,7 +52,7 @@ export type CreateContactErrors = {};
 export type CreateContactRawData = {};
 
 /**
- * Contact created successfully. Returns 202 with taskId if processed asynchronously.
+ * Contact created successfully.
  */
 export type CreateContactResponse = {
   meta?: CreateContactMeta | null | undefined;
@@ -118,6 +119,9 @@ export const CreateContactMeta$inboundSchema: z.ZodMiniType<
   warnings: z.optional(z.nullable(z.array(types.string()))),
   pagination: z.optional(
     z.nullable(z.lazy(() => CreateContactPagination$inboundSchema)),
+  ),
+  partialErrors: z.optional(
+    z.nullable(z.array(models.PartialError$inboundSchema)),
   ),
 });
 

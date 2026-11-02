@@ -41,6 +41,7 @@ export type UpdateSupplierPagination = {
 export type UpdateSupplierMeta = {
   warnings?: Array<string> | null | undefined;
   pagination?: UpdateSupplierPagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type UpdateSupplierErrors = {};
@@ -115,6 +116,9 @@ export const UpdateSupplierMeta$inboundSchema: z.ZodMiniType<
   warnings: z.optional(z.nullable(z.array(types.string()))),
   pagination: z.optional(
     z.nullable(z.lazy(() => UpdateSupplierPagination$inboundSchema)),
+  ),
+  partialErrors: z.optional(
+    z.nullable(z.array(models.PartialError$inboundSchema)),
   ),
 });
 

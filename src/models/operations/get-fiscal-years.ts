@@ -47,6 +47,7 @@ export type GetFiscalYearsPagination = {
 export type GetFiscalYearsMeta = {
   warnings?: Array<string> | null | undefined;
   pagination?: GetFiscalYearsPagination | null | undefined;
+  partialErrors?: Array<models.PartialError> | null | undefined;
 };
 
 export type GetFiscalYearsErrors = {};
@@ -121,6 +122,9 @@ export const GetFiscalYearsMeta$inboundSchema: z.ZodMiniType<
   warnings: z.optional(z.nullable(z.array(types.string()))),
   pagination: z.optional(
     z.nullable(z.lazy(() => GetFiscalYearsPagination$inboundSchema)),
+  ),
+  partialErrors: z.optional(
+    z.nullable(z.array(models.PartialError$inboundSchema)),
   ),
 });
 

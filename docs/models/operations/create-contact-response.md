@@ -1,6 +1,6 @@
 # CreateContactResponse
 
-Contact created successfully. Returns 202 with taskId if processed asynchronously.
+Contact created successfully.
 
 ## Example Usage
 
