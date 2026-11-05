@@ -9,6 +9,7 @@ export type DimensionRequestCommonDtoV2 = {
   code?: string | undefined;
   dimension?: string | undefined;
   name?: string | undefined;
+  amount?: number | undefined;
 };
 
 /** @internal */
@@ -17,6 +18,7 @@ export type DimensionRequestCommonDtoV2$Outbound = {
   code?: string | undefined;
   dimension?: string | undefined;
   name?: string | undefined;
+  amount?: number | undefined;
 };
 
 /** @internal */
@@ -28,6 +30,7 @@ export const DimensionRequestCommonDtoV2$outboundSchema: z.ZodMiniType<
   code: z.optional(z.string()),
   dimension: z.optional(z.string()),
   name: z.optional(z.string()),
+  amount: z.optional(z.number()),
 });
 
 export function dimensionRequestCommonDtoV2ToJSON(

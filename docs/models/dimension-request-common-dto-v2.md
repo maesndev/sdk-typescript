@@ -16,3 +16,4 @@ let value: DimensionRequestCommonDtoV2 = {};
 | `code`             | *string*           | :heavy_minus_sign: | N/A                |
 | `dimension`        | *string*           | :heavy_minus_sign: | N/A                |
 | `name`             | *string*           | :heavy_minus_sign: | N/A                |
+| `amount`           | *number*           | :heavy_minus_sign: | N/A                |

@@ -30,7 +30,7 @@ export const DocumentType = {
 export type DocumentType = ClosedEnum<typeof DocumentType>;
 
 export type CreateBookingProposalAttachmentRequestBody = {
-  file?: CreateBookingProposalAttachmentFile | Blob | undefined;
+  file: CreateBookingProposalAttachmentFile | Blob;
   documentType?: DocumentType | undefined;
 };
 
@@ -118,7 +118,7 @@ export const DocumentType$outboundSchema: z.ZodMiniEnum<typeof DocumentType> = z
 
 /** @internal */
 export type CreateBookingProposalAttachmentRequestBody$Outbound = {
-  file?: CreateBookingProposalAttachmentFile$Outbound | Blob | undefined;
+  file: CreateBookingProposalAttachmentFile$Outbound | Blob;
   documentType?: string | undefined;
 };
 
@@ -128,12 +128,10 @@ export const CreateBookingProposalAttachmentRequestBody$outboundSchema:
     CreateBookingProposalAttachmentRequestBody$Outbound,
     CreateBookingProposalAttachmentRequestBody
   > = z.object({
-    file: z.optional(
-      z.union([
-        z.lazy(() => CreateBookingProposalAttachmentFile$outboundSchema),
-        blobLikeSchema,
-      ]),
-    ),
+    file: z.union([
+      z.lazy(() => CreateBookingProposalAttachmentFile$outboundSchema),
+      blobLikeSchema,
+    ]),
     documentType: z.optional(DocumentType$outboundSchema),
   });
 
