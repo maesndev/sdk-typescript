@@ -13,6 +13,7 @@ export type DimensionResponseCommonDtoV2 = {
   code: string | null;
   dimension: string | null;
   name: string | null;
+  amount: number | null;
 };
 
 /** @internal */
@@ -24,6 +25,7 @@ export const DimensionResponseCommonDtoV2$inboundSchema: z.ZodMiniType<
   code: types.nullable(types.string()),
   dimension: types.nullable(types.string()),
   name: types.nullable(types.string()),
+  amount: types.nullable(types.number()),
 });
 
 export function dimensionResponseCommonDtoV2FromJSON(

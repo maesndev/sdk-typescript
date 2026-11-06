@@ -96,37 +96,33 @@ async function $do(
   const payload = parsed.value;
   const body = new FormData();
 
+  if (isBlobLike(payload.body.file)) {
+    const file = payload.body.file;
+    const blob = await normalizeBlob(file);
+    const name = "name" in file ? (file.name as string) : undefined;
+    appendForm(body, "file", blob, name);
+  } else if (isReadableStream(payload.body.file.content)) {
+    const buffer = await readableStreamToArrayBuffer(payload.body.file.content);
+    const contentType = getContentTypeFromFileName(payload.body.file.fileName)
+      || "application/octet-stream";
+    appendForm(
+      body,
+      "file",
+      bytesToBlob(buffer, contentType),
+      payload.body.file.fileName,
+    );
+  } else {
+    const contentType = getContentTypeFromFileName(payload.body.file.fileName)
+      || "application/octet-stream";
+    appendForm(
+      body,
+      "file",
+      bytesToBlob(payload.body.file.content, contentType),
+      payload.body.file.fileName,
+    );
+  }
   if (payload.body.documentType !== undefined) {
     appendForm(body, "documentType", payload.body.documentType);
-  }
-  if (payload.body.file !== undefined) {
-    if (isBlobLike(payload.body.file)) {
-      const file = payload.body.file;
-      const blob = await normalizeBlob(file);
-      const name = "name" in file ? (file.name as string) : undefined;
-      appendForm(body, "file", blob, name);
-    } else if (isReadableStream(payload.body.file.content)) {
-      const buffer = await readableStreamToArrayBuffer(
-        payload.body.file.content,
-      );
-      const contentType = getContentTypeFromFileName(payload.body.file.fileName)
-        || "application/octet-stream";
-      appendForm(
-        body,
-        "file",
-        bytesToBlob(buffer, contentType),
-        payload.body.file.fileName,
-      );
-    } else {
-      const contentType = getContentTypeFromFileName(payload.body.file.fileName)
-        || "application/octet-stream";
-      appendForm(
-        body,
-        "file",
-        bytesToBlob(payload.body.file.content, contentType),
-        payload.body.file.fileName,
-      );
-    }
   }
 
   const pathParams = {

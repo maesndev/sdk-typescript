@@ -21,6 +21,7 @@ let value: BookingProposalLineItemResponseDtoV2 = {
       code: null,
       dimension: "<value>",
       name: "<value>",
+      amount: 4905.52,
     },
   ],
   discountAmount: 7047.29,

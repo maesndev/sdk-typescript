@@ -6595,6 +6595,8 @@ paths:
           multipart/form-data:
             schema:
               type: object
+              required:
+                - file
               properties:
                 file:
                   type: string
@@ -16834,6 +16836,8 @@ components:
           type: string
         name:
           type: string
+        amount:
+          type: number
     LineItemRequest:
       type: object
       properties:
@@ -16967,11 +16971,15 @@ components:
         name:
           type: string
           nullable: true
+        amount:
+          type: number
+          nullable: true
       required:
         - id
         - code
         - dimension
         - name
+        - amount
     LineItemResponse:
       type: object
       properties:

@@ -10,6 +10,7 @@ let value: DimensionResponseCommonDtoV2 = {
   code: "<value>",
   dimension: "<value>",
   name: null,
+  amount: 285.87,
 };
 ```
 
@@ -21,3 +22,4 @@ let value: DimensionResponseCommonDtoV2 = {
 | `code`             | *string*           | :heavy_check_mark: | N/A                |
 | `dimension`        | *string*           | :heavy_check_mark: | N/A                |
 | `name`             | *string*           | :heavy_check_mark: | N/A                |
+| `amount`           | *number*           | :heavy_check_mark: | N/A                |

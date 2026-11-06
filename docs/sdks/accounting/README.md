@@ -8426,6 +8426,7 @@ run();
 <!-- UsageSnippet language="typescript" operationID="createBookingProposalAttachment" method="post" path="/accounting/bookingProposals/{bookingProposalId}/attachments" -->
 ```typescript
 import { Maesn } from "@maesn/typescript-sdk";
+import { openAsBlob } from "node:fs";
 
 const maesn = new Maesn({
   serverURL: "https://api.example.com",
@@ -8436,7 +8437,9 @@ const maesn = new Maesn({
 async function run() {
   const result = await maesn.accounting.createBookingProposalAttachment({
     bookingProposalId: "<id>",
-    body: {},
+    body: {
+      file: await openAsBlob("example.file"),
+    },
   });
 
   console.log(result);
@@ -8452,6 +8455,7 @@ The standalone function version of this method:
 ```typescript
 import { MaesnCore } from "@maesn/typescript-sdk/core.js";
 import { accountingCreateBookingProposalAttachment } from "@maesn/typescript-sdk/funcs/accounting-create-booking-proposal-attachment.js";
+import { openAsBlob } from "node:fs";
 
 // Use `MaesnCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -8464,7 +8468,9 @@ const maesn = new MaesnCore({
 async function run() {
   const res = await accountingCreateBookingProposalAttachment(maesn, {
     bookingProposalId: "<id>",
-    body: {},
+    body: {
+      file: await openAsBlob("example.file"),
+    },
   });
   if (res.ok) {
     const { value: result } = res;

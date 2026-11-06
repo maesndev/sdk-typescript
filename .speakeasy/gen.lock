@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: b4a29653-32d8-43f6-ba1e-9aa569fce206
 management:
-  docChecksum: d25c4fd83b2e208fe8dba9173c215178
+  docChecksum: 0062a19107992e45bcdcbae8f0f8ff40
   docVersion: "1.0"
-  speakeasyVersion: 1.805.0
-  generationVersion: 2.954.8
-  releaseVersion: 0.8.27
-  configChecksum: de9c4bea0065fa503265ac48b21734e9
+  speakeasyVersion: 1.806.0
+  generationVersion: 2.956.1
+  releaseVersion: 0.8.28
+  configChecksum: 05ce37a1a9c9305ee632e63bf663926c
   repoURL: https://github.com/maesndev/sdk-typescript.git
   installationURL: https://github.com/maesndev/sdk-typescript
   published: true
 persistentEdits:
-  generation_id: 91b08d4c-22df-4135-8365-2d9a7c3cee4b
-  pristine_commit_hash: 475bc46b10db926224e0e26299ac963df236de92
-  pristine_tree_hash: b4837551fb479df497e89c0e82d879b53068aad9
+  generation_id: 816239d5-0c14-4d20-a835-b99a69e82154
+  pristine_commit_hash: 856e6073a468bb65621024acc7be1c80aa8cce6b
+  pristine_tree_hash: 8956cda4f4a2afd40c6875eb8b51ff48300e4f05
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -252,8 +252,8 @@ trackedFiles:
     pristine_git_object: b52b1df60170cd2a8accc78b8bc2b50c2be86578
   docs/models/booking-proposal-line-item-response-dto-v2.md:
     id: d80299bc74c7
-    last_write_checksum: sha1:4a02e5b6f55e0d19a5ea0f465825d96370beea48
-    pristine_git_object: 9764631036ad1b5203b406dcec41d45a54359ac4
+    last_write_checksum: sha1:42d04e7bd5ccb685a5b37bd7da06ef76b494f2a2
+    pristine_git_object: 87c526d3ac30dc6cd1fc4e3a8eed8cf8294b8da8
   docs/models/booking-proposal-response-dto-booking-type.md:
     id: fbb64297e6b1
     last_write_checksum: sha1:0c8686440c10ac27851b9b1255283c4fca7b6b36
@@ -280,8 +280,8 @@ trackedFiles:
     pristine_git_object: 524756c2588c885f0cdb6d9a158a6a47bd0b6292
   docs/models/booking-proposal-response-dto.md:
     id: 78005a9d9d18
-    last_write_checksum: sha1:53a1ebf511958cbd71ca7fba3c5620b07cb31080
-    pristine_git_object: c6e5ab4adb4a96ea24d232a0477e85dc9940a809
+    last_write_checksum: sha1:6d3359adb11404e7d625004437852131221df4c8
+    pristine_git_object: de801d11d1eb61e863ba3b9feb793b91b875e902
   docs/models/callback-url-registration-dto.md:
     id: 9e9a6e1412eb
     last_write_checksum: sha1:fbb71de1ef9c7f47265b3c35f7d6059314d67afe
@@ -824,12 +824,12 @@ trackedFiles:
     pristine_git_object: 7217451ae636a2d7f1020ddd48816e947d576bed
   docs/models/dimension-request-common-dto-v2.md:
     id: 84fa39408075
-    last_write_checksum: sha1:2d4b2c0497e7bdab181c2ab360b3398b64ac32f6
-    pristine_git_object: 931ce8a1586bdf2e07010569b1a8a8629aed1e85
+    last_write_checksum: sha1:50ca3b8d5ee7b54cc16c6e6d5b6c398d6e3a2f1b
+    pristine_git_object: f9588c68e4b8b23ab142c81ffb8cd47cbb8bd8d7
   docs/models/dimension-response-common-dto-v2.md:
     id: ba19d66d90bc
-    last_write_checksum: sha1:4cb8a13a0ee10862342d06cbee83822de88db9be
-    pristine_git_object: edd2b481ca163be8243f06fba2c438c85b6e51c6
+    last_write_checksum: sha1:56427a4cc7b63c79490405622e566c06d9587aee
+    pristine_git_object: 939fd6643c59d09d680f3915b197c331caf09bd1
   docs/models/dimension.md:
     id: c9a08014ed73
     last_write_checksum: sha1:0c53cdedf23809f659462de62e0e78105c05853f
@@ -1056,8 +1056,8 @@ trackedFiles:
     pristine_git_object: e619d9add051249d7e375f08c929066ff4ee7634
   docs/models/line-item-response.md:
     id: 38a34f3439a3
-    last_write_checksum: sha1:ac8c13a22c517f766d18893f7d985d0b7e4bc05a
-    pristine_git_object: 2cc10f8cc279225d34bf18f5acbdab7185e644a5
+    last_write_checksum: sha1:bf848c9f17cd03776600c1fe003b3e90e9cd4dd9
+    pristine_git_object: d934d936bfc6a52b662322aa902ce95ea4c77521
   docs/models/meta.md:
     id: b5731935642a
     last_write_checksum: sha1:f47ad97958480924fb132225fecfb8cd1e00f583
@@ -1336,8 +1336,8 @@ trackedFiles:
     pristine_git_object: 8224cc13f5a2b8f8ddc24daec7c43edde04c68c5
   docs/models/operations/create-booking-proposal-attachment-request-body.md:
     id: 7036bc8e9496
-    last_write_checksum: sha1:286ffaf20aff2e575121ac796a6c65e5772b072b
-    pristine_git_object: 8ccde8b1d5aa210da6a10175c43b3b7e8df1e1ae
+    last_write_checksum: sha1:5713c7a287d60def73b7edffb06e0e4afb484c51
+    pristine_git_object: 97b4230224569e5f8937a641fb41678dc56ed1b2
   docs/models/operations/create-booking-proposal-attachment-request.md:
     id: 126ad9fda430
     last_write_checksum: sha1:df1c377cd103d973e0982a08ff9cd8fe415dbe58
@@ -1384,8 +1384,8 @@ trackedFiles:
     pristine_git_object: 449af6bc280a65b52907322cd3769376262a2b61
   docs/models/operations/create-booking-proposal-response.md:
     id: 77be172adbe5
-    last_write_checksum: sha1:b0ebe892ab42479780a47b692513a575b80e4956
-    pristine_git_object: 250b12559e8245f710b11ebdbcd99da6314bf9c1
+    last_write_checksum: sha1:0dc21d65cc48814dbef52d9fd31f4cda04d273e4
+    pristine_git_object: fab4dd2409199ab14aa7b9b12bf9228605a30af1
   docs/models/operations/create-booking-proposal-v2-booking-type.md:
     id: 047c6cb26116
     last_write_checksum: sha1:214f66998cce3b4a0a1ee93c4b44e30fd6ae8fd7
@@ -2888,8 +2888,8 @@ trackedFiles:
     pristine_git_object: dc732d0a47de3e338e8e0e8577b852efdc4b7f55
   docs/models/operations/get-booking-proposal-response.md:
     id: 27c4da36778d
-    last_write_checksum: sha1:de142ac9d5110f7b005e42e381a3b11469fd35b9
-    pristine_git_object: 0c43ab0ed0b3d99543b80475fe9980799b5b0e81
+    last_write_checksum: sha1:8da46c82ecb46356e55bfc46f493848e4191ea5d
+    pristine_git_object: 994cbb15926bc3d4a4c979038bd1a42f66576c3e
   docs/models/operations/get-booking-proposals-booking-type.md:
     id: 2cce652d2134
     last_write_checksum: sha1:26a454991ffe1b3c472e6f97ab2ce705bf07bb29
@@ -5856,8 +5856,8 @@ trackedFiles:
     pristine_git_object: 0481206ffcc1855523cb278480e8bdfb5deebaca
   docs/models/operations/update-booking-proposal-response.md:
     id: 6f489f3c7402
-    last_write_checksum: sha1:fb9f2e1a27d650cb91b7c330c604b1e77b917a34
-    pristine_git_object: 211207e8d8bfc0294a67bcf0257471b7ff806eaa
+    last_write_checksum: sha1:f4ba696fea895db693abd74c0cc5758e02444e5c
+    pristine_git_object: 294380a601ed3a45ec35a0d4554540543f912cbc
   docs/models/operations/update-customer-errors.md:
     id: 5e3b1649ab2f
     last_write_checksum: sha1:d0285339b15a9faa36b7fddcc91256a108d8bf5f
@@ -6328,8 +6328,8 @@ trackedFiles:
     pristine_git_object: 22dd5f08bac5ea8e40e42de4ebb0a5876ef875c5
   docs/sdks/accounting/README.md:
     id: 6abb8976ed95
-    last_write_checksum: sha1:314439be07a6edf76aa34309a94cb6a541e36f6e
-    pristine_git_object: c23e6de056389e36908d20bab6fe77dc7b15e3b2
+    last_write_checksum: sha1:248fe02cfc6e588cea115d13a68a5919d06f5942
+    pristine_git_object: 66bdd874fced37b5ce9156314f3dac2927982dd1
   docs/sdks/accountingv2/README.md:
     id: 24a9f287e358
     last_write_checksum: sha1:500b8cea57ac71e42f511ba1868fbbcbcf756650
@@ -6376,12 +6376,12 @@ trackedFiles:
     pristine_git_object: 620f120672c2be3445356aaae6d877d4d89c43d5
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:b3b7f6428016fc46ef056cb828ef9229db7c9a1f
-    pristine_git_object: 05fffcb1d374e482b46dae145a1746e89b91573c
+    last_write_checksum: sha1:69b16ec235e76fd4afce69a7cc03a7522335c4a3
+    pristine_git_object: 8d40fa781380b9f538710dfea46894c6906d2c25
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:6a2d93cd152e912ba4845932523d92515829cd4d
-    pristine_git_object: cdee5bfe0a8a0a20d01ff189dc34298ee4f7fcd7
+    last_write_checksum: sha1:d5ee8b064689e6acc943429719de1f883f6e4346
+    pristine_git_object: c1525a1bb90f4fb4b52bebfdc52c1abcd0876360
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:2eff2a6c77b0c787da6418de861acc36733c433a
@@ -6408,8 +6408,8 @@ trackedFiles:
     pristine_git_object: a840f3e1c23920e73ee9df53a31d5a406b83f014
   src/funcs/accounting-create-booking-proposal-attachment.ts:
     id: c98cc151286a
-    last_write_checksum: sha1:0f72938b33860172ce2ab1f749633477a2a65429
-    pristine_git_object: ae3b8944daaa384c3d71c3dfa58d83c1359572f0
+    last_write_checksum: sha1:9f561334bcc374c0411ea0964d5241fabced2aa8
+    pristine_git_object: b7fafa7bfc15f1fd8338c1e0978e1bec5b2ceb32
   src/funcs/accounting-create-booking-proposal.ts:
     id: ecd89515fa83
     last_write_checksum: sha1:f07b4c0087e6923a7e8bf3bb711848fbea750f8f
@@ -7116,8 +7116,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:b89ea4df8cd4cbad469ea651456a4ba59b6d835b
-    pristine_git_object: 4ad9394376710d5a4347275a4ec972f95c79ce41
+    last_write_checksum: sha1:c32546152a861e2ae42893122a4d01259c96df37
+    pristine_git_object: cab752b5f1697d5f40c00e5fad8ce8df3acee877
   src/lib/encodings.ts:
     id: 3bd8ead98afd
     last_write_checksum: sha1:4481b2a380f8a16856ef92c66fb370299f56d135
@@ -7496,12 +7496,12 @@ trackedFiles:
     pristine_git_object: aba9bd1bf0a25ab27482aad48b4cd84ad0eab6b0
   src/models/dimension-request-common-dto-v2.ts:
     id: 2bb432afb83c
-    last_write_checksum: sha1:7eb4d9dfcf2bbe0ed3fdbb6125d8d07b755ba775
-    pristine_git_object: 63730fc679db24a2d6e7b0023706fe14a91acdef
+    last_write_checksum: sha1:f6a443f55fc9d7a730543e9d9fe3d0614fc3f829
+    pristine_git_object: 98410f35c03a1aa732d5fac74d181910fa3ffb9f
   src/models/dimension-response-common-dto-v2.ts:
     id: b937adfe4d72
-    last_write_checksum: sha1:fd41ef2fd917beff8ee41922c57da0699b17e601
-    pristine_git_object: cf5900c15b49a69199c3805bad4316992eba7e3b
+    last_write_checksum: sha1:959602761a30f177f4e6262ad51e62a5b8120b94
+    pristine_git_object: 5c0ab9cbe03b59430444b8759276027aeb2d91fe
   src/models/dimension.ts:
     id: 05a6236b508c
     last_write_checksum: sha1:15a9f53b7d38e8ac66b2b460393a78bc7109dda1
@@ -7696,8 +7696,8 @@ trackedFiles:
     pristine_git_object: 4e966a5816d7b46888f82f9cefaa48cddc3a33cf
   src/models/operations/create-booking-proposal-attachment.ts:
     id: 9071c735eb06
-    last_write_checksum: sha1:d06bcedca16ee2daa041f989bc9f0a65ce6685ef
-    pristine_git_object: 2e3e515d06f5c1fd9ca4f2393de6b0823af016b8
+    last_write_checksum: sha1:3e2e9bf7efe1fb6bbeef605ba2a6a1177f49e3b9
+    pristine_git_object: c0f2c88e8ac03beaf413f02dee2e31338bed3354
   src/models/operations/create-booking-proposal-v2.ts:
     id: 39c781b62afc
     last_write_checksum: sha1:06464133e0832d5cf96fdce386b070d07e952c14
@@ -9973,7 +9973,7 @@ examples:
         path:
           bookingProposalId: "<id>"
       requestBody:
-        multipart/form-data: {}
+        multipart/form-data: {"file": "x-file: example.file"}
       responses:
         "201":
           application/json: {"data": {"id": "<id>", "base64Encoded": false, "content": "<value>", "contentType": null, "fileName": "example.file"}, "errors": {}, "rawData": {}}
@@ -10076,4 +10076,4 @@ examples:
         "200":
           application/json: {"data": [], "errors": {}, "rawData": {}}
 examplesVersion: 1.0.2
-releaseNotes: "## Typescript SDK Changes:\n* `maesn.accounting.getContactsAsync()`:  `response` **Changed** (Breaking ⚠️)\n* `maesn.accountingV2.createBookingProposalV2()`:  `response` **Changed** (Breaking ⚠️)\n* `maesn.accounting.createBookingProposalAsync()`:  `response` **Changed** (Breaking ⚠️)\n* `maesn.accounting.createExpenseAsync()`:  `response` **Changed** (Breaking ⚠️)\n* `maesn.accounting.getOpenItemsAsync()`:  `response` **Changed** (Breaking ⚠️)\n* `maesn.accounting.getProjectsAsync()`:  `response` **Changed** (Breaking ⚠️)\n* `maesn.accounting.getJournalEntriesAsync()`:  `response` **Changed** (Breaking ⚠️)\n* `maesn.accounting.postFileAsync()`:  `response` **Changed** (Breaking ⚠️)\n* `maesn.accounting.createProject()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getBill()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getAccount()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getAccounts()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.createAccount()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getBankAccounts()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.createBankAccount()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getSalesOrder()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getDimensions()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getDimensionsByDimension()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.createTransaction()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getCustomers()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.createCustomer()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getCustomer()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.updateCustomer()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.patchCustomers()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getSuppliers()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.createSupplier()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getSupplier()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.updateSupplier()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.patchSupplier()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.updateBookingProposalAsync()`: **Added**\n* `maesn.accounting.getContacts()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.createContact()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getContact()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.putContact()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.patchContact()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.createContacts()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.createContactsV1()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getInvoices()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.createInvoice()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getInvoice()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.patchInvoice()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getInvoiceDocument()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.postFile()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.updateBookingProposal()`: **Added**\n* `maesn.accounting.getDocumentTypes()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getDocumentExtensions()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getAsyncTaskInfo()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getItems()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.createItem()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getItem()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.patchItem()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.updateItem()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.deleteItem()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getLineItems()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.createLineItem()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getLineItem()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.patchLineItem()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getJournals()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getJournalEntries()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.createJournalEntry()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.createSalesOrderAsync()`: **Added**\n* `maesn.accounting.getJournalEntry()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.updateJournalEntry()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.patchJournalEntry()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.deleteJournalEntry()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.createJournalEntries()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getJournalEntryAttachments()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.createJournalEntryAttachments()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getJournalEntryAttachmentById()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getOffers()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.createOffer()`: \n  *  `request.body` **Changed**\n  *  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getOffer()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getOfferLineItems()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getOfferLineItem()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getOfferDocument()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.createExpense()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getExpenses()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getExpense()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getProjects()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.createContactAsync()`: **Added**\n* `maesn.accounting.getProjectAsync()`: **Added**\n* `maesn.accounting.getProject()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.createEventSubscriptions()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getToleranceLimits()`: **Added**\n* `maesn.accounting.getBankAccount()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getSalesOrderLines()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getPaymentTerms()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.createPaymentTerm()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getPaymentTerm()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getTaxRates()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getTaxRate()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getPayments()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.createPayment()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getPayment()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.deletePayment()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getSalesOrders()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.deleteEventSubscriptions()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getProfile()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.createPassThroughRequest()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getBills()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.createBill()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.createSalesOrder()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.updateBill()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.deleteBill()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getBillDocument()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.createBookingProposal()`: \n  *  `request.body.bookingProposal` **Changed**\n  *  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getBookingProposals()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.createBookingProposalAttachment()`: \n  *  `request.body.documentType` **Changed**\n  *  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getBookingProposal()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getBookingProposalDocument()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getVendorCredits()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.createVendorCredit()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.updateVendorCredit()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.deleteVendorCredit()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getBillLineItems()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.createBillLineItem()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.updateBillLineItem()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getPurchaseOrders()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getPurchaseOrder()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getPurchaseOrderLineItems()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getPurchaseOrderLineItem()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getGoodsReceipts()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getGoodsReceipt()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getGoodsReceiptLineItems()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getGoodsReceiptLineItem()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getUnits()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getOpenItems()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.createProjectAsync()`: **Added**\n* `maesn.accounting.getTrialBalance()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getCreditNotes()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.createCreditNote()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getCreditNote()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getCreditNoteDocuments()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getFiscalYears()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getFiscalYear()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.deleteOffer()`: **Added**\n* `maesn.accounting.patchOffer()`: **Added**\n* `maesn.accounting.getCurrencies()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getReasonCodes()`:  `response.meta.partialErrors` **Added**\n* `maesn.accounting.getContactAsync()`: **Added**\n* `maesn.accountingV2.getContactsV2()`:  `response.meta.partialErrors` **Added**\n* `maesn.accountingV2.createContactV2()`:  `response.meta.partialErrors` **Added**\n* `maesn.accountingV2.getContactV2()`:  `response.meta.partialErrors` **Added**\n* `maesn.accountingV2.putContactV2()`:  `response.meta.partialErrors` **Added**\n* `maesn.accountingV2.patchContactV2()`:  `response.meta.partialErrors` **Added**\n* `maesn.accountingV2.getDimensionsV2()`:  `response.meta.partialErrors` **Added**\n* `maesn.accountingV2.getDimensionsByDimensionV2()`:  `response.meta.partialErrors` **Added**\n* `maesn.user.getUserInfo()`:  `response.meta.partialErrors` **Added**\n* `maesn.auth.getEnvironments()`:  `response.meta.partialErrors` **Added**\n* `maesn.auth.getCompanies()`:  `response.meta.partialErrors` **Added**\n* `maesn.tenants.getEndUserList()`:  `response.meta.partialErrors` **Added**\n* `maesn.tenants.countEndUsersBySystem()`:  `response.meta.partialErrors` **Added**\n* `maesn.tenants.getCallbackUrl()`:  `response.meta.partialErrors` **Added**\n* `maesn.tenants.getRegisteredSystems()`:  `response.meta.partialErrors` **Added**\n* `maesn.tenants.getTargetSystemValues()`:  `response.meta.partialErrors` **Added**\n* `maesn.tenants.getTargetSystemRequirements()`:  `response.meta.partialErrors` **Added**\n* `maesn.tenants.getRegisteredSystemsMasked()`:  `response.meta.partialErrors` **Added**\n* `maesn.webhooks.createWebhookEndUser()`:  `response.meta.partialErrors` **Added**\n* `maesn.webhooks.createWebhook()`:  `response.meta.partialErrors` **Added**\n* `maesn.webhooks.getWebhooks()`:  `response.meta.partialErrors` **Added**\n"
+releaseNotes: "## Typescript SDK Changes:\n* `maesn.accounting.createBookingProposalAttachment()`: \n  *  `request.body.file` **Changed** (Breaking ⚠️)\n* `maesn.accounting.createBookingProposal()`: \n  *  `request.body.bookingProposal` **Changed**\n  *  `response.data.lineItems[].dimensions[].amount` **Added**\n* `maesn.accounting.getBookingProposals()`:  `response.data[].lineItems[].dimensions[].amount` **Added**\n* `maesn.accounting.updateBookingProposal()`: \n  *  `request.body.bookingProposal` **Changed**\n  *  `response.data.lineItems[].dimensions[].amount` **Added**\n* `maesn.accounting.getBookingProposal()`:  `response.data.lineItems[].dimensions[].amount` **Added**\n* `maesn.accounting.updateBookingProposalAsync()`: \n  *  `request.body.bookingProposal` **Changed**\n* `maesn.accounting.createExpenseAsync()`: \n  *  `request.body.expense` **Changed**\n* `maesn.accounting.createBookingProposalAsync()`: \n  *  `request.body.bookingProposal` **Changed**\n* `maesn.accountingV2.createBookingProposalV2()`: \n  *  `request.body.bookingProposal` **Changed**\n  *  `response.data.lineItems[].dimensions[].amount` **Added**\n"
