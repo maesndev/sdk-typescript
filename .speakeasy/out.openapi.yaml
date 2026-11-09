@@ -4555,6 +4555,12 @@ paths:
     get:
       operationId: getProjectsAsync
       parameters:
+        - name: name
+          required: false
+          in: query
+          description: Filter projects by exact project name
+          schema:
+            type: string
         - name: X-API-KEY
           description: API key
           in: header
