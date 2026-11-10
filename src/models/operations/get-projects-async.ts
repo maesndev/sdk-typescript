@@ -16,6 +16,10 @@ export type GetProjectsAsyncGlobals = {
 
 export type GetProjectsAsyncRequest = {
   /**
+   * Filter projects by exact project name
+   */
+  name?: string | undefined;
+  /**
    * API key
    */
   apiKey?: string | undefined;
@@ -54,6 +58,7 @@ export type GetProjectsAsyncResponse = {
 
 /** @internal */
 export type GetProjectsAsyncRequest$Outbound = {
+  name?: string | undefined;
   apiKey?: string | undefined;
   accountKey?: string | undefined;
 };
@@ -63,6 +68,7 @@ export const GetProjectsAsyncRequest$outboundSchema: z.ZodMiniType<
   GetProjectsAsyncRequest$Outbound,
   GetProjectsAsyncRequest
 > = z.object({
+  name: z.optional(z.string()),
   apiKey: z.optional(z.string()),
   accountKey: z.optional(z.string()),
 });
