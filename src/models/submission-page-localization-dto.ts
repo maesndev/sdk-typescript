@@ -3,6 +3,11 @@
  */
 
 import * as z from "zod/v4-mini";
+import {
+  SubmissionPageInputTextsDto,
+  SubmissionPageInputTextsDto$Outbound,
+  SubmissionPageInputTextsDto$outboundSchema,
+} from "./submission-page-input-texts-dto.js";
 
 export type SubmissionPageLocalizationDto = {
   locale?: string | undefined;
@@ -10,6 +15,8 @@ export type SubmissionPageLocalizationDto = {
   freeText?: string | undefined;
   submitButtonText?: string | undefined;
   cancelButtonText?: string | undefined;
+  environmentPlaceholderText?: string | undefined;
+  inputTexts?: SubmissionPageInputTextsDto | undefined;
 };
 
 /** @internal */
@@ -19,6 +26,8 @@ export type SubmissionPageLocalizationDto$Outbound = {
   freeText?: string | undefined;
   submitButtonText?: string | undefined;
   cancelButtonText?: string | undefined;
+  environmentPlaceholderText?: string | undefined;
+  inputTexts?: SubmissionPageInputTextsDto$Outbound | undefined;
 };
 
 /** @internal */
@@ -31,6 +40,8 @@ export const SubmissionPageLocalizationDto$outboundSchema: z.ZodMiniType<
   freeText: z.optional(z.string()),
   submitButtonText: z.optional(z.string()),
   cancelButtonText: z.optional(z.string()),
+  environmentPlaceholderText: z.optional(z.string()),
+  inputTexts: z.optional(SubmissionPageInputTextsDto$outboundSchema),
 });
 
 export function submissionPageLocalizationDtoToJSON(

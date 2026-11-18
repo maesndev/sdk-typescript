@@ -7,6 +7,7 @@ import { authGetCompanies } from "../funcs/auth-get-companies.js";
 import { authGetEnvironments } from "../funcs/auth-get-environments.js";
 import { authSystemLoginUrlPostAuth } from "../funcs/auth-system-login-url-post-auth.js";
 import { authSystemLoginUrl } from "../funcs/auth-system-login-url.js";
+import { authValidateConnection } from "../funcs/auth-validate-connection.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
@@ -28,6 +29,17 @@ export class Auth extends ClientSDK {
     options?: RequestOptions,
   ): Promise<operations.GetCompaniesResponse> {
     return unwrapAsync(authGetCompanies(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  async validateConnection(
+    request?: operations.ValidateConnectionRequest | undefined,
+    options?: RequestOptions,
+  ): Promise<operations.ValidateConnectionResponse> {
+    return unwrapAsync(authValidateConnection(
       this,
       request,
       options,

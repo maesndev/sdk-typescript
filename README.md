@@ -207,6 +207,7 @@ run();
 * [createPayment](docs/sdks/accounting/README.md#createpayment)
 * [getPayment](docs/sdks/accounting/README.md#getpayment)
 * [deletePayment](docs/sdks/accounting/README.md#deletepayment)
+* [bookPayment](docs/sdks/accounting/README.md#bookpayment)
 * [createEventSubscriptions](docs/sdks/accounting/README.md#createeventsubscriptions)
 * [deleteEventSubscriptions](docs/sdks/accounting/README.md#deleteeventsubscriptions)
 * [getProfile](docs/sdks/accounting/README.md#getprofile)
@@ -270,15 +271,10 @@ run();
 
 * [getEnvironments](docs/sdks/auth/README.md#getenvironments)
 * [getCompanies](docs/sdks/auth/README.md#getcompanies)
+* [validateConnection](docs/sdks/auth/README.md#validateconnection)
 * [systemLoginUrl](docs/sdks/auth/README.md#systemloginurl)
 * [systemLoginUrlPostAuth](docs/sdks/auth/README.md#systemloginurlpostauth)
 * [createEndUserAccount](docs/sdks/auth/README.md#createenduseraccount)
-
-### [Events](docs/sdks/events/README.md)
-
-* [handleCallback](docs/sdks/events/README.md#handlecallback)
-* [getCode](docs/sdks/events/README.md#getcode)
-* [handleConfigurationCallback](docs/sdks/events/README.md#handleconfigurationcallback)
 
 ### [Health](docs/sdks/health/README.md)
 
@@ -332,6 +328,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 
 <summary>Available standalone functions</summary>
 
+- [`accountingBookPayment`](docs/sdks/accounting/README.md#bookpayment)
 - [`accountingCreateAccount`](docs/sdks/accounting/README.md#createaccount)
 - [`accountingCreateBankAccount`](docs/sdks/accounting/README.md#createbankaccount)
 - [`accountingCreateBill`](docs/sdks/accounting/README.md#createbill)
@@ -484,9 +481,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`authGetEnvironments`](docs/sdks/auth/README.md#getenvironments)
 - [`authSystemLoginUrl`](docs/sdks/auth/README.md#systemloginurl)
 - [`authSystemLoginUrlPostAuth`](docs/sdks/auth/README.md#systemloginurlpostauth)
-- [`eventsGetCode`](docs/sdks/events/README.md#getcode)
-- [`eventsHandleCallback`](docs/sdks/events/README.md#handlecallback)
-- [`eventsHandleConfigurationCallback`](docs/sdks/events/README.md#handleconfigurationcallback)
+- [`authValidateConnection`](docs/sdks/auth/README.md#validateconnection)
 - [`healthCheck`](docs/sdks/health/README.md#check) - Health check
 - [`tenantsAddCallbackUrl`](docs/sdks/tenants/README.md#addcallbackurl)
 - [`tenantsCountEndUsersBySystem`](docs/sdks/tenants/README.md#countendusersbysystem)
@@ -771,7 +766,7 @@ import { Maesn } from "@maesn/typescript-sdk";
 const sdk = new Maesn({ debugLogger: console });
 ```
 
-You can also enable a default debug logger by setting an environment variable `MAESN_DEBUG` to true.
+You can also enable a default debug logger by setting an environment variable `MAESN_DEBUG` to `true`, `1`, `yes` or `on` (case-insensitive). Any other value leaves it off.
 <!-- End Debugging [debug] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->

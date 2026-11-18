@@ -4,7 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { MaesnCore } from "../core.js";
-import { encodeSimple } from "../lib/encodings.js";
+import { encodeFormQuery, encodeSimple } from "../lib/encodings.js";
 import { matchStatusCode } from "../lib/http.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
@@ -21,17 +21,18 @@ import {
 import { MaesnError } from "../models/errors/maesn-error.js";
 import { ResponseValidationError } from "../models/errors/response-validation-error.js";
 import { SDKValidationError } from "../models/errors/sdk-validation-error.js";
+import * as models from "../models/index.js";
 import * as operations from "../models/operations/index.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
-export function eventsHandleConfigurationCallback(
+export function accountingBookPayment(
   client: MaesnCore,
-  request: operations.HandleConfigurationCallbackRequest,
+  request: operations.BookPaymentRequest,
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    operations.HandleConfigurationCallbackResponse,
+    models.BaseResponseDto,
     | MaesnError
     | ResponseValidationError
     | ConnectionError
@@ -51,12 +52,12 @@ export function eventsHandleConfigurationCallback(
 
 async function $do(
   client: MaesnCore,
-  request: operations.HandleConfigurationCallbackRequest,
+  request: operations.BookPaymentRequest,
   options?: RequestOptions,
 ): Promise<
   [
     Result<
-      operations.HandleConfigurationCallbackResponse,
+      models.BaseResponseDto,
       | MaesnError
       | ResponseValidationError
       | ConnectionError
@@ -71,11 +72,7 @@ async function $do(
 > {
   const parsed = safeParse(
     request,
-    (value) =>
-      z.parse(
-        operations.HandleConfigurationCallbackRequest$outboundSchema,
-        value,
-      ),
+    (value) => z.parse(operations.BookPaymentRequest$outboundSchema, value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -85,12 +82,17 @@ async function $do(
   const body = null;
 
   const pathParams = {
-    code: encodeSimple("code", payload.code, {
+    paymentId: encodeSimple("paymentId", payload.paymentId, {
       explode: false,
       charEncoding: "percent",
     }),
   };
-  const path = pathToFunc("/events/configuration/callback/{code}")(pathParams);
+  const path = pathToFunc("/accounting/payments/{paymentId}/book")(pathParams);
+
+  const query = encodeFormQuery({
+    "companyId": payload.companyId,
+    "environmentName": payload.environmentName,
+  });
 
   const headers = new Headers(compactMap({
     Accept: "application/json",
@@ -109,7 +111,7 @@ async function $do(
   const context = {
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "handleConfigurationCallback",
+    operationID: "bookPayment",
     oAuth2Scopes: null,
 
     resolvedSecurity: null,
@@ -126,6 +128,7 @@ async function $do(
     baseURL: options?.serverURL,
     path: path,
     headers: headers,
+    query: query,
     body: body,
     userAgent: client._options.userAgent,
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
@@ -148,7 +151,7 @@ async function $do(
   const response = doResult.value;
 
   const [result] = await M.match<
-    operations.HandleConfigurationCallbackResponse,
+    models.BaseResponseDto,
     | MaesnError
     | ResponseValidationError
     | ConnectionError
@@ -158,7 +161,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(202, operations.HandleConfigurationCallbackResponse$inboundSchema),
+    M.json(201, models.BaseResponseDto$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req);

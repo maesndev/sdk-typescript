@@ -1,13 +1,11 @@
-# GetCodeResponse
-
-Authorization code saved successfully
+# ValidateConnectionRawData
 
 ## Example Usage
 
 ```typescript
-import { GetCodeResponse } from "@maesn/typescript-sdk/models/operations";
+import { ValidateConnectionRawData } from "@maesn/typescript-sdk/models/operations";
 
-let value: GetCodeResponse = {};
+let value: ValidateConnectionRawData = {};
 ```
 
 ## Fields

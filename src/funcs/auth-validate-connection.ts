@@ -25,13 +25,13 @@ import * as operations from "../models/operations/index.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
-export function eventsHandleCallback(
+export function authValidateConnection(
   client: MaesnCore,
-  request: operations.HandleCallbackRequest,
+  request?: operations.ValidateConnectionRequest | undefined,
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    operations.HandleCallbackResponse,
+    operations.ValidateConnectionResponse,
     | MaesnError
     | ResponseValidationError
     | ConnectionError
@@ -51,12 +51,12 @@ export function eventsHandleCallback(
 
 async function $do(
   client: MaesnCore,
-  request: operations.HandleCallbackRequest,
+  request?: operations.ValidateConnectionRequest | undefined,
   options?: RequestOptions,
 ): Promise<
   [
     Result<
-      operations.HandleCallbackResponse,
+      operations.ValidateConnectionResponse,
       | MaesnError
       | ResponseValidationError
       | ConnectionError
@@ -71,7 +71,11 @@ async function $do(
 > {
   const parsed = safeParse(
     request,
-    (value) => z.parse(operations.HandleCallbackRequest$outboundSchema, value),
+    (value) =>
+      z.parse(
+        z.optional(operations.ValidateConnectionRequest$outboundSchema),
+        value,
+      ),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -80,24 +84,18 @@ async function $do(
   const payload = parsed.value;
   const body = null;
 
-  const pathParams = {
-    code: encodeSimple("code", payload.code, {
-      explode: false,
-      charEncoding: "percent",
-    }),
-  };
-  const path = pathToFunc("/events/callback/{code}")(pathParams);
+  const path = pathToFunc("/auth/connections/validate")();
 
   const headers = new Headers(compactMap({
     Accept: "application/json",
     "X-ACCOUNT-KEY": encodeSimple(
       "X-ACCOUNT-KEY",
-      payload.accountKey ?? client._options.accountKey,
+      payload?.accountKey ?? client._options.accountKey,
       { explode: false, charEncoding: "none" },
     ),
     "X-API-KEY": encodeSimple(
       "X-API-KEY",
-      payload.apiKey ?? client._options.apiKey,
+      payload?.apiKey ?? client._options.apiKey,
       { explode: false, charEncoding: "none" },
     ),
   }));
@@ -105,7 +103,7 @@ async function $do(
   const context = {
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "handleCallback",
+    operationID: "validateConnection",
     oAuth2Scopes: null,
 
     resolvedSecurity: null,
@@ -144,7 +142,7 @@ async function $do(
   const response = doResult.value;
 
   const [result] = await M.match<
-    operations.HandleCallbackResponse,
+    operations.ValidateConnectionResponse,
     | MaesnError
     | ResponseValidationError
     | ConnectionError
@@ -154,7 +152,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(202, operations.HandleCallbackResponse$inboundSchema),
+    M.json(200, operations.ValidateConnectionResponse$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req);
