@@ -3,13 +3,12 @@ speakeasyVersion: latest
 sources:
     Maesn unified API:
         inputs:
-            - location: https://unified-backend-prod.azurewebsites.net/api-json
-            - location: https://unified-backend-prod.azurewebsites.net/api/v2-json
-            - location: https://unified-backend-prod.azurewebsites.net/api/auth-sdk-json
-            - location: https://unified-backend-prod.azurewebsites.net/api/tenants-sdk-json
-            - location: https://unified-backend-prod.azurewebsites.net/api/events-sdk-json
-            - location: https://unified-backend-prod.azurewebsites.net/api/webhooks-sdk-json
-            - location: https://unified-backend-prod.azurewebsites.net/api/health-sdk-json
+            - location: https://api.maesn.dev/api-json
+            - location: https://api.maesn.dev/api/v2-json
+            - location: https://api.maesn.dev/api/auth-sdk-json
+            - location: https://api.maesn.dev/api/tenants-sdk-json
+            - location: https://api.maesn.dev/api/webhooks-sdk-json
+            - location: https://api.maesn.dev/api/health-sdk-json
         overlays:
             - location: .speakeasy/overlays/info-overlay.yaml
             - location: .speakeasy/overlays/auth-security-overlay.yaml
