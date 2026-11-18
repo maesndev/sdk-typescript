@@ -1,19 +1,16 @@
-# HandleCallbackRequest
+# ValidateConnectionRequest
 
 ## Example Usage
 
 ```typescript
-import { HandleCallbackRequest } from "@maesn/typescript-sdk/models/operations";
+import { ValidateConnectionRequest } from "@maesn/typescript-sdk/models/operations";
 
-let value: HandleCallbackRequest = {
-  code: "<value>",
-};
+let value: ValidateConnectionRequest = {};
 ```
 
 ## Fields
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `code`             | *string*           | :heavy_check_mark: | N/A                |
 | `apiKey`           | *string*           | :heavy_minus_sign: | API key            |
 | `accountKey`       | *string*           | :heavy_minus_sign: | Account key        |

@@ -42,18 +42,19 @@ let value: InvoiceResponseDto = {
   ],
   name: "<value>",
   oneLineAddress: "<value>",
+  openAmount: 7693.26,
   paidDate: "<value>",
-  paymentStatus: "DEBITED",
-  paymentTermDuration: 9843.51,
-  paymentTermId: "<id>",
+  paymentStatus: "UNKNOWN",
+  paymentTermDuration: 6379.48,
+  paymentTermId: null,
   reference: "<value>",
-  salesOrderId: null,
+  salesOrderId: "<id>",
   shippingDate: "<value>",
-  status: "OVERDUE",
-  sumNetAmount: 1753.39,
-  taxRule: "CONSTRUCTION_SERVICE",
-  totalAmount: null,
-  totalTaxAmount: 2516,
+  status: "CORRECTIVE",
+  sumNetAmount: 5556.99,
+  taxRule: null,
+  totalAmount: 2516,
+  totalTaxAmount: 9532.49,
   updatedDate: "<value>",
 };
 ```
@@ -79,6 +80,7 @@ let value: InvoiceResponseDto = {
 | `lineItems`                                                                                     | [models.LineItemResponseDto](../models/line-item-response-dto.md)[]                             | :heavy_check_mark:                                                                              | N/A                                                                                             |
 | `name`                                                                                          | *string*                                                                                        | :heavy_check_mark:                                                                              | N/A                                                                                             |
 | `oneLineAddress`                                                                                | *string*                                                                                        | :heavy_check_mark:                                                                              | N/A                                                                                             |
+| `openAmount`                                                                                    | *number*                                                                                        | :heavy_check_mark:                                                                              | N/A                                                                                             |
 | `paidDate`                                                                                      | *string*                                                                                        | :heavy_check_mark:                                                                              | N/A                                                                                             |
 | `paymentStatus`                                                                                 | [models.InvoiceResponseDtoPaymentStatus](../models/invoice-response-dto-payment-status.md)      | :heavy_check_mark:                                                                              | N/A                                                                                             |
 | `paymentTermDuration`                                                                           | *number*                                                                                        | :heavy_check_mark:                                                                              | N/A                                                                                             |

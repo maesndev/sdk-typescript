@@ -6,7 +6,6 @@ import { ClientSDK } from "../lib/sdks.js";
 import { AccountingV2 } from "./accounting-v2.js";
 import { Accounting } from "./accounting.js";
 import { Auth } from "./auth.js";
-import { Events } from "./events.js";
 import { Health } from "./health.js";
 import { Tenants } from "./tenants.js";
 import { User } from "./user.js";
@@ -36,11 +35,6 @@ export class Maesn extends ClientSDK {
   private _tenants?: Tenants;
   get tenants(): Tenants {
     return (this._tenants ??= new Tenants(this._options));
-  }
-
-  private _events?: Events;
-  get events(): Events {
-    return (this._events ??= new Events(this._options));
   }
 
   private _webhooks?: Webhooks;

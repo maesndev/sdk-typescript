@@ -5630,6 +5630,48 @@ paths:
                         type: string
       tags:
         - accounting
+  /accounting/payments/{paymentId}/book:
+    post:
+      operationId: bookPayment
+      parameters:
+        - name: paymentId
+          required: true
+          in: path
+          schema:
+            type: string
+        - name: companyId
+          required: false
+          in: query
+          description: ID of the company (required for multi-company target systems)
+          schema:
+            type: string
+        - name: environmentName
+          required: false
+          in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
+          schema:
+            type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
+      responses:
+        "201":
+          description: Payment booked successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BaseResponseDto'
+      tags:
+        - accounting
   /accounting/event-subscriptions:
     post:
       operationId: createEventSubscriptions
@@ -9380,6 +9422,35 @@ paths:
         statusCodes:
           - 5XX
         retryConnectionErrors: true
+  /auth/connections/validate:
+    post:
+      operationId: validateConnection
+      tags:
+        - auth
+      parameters:
+        - name: X-API-KEY
+          in: header
+          description: API key
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          in: header
+          description: Account key
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
+      responses:
+        "200":
+          description: Validates the connection for the authenticated end user
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BaseResponseDto'
+                  - properties:
+                      data:
+                        $ref: '#/components/schemas/ConnectionValidationResponseDto'
   /auth/companiesFlow:
     get:
       operationId: getCompaniesFlow
@@ -10529,96 +10600,6 @@ paths:
       responses:
         "201":
           description: Signing secret generated successfully
-          content:
-            application/json:
-              schema:
-                type: object
-  /events/callback/{code}:
-    post:
-      operationId: handleCallback
-      tags:
-        - events
-      parameters:
-        - name: code
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: X-API-KEY
-          in: header
-          description: API key
-          schema:
-            type: string
-          x-speakeasy-name-override: apiKey
-        - name: X-ACCOUNT-KEY
-          in: header
-          description: Account key
-          schema:
-            type: string
-          x-speakeasy-name-override: accountKey
-      responses:
-        "202":
-          description: Webhook event received and queued for processing
-          content:
-            application/json:
-              schema:
-                type: object
-  /events/key/{code}:
-    post:
-      operationId: getCode
-      tags:
-        - events
-      parameters:
-        - name: code
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: X-API-KEY
-          in: header
-          description: API key
-          schema:
-            type: string
-          x-speakeasy-name-override: apiKey
-        - name: X-ACCOUNT-KEY
-          in: header
-          description: Account key
-          schema:
-            type: string
-          x-speakeasy-name-override: accountKey
-      responses:
-        "201":
-          description: Authorization code saved successfully
-          content:
-            application/json:
-              schema:
-                type: object
-  /events/configuration/callback/{code}:
-    post:
-      operationId: handleConfigurationCallback
-      tags:
-        - events
-      parameters:
-        - name: code
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: X-API-KEY
-          in: header
-          description: API key
-          schema:
-            type: string
-          x-speakeasy-name-override: apiKey
-        - name: X-ACCOUNT-KEY
-          in: header
-          description: Account key
-          schema:
-            type: string
-          x-speakeasy-name-override: accountKey
-      responses:
-        "202":
-          description: Configuration webhook event received and queued for processing
           content:
             application/json:
               schema:
@@ -12248,6 +12229,9 @@ components:
         oneLineAddress:
           type: string
           nullable: true
+        openAmount:
+          type: number
+          nullable: true
         paidDate:
           type: string
           nullable: true
@@ -12344,6 +12328,7 @@ components:
         - lineItems
         - name
         - oneLineAddress
+        - openAmount
         - paidDate
         - paymentStatus
         - paymentTermDuration
@@ -23443,6 +23428,20 @@ components:
           nullable: true
       required:
         - id
+    ConnectionValidationResponseDto:
+      type: object
+      properties:
+        valid:
+          type: boolean
+          description: Whether the connection is valid and can be used to make API calls
+          nullable: true
+        targetSystem:
+          type: string
+          description: The target system identifier
+          nullable: true
+      required:
+        - valid
+        - targetSystem
     CreateAuthWebhookRequestDto:
       type: object
       properties:
@@ -23532,6 +23531,29 @@ components:
       required:
         - callbackUrl
         - cancelCallbackUrl
+    SubmissionPageInputTextsDto:
+      type: object
+      properties:
+        apiKey:
+          type: string
+        clientName:
+          type: string
+        clientSecret:
+          type: string
+        tenantId:
+          type: string
+        username:
+          type: string
+        password:
+          type: string
+        database:
+          type: string
+        url:
+          type: string
+        mandant:
+          type: string
+        baseUrl:
+          type: string
     SubmissionPageLocalizationDto:
       type: object
       properties:
@@ -23545,6 +23567,10 @@ components:
           type: string
         cancelButtonText:
           type: string
+        environmentPlaceholderText:
+          type: string
+        inputTexts:
+          $ref: '#/components/schemas/SubmissionPageInputTextsDto'
     SubmissionPageStyleDto:
       type: object
       properties:

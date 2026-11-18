@@ -3,6 +3,7 @@
  */
 
 export * from "./add-callback-url.js";
+export * from "./book-payment.js";
 export * from "./check.js";
 export * from "./count-end-users-by-system.js";
 export * from "./create-account.js";
@@ -68,7 +69,6 @@ export * from "./get-booking-proposal-document.js";
 export * from "./get-booking-proposal.js";
 export * from "./get-booking-proposals.js";
 export * from "./get-callback-url.js";
-export * from "./get-code.js";
 export * from "./get-companies.js";
 export * from "./get-contact-async.js";
 export * from "./get-contact-v2.js";
@@ -151,8 +151,6 @@ export * from "./get-units.js";
 export * from "./get-user-info.js";
 export * from "./get-vendor-credits.js";
 export * from "./get-webhooks.js";
-export * from "./handle-callback.js";
-export * from "./handle-configuration-callback.js";
 export * from "./patch-contact-v2.js";
 export * from "./patch-contact.js";
 export * from "./patch-customers.js";
@@ -179,3 +177,4 @@ export * from "./update-journal-entry.js";
 export * from "./update-submission-page-style.js";
 export * from "./update-supplier.js";
 export * from "./update-vendor-credit.js";
+export * from "./validate-connection.js";

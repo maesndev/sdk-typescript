@@ -1,11 +1,11 @@
-# HandleConfigurationCallbackGlobals
+# ValidateConnectionGlobals
 
 ## Example Usage
 
 ```typescript
-import { HandleConfigurationCallbackGlobals } from "@maesn/typescript-sdk/models/operations";
+import { ValidateConnectionGlobals } from "@maesn/typescript-sdk/models/operations";
 
-let value: HandleConfigurationCallbackGlobals = {};
+let value: ValidateConnectionGlobals = {};
 ```
 
 ## Fields

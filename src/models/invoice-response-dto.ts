@@ -103,6 +103,7 @@ export type InvoiceResponseDto = {
   lineItems: Array<LineItemResponseDto> | null;
   name: string | null;
   oneLineAddress: string | null;
+  openAmount: number | null;
   paidDate: string | null;
   paymentStatus: InvoiceResponseDtoPaymentStatus | null;
   paymentTermDuration: number | null;
@@ -167,6 +168,7 @@ export const InvoiceResponseDto$inboundSchema: z.ZodMiniType<
   lineItems: types.nullable(z.array(LineItemResponseDto$inboundSchema)),
   name: types.nullable(types.string()),
   oneLineAddress: types.nullable(types.string()),
+  openAmount: types.nullable(types.number()),
   paidDate: types.nullable(types.string()),
   paymentStatus: types.nullable(InvoiceResponseDtoPaymentStatus$inboundSchema),
   paymentTermDuration: types.nullable(types.number()),

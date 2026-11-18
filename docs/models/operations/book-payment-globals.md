@@ -1,11 +1,11 @@
-# HandleCallbackGlobals
+# BookPaymentGlobals
 
 ## Example Usage
 
 ```typescript
-import { HandleCallbackGlobals } from "@maesn/typescript-sdk/models/operations";
+import { BookPaymentGlobals } from "@maesn/typescript-sdk/models/operations";
 
-let value: HandleCallbackGlobals = {};
+let value: BookPaymentGlobals = {};
 ```
 
 ## Fields

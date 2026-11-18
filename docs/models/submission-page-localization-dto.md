@@ -10,10 +10,12 @@ let value: SubmissionPageLocalizationDto = {};
 
 ## Fields
 
-| Field              | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `locale`           | *string*           | :heavy_minus_sign: | N/A                |
-| `titleText`        | *string*           | :heavy_minus_sign: | N/A                |
-| `freeText`         | *string*           | :heavy_minus_sign: | N/A                |
-| `submitButtonText` | *string*           | :heavy_minus_sign: | N/A                |
-| `cancelButtonText` | *string*           | :heavy_minus_sign: | N/A                |
+| Field                                                                              | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `locale`                                                                           | *string*                                                                           | :heavy_minus_sign:                                                                 | N/A                                                                                |
+| `titleText`                                                                        | *string*                                                                           | :heavy_minus_sign:                                                                 | N/A                                                                                |
+| `freeText`                                                                         | *string*                                                                           | :heavy_minus_sign:                                                                 | N/A                                                                                |
+| `submitButtonText`                                                                 | *string*                                                                           | :heavy_minus_sign:                                                                 | N/A                                                                                |
+| `cancelButtonText`                                                                 | *string*                                                                           | :heavy_minus_sign:                                                                 | N/A                                                                                |
+| `environmentPlaceholderText`                                                       | *string*                                                                           | :heavy_minus_sign:                                                                 | N/A                                                                                |
+| `inputTexts`                                                                       | [models.SubmissionPageInputTextsDto](../models/submission-page-input-texts-dto.md) | :heavy_minus_sign:                                                                 | N/A                                                                                |
