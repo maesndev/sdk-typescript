@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -74,13 +74,15 @@ export type GetInvoiceDocumentRequest$Outbound = {
 export const GetInvoiceDocumentRequest$outboundSchema: z.ZodMiniType<
   GetInvoiceDocumentRequest$Outbound,
   GetInvoiceDocumentRequest
-> = z.object({
-  invoiceId: z.string(),
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    invoiceId: z.string(),
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getInvoiceDocumentRequestToJSON(
   getInvoiceDocumentRequest: GetInvoiceDocumentRequest,
@@ -94,12 +96,14 @@ export function getInvoiceDocumentRequestToJSON(
 export const GetInvoiceDocumentPagination$inboundSchema: z.ZodMiniType<
   GetInvoiceDocumentPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getInvoiceDocumentPaginationFromJSON(
   jsonString: string,
@@ -115,15 +119,17 @@ export function getInvoiceDocumentPaginationFromJSON(
 export const GetInvoiceDocumentMeta$inboundSchema: z.ZodMiniType<
   GetInvoiceDocumentMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => GetInvoiceDocumentPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => GetInvoiceDocumentPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function getInvoiceDocumentMetaFromJSON(
   jsonString: string,
@@ -139,7 +145,7 @@ export function getInvoiceDocumentMetaFromJSON(
 export const GetInvoiceDocumentErrors$inboundSchema: z.ZodMiniType<
   GetInvoiceDocumentErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getInvoiceDocumentErrorsFromJSON(
   jsonString: string,
@@ -155,7 +161,7 @@ export function getInvoiceDocumentErrorsFromJSON(
 export const GetInvoiceDocumentRawData$inboundSchema: z.ZodMiniType<
   GetInvoiceDocumentRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getInvoiceDocumentRawDataFromJSON(
   jsonString: string,
@@ -171,16 +177,20 @@ export function getInvoiceDocumentRawDataFromJSON(
 export const GetInvoiceDocumentResponse$inboundSchema: z.ZodMiniType<
   GetInvoiceDocumentResponse,
   unknown
-> = z.object({
-  meta: z.optional(
-    z.nullable(z.lazy(() => GetInvoiceDocumentMeta$inboundSchema)),
-  ),
-  data: models.DocumentResponseDto$inboundSchema,
-  errors: types.nullable(z.lazy(() => GetInvoiceDocumentErrors$inboundSchema)),
-  rawData: types.nullable(
-    z.lazy(() => GetInvoiceDocumentRawData$inboundSchema),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => GetInvoiceDocumentMeta$inboundSchema)),
+    ),
+    data: models.DocumentResponseDto$inboundSchema,
+    errors: types.nullable(
+      z.lazy(() => GetInvoiceDocumentErrors$inboundSchema),
+    ),
+    rawData: types.nullable(
+      z.lazy(() => GetInvoiceDocumentRawData$inboundSchema),
+    ),
+  })
+);
 
 export function getInvoiceDocumentResponseFromJSON(
   jsonString: string,

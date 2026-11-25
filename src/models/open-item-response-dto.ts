@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
@@ -53,18 +53,21 @@ export type OpenItemResponseDto = {
 
 /** @internal */
 export const OpenItemResponseDtoDebitCreditIndicator$inboundSchema:
-  z.ZodMiniEnum<typeof OpenItemResponseDtoDebitCreditIndicator> = z.enum(
-    OpenItemResponseDtoDebitCreditIndicator,
-  );
+  z.ZodMiniEnum<typeof OpenItemResponseDtoDebitCreditIndicator> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.enum(OpenItemResponseDtoDebitCreditIndicator)
+    );
 
 /** @internal */
-export const OpenBalance$inboundSchema: z.ZodMiniType<OpenBalance, unknown> = z
-  .object({
-    amount: types.nullable(types.number()),
-    debitCreditIndicator: types.nullable(
-      OpenItemResponseDtoDebitCreditIndicator$inboundSchema,
-    ),
-  });
+export const OpenBalance$inboundSchema: z.ZodMiniType<OpenBalance, unknown> =
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      amount: types.nullable(types.number()),
+      debitCreditIndicator: types.nullable(
+        OpenItemResponseDtoDebitCreditIndicator$inboundSchema,
+      ),
+    })
+  );
 
 export function openBalanceFromJSON(
   jsonString: string,
@@ -79,28 +82,30 @@ export function openBalanceFromJSON(
 /** @internal */
 export const OpenItemResponseDtoType$inboundSchema: z.ZodMiniEnum<
   typeof OpenItemResponseDtoType
-> = z.enum(OpenItemResponseDtoType);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(OpenItemResponseDtoType));
 
 /** @internal */
 export const OpenItemResponseDto$inboundSchema: z.ZodMiniType<
   OpenItemResponseDto,
   unknown
-> = z.object({
-  id: types.nullable(types.string()),
-  accountId: types.nullable(types.string()),
-  accountName: types.nullable(types.string()),
-  accountNumber: types.nullable(types.string()),
-  createdDate: types.nullable(types.string()),
-  currency: types.nullable(types.string()),
-  documentNumber: types.nullable(types.string()),
-  entries: types.nullable(z.array(OpenItemEntryResponseDto$inboundSchema)),
-  openBalance: types.nullable(z.lazy(() => OpenBalance$inboundSchema)),
-  postingDate: types.nullable(types.string()),
-  totalCreditAmount: types.nullable(types.number()),
-  totalDebitAmount: types.nullable(types.number()),
-  type: types.nullable(OpenItemResponseDtoType$inboundSchema),
-  updatedDate: types.nullable(types.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: types.nullable(types.string()),
+    accountId: types.nullable(types.string()),
+    accountName: types.nullable(types.string()),
+    accountNumber: types.nullable(types.string()),
+    createdDate: types.nullable(types.string()),
+    currency: types.nullable(types.string()),
+    documentNumber: types.nullable(types.string()),
+    entries: types.nullable(z.array(OpenItemEntryResponseDto$inboundSchema)),
+    openBalance: types.nullable(z.lazy(() => OpenBalance$inboundSchema)),
+    postingDate: types.nullable(types.string()),
+    totalCreditAmount: types.nullable(types.number()),
+    totalDebitAmount: types.nullable(types.number()),
+    type: types.nullable(OpenItemResponseDtoType$inboundSchema),
+    updatedDate: types.nullable(types.string()),
+  })
+);
 
 export function openItemResponseDtoFromJSON(
   jsonString: string,

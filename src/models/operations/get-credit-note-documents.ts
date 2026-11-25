@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -74,13 +74,15 @@ export type GetCreditNoteDocumentsRequest$Outbound = {
 export const GetCreditNoteDocumentsRequest$outboundSchema: z.ZodMiniType<
   GetCreditNoteDocumentsRequest$Outbound,
   GetCreditNoteDocumentsRequest
-> = z.object({
-  creditNoteId: z.string(),
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    creditNoteId: z.string(),
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getCreditNoteDocumentsRequestToJSON(
   getCreditNoteDocumentsRequest: GetCreditNoteDocumentsRequest,
@@ -96,12 +98,14 @@ export function getCreditNoteDocumentsRequestToJSON(
 export const GetCreditNoteDocumentsPagination$inboundSchema: z.ZodMiniType<
   GetCreditNoteDocumentsPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getCreditNoteDocumentsPaginationFromJSON(
   jsonString: string,
@@ -117,15 +121,17 @@ export function getCreditNoteDocumentsPaginationFromJSON(
 export const GetCreditNoteDocumentsMeta$inboundSchema: z.ZodMiniType<
   GetCreditNoteDocumentsMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => GetCreditNoteDocumentsPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => GetCreditNoteDocumentsPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function getCreditNoteDocumentsMetaFromJSON(
   jsonString: string,
@@ -141,7 +147,7 @@ export function getCreditNoteDocumentsMetaFromJSON(
 export const GetCreditNoteDocumentsErrors$inboundSchema: z.ZodMiniType<
   GetCreditNoteDocumentsErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getCreditNoteDocumentsErrorsFromJSON(
   jsonString: string,
@@ -157,7 +163,7 @@ export function getCreditNoteDocumentsErrorsFromJSON(
 export const GetCreditNoteDocumentsRawData$inboundSchema: z.ZodMiniType<
   GetCreditNoteDocumentsRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getCreditNoteDocumentsRawDataFromJSON(
   jsonString: string,
@@ -173,18 +179,20 @@ export function getCreditNoteDocumentsRawDataFromJSON(
 export const GetCreditNoteDocumentsResponse$inboundSchema: z.ZodMiniType<
   GetCreditNoteDocumentsResponse,
   unknown
-> = z.object({
-  meta: z.optional(
-    z.nullable(z.lazy(() => GetCreditNoteDocumentsMeta$inboundSchema)),
-  ),
-  data: z.array(models.DocumentResponseDto$inboundSchema),
-  errors: types.nullable(
-    z.lazy(() => GetCreditNoteDocumentsErrors$inboundSchema),
-  ),
-  rawData: types.nullable(
-    z.lazy(() => GetCreditNoteDocumentsRawData$inboundSchema),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => GetCreditNoteDocumentsMeta$inboundSchema)),
+    ),
+    data: z.array(models.DocumentResponseDto$inboundSchema),
+    errors: types.nullable(
+      z.lazy(() => GetCreditNoteDocumentsErrors$inboundSchema),
+    ),
+    rawData: types.nullable(
+      z.lazy(() => GetCreditNoteDocumentsRawData$inboundSchema),
+    ),
+  })
+);
 
 export function getCreditNoteDocumentsResponseFromJSON(
   jsonString: string,

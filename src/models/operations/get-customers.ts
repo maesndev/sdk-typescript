@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
@@ -95,7 +95,7 @@ export type GetCustomersResponse = {
 /** @internal */
 export const GetCustomersLimit$outboundSchema: z.ZodMiniEnum<
   typeof GetCustomersLimit
-> = z.enum(GetCustomersLimit);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(GetCustomersLimit));
 
 /** @internal */
 export type GetCustomersRequest$Outbound = {
@@ -116,19 +116,21 @@ export type GetCustomersRequest$Outbound = {
 export const GetCustomersRequest$outboundSchema: z.ZodMiniType<
   GetCustomersRequest$Outbound,
   GetCustomersRequest
-> = z.object({
-  page: z.optional(z.number()),
-  limit: z.optional(GetCustomersLimit$outboundSchema),
-  lastModifiedAt: z.optional(z.string()),
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  rawData: z.optional(z.boolean()),
-  email: z.optional(z.string()),
-  name: z.optional(z.string()),
-  number: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    page: z.optional(z.number()),
+    limit: z.optional(GetCustomersLimit$outboundSchema),
+    lastModifiedAt: z.optional(z.string()),
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    rawData: z.optional(z.boolean()),
+    email: z.optional(z.string()),
+    name: z.optional(z.string()),
+    number: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getCustomersRequestToJSON(
   getCustomersRequest: GetCustomersRequest,
@@ -142,12 +144,14 @@ export function getCustomersRequestToJSON(
 export const GetCustomersPagination$inboundSchema: z.ZodMiniType<
   GetCustomersPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getCustomersPaginationFromJSON(
   jsonString: string,
@@ -163,15 +167,17 @@ export function getCustomersPaginationFromJSON(
 export const GetCustomersMeta$inboundSchema: z.ZodMiniType<
   GetCustomersMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => GetCustomersPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => GetCustomersPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function getCustomersMetaFromJSON(
   jsonString: string,
@@ -187,7 +193,7 @@ export function getCustomersMetaFromJSON(
 export const GetCustomersErrors$inboundSchema: z.ZodMiniType<
   GetCustomersErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getCustomersErrorsFromJSON(
   jsonString: string,
@@ -203,7 +209,7 @@ export function getCustomersErrorsFromJSON(
 export const GetCustomersRawData$inboundSchema: z.ZodMiniType<
   GetCustomersRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getCustomersRawDataFromJSON(
   jsonString: string,
@@ -219,12 +225,14 @@ export function getCustomersRawDataFromJSON(
 export const GetCustomersResponse$inboundSchema: z.ZodMiniType<
   GetCustomersResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => GetCustomersMeta$inboundSchema))),
-  data: z.array(models.ContactResponseDto$inboundSchema),
-  errors: types.nullable(z.lazy(() => GetCustomersErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => GetCustomersRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(z.nullable(z.lazy(() => GetCustomersMeta$inboundSchema))),
+    data: z.array(models.ContactResponseDto$inboundSchema),
+    errors: types.nullable(z.lazy(() => GetCustomersErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => GetCustomersRawData$inboundSchema)),
+  })
+);
 
 export function getCustomersResponseFromJSON(
   jsonString: string,

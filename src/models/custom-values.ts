@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 
 export type CustomValues = {
   key: string;
@@ -19,10 +20,12 @@ export type CustomValues$Outbound = {
 export const CustomValues$outboundSchema: z.ZodMiniType<
   CustomValues$Outbound,
   CustomValues
-> = z.object({
-  key: z.string(),
-  value: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    key: z.string(),
+    value: z.string(),
+  })
+);
 
 export function customValuesToJSON(customValues: CustomValues): string {
   return JSON.stringify(CustomValues$outboundSchema.parse(customValues));

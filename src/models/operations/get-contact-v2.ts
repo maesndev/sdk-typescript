@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -79,14 +79,16 @@ export type GetContactV2Request$Outbound = {
 export const GetContactV2Request$outboundSchema: z.ZodMiniType<
   GetContactV2Request$Outbound,
   GetContactV2Request
-> = z.object({
-  contactId: z.string(),
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  rawData: z.optional(z.boolean()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    contactId: z.string(),
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    rawData: z.optional(z.boolean()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getContactV2RequestToJSON(
   getContactV2Request: GetContactV2Request,
@@ -100,12 +102,14 @@ export function getContactV2RequestToJSON(
 export const GetContactV2Pagination$inboundSchema: z.ZodMiniType<
   GetContactV2Pagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getContactV2PaginationFromJSON(
   jsonString: string,
@@ -121,15 +125,17 @@ export function getContactV2PaginationFromJSON(
 export const GetContactV2Meta$inboundSchema: z.ZodMiniType<
   GetContactV2Meta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => GetContactV2Pagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => GetContactV2Pagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function getContactV2MetaFromJSON(
   jsonString: string,
@@ -145,7 +151,7 @@ export function getContactV2MetaFromJSON(
 export const GetContactV2Errors$inboundSchema: z.ZodMiniType<
   GetContactV2Errors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getContactV2ErrorsFromJSON(
   jsonString: string,
@@ -161,7 +167,7 @@ export function getContactV2ErrorsFromJSON(
 export const GetContactV2RawData$inboundSchema: z.ZodMiniType<
   GetContactV2RawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getContactV2RawDataFromJSON(
   jsonString: string,
@@ -177,12 +183,14 @@ export function getContactV2RawDataFromJSON(
 export const GetContactV2Response$inboundSchema: z.ZodMiniType<
   GetContactV2Response,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => GetContactV2Meta$inboundSchema))),
-  data: models.ContactResponseDtoV2$inboundSchema,
-  errors: types.nullable(z.lazy(() => GetContactV2Errors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => GetContactV2RawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(z.nullable(z.lazy(() => GetContactV2Meta$inboundSchema))),
+    data: models.ContactResponseDtoV2$inboundSchema,
+    errors: types.nullable(z.lazy(() => GetContactV2Errors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => GetContactV2RawData$inboundSchema)),
+  })
+);
 
 export function getContactV2ResponseFromJSON(
   jsonString: string,

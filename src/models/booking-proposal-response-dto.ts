@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
@@ -87,55 +87,59 @@ export type BookingProposalResponseDto = {
 /** @internal */
 export const BookingProposalResponseDtoBookingType$inboundSchema: z.ZodMiniEnum<
   typeof BookingProposalResponseDtoBookingType
-> = z.enum(BookingProposalResponseDtoBookingType);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.enum(BookingProposalResponseDtoBookingType)
+);
 
 /** @internal */
 export const BookingProposalResponseDtoStatus$inboundSchema: z.ZodMiniEnum<
   typeof BookingProposalResponseDtoStatus
-> = z.enum(BookingProposalResponseDtoStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(BookingProposalResponseDtoStatus));
 
 /** @internal */
 export const BookingProposalResponseDto$inboundSchema: z.ZodMiniType<
   BookingProposalResponseDto,
   unknown
-> = z.object({
-  id: types.nullable(types.string()),
-  accountName: types.nullable(types.string()),
-  addresses: types.nullable(z.array(BookingProposalAddress$inboundSchema)),
-  bankAccountId: types.nullable(types.string()),
-  bankAccountNumber: types.nullable(types.number()),
-  bankCode: types.nullable(types.string()),
-  bic: types.nullable(types.string()),
-  bookingProposalDate: types.nullable(types.string()),
-  bookingType: types.nullable(
-    BookingProposalResponseDtoBookingType$inboundSchema,
-  ),
-  contactAccountNumber: types.nullable(types.number()),
-  contactId: types.nullable(types.string()),
-  contactName: types.nullable(types.string()),
-  createdDate: types.nullable(types.string()),
-  currency: types.nullable(types.string()),
-  deliveryDate: types.nullable(types.string()),
-  discountPaymentDate: types.nullable(types.string()),
-  discountPaymentDate2: types.nullable(types.string()),
-  dueDate: types.nullable(types.string()),
-  files: types.nullable(z.array(types.string())),
-  journalCode: types.nullable(types.string()),
-  iban: types.nullable(types.string()),
-  isPaymentOrder: types.nullable(types.boolean()),
-  ledgerName: types.nullable(types.string()),
-  lineItems: types.nullable(z.array(LineItemResponse$inboundSchema)),
-  notes: types.nullable(types.string()),
-  number: types.nullable(types.string()),
-  orderId: types.nullable(types.string()),
-  paidDate: types.nullable(types.string()),
-  paymentTermsId: types.nullable(types.string()),
-  status: types.nullable(BookingProposalResponseDtoStatus$inboundSchema),
-  taskId: types.nullable(types.string()),
-  totalGrossAmount: types.nullable(types.number()),
-  updatedDate: types.nullable(types.string()),
-  vatId: types.nullable(types.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: types.nullable(types.string()),
+    accountName: types.nullable(types.string()),
+    addresses: types.nullable(z.array(BookingProposalAddress$inboundSchema)),
+    bankAccountId: types.nullable(types.string()),
+    bankAccountNumber: types.nullable(types.number()),
+    bankCode: types.nullable(types.string()),
+    bic: types.nullable(types.string()),
+    bookingProposalDate: types.nullable(types.string()),
+    bookingType: types.nullable(
+      BookingProposalResponseDtoBookingType$inboundSchema,
+    ),
+    contactAccountNumber: types.nullable(types.number()),
+    contactId: types.nullable(types.string()),
+    contactName: types.nullable(types.string()),
+    createdDate: types.nullable(types.string()),
+    currency: types.nullable(types.string()),
+    deliveryDate: types.nullable(types.string()),
+    discountPaymentDate: types.nullable(types.string()),
+    discountPaymentDate2: types.nullable(types.string()),
+    dueDate: types.nullable(types.string()),
+    files: types.nullable(z.array(types.string())),
+    journalCode: types.nullable(types.string()),
+    iban: types.nullable(types.string()),
+    isPaymentOrder: types.nullable(types.boolean()),
+    ledgerName: types.nullable(types.string()),
+    lineItems: types.nullable(z.array(LineItemResponse$inboundSchema)),
+    notes: types.nullable(types.string()),
+    number: types.nullable(types.string()),
+    orderId: types.nullable(types.string()),
+    paidDate: types.nullable(types.string()),
+    paymentTermsId: types.nullable(types.string()),
+    status: types.nullable(BookingProposalResponseDtoStatus$inboundSchema),
+    taskId: types.nullable(types.string()),
+    totalGrossAmount: types.nullable(types.number()),
+    updatedDate: types.nullable(types.string()),
+    vatId: types.nullable(types.string()),
+  })
+);
 
 export function bookingProposalResponseDtoFromJSON(
   jsonString: string,

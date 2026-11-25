@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import {
   BankAccount,
@@ -52,7 +53,9 @@ export type PatchContactRequestDto = {
 /** @internal */
 export const PatchContactRequestDtoContactType$outboundSchema: z.ZodMiniEnum<
   typeof PatchContactRequestDtoContactType
-> = z.enum(PatchContactRequestDtoContactType);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.enum(PatchContactRequestDtoContactType)
+);
 
 /** @internal */
 export type PatchContactRequestDto$Outbound = {
@@ -70,16 +73,18 @@ export type PatchContactRequestDto$Outbound = {
 export const PatchContactRequestDto$outboundSchema: z.ZodMiniType<
   PatchContactRequestDto$Outbound,
   PatchContactRequestDto
-> = z.object({
-  contactType: z.optional(PatchContactRequestDtoContactType$outboundSchema),
-  companyName: z.optional(z.string()),
-  contactPersons: z.optional(z.array(PatchContactPerson$outboundSchema)),
-  addresses: z.optional(z.array(PatchContactAddress$outboundSchema)),
-  emailAddresses: z.optional(z.array(CreateEmailAddress$outboundSchema)),
-  phoneNumbers: z.optional(z.array(CreatePhoneNumber$outboundSchema)),
-  bankAccount: z.optional(BankAccount$outboundSchema),
-  projectId: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    contactType: z.optional(PatchContactRequestDtoContactType$outboundSchema),
+    companyName: z.optional(z.string()),
+    contactPersons: z.optional(z.array(PatchContactPerson$outboundSchema)),
+    addresses: z.optional(z.array(PatchContactAddress$outboundSchema)),
+    emailAddresses: z.optional(z.array(CreateEmailAddress$outboundSchema)),
+    phoneNumbers: z.optional(z.array(CreatePhoneNumber$outboundSchema)),
+    bankAccount: z.optional(BankAccount$outboundSchema),
+    projectId: z.optional(z.string()),
+  })
+);
 
 export function patchContactRequestDtoToJSON(
   patchContactRequestDto: PatchContactRequestDto,

@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import {
   AddressOffer,
@@ -50,7 +51,7 @@ export type CreateOfferRequestDto = {
 /** @internal */
 export const CreateOfferRequestDtoStatus$outboundSchema: z.ZodMiniEnum<
   typeof CreateOfferRequestDtoStatus
-> = z.enum(CreateOfferRequestDtoStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(CreateOfferRequestDtoStatus));
 
 /** @internal */
 export type CreateOfferRequestDto$Outbound = {
@@ -77,25 +78,29 @@ export type CreateOfferRequestDto$Outbound = {
 export const CreateOfferRequestDto$outboundSchema: z.ZodMiniType<
   CreateOfferRequestDto$Outbound,
   CreateOfferRequestDto
-> = z.object({
-  addresses: z.optional(z.array(AddressOffer$outboundSchema)),
-  contactId: z.optional(z.string()),
-  currency: z.optional(z.string()),
-  expirationDate: z.optional(z.string()),
-  lineItems: z.optional(z.array(CreateOfferLineItemRequestDto$outboundSchema)),
-  name: z.optional(z.string()),
-  offerDate: z.optional(z.string()),
-  offerNumber: z.optional(z.string()),
-  oneLineAddress: z.optional(z.string()),
-  reference: z.optional(z.string()),
-  status: z.optional(CreateOfferRequestDtoStatus$outboundSchema),
-  taxText: z.optional(z.string()),
-  totalDiscountAmount: z.optional(z.number()),
-  totalDiscountPercentage: z.optional(z.number()),
-  totalGrossAmount: z.optional(z.number()),
-  totalNetAmount: z.optional(z.number()),
-  totalTaxAmount: z.optional(z.number()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    addresses: z.optional(z.array(AddressOffer$outboundSchema)),
+    contactId: z.optional(z.string()),
+    currency: z.optional(z.string()),
+    expirationDate: z.optional(z.string()),
+    lineItems: z.optional(
+      z.array(CreateOfferLineItemRequestDto$outboundSchema),
+    ),
+    name: z.optional(z.string()),
+    offerDate: z.optional(z.string()),
+    offerNumber: z.optional(z.string()),
+    oneLineAddress: z.optional(z.string()),
+    reference: z.optional(z.string()),
+    status: z.optional(CreateOfferRequestDtoStatus$outboundSchema),
+    taxText: z.optional(z.string()),
+    totalDiscountAmount: z.optional(z.number()),
+    totalDiscountPercentage: z.optional(z.number()),
+    totalGrossAmount: z.optional(z.number()),
+    totalNetAmount: z.optional(z.number()),
+    totalTaxAmount: z.optional(z.number()),
+  })
+);
 
 export function createOfferRequestDtoToJSON(
   createOfferRequestDto: CreateOfferRequestDto,

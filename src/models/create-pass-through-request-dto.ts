@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 
 export const Method = {
@@ -29,16 +30,15 @@ export type CreatePassThroughRequestDto = {
 };
 
 /** @internal */
-export const Method$outboundSchema: z.ZodMiniEnum<typeof Method> = z.enum(
-  Method,
-);
+export const Method$outboundSchema: z.ZodMiniEnum<typeof Method> =
+  /* @__PURE__ */ lazySchema$(() => z.enum(Method));
 
 /** @internal */
 export type Headers$Outbound = {};
 
 /** @internal */
 export const Headers$outboundSchema: z.ZodMiniType<Headers$Outbound, Headers> =
-  z.object({});
+  /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function headersToJSON(headers: Headers): string {
   return JSON.stringify(Headers$outboundSchema.parse(headers));
@@ -48,9 +48,8 @@ export function headersToJSON(headers: Headers): string {
 export type Body$Outbound = {};
 
 /** @internal */
-export const Body$outboundSchema: z.ZodMiniType<Body$Outbound, Body> = z.object(
-  {},
-);
+export const Body$outboundSchema: z.ZodMiniType<Body$Outbound, Body> =
+  /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function bodyToJSON(body: Body): string {
   return JSON.stringify(Body$outboundSchema.parse(body));
@@ -60,8 +59,8 @@ export function bodyToJSON(body: Body): string {
 export type Query$Outbound = {};
 
 /** @internal */
-export const Query$outboundSchema: z.ZodMiniType<Query$Outbound, Query> = z
-  .object({});
+export const Query$outboundSchema: z.ZodMiniType<Query$Outbound, Query> =
+  /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function queryToJSON(query: Query): string {
   return JSON.stringify(Query$outboundSchema.parse(query));
@@ -80,13 +79,15 @@ export type CreatePassThroughRequestDto$Outbound = {
 export const CreatePassThroughRequestDto$outboundSchema: z.ZodMiniType<
   CreatePassThroughRequestDto$Outbound,
   CreatePassThroughRequestDto
-> = z.object({
-  path: z.string(),
-  method: Method$outboundSchema,
-  headers: z.optional(z.lazy(() => Headers$outboundSchema)),
-  body: z.optional(z.lazy(() => Body$outboundSchema)),
-  query: z.optional(z.lazy(() => Query$outboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    path: z.string(),
+    method: Method$outboundSchema,
+    headers: z.optional(z.lazy(() => Headers$outboundSchema)),
+    body: z.optional(z.lazy(() => Body$outboundSchema)),
+    query: z.optional(z.lazy(() => Query$outboundSchema)),
+  })
+);
 
 export function createPassThroughRequestDtoToJSON(
   createPassThroughRequestDto: CreatePassThroughRequestDto,

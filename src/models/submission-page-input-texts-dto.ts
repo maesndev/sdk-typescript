@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 
 export type SubmissionPageInputTextsDto = {
   apiKey?: string | undefined;
@@ -35,18 +36,20 @@ export type SubmissionPageInputTextsDto$Outbound = {
 export const SubmissionPageInputTextsDto$outboundSchema: z.ZodMiniType<
   SubmissionPageInputTextsDto$Outbound,
   SubmissionPageInputTextsDto
-> = z.object({
-  apiKey: z.optional(z.string()),
-  clientName: z.optional(z.string()),
-  clientSecret: z.optional(z.string()),
-  tenantId: z.optional(z.string()),
-  username: z.optional(z.string()),
-  password: z.optional(z.string()),
-  database: z.optional(z.string()),
-  url: z.optional(z.string()),
-  mandant: z.optional(z.string()),
-  baseUrl: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    clientName: z.optional(z.string()),
+    clientSecret: z.optional(z.string()),
+    tenantId: z.optional(z.string()),
+    username: z.optional(z.string()),
+    password: z.optional(z.string()),
+    database: z.optional(z.string()),
+    url: z.optional(z.string()),
+    mandant: z.optional(z.string()),
+    baseUrl: z.optional(z.string()),
+  })
+);
 
 export function submissionPageInputTextsDtoToJSON(
   submissionPageInputTextsDto: SubmissionPageInputTextsDto,

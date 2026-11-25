@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
@@ -134,17 +134,17 @@ export type GetVendorCreditsResponse = {
 /** @internal */
 export const GetVendorCreditsLimit$outboundSchema: z.ZodMiniEnum<
   typeof GetVendorCreditsLimit
-> = z.enum(GetVendorCreditsLimit);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(GetVendorCreditsLimit));
 
 /** @internal */
 export const GetVendorCreditsStatus$outboundSchema: z.ZodMiniEnum<
   typeof GetVendorCreditsStatus
-> = z.enum(GetVendorCreditsStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(GetVendorCreditsStatus));
 
 /** @internal */
 export const GetVendorCreditsPaymentStatus$outboundSchema: z.ZodMiniEnum<
   typeof GetVendorCreditsPaymentStatus
-> = z.enum(GetVendorCreditsPaymentStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(GetVendorCreditsPaymentStatus));
 
 /** @internal */
 export type GetVendorCreditsRequest$Outbound = {
@@ -164,18 +164,20 @@ export type GetVendorCreditsRequest$Outbound = {
 export const GetVendorCreditsRequest$outboundSchema: z.ZodMiniType<
   GetVendorCreditsRequest$Outbound,
   GetVendorCreditsRequest
-> = z.object({
-  page: z.optional(z.number()),
-  limit: z.optional(GetVendorCreditsLimit$outboundSchema),
-  lastModifiedAt: z.optional(z.string()),
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  status: z.optional(GetVendorCreditsStatus$outboundSchema),
-  paymentStatus: z.optional(GetVendorCreditsPaymentStatus$outboundSchema),
-  rawData: z.optional(z.boolean()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    page: z.optional(z.number()),
+    limit: z.optional(GetVendorCreditsLimit$outboundSchema),
+    lastModifiedAt: z.optional(z.string()),
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    status: z.optional(GetVendorCreditsStatus$outboundSchema),
+    paymentStatus: z.optional(GetVendorCreditsPaymentStatus$outboundSchema),
+    rawData: z.optional(z.boolean()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getVendorCreditsRequestToJSON(
   getVendorCreditsRequest: GetVendorCreditsRequest,
@@ -189,12 +191,14 @@ export function getVendorCreditsRequestToJSON(
 export const GetVendorCreditsPagination$inboundSchema: z.ZodMiniType<
   GetVendorCreditsPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getVendorCreditsPaginationFromJSON(
   jsonString: string,
@@ -210,15 +214,17 @@ export function getVendorCreditsPaginationFromJSON(
 export const GetVendorCreditsMeta$inboundSchema: z.ZodMiniType<
   GetVendorCreditsMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => GetVendorCreditsPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => GetVendorCreditsPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function getVendorCreditsMetaFromJSON(
   jsonString: string,
@@ -234,7 +240,7 @@ export function getVendorCreditsMetaFromJSON(
 export const GetVendorCreditsErrors$inboundSchema: z.ZodMiniType<
   GetVendorCreditsErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getVendorCreditsErrorsFromJSON(
   jsonString: string,
@@ -250,7 +256,7 @@ export function getVendorCreditsErrorsFromJSON(
 export const GetVendorCreditsRawData$inboundSchema: z.ZodMiniType<
   GetVendorCreditsRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getVendorCreditsRawDataFromJSON(
   jsonString: string,
@@ -266,14 +272,18 @@ export function getVendorCreditsRawDataFromJSON(
 export const GetVendorCreditsResponse$inboundSchema: z.ZodMiniType<
   GetVendorCreditsResponse,
   unknown
-> = z.object({
-  meta: z.optional(
-    z.nullable(z.lazy(() => GetVendorCreditsMeta$inboundSchema)),
-  ),
-  data: z.array(models.VendorCreditResponseDto$inboundSchema),
-  errors: types.nullable(z.lazy(() => GetVendorCreditsErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => GetVendorCreditsRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => GetVendorCreditsMeta$inboundSchema)),
+    ),
+    data: z.array(models.VendorCreditResponseDto$inboundSchema),
+    errors: types.nullable(z.lazy(() => GetVendorCreditsErrors$inboundSchema)),
+    rawData: types.nullable(
+      z.lazy(() => GetVendorCreditsRawData$inboundSchema),
+    ),
+  })
+);
 
 export function getVendorCreditsResponseFromJSON(
   jsonString: string,

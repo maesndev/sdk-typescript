@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -79,14 +79,16 @@ export type GetFiscalYearRequest$Outbound = {
 export const GetFiscalYearRequest$outboundSchema: z.ZodMiniType<
   GetFiscalYearRequest$Outbound,
   GetFiscalYearRequest
-> = z.object({
-  fiscalYearId: z.string(),
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  rawData: z.optional(z.boolean()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    fiscalYearId: z.string(),
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    rawData: z.optional(z.boolean()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getFiscalYearRequestToJSON(
   getFiscalYearRequest: GetFiscalYearRequest,
@@ -100,12 +102,14 @@ export function getFiscalYearRequestToJSON(
 export const GetFiscalYearPagination$inboundSchema: z.ZodMiniType<
   GetFiscalYearPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getFiscalYearPaginationFromJSON(
   jsonString: string,
@@ -121,15 +125,17 @@ export function getFiscalYearPaginationFromJSON(
 export const GetFiscalYearMeta$inboundSchema: z.ZodMiniType<
   GetFiscalYearMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => GetFiscalYearPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => GetFiscalYearPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function getFiscalYearMetaFromJSON(
   jsonString: string,
@@ -145,7 +151,7 @@ export function getFiscalYearMetaFromJSON(
 export const GetFiscalYearErrors$inboundSchema: z.ZodMiniType<
   GetFiscalYearErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getFiscalYearErrorsFromJSON(
   jsonString: string,
@@ -161,7 +167,7 @@ export function getFiscalYearErrorsFromJSON(
 export const GetFiscalYearRawData$inboundSchema: z.ZodMiniType<
   GetFiscalYearRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getFiscalYearRawDataFromJSON(
   jsonString: string,
@@ -177,12 +183,14 @@ export function getFiscalYearRawDataFromJSON(
 export const GetFiscalYearResponse$inboundSchema: z.ZodMiniType<
   GetFiscalYearResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => GetFiscalYearMeta$inboundSchema))),
-  data: z.array(models.FiscalYearResponseDto$inboundSchema),
-  errors: types.nullable(z.lazy(() => GetFiscalYearErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => GetFiscalYearRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(z.nullable(z.lazy(() => GetFiscalYearMeta$inboundSchema))),
+    data: z.array(models.FiscalYearResponseDto$inboundSchema),
+    errors: types.nullable(z.lazy(() => GetFiscalYearErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => GetFiscalYearRawData$inboundSchema)),
+  })
+);
 
 export function getFiscalYearResponseFromJSON(
   jsonString: string,

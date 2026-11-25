@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import {
   InvoiceDimensionRequestDto,
@@ -42,7 +43,7 @@ export type PatchLineItemRequest = {
 /** @internal */
 export const PatchLineItemRequestType$outboundSchema: z.ZodMiniEnum<
   typeof PatchLineItemRequestType
-> = z.enum(PatchLineItemRequestType);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(PatchLineItemRequestType));
 
 /** @internal */
 export type PatchLineItemRequest$Outbound = {
@@ -68,24 +69,26 @@ export type PatchLineItemRequest$Outbound = {
 export const PatchLineItemRequest$outboundSchema: z.ZodMiniType<
   PatchLineItemRequest$Outbound,
   PatchLineItemRequest
-> = z.object({
-  lineItemId: z.string(),
-  itemId: z.optional(z.string()),
-  unitName: z.optional(z.string()),
-  type: z.optional(PatchLineItemRequestType$outboundSchema),
-  quantity: z.optional(z.number()),
-  taxRatePercentage: z.optional(z.number()),
-  unitAmount: z.optional(z.number()),
-  grossAmount: z.optional(z.number()),
-  taxCode: z.optional(z.string()),
-  taxType: z.optional(z.string()),
-  description: z.optional(z.string()),
-  name: z.optional(z.string()),
-  accountCode: z.optional(z.string()),
-  accountId: z.optional(z.string()),
-  dimensions: z.optional(z.array(InvoiceDimensionRequestDto$outboundSchema)),
-  discountItemPercentage: z.optional(z.number()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    lineItemId: z.string(),
+    itemId: z.optional(z.string()),
+    unitName: z.optional(z.string()),
+    type: z.optional(PatchLineItemRequestType$outboundSchema),
+    quantity: z.optional(z.number()),
+    taxRatePercentage: z.optional(z.number()),
+    unitAmount: z.optional(z.number()),
+    grossAmount: z.optional(z.number()),
+    taxCode: z.optional(z.string()),
+    taxType: z.optional(z.string()),
+    description: z.optional(z.string()),
+    name: z.optional(z.string()),
+    accountCode: z.optional(z.string()),
+    accountId: z.optional(z.string()),
+    dimensions: z.optional(z.array(InvoiceDimensionRequestDto$outboundSchema)),
+    discountItemPercentage: z.optional(z.number()),
+  })
+);
 
 export function patchLineItemRequestToJSON(
   patchLineItemRequest: PatchLineItemRequest,

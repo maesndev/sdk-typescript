@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -74,13 +74,15 @@ export type GetPaymentRequest$Outbound = {
 export const GetPaymentRequest$outboundSchema: z.ZodMiniType<
   GetPaymentRequest$Outbound,
   GetPaymentRequest
-> = z.object({
-  paymentId: z.string(),
-  companyId: z.optional(z.string()),
-  rawData: z.optional(z.boolean()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    paymentId: z.string(),
+    companyId: z.optional(z.string()),
+    rawData: z.optional(z.boolean()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getPaymentRequestToJSON(
   getPaymentRequest: GetPaymentRequest,
@@ -94,12 +96,14 @@ export function getPaymentRequestToJSON(
 export const GetPaymentPagination$inboundSchema: z.ZodMiniType<
   GetPaymentPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getPaymentPaginationFromJSON(
   jsonString: string,
@@ -115,15 +119,17 @@ export function getPaymentPaginationFromJSON(
 export const GetPaymentMeta$inboundSchema: z.ZodMiniType<
   GetPaymentMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => GetPaymentPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => GetPaymentPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function getPaymentMetaFromJSON(
   jsonString: string,
@@ -139,7 +145,7 @@ export function getPaymentMetaFromJSON(
 export const GetPaymentErrors$inboundSchema: z.ZodMiniType<
   GetPaymentErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getPaymentErrorsFromJSON(
   jsonString: string,
@@ -155,7 +161,7 @@ export function getPaymentErrorsFromJSON(
 export const GetPaymentRawData$inboundSchema: z.ZodMiniType<
   GetPaymentRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getPaymentRawDataFromJSON(
   jsonString: string,
@@ -171,12 +177,14 @@ export function getPaymentRawDataFromJSON(
 export const GetPaymentResponse$inboundSchema: z.ZodMiniType<
   GetPaymentResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => GetPaymentMeta$inboundSchema))),
-  data: models.PaymentResponseDto$inboundSchema,
-  errors: types.nullable(z.lazy(() => GetPaymentErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => GetPaymentRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(z.nullable(z.lazy(() => GetPaymentMeta$inboundSchema))),
+    data: models.PaymentResponseDto$inboundSchema,
+    errors: types.nullable(z.lazy(() => GetPaymentErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => GetPaymentRawData$inboundSchema)),
+  })
+);
 
 export function getPaymentResponseFromJSON(
   jsonString: string,

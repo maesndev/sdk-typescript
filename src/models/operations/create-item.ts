@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -74,13 +74,15 @@ export type CreateItemRequest$Outbound = {
 export const CreateItemRequest$outboundSchema: z.ZodMiniType<
   CreateItemRequest$Outbound,
   CreateItemRequest
-> = z.object({
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-  body: models.CreateItemRequestDto$outboundSchema,
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+    body: models.CreateItemRequestDto$outboundSchema,
+  })
+);
 
 export function createItemRequestToJSON(
   createItemRequest: CreateItemRequest,
@@ -94,12 +96,14 @@ export function createItemRequestToJSON(
 export const CreateItemPagination$inboundSchema: z.ZodMiniType<
   CreateItemPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function createItemPaginationFromJSON(
   jsonString: string,
@@ -115,15 +119,17 @@ export function createItemPaginationFromJSON(
 export const CreateItemMeta$inboundSchema: z.ZodMiniType<
   CreateItemMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => CreateItemPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => CreateItemPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function createItemMetaFromJSON(
   jsonString: string,
@@ -139,7 +145,7 @@ export function createItemMetaFromJSON(
 export const CreateItemErrors$inboundSchema: z.ZodMiniType<
   CreateItemErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createItemErrorsFromJSON(
   jsonString: string,
@@ -155,7 +161,7 @@ export function createItemErrorsFromJSON(
 export const CreateItemRawData$inboundSchema: z.ZodMiniType<
   CreateItemRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createItemRawDataFromJSON(
   jsonString: string,
@@ -171,12 +177,14 @@ export function createItemRawDataFromJSON(
 export const CreateItemResponse$inboundSchema: z.ZodMiniType<
   CreateItemResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => CreateItemMeta$inboundSchema))),
-  data: models.ItemResponseDto$inboundSchema,
-  errors: types.nullable(z.lazy(() => CreateItemErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => CreateItemRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(z.nullable(z.lazy(() => CreateItemMeta$inboundSchema))),
+    data: models.ItemResponseDto$inboundSchema,
+    errors: types.nullable(z.lazy(() => CreateItemErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => CreateItemRawData$inboundSchema)),
+  })
+);
 
 export function createItemResponseFromJSON(
   jsonString: string,

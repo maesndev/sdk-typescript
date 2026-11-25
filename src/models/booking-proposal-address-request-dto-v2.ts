@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 
 export type BookingProposalAddressRequestDtoV2 = {
   city?: string | undefined;
@@ -17,9 +18,11 @@ export type BookingProposalAddressRequestDtoV2$Outbound = {
 export const BookingProposalAddressRequestDtoV2$outboundSchema: z.ZodMiniType<
   BookingProposalAddressRequestDtoV2$Outbound,
   BookingProposalAddressRequestDtoV2
-> = z.object({
-  city: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    city: z.optional(z.string()),
+  })
+);
 
 export function bookingProposalAddressRequestDtoV2ToJSON(
   bookingProposalAddressRequestDtoV2: BookingProposalAddressRequestDtoV2,

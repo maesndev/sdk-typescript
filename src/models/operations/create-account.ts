@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -74,13 +74,15 @@ export type CreateAccountRequest$Outbound = {
 export const CreateAccountRequest$outboundSchema: z.ZodMiniType<
   CreateAccountRequest$Outbound,
   CreateAccountRequest
-> = z.object({
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-  body: models.CreateAccountRequestDto$outboundSchema,
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+    body: models.CreateAccountRequestDto$outboundSchema,
+  })
+);
 
 export function createAccountRequestToJSON(
   createAccountRequest: CreateAccountRequest,
@@ -94,12 +96,14 @@ export function createAccountRequestToJSON(
 export const CreateAccountPagination$inboundSchema: z.ZodMiniType<
   CreateAccountPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function createAccountPaginationFromJSON(
   jsonString: string,
@@ -115,15 +119,17 @@ export function createAccountPaginationFromJSON(
 export const CreateAccountMeta$inboundSchema: z.ZodMiniType<
   CreateAccountMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => CreateAccountPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => CreateAccountPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function createAccountMetaFromJSON(
   jsonString: string,
@@ -139,7 +145,7 @@ export function createAccountMetaFromJSON(
 export const CreateAccountErrors$inboundSchema: z.ZodMiniType<
   CreateAccountErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createAccountErrorsFromJSON(
   jsonString: string,
@@ -155,7 +161,7 @@ export function createAccountErrorsFromJSON(
 export const CreateAccountRawData$inboundSchema: z.ZodMiniType<
   CreateAccountRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createAccountRawDataFromJSON(
   jsonString: string,
@@ -171,12 +177,14 @@ export function createAccountRawDataFromJSON(
 export const CreateAccountResponse$inboundSchema: z.ZodMiniType<
   CreateAccountResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => CreateAccountMeta$inboundSchema))),
-  data: models.AccountResponseDto$inboundSchema,
-  errors: types.nullable(z.lazy(() => CreateAccountErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => CreateAccountRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(z.nullable(z.lazy(() => CreateAccountMeta$inboundSchema))),
+    data: models.AccountResponseDto$inboundSchema,
+    errors: types.nullable(z.lazy(() => CreateAccountErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => CreateAccountRawData$inboundSchema)),
+  })
+);
 
 export function createAccountResponseFromJSON(
   jsonString: string,

@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
@@ -28,24 +28,27 @@ export type OpenItemEntryResponseDto = {
 
 /** @internal */
 export const OpenItemEntryResponseDtoDebitCreditIndicator$inboundSchema:
-  z.ZodMiniEnum<typeof OpenItemEntryResponseDtoDebitCreditIndicator> = z.enum(
-    OpenItemEntryResponseDtoDebitCreditIndicator,
-  );
+  z.ZodMiniEnum<typeof OpenItemEntryResponseDtoDebitCreditIndicator> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.enum(OpenItemEntryResponseDtoDebitCreditIndicator)
+    );
 
 /** @internal */
 export const OpenItemEntryResponseDto$inboundSchema: z.ZodMiniType<
   OpenItemEntryResponseDto,
   unknown
-> = z.object({
-  amount: types.nullable(types.number()),
-  currency: types.nullable(types.string()),
-  debitCreditIndicator: types.nullable(
-    OpenItemEntryResponseDtoDebitCreditIndicator$inboundSchema,
-  ),
-  description: types.nullable(types.string()),
-  dueDate: types.nullable(types.string()),
-  postingDate: types.nullable(types.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    amount: types.nullable(types.number()),
+    currency: types.nullable(types.string()),
+    debitCreditIndicator: types.nullable(
+      OpenItemEntryResponseDtoDebitCreditIndicator$inboundSchema,
+    ),
+    description: types.nullable(types.string()),
+    dueDate: types.nullable(types.string()),
+    postingDate: types.nullable(types.string()),
+  })
+);
 
 export function openItemEntryResponseDtoFromJSON(
   jsonString: string,

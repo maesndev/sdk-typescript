@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -78,13 +78,15 @@ export type DeleteJournalEntryRequest$Outbound = {
 export const DeleteJournalEntryRequest$outboundSchema: z.ZodMiniType<
   DeleteJournalEntryRequest$Outbound,
   DeleteJournalEntryRequest
-> = z.object({
-  journalEntryId: z.string(),
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    journalEntryId: z.string(),
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function deleteJournalEntryRequestToJSON(
   deleteJournalEntryRequest: DeleteJournalEntryRequest,
@@ -98,12 +100,14 @@ export function deleteJournalEntryRequestToJSON(
 export const DeleteJournalEntryPagination$inboundSchema: z.ZodMiniType<
   DeleteJournalEntryPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function deleteJournalEntryPaginationFromJSON(
   jsonString: string,
@@ -119,15 +123,17 @@ export function deleteJournalEntryPaginationFromJSON(
 export const DeleteJournalEntryMeta$inboundSchema: z.ZodMiniType<
   DeleteJournalEntryMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => DeleteJournalEntryPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => DeleteJournalEntryPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function deleteJournalEntryMetaFromJSON(
   jsonString: string,
@@ -143,9 +149,11 @@ export function deleteJournalEntryMetaFromJSON(
 export const DeleteJournalEntryData$inboundSchema: z.ZodMiniType<
   DeleteJournalEntryData,
   unknown
-> = z.object({
-  id: types.optional(types.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: types.optional(types.string()),
+  })
+);
 
 export function deleteJournalEntryDataFromJSON(
   jsonString: string,
@@ -161,7 +169,7 @@ export function deleteJournalEntryDataFromJSON(
 export const DeleteJournalEntryErrors$inboundSchema: z.ZodMiniType<
   DeleteJournalEntryErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function deleteJournalEntryErrorsFromJSON(
   jsonString: string,
@@ -177,7 +185,7 @@ export function deleteJournalEntryErrorsFromJSON(
 export const DeleteJournalEntryRawData$inboundSchema: z.ZodMiniType<
   DeleteJournalEntryRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function deleteJournalEntryRawDataFromJSON(
   jsonString: string,
@@ -193,16 +201,20 @@ export function deleteJournalEntryRawDataFromJSON(
 export const DeleteJournalEntryResponse$inboundSchema: z.ZodMiniType<
   DeleteJournalEntryResponse,
   unknown
-> = z.object({
-  meta: z.optional(
-    z.nullable(z.lazy(() => DeleteJournalEntryMeta$inboundSchema)),
-  ),
-  data: z.lazy(() => DeleteJournalEntryData$inboundSchema),
-  errors: types.nullable(z.lazy(() => DeleteJournalEntryErrors$inboundSchema)),
-  rawData: types.nullable(
-    z.lazy(() => DeleteJournalEntryRawData$inboundSchema),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => DeleteJournalEntryMeta$inboundSchema)),
+    ),
+    data: z.lazy(() => DeleteJournalEntryData$inboundSchema),
+    errors: types.nullable(
+      z.lazy(() => DeleteJournalEntryErrors$inboundSchema),
+    ),
+    rawData: types.nullable(
+      z.lazy(() => DeleteJournalEntryRawData$inboundSchema),
+    ),
+  })
+);
 
 export function deleteJournalEntryResponseFromJSON(
   jsonString: string,

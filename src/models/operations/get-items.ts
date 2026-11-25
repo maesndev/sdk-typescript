@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
@@ -90,7 +90,7 @@ export type GetItemsResponse = {
 
 /** @internal */
 export const GetItemsLimit$outboundSchema: z.ZodMiniEnum<typeof GetItemsLimit> =
-  z.enum(GetItemsLimit);
+  /* @__PURE__ */ lazySchema$(() => z.enum(GetItemsLimit));
 
 /** @internal */
 export type GetItemsRequest$Outbound = {
@@ -110,18 +110,20 @@ export type GetItemsRequest$Outbound = {
 export const GetItemsRequest$outboundSchema: z.ZodMiniType<
   GetItemsRequest$Outbound,
   GetItemsRequest
-> = z.object({
-  page: z.optional(z.number()),
-  limit: z.optional(GetItemsLimit$outboundSchema),
-  lastModifiedAt: z.optional(z.string()),
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  rawData: z.optional(z.boolean()),
-  type: z.optional(z.string()),
-  itemNumber: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    page: z.optional(z.number()),
+    limit: z.optional(GetItemsLimit$outboundSchema),
+    lastModifiedAt: z.optional(z.string()),
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    rawData: z.optional(z.boolean()),
+    type: z.optional(z.string()),
+    itemNumber: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getItemsRequestToJSON(
   getItemsRequest: GetItemsRequest,
@@ -133,12 +135,14 @@ export function getItemsRequestToJSON(
 export const GetItemsPagination$inboundSchema: z.ZodMiniType<
   GetItemsPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getItemsPaginationFromJSON(
   jsonString: string,
@@ -152,15 +156,17 @@ export function getItemsPaginationFromJSON(
 
 /** @internal */
 export const GetItemsMeta$inboundSchema: z.ZodMiniType<GetItemsMeta, unknown> =
-  z.object({
-    warnings: z.optional(z.nullable(z.array(types.string()))),
-    pagination: z.optional(
-      z.nullable(z.lazy(() => GetItemsPagination$inboundSchema)),
-    ),
-    partialErrors: z.optional(
-      z.nullable(z.array(models.PartialError$inboundSchema)),
-    ),
-  });
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      warnings: z.optional(z.nullable(z.array(types.string()))),
+      pagination: z.optional(
+        z.nullable(z.lazy(() => GetItemsPagination$inboundSchema)),
+      ),
+      partialErrors: z.optional(
+        z.nullable(z.array(models.PartialError$inboundSchema)),
+      ),
+    })
+  );
 
 export function getItemsMetaFromJSON(
   jsonString: string,
@@ -176,7 +182,7 @@ export function getItemsMetaFromJSON(
 export const GetItemsErrors$inboundSchema: z.ZodMiniType<
   GetItemsErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getItemsErrorsFromJSON(
   jsonString: string,
@@ -192,7 +198,7 @@ export function getItemsErrorsFromJSON(
 export const GetItemsRawData$inboundSchema: z.ZodMiniType<
   GetItemsRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getItemsRawDataFromJSON(
   jsonString: string,
@@ -208,12 +214,14 @@ export function getItemsRawDataFromJSON(
 export const GetItemsResponse$inboundSchema: z.ZodMiniType<
   GetItemsResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => GetItemsMeta$inboundSchema))),
-  data: z.array(models.ItemResponseDto$inboundSchema),
-  errors: types.nullable(z.lazy(() => GetItemsErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => GetItemsRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(z.nullable(z.lazy(() => GetItemsMeta$inboundSchema))),
+    data: z.array(models.ItemResponseDto$inboundSchema),
+    errors: types.nullable(z.lazy(() => GetItemsErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => GetItemsRawData$inboundSchema)),
+  })
+);
 
 export function getItemsResponseFromJSON(
   jsonString: string,

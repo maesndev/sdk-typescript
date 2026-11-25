@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
@@ -30,18 +30,20 @@ export type MonthlyValue = {
 /** @internal */
 export const MonthlyValueDebitCreditIndicator$inboundSchema: z.ZodMiniEnum<
   typeof MonthlyValueDebitCreditIndicator
-> = z.enum(MonthlyValueDebitCreditIndicator);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(MonthlyValueDebitCreditIndicator));
 
 /** @internal */
 export const MonthlyValueBalance$inboundSchema: z.ZodMiniType<
   MonthlyValueBalance,
   unknown
-> = z.object({
-  amount: types.nullable(types.number()),
-  debitCreditIndicator: types.nullable(
-    MonthlyValueDebitCreditIndicator$inboundSchema,
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    amount: types.nullable(types.number()),
+    debitCreditIndicator: types.nullable(
+      MonthlyValueDebitCreditIndicator$inboundSchema,
+    ),
+  })
+);
 
 export function monthlyValueBalanceFromJSON(
   jsonString: string,
@@ -55,10 +57,12 @@ export function monthlyValueBalanceFromJSON(
 
 /** @internal */
 export const MonthlyValue$inboundSchema: z.ZodMiniType<MonthlyValue, unknown> =
-  z.object({
-    month: types.nullable(types.number()),
-    balance: types.nullable(z.lazy(() => MonthlyValueBalance$inboundSchema)),
-  });
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      month: types.nullable(types.number()),
+      balance: types.nullable(z.lazy(() => MonthlyValueBalance$inboundSchema)),
+    })
+  );
 
 export function monthlyValueFromJSON(
   jsonString: string,

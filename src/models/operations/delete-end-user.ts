@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -41,10 +41,12 @@ export type DeleteEndUserRequest$Outbound = {
 export const DeleteEndUserRequest$outboundSchema: z.ZodMiniType<
   DeleteEndUserRequest$Outbound,
   DeleteEndUserRequest
-> = z.object({
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function deleteEndUserRequestToJSON(
   deleteEndUserRequest: DeleteEndUserRequest,
@@ -58,9 +60,11 @@ export function deleteEndUserRequestToJSON(
 export const DeleteEndUserResponse$inboundSchema: z.ZodMiniType<
   DeleteEndUserResponse,
   unknown
-> = z.object({
-  message: types.optional(types.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: types.optional(types.string()),
+  })
+);
 
 export function deleteEndUserResponseFromJSON(
   jsonString: string,

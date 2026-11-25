@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -74,13 +74,15 @@ export type GetBillLineItemsRequest$Outbound = {
 export const GetBillLineItemsRequest$outboundSchema: z.ZodMiniType<
   GetBillLineItemsRequest$Outbound,
   GetBillLineItemsRequest
-> = z.object({
-  billId: z.string(),
-  companyId: z.optional(z.string()),
-  rawData: z.optional(z.boolean()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    billId: z.string(),
+    companyId: z.optional(z.string()),
+    rawData: z.optional(z.boolean()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getBillLineItemsRequestToJSON(
   getBillLineItemsRequest: GetBillLineItemsRequest,
@@ -94,12 +96,14 @@ export function getBillLineItemsRequestToJSON(
 export const GetBillLineItemsPagination$inboundSchema: z.ZodMiniType<
   GetBillLineItemsPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getBillLineItemsPaginationFromJSON(
   jsonString: string,
@@ -115,15 +119,17 @@ export function getBillLineItemsPaginationFromJSON(
 export const GetBillLineItemsMeta$inboundSchema: z.ZodMiniType<
   GetBillLineItemsMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => GetBillLineItemsPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => GetBillLineItemsPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function getBillLineItemsMetaFromJSON(
   jsonString: string,
@@ -139,7 +145,7 @@ export function getBillLineItemsMetaFromJSON(
 export const GetBillLineItemsErrors$inboundSchema: z.ZodMiniType<
   GetBillLineItemsErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getBillLineItemsErrorsFromJSON(
   jsonString: string,
@@ -155,7 +161,7 @@ export function getBillLineItemsErrorsFromJSON(
 export const GetBillLineItemsRawData$inboundSchema: z.ZodMiniType<
   GetBillLineItemsRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getBillLineItemsRawDataFromJSON(
   jsonString: string,
@@ -171,14 +177,18 @@ export function getBillLineItemsRawDataFromJSON(
 export const GetBillLineItemsResponse$inboundSchema: z.ZodMiniType<
   GetBillLineItemsResponse,
   unknown
-> = z.object({
-  meta: z.optional(
-    z.nullable(z.lazy(() => GetBillLineItemsMeta$inboundSchema)),
-  ),
-  data: z.array(models.BillLineItemResponseDto$inboundSchema),
-  errors: types.nullable(z.lazy(() => GetBillLineItemsErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => GetBillLineItemsRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => GetBillLineItemsMeta$inboundSchema)),
+    ),
+    data: z.array(models.BillLineItemResponseDto$inboundSchema),
+    errors: types.nullable(z.lazy(() => GetBillLineItemsErrors$inboundSchema)),
+    rawData: types.nullable(
+      z.lazy(() => GetBillLineItemsRawData$inboundSchema),
+    ),
+  })
+);
 
 export function getBillLineItemsResponseFromJSON(
   jsonString: string,

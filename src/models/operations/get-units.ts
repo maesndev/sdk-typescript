@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
@@ -78,7 +78,7 @@ export type GetUnitsResponse = {
 
 /** @internal */
 export const GetUnitsLimit$outboundSchema: z.ZodMiniEnum<typeof GetUnitsLimit> =
-  z.enum(GetUnitsLimit);
+  /* @__PURE__ */ lazySchema$(() => z.enum(GetUnitsLimit));
 
 /** @internal */
 export type GetUnitsRequest$Outbound = {
@@ -95,15 +95,17 @@ export type GetUnitsRequest$Outbound = {
 export const GetUnitsRequest$outboundSchema: z.ZodMiniType<
   GetUnitsRequest$Outbound,
   GetUnitsRequest
-> = z.object({
-  page: z.optional(z.number()),
-  limit: z.optional(GetUnitsLimit$outboundSchema),
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  rawData: z.optional(z.boolean()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    page: z.optional(z.number()),
+    limit: z.optional(GetUnitsLimit$outboundSchema),
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    rawData: z.optional(z.boolean()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getUnitsRequestToJSON(
   getUnitsRequest: GetUnitsRequest,
@@ -115,12 +117,14 @@ export function getUnitsRequestToJSON(
 export const GetUnitsPagination$inboundSchema: z.ZodMiniType<
   GetUnitsPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getUnitsPaginationFromJSON(
   jsonString: string,
@@ -134,15 +138,17 @@ export function getUnitsPaginationFromJSON(
 
 /** @internal */
 export const GetUnitsMeta$inboundSchema: z.ZodMiniType<GetUnitsMeta, unknown> =
-  z.object({
-    warnings: z.optional(z.nullable(z.array(types.string()))),
-    pagination: z.optional(
-      z.nullable(z.lazy(() => GetUnitsPagination$inboundSchema)),
-    ),
-    partialErrors: z.optional(
-      z.nullable(z.array(models.PartialError$inboundSchema)),
-    ),
-  });
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      warnings: z.optional(z.nullable(z.array(types.string()))),
+      pagination: z.optional(
+        z.nullable(z.lazy(() => GetUnitsPagination$inboundSchema)),
+      ),
+      partialErrors: z.optional(
+        z.nullable(z.array(models.PartialError$inboundSchema)),
+      ),
+    })
+  );
 
 export function getUnitsMetaFromJSON(
   jsonString: string,
@@ -158,7 +164,7 @@ export function getUnitsMetaFromJSON(
 export const GetUnitsErrors$inboundSchema: z.ZodMiniType<
   GetUnitsErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getUnitsErrorsFromJSON(
   jsonString: string,
@@ -174,7 +180,7 @@ export function getUnitsErrorsFromJSON(
 export const GetUnitsRawData$inboundSchema: z.ZodMiniType<
   GetUnitsRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getUnitsRawDataFromJSON(
   jsonString: string,
@@ -190,12 +196,14 @@ export function getUnitsRawDataFromJSON(
 export const GetUnitsResponse$inboundSchema: z.ZodMiniType<
   GetUnitsResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => GetUnitsMeta$inboundSchema))),
-  data: z.array(models.UnitResponseDto$inboundSchema),
-  errors: types.nullable(z.lazy(() => GetUnitsErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => GetUnitsRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(z.nullable(z.lazy(() => GetUnitsMeta$inboundSchema))),
+    data: z.array(models.UnitResponseDto$inboundSchema),
+    errors: types.nullable(z.lazy(() => GetUnitsErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => GetUnitsRawData$inboundSchema)),
+  })
+);
 
 export function getUnitsResponseFromJSON(
   jsonString: string,

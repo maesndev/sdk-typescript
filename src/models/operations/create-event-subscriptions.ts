@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../../lib/schemas.js";
 import * as models from "../index.js";
 
 export type CreateEventSubscriptionsGlobals = {
@@ -38,12 +39,14 @@ export type CreateEventSubscriptionsRequest$Outbound = {
 export const CreateEventSubscriptionsRequest$outboundSchema: z.ZodMiniType<
   CreateEventSubscriptionsRequest$Outbound,
   CreateEventSubscriptionsRequest
-> = z.object({
-  companyId: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-  body: models.CreateEventSubscriptionRequestDto$outboundSchema,
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    companyId: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+    body: models.CreateEventSubscriptionRequestDto$outboundSchema,
+  })
+);
 
 export function createEventSubscriptionsRequestToJSON(
   createEventSubscriptionsRequest: CreateEventSubscriptionsRequest,

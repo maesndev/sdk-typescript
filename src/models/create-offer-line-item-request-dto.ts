@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 
 export const CreateOfferLineItemRequestDtoType = {
@@ -45,7 +46,9 @@ export type CreateOfferLineItemRequestDto = {
 /** @internal */
 export const CreateOfferLineItemRequestDtoType$outboundSchema: z.ZodMiniEnum<
   typeof CreateOfferLineItemRequestDtoType
-> = z.enum(CreateOfferLineItemRequestDtoType);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.enum(CreateOfferLineItemRequestDtoType)
+);
 
 /** @internal */
 export type CreateOfferLineItemRequestDto$Outbound = {
@@ -75,28 +78,30 @@ export type CreateOfferLineItemRequestDto$Outbound = {
 export const CreateOfferLineItemRequestDto$outboundSchema: z.ZodMiniType<
   CreateOfferLineItemRequestDto$Outbound,
   CreateOfferLineItemRequestDto
-> = z.object({
-  accountCode: z.optional(z.string()),
-  accountId: z.optional(z.string()),
-  description: z.optional(z.string()),
-  id: z.optional(z.string()),
-  itemId: z.optional(z.string()),
-  name: z.optional(z.string()),
-  quantity: z.optional(z.number()),
-  taxCode: z.optional(z.string()),
-  taxRatePercentage: z.optional(z.number()),
-  taxType: z.optional(z.string()),
-  type: z.optional(CreateOfferLineItemRequestDtoType$outboundSchema),
-  totalDiscountAmount: z.optional(z.number()),
-  totalDiscountPercentage: z.optional(z.number()),
-  totalGrossAmount: z.optional(z.number()),
-  totalNetAmount: z.optional(z.number()),
-  totalTaxAmount: z.optional(z.number()),
-  unitAmount: z.optional(z.number()),
-  unitDiscountAmount: z.optional(z.number()),
-  unitDiscountPercentage: z.optional(z.number()),
-  unitName: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    accountCode: z.optional(z.string()),
+    accountId: z.optional(z.string()),
+    description: z.optional(z.string()),
+    id: z.optional(z.string()),
+    itemId: z.optional(z.string()),
+    name: z.optional(z.string()),
+    quantity: z.optional(z.number()),
+    taxCode: z.optional(z.string()),
+    taxRatePercentage: z.optional(z.number()),
+    taxType: z.optional(z.string()),
+    type: z.optional(CreateOfferLineItemRequestDtoType$outboundSchema),
+    totalDiscountAmount: z.optional(z.number()),
+    totalDiscountPercentage: z.optional(z.number()),
+    totalGrossAmount: z.optional(z.number()),
+    totalNetAmount: z.optional(z.number()),
+    totalTaxAmount: z.optional(z.number()),
+    unitAmount: z.optional(z.number()),
+    unitDiscountAmount: z.optional(z.number()),
+    unitDiscountPercentage: z.optional(z.number()),
+    unitName: z.optional(z.string()),
+  })
+);
 
 export function createOfferLineItemRequestDtoToJSON(
   createOfferLineItemRequestDto: CreateOfferLineItemRequestDto,

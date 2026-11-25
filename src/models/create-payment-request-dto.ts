@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import {
   CreatePaymentLine,
@@ -36,7 +37,9 @@ export type CreatePaymentRequestDto = {
 /** @internal */
 export const CreatePaymentRequestDtoDocumentType$outboundSchema: z.ZodMiniEnum<
   typeof CreatePaymentRequestDtoDocumentType
-> = z.enum(CreatePaymentRequestDtoDocumentType);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.enum(CreatePaymentRequestDtoDocumentType)
+);
 
 /** @internal */
 export type CreatePaymentRequestDto$Outbound = {
@@ -55,17 +58,21 @@ export type CreatePaymentRequestDto$Outbound = {
 export const CreatePaymentRequestDto$outboundSchema: z.ZodMiniType<
   CreatePaymentRequestDto$Outbound,
   CreatePaymentRequestDto
-> = z.object({
-  currency: z.optional(z.string()),
-  description: z.optional(z.string()),
-  documentType: z.optional(CreatePaymentRequestDtoDocumentType$outboundSchema),
-  exchangeRate: z.optional(z.number()),
-  journalId: z.optional(z.string()),
-  journalCode: z.optional(z.string()),
-  paymentDate: z.optional(z.string()),
-  paymentType: z.optional(z.string()),
-  paymentLines: z.optional(z.array(CreatePaymentLine$outboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    currency: z.optional(z.string()),
+    description: z.optional(z.string()),
+    documentType: z.optional(
+      CreatePaymentRequestDtoDocumentType$outboundSchema,
+    ),
+    exchangeRate: z.optional(z.number()),
+    journalId: z.optional(z.string()),
+    journalCode: z.optional(z.string()),
+    paymentDate: z.optional(z.string()),
+    paymentType: z.optional(z.string()),
+    paymentLines: z.optional(z.array(CreatePaymentLine$outboundSchema)),
+  })
+);
 
 export function createPaymentRequestDtoToJSON(
   createPaymentRequestDto: CreatePaymentRequestDto,

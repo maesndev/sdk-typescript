@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import {
   InvoiceDimensionRequestDto,
   InvoiceDimensionRequestDto$Outbound,
@@ -50,23 +51,25 @@ export type CreateLineItemRequestDto$Outbound = {
 export const CreateLineItemRequestDto$outboundSchema: z.ZodMiniType<
   CreateLineItemRequestDto$Outbound,
   CreateLineItemRequestDto
-> = z.object({
-  accountCode: z.optional(z.string()),
-  accountId: z.optional(z.string()),
-  description: z.optional(z.string()),
-  dimensions: z.optional(z.array(InvoiceDimensionRequestDto$outboundSchema)),
-  discountItemPercentage: z.optional(z.number()),
-  grossAmount: z.optional(z.number()),
-  itemId: z.optional(z.string()),
-  name: z.optional(z.string()),
-  quantity: z.number(),
-  taxCode: z.optional(z.string()),
-  taxRatePercentage: z.optional(z.number()),
-  taxType: z.optional(z.string()),
-  type: z.optional(z.string()),
-  unitAmount: z.optional(z.number()),
-  unitName: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    accountCode: z.optional(z.string()),
+    accountId: z.optional(z.string()),
+    description: z.optional(z.string()),
+    dimensions: z.optional(z.array(InvoiceDimensionRequestDto$outboundSchema)),
+    discountItemPercentage: z.optional(z.number()),
+    grossAmount: z.optional(z.number()),
+    itemId: z.optional(z.string()),
+    name: z.optional(z.string()),
+    quantity: z.number(),
+    taxCode: z.optional(z.string()),
+    taxRatePercentage: z.optional(z.number()),
+    taxType: z.optional(z.string()),
+    type: z.optional(z.string()),
+    unitAmount: z.optional(z.number()),
+    unitName: z.optional(z.string()),
+  })
+);
 
 export function createLineItemRequestDtoToJSON(
   createLineItemRequestDto: CreateLineItemRequestDto,

@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -79,14 +79,16 @@ export type GetSupplierRequest$Outbound = {
 export const GetSupplierRequest$outboundSchema: z.ZodMiniType<
   GetSupplierRequest$Outbound,
   GetSupplierRequest
-> = z.object({
-  contactId: z.string(),
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  rawData: z.optional(z.boolean()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    contactId: z.string(),
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    rawData: z.optional(z.boolean()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getSupplierRequestToJSON(
   getSupplierRequest: GetSupplierRequest,
@@ -100,12 +102,14 @@ export function getSupplierRequestToJSON(
 export const GetSupplierPagination$inboundSchema: z.ZodMiniType<
   GetSupplierPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getSupplierPaginationFromJSON(
   jsonString: string,
@@ -121,15 +125,17 @@ export function getSupplierPaginationFromJSON(
 export const GetSupplierMeta$inboundSchema: z.ZodMiniType<
   GetSupplierMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => GetSupplierPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => GetSupplierPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function getSupplierMetaFromJSON(
   jsonString: string,
@@ -145,7 +151,7 @@ export function getSupplierMetaFromJSON(
 export const GetSupplierErrors$inboundSchema: z.ZodMiniType<
   GetSupplierErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getSupplierErrorsFromJSON(
   jsonString: string,
@@ -161,7 +167,7 @@ export function getSupplierErrorsFromJSON(
 export const GetSupplierRawData$inboundSchema: z.ZodMiniType<
   GetSupplierRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getSupplierRawDataFromJSON(
   jsonString: string,
@@ -177,12 +183,14 @@ export function getSupplierRawDataFromJSON(
 export const GetSupplierResponse$inboundSchema: z.ZodMiniType<
   GetSupplierResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => GetSupplierMeta$inboundSchema))),
-  data: models.ContactResponseDto$inboundSchema,
-  errors: types.nullable(z.lazy(() => GetSupplierErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => GetSupplierRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(z.nullable(z.lazy(() => GetSupplierMeta$inboundSchema))),
+    data: models.ContactResponseDto$inboundSchema,
+    errors: types.nullable(z.lazy(() => GetSupplierErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => GetSupplierRawData$inboundSchema)),
+  })
+);
 
 export function getSupplierResponseFromJSON(
   jsonString: string,

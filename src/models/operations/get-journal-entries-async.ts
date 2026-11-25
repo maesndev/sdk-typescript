@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -72,12 +72,14 @@ export type GetJournalEntriesAsyncRequest$Outbound = {
 export const GetJournalEntriesAsyncRequest$outboundSchema: z.ZodMiniType<
   GetJournalEntriesAsyncRequest$Outbound,
   GetJournalEntriesAsyncRequest
-> = z.object({
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getJournalEntriesAsyncRequestToJSON(
   getJournalEntriesAsyncRequest: GetJournalEntriesAsyncRequest,
@@ -93,12 +95,14 @@ export function getJournalEntriesAsyncRequestToJSON(
 export const GetJournalEntriesAsyncPagination$inboundSchema: z.ZodMiniType<
   GetJournalEntriesAsyncPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getJournalEntriesAsyncPaginationFromJSON(
   jsonString: string,
@@ -114,15 +118,17 @@ export function getJournalEntriesAsyncPaginationFromJSON(
 export const GetJournalEntriesAsyncMeta$inboundSchema: z.ZodMiniType<
   GetJournalEntriesAsyncMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => GetJournalEntriesAsyncPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => GetJournalEntriesAsyncPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function getJournalEntriesAsyncMetaFromJSON(
   jsonString: string,
@@ -138,7 +144,7 @@ export function getJournalEntriesAsyncMetaFromJSON(
 export const GetJournalEntriesAsyncErrors$inboundSchema: z.ZodMiniType<
   GetJournalEntriesAsyncErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getJournalEntriesAsyncErrorsFromJSON(
   jsonString: string,
@@ -154,7 +160,7 @@ export function getJournalEntriesAsyncErrorsFromJSON(
 export const GetJournalEntriesAsyncRawData$inboundSchema: z.ZodMiniType<
   GetJournalEntriesAsyncRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getJournalEntriesAsyncRawDataFromJSON(
   jsonString: string,
@@ -170,18 +176,20 @@ export function getJournalEntriesAsyncRawDataFromJSON(
 export const GetJournalEntriesAsyncResponse$inboundSchema: z.ZodMiniType<
   GetJournalEntriesAsyncResponse,
   unknown
-> = z.object({
-  meta: z.optional(
-    z.nullable(z.lazy(() => GetJournalEntriesAsyncMeta$inboundSchema)),
-  ),
-  data: models.TaskIdResponseDto$inboundSchema,
-  errors: types.nullable(
-    z.lazy(() => GetJournalEntriesAsyncErrors$inboundSchema),
-  ),
-  rawData: types.nullable(
-    z.lazy(() => GetJournalEntriesAsyncRawData$inboundSchema),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => GetJournalEntriesAsyncMeta$inboundSchema)),
+    ),
+    data: models.TaskIdResponseDto$inboundSchema,
+    errors: types.nullable(
+      z.lazy(() => GetJournalEntriesAsyncErrors$inboundSchema),
+    ),
+    rawData: types.nullable(
+      z.lazy(() => GetJournalEntriesAsyncRawData$inboundSchema),
+    ),
+  })
+);
 
 export function getJournalEntriesAsyncResponseFromJSON(
   jsonString: string,

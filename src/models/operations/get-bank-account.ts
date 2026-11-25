@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -79,14 +79,16 @@ export type GetBankAccountRequest$Outbound = {
 export const GetBankAccountRequest$outboundSchema: z.ZodMiniType<
   GetBankAccountRequest$Outbound,
   GetBankAccountRequest
-> = z.object({
-  bankAccountId: z.string(),
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  rawData: z.optional(z.boolean()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    bankAccountId: z.string(),
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    rawData: z.optional(z.boolean()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getBankAccountRequestToJSON(
   getBankAccountRequest: GetBankAccountRequest,
@@ -100,12 +102,14 @@ export function getBankAccountRequestToJSON(
 export const GetBankAccountPagination$inboundSchema: z.ZodMiniType<
   GetBankAccountPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getBankAccountPaginationFromJSON(
   jsonString: string,
@@ -121,15 +125,17 @@ export function getBankAccountPaginationFromJSON(
 export const GetBankAccountMeta$inboundSchema: z.ZodMiniType<
   GetBankAccountMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => GetBankAccountPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => GetBankAccountPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function getBankAccountMetaFromJSON(
   jsonString: string,
@@ -145,7 +151,7 @@ export function getBankAccountMetaFromJSON(
 export const GetBankAccountErrors$inboundSchema: z.ZodMiniType<
   GetBankAccountErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getBankAccountErrorsFromJSON(
   jsonString: string,
@@ -161,7 +167,7 @@ export function getBankAccountErrorsFromJSON(
 export const GetBankAccountRawData$inboundSchema: z.ZodMiniType<
   GetBankAccountRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getBankAccountRawDataFromJSON(
   jsonString: string,
@@ -177,12 +183,16 @@ export function getBankAccountRawDataFromJSON(
 export const GetBankAccountResponse$inboundSchema: z.ZodMiniType<
   GetBankAccountResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => GetBankAccountMeta$inboundSchema))),
-  data: models.BankAccountResponseDto$inboundSchema,
-  errors: types.nullable(z.lazy(() => GetBankAccountErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => GetBankAccountRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => GetBankAccountMeta$inboundSchema)),
+    ),
+    data: models.BankAccountResponseDto$inboundSchema,
+    errors: types.nullable(z.lazy(() => GetBankAccountErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => GetBankAccountRawData$inboundSchema)),
+  })
+);
 
 export function getBankAccountResponseFromJSON(
   jsonString: string,

@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 
 export type DimensionInput = {
   id?: string | undefined;
@@ -23,12 +24,14 @@ export type DimensionInput$Outbound = {
 export const DimensionInput$outboundSchema: z.ZodMiniType<
   DimensionInput$Outbound,
   DimensionInput
-> = z.object({
-  id: z.optional(z.string()),
-  categoryName: z.optional(z.string()),
-  code: z.optional(z.string()),
-  name: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.optional(z.string()),
+    categoryName: z.optional(z.string()),
+    code: z.optional(z.string()),
+    name: z.optional(z.string()),
+  })
+);
 
 export function dimensionInputToJSON(dimensionInput: DimensionInput): string {
   return JSON.stringify(DimensionInput$outboundSchema.parse(dimensionInput));

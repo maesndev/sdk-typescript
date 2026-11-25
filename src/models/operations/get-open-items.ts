@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
@@ -99,7 +99,7 @@ export type GetOpenItemsResponse = {
 /** @internal */
 export const GetOpenItemsLimit$outboundSchema: z.ZodMiniEnum<
   typeof GetOpenItemsLimit
-> = z.enum(GetOpenItemsLimit);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(GetOpenItemsLimit));
 
 /** @internal */
 export type GetOpenItemsRequest$Outbound = {
@@ -121,20 +121,22 @@ export type GetOpenItemsRequest$Outbound = {
 export const GetOpenItemsRequest$outboundSchema: z.ZodMiniType<
   GetOpenItemsRequest$Outbound,
   GetOpenItemsRequest
-> = z.object({
-  page: z.optional(z.number()),
-  limit: z.optional(GetOpenItemsLimit$outboundSchema),
-  lastModifiedAt: z.optional(z.string()),
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  rawData: z.optional(z.boolean()),
-  fiscalYear: z.optional(z.number()),
-  accountNumber: z.optional(z.string()),
-  documentNumber: z.optional(z.string()),
-  type: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    page: z.optional(z.number()),
+    limit: z.optional(GetOpenItemsLimit$outboundSchema),
+    lastModifiedAt: z.optional(z.string()),
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    rawData: z.optional(z.boolean()),
+    fiscalYear: z.optional(z.number()),
+    accountNumber: z.optional(z.string()),
+    documentNumber: z.optional(z.string()),
+    type: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getOpenItemsRequestToJSON(
   getOpenItemsRequest: GetOpenItemsRequest,
@@ -148,12 +150,14 @@ export function getOpenItemsRequestToJSON(
 export const GetOpenItemsPagination$inboundSchema: z.ZodMiniType<
   GetOpenItemsPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getOpenItemsPaginationFromJSON(
   jsonString: string,
@@ -169,15 +173,17 @@ export function getOpenItemsPaginationFromJSON(
 export const GetOpenItemsMeta$inboundSchema: z.ZodMiniType<
   GetOpenItemsMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => GetOpenItemsPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => GetOpenItemsPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function getOpenItemsMetaFromJSON(
   jsonString: string,
@@ -193,7 +199,7 @@ export function getOpenItemsMetaFromJSON(
 export const GetOpenItemsErrors$inboundSchema: z.ZodMiniType<
   GetOpenItemsErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getOpenItemsErrorsFromJSON(
   jsonString: string,
@@ -209,7 +215,7 @@ export function getOpenItemsErrorsFromJSON(
 export const GetOpenItemsRawData$inboundSchema: z.ZodMiniType<
   GetOpenItemsRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getOpenItemsRawDataFromJSON(
   jsonString: string,
@@ -225,12 +231,14 @@ export function getOpenItemsRawDataFromJSON(
 export const GetOpenItemsResponse$inboundSchema: z.ZodMiniType<
   GetOpenItemsResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => GetOpenItemsMeta$inboundSchema))),
-  data: z.array(models.OpenItemResponseDto$inboundSchema),
-  errors: types.nullable(z.lazy(() => GetOpenItemsErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => GetOpenItemsRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(z.nullable(z.lazy(() => GetOpenItemsMeta$inboundSchema))),
+    data: z.array(models.OpenItemResponseDto$inboundSchema),
+    errors: types.nullable(z.lazy(() => GetOpenItemsErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => GetOpenItemsRawData$inboundSchema)),
+  })
+);
 
 export function getOpenItemsResponseFromJSON(
   jsonString: string,

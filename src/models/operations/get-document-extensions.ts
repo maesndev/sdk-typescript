@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -67,11 +67,13 @@ export type GetDocumentExtensionsRequest$Outbound = {
 export const GetDocumentExtensionsRequest$outboundSchema: z.ZodMiniType<
   GetDocumentExtensionsRequest$Outbound,
   GetDocumentExtensionsRequest
-> = z.object({
-  companyId: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    companyId: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getDocumentExtensionsRequestToJSON(
   getDocumentExtensionsRequest: GetDocumentExtensionsRequest,
@@ -87,12 +89,14 @@ export function getDocumentExtensionsRequestToJSON(
 export const GetDocumentExtensionsPagination$inboundSchema: z.ZodMiniType<
   GetDocumentExtensionsPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getDocumentExtensionsPaginationFromJSON(
   jsonString: string,
@@ -108,15 +112,17 @@ export function getDocumentExtensionsPaginationFromJSON(
 export const GetDocumentExtensionsMeta$inboundSchema: z.ZodMiniType<
   GetDocumentExtensionsMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => GetDocumentExtensionsPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => GetDocumentExtensionsPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function getDocumentExtensionsMetaFromJSON(
   jsonString: string,
@@ -132,7 +138,7 @@ export function getDocumentExtensionsMetaFromJSON(
 export const GetDocumentExtensionsErrors$inboundSchema: z.ZodMiniType<
   GetDocumentExtensionsErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getDocumentExtensionsErrorsFromJSON(
   jsonString: string,
@@ -148,7 +154,7 @@ export function getDocumentExtensionsErrorsFromJSON(
 export const GetDocumentExtensionsRawData$inboundSchema: z.ZodMiniType<
   GetDocumentExtensionsRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getDocumentExtensionsRawDataFromJSON(
   jsonString: string,
@@ -164,18 +170,20 @@ export function getDocumentExtensionsRawDataFromJSON(
 export const GetDocumentExtensionsResponse$inboundSchema: z.ZodMiniType<
   GetDocumentExtensionsResponse,
   unknown
-> = z.object({
-  meta: z.optional(
-    z.nullable(z.lazy(() => GetDocumentExtensionsMeta$inboundSchema)),
-  ),
-  data: models.DocumentExtensionsResponseDto$inboundSchema,
-  errors: types.nullable(
-    z.lazy(() => GetDocumentExtensionsErrors$inboundSchema),
-  ),
-  rawData: types.nullable(
-    z.lazy(() => GetDocumentExtensionsRawData$inboundSchema),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => GetDocumentExtensionsMeta$inboundSchema)),
+    ),
+    data: models.DocumentExtensionsResponseDto$inboundSchema,
+    errors: types.nullable(
+      z.lazy(() => GetDocumentExtensionsErrors$inboundSchema),
+    ),
+    rawData: types.nullable(
+      z.lazy(() => GetDocumentExtensionsRawData$inboundSchema),
+    ),
+  })
+);
 
 export function getDocumentExtensionsResponseFromJSON(
   jsonString: string,

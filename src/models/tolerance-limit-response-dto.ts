@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
@@ -20,13 +20,15 @@ export type ToleranceLimitResponseDto = {
 export const ToleranceLimitResponseDto$inboundSchema: z.ZodMiniType<
   ToleranceLimitResponseDto,
   unknown
-> = z.object({
-  id: types.nullable(types.string()),
-  currency: types.nullable(types.string()),
-  toleranceAmount: types.nullable(types.number()),
-  tolerancePercent: types.nullable(types.number()),
-  updatedDate: types.nullable(types.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: types.nullable(types.string()),
+    currency: types.nullable(types.string()),
+    toleranceAmount: types.nullable(types.number()),
+    tolerancePercent: types.nullable(types.number()),
+    updatedDate: types.nullable(types.string()),
+  })
+);
 
 export function toleranceLimitResponseDtoFromJSON(
   jsonString: string,

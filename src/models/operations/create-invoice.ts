@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -74,13 +74,15 @@ export type CreateInvoiceRequest$Outbound = {
 export const CreateInvoiceRequest$outboundSchema: z.ZodMiniType<
   CreateInvoiceRequest$Outbound,
   CreateInvoiceRequest
-> = z.object({
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-  body: models.CreateInvoiceRequestDto$outboundSchema,
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+    body: models.CreateInvoiceRequestDto$outboundSchema,
+  })
+);
 
 export function createInvoiceRequestToJSON(
   createInvoiceRequest: CreateInvoiceRequest,
@@ -94,12 +96,14 @@ export function createInvoiceRequestToJSON(
 export const CreateInvoicePagination$inboundSchema: z.ZodMiniType<
   CreateInvoicePagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function createInvoicePaginationFromJSON(
   jsonString: string,
@@ -115,15 +119,17 @@ export function createInvoicePaginationFromJSON(
 export const CreateInvoiceMeta$inboundSchema: z.ZodMiniType<
   CreateInvoiceMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => CreateInvoicePagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => CreateInvoicePagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function createInvoiceMetaFromJSON(
   jsonString: string,
@@ -139,7 +145,7 @@ export function createInvoiceMetaFromJSON(
 export const CreateInvoiceErrors$inboundSchema: z.ZodMiniType<
   CreateInvoiceErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createInvoiceErrorsFromJSON(
   jsonString: string,
@@ -155,7 +161,7 @@ export function createInvoiceErrorsFromJSON(
 export const CreateInvoiceRawData$inboundSchema: z.ZodMiniType<
   CreateInvoiceRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createInvoiceRawDataFromJSON(
   jsonString: string,
@@ -171,12 +177,14 @@ export function createInvoiceRawDataFromJSON(
 export const CreateInvoiceResponse$inboundSchema: z.ZodMiniType<
   CreateInvoiceResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => CreateInvoiceMeta$inboundSchema))),
-  data: models.InvoiceResponseDto$inboundSchema,
-  errors: types.nullable(z.lazy(() => CreateInvoiceErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => CreateInvoiceRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(z.nullable(z.lazy(() => CreateInvoiceMeta$inboundSchema))),
+    data: models.InvoiceResponseDto$inboundSchema,
+    errors: types.nullable(z.lazy(() => CreateInvoiceErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => CreateInvoiceRawData$inboundSchema)),
+  })
+);
 
 export function createInvoiceResponseFromJSON(
   jsonString: string,

@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -79,14 +79,16 @@ export type GetBillRequest$Outbound = {
 export const GetBillRequest$outboundSchema: z.ZodMiniType<
   GetBillRequest$Outbound,
   GetBillRequest
-> = z.object({
-  billId: z.string(),
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  rawData: z.optional(z.boolean()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    billId: z.string(),
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    rawData: z.optional(z.boolean()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getBillRequestToJSON(getBillRequest: GetBillRequest): string {
   return JSON.stringify(GetBillRequest$outboundSchema.parse(getBillRequest));
@@ -96,12 +98,14 @@ export function getBillRequestToJSON(getBillRequest: GetBillRequest): string {
 export const GetBillPagination$inboundSchema: z.ZodMiniType<
   GetBillPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getBillPaginationFromJSON(
   jsonString: string,
@@ -114,16 +118,18 @@ export function getBillPaginationFromJSON(
 }
 
 /** @internal */
-export const GetBillMeta$inboundSchema: z.ZodMiniType<GetBillMeta, unknown> = z
-  .object({
-    warnings: z.optional(z.nullable(z.array(types.string()))),
-    pagination: z.optional(
-      z.nullable(z.lazy(() => GetBillPagination$inboundSchema)),
-    ),
-    partialErrors: z.optional(
-      z.nullable(z.array(models.PartialError$inboundSchema)),
-    ),
-  });
+export const GetBillMeta$inboundSchema: z.ZodMiniType<GetBillMeta, unknown> =
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      warnings: z.optional(z.nullable(z.array(types.string()))),
+      pagination: z.optional(
+        z.nullable(z.lazy(() => GetBillPagination$inboundSchema)),
+      ),
+      partialErrors: z.optional(
+        z.nullable(z.array(models.PartialError$inboundSchema)),
+      ),
+    })
+  );
 
 export function getBillMetaFromJSON(
   jsonString: string,
@@ -139,7 +145,7 @@ export function getBillMetaFromJSON(
 export const GetBillErrors$inboundSchema: z.ZodMiniType<
   GetBillErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getBillErrorsFromJSON(
   jsonString: string,
@@ -155,7 +161,7 @@ export function getBillErrorsFromJSON(
 export const GetBillRawData$inboundSchema: z.ZodMiniType<
   GetBillRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getBillRawDataFromJSON(
   jsonString: string,
@@ -171,12 +177,14 @@ export function getBillRawDataFromJSON(
 export const GetBillResponse$inboundSchema: z.ZodMiniType<
   GetBillResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => GetBillMeta$inboundSchema))),
-  data: models.BillResponseDto$inboundSchema,
-  errors: types.nullable(z.lazy(() => GetBillErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => GetBillRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(z.nullable(z.lazy(() => GetBillMeta$inboundSchema))),
+    data: models.BillResponseDto$inboundSchema,
+    errors: types.nullable(z.lazy(() => GetBillErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => GetBillRawData$inboundSchema)),
+  })
+);
 
 export function getBillResponseFromJSON(
   jsonString: string,

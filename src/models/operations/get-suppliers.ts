@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
@@ -95,7 +95,7 @@ export type GetSuppliersResponse = {
 /** @internal */
 export const GetSuppliersLimit$outboundSchema: z.ZodMiniEnum<
   typeof GetSuppliersLimit
-> = z.enum(GetSuppliersLimit);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(GetSuppliersLimit));
 
 /** @internal */
 export type GetSuppliersRequest$Outbound = {
@@ -116,19 +116,21 @@ export type GetSuppliersRequest$Outbound = {
 export const GetSuppliersRequest$outboundSchema: z.ZodMiniType<
   GetSuppliersRequest$Outbound,
   GetSuppliersRequest
-> = z.object({
-  page: z.optional(z.number()),
-  limit: z.optional(GetSuppliersLimit$outboundSchema),
-  lastModifiedAt: z.optional(z.string()),
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  rawData: z.optional(z.boolean()),
-  email: z.optional(z.string()),
-  name: z.optional(z.string()),
-  number: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    page: z.optional(z.number()),
+    limit: z.optional(GetSuppliersLimit$outboundSchema),
+    lastModifiedAt: z.optional(z.string()),
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    rawData: z.optional(z.boolean()),
+    email: z.optional(z.string()),
+    name: z.optional(z.string()),
+    number: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getSuppliersRequestToJSON(
   getSuppliersRequest: GetSuppliersRequest,
@@ -142,12 +144,14 @@ export function getSuppliersRequestToJSON(
 export const GetSuppliersPagination$inboundSchema: z.ZodMiniType<
   GetSuppliersPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getSuppliersPaginationFromJSON(
   jsonString: string,
@@ -163,15 +167,17 @@ export function getSuppliersPaginationFromJSON(
 export const GetSuppliersMeta$inboundSchema: z.ZodMiniType<
   GetSuppliersMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => GetSuppliersPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => GetSuppliersPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function getSuppliersMetaFromJSON(
   jsonString: string,
@@ -187,7 +193,7 @@ export function getSuppliersMetaFromJSON(
 export const GetSuppliersErrors$inboundSchema: z.ZodMiniType<
   GetSuppliersErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getSuppliersErrorsFromJSON(
   jsonString: string,
@@ -203,7 +209,7 @@ export function getSuppliersErrorsFromJSON(
 export const GetSuppliersRawData$inboundSchema: z.ZodMiniType<
   GetSuppliersRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getSuppliersRawDataFromJSON(
   jsonString: string,
@@ -219,12 +225,14 @@ export function getSuppliersRawDataFromJSON(
 export const GetSuppliersResponse$inboundSchema: z.ZodMiniType<
   GetSuppliersResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => GetSuppliersMeta$inboundSchema))),
-  data: z.array(models.ContactResponseDto$inboundSchema),
-  errors: types.nullable(z.lazy(() => GetSuppliersErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => GetSuppliersRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(z.nullable(z.lazy(() => GetSuppliersMeta$inboundSchema))),
+    data: z.array(models.ContactResponseDto$inboundSchema),
+    errors: types.nullable(z.lazy(() => GetSuppliersErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => GetSuppliersRawData$inboundSchema)),
+  })
+);
 
 export function getSuppliersResponseFromJSON(
   jsonString: string,

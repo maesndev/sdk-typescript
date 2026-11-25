@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -76,14 +76,16 @@ export type PatchInvoiceRequest$Outbound = {
 export const PatchInvoiceRequest$outboundSchema: z.ZodMiniType<
   PatchInvoiceRequest$Outbound,
   PatchInvoiceRequest
-> = z.object({
-  invoiceId: z.string(),
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-  body: models.PatchInvoiceRequestDto$outboundSchema,
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    invoiceId: z.string(),
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+    body: models.PatchInvoiceRequestDto$outboundSchema,
+  })
+);
 
 export function patchInvoiceRequestToJSON(
   patchInvoiceRequest: PatchInvoiceRequest,
@@ -97,12 +99,14 @@ export function patchInvoiceRequestToJSON(
 export const PatchInvoicePagination$inboundSchema: z.ZodMiniType<
   PatchInvoicePagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function patchInvoicePaginationFromJSON(
   jsonString: string,
@@ -118,15 +122,17 @@ export function patchInvoicePaginationFromJSON(
 export const PatchInvoiceMeta$inboundSchema: z.ZodMiniType<
   PatchInvoiceMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => PatchInvoicePagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => PatchInvoicePagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function patchInvoiceMetaFromJSON(
   jsonString: string,
@@ -142,7 +148,7 @@ export function patchInvoiceMetaFromJSON(
 export const PatchInvoiceErrors$inboundSchema: z.ZodMiniType<
   PatchInvoiceErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function patchInvoiceErrorsFromJSON(
   jsonString: string,
@@ -158,7 +164,7 @@ export function patchInvoiceErrorsFromJSON(
 export const PatchInvoiceRawData$inboundSchema: z.ZodMiniType<
   PatchInvoiceRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function patchInvoiceRawDataFromJSON(
   jsonString: string,
@@ -174,12 +180,14 @@ export function patchInvoiceRawDataFromJSON(
 export const PatchInvoiceResponse$inboundSchema: z.ZodMiniType<
   PatchInvoiceResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => PatchInvoiceMeta$inboundSchema))),
-  data: models.InvoiceResponseDto$inboundSchema,
-  errors: types.nullable(z.lazy(() => PatchInvoiceErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => PatchInvoiceRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(z.nullable(z.lazy(() => PatchInvoiceMeta$inboundSchema))),
+    data: models.InvoiceResponseDto$inboundSchema,
+    errors: types.nullable(z.lazy(() => PatchInvoiceErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => PatchInvoiceRawData$inboundSchema)),
+  })
+);
 
 export function patchInvoiceResponseFromJSON(
   jsonString: string,

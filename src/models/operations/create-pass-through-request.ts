@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -76,13 +76,15 @@ export type CreatePassThroughRequestRequest$Outbound = {
 export const CreatePassThroughRequestRequest$outboundSchema: z.ZodMiniType<
   CreatePassThroughRequestRequest$Outbound,
   CreatePassThroughRequestRequest
-> = z.object({
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-  body: models.CreatePassThroughRequestDto$outboundSchema,
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+    body: models.CreatePassThroughRequestDto$outboundSchema,
+  })
+);
 
 export function createPassThroughRequestRequestToJSON(
   createPassThroughRequestRequest: CreatePassThroughRequestRequest,
@@ -98,12 +100,14 @@ export function createPassThroughRequestRequestToJSON(
 export const CreatePassThroughRequestPagination$inboundSchema: z.ZodMiniType<
   CreatePassThroughRequestPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function createPassThroughRequestPaginationFromJSON(
   jsonString: string,
@@ -120,15 +124,19 @@ export function createPassThroughRequestPaginationFromJSON(
 export const CreatePassThroughRequestMeta$inboundSchema: z.ZodMiniType<
   CreatePassThroughRequestMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => CreatePassThroughRequestPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(
+        z.lazy(() => CreatePassThroughRequestPagination$inboundSchema),
+      ),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function createPassThroughRequestMetaFromJSON(
   jsonString: string,
@@ -144,7 +152,7 @@ export function createPassThroughRequestMetaFromJSON(
 export const CreatePassThroughRequestData$inboundSchema: z.ZodMiniType<
   CreatePassThroughRequestData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createPassThroughRequestDataFromJSON(
   jsonString: string,
@@ -160,7 +168,7 @@ export function createPassThroughRequestDataFromJSON(
 export const CreatePassThroughRequestErrors$inboundSchema: z.ZodMiniType<
   CreatePassThroughRequestErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createPassThroughRequestErrorsFromJSON(
   jsonString: string,
@@ -176,7 +184,7 @@ export function createPassThroughRequestErrorsFromJSON(
 export const CreatePassThroughRequestRawData$inboundSchema: z.ZodMiniType<
   CreatePassThroughRequestRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createPassThroughRequestRawDataFromJSON(
   jsonString: string,
@@ -192,18 +200,20 @@ export function createPassThroughRequestRawDataFromJSON(
 export const CreatePassThroughRequestResponse$inboundSchema: z.ZodMiniType<
   CreatePassThroughRequestResponse,
   unknown
-> = z.object({
-  meta: z.optional(
-    z.nullable(z.lazy(() => CreatePassThroughRequestMeta$inboundSchema)),
-  ),
-  data: z.lazy(() => CreatePassThroughRequestData$inboundSchema),
-  errors: types.nullable(
-    z.lazy(() => CreatePassThroughRequestErrors$inboundSchema),
-  ),
-  rawData: types.nullable(
-    z.lazy(() => CreatePassThroughRequestRawData$inboundSchema),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => CreatePassThroughRequestMeta$inboundSchema)),
+    ),
+    data: z.lazy(() => CreatePassThroughRequestData$inboundSchema),
+    errors: types.nullable(
+      z.lazy(() => CreatePassThroughRequestErrors$inboundSchema),
+    ),
+    rawData: types.nullable(
+      z.lazy(() => CreatePassThroughRequestRawData$inboundSchema),
+    ),
+  })
+);
 
 export function createPassThroughRequestResponseFromJSON(
   jsonString: string,

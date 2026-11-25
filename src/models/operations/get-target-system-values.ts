@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../../lib/schemas.js";
 
 export type GetTargetSystemValuesGlobals = {
   apiKey?: string | undefined;
@@ -30,10 +31,12 @@ export type GetTargetSystemValuesRequest$Outbound = {
 export const GetTargetSystemValuesRequest$outboundSchema: z.ZodMiniType<
   GetTargetSystemValuesRequest$Outbound,
   GetTargetSystemValuesRequest
-> = z.object({
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getTargetSystemValuesRequestToJSON(
   getTargetSystemValuesRequest: GetTargetSystemValuesRequest,

@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
@@ -75,7 +75,7 @@ export type GetDocumentTypesResponse = {
 /** @internal */
 export const GetDocumentTypesLimit$outboundSchema: z.ZodMiniEnum<
   typeof GetDocumentTypesLimit
-> = z.enum(GetDocumentTypesLimit);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(GetDocumentTypesLimit));
 
 /** @internal */
 export type GetDocumentTypesRequest$Outbound = {
@@ -91,14 +91,16 @@ export type GetDocumentTypesRequest$Outbound = {
 export const GetDocumentTypesRequest$outboundSchema: z.ZodMiniType<
   GetDocumentTypesRequest$Outbound,
   GetDocumentTypesRequest
-> = z.object({
-  page: z.optional(z.number()),
-  limit: z.optional(GetDocumentTypesLimit$outboundSchema),
-  companyId: z.optional(z.string()),
-  rawData: z.optional(z.boolean()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    page: z.optional(z.number()),
+    limit: z.optional(GetDocumentTypesLimit$outboundSchema),
+    companyId: z.optional(z.string()),
+    rawData: z.optional(z.boolean()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getDocumentTypesRequestToJSON(
   getDocumentTypesRequest: GetDocumentTypesRequest,
@@ -112,12 +114,14 @@ export function getDocumentTypesRequestToJSON(
 export const GetDocumentTypesPagination$inboundSchema: z.ZodMiniType<
   GetDocumentTypesPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getDocumentTypesPaginationFromJSON(
   jsonString: string,
@@ -133,15 +137,17 @@ export function getDocumentTypesPaginationFromJSON(
 export const GetDocumentTypesMeta$inboundSchema: z.ZodMiniType<
   GetDocumentTypesMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => GetDocumentTypesPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => GetDocumentTypesPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function getDocumentTypesMetaFromJSON(
   jsonString: string,
@@ -157,7 +163,7 @@ export function getDocumentTypesMetaFromJSON(
 export const GetDocumentTypesErrors$inboundSchema: z.ZodMiniType<
   GetDocumentTypesErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getDocumentTypesErrorsFromJSON(
   jsonString: string,
@@ -173,7 +179,7 @@ export function getDocumentTypesErrorsFromJSON(
 export const GetDocumentTypesRawData$inboundSchema: z.ZodMiniType<
   GetDocumentTypesRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getDocumentTypesRawDataFromJSON(
   jsonString: string,
@@ -189,14 +195,18 @@ export function getDocumentTypesRawDataFromJSON(
 export const GetDocumentTypesResponse$inboundSchema: z.ZodMiniType<
   GetDocumentTypesResponse,
   unknown
-> = z.object({
-  meta: z.optional(
-    z.nullable(z.lazy(() => GetDocumentTypesMeta$inboundSchema)),
-  ),
-  data: z.array(models.DocumentTypesResponseDto$inboundSchema),
-  errors: types.nullable(z.lazy(() => GetDocumentTypesErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => GetDocumentTypesRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => GetDocumentTypesMeta$inboundSchema)),
+    ),
+    data: z.array(models.DocumentTypesResponseDto$inboundSchema),
+    errors: types.nullable(z.lazy(() => GetDocumentTypesErrors$inboundSchema)),
+    rawData: types.nullable(
+      z.lazy(() => GetDocumentTypesRawData$inboundSchema),
+    ),
+  })
+);
 
 export function getDocumentTypesResponseFromJSON(
   jsonString: string,

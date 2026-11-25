@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
@@ -226,34 +226,37 @@ export type AccountResponseDto = {
 /** @internal */
 export const AccountResponseDtoClass$inboundSchema: z.ZodMiniEnum<
   typeof AccountResponseDtoClass
-> = z.enum(AccountResponseDtoClass);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(AccountResponseDtoClass));
 
 /** @internal */
 export const AccountResponseDtoCurrency$inboundSchema: z.ZodMiniEnum<
   typeof AccountResponseDtoCurrency
-> = z.enum(AccountResponseDtoCurrency);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(AccountResponseDtoCurrency));
 
 /** @internal */
 export const AccountResponseDtoDebitCreditIndicator$inboundSchema:
-  z.ZodMiniEnum<typeof AccountResponseDtoDebitCreditIndicator> = z.enum(
-    AccountResponseDtoDebitCreditIndicator,
-  );
+  z.ZodMiniEnum<typeof AccountResponseDtoDebitCreditIndicator> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.enum(AccountResponseDtoDebitCreditIndicator)
+    );
 
 /** @internal */
 export const AccountResponseDtoStatus$inboundSchema: z.ZodMiniEnum<
   typeof AccountResponseDtoStatus
-> = z.enum(AccountResponseDtoStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(AccountResponseDtoStatus));
 
 /** @internal */
 export const AccountResponseDtoTaxRate$inboundSchema: z.ZodMiniType<
   AccountResponseDtoTaxRate,
   unknown
-> = z.object({
-  id: types.nullable(types.string()),
-  code: types.nullable(types.string()),
-  name: types.nullable(types.string()),
-  percentage: types.nullable(types.number()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: types.nullable(types.string()),
+    code: types.nullable(types.string()),
+    name: types.nullable(types.string()),
+    percentage: types.nullable(types.number()),
+  })
+);
 
 export function accountResponseDtoTaxRateFromJSON(
   jsonString: string,
@@ -269,27 +272,29 @@ export function accountResponseDtoTaxRateFromJSON(
 export const AccountResponseDto$inboundSchema: z.ZodMiniType<
   AccountResponseDto,
   unknown
-> = z.object({
-  id: types.nullable(types.string()),
-  balance: types.nullable(types.number()),
-  class: types.nullable(AccountResponseDtoClass$inboundSchema),
-  code: types.nullable(types.string()),
-  createdDate: types.nullable(types.string()),
-  currency: types.nullable(AccountResponseDtoCurrency$inboundSchema),
-  debitCreditIndicator: types.nullable(
-    AccountResponseDtoDebitCreditIndicator$inboundSchema,
-  ),
-  description: types.nullable(types.string()),
-  name: types.nullable(types.string()),
-  number: types.nullable(types.string()),
-  parentAccountId: types.nullable(types.string()),
-  status: types.nullable(AccountResponseDtoStatus$inboundSchema),
-  taxRate: types.nullable(
-    z.lazy(() => AccountResponseDtoTaxRate$inboundSchema),
-  ),
-  type: types.nullable(types.string()),
-  updatedDate: types.nullable(types.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: types.nullable(types.string()),
+    balance: types.nullable(types.number()),
+    class: types.nullable(AccountResponseDtoClass$inboundSchema),
+    code: types.nullable(types.string()),
+    createdDate: types.nullable(types.string()),
+    currency: types.nullable(AccountResponseDtoCurrency$inboundSchema),
+    debitCreditIndicator: types.nullable(
+      AccountResponseDtoDebitCreditIndicator$inboundSchema,
+    ),
+    description: types.nullable(types.string()),
+    name: types.nullable(types.string()),
+    number: types.nullable(types.string()),
+    parentAccountId: types.nullable(types.string()),
+    status: types.nullable(AccountResponseDtoStatus$inboundSchema),
+    taxRate: types.nullable(
+      z.lazy(() => AccountResponseDtoTaxRate$inboundSchema),
+    ),
+    type: types.nullable(types.string()),
+    updatedDate: types.nullable(types.string()),
+  })
+);
 
 export function accountResponseDtoFromJSON(
   jsonString: string,

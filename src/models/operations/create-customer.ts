@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -74,13 +74,15 @@ export type CreateCustomerRequest$Outbound = {
 export const CreateCustomerRequest$outboundSchema: z.ZodMiniType<
   CreateCustomerRequest$Outbound,
   CreateCustomerRequest
-> = z.object({
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-  body: models.CreateContactRequestDto$outboundSchema,
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+    body: models.CreateContactRequestDto$outboundSchema,
+  })
+);
 
 export function createCustomerRequestToJSON(
   createCustomerRequest: CreateCustomerRequest,
@@ -94,12 +96,14 @@ export function createCustomerRequestToJSON(
 export const CreateCustomerPagination$inboundSchema: z.ZodMiniType<
   CreateCustomerPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function createCustomerPaginationFromJSON(
   jsonString: string,
@@ -115,15 +119,17 @@ export function createCustomerPaginationFromJSON(
 export const CreateCustomerMeta$inboundSchema: z.ZodMiniType<
   CreateCustomerMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => CreateCustomerPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => CreateCustomerPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function createCustomerMetaFromJSON(
   jsonString: string,
@@ -139,7 +145,7 @@ export function createCustomerMetaFromJSON(
 export const CreateCustomerErrors$inboundSchema: z.ZodMiniType<
   CreateCustomerErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createCustomerErrorsFromJSON(
   jsonString: string,
@@ -155,7 +161,7 @@ export function createCustomerErrorsFromJSON(
 export const CreateCustomerRawData$inboundSchema: z.ZodMiniType<
   CreateCustomerRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createCustomerRawDataFromJSON(
   jsonString: string,
@@ -171,12 +177,16 @@ export function createCustomerRawDataFromJSON(
 export const CreateCustomerResponse$inboundSchema: z.ZodMiniType<
   CreateCustomerResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => CreateCustomerMeta$inboundSchema))),
-  data: models.ContactResponseDto$inboundSchema,
-  errors: types.nullable(z.lazy(() => CreateCustomerErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => CreateCustomerRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => CreateCustomerMeta$inboundSchema)),
+    ),
+    data: models.ContactResponseDto$inboundSchema,
+    errors: types.nullable(z.lazy(() => CreateCustomerErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => CreateCustomerRawData$inboundSchema)),
+  })
+);
 
 export function createCustomerResponseFromJSON(
   jsonString: string,

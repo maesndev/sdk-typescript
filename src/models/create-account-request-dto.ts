@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import {
   TaxRateRequestCommonDto,
@@ -278,22 +279,22 @@ export type CreateAccountRequestDto = {
 /** @internal */
 export const CreateAccountRequestDtoClass$outboundSchema: z.ZodMiniEnum<
   typeof CreateAccountRequestDtoClass
-> = z.enum(CreateAccountRequestDtoClass);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(CreateAccountRequestDtoClass));
 
 /** @internal */
 export const CreateAccountRequestDtoCurrency$outboundSchema: z.ZodMiniEnum<
   typeof CreateAccountRequestDtoCurrency
-> = z.enum(CreateAccountRequestDtoCurrency);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(CreateAccountRequestDtoCurrency));
 
 /** @internal */
 export const CreateAccountRequestDtoStatus$outboundSchema: z.ZodMiniEnum<
   typeof CreateAccountRequestDtoStatus
-> = z.enum(CreateAccountRequestDtoStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(CreateAccountRequestDtoStatus));
 
 /** @internal */
 export const CreateAccountRequestDtoType$outboundSchema: z.ZodMiniEnum<
   typeof CreateAccountRequestDtoType
-> = z.enum(CreateAccountRequestDtoType);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(CreateAccountRequestDtoType));
 
 /** @internal */
 export type CreateAccountRequestDto$Outbound = {
@@ -314,19 +315,21 @@ export type CreateAccountRequestDto$Outbound = {
 export const CreateAccountRequestDto$outboundSchema: z.ZodMiniType<
   CreateAccountRequestDto$Outbound,
   CreateAccountRequestDto
-> = z.object({
-  balance: z.optional(z.number()),
-  class: z.optional(CreateAccountRequestDtoClass$outboundSchema),
-  code: z.optional(z.string()),
-  currency: z.optional(CreateAccountRequestDtoCurrency$outboundSchema),
-  description: z.optional(z.string()),
-  name: z.optional(z.string()),
-  number: z.optional(z.string()),
-  parentAccountId: z.optional(z.string()),
-  status: z.optional(CreateAccountRequestDtoStatus$outboundSchema),
-  taxRate: z.optional(TaxRateRequestCommonDto$outboundSchema),
-  type: z.optional(CreateAccountRequestDtoType$outboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    balance: z.optional(z.number()),
+    class: z.optional(CreateAccountRequestDtoClass$outboundSchema),
+    code: z.optional(z.string()),
+    currency: z.optional(CreateAccountRequestDtoCurrency$outboundSchema),
+    description: z.optional(z.string()),
+    name: z.optional(z.string()),
+    number: z.optional(z.string()),
+    parentAccountId: z.optional(z.string()),
+    status: z.optional(CreateAccountRequestDtoStatus$outboundSchema),
+    taxRate: z.optional(TaxRateRequestCommonDto$outboundSchema),
+    type: z.optional(CreateAccountRequestDtoType$outboundSchema),
+  })
+);
 
 export function createAccountRequestDtoToJSON(
   createAccountRequestDto: CreateAccountRequestDto,

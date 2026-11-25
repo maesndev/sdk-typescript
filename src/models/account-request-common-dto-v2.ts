@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 
 export type AccountRequestCommonDtoV2 = {
   id?: string | undefined;
@@ -23,12 +24,14 @@ export type AccountRequestCommonDtoV2$Outbound = {
 export const AccountRequestCommonDtoV2$outboundSchema: z.ZodMiniType<
   AccountRequestCommonDtoV2$Outbound,
   AccountRequestCommonDtoV2
-> = z.object({
-  id: z.optional(z.string()),
-  code: z.optional(z.string()),
-  name: z.optional(z.string()),
-  number: z.optional(z.number()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.optional(z.string()),
+    code: z.optional(z.string()),
+    name: z.optional(z.string()),
+    number: z.optional(z.number()),
+  })
+);
 
 export function accountRequestCommonDtoV2ToJSON(
   accountRequestCommonDtoV2: AccountRequestCommonDtoV2,

@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import {
   BankAccountRequestCommonDtoV2,
@@ -69,9 +70,10 @@ export type CreateBookingProposalRequestDtoV2 = {
 
 /** @internal */
 export const CreateBookingProposalRequestDtoV2Status$outboundSchema:
-  z.ZodMiniEnum<typeof CreateBookingProposalRequestDtoV2Status> = z.enum(
-    CreateBookingProposalRequestDtoV2Status,
-  );
+  z.ZodMiniEnum<typeof CreateBookingProposalRequestDtoV2Status> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.enum(CreateBookingProposalRequestDtoV2Status)
+    );
 
 /** @internal */
 export type CreateBookingProposalRequestDtoV2$Outbound = {
@@ -105,36 +107,38 @@ export type CreateBookingProposalRequestDtoV2$Outbound = {
 export const CreateBookingProposalRequestDtoV2$outboundSchema: z.ZodMiniType<
   CreateBookingProposalRequestDtoV2$Outbound,
   CreateBookingProposalRequestDtoV2
-> = z.object({
-  id: z.optional(z.string()),
-  addresses: z.optional(
-    z.array(BookingProposalAddressRequestDtoV2$outboundSchema),
-  ),
-  bankAccount: z.optional(BankAccountRequestCommonDtoV2$outboundSchema),
-  bookingProposalDate: z.optional(z.string()),
-  contact: z.optional(ContactRequestCommonDtoV2$outboundSchema),
-  currency: z.optional(z.string()),
-  deliveryDate: z.optional(z.string()),
-  discountPaymentDate: z.optional(z.string()),
-  discountPaymentDate2: z.optional(z.string()),
-  dueDate: z.optional(z.string()),
-  generatorName: z.optional(z.string()),
-  journalCode: z.optional(z.string()),
-  isPaymentOrder: z.optional(z.boolean()),
-  ledgerName: z.optional(z.string()),
-  lineItems: z.optional(
-    z.array(BookingProposalLineItemRequestDtoV2$outboundSchema),
-  ),
-  notes: z.optional(z.string()),
-  number: z.optional(z.string()),
-  orderId: z.optional(z.string()),
-  paidDate: z.optional(z.string()),
-  paymentTermId: z.optional(z.string()),
-  status: z.optional(CreateBookingProposalRequestDtoV2Status$outboundSchema),
-  totalGrossAmount: z.optional(z.number()),
-  useCollectiveContact: z.optional(z.boolean()),
-  vatId: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.optional(z.string()),
+    addresses: z.optional(
+      z.array(BookingProposalAddressRequestDtoV2$outboundSchema),
+    ),
+    bankAccount: z.optional(BankAccountRequestCommonDtoV2$outboundSchema),
+    bookingProposalDate: z.optional(z.string()),
+    contact: z.optional(ContactRequestCommonDtoV2$outboundSchema),
+    currency: z.optional(z.string()),
+    deliveryDate: z.optional(z.string()),
+    discountPaymentDate: z.optional(z.string()),
+    discountPaymentDate2: z.optional(z.string()),
+    dueDate: z.optional(z.string()),
+    generatorName: z.optional(z.string()),
+    journalCode: z.optional(z.string()),
+    isPaymentOrder: z.optional(z.boolean()),
+    ledgerName: z.optional(z.string()),
+    lineItems: z.optional(
+      z.array(BookingProposalLineItemRequestDtoV2$outboundSchema),
+    ),
+    notes: z.optional(z.string()),
+    number: z.optional(z.string()),
+    orderId: z.optional(z.string()),
+    paidDate: z.optional(z.string()),
+    paymentTermId: z.optional(z.string()),
+    status: z.optional(CreateBookingProposalRequestDtoV2Status$outboundSchema),
+    totalGrossAmount: z.optional(z.number()),
+    useCollectiveContact: z.optional(z.boolean()),
+    vatId: z.optional(z.string()),
+  })
+);
 
 export function createBookingProposalRequestDtoV2ToJSON(
   createBookingProposalRequestDtoV2: CreateBookingProposalRequestDtoV2,

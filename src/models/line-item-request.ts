@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import {
   DimensionRequestCommonDtoV2,
@@ -41,7 +42,7 @@ export type LineItemRequest = {
 /** @internal */
 export const LineItemRequestType$outboundSchema: z.ZodMiniEnum<
   typeof LineItemRequestType
-> = z.enum(LineItemRequestType);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(LineItemRequestType));
 
 /** @internal */
 export type LineItemRequest$Outbound = {
@@ -70,27 +71,29 @@ export type LineItemRequest$Outbound = {
 export const LineItemRequest$outboundSchema: z.ZodMiniType<
   LineItemRequest$Outbound,
   LineItemRequest
-> = z.object({
-  id: z.optional(z.string()),
-  accountCode: z.optional(z.string()),
-  accountId: z.optional(z.string()),
-  accountName: z.optional(z.string()),
-  accountNumber: z.optional(z.number()),
-  bookingTaxCode: z.optional(z.string()),
-  description: z.optional(z.string()),
-  dimension1: z.optional(z.string()),
-  dimension2: z.optional(z.string()),
-  dimensions: z.optional(z.array(DimensionRequestCommonDtoV2$outboundSchema)),
-  discountAmount: z.optional(z.number()),
-  discountAmount2: z.optional(z.number()),
-  discountPercentage: z.optional(z.number()),
-  discountPercentage2: z.optional(z.number()),
-  taxCode: z.optional(z.string()),
-  taxRatePercentage: z.optional(z.number()),
-  totalGrossAmount: z.optional(z.number()),
-  totalNetAmount: z.optional(z.number()),
-  type: z.optional(LineItemRequestType$outboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.optional(z.string()),
+    accountCode: z.optional(z.string()),
+    accountId: z.optional(z.string()),
+    accountName: z.optional(z.string()),
+    accountNumber: z.optional(z.number()),
+    bookingTaxCode: z.optional(z.string()),
+    description: z.optional(z.string()),
+    dimension1: z.optional(z.string()),
+    dimension2: z.optional(z.string()),
+    dimensions: z.optional(z.array(DimensionRequestCommonDtoV2$outboundSchema)),
+    discountAmount: z.optional(z.number()),
+    discountAmount2: z.optional(z.number()),
+    discountPercentage: z.optional(z.number()),
+    discountPercentage2: z.optional(z.number()),
+    taxCode: z.optional(z.string()),
+    taxRatePercentage: z.optional(z.number()),
+    totalGrossAmount: z.optional(z.number()),
+    totalNetAmount: z.optional(z.number()),
+    type: z.optional(LineItemRequestType$outboundSchema),
+  })
+);
 
 export function lineItemRequestToJSON(
   lineItemRequest: LineItemRequest,

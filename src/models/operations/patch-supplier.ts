@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -76,14 +76,16 @@ export type PatchSupplierRequest$Outbound = {
 export const PatchSupplierRequest$outboundSchema: z.ZodMiniType<
   PatchSupplierRequest$Outbound,
   PatchSupplierRequest
-> = z.object({
-  contactId: z.string(),
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-  body: models.PatchContactRequestDto$outboundSchema,
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    contactId: z.string(),
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+    body: models.PatchContactRequestDto$outboundSchema,
+  })
+);
 
 export function patchSupplierRequestToJSON(
   patchSupplierRequest: PatchSupplierRequest,
@@ -97,12 +99,14 @@ export function patchSupplierRequestToJSON(
 export const PatchSupplierPagination$inboundSchema: z.ZodMiniType<
   PatchSupplierPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function patchSupplierPaginationFromJSON(
   jsonString: string,
@@ -118,15 +122,17 @@ export function patchSupplierPaginationFromJSON(
 export const PatchSupplierMeta$inboundSchema: z.ZodMiniType<
   PatchSupplierMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => PatchSupplierPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => PatchSupplierPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function patchSupplierMetaFromJSON(
   jsonString: string,
@@ -142,7 +148,7 @@ export function patchSupplierMetaFromJSON(
 export const PatchSupplierErrors$inboundSchema: z.ZodMiniType<
   PatchSupplierErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function patchSupplierErrorsFromJSON(
   jsonString: string,
@@ -158,7 +164,7 @@ export function patchSupplierErrorsFromJSON(
 export const PatchSupplierRawData$inboundSchema: z.ZodMiniType<
   PatchSupplierRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function patchSupplierRawDataFromJSON(
   jsonString: string,
@@ -174,12 +180,14 @@ export function patchSupplierRawDataFromJSON(
 export const PatchSupplierResponse$inboundSchema: z.ZodMiniType<
   PatchSupplierResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => PatchSupplierMeta$inboundSchema))),
-  data: models.ContactResponseDto$inboundSchema,
-  errors: types.nullable(z.lazy(() => PatchSupplierErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => PatchSupplierRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(z.nullable(z.lazy(() => PatchSupplierMeta$inboundSchema))),
+    data: models.ContactResponseDto$inboundSchema,
+    errors: types.nullable(z.lazy(() => PatchSupplierErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => PatchSupplierRawData$inboundSchema)),
+  })
+);
 
 export function patchSupplierResponseFromJSON(
   jsonString: string,

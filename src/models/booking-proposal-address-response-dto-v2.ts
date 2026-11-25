@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
@@ -16,9 +16,11 @@ export type BookingProposalAddressResponseDtoV2 = {
 export const BookingProposalAddressResponseDtoV2$inboundSchema: z.ZodMiniType<
   BookingProposalAddressResponseDtoV2,
   unknown
-> = z.object({
-  city: types.nullable(types.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    city: types.nullable(types.string()),
+  })
+);
 
 export function bookingProposalAddressResponseDtoV2FromJSON(
   jsonString: string,

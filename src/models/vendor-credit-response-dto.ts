@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
@@ -116,67 +116,73 @@ export type VendorCreditResponseDto = {
 /** @internal */
 export const VendorCreditResponseDtoPaymentStatus$inboundSchema: z.ZodMiniEnum<
   typeof VendorCreditResponseDtoPaymentStatus
-> = z.enum(VendorCreditResponseDtoPaymentStatus);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.enum(VendorCreditResponseDtoPaymentStatus)
+);
 
 /** @internal */
 export const VendorCreditResponseDtoShippingType$inboundSchema: z.ZodMiniEnum<
   typeof VendorCreditResponseDtoShippingType
-> = z.enum(VendorCreditResponseDtoShippingType);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.enum(VendorCreditResponseDtoShippingType)
+);
 
 /** @internal */
 export const VendorCreditResponseDtoStatus$inboundSchema: z.ZodMiniEnum<
   typeof VendorCreditResponseDtoStatus
-> = z.enum(VendorCreditResponseDtoStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(VendorCreditResponseDtoStatus));
 
 /** @internal */
 export const VendorCreditResponseDtoTaxRule$inboundSchema: z.ZodMiniEnum<
   typeof VendorCreditResponseDtoTaxRule
-> = z.enum(VendorCreditResponseDtoTaxRule);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(VendorCreditResponseDtoTaxRule));
 
 /** @internal */
 export const VendorCreditResponseDto$inboundSchema: z.ZodMiniType<
   VendorCreditResponseDto,
   unknown
-> = z.object({
-  id: types.nullable(types.string()),
-  accountId: types.nullable(types.string()),
-  addresses: types.nullable(z.array(Address$inboundSchema)),
-  contactId: types.nullable(types.string()),
-  createdDate: types.nullable(types.string()),
-  currency: types.nullable(types.string()),
-  deliveryDate: types.nullable(types.string()),
-  dueDate: types.nullable(types.string()),
-  fileId: types.nullable(types.string()),
-  journalCode: types.nullable(types.string()),
-  lineItems: types.nullable(
-    z.array(VendorCreditLineItemResponseDto$inboundSchema),
-  ),
-  name: types.nullable(types.string()),
-  oneLineAddress: types.nullable(types.string()),
-  paidDate: types.nullable(types.string()),
-  paymentReference: types.nullable(types.string()),
-  paymentTermCode: types.nullable(types.string()),
-  paymentStatus: types.nullable(
-    VendorCreditResponseDtoPaymentStatus$inboundSchema,
-  ),
-  paymentDays: types.nullable(types.number()),
-  reference: types.nullable(types.string()),
-  shippingDate: types.nullable(types.string()),
-  shippingType: types.nullable(
-    VendorCreditResponseDtoShippingType$inboundSchema,
-  ),
-  status: types.nullable(VendorCreditResponseDtoStatus$inboundSchema),
-  taxRule: types.nullable(VendorCreditResponseDtoTaxRule$inboundSchema),
-  taxText: types.nullable(types.string()),
-  totalDiscountAmount: types.nullable(types.number()),
-  totalDiscountPercentage: types.nullable(types.number()),
-  totalGrossAmount: types.nullable(types.number()),
-  totalNetAmount: types.nullable(types.number()),
-  totalTaxAmount: types.nullable(types.number()),
-  updatedDate: types.nullable(types.string()),
-  vendorCreditDate: types.nullable(types.string()),
-  vendorCreditNumber: types.nullable(types.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: types.nullable(types.string()),
+    accountId: types.nullable(types.string()),
+    addresses: types.nullable(z.array(Address$inboundSchema)),
+    contactId: types.nullable(types.string()),
+    createdDate: types.nullable(types.string()),
+    currency: types.nullable(types.string()),
+    deliveryDate: types.nullable(types.string()),
+    dueDate: types.nullable(types.string()),
+    fileId: types.nullable(types.string()),
+    journalCode: types.nullable(types.string()),
+    lineItems: types.nullable(
+      z.array(VendorCreditLineItemResponseDto$inboundSchema),
+    ),
+    name: types.nullable(types.string()),
+    oneLineAddress: types.nullable(types.string()),
+    paidDate: types.nullable(types.string()),
+    paymentReference: types.nullable(types.string()),
+    paymentTermCode: types.nullable(types.string()),
+    paymentStatus: types.nullable(
+      VendorCreditResponseDtoPaymentStatus$inboundSchema,
+    ),
+    paymentDays: types.nullable(types.number()),
+    reference: types.nullable(types.string()),
+    shippingDate: types.nullable(types.string()),
+    shippingType: types.nullable(
+      VendorCreditResponseDtoShippingType$inboundSchema,
+    ),
+    status: types.nullable(VendorCreditResponseDtoStatus$inboundSchema),
+    taxRule: types.nullable(VendorCreditResponseDtoTaxRule$inboundSchema),
+    taxText: types.nullable(types.string()),
+    totalDiscountAmount: types.nullable(types.number()),
+    totalDiscountPercentage: types.nullable(types.number()),
+    totalGrossAmount: types.nullable(types.number()),
+    totalNetAmount: types.nullable(types.number()),
+    totalTaxAmount: types.nullable(types.number()),
+    updatedDate: types.nullable(types.string()),
+    vendorCreditDate: types.nullable(types.string()),
+    vendorCreditNumber: types.nullable(types.string()),
+  })
+);
 
 export function vendorCreditResponseDtoFromJSON(
   jsonString: string,

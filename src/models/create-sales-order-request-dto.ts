@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import {
   Address,
@@ -50,7 +51,7 @@ export type CreateSalesOrderRequestDto = {
 /** @internal */
 export const CreateSalesOrderRequestDtoStatus$outboundSchema: z.ZodMiniEnum<
   typeof CreateSalesOrderRequestDtoStatus
-> = z.enum(CreateSalesOrderRequestDtoStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(CreateSalesOrderRequestDtoStatus));
 
 /** @internal */
 export type CreateSalesOrderRequestDto$Outbound = {
@@ -78,28 +79,30 @@ export type CreateSalesOrderRequestDto$Outbound = {
 export const CreateSalesOrderRequestDto$outboundSchema: z.ZodMiniType<
   CreateSalesOrderRequestDto$Outbound,
   CreateSalesOrderRequestDto
-> = z.object({
-  addresses: z.optional(z.array(Address$outboundSchema)),
-  billingContactId: z.optional(z.string()),
-  comment: z.optional(z.string()),
-  contactId: z.optional(z.string()),
-  currency: z.optional(z.string()),
-  deliveryDate: z.optional(z.string()),
-  lineItems: z.optional(
-    z.array(CreateSalesOrderLineItemRequestDto$outboundSchema),
-  ),
-  oneLineAddress: z.optional(z.string()),
-  orderDate: z.optional(z.string()),
-  projectId: z.optional(z.string()),
-  shippingContactId: z.optional(z.string()),
-  status: z.optional(CreateSalesOrderRequestDtoStatus$outboundSchema),
-  totalDiscountAmount: z.optional(z.number()),
-  totalDiscountPercentage: z.optional(z.number()),
-  totalGrossAmount: z.optional(z.number()),
-  totalNetAmount: z.optional(z.number()),
-  totalTaxAmount: z.optional(z.number()),
-  version: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    addresses: z.optional(z.array(Address$outboundSchema)),
+    billingContactId: z.optional(z.string()),
+    comment: z.optional(z.string()),
+    contactId: z.optional(z.string()),
+    currency: z.optional(z.string()),
+    deliveryDate: z.optional(z.string()),
+    lineItems: z.optional(
+      z.array(CreateSalesOrderLineItemRequestDto$outboundSchema),
+    ),
+    oneLineAddress: z.optional(z.string()),
+    orderDate: z.optional(z.string()),
+    projectId: z.optional(z.string()),
+    shippingContactId: z.optional(z.string()),
+    status: z.optional(CreateSalesOrderRequestDtoStatus$outboundSchema),
+    totalDiscountAmount: z.optional(z.number()),
+    totalDiscountPercentage: z.optional(z.number()),
+    totalGrossAmount: z.optional(z.number()),
+    totalNetAmount: z.optional(z.number()),
+    totalTaxAmount: z.optional(z.number()),
+    version: z.optional(z.string()),
+  })
+);
 
 export function createSalesOrderRequestDtoToJSON(
   createSalesOrderRequestDto: CreateSalesOrderRequestDto,

@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
@@ -23,16 +23,18 @@ export type JournalResponseDto = {
 export const JournalResponseDto$inboundSchema: z.ZodMiniType<
   JournalResponseDto,
   unknown
-> = z.object({
-  id: types.nullable(types.string()),
-  accountId: types.nullable(types.string()),
-  code: types.nullable(types.string()),
-  createdDate: types.nullable(types.string()),
-  currency: types.nullable(types.string()),
-  description: types.nullable(types.string()),
-  type: types.nullable(types.string()),
-  updatedDate: types.nullable(types.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: types.nullable(types.string()),
+    accountId: types.nullable(types.string()),
+    code: types.nullable(types.string()),
+    createdDate: types.nullable(types.string()),
+    currency: types.nullable(types.string()),
+    description: types.nullable(types.string()),
+    type: types.nullable(types.string()),
+    updatedDate: types.nullable(types.string()),
+  })
+);
 
 export function journalResponseDtoFromJSON(
   jsonString: string,

@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
@@ -283,7 +283,7 @@ export type AddressOffer = {
 /** @internal */
 export const AddressOfferCountryCode$inboundSchema: z.ZodMiniEnum<
   typeof AddressOfferCountryCode
-> = z.enum(AddressOfferCountryCode);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(AddressOfferCountryCode));
 /** @internal */
 export const AddressOfferCountryCode$outboundSchema: z.ZodMiniEnum<
   typeof AddressOfferCountryCode
@@ -292,7 +292,7 @@ export const AddressOfferCountryCode$outboundSchema: z.ZodMiniEnum<
 /** @internal */
 export const AddressOfferType$inboundSchema: z.ZodMiniEnum<
   typeof AddressOfferType
-> = z.enum(AddressOfferType);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(AddressOfferType));
 /** @internal */
 export const AddressOfferType$outboundSchema: z.ZodMiniEnum<
   typeof AddressOfferType
@@ -300,14 +300,18 @@ export const AddressOfferType$outboundSchema: z.ZodMiniEnum<
 
 /** @internal */
 export const AddressOffer$inboundSchema: z.ZodMiniType<AddressOffer, unknown> =
-  z.object({
-    addressLine1: z.optional(z.nullable(types.string())),
-    addressLine2: z.optional(z.nullable(types.string())),
-    city: z.optional(z.nullable(types.string())),
-    countryCode: z.optional(z.nullable(AddressOfferCountryCode$inboundSchema)),
-    postalCode: z.optional(z.nullable(types.string())),
-    type: z.optional(z.nullable(AddressOfferType$inboundSchema)),
-  });
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      addressLine1: z.optional(z.nullable(types.string())),
+      addressLine2: z.optional(z.nullable(types.string())),
+      city: z.optional(z.nullable(types.string())),
+      countryCode: z.optional(
+        z.nullable(AddressOfferCountryCode$inboundSchema),
+      ),
+      postalCode: z.optional(z.nullable(types.string())),
+      type: z.optional(z.nullable(AddressOfferType$inboundSchema)),
+    })
+  );
 /** @internal */
 export type AddressOffer$Outbound = {
   addressLine1?: string | null | undefined;
@@ -322,14 +326,16 @@ export type AddressOffer$Outbound = {
 export const AddressOffer$outboundSchema: z.ZodMiniType<
   AddressOffer$Outbound,
   AddressOffer
-> = z.object({
-  addressLine1: z.optional(z.nullable(z.string())),
-  addressLine2: z.optional(z.nullable(z.string())),
-  city: z.optional(z.nullable(z.string())),
-  countryCode: z.optional(z.nullable(AddressOfferCountryCode$outboundSchema)),
-  postalCode: z.optional(z.nullable(z.string())),
-  type: z.optional(z.nullable(AddressOfferType$outboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    addressLine1: z.optional(z.nullable(z.string())),
+    addressLine2: z.optional(z.nullable(z.string())),
+    city: z.optional(z.nullable(z.string())),
+    countryCode: z.optional(z.nullable(AddressOfferCountryCode$outboundSchema)),
+    postalCode: z.optional(z.nullable(z.string())),
+    type: z.optional(z.nullable(AddressOfferType$outboundSchema)),
+  })
+);
 
 export function addressOfferToJSON(addressOffer: AddressOffer): string {
   return JSON.stringify(AddressOffer$outboundSchema.parse(addressOffer));

@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
@@ -20,13 +20,15 @@ export type DocumentResponseDto = {
 export const DocumentResponseDto$inboundSchema: z.ZodMiniType<
   DocumentResponseDto,
   unknown
-> = z.object({
-  id: types.nullable(types.string()),
-  base64Encoded: types.nullable(types.boolean()),
-  content: types.nullable(types.string()),
-  contentType: types.nullable(types.string()),
-  fileName: types.nullable(types.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: types.nullable(types.string()),
+    base64Encoded: types.nullable(types.boolean()),
+    content: types.nullable(types.string()),
+    contentType: types.nullable(types.string()),
+    fileName: types.nullable(types.string()),
+  })
+);
 
 export function documentResponseDtoFromJSON(
   jsonString: string,

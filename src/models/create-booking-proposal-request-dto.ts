@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import {
   BookingProposalAddress,
   BookingProposalAddress$Outbound,
@@ -87,39 +88,41 @@ export type CreateBookingProposalRequestDto$Outbound = {
 export const CreateBookingProposalRequestDto$outboundSchema: z.ZodMiniType<
   CreateBookingProposalRequestDto$Outbound,
   CreateBookingProposalRequestDto
-> = z.object({
-  id: z.optional(z.string()),
-  accountName: z.optional(z.string()),
-  addresses: z.optional(z.array(BookingProposalAddress$outboundSchema)),
-  bankAccountId: z.optional(z.string()),
-  bankAccountNumber: z.optional(z.number()),
-  bankCode: z.optional(z.string()),
-  bic: z.optional(z.string()),
-  bookingProposalDate: z.string(),
-  contactAccountNumber: z.optional(z.number()),
-  contactId: z.optional(z.string()),
-  contactName: z.optional(z.string()),
-  currency: z.optional(z.string()),
-  deliveryDate: z.optional(z.string()),
-  discountPaymentDate: z.optional(z.string()),
-  discountPaymentDate2: z.optional(z.string()),
-  dueDate: z.optional(z.string()),
-  journalCode: z.optional(z.string()),
-  iban: z.optional(z.string()),
-  isPaymentOrder: z.optional(z.boolean()),
-  ledgerName: z.optional(z.string()),
-  lineItems: z.array(LineItemRequest$outboundSchema),
-  notes: z.optional(z.string()),
-  number: z.optional(z.string()),
-  orderId: z.optional(z.string()),
-  paidDate: z.optional(z.string()),
-  paymentTermsId: z.optional(z.string()),
-  status: z.optional(z.string()),
-  totalGrossAmount: z.optional(z.number()),
-  totalTaxAmount: z.optional(z.number()),
-  useCollectiveContact: z.optional(z.boolean()),
-  vatId: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.optional(z.string()),
+    accountName: z.optional(z.string()),
+    addresses: z.optional(z.array(BookingProposalAddress$outboundSchema)),
+    bankAccountId: z.optional(z.string()),
+    bankAccountNumber: z.optional(z.number()),
+    bankCode: z.optional(z.string()),
+    bic: z.optional(z.string()),
+    bookingProposalDate: z.string(),
+    contactAccountNumber: z.optional(z.number()),
+    contactId: z.optional(z.string()),
+    contactName: z.optional(z.string()),
+    currency: z.optional(z.string()),
+    deliveryDate: z.optional(z.string()),
+    discountPaymentDate: z.optional(z.string()),
+    discountPaymentDate2: z.optional(z.string()),
+    dueDate: z.optional(z.string()),
+    journalCode: z.optional(z.string()),
+    iban: z.optional(z.string()),
+    isPaymentOrder: z.optional(z.boolean()),
+    ledgerName: z.optional(z.string()),
+    lineItems: z.array(LineItemRequest$outboundSchema),
+    notes: z.optional(z.string()),
+    number: z.optional(z.string()),
+    orderId: z.optional(z.string()),
+    paidDate: z.optional(z.string()),
+    paymentTermsId: z.optional(z.string()),
+    status: z.optional(z.string()),
+    totalGrossAmount: z.optional(z.number()),
+    totalTaxAmount: z.optional(z.number()),
+    useCollectiveContact: z.optional(z.boolean()),
+    vatId: z.optional(z.string()),
+  })
+);
 
 export function createBookingProposalRequestDtoToJSON(
   createBookingProposalRequestDto: CreateBookingProposalRequestDto,

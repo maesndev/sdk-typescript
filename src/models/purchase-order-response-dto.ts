@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
@@ -211,40 +211,42 @@ export type PurchaseOrderResponseDto = {
 /** @internal */
 export const PurchaseOrderResponseDtoCurrency$inboundSchema: z.ZodMiniEnum<
   typeof PurchaseOrderResponseDtoCurrency
-> = z.enum(PurchaseOrderResponseDtoCurrency);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(PurchaseOrderResponseDtoCurrency));
 
 /** @internal */
 export const PurchaseOrderResponseDtoStatus$inboundSchema: z.ZodMiniEnum<
   typeof PurchaseOrderResponseDtoStatus
-> = z.enum(PurchaseOrderResponseDtoStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(PurchaseOrderResponseDtoStatus));
 
 /** @internal */
 export const PurchaseOrderResponseDto$inboundSchema: z.ZodMiniType<
   PurchaseOrderResponseDto,
   unknown
-> = z.object({
-  id: types.nullable(types.string()),
-  addresses: types.nullable(z.array(Address$inboundSchema)),
-  approvalDate: types.nullable(types.string()),
-  comment: types.nullable(types.string()),
-  createdDate: types.nullable(types.string()),
-  currency: types.nullable(PurchaseOrderResponseDtoCurrency$inboundSchema),
-  description: types.nullable(types.string()),
-  lineItems: types.nullable(
-    z.array(PurchaseOrderLineItemResponseDto$inboundSchema),
-  ),
-  orderDate: types.nullable(types.string()),
-  paymentTermId: types.nullable(types.string()),
-  reference: types.nullable(types.string()),
-  status: types.nullable(PurchaseOrderResponseDtoStatus$inboundSchema),
-  supplierId: types.nullable(types.string()),
-  totalDiscountAmount: types.nullable(types.number()),
-  totalDiscountPercentage: types.nullable(types.number()),
-  totalGrossAmount: types.nullable(types.number()),
-  totalNetAmount: types.nullable(types.number()),
-  totalTaxAmount: types.nullable(types.number()),
-  updatedDate: types.nullable(types.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: types.nullable(types.string()),
+    addresses: types.nullable(z.array(Address$inboundSchema)),
+    approvalDate: types.nullable(types.string()),
+    comment: types.nullable(types.string()),
+    createdDate: types.nullable(types.string()),
+    currency: types.nullable(PurchaseOrderResponseDtoCurrency$inboundSchema),
+    description: types.nullable(types.string()),
+    lineItems: types.nullable(
+      z.array(PurchaseOrderLineItemResponseDto$inboundSchema),
+    ),
+    orderDate: types.nullable(types.string()),
+    paymentTermId: types.nullable(types.string()),
+    reference: types.nullable(types.string()),
+    status: types.nullable(PurchaseOrderResponseDtoStatus$inboundSchema),
+    supplierId: types.nullable(types.string()),
+    totalDiscountAmount: types.nullable(types.number()),
+    totalDiscountPercentage: types.nullable(types.number()),
+    totalGrossAmount: types.nullable(types.number()),
+    totalNetAmount: types.nullable(types.number()),
+    totalTaxAmount: types.nullable(types.number()),
+    updatedDate: types.nullable(types.string()),
+  })
+);
 
 export function purchaseOrderResponseDtoFromJSON(
   jsonString: string,

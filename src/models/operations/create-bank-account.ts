@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -74,13 +74,15 @@ export type CreateBankAccountRequest$Outbound = {
 export const CreateBankAccountRequest$outboundSchema: z.ZodMiniType<
   CreateBankAccountRequest$Outbound,
   CreateBankAccountRequest
-> = z.object({
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-  body: models.CreateBankAccountRequestDto$outboundSchema,
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+    body: models.CreateBankAccountRequestDto$outboundSchema,
+  })
+);
 
 export function createBankAccountRequestToJSON(
   createBankAccountRequest: CreateBankAccountRequest,
@@ -94,12 +96,14 @@ export function createBankAccountRequestToJSON(
 export const CreateBankAccountPagination$inboundSchema: z.ZodMiniType<
   CreateBankAccountPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function createBankAccountPaginationFromJSON(
   jsonString: string,
@@ -115,15 +119,17 @@ export function createBankAccountPaginationFromJSON(
 export const CreateBankAccountMeta$inboundSchema: z.ZodMiniType<
   CreateBankAccountMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => CreateBankAccountPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => CreateBankAccountPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function createBankAccountMetaFromJSON(
   jsonString: string,
@@ -139,7 +145,7 @@ export function createBankAccountMetaFromJSON(
 export const CreateBankAccountErrors$inboundSchema: z.ZodMiniType<
   CreateBankAccountErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createBankAccountErrorsFromJSON(
   jsonString: string,
@@ -155,7 +161,7 @@ export function createBankAccountErrorsFromJSON(
 export const CreateBankAccountRawData$inboundSchema: z.ZodMiniType<
   CreateBankAccountRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createBankAccountRawDataFromJSON(
   jsonString: string,
@@ -171,14 +177,18 @@ export function createBankAccountRawDataFromJSON(
 export const CreateBankAccountResponse$inboundSchema: z.ZodMiniType<
   CreateBankAccountResponse,
   unknown
-> = z.object({
-  meta: z.optional(
-    z.nullable(z.lazy(() => CreateBankAccountMeta$inboundSchema)),
-  ),
-  data: models.BankAccountResponseDto$inboundSchema,
-  errors: types.nullable(z.lazy(() => CreateBankAccountErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => CreateBankAccountRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => CreateBankAccountMeta$inboundSchema)),
+    ),
+    data: models.BankAccountResponseDto$inboundSchema,
+    errors: types.nullable(z.lazy(() => CreateBankAccountErrors$inboundSchema)),
+    rawData: types.nullable(
+      z.lazy(() => CreateBankAccountRawData$inboundSchema),
+    ),
+  })
+);
 
 export function createBankAccountResponseFromJSON(
   jsonString: string,

@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -71,13 +71,15 @@ export type UpdateCustomerRequest$Outbound = {
 export const UpdateCustomerRequest$outboundSchema: z.ZodMiniType<
   UpdateCustomerRequest$Outbound,
   UpdateCustomerRequest
-> = z.object({
-  contactId: z.string(),
-  companyId: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-  body: models.CreateContactRequestDto$outboundSchema,
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    contactId: z.string(),
+    companyId: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+    body: models.CreateContactRequestDto$outboundSchema,
+  })
+);
 
 export function updateCustomerRequestToJSON(
   updateCustomerRequest: UpdateCustomerRequest,
@@ -91,12 +93,14 @@ export function updateCustomerRequestToJSON(
 export const UpdateCustomerPagination$inboundSchema: z.ZodMiniType<
   UpdateCustomerPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function updateCustomerPaginationFromJSON(
   jsonString: string,
@@ -112,15 +116,17 @@ export function updateCustomerPaginationFromJSON(
 export const UpdateCustomerMeta$inboundSchema: z.ZodMiniType<
   UpdateCustomerMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => UpdateCustomerPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => UpdateCustomerPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function updateCustomerMetaFromJSON(
   jsonString: string,
@@ -136,7 +142,7 @@ export function updateCustomerMetaFromJSON(
 export const UpdateCustomerErrors$inboundSchema: z.ZodMiniType<
   UpdateCustomerErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function updateCustomerErrorsFromJSON(
   jsonString: string,
@@ -152,7 +158,7 @@ export function updateCustomerErrorsFromJSON(
 export const UpdateCustomerRawData$inboundSchema: z.ZodMiniType<
   UpdateCustomerRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function updateCustomerRawDataFromJSON(
   jsonString: string,
@@ -168,12 +174,16 @@ export function updateCustomerRawDataFromJSON(
 export const UpdateCustomerResponse$inboundSchema: z.ZodMiniType<
   UpdateCustomerResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => UpdateCustomerMeta$inboundSchema))),
-  data: models.ContactResponseDto$inboundSchema,
-  errors: types.nullable(z.lazy(() => UpdateCustomerErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => UpdateCustomerRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => UpdateCustomerMeta$inboundSchema)),
+    ),
+    data: models.ContactResponseDto$inboundSchema,
+    errors: types.nullable(z.lazy(() => UpdateCustomerErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => UpdateCustomerRawData$inboundSchema)),
+  })
+);
 
 export function updateCustomerResponseFromJSON(
   jsonString: string,

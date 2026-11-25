@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -67,11 +67,13 @@ export type GetCompaniesRequest$Outbound = {
 export const GetCompaniesRequest$outboundSchema: z.ZodMiniType<
   GetCompaniesRequest$Outbound,
   GetCompaniesRequest
-> = z.object({
-  environmentName: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    environmentName: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getCompaniesRequestToJSON(
   getCompaniesRequest: GetCompaniesRequest,
@@ -85,12 +87,14 @@ export function getCompaniesRequestToJSON(
 export const GetCompaniesPagination$inboundSchema: z.ZodMiniType<
   GetCompaniesPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getCompaniesPaginationFromJSON(
   jsonString: string,
@@ -106,15 +110,17 @@ export function getCompaniesPaginationFromJSON(
 export const GetCompaniesMeta$inboundSchema: z.ZodMiniType<
   GetCompaniesMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => GetCompaniesPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => GetCompaniesPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function getCompaniesMetaFromJSON(
   jsonString: string,
@@ -130,7 +136,7 @@ export function getCompaniesMetaFromJSON(
 export const GetCompaniesErrors$inboundSchema: z.ZodMiniType<
   GetCompaniesErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getCompaniesErrorsFromJSON(
   jsonString: string,
@@ -146,7 +152,7 @@ export function getCompaniesErrorsFromJSON(
 export const GetCompaniesRawData$inboundSchema: z.ZodMiniType<
   GetCompaniesRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getCompaniesRawDataFromJSON(
   jsonString: string,
@@ -162,12 +168,14 @@ export function getCompaniesRawDataFromJSON(
 export const GetCompaniesResponse$inboundSchema: z.ZodMiniType<
   GetCompaniesResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => GetCompaniesMeta$inboundSchema))),
-  data: z.array(models.CompanyResponseDto$inboundSchema),
-  errors: types.nullable(z.lazy(() => GetCompaniesErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => GetCompaniesRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(z.nullable(z.lazy(() => GetCompaniesMeta$inboundSchema))),
+    data: z.array(models.CompanyResponseDto$inboundSchema),
+    errors: types.nullable(z.lazy(() => GetCompaniesErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => GetCompaniesRawData$inboundSchema)),
+  })
+);
 
 export function getCompaniesResponseFromJSON(
   jsonString: string,

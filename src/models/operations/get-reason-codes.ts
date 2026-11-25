@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
@@ -83,7 +83,7 @@ export type GetReasonCodesResponse = {
 /** @internal */
 export const GetReasonCodesLimit$outboundSchema: z.ZodMiniEnum<
   typeof GetReasonCodesLimit
-> = z.enum(GetReasonCodesLimit);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(GetReasonCodesLimit));
 
 /** @internal */
 export type GetReasonCodesRequest$Outbound = {
@@ -101,16 +101,18 @@ export type GetReasonCodesRequest$Outbound = {
 export const GetReasonCodesRequest$outboundSchema: z.ZodMiniType<
   GetReasonCodesRequest$Outbound,
   GetReasonCodesRequest
-> = z.object({
-  page: z.optional(z.number()),
-  limit: z.optional(GetReasonCodesLimit$outboundSchema),
-  lastModifiedAt: z.optional(z.string()),
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  rawData: z.optional(z.boolean()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    page: z.optional(z.number()),
+    limit: z.optional(GetReasonCodesLimit$outboundSchema),
+    lastModifiedAt: z.optional(z.string()),
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    rawData: z.optional(z.boolean()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getReasonCodesRequestToJSON(
   getReasonCodesRequest: GetReasonCodesRequest,
@@ -124,12 +126,14 @@ export function getReasonCodesRequestToJSON(
 export const GetReasonCodesPagination$inboundSchema: z.ZodMiniType<
   GetReasonCodesPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getReasonCodesPaginationFromJSON(
   jsonString: string,
@@ -145,15 +149,17 @@ export function getReasonCodesPaginationFromJSON(
 export const GetReasonCodesMeta$inboundSchema: z.ZodMiniType<
   GetReasonCodesMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => GetReasonCodesPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => GetReasonCodesPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function getReasonCodesMetaFromJSON(
   jsonString: string,
@@ -169,7 +175,7 @@ export function getReasonCodesMetaFromJSON(
 export const GetReasonCodesErrors$inboundSchema: z.ZodMiniType<
   GetReasonCodesErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getReasonCodesErrorsFromJSON(
   jsonString: string,
@@ -185,7 +191,7 @@ export function getReasonCodesErrorsFromJSON(
 export const GetReasonCodesRawData$inboundSchema: z.ZodMiniType<
   GetReasonCodesRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getReasonCodesRawDataFromJSON(
   jsonString: string,
@@ -201,12 +207,16 @@ export function getReasonCodesRawDataFromJSON(
 export const GetReasonCodesResponse$inboundSchema: z.ZodMiniType<
   GetReasonCodesResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => GetReasonCodesMeta$inboundSchema))),
-  data: z.array(models.ReasonCodeResponseDto$inboundSchema),
-  errors: types.nullable(z.lazy(() => GetReasonCodesErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => GetReasonCodesRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => GetReasonCodesMeta$inboundSchema)),
+    ),
+    data: z.array(models.ReasonCodeResponseDto$inboundSchema),
+    errors: types.nullable(z.lazy(() => GetReasonCodesErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => GetReasonCodesRawData$inboundSchema)),
+  })
+);
 
 export function getReasonCodesResponseFromJSON(
   jsonString: string,

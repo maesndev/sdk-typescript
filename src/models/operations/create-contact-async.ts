@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -64,11 +64,13 @@ export type CreateContactAsyncRequest$Outbound = {
 export const CreateContactAsyncRequest$outboundSchema: z.ZodMiniType<
   CreateContactAsyncRequest$Outbound,
   CreateContactAsyncRequest
-> = z.object({
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-  body: models.CreateContactRequestDtoV2$outboundSchema,
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+    body: models.CreateContactRequestDtoV2$outboundSchema,
+  })
+);
 
 export function createContactAsyncRequestToJSON(
   createContactAsyncRequest: CreateContactAsyncRequest,
@@ -82,12 +84,14 @@ export function createContactAsyncRequestToJSON(
 export const CreateContactAsyncPagination$inboundSchema: z.ZodMiniType<
   CreateContactAsyncPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function createContactAsyncPaginationFromJSON(
   jsonString: string,
@@ -103,15 +107,17 @@ export function createContactAsyncPaginationFromJSON(
 export const CreateContactAsyncMeta$inboundSchema: z.ZodMiniType<
   CreateContactAsyncMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => CreateContactAsyncPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => CreateContactAsyncPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function createContactAsyncMetaFromJSON(
   jsonString: string,
@@ -127,7 +133,7 @@ export function createContactAsyncMetaFromJSON(
 export const CreateContactAsyncErrors$inboundSchema: z.ZodMiniType<
   CreateContactAsyncErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createContactAsyncErrorsFromJSON(
   jsonString: string,
@@ -143,7 +149,7 @@ export function createContactAsyncErrorsFromJSON(
 export const CreateContactAsyncRawData$inboundSchema: z.ZodMiniType<
   CreateContactAsyncRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createContactAsyncRawDataFromJSON(
   jsonString: string,
@@ -159,16 +165,20 @@ export function createContactAsyncRawDataFromJSON(
 export const CreateContactAsyncResponse$inboundSchema: z.ZodMiniType<
   CreateContactAsyncResponse,
   unknown
-> = z.object({
-  meta: z.optional(
-    z.nullable(z.lazy(() => CreateContactAsyncMeta$inboundSchema)),
-  ),
-  data: models.TaskIdResponseDto$inboundSchema,
-  errors: types.nullable(z.lazy(() => CreateContactAsyncErrors$inboundSchema)),
-  rawData: types.nullable(
-    z.lazy(() => CreateContactAsyncRawData$inboundSchema),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => CreateContactAsyncMeta$inboundSchema)),
+    ),
+    data: models.TaskIdResponseDto$inboundSchema,
+    errors: types.nullable(
+      z.lazy(() => CreateContactAsyncErrors$inboundSchema),
+    ),
+    rawData: types.nullable(
+      z.lazy(() => CreateContactAsyncRawData$inboundSchema),
+    ),
+  })
+);
 
 export function createContactAsyncResponseFromJSON(
   jsonString: string,

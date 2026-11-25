@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
@@ -86,7 +86,7 @@ export type GetDimensionsByDimensionV2Response = {
 /** @internal */
 export const GetDimensionsByDimensionV2Limit$outboundSchema: z.ZodMiniEnum<
   typeof GetDimensionsByDimensionV2Limit
-> = z.enum(GetDimensionsByDimensionV2Limit);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(GetDimensionsByDimensionV2Limit));
 
 /** @internal */
 export type GetDimensionsByDimensionV2Request$Outbound = {
@@ -105,17 +105,19 @@ export type GetDimensionsByDimensionV2Request$Outbound = {
 export const GetDimensionsByDimensionV2Request$outboundSchema: z.ZodMiniType<
   GetDimensionsByDimensionV2Request$Outbound,
   GetDimensionsByDimensionV2Request
-> = z.object({
-  dimension: z.string(),
-  page: z.optional(z.number()),
-  limit: z.optional(GetDimensionsByDimensionV2Limit$outboundSchema),
-  lastModifiedAt: z.optional(z.string()),
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  rawData: z.optional(z.boolean()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    dimension: z.string(),
+    page: z.optional(z.number()),
+    limit: z.optional(GetDimensionsByDimensionV2Limit$outboundSchema),
+    lastModifiedAt: z.optional(z.string()),
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    rawData: z.optional(z.boolean()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getDimensionsByDimensionV2RequestToJSON(
   getDimensionsByDimensionV2Request: GetDimensionsByDimensionV2Request,
@@ -131,12 +133,14 @@ export function getDimensionsByDimensionV2RequestToJSON(
 export const GetDimensionsByDimensionV2Pagination$inboundSchema: z.ZodMiniType<
   GetDimensionsByDimensionV2Pagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getDimensionsByDimensionV2PaginationFromJSON(
   jsonString: string,
@@ -153,17 +157,17 @@ export function getDimensionsByDimensionV2PaginationFromJSON(
 export const GetDimensionsByDimensionV2Meta$inboundSchema: z.ZodMiniType<
   GetDimensionsByDimensionV2Meta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(
-      z.lazy(() => GetDimensionsByDimensionV2Pagination$inboundSchema),
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(z.nullable(z.lazy(() =>
+      GetDimensionsByDimensionV2Pagination$inboundSchema
+    ))),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
     ),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+  })
+);
 
 export function getDimensionsByDimensionV2MetaFromJSON(
   jsonString: string,
@@ -179,7 +183,7 @@ export function getDimensionsByDimensionV2MetaFromJSON(
 export const GetDimensionsByDimensionV2Errors$inboundSchema: z.ZodMiniType<
   GetDimensionsByDimensionV2Errors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getDimensionsByDimensionV2ErrorsFromJSON(
   jsonString: string,
@@ -195,7 +199,7 @@ export function getDimensionsByDimensionV2ErrorsFromJSON(
 export const GetDimensionsByDimensionV2RawData$inboundSchema: z.ZodMiniType<
   GetDimensionsByDimensionV2RawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getDimensionsByDimensionV2RawDataFromJSON(
   jsonString: string,
@@ -211,18 +215,20 @@ export function getDimensionsByDimensionV2RawDataFromJSON(
 export const GetDimensionsByDimensionV2Response$inboundSchema: z.ZodMiniType<
   GetDimensionsByDimensionV2Response,
   unknown
-> = z.object({
-  meta: z.optional(
-    z.nullable(z.lazy(() => GetDimensionsByDimensionV2Meta$inboundSchema)),
-  ),
-  data: z.array(models.DimensionMetaResponseDto$inboundSchema),
-  errors: types.nullable(
-    z.lazy(() => GetDimensionsByDimensionV2Errors$inboundSchema),
-  ),
-  rawData: types.nullable(
-    z.lazy(() => GetDimensionsByDimensionV2RawData$inboundSchema),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => GetDimensionsByDimensionV2Meta$inboundSchema)),
+    ),
+    data: z.array(models.DimensionMetaResponseDto$inboundSchema),
+    errors: types.nullable(
+      z.lazy(() => GetDimensionsByDimensionV2Errors$inboundSchema),
+    ),
+    rawData: types.nullable(
+      z.lazy(() => GetDimensionsByDimensionV2RawData$inboundSchema),
+    ),
+  })
+);
 
 export function getDimensionsByDimensionV2ResponseFromJSON(
   jsonString: string,

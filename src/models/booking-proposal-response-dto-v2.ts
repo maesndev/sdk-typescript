@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
@@ -93,14 +93,17 @@ export type BookingProposalResponseDtoV2 = {
 
 /** @internal */
 export const BookingProposalResponseDtoV2BankAccount$inboundSchema:
-  z.ZodMiniType<BookingProposalResponseDtoV2BankAccount, unknown> = z.object({
-    id: types.nullable(types.string()),
-    bankName: types.nullable(types.string()),
-    bic: types.nullable(types.string()),
-    code: types.nullable(types.string()),
-    iban: types.nullable(types.string()),
-    number: types.nullable(types.number()),
-  });
+  z.ZodMiniType<BookingProposalResponseDtoV2BankAccount, unknown> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.object({
+        id: types.nullable(types.string()),
+        bankName: types.nullable(types.string()),
+        bic: types.nullable(types.string()),
+        code: types.nullable(types.string()),
+        iban: types.nullable(types.string()),
+        number: types.nullable(types.number()),
+      })
+    );
 
 export function bookingProposalResponseDtoV2BankAccountFromJSON(
   jsonString: string,
@@ -120,16 +123,20 @@ export function bookingProposalResponseDtoV2BankAccountFromJSON(
 
 /** @internal */
 export const BookingProposalResponseDtoV2BookingType$inboundSchema:
-  z.ZodMiniEnum<typeof BookingProposalResponseDtoV2BookingType> = z.enum(
-    BookingProposalResponseDtoV2BookingType,
-  );
+  z.ZodMiniEnum<typeof BookingProposalResponseDtoV2BookingType> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.enum(BookingProposalResponseDtoV2BookingType)
+    );
 
 /** @internal */
-export const Contact$inboundSchema: z.ZodMiniType<Contact, unknown> = z.object({
-  id: types.nullable(types.string()),
-  accountNumber: types.nullable(types.number()),
-  name: types.nullable(types.string()),
-});
+export const Contact$inboundSchema: z.ZodMiniType<Contact, unknown> =
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      id: types.nullable(types.string()),
+      accountNumber: types.nullable(types.number()),
+      name: types.nullable(types.string()),
+    })
+  );
 
 export function contactFromJSON(
   jsonString: string,
@@ -144,49 +151,53 @@ export function contactFromJSON(
 /** @internal */
 export const BookingProposalResponseDtoV2Status$inboundSchema: z.ZodMiniEnum<
   typeof BookingProposalResponseDtoV2Status
-> = z.enum(BookingProposalResponseDtoV2Status);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.enum(BookingProposalResponseDtoV2Status)
+);
 
 /** @internal */
 export const BookingProposalResponseDtoV2$inboundSchema: z.ZodMiniType<
   BookingProposalResponseDtoV2,
   unknown
-> = z.object({
-  id: types.nullable(types.string()),
-  addresses: types.nullable(
-    z.array(BookingProposalAddressResponseDtoV2$inboundSchema),
-  ),
-  bankAccount: types.nullable(
-    z.lazy(() => BookingProposalResponseDtoV2BankAccount$inboundSchema),
-  ),
-  bookingProposalDate: types.nullable(types.string()),
-  bookingType: types.nullable(
-    BookingProposalResponseDtoV2BookingType$inboundSchema,
-  ),
-  contact: types.nullable(z.lazy(() => Contact$inboundSchema)),
-  createdDate: types.nullable(types.string()),
-  currency: types.nullable(types.string()),
-  deliveryDate: types.nullable(types.string()),
-  discountPaymentDate: types.nullable(types.string()),
-  discountPaymentDate2: types.nullable(types.string()),
-  dueDate: types.nullable(types.string()),
-  files: types.nullable(z.array(types.string())),
-  generatorName: types.nullable(types.string()),
-  journalCode: types.nullable(types.string()),
-  isPaymentOrder: types.nullable(types.boolean()),
-  ledgerName: types.nullable(types.string()),
-  lineItems: types.nullable(
-    z.array(BookingProposalLineItemResponseDtoV2$inboundSchema),
-  ),
-  notes: types.nullable(types.string()),
-  number: types.nullable(types.string()),
-  orderId: types.nullable(types.string()),
-  paidDate: types.nullable(types.string()),
-  paymentTermId: types.nullable(types.string()),
-  status: types.nullable(BookingProposalResponseDtoV2Status$inboundSchema),
-  totalGrossAmount: types.nullable(types.number()),
-  updatedDate: types.nullable(types.string()),
-  vatId: types.nullable(types.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: types.nullable(types.string()),
+    addresses: types.nullable(
+      z.array(BookingProposalAddressResponseDtoV2$inboundSchema),
+    ),
+    bankAccount: types.nullable(
+      z.lazy(() => BookingProposalResponseDtoV2BankAccount$inboundSchema),
+    ),
+    bookingProposalDate: types.nullable(types.string()),
+    bookingType: types.nullable(
+      BookingProposalResponseDtoV2BookingType$inboundSchema,
+    ),
+    contact: types.nullable(z.lazy(() => Contact$inboundSchema)),
+    createdDate: types.nullable(types.string()),
+    currency: types.nullable(types.string()),
+    deliveryDate: types.nullable(types.string()),
+    discountPaymentDate: types.nullable(types.string()),
+    discountPaymentDate2: types.nullable(types.string()),
+    dueDate: types.nullable(types.string()),
+    files: types.nullable(z.array(types.string())),
+    generatorName: types.nullable(types.string()),
+    journalCode: types.nullable(types.string()),
+    isPaymentOrder: types.nullable(types.boolean()),
+    ledgerName: types.nullable(types.string()),
+    lineItems: types.nullable(
+      z.array(BookingProposalLineItemResponseDtoV2$inboundSchema),
+    ),
+    notes: types.nullable(types.string()),
+    number: types.nullable(types.string()),
+    orderId: types.nullable(types.string()),
+    paidDate: types.nullable(types.string()),
+    paymentTermId: types.nullable(types.string()),
+    status: types.nullable(BookingProposalResponseDtoV2Status$inboundSchema),
+    totalGrossAmount: types.nullable(types.number()),
+    updatedDate: types.nullable(types.string()),
+    vatId: types.nullable(types.string()),
+  })
+);
 
 export function bookingProposalResponseDtoV2FromJSON(
   jsonString: string,

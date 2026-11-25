@@ -37,7 +37,9 @@ import { accountingCreateSupplier } from "../funcs/accounting-create-supplier.js
 import { accountingCreateTransaction } from "../funcs/accounting-create-transaction.js";
 import { accountingCreateVendorCredit } from "../funcs/accounting-create-vendor-credit.js";
 import { accountingDeleteBill } from "../funcs/accounting-delete-bill.js";
+import { accountingDeleteContact } from "../funcs/accounting-delete-contact.js";
 import { accountingDeleteEventSubscriptions } from "../funcs/accounting-delete-event-subscriptions.js";
+import { accountingDeleteInvoice } from "../funcs/accounting-delete-invoice.js";
 import { accountingDeleteItem } from "../funcs/accounting-delete-item.js";
 import { accountingDeleteJournalEntry } from "../funcs/accounting-delete-journal-entry.js";
 import { accountingDeleteOffer } from "../funcs/accounting-delete-offer.js";
@@ -122,6 +124,7 @@ import { accountingGetToleranceLimits } from "../funcs/accounting-get-tolerance-
 import { accountingGetTrialBalance } from "../funcs/accounting-get-trial-balance.js";
 import { accountingGetUnits } from "../funcs/accounting-get-units.js";
 import { accountingGetVendorCredits } from "../funcs/accounting-get-vendor-credits.js";
+import { accountingPatchBankAccount } from "../funcs/accounting-patch-bank-account.js";
 import { accountingPatchContact } from "../funcs/accounting-patch-contact.js";
 import { accountingPatchCustomers } from "../funcs/accounting-patch-customers.js";
 import { accountingPatchInvoice } from "../funcs/accounting-patch-invoice.js";
@@ -208,6 +211,17 @@ export class Accounting extends ClientSDK {
     options?: RequestOptions,
   ): Promise<operations.GetBankAccountResponse> {
     return unwrapAsync(accountingGetBankAccount(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  async patchBankAccount(
+    request: operations.PatchBankAccountRequest,
+    options?: RequestOptions,
+  ): Promise<operations.PatchBankAccountResponse> {
+    return unwrapAsync(accountingPatchBankAccount(
       this,
       request,
       options,
@@ -434,6 +448,17 @@ export class Accounting extends ClientSDK {
     ));
   }
 
+  async deleteContact(
+    request: operations.DeleteContactRequest,
+    options?: RequestOptions,
+  ): Promise<operations.DeleteContactResponse> {
+    return unwrapAsync(accountingDeleteContact(
+      this,
+      request,
+      options,
+    ));
+  }
+
   async getContactAsync(
     request: operations.GetContactAsyncRequest,
     options?: RequestOptions,
@@ -505,6 +530,17 @@ export class Accounting extends ClientSDK {
     options?: RequestOptions,
   ): Promise<operations.PatchInvoiceResponse> {
     return unwrapAsync(accountingPatchInvoice(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  async deleteInvoice(
+    request: operations.DeleteInvoiceRequest,
+    options?: RequestOptions,
+  ): Promise<operations.DeleteInvoiceResponse> {
+    return unwrapAsync(accountingDeleteInvoice(
       this,
       request,
       options,

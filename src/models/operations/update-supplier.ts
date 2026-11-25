@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -71,13 +71,15 @@ export type UpdateSupplierRequest$Outbound = {
 export const UpdateSupplierRequest$outboundSchema: z.ZodMiniType<
   UpdateSupplierRequest$Outbound,
   UpdateSupplierRequest
-> = z.object({
-  contactId: z.string(),
-  companyId: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-  body: models.CreateContactRequestDto$outboundSchema,
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    contactId: z.string(),
+    companyId: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+    body: models.CreateContactRequestDto$outboundSchema,
+  })
+);
 
 export function updateSupplierRequestToJSON(
   updateSupplierRequest: UpdateSupplierRequest,
@@ -91,12 +93,14 @@ export function updateSupplierRequestToJSON(
 export const UpdateSupplierPagination$inboundSchema: z.ZodMiniType<
   UpdateSupplierPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function updateSupplierPaginationFromJSON(
   jsonString: string,
@@ -112,15 +116,17 @@ export function updateSupplierPaginationFromJSON(
 export const UpdateSupplierMeta$inboundSchema: z.ZodMiniType<
   UpdateSupplierMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => UpdateSupplierPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => UpdateSupplierPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function updateSupplierMetaFromJSON(
   jsonString: string,
@@ -136,7 +142,7 @@ export function updateSupplierMetaFromJSON(
 export const UpdateSupplierErrors$inboundSchema: z.ZodMiniType<
   UpdateSupplierErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function updateSupplierErrorsFromJSON(
   jsonString: string,
@@ -152,7 +158,7 @@ export function updateSupplierErrorsFromJSON(
 export const UpdateSupplierRawData$inboundSchema: z.ZodMiniType<
   UpdateSupplierRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function updateSupplierRawDataFromJSON(
   jsonString: string,
@@ -168,12 +174,16 @@ export function updateSupplierRawDataFromJSON(
 export const UpdateSupplierResponse$inboundSchema: z.ZodMiniType<
   UpdateSupplierResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => UpdateSupplierMeta$inboundSchema))),
-  data: models.ContactResponseDto$inboundSchema,
-  errors: types.nullable(z.lazy(() => UpdateSupplierErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => UpdateSupplierRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => UpdateSupplierMeta$inboundSchema)),
+    ),
+    data: models.ContactResponseDto$inboundSchema,
+    errors: types.nullable(z.lazy(() => UpdateSupplierErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => UpdateSupplierRawData$inboundSchema)),
+  })
+);
 
 export function updateSupplierResponseFromJSON(
   jsonString: string,

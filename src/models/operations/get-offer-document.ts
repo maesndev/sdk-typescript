@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -74,13 +74,15 @@ export type GetOfferDocumentRequest$Outbound = {
 export const GetOfferDocumentRequest$outboundSchema: z.ZodMiniType<
   GetOfferDocumentRequest$Outbound,
   GetOfferDocumentRequest
-> = z.object({
-  offerId: z.string(),
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    offerId: z.string(),
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getOfferDocumentRequestToJSON(
   getOfferDocumentRequest: GetOfferDocumentRequest,
@@ -94,12 +96,14 @@ export function getOfferDocumentRequestToJSON(
 export const GetOfferDocumentPagination$inboundSchema: z.ZodMiniType<
   GetOfferDocumentPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getOfferDocumentPaginationFromJSON(
   jsonString: string,
@@ -115,15 +119,17 @@ export function getOfferDocumentPaginationFromJSON(
 export const GetOfferDocumentMeta$inboundSchema: z.ZodMiniType<
   GetOfferDocumentMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => GetOfferDocumentPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => GetOfferDocumentPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function getOfferDocumentMetaFromJSON(
   jsonString: string,
@@ -139,7 +145,7 @@ export function getOfferDocumentMetaFromJSON(
 export const GetOfferDocumentErrors$inboundSchema: z.ZodMiniType<
   GetOfferDocumentErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getOfferDocumentErrorsFromJSON(
   jsonString: string,
@@ -155,7 +161,7 @@ export function getOfferDocumentErrorsFromJSON(
 export const GetOfferDocumentRawData$inboundSchema: z.ZodMiniType<
   GetOfferDocumentRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getOfferDocumentRawDataFromJSON(
   jsonString: string,
@@ -171,14 +177,18 @@ export function getOfferDocumentRawDataFromJSON(
 export const GetOfferDocumentResponse$inboundSchema: z.ZodMiniType<
   GetOfferDocumentResponse,
   unknown
-> = z.object({
-  meta: z.optional(
-    z.nullable(z.lazy(() => GetOfferDocumentMeta$inboundSchema)),
-  ),
-  data: models.DocumentResponseDto$inboundSchema,
-  errors: types.nullable(z.lazy(() => GetOfferDocumentErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => GetOfferDocumentRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => GetOfferDocumentMeta$inboundSchema)),
+    ),
+    data: models.DocumentResponseDto$inboundSchema,
+    errors: types.nullable(z.lazy(() => GetOfferDocumentErrors$inboundSchema)),
+    rawData: types.nullable(
+      z.lazy(() => GetOfferDocumentRawData$inboundSchema),
+    ),
+  })
+);
 
 export function getOfferDocumentResponseFromJSON(
   jsonString: string,

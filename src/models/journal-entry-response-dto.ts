@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
@@ -256,23 +256,26 @@ export type JournalEntryResponseDto = {
 
 /** @internal */
 export const JournalEntryResponseDtoAccountingReason$inboundSchema:
-  z.ZodMiniEnum<typeof JournalEntryResponseDtoAccountingReason> = z.enum(
-    JournalEntryResponseDtoAccountingReason,
-  );
+  z.ZodMiniEnum<typeof JournalEntryResponseDtoAccountingReason> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.enum(JournalEntryResponseDtoAccountingReason)
+    );
 
 /** @internal */
 export const JournalEntryResponseDtoType$inboundSchema: z.ZodMiniEnum<
   typeof JournalEntryResponseDtoType
-> = z.enum(JournalEntryResponseDtoType);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(JournalEntryResponseDtoType));
 
 /** @internal */
 export const AdvancePayment$inboundSchema: z.ZodMiniType<
   AdvancePayment,
   unknown
-> = z.object({
-  orderNumber: types.nullable(types.string()),
-  type: types.nullable(JournalEntryResponseDtoType$inboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    orderNumber: types.nullable(types.string()),
+    type: types.nullable(JournalEntryResponseDtoType$inboundSchema),
+  })
+);
 
 export function advancePaymentFromJSON(
   jsonString: string,
@@ -287,57 +290,62 @@ export function advancePaymentFromJSON(
 /** @internal */
 export const JournalEntryResponseDtoCurrency$inboundSchema: z.ZodMiniEnum<
   typeof JournalEntryResponseDtoCurrency
-> = z.enum(JournalEntryResponseDtoCurrency);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(JournalEntryResponseDtoCurrency));
 
 /** @internal */
 export const JournalEntryResponseDtoDebitCreditIndicator$inboundSchema:
-  z.ZodMiniEnum<typeof JournalEntryResponseDtoDebitCreditIndicator> = z.enum(
-    JournalEntryResponseDtoDebitCreditIndicator,
-  );
+  z.ZodMiniEnum<typeof JournalEntryResponseDtoDebitCreditIndicator> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.enum(JournalEntryResponseDtoDebitCreditIndicator)
+    );
 
 /** @internal */
 export const JournalEntryResponseDtoRecordType$inboundSchema: z.ZodMiniEnum<
   typeof JournalEntryResponseDtoRecordType
-> = z.enum(JournalEntryResponseDtoRecordType);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.enum(JournalEntryResponseDtoRecordType)
+);
 
 /** @internal */
 export const JournalEntryResponseDto$inboundSchema: z.ZodMiniType<
   JournalEntryResponseDto,
   unknown
-> = z.object({
-  id: types.nullable(types.string()),
-  accountId: types.nullable(types.string()),
-  accountingPeriodId: types.nullable(types.string()),
-  accountingReason: types.nullable(
-    JournalEntryResponseDtoAccountingReason$inboundSchema,
-  ),
-  additionalInformation: z.optional(z.nullable(types.string())),
-  advancePayment: z.optional(
-    z.nullable(z.lazy(() => AdvancePayment$inboundSchema)),
-  ),
-  createdDate: types.nullable(types.string()),
-  currency: types.nullable(JournalEntryResponseDtoCurrency$inboundSchema),
-  debitCreditIndicator: z.optional(
-    z.nullable(JournalEntryResponseDtoDebitCreditIndicator$inboundSchema),
-  ),
-  deliveryDate: z.optional(z.nullable(types.string())),
-  description: types.nullable(types.string()),
-  documentId: types.nullable(types.string()),
-  dueDate: z.optional(z.nullable(types.string())),
-  exchangeRate: types.nullable(types.string()),
-  files: types.nullable(z.array(types.string())),
-  isProvisional: types.nullable(types.boolean()),
-  isReversal: types.nullable(types.boolean()),
-  journalCode: types.nullable(types.string()),
-  journalLineItems: types.nullable(z.array(JournalLineItem$inboundSchema)),
-  journalType: types.nullable(types.string()),
-  number: types.nullable(types.string()),
-  recordType: types.nullable(JournalEntryResponseDtoRecordType$inboundSchema),
-  taxAssignmentDate: z.optional(z.nullable(types.string())),
-  transactionDate: types.nullable(types.string()),
-  updatedDate: types.nullable(types.string()),
-  version: types.nullable(types.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: types.nullable(types.string()),
+    accountId: types.nullable(types.string()),
+    accountingPeriodId: types.nullable(types.string()),
+    accountingReason: types.nullable(
+      JournalEntryResponseDtoAccountingReason$inboundSchema,
+    ),
+    additionalInformation: z.optional(z.nullable(types.string())),
+    advancePayment: z.optional(
+      z.nullable(z.lazy(() => AdvancePayment$inboundSchema)),
+    ),
+    createdDate: types.nullable(types.string()),
+    currency: types.nullable(JournalEntryResponseDtoCurrency$inboundSchema),
+    debitCreditIndicator: z.optional(
+      z.nullable(JournalEntryResponseDtoDebitCreditIndicator$inboundSchema),
+    ),
+    deliveryDate: z.optional(z.nullable(types.string())),
+    description: types.nullable(types.string()),
+    documentId: types.nullable(types.string()),
+    dueDate: z.optional(z.nullable(types.string())),
+    exchangeRate: types.nullable(types.string()),
+    files: types.nullable(z.array(types.string())),
+    isProvisional: types.nullable(types.boolean()),
+    isReversal: types.nullable(types.boolean()),
+    journalCode: types.nullable(types.string()),
+    journalLineItems: types.nullable(z.array(JournalLineItem$inboundSchema)),
+    journalType: types.nullable(types.string()),
+    number: types.nullable(types.string()),
+    recordType: types.nullable(JournalEntryResponseDtoRecordType$inboundSchema),
+    taxAssignmentDate: z.optional(z.nullable(types.string())),
+    transactionDate: types.nullable(types.string()),
+    updatedDate: types.nullable(types.string()),
+    version: types.nullable(types.string()),
+  })
+);
 
 export function journalEntryResponseDtoFromJSON(
   jsonString: string,

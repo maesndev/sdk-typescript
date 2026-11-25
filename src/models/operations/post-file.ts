@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { blobLikeSchema } from "../../types/blobs.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
@@ -85,15 +85,17 @@ export type PostFileFile$Outbound = {
 export const PostFileFile$outboundSchema: z.ZodMiniType<
   PostFileFile$Outbound,
   PostFileFile
-> = z.object({
-  fileName: z.string(),
-  content: z.union([
-    z.custom<ReadableStream<Uint8Array>>(x => x instanceof ReadableStream),
-    z.custom<Blob>(x => x instanceof Blob),
-    z.custom<ArrayBuffer>(x => x instanceof ArrayBuffer),
-    z.custom<Uint8Array>(x => x instanceof Uint8Array),
-  ]),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    fileName: z.string(),
+    content: z.union([
+      z.custom<ReadableStream<Uint8Array>>(x => x instanceof ReadableStream),
+      z.custom<Blob>(x => x instanceof Blob),
+      z.custom<ArrayBuffer>(x => x instanceof ArrayBuffer),
+      z.custom<Uint8Array>(x => x instanceof Uint8Array),
+    ]),
+  })
+);
 
 export function postFileFileToJSON(postFileFile: PostFileFile): string {
   return JSON.stringify(PostFileFile$outboundSchema.parse(postFileFile));
@@ -116,19 +118,21 @@ export type PostFileRequestBody$Outbound = {
 export const PostFileRequestBody$outboundSchema: z.ZodMiniType<
   PostFileRequestBody$Outbound,
   PostFileRequestBody
-> = z.object({
-  file: z.optional(
-    z.union([z.lazy(() => PostFileFile$outboundSchema), blobLikeSchema]),
-  ),
-  contactId: z.optional(z.string()),
-  documentDate: z.optional(z.string()),
-  documentId: z.optional(z.string()),
-  documentType: z.optional(z.string()),
-  integrationSource: z.optional(z.string()),
-  note: z.optional(z.string()),
-  resourceId: z.optional(z.string()),
-  folderName: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    file: z.optional(
+      z.union([z.lazy(() => PostFileFile$outboundSchema), blobLikeSchema]),
+    ),
+    contactId: z.optional(z.string()),
+    documentDate: z.optional(z.string()),
+    documentId: z.optional(z.string()),
+    documentType: z.optional(z.string()),
+    integrationSource: z.optional(z.string()),
+    note: z.optional(z.string()),
+    resourceId: z.optional(z.string()),
+    folderName: z.optional(z.string()),
+  })
+);
 
 export function postFileRequestBodyToJSON(
   postFileRequestBody: PostFileRequestBody,
@@ -150,12 +154,14 @@ export type PostFileRequest$Outbound = {
 export const PostFileRequest$outboundSchema: z.ZodMiniType<
   PostFileRequest$Outbound,
   PostFileRequest
-> = z.object({
-  companyId: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-  body: z.lazy(() => PostFileRequestBody$outboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    companyId: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+    body: z.lazy(() => PostFileRequestBody$outboundSchema),
+  })
+);
 
 export function postFileRequestToJSON(
   postFileRequest: PostFileRequest,
@@ -167,12 +173,14 @@ export function postFileRequestToJSON(
 export const PostFilePagination$inboundSchema: z.ZodMiniType<
   PostFilePagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function postFilePaginationFromJSON(
   jsonString: string,
@@ -186,15 +194,17 @@ export function postFilePaginationFromJSON(
 
 /** @internal */
 export const PostFileMeta$inboundSchema: z.ZodMiniType<PostFileMeta, unknown> =
-  z.object({
-    warnings: z.optional(z.nullable(z.array(types.string()))),
-    pagination: z.optional(
-      z.nullable(z.lazy(() => PostFilePagination$inboundSchema)),
-    ),
-    partialErrors: z.optional(
-      z.nullable(z.array(models.PartialError$inboundSchema)),
-    ),
-  });
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      warnings: z.optional(z.nullable(z.array(types.string()))),
+      pagination: z.optional(
+        z.nullable(z.lazy(() => PostFilePagination$inboundSchema)),
+      ),
+      partialErrors: z.optional(
+        z.nullable(z.array(models.PartialError$inboundSchema)),
+      ),
+    })
+  );
 
 export function postFileMetaFromJSON(
   jsonString: string,
@@ -210,7 +220,7 @@ export function postFileMetaFromJSON(
 export const PostFileErrors$inboundSchema: z.ZodMiniType<
   PostFileErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function postFileErrorsFromJSON(
   jsonString: string,
@@ -226,7 +236,7 @@ export function postFileErrorsFromJSON(
 export const PostFileRawData$inboundSchema: z.ZodMiniType<
   PostFileRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function postFileRawDataFromJSON(
   jsonString: string,
@@ -242,12 +252,14 @@ export function postFileRawDataFromJSON(
 export const PostFileResponse$inboundSchema: z.ZodMiniType<
   PostFileResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => PostFileMeta$inboundSchema))),
-  data: models.DocumentResponseDto$inboundSchema,
-  errors: types.nullable(z.lazy(() => PostFileErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => PostFileRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(z.nullable(z.lazy(() => PostFileMeta$inboundSchema))),
+    data: models.DocumentResponseDto$inboundSchema,
+    errors: types.nullable(z.lazy(() => PostFileErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => PostFileRawData$inboundSchema)),
+  })
+);
 
 export function postFileResponseFromJSON(
   jsonString: string,

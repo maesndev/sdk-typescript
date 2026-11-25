@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
@@ -51,36 +51,38 @@ export type PaymentTermResponseDto = {
 /** @internal */
 export const PaymentTermResponseDtoDueType$inboundSchema: z.ZodMiniEnum<
   typeof PaymentTermResponseDtoDueType
-> = z.enum(PaymentTermResponseDtoDueType);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(PaymentTermResponseDtoDueType));
 
 /** @internal */
 export const PaymentMethod$inboundSchema: z.ZodMiniEnum<typeof PaymentMethod> =
-  z.enum(PaymentMethod);
+  /* @__PURE__ */ lazySchema$(() => z.enum(PaymentMethod));
 
 /** @internal */
 export const PaymentTermResponseDto$inboundSchema: z.ZodMiniType<
   PaymentTermResponseDto,
   unknown
-> = z.object({
-  id: types.nullable(types.string()),
-  code: types.nullable(types.string()),
-  createdDate: types.nullable(types.string()),
-  description: types.nullable(types.string()),
-  discountDays: types.nullable(types.number()),
-  discountDays2: types.nullable(types.number()),
-  discountDaysCalculation: types.nullable(types.string()),
-  discountPercentage: types.nullable(types.number()),
-  discountPercentage2: types.nullable(types.number()),
-  discountPeriods: types.nullable(
-    z.array(DiscountPeriodResponse$inboundSchema),
-  ),
-  dueType: types.nullable(PaymentTermResponseDtoDueType$inboundSchema),
-  name: types.nullable(types.string()),
-  paymentDays: types.nullable(types.number()),
-  paymentDaysCalculation: types.nullable(types.string()),
-  paymentMethod: types.nullable(PaymentMethod$inboundSchema),
-  updatedDate: types.nullable(types.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: types.nullable(types.string()),
+    code: types.nullable(types.string()),
+    createdDate: types.nullable(types.string()),
+    description: types.nullable(types.string()),
+    discountDays: types.nullable(types.number()),
+    discountDays2: types.nullable(types.number()),
+    discountDaysCalculation: types.nullable(types.string()),
+    discountPercentage: types.nullable(types.number()),
+    discountPercentage2: types.nullable(types.number()),
+    discountPeriods: types.nullable(
+      z.array(DiscountPeriodResponse$inboundSchema),
+    ),
+    dueType: types.nullable(PaymentTermResponseDtoDueType$inboundSchema),
+    name: types.nullable(types.string()),
+    paymentDays: types.nullable(types.number()),
+    paymentDaysCalculation: types.nullable(types.string()),
+    paymentMethod: types.nullable(PaymentMethod$inboundSchema),
+    updatedDate: types.nullable(types.string()),
+  })
+);
 
 export function paymentTermResponseDtoFromJSON(
   jsonString: string,

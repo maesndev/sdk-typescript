@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 
 export const CreateEmailAddressType = {
@@ -23,7 +24,7 @@ export type CreateEmailAddress = {
 /** @internal */
 export const CreateEmailAddressType$outboundSchema: z.ZodMiniEnum<
   typeof CreateEmailAddressType
-> = z.enum(CreateEmailAddressType);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(CreateEmailAddressType));
 
 /** @internal */
 export type CreateEmailAddress$Outbound = {
@@ -35,10 +36,12 @@ export type CreateEmailAddress$Outbound = {
 export const CreateEmailAddress$outboundSchema: z.ZodMiniType<
   CreateEmailAddress$Outbound,
   CreateEmailAddress
-> = z.object({
-  email: z.string(),
-  type: CreateEmailAddressType$outboundSchema,
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    email: z.string(),
+    type: CreateEmailAddressType$outboundSchema,
+  })
+);
 
 export function createEmailAddressToJSON(
   createEmailAddress: CreateEmailAddress,

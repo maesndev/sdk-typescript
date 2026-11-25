@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -79,14 +79,16 @@ export type GetAccountRequest$Outbound = {
 export const GetAccountRequest$outboundSchema: z.ZodMiniType<
   GetAccountRequest$Outbound,
   GetAccountRequest
-> = z.object({
-  accountId: z.string(),
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  rawData: z.optional(z.boolean()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    accountId: z.string(),
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    rawData: z.optional(z.boolean()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getAccountRequestToJSON(
   getAccountRequest: GetAccountRequest,
@@ -100,12 +102,14 @@ export function getAccountRequestToJSON(
 export const GetAccountPagination$inboundSchema: z.ZodMiniType<
   GetAccountPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getAccountPaginationFromJSON(
   jsonString: string,
@@ -121,15 +125,17 @@ export function getAccountPaginationFromJSON(
 export const GetAccountMeta$inboundSchema: z.ZodMiniType<
   GetAccountMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => GetAccountPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => GetAccountPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function getAccountMetaFromJSON(
   jsonString: string,
@@ -145,7 +151,7 @@ export function getAccountMetaFromJSON(
 export const GetAccountErrors$inboundSchema: z.ZodMiniType<
   GetAccountErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getAccountErrorsFromJSON(
   jsonString: string,
@@ -161,7 +167,7 @@ export function getAccountErrorsFromJSON(
 export const GetAccountRawData$inboundSchema: z.ZodMiniType<
   GetAccountRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getAccountRawDataFromJSON(
   jsonString: string,
@@ -177,12 +183,14 @@ export function getAccountRawDataFromJSON(
 export const GetAccountResponse$inboundSchema: z.ZodMiniType<
   GetAccountResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => GetAccountMeta$inboundSchema))),
-  data: models.AccountResponseDto$inboundSchema,
-  errors: types.nullable(z.lazy(() => GetAccountErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => GetAccountRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(z.nullable(z.lazy(() => GetAccountMeta$inboundSchema))),
+    data: models.AccountResponseDto$inboundSchema,
+    errors: types.nullable(z.lazy(() => GetAccountErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => GetAccountRawData$inboundSchema)),
+  })
+);
 
 export function getAccountResponseFromJSON(
   jsonString: string,

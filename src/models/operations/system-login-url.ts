@@ -4,6 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { lazySchema as lazySchema$ } from "../../lib/schemas.js";
 
 export type SystemLoginUrlGlobals = {
   apiKey?: string | undefined;
@@ -73,26 +74,28 @@ export type SystemLoginUrlRequest$Outbound = {
 export const SystemLoginUrlRequest$outboundSchema: z.ZodMiniType<
   SystemLoginUrlRequest$Outbound,
   SystemLoginUrlRequest
-> = z.pipe(
-  z.object({
-    targetSystem: z.string(),
-    callbackUrl: z.optional(z.string()),
-    cancelCallbackUrl: z.optional(z.string()),
-    companyId: z.optional(z.string()),
-    tenantId: z.optional(z.string()),
-    baseUrl: z.optional(z.string()),
-    environmentSelection: z.optional(z.boolean()),
-    includeSignature: z.optional(z.boolean()),
-    locale: z.optional(z.string()),
-    apiKey: z.optional(z.string()),
-    accountKey: z.optional(z.string()),
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      targetSystem: "TARGET_SYSTEM",
-      includeSignature: "include_signature",
-    });
-  }),
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.pipe(
+    z.object({
+      targetSystem: z.string(),
+      callbackUrl: z.optional(z.string()),
+      cancelCallbackUrl: z.optional(z.string()),
+      companyId: z.optional(z.string()),
+      tenantId: z.optional(z.string()),
+      baseUrl: z.optional(z.string()),
+      environmentSelection: z.optional(z.boolean()),
+      includeSignature: z.optional(z.boolean()),
+      locale: z.optional(z.string()),
+      apiKey: z.optional(z.string()),
+      accountKey: z.optional(z.string()),
+    }),
+    z.transform((v) => {
+      return remap$(v, {
+        targetSystem: "TARGET_SYSTEM",
+        includeSignature: "include_signature",
+      });
+    }),
+  )
 );
 
 export function systemLoginUrlRequestToJSON(

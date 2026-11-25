@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
@@ -36,13 +36,15 @@ export type BaseResponseDto = {
 };
 
 /** @internal */
-export const Pagination$inboundSchema: z.ZodMiniType<Pagination, unknown> = z
-  .object({
-    total: types.number(),
-    perPage: types.number(),
-    currentPage: types.number(),
-    totalPages: types.number(),
-  });
+export const Pagination$inboundSchema: z.ZodMiniType<Pagination, unknown> =
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      total: types.number(),
+      perPage: types.number(),
+      currentPage: types.number(),
+      totalPages: types.number(),
+    })
+  );
 
 export function paginationFromJSON(
   jsonString: string,
@@ -55,11 +57,18 @@ export function paginationFromJSON(
 }
 
 /** @internal */
-export const Meta$inboundSchema: z.ZodMiniType<Meta, unknown> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(z.nullable(z.lazy(() => Pagination$inboundSchema))),
-  partialErrors: z.optional(z.nullable(z.array(PartialError$inboundSchema))),
-});
+export const Meta$inboundSchema: z.ZodMiniType<Meta, unknown> =
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      warnings: z.optional(z.nullable(z.array(types.string()))),
+      pagination: z.optional(
+        z.nullable(z.lazy(() => Pagination$inboundSchema)),
+      ),
+      partialErrors: z.optional(
+        z.nullable(z.array(PartialError$inboundSchema)),
+      ),
+    })
+  );
 
 export function metaFromJSON(
   jsonString: string,
@@ -72,7 +81,8 @@ export function metaFromJSON(
 }
 
 /** @internal */
-export const Data$inboundSchema: z.ZodMiniType<Data, unknown> = z.object({});
+export const Data$inboundSchema: z.ZodMiniType<Data, unknown> =
+  /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function dataFromJSON(
   jsonString: string,
@@ -85,9 +95,8 @@ export function dataFromJSON(
 }
 
 /** @internal */
-export const Errors$inboundSchema: z.ZodMiniType<Errors, unknown> = z.object(
-  {},
-);
+export const Errors$inboundSchema: z.ZodMiniType<Errors, unknown> =
+  /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function errorsFromJSON(
   jsonString: string,
@@ -100,9 +109,8 @@ export function errorsFromJSON(
 }
 
 /** @internal */
-export const RawData$inboundSchema: z.ZodMiniType<RawData, unknown> = z.object(
-  {},
-);
+export const RawData$inboundSchema: z.ZodMiniType<RawData, unknown> =
+  /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function rawDataFromJSON(
   jsonString: string,
@@ -118,12 +126,14 @@ export function rawDataFromJSON(
 export const BaseResponseDto$inboundSchema: z.ZodMiniType<
   BaseResponseDto,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => Meta$inboundSchema))),
-  data: z.lazy(() => Data$inboundSchema),
-  errors: types.nullable(z.lazy(() => Errors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => RawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(z.nullable(z.lazy(() => Meta$inboundSchema))),
+    data: z.lazy(() => Data$inboundSchema),
+    errors: types.nullable(z.lazy(() => Errors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => RawData$inboundSchema)),
+  })
+);
 
 export function baseResponseDtoFromJSON(
   jsonString: string,

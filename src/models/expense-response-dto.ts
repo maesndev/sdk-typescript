@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
@@ -223,49 +223,53 @@ export type ExpenseResponseDto = {
 /** @internal */
 export const ExpenseResponseDtoCurrency$inboundSchema: z.ZodMiniEnum<
   typeof ExpenseResponseDtoCurrency
-> = z.enum(ExpenseResponseDtoCurrency);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(ExpenseResponseDtoCurrency));
 
 /** @internal */
 export const ExpenseResponseDtoPaymentType$inboundSchema: z.ZodMiniEnum<
   typeof ExpenseResponseDtoPaymentType
-> = z.enum(ExpenseResponseDtoPaymentType);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(ExpenseResponseDtoPaymentType));
 
 /** @internal */
 export const ExpenseResponseDtoType$inboundSchema: z.ZodMiniEnum<
   typeof ExpenseResponseDtoType
-> = z.enum(ExpenseResponseDtoType);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(ExpenseResponseDtoType));
 
 /** @internal */
 export const ExpenseResponseDto$inboundSchema: z.ZodMiniType<
   ExpenseResponseDto,
   unknown
-> = z.object({
-  id: types.nullable(types.string()),
-  accountCode: types.nullable(types.string()),
-  accountId: types.nullable(types.string()),
-  accountNumber: types.nullable(types.number()),
-  createdDate: types.nullable(types.string()),
-  currency: types.nullable(ExpenseResponseDtoCurrency$inboundSchema),
-  customerId: types.nullable(types.string()),
-  description: types.nullable(types.string()),
-  documentId: types.nullable(types.string()),
-  exchangeRate: types.nullable(types.string()),
-  expenseLines: types.nullable(z.array(ExpenseLineItemResponse$inboundSchema)),
-  files: types.nullable(z.array(types.string())),
-  journalCode: types.nullable(types.string()),
-  ledgerName: types.nullable(types.string()),
-  note: types.nullable(types.string()),
-  paymentTermId: types.nullable(types.string()),
-  paymentType: types.nullable(ExpenseResponseDtoPaymentType$inboundSchema),
-  supplierId: types.nullable(types.string()),
-  taskId: types.nullable(types.string()),
-  type: types.nullable(ExpenseResponseDtoType$inboundSchema),
-  totalGrossAmount: types.nullable(types.number()),
-  totalNetAmount: types.nullable(types.number()),
-  totalTaxAmount: types.nullable(types.number()),
-  transactionDate: types.nullable(types.string()),
-  updatedDate: types.nullable(types.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: types.nullable(types.string()),
+    accountCode: types.nullable(types.string()),
+    accountId: types.nullable(types.string()),
+    accountNumber: types.nullable(types.number()),
+    createdDate: types.nullable(types.string()),
+    currency: types.nullable(ExpenseResponseDtoCurrency$inboundSchema),
+    customerId: types.nullable(types.string()),
+    description: types.nullable(types.string()),
+    documentId: types.nullable(types.string()),
+    exchangeRate: types.nullable(types.string()),
+    expenseLines: types.nullable(
+      z.array(ExpenseLineItemResponse$inboundSchema),
+    ),
+    files: types.nullable(z.array(types.string())),
+    journalCode: types.nullable(types.string()),
+    ledgerName: types.nullable(types.string()),
+    note: types.nullable(types.string()),
+    paymentTermId: types.nullable(types.string()),
+    paymentType: types.nullable(ExpenseResponseDtoPaymentType$inboundSchema),
+    supplierId: types.nullable(types.string()),
+    taskId: types.nullable(types.string()),
+    type: types.nullable(ExpenseResponseDtoType$inboundSchema),
+    totalGrossAmount: types.nullable(types.number()),
+    totalNetAmount: types.nullable(types.number()),
+    totalTaxAmount: types.nullable(types.number()),
+    transactionDate: types.nullable(types.string()),
+    updatedDate: types.nullable(types.string()),
+  })
+);
 
 export function expenseResponseDtoFromJSON(
   jsonString: string,

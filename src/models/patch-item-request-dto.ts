@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 
 export const PatchItemRequestDtoType = {
@@ -53,12 +54,12 @@ export type PatchItemRequestDto = {
 /** @internal */
 export const PatchItemRequestDtoType$outboundSchema: z.ZodMiniEnum<
   typeof PatchItemRequestDtoType
-> = z.enum(PatchItemRequestDtoType);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(PatchItemRequestDtoType));
 
 /** @internal */
 export const PatchItemRequestDtoUnitName$outboundSchema: z.ZodMiniEnum<
   typeof PatchItemRequestDtoUnitName
-> = z.enum(PatchItemRequestDtoUnitName);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(PatchItemRequestDtoUnitName));
 
 /** @internal */
 export type PatchItemRequestDto$Outbound = {
@@ -76,16 +77,18 @@ export type PatchItemRequestDto$Outbound = {
 export const PatchItemRequestDto$outboundSchema: z.ZodMiniType<
   PatchItemRequestDto$Outbound,
   PatchItemRequestDto
-> = z.object({
-  name: z.optional(z.string()),
-  itemNumber: z.optional(z.string()),
-  stockCount: z.optional(z.number()),
-  type: z.optional(PatchItemRequestDtoType$outboundSchema),
-  unitName: z.optional(PatchItemRequestDtoUnitName$outboundSchema),
-  unitPurchasePrice: z.optional(z.number()),
-  unitSalesPrice: z.optional(z.number()),
-  priceIncludesTax: z.optional(z.boolean()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    name: z.optional(z.string()),
+    itemNumber: z.optional(z.string()),
+    stockCount: z.optional(z.number()),
+    type: z.optional(PatchItemRequestDtoType$outboundSchema),
+    unitName: z.optional(PatchItemRequestDtoUnitName$outboundSchema),
+    unitPurchasePrice: z.optional(z.number()),
+    unitSalesPrice: z.optional(z.number()),
+    priceIncludesTax: z.optional(z.boolean()),
+  })
+);
 
 export function patchItemRequestDtoToJSON(
   patchItemRequestDto: PatchItemRequestDto,

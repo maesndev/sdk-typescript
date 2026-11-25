@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../../lib/schemas.js";
 
 export type GetEndUserListGlobals = {
   apiKey?: string | undefined;
@@ -30,10 +31,12 @@ export type GetEndUserListRequest$Outbound = {
 export const GetEndUserListRequest$outboundSchema: z.ZodMiniType<
   GetEndUserListRequest$Outbound,
   GetEndUserListRequest
-> = z.object({
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getEndUserListRequestToJSON(
   getEndUserListRequest: GetEndUserListRequest,

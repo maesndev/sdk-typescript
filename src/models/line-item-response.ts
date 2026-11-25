@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
@@ -46,37 +46,39 @@ export type LineItemResponse = {
 /** @internal */
 export const LineItemResponseType$inboundSchema: z.ZodMiniEnum<
   typeof LineItemResponseType
-> = z.enum(LineItemResponseType);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(LineItemResponseType));
 
 /** @internal */
 export const LineItemResponse$inboundSchema: z.ZodMiniType<
   LineItemResponse,
   unknown
-> = z.object({
-  id: types.nullable(types.string()),
-  accountCode: types.nullable(types.string()),
-  accountId: types.nullable(types.string()),
-  accountName: types.nullable(types.string()),
-  accountNumber: types.nullable(types.number()),
-  bookingTaxCode: types.nullable(types.string()),
-  createdDate: types.nullable(types.string()),
-  description: types.nullable(types.string()),
-  dimension1: types.nullable(types.string()),
-  dimension2: types.nullable(types.string()),
-  dimensions: types.nullable(
-    z.array(DimensionResponseCommonDtoV2$inboundSchema),
-  ),
-  discountAmount: types.nullable(types.number()),
-  discountAmount2: types.nullable(types.number()),
-  discountPercentage: types.nullable(types.number()),
-  discountPercentage2: types.nullable(types.number()),
-  taxCode: types.nullable(types.string()),
-  taxRatePercentage: types.nullable(types.number()),
-  totalGrossAmount: types.nullable(types.number()),
-  totalNetAmount: types.nullable(types.number()),
-  type: types.nullable(LineItemResponseType$inboundSchema),
-  updatedDate: types.nullable(types.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: types.nullable(types.string()),
+    accountCode: types.nullable(types.string()),
+    accountId: types.nullable(types.string()),
+    accountName: types.nullable(types.string()),
+    accountNumber: types.nullable(types.number()),
+    bookingTaxCode: types.nullable(types.string()),
+    createdDate: types.nullable(types.string()),
+    description: types.nullable(types.string()),
+    dimension1: types.nullable(types.string()),
+    dimension2: types.nullable(types.string()),
+    dimensions: types.nullable(
+      z.array(DimensionResponseCommonDtoV2$inboundSchema),
+    ),
+    discountAmount: types.nullable(types.number()),
+    discountAmount2: types.nullable(types.number()),
+    discountPercentage: types.nullable(types.number()),
+    discountPercentage2: types.nullable(types.number()),
+    taxCode: types.nullable(types.string()),
+    taxRatePercentage: types.nullable(types.number()),
+    totalGrossAmount: types.nullable(types.number()),
+    totalNetAmount: types.nullable(types.number()),
+    type: types.nullable(LineItemResponseType$inboundSchema),
+    updatedDate: types.nullable(types.string()),
+  })
+);
 
 export function lineItemResponseFromJSON(
   jsonString: string,

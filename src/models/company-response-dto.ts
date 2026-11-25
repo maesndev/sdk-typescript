@@ -4,7 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../lib/primitives.js";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
@@ -23,21 +23,23 @@ export type CompanyResponseDto = {
 export const CompanyResponseDto$inboundSchema: z.ZodMiniType<
   CompanyResponseDto,
   unknown
-> = z.pipe(
-  z.object({
-    id: types.nullable(types.string()),
-    name: z.optional(z.nullable(types.string())),
-    environmentId: z.optional(z.nullable(types.string())),
-    client_number: z.optional(z.nullable(types.number())),
-    consultant_number: z.optional(z.nullable(types.number())),
-    subscription: z.optional(z.nullable(z.array(Subscription$inboundSchema))),
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      "client_number": "clientNumber",
-      "consultant_number": "consultantNumber",
-    });
-  }),
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.pipe(
+    z.object({
+      id: types.nullable(types.string()),
+      name: z.optional(z.nullable(types.string())),
+      environmentId: z.optional(z.nullable(types.string())),
+      client_number: z.optional(z.nullable(types.number())),
+      consultant_number: z.optional(z.nullable(types.number())),
+      subscription: z.optional(z.nullable(z.array(Subscription$inboundSchema))),
+    }),
+    z.transform((v) => {
+      return remap$(v, {
+        "client_number": "clientNumber",
+        "consultant_number": "consultantNumber",
+      });
+    }),
+  )
 );
 
 export function companyResponseDtoFromJSON(

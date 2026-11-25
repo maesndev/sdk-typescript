@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import {
   AccountRequestCommonDtoV2,
@@ -59,12 +60,14 @@ export type CreateExpenseRequestDtoV2 = {
 /** @internal */
 export const CreateExpenseRequestDtoV2PaymentType$outboundSchema: z.ZodMiniEnum<
   typeof CreateExpenseRequestDtoV2PaymentType
-> = z.enum(CreateExpenseRequestDtoV2PaymentType);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.enum(CreateExpenseRequestDtoV2PaymentType)
+);
 
 /** @internal */
 export const CreateExpenseRequestDtoV2Type$outboundSchema: z.ZodMiniEnum<
   typeof CreateExpenseRequestDtoV2Type
-> = z.enum(CreateExpenseRequestDtoV2Type);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(CreateExpenseRequestDtoV2Type));
 
 /** @internal */
 export type CreateExpenseRequestDtoV2$Outbound = {
@@ -93,27 +96,33 @@ export type CreateExpenseRequestDtoV2$Outbound = {
 export const CreateExpenseRequestDtoV2$outboundSchema: z.ZodMiniType<
   CreateExpenseRequestDtoV2$Outbound,
   CreateExpenseRequestDtoV2
-> = z.object({
-  id: z.optional(z.string()),
-  account: z.optional(AccountRequestCommonDtoV2$outboundSchema),
-  currency: z.optional(z.string()),
-  customerId: z.optional(z.string()),
-  description: z.optional(z.string()),
-  documentId: z.optional(z.string()),
-  expenseLines: z.optional(z.array(ExpenseLineItemRequestDtoV2$outboundSchema)),
-  files: z.optional(z.array(z.string())),
-  generatorName: z.optional(z.string()),
-  journalCode: z.optional(z.string()),
-  note: z.optional(z.string()),
-  paymentTermId: z.optional(z.string()),
-  paymentType: z.optional(CreateExpenseRequestDtoV2PaymentType$outboundSchema),
-  supplierId: z.optional(z.string()),
-  type: z.optional(CreateExpenseRequestDtoV2Type$outboundSchema),
-  totalGrossAmount: z.optional(z.number()),
-  totalNetAmount: z.optional(z.number()),
-  totalTaxAmount: z.optional(z.number()),
-  transactionDate: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.optional(z.string()),
+    account: z.optional(AccountRequestCommonDtoV2$outboundSchema),
+    currency: z.optional(z.string()),
+    customerId: z.optional(z.string()),
+    description: z.optional(z.string()),
+    documentId: z.optional(z.string()),
+    expenseLines: z.optional(
+      z.array(ExpenseLineItemRequestDtoV2$outboundSchema),
+    ),
+    files: z.optional(z.array(z.string())),
+    generatorName: z.optional(z.string()),
+    journalCode: z.optional(z.string()),
+    note: z.optional(z.string()),
+    paymentTermId: z.optional(z.string()),
+    paymentType: z.optional(
+      CreateExpenseRequestDtoV2PaymentType$outboundSchema,
+    ),
+    supplierId: z.optional(z.string()),
+    type: z.optional(CreateExpenseRequestDtoV2Type$outboundSchema),
+    totalGrossAmount: z.optional(z.number()),
+    totalNetAmount: z.optional(z.number()),
+    totalTaxAmount: z.optional(z.number()),
+    transactionDate: z.optional(z.string()),
+  })
+);
 
 export function createExpenseRequestDtoV2ToJSON(
   createExpenseRequestDtoV2: CreateExpenseRequestDtoV2,

@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 
 export type TaxRateInput = {
   id?: string | undefined;
@@ -23,12 +24,14 @@ export type TaxRateInput$Outbound = {
 export const TaxRateInput$outboundSchema: z.ZodMiniType<
   TaxRateInput$Outbound,
   TaxRateInput
-> = z.object({
-  id: z.optional(z.string()),
-  code: z.optional(z.string()),
-  name: z.optional(z.string()),
-  taxRatePercentage: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.optional(z.string()),
+    code: z.optional(z.string()),
+    name: z.optional(z.string()),
+    taxRatePercentage: z.optional(z.string()),
+  })
+);
 
 export function taxRateInputToJSON(taxRateInput: TaxRateInput): string {
   return JSON.stringify(TaxRateInput$outboundSchema.parse(taxRateInput));

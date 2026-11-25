@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
@@ -79,7 +79,7 @@ export type GetExpensesResponse = {
 /** @internal */
 export const GetExpensesLimit$outboundSchema: z.ZodMiniEnum<
   typeof GetExpensesLimit
-> = z.enum(GetExpensesLimit);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(GetExpensesLimit));
 
 /** @internal */
 export type GetExpensesRequest$Outbound = {
@@ -96,15 +96,17 @@ export type GetExpensesRequest$Outbound = {
 export const GetExpensesRequest$outboundSchema: z.ZodMiniType<
   GetExpensesRequest$Outbound,
   GetExpensesRequest
-> = z.object({
-  page: z.optional(z.number()),
-  limit: z.optional(GetExpensesLimit$outboundSchema),
-  lastModifiedAt: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  rawData: z.optional(z.boolean()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    page: z.optional(z.number()),
+    limit: z.optional(GetExpensesLimit$outboundSchema),
+    lastModifiedAt: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    rawData: z.optional(z.boolean()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getExpensesRequestToJSON(
   getExpensesRequest: GetExpensesRequest,
@@ -118,12 +120,14 @@ export function getExpensesRequestToJSON(
 export const GetExpensesPagination$inboundSchema: z.ZodMiniType<
   GetExpensesPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getExpensesPaginationFromJSON(
   jsonString: string,
@@ -139,15 +143,17 @@ export function getExpensesPaginationFromJSON(
 export const GetExpensesMeta$inboundSchema: z.ZodMiniType<
   GetExpensesMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => GetExpensesPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => GetExpensesPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function getExpensesMetaFromJSON(
   jsonString: string,
@@ -163,7 +169,7 @@ export function getExpensesMetaFromJSON(
 export const GetExpensesErrors$inboundSchema: z.ZodMiniType<
   GetExpensesErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getExpensesErrorsFromJSON(
   jsonString: string,
@@ -179,7 +185,7 @@ export function getExpensesErrorsFromJSON(
 export const GetExpensesRawData$inboundSchema: z.ZodMiniType<
   GetExpensesRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getExpensesRawDataFromJSON(
   jsonString: string,
@@ -195,12 +201,14 @@ export function getExpensesRawDataFromJSON(
 export const GetExpensesResponse$inboundSchema: z.ZodMiniType<
   GetExpensesResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => GetExpensesMeta$inboundSchema))),
-  data: z.array(models.ExpenseResponseDto$inboundSchema),
-  errors: types.nullable(z.lazy(() => GetExpensesErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => GetExpensesRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(z.nullable(z.lazy(() => GetExpensesMeta$inboundSchema))),
+    data: z.array(models.ExpenseResponseDto$inboundSchema),
+    errors: types.nullable(z.lazy(() => GetExpensesErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => GetExpensesRawData$inboundSchema)),
+  })
+);
 
 export function getExpensesResponseFromJSON(
   jsonString: string,

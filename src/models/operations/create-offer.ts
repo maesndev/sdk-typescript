@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -74,13 +74,15 @@ export type CreateOfferRequest$Outbound = {
 export const CreateOfferRequest$outboundSchema: z.ZodMiniType<
   CreateOfferRequest$Outbound,
   CreateOfferRequest
-> = z.object({
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-  body: models.CreateOfferRequestDto$outboundSchema,
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+    body: models.CreateOfferRequestDto$outboundSchema,
+  })
+);
 
 export function createOfferRequestToJSON(
   createOfferRequest: CreateOfferRequest,
@@ -94,12 +96,14 @@ export function createOfferRequestToJSON(
 export const CreateOfferPagination$inboundSchema: z.ZodMiniType<
   CreateOfferPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function createOfferPaginationFromJSON(
   jsonString: string,
@@ -115,15 +119,17 @@ export function createOfferPaginationFromJSON(
 export const CreateOfferMeta$inboundSchema: z.ZodMiniType<
   CreateOfferMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => CreateOfferPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => CreateOfferPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function createOfferMetaFromJSON(
   jsonString: string,
@@ -139,7 +145,7 @@ export function createOfferMetaFromJSON(
 export const CreateOfferErrors$inboundSchema: z.ZodMiniType<
   CreateOfferErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createOfferErrorsFromJSON(
   jsonString: string,
@@ -155,7 +161,7 @@ export function createOfferErrorsFromJSON(
 export const CreateOfferRawData$inboundSchema: z.ZodMiniType<
   CreateOfferRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createOfferRawDataFromJSON(
   jsonString: string,
@@ -171,12 +177,14 @@ export function createOfferRawDataFromJSON(
 export const CreateOfferResponse$inboundSchema: z.ZodMiniType<
   CreateOfferResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => CreateOfferMeta$inboundSchema))),
-  data: models.OfferResponseDto$inboundSchema,
-  errors: types.nullable(z.lazy(() => CreateOfferErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => CreateOfferRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(z.nullable(z.lazy(() => CreateOfferMeta$inboundSchema))),
+    data: models.OfferResponseDto$inboundSchema,
+    errors: types.nullable(z.lazy(() => CreateOfferErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => CreateOfferRawData$inboundSchema)),
+  })
+);
 
 export function createOfferResponseFromJSON(
   jsonString: string,

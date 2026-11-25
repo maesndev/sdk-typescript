@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
@@ -24,15 +24,18 @@ export type JournalEntriesByBatchMetaDataResponseDto = {
 
 /** @internal */
 export const JournalEntriesByBatchMetaDataResponseDto$inboundSchema:
-  z.ZodMiniType<JournalEntriesByBatchMetaDataResponseDto, unknown> = z.object({
-    id: types.nullable(types.string()),
-    accountNumberLength: types.nullable(types.number()),
-    chartOfAccount: types.nullable(types.string()),
-    createdDate: types.nullable(types.string()),
-    entries: types.nullable(z.array(JournalEntryResponseDto$inboundSchema)),
-    fiscalYearStartDate: types.nullable(types.string()),
-    taskId: types.nullable(types.string()),
-  });
+  z.ZodMiniType<JournalEntriesByBatchMetaDataResponseDto, unknown> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.object({
+        id: types.nullable(types.string()),
+        accountNumberLength: types.nullable(types.number()),
+        chartOfAccount: types.nullable(types.string()),
+        createdDate: types.nullable(types.string()),
+        entries: types.nullable(z.array(JournalEntryResponseDto$inboundSchema)),
+        fiscalYearStartDate: types.nullable(types.string()),
+        taskId: types.nullable(types.string()),
+      })
+    );
 
 export function journalEntriesByBatchMetaDataResponseDtoFromJSON(
   jsonString: string,

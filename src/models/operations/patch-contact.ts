@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -76,14 +76,16 @@ export type PatchContactRequest$Outbound = {
 export const PatchContactRequest$outboundSchema: z.ZodMiniType<
   PatchContactRequest$Outbound,
   PatchContactRequest
-> = z.object({
-  contactId: z.string(),
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-  body: models.CreateContactRequestDtoV2$outboundSchema,
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    contactId: z.string(),
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+    body: models.CreateContactRequestDtoV2$outboundSchema,
+  })
+);
 
 export function patchContactRequestToJSON(
   patchContactRequest: PatchContactRequest,
@@ -97,12 +99,14 @@ export function patchContactRequestToJSON(
 export const PatchContactPagination$inboundSchema: z.ZodMiniType<
   PatchContactPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function patchContactPaginationFromJSON(
   jsonString: string,
@@ -118,15 +122,17 @@ export function patchContactPaginationFromJSON(
 export const PatchContactMeta$inboundSchema: z.ZodMiniType<
   PatchContactMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => PatchContactPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => PatchContactPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function patchContactMetaFromJSON(
   jsonString: string,
@@ -142,7 +148,7 @@ export function patchContactMetaFromJSON(
 export const PatchContactErrors$inboundSchema: z.ZodMiniType<
   PatchContactErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function patchContactErrorsFromJSON(
   jsonString: string,
@@ -158,7 +164,7 @@ export function patchContactErrorsFromJSON(
 export const PatchContactRawData$inboundSchema: z.ZodMiniType<
   PatchContactRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function patchContactRawDataFromJSON(
   jsonString: string,
@@ -174,12 +180,14 @@ export function patchContactRawDataFromJSON(
 export const PatchContactResponse$inboundSchema: z.ZodMiniType<
   PatchContactResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => PatchContactMeta$inboundSchema))),
-  data: models.ContactResponseDtoV2$inboundSchema,
-  errors: types.nullable(z.lazy(() => PatchContactErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => PatchContactRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(z.nullable(z.lazy(() => PatchContactMeta$inboundSchema))),
+    data: models.ContactResponseDtoV2$inboundSchema,
+    errors: types.nullable(z.lazy(() => PatchContactErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => PatchContactRawData$inboundSchema)),
+  })
+);
 
 export function patchContactResponseFromJSON(
   jsonString: string,

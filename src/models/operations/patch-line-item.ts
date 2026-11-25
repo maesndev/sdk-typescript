@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -78,15 +78,17 @@ export type PatchLineItemRequest$Outbound = {
 export const PatchLineItemRequest$outboundSchema: z.ZodMiniType<
   PatchLineItemRequest$Outbound,
   PatchLineItemRequest
-> = z.object({
-  invoiceId: z.string(),
-  lineItemId: z.string(),
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-  body: models.PatchLineItemRequestDto$outboundSchema,
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    invoiceId: z.string(),
+    lineItemId: z.string(),
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+    body: models.PatchLineItemRequestDto$outboundSchema,
+  })
+);
 
 export function patchLineItemRequestToJSON(
   patchLineItemRequest: PatchLineItemRequest,
@@ -100,12 +102,14 @@ export function patchLineItemRequestToJSON(
 export const PatchLineItemPagination$inboundSchema: z.ZodMiniType<
   PatchLineItemPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function patchLineItemPaginationFromJSON(
   jsonString: string,
@@ -121,15 +125,17 @@ export function patchLineItemPaginationFromJSON(
 export const PatchLineItemMeta$inboundSchema: z.ZodMiniType<
   PatchLineItemMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => PatchLineItemPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => PatchLineItemPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function patchLineItemMetaFromJSON(
   jsonString: string,
@@ -145,7 +151,7 @@ export function patchLineItemMetaFromJSON(
 export const PatchLineItemErrors$inboundSchema: z.ZodMiniType<
   PatchLineItemErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function patchLineItemErrorsFromJSON(
   jsonString: string,
@@ -161,7 +167,7 @@ export function patchLineItemErrorsFromJSON(
 export const PatchLineItemRawData$inboundSchema: z.ZodMiniType<
   PatchLineItemRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function patchLineItemRawDataFromJSON(
   jsonString: string,
@@ -177,12 +183,14 @@ export function patchLineItemRawDataFromJSON(
 export const PatchLineItemResponse$inboundSchema: z.ZodMiniType<
   PatchLineItemResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => PatchLineItemMeta$inboundSchema))),
-  data: models.LineItemResponseDto$inboundSchema,
-  errors: types.nullable(z.lazy(() => PatchLineItemErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => PatchLineItemRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(z.nullable(z.lazy(() => PatchLineItemMeta$inboundSchema))),
+    data: models.LineItemResponseDto$inboundSchema,
+    errors: types.nullable(z.lazy(() => PatchLineItemErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => PatchLineItemRawData$inboundSchema)),
+  })
+);
 
 export function patchLineItemResponseFromJSON(
   jsonString: string,

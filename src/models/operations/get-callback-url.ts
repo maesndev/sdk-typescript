@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../../lib/schemas.js";
 
 export type GetCallbackUrlGlobals = {
   apiKey?: string | undefined;
@@ -30,10 +31,12 @@ export type GetCallbackUrlRequest$Outbound = {
 export const GetCallbackUrlRequest$outboundSchema: z.ZodMiniType<
   GetCallbackUrlRequest$Outbound,
   GetCallbackUrlRequest
-> = z.object({
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getCallbackUrlRequestToJSON(
   getCallbackUrlRequest: GetCallbackUrlRequest,

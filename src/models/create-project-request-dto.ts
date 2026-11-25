@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 
 export const CreateProjectRequestDtoCurrency = {
@@ -191,12 +192,12 @@ export type CreateProjectRequestDto = {
 /** @internal */
 export const CreateProjectRequestDtoCurrency$outboundSchema: z.ZodMiniEnum<
   typeof CreateProjectRequestDtoCurrency
-> = z.enum(CreateProjectRequestDtoCurrency);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(CreateProjectRequestDtoCurrency));
 
 /** @internal */
 export const CreateProjectRequestDtoStatus$outboundSchema: z.ZodMiniEnum<
   typeof CreateProjectRequestDtoStatus
-> = z.enum(CreateProjectRequestDtoStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(CreateProjectRequestDtoStatus));
 
 /** @internal */
 export type CreateProjectRequestDto$Outbound = {
@@ -216,18 +217,20 @@ export type CreateProjectRequestDto$Outbound = {
 export const CreateProjectRequestDto$outboundSchema: z.ZodMiniType<
   CreateProjectRequestDto$Outbound,
   CreateProjectRequestDto
-> = z.object({
-  code: z.optional(z.string()),
-  contactId: z.optional(z.string()),
-  currency: z.optional(CreateProjectRequestDtoCurrency$outboundSchema),
-  description: z.optional(z.string()),
-  endDate: z.optional(z.string()),
-  name: z.optional(z.string()),
-  number: z.optional(z.string()),
-  parentProjectId: z.optional(z.string()),
-  status: z.optional(CreateProjectRequestDtoStatus$outboundSchema),
-  startDate: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    code: z.optional(z.string()),
+    contactId: z.optional(z.string()),
+    currency: z.optional(CreateProjectRequestDtoCurrency$outboundSchema),
+    description: z.optional(z.string()),
+    endDate: z.optional(z.string()),
+    name: z.optional(z.string()),
+    number: z.optional(z.string()),
+    parentProjectId: z.optional(z.string()),
+    status: z.optional(CreateProjectRequestDtoStatus$outboundSchema),
+    startDate: z.optional(z.string()),
+  })
+);
 
 export function createProjectRequestDtoToJSON(
   createProjectRequestDto: CreateProjectRequestDto,

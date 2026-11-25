@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
@@ -84,7 +84,7 @@ export type GetOfferLineItemsResponse = {
 /** @internal */
 export const GetOfferLineItemsLimit$outboundSchema: z.ZodMiniEnum<
   typeof GetOfferLineItemsLimit
-> = z.enum(GetOfferLineItemsLimit);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(GetOfferLineItemsLimit));
 
 /** @internal */
 export type GetOfferLineItemsRequest$Outbound = {
@@ -103,17 +103,19 @@ export type GetOfferLineItemsRequest$Outbound = {
 export const GetOfferLineItemsRequest$outboundSchema: z.ZodMiniType<
   GetOfferLineItemsRequest$Outbound,
   GetOfferLineItemsRequest
-> = z.object({
-  offerId: z.string(),
-  page: z.optional(z.number()),
-  limit: z.optional(GetOfferLineItemsLimit$outboundSchema),
-  lastModifiedAt: z.optional(z.string()),
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  rawData: z.optional(z.boolean()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    offerId: z.string(),
+    page: z.optional(z.number()),
+    limit: z.optional(GetOfferLineItemsLimit$outboundSchema),
+    lastModifiedAt: z.optional(z.string()),
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    rawData: z.optional(z.boolean()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getOfferLineItemsRequestToJSON(
   getOfferLineItemsRequest: GetOfferLineItemsRequest,
@@ -127,12 +129,14 @@ export function getOfferLineItemsRequestToJSON(
 export const GetOfferLineItemsPagination$inboundSchema: z.ZodMiniType<
   GetOfferLineItemsPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getOfferLineItemsPaginationFromJSON(
   jsonString: string,
@@ -148,15 +152,17 @@ export function getOfferLineItemsPaginationFromJSON(
 export const GetOfferLineItemsMeta$inboundSchema: z.ZodMiniType<
   GetOfferLineItemsMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => GetOfferLineItemsPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => GetOfferLineItemsPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function getOfferLineItemsMetaFromJSON(
   jsonString: string,
@@ -172,7 +178,7 @@ export function getOfferLineItemsMetaFromJSON(
 export const GetOfferLineItemsErrors$inboundSchema: z.ZodMiniType<
   GetOfferLineItemsErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getOfferLineItemsErrorsFromJSON(
   jsonString: string,
@@ -188,7 +194,7 @@ export function getOfferLineItemsErrorsFromJSON(
 export const GetOfferLineItemsRawData$inboundSchema: z.ZodMiniType<
   GetOfferLineItemsRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getOfferLineItemsRawDataFromJSON(
   jsonString: string,
@@ -204,14 +210,18 @@ export function getOfferLineItemsRawDataFromJSON(
 export const GetOfferLineItemsResponse$inboundSchema: z.ZodMiniType<
   GetOfferLineItemsResponse,
   unknown
-> = z.object({
-  meta: z.optional(
-    z.nullable(z.lazy(() => GetOfferLineItemsMeta$inboundSchema)),
-  ),
-  data: z.array(models.OfferLineItemResponseDto$inboundSchema),
-  errors: types.nullable(z.lazy(() => GetOfferLineItemsErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => GetOfferLineItemsRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => GetOfferLineItemsMeta$inboundSchema)),
+    ),
+    data: z.array(models.OfferLineItemResponseDto$inboundSchema),
+    errors: types.nullable(z.lazy(() => GetOfferLineItemsErrors$inboundSchema)),
+    rawData: types.nullable(
+      z.lazy(() => GetOfferLineItemsRawData$inboundSchema),
+    ),
+  })
+);
 
 export function getOfferLineItemsResponseFromJSON(
   jsonString: string,

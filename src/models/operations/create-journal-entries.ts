@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -69,12 +69,14 @@ export type CreateJournalEntriesRequest$Outbound = {
 export const CreateJournalEntriesRequest$outboundSchema: z.ZodMiniType<
   CreateJournalEntriesRequest$Outbound,
   CreateJournalEntriesRequest
-> = z.object({
-  companyId: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-  body: models.CreateJournalEntriesByBatchMetaDataDto$outboundSchema,
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    companyId: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+    body: models.CreateJournalEntriesByBatchMetaDataDto$outboundSchema,
+  })
+);
 
 export function createJournalEntriesRequestToJSON(
   createJournalEntriesRequest: CreateJournalEntriesRequest,
@@ -90,12 +92,14 @@ export function createJournalEntriesRequestToJSON(
 export const CreateJournalEntriesPagination$inboundSchema: z.ZodMiniType<
   CreateJournalEntriesPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function createJournalEntriesPaginationFromJSON(
   jsonString: string,
@@ -111,15 +115,17 @@ export function createJournalEntriesPaginationFromJSON(
 export const CreateJournalEntriesMeta$inboundSchema: z.ZodMiniType<
   CreateJournalEntriesMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => CreateJournalEntriesPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => CreateJournalEntriesPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function createJournalEntriesMetaFromJSON(
   jsonString: string,
@@ -135,7 +141,7 @@ export function createJournalEntriesMetaFromJSON(
 export const CreateJournalEntriesErrors$inboundSchema: z.ZodMiniType<
   CreateJournalEntriesErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createJournalEntriesErrorsFromJSON(
   jsonString: string,
@@ -151,7 +157,7 @@ export function createJournalEntriesErrorsFromJSON(
 export const CreateJournalEntriesRawData$inboundSchema: z.ZodMiniType<
   CreateJournalEntriesRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createJournalEntriesRawDataFromJSON(
   jsonString: string,
@@ -167,18 +173,20 @@ export function createJournalEntriesRawDataFromJSON(
 export const CreateJournalEntriesResponse$inboundSchema: z.ZodMiniType<
   CreateJournalEntriesResponse,
   unknown
-> = z.object({
-  meta: z.optional(
-    z.nullable(z.lazy(() => CreateJournalEntriesMeta$inboundSchema)),
-  ),
-  data: models.JournalEntriesByBatchMetaDataResponseDto$inboundSchema,
-  errors: types.nullable(
-    z.lazy(() => CreateJournalEntriesErrors$inboundSchema),
-  ),
-  rawData: types.nullable(
-    z.lazy(() => CreateJournalEntriesRawData$inboundSchema),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => CreateJournalEntriesMeta$inboundSchema)),
+    ),
+    data: models.JournalEntriesByBatchMetaDataResponseDto$inboundSchema,
+    errors: types.nullable(
+      z.lazy(() => CreateJournalEntriesErrors$inboundSchema),
+    ),
+    rawData: types.nullable(
+      z.lazy(() => CreateJournalEntriesRawData$inboundSchema),
+    ),
+  })
+);
 
 export function createJournalEntriesResponseFromJSON(
   jsonString: string,

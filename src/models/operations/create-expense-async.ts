@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -77,15 +77,17 @@ export type CreateExpenseAsyncFile$Outbound = {
 export const CreateExpenseAsyncFile$outboundSchema: z.ZodMiniType<
   CreateExpenseAsyncFile$Outbound,
   CreateExpenseAsyncFile
-> = z.object({
-  fileName: z.string(),
-  content: z.union([
-    z.custom<ReadableStream<Uint8Array>>(x => x instanceof ReadableStream),
-    z.custom<Blob>(x => x instanceof Blob),
-    z.custom<ArrayBuffer>(x => x instanceof ArrayBuffer),
-    z.custom<Uint8Array>(x => x instanceof Uint8Array),
-  ]),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    fileName: z.string(),
+    content: z.union([
+      z.custom<ReadableStream<Uint8Array>>(x => x instanceof ReadableStream),
+      z.custom<Blob>(x => x instanceof Blob),
+      z.custom<ArrayBuffer>(x => x instanceof ArrayBuffer),
+      z.custom<Uint8Array>(x => x instanceof Uint8Array),
+    ]),
+  })
+);
 
 export function createExpenseAsyncFileToJSON(
   createExpenseAsyncFile: CreateExpenseAsyncFile,
@@ -105,12 +107,14 @@ export type CreateExpenseAsyncRequestBody$Outbound = {
 export const CreateExpenseAsyncRequestBody$outboundSchema: z.ZodMiniType<
   CreateExpenseAsyncRequestBody$Outbound,
   CreateExpenseAsyncRequestBody
-> = z.object({
-  files: z.optional(
-    z.array(z.lazy(() => CreateExpenseAsyncFile$outboundSchema)),
-  ),
-  expense: z.optional(models.CreateExpenseRequestDtoV2$outboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    files: z.optional(
+      z.array(z.lazy(() => CreateExpenseAsyncFile$outboundSchema)),
+    ),
+    expense: z.optional(models.CreateExpenseRequestDtoV2$outboundSchema),
+  })
+);
 
 export function createExpenseAsyncRequestBodyToJSON(
   createExpenseAsyncRequestBody: CreateExpenseAsyncRequestBody,
@@ -134,12 +138,14 @@ export type CreateExpenseAsyncRequest$Outbound = {
 export const CreateExpenseAsyncRequest$outboundSchema: z.ZodMiniType<
   CreateExpenseAsyncRequest$Outbound,
   CreateExpenseAsyncRequest
-> = z.object({
-  companyId: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-  body: z.lazy(() => CreateExpenseAsyncRequestBody$outboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    companyId: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+    body: z.lazy(() => CreateExpenseAsyncRequestBody$outboundSchema),
+  })
+);
 
 export function createExpenseAsyncRequestToJSON(
   createExpenseAsyncRequest: CreateExpenseAsyncRequest,
@@ -153,12 +159,14 @@ export function createExpenseAsyncRequestToJSON(
 export const CreateExpenseAsyncPagination$inboundSchema: z.ZodMiniType<
   CreateExpenseAsyncPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function createExpenseAsyncPaginationFromJSON(
   jsonString: string,
@@ -174,15 +182,17 @@ export function createExpenseAsyncPaginationFromJSON(
 export const CreateExpenseAsyncMeta$inboundSchema: z.ZodMiniType<
   CreateExpenseAsyncMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => CreateExpenseAsyncPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => CreateExpenseAsyncPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function createExpenseAsyncMetaFromJSON(
   jsonString: string,
@@ -198,7 +208,7 @@ export function createExpenseAsyncMetaFromJSON(
 export const CreateExpenseAsyncErrors$inboundSchema: z.ZodMiniType<
   CreateExpenseAsyncErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createExpenseAsyncErrorsFromJSON(
   jsonString: string,
@@ -214,7 +224,7 @@ export function createExpenseAsyncErrorsFromJSON(
 export const CreateExpenseAsyncRawData$inboundSchema: z.ZodMiniType<
   CreateExpenseAsyncRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createExpenseAsyncRawDataFromJSON(
   jsonString: string,
@@ -230,16 +240,20 @@ export function createExpenseAsyncRawDataFromJSON(
 export const CreateExpenseAsyncResponse$inboundSchema: z.ZodMiniType<
   CreateExpenseAsyncResponse,
   unknown
-> = z.object({
-  meta: z.optional(
-    z.nullable(z.lazy(() => CreateExpenseAsyncMeta$inboundSchema)),
-  ),
-  data: models.TaskIdResponseDto$inboundSchema,
-  errors: types.nullable(z.lazy(() => CreateExpenseAsyncErrors$inboundSchema)),
-  rawData: types.nullable(
-    z.lazy(() => CreateExpenseAsyncRawData$inboundSchema),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => CreateExpenseAsyncMeta$inboundSchema)),
+    ),
+    data: models.TaskIdResponseDto$inboundSchema,
+    errors: types.nullable(
+      z.lazy(() => CreateExpenseAsyncErrors$inboundSchema),
+    ),
+    rawData: types.nullable(
+      z.lazy(() => CreateExpenseAsyncRawData$inboundSchema),
+    ),
+  })
+);
 
 export function createExpenseAsyncResponseFromJSON(
   jsonString: string,

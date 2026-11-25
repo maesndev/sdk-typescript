@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import {
   Address,
@@ -121,7 +122,7 @@ export type CreateVendorCreditRequestDtoPaidDate$Outbound = {};
 export const CreateVendorCreditRequestDtoPaidDate$outboundSchema: z.ZodMiniType<
   CreateVendorCreditRequestDtoPaidDate$Outbound,
   CreateVendorCreditRequestDtoPaidDate
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createVendorCreditRequestDtoPaidDateToJSON(
   createVendorCreditRequestDtoPaidDate: CreateVendorCreditRequestDtoPaidDate,
@@ -135,9 +136,10 @@ export function createVendorCreditRequestDtoPaidDateToJSON(
 
 /** @internal */
 export const CreateVendorCreditRequestDtoPaymentStatus$outboundSchema:
-  z.ZodMiniEnum<typeof CreateVendorCreditRequestDtoPaymentStatus> = z.enum(
-    CreateVendorCreditRequestDtoPaymentStatus,
-  );
+  z.ZodMiniEnum<typeof CreateVendorCreditRequestDtoPaymentStatus> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.enum(CreateVendorCreditRequestDtoPaymentStatus)
+    );
 
 /** @internal */
 export type CreateVendorCreditRequestDtoShippingDate$Outbound = {};
@@ -147,7 +149,7 @@ export const CreateVendorCreditRequestDtoShippingDate$outboundSchema:
   z.ZodMiniType<
     CreateVendorCreditRequestDtoShippingDate$Outbound,
     CreateVendorCreditRequestDtoShippingDate
-  > = z.object({});
+  > = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createVendorCreditRequestDtoShippingDateToJSON(
   createVendorCreditRequestDtoShippingDate:
@@ -162,19 +164,24 @@ export function createVendorCreditRequestDtoShippingDateToJSON(
 
 /** @internal */
 export const CreateVendorCreditRequestDtoShippingType$outboundSchema:
-  z.ZodMiniEnum<typeof CreateVendorCreditRequestDtoShippingType> = z.enum(
-    CreateVendorCreditRequestDtoShippingType,
-  );
+  z.ZodMiniEnum<typeof CreateVendorCreditRequestDtoShippingType> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.enum(CreateVendorCreditRequestDtoShippingType)
+    );
 
 /** @internal */
 export const CreateVendorCreditRequestDtoStatus$outboundSchema: z.ZodMiniEnum<
   typeof CreateVendorCreditRequestDtoStatus
-> = z.enum(CreateVendorCreditRequestDtoStatus);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.enum(CreateVendorCreditRequestDtoStatus)
+);
 
 /** @internal */
 export const CreateVendorCreditRequestDtoTaxRule$outboundSchema: z.ZodMiniEnum<
   typeof CreateVendorCreditRequestDtoTaxRule
-> = z.enum(CreateVendorCreditRequestDtoTaxRule);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.enum(CreateVendorCreditRequestDtoTaxRule)
+);
 
 /** @internal */
 export type CreateVendorCreditRequestDto$Outbound = {
@@ -212,46 +219,48 @@ export type CreateVendorCreditRequestDto$Outbound = {
 export const CreateVendorCreditRequestDto$outboundSchema: z.ZodMiniType<
   CreateVendorCreditRequestDto$Outbound,
   CreateVendorCreditRequestDto
-> = z.object({
-  accountId: z.optional(z.string()),
-  addresses: z.optional(z.array(Address$outboundSchema)),
-  contactId: z.optional(z.string()),
-  currency: z.optional(z.string()),
-  deliveryDate: z.optional(z.string()),
-  dueDate: z.optional(z.string()),
-  journalCode: z.optional(z.string()),
-  lineItems: z.optional(
-    z.array(CreateVendorCreditLineItemRequestDto$outboundSchema),
-  ),
-  name: z.optional(z.string()),
-  oneLineAddress: z.optional(z.string()),
-  paidDate: z.optional(
-    z.lazy(() => CreateVendorCreditRequestDtoPaidDate$outboundSchema),
-  ),
-  paymentReference: z.optional(z.string()),
-  paymentTermCode: z.optional(z.string()),
-  paymentStatus: z.optional(
-    CreateVendorCreditRequestDtoPaymentStatus$outboundSchema,
-  ),
-  paymentDays: z.optional(z.number()),
-  reference: z.optional(z.string()),
-  shippingDate: z.optional(
-    z.lazy(() => CreateVendorCreditRequestDtoShippingDate$outboundSchema),
-  ),
-  shippingType: z.optional(
-    CreateVendorCreditRequestDtoShippingType$outboundSchema,
-  ),
-  status: z.optional(CreateVendorCreditRequestDtoStatus$outboundSchema),
-  taxRule: z.optional(CreateVendorCreditRequestDtoTaxRule$outboundSchema),
-  taxText: z.optional(z.string()),
-  totalDiscountAmount: z.optional(z.number()),
-  totalDiscountPercentage: z.optional(z.number()),
-  totalGrossAmount: z.optional(z.number()),
-  totalNetAmount: z.optional(z.number()),
-  totalTaxAmount: z.optional(z.number()),
-  vendorCreditDate: z.string(),
-  vendorCreditNumber: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    accountId: z.optional(z.string()),
+    addresses: z.optional(z.array(Address$outboundSchema)),
+    contactId: z.optional(z.string()),
+    currency: z.optional(z.string()),
+    deliveryDate: z.optional(z.string()),
+    dueDate: z.optional(z.string()),
+    journalCode: z.optional(z.string()),
+    lineItems: z.optional(
+      z.array(CreateVendorCreditLineItemRequestDto$outboundSchema),
+    ),
+    name: z.optional(z.string()),
+    oneLineAddress: z.optional(z.string()),
+    paidDate: z.optional(
+      z.lazy(() => CreateVendorCreditRequestDtoPaidDate$outboundSchema),
+    ),
+    paymentReference: z.optional(z.string()),
+    paymentTermCode: z.optional(z.string()),
+    paymentStatus: z.optional(
+      CreateVendorCreditRequestDtoPaymentStatus$outboundSchema,
+    ),
+    paymentDays: z.optional(z.number()),
+    reference: z.optional(z.string()),
+    shippingDate: z.optional(
+      z.lazy(() => CreateVendorCreditRequestDtoShippingDate$outboundSchema),
+    ),
+    shippingType: z.optional(
+      CreateVendorCreditRequestDtoShippingType$outboundSchema,
+    ),
+    status: z.optional(CreateVendorCreditRequestDtoStatus$outboundSchema),
+    taxRule: z.optional(CreateVendorCreditRequestDtoTaxRule$outboundSchema),
+    taxText: z.optional(z.string()),
+    totalDiscountAmount: z.optional(z.number()),
+    totalDiscountPercentage: z.optional(z.number()),
+    totalGrossAmount: z.optional(z.number()),
+    totalNetAmount: z.optional(z.number()),
+    totalTaxAmount: z.optional(z.number()),
+    vendorCreditDate: z.string(),
+    vendorCreditNumber: z.string(),
+  })
+);
 
 export function createVendorCreditRequestDtoToJSON(
   createVendorCreditRequestDto: CreateVendorCreditRequestDto,

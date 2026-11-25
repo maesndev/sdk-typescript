@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import {
   CustomValues,
   CustomValues$Outbound,
@@ -28,12 +29,14 @@ export type SystemRegistrationDto$Outbound = {
 export const SystemRegistrationDto$outboundSchema: z.ZodMiniType<
   SystemRegistrationDto$Outbound,
   SystemRegistrationDto
-> = z.object({
-  targetSystem: z.string(),
-  clientId: z.string(),
-  clientSecret: z.string(),
-  customValues: z.array(CustomValues$outboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    targetSystem: z.string(),
+    clientId: z.string(),
+    clientSecret: z.string(),
+    customValues: z.array(CustomValues$outboundSchema),
+  })
+);
 
 export function systemRegistrationDtoToJSON(
   systemRegistrationDto: SystemRegistrationDto,

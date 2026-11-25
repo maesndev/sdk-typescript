@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 
 export const AdvancePaymentInputType = {
@@ -26,7 +27,7 @@ export type AdvancePaymentInput = {
 /** @internal */
 export const AdvancePaymentInputType$outboundSchema: z.ZodMiniEnum<
   typeof AdvancePaymentInputType
-> = z.enum(AdvancePaymentInputType);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(AdvancePaymentInputType));
 
 /** @internal */
 export type AdvancePaymentInput$Outbound = {
@@ -38,10 +39,12 @@ export type AdvancePaymentInput$Outbound = {
 export const AdvancePaymentInput$outboundSchema: z.ZodMiniType<
   AdvancePaymentInput$Outbound,
   AdvancePaymentInput
-> = z.object({
-  orderNumber: z.optional(z.string()),
-  type: z.optional(AdvancePaymentInputType$outboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    orderNumber: z.optional(z.string()),
+    type: z.optional(AdvancePaymentInputType$outboundSchema),
+  })
+);
 
 export function advancePaymentInputToJSON(
   advancePaymentInput: AdvancePaymentInput,

@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -62,10 +62,12 @@ export type GetEnvironmentsRequest$Outbound = {
 export const GetEnvironmentsRequest$outboundSchema: z.ZodMiniType<
   GetEnvironmentsRequest$Outbound,
   GetEnvironmentsRequest
-> = z.object({
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getEnvironmentsRequestToJSON(
   getEnvironmentsRequest: GetEnvironmentsRequest,
@@ -79,12 +81,14 @@ export function getEnvironmentsRequestToJSON(
 export const GetEnvironmentsPagination$inboundSchema: z.ZodMiniType<
   GetEnvironmentsPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getEnvironmentsPaginationFromJSON(
   jsonString: string,
@@ -100,15 +104,17 @@ export function getEnvironmentsPaginationFromJSON(
 export const GetEnvironmentsMeta$inboundSchema: z.ZodMiniType<
   GetEnvironmentsMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => GetEnvironmentsPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => GetEnvironmentsPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function getEnvironmentsMetaFromJSON(
   jsonString: string,
@@ -124,7 +130,7 @@ export function getEnvironmentsMetaFromJSON(
 export const GetEnvironmentsErrors$inboundSchema: z.ZodMiniType<
   GetEnvironmentsErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getEnvironmentsErrorsFromJSON(
   jsonString: string,
@@ -140,7 +146,7 @@ export function getEnvironmentsErrorsFromJSON(
 export const GetEnvironmentsRawData$inboundSchema: z.ZodMiniType<
   GetEnvironmentsRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getEnvironmentsRawDataFromJSON(
   jsonString: string,
@@ -156,12 +162,16 @@ export function getEnvironmentsRawDataFromJSON(
 export const GetEnvironmentsResponse$inboundSchema: z.ZodMiniType<
   GetEnvironmentsResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => GetEnvironmentsMeta$inboundSchema))),
-  data: z.array(models.EnvironmentResponseDto$inboundSchema),
-  errors: types.nullable(z.lazy(() => GetEnvironmentsErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => GetEnvironmentsRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => GetEnvironmentsMeta$inboundSchema)),
+    ),
+    data: z.array(models.EnvironmentResponseDto$inboundSchema),
+    errors: types.nullable(z.lazy(() => GetEnvironmentsErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => GetEnvironmentsRawData$inboundSchema)),
+  })
+);
 
 export function getEnvironmentsResponseFromJSON(
   jsonString: string,

@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 
 export type BankAccount = {
   iban?: string | undefined;
@@ -23,12 +24,14 @@ export type BankAccount$Outbound = {
 export const BankAccount$outboundSchema: z.ZodMiniType<
   BankAccount$Outbound,
   BankAccount
-> = z.object({
-  iban: z.optional(z.string()),
-  bic: z.optional(z.string()),
-  holder: z.optional(z.string()),
-  sepa: z.optional(z.boolean()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    iban: z.optional(z.string()),
+    bic: z.optional(z.string()),
+    holder: z.optional(z.string()),
+    sepa: z.optional(z.boolean()),
+  })
+);
 
 export function bankAccountToJSON(bankAccount: BankAccount): string {
   return JSON.stringify(BankAccount$outboundSchema.parse(bankAccount));

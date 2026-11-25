@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
@@ -41,11 +41,13 @@ export type UpdateSubmissionPageStyleRequest$Outbound = {
 export const UpdateSubmissionPageStyleRequest$outboundSchema: z.ZodMiniType<
   UpdateSubmissionPageStyleRequest$Outbound,
   UpdateSubmissionPageStyleRequest
-> = z.object({
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-  body: models.SubmissionPageStyleDto$outboundSchema,
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+    body: models.SubmissionPageStyleDto$outboundSchema,
+  })
+);
 
 export function updateSubmissionPageStyleRequestToJSON(
   updateSubmissionPageStyleRequest: UpdateSubmissionPageStyleRequest,
@@ -61,7 +63,7 @@ export function updateSubmissionPageStyleRequestToJSON(
 export const UpdateSubmissionPageStyleResponse$inboundSchema: z.ZodMiniType<
   UpdateSubmissionPageStyleResponse,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function updateSubmissionPageStyleResponseFromJSON(
   jsonString: string,

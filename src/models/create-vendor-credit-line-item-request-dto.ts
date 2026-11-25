@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import {
   VedorCreditDimensionRequestDto,
   VedorCreditDimensionRequestDto$Outbound,
@@ -62,31 +63,33 @@ export type CreateVendorCreditLineItemRequestDto$Outbound = {
 export const CreateVendorCreditLineItemRequestDto$outboundSchema: z.ZodMiniType<
   CreateVendorCreditLineItemRequestDto$Outbound,
   CreateVendorCreditLineItemRequestDto
-> = z.object({
-  id: z.optional(z.string()),
-  accountId: z.optional(z.string()),
-  accountNumber: z.optional(z.string()),
-  deferredEndDate: z.optional(z.string()),
-  deferredStartDate: z.optional(z.string()),
-  description: z.optional(z.string()),
-  dimensions: z.optional(
-    z.array(VedorCreditDimensionRequestDto$outboundSchema),
-  ),
-  itemId: z.optional(z.string()),
-  itemName: z.optional(z.string()),
-  quantity: z.optional(z.number()),
-  taxCode: z.optional(z.string()),
-  taxRatePercentage: z.optional(z.number()),
-  totalDiscountAmount: z.optional(z.number()),
-  totalDiscountPercentage: z.optional(z.number()),
-  totalGrossAmount: z.optional(z.number()),
-  totalNetAmount: z.optional(z.number()),
-  totalTaxAmount: z.optional(z.number()),
-  unitAmount: z.optional(z.number()),
-  unitDiscountAmount: z.optional(z.number()),
-  unitDiscountPercentage: z.optional(z.number()),
-  unitName: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.optional(z.string()),
+    accountId: z.optional(z.string()),
+    accountNumber: z.optional(z.string()),
+    deferredEndDate: z.optional(z.string()),
+    deferredStartDate: z.optional(z.string()),
+    description: z.optional(z.string()),
+    dimensions: z.optional(
+      z.array(VedorCreditDimensionRequestDto$outboundSchema),
+    ),
+    itemId: z.optional(z.string()),
+    itemName: z.optional(z.string()),
+    quantity: z.optional(z.number()),
+    taxCode: z.optional(z.string()),
+    taxRatePercentage: z.optional(z.number()),
+    totalDiscountAmount: z.optional(z.number()),
+    totalDiscountPercentage: z.optional(z.number()),
+    totalGrossAmount: z.optional(z.number()),
+    totalNetAmount: z.optional(z.number()),
+    totalTaxAmount: z.optional(z.number()),
+    unitAmount: z.optional(z.number()),
+    unitDiscountAmount: z.optional(z.number()),
+    unitDiscountPercentage: z.optional(z.number()),
+    unitName: z.optional(z.string()),
+  })
+);
 
 export function createVendorCreditLineItemRequestDtoToJSON(
   createVendorCreditLineItemRequestDto: CreateVendorCreditLineItemRequestDto,

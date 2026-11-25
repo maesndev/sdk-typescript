@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
@@ -119,12 +119,12 @@ export type GetAccountsResponse = {
 /** @internal */
 export const GetAccountsLimit$outboundSchema: z.ZodMiniEnum<
   typeof GetAccountsLimit
-> = z.enum(GetAccountsLimit);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(GetAccountsLimit));
 
 /** @internal */
 export const DebitCreditIndicator$outboundSchema: z.ZodMiniEnum<
   typeof DebitCreditIndicator
-> = z.enum(DebitCreditIndicator);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(DebitCreditIndicator));
 
 /** @internal */
 export type GetAccountsRequest$Outbound = {
@@ -148,22 +148,24 @@ export type GetAccountsRequest$Outbound = {
 export const GetAccountsRequest$outboundSchema: z.ZodMiniType<
   GetAccountsRequest$Outbound,
   GetAccountsRequest
-> = z.object({
-  page: z.optional(z.number()),
-  limit: z.optional(GetAccountsLimit$outboundSchema),
-  lastModifiedAt: z.optional(z.string()),
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  rawData: z.optional(z.boolean()),
-  debitCreditIndicator: z.optional(DebitCreditIndicator$outboundSchema),
-  fiscalYear: z.optional(z.number()),
-  types: z.optional(z.string()),
-  fiscalYearStartDate: z.optional(z.string()),
-  classFilter: z.optional(z.string()),
-  isActive: z.optional(z.boolean()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    page: z.optional(z.number()),
+    limit: z.optional(GetAccountsLimit$outboundSchema),
+    lastModifiedAt: z.optional(z.string()),
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    rawData: z.optional(z.boolean()),
+    debitCreditIndicator: z.optional(DebitCreditIndicator$outboundSchema),
+    fiscalYear: z.optional(z.number()),
+    types: z.optional(z.string()),
+    fiscalYearStartDate: z.optional(z.string()),
+    classFilter: z.optional(z.string()),
+    isActive: z.optional(z.boolean()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getAccountsRequestToJSON(
   getAccountsRequest: GetAccountsRequest,
@@ -177,12 +179,14 @@ export function getAccountsRequestToJSON(
 export const GetAccountsPagination$inboundSchema: z.ZodMiniType<
   GetAccountsPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getAccountsPaginationFromJSON(
   jsonString: string,
@@ -198,15 +202,17 @@ export function getAccountsPaginationFromJSON(
 export const GetAccountsMeta$inboundSchema: z.ZodMiniType<
   GetAccountsMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => GetAccountsPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => GetAccountsPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function getAccountsMetaFromJSON(
   jsonString: string,
@@ -222,7 +228,7 @@ export function getAccountsMetaFromJSON(
 export const GetAccountsErrors$inboundSchema: z.ZodMiniType<
   GetAccountsErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getAccountsErrorsFromJSON(
   jsonString: string,
@@ -238,7 +244,7 @@ export function getAccountsErrorsFromJSON(
 export const GetAccountsRawData$inboundSchema: z.ZodMiniType<
   GetAccountsRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getAccountsRawDataFromJSON(
   jsonString: string,
@@ -254,12 +260,14 @@ export function getAccountsRawDataFromJSON(
 export const GetAccountsResponse$inboundSchema: z.ZodMiniType<
   GetAccountsResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => GetAccountsMeta$inboundSchema))),
-  data: z.array(models.AccountResponseDto$inboundSchema),
-  errors: types.nullable(z.lazy(() => GetAccountsErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => GetAccountsRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(z.nullable(z.lazy(() => GetAccountsMeta$inboundSchema))),
+    data: z.array(models.AccountResponseDto$inboundSchema),
+    errors: types.nullable(z.lazy(() => GetAccountsErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => GetAccountsRawData$inboundSchema)),
+  })
+);
 
 export function getAccountsResponseFromJSON(
   jsonString: string,

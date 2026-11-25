@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -76,14 +76,16 @@ export type CreateLineItemRequest$Outbound = {
 export const CreateLineItemRequest$outboundSchema: z.ZodMiniType<
   CreateLineItemRequest$Outbound,
   CreateLineItemRequest
-> = z.object({
-  invoiceId: z.string(),
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-  body: models.CreateLineItemRequestDto$outboundSchema,
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    invoiceId: z.string(),
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+    body: models.CreateLineItemRequestDto$outboundSchema,
+  })
+);
 
 export function createLineItemRequestToJSON(
   createLineItemRequest: CreateLineItemRequest,
@@ -97,12 +99,14 @@ export function createLineItemRequestToJSON(
 export const CreateLineItemPagination$inboundSchema: z.ZodMiniType<
   CreateLineItemPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function createLineItemPaginationFromJSON(
   jsonString: string,
@@ -118,15 +122,17 @@ export function createLineItemPaginationFromJSON(
 export const CreateLineItemMeta$inboundSchema: z.ZodMiniType<
   CreateLineItemMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => CreateLineItemPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => CreateLineItemPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function createLineItemMetaFromJSON(
   jsonString: string,
@@ -142,7 +148,7 @@ export function createLineItemMetaFromJSON(
 export const CreateLineItemErrors$inboundSchema: z.ZodMiniType<
   CreateLineItemErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createLineItemErrorsFromJSON(
   jsonString: string,
@@ -158,7 +164,7 @@ export function createLineItemErrorsFromJSON(
 export const CreateLineItemRawData$inboundSchema: z.ZodMiniType<
   CreateLineItemRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createLineItemRawDataFromJSON(
   jsonString: string,
@@ -174,12 +180,16 @@ export function createLineItemRawDataFromJSON(
 export const CreateLineItemResponse$inboundSchema: z.ZodMiniType<
   CreateLineItemResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => CreateLineItemMeta$inboundSchema))),
-  data: models.LineItemResponseDto$inboundSchema,
-  errors: types.nullable(z.lazy(() => CreateLineItemErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => CreateLineItemRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => CreateLineItemMeta$inboundSchema)),
+    ),
+    data: models.LineItemResponseDto$inboundSchema,
+    errors: types.nullable(z.lazy(() => CreateLineItemErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => CreateLineItemRawData$inboundSchema)),
+  })
+);
 
 export function createLineItemResponseFromJSON(
   jsonString: string,

@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -64,11 +64,13 @@ export type GetBookingProposalDocumentRequest$Outbound = {
 export const GetBookingProposalDocumentRequest$outboundSchema: z.ZodMiniType<
   GetBookingProposalDocumentRequest$Outbound,
   GetBookingProposalDocumentRequest
-> = z.object({
-  bookingProposalId: z.string(),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    bookingProposalId: z.string(),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getBookingProposalDocumentRequestToJSON(
   getBookingProposalDocumentRequest: GetBookingProposalDocumentRequest,
@@ -84,12 +86,14 @@ export function getBookingProposalDocumentRequestToJSON(
 export const GetBookingProposalDocumentPagination$inboundSchema: z.ZodMiniType<
   GetBookingProposalDocumentPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getBookingProposalDocumentPaginationFromJSON(
   jsonString: string,
@@ -106,17 +110,17 @@ export function getBookingProposalDocumentPaginationFromJSON(
 export const GetBookingProposalDocumentMeta$inboundSchema: z.ZodMiniType<
   GetBookingProposalDocumentMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(
-      z.lazy(() => GetBookingProposalDocumentPagination$inboundSchema),
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(z.nullable(z.lazy(() =>
+      GetBookingProposalDocumentPagination$inboundSchema
+    ))),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
     ),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+  })
+);
 
 export function getBookingProposalDocumentMetaFromJSON(
   jsonString: string,
@@ -132,7 +136,7 @@ export function getBookingProposalDocumentMetaFromJSON(
 export const GetBookingProposalDocumentErrors$inboundSchema: z.ZodMiniType<
   GetBookingProposalDocumentErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getBookingProposalDocumentErrorsFromJSON(
   jsonString: string,
@@ -148,7 +152,7 @@ export function getBookingProposalDocumentErrorsFromJSON(
 export const GetBookingProposalDocumentRawData$inboundSchema: z.ZodMiniType<
   GetBookingProposalDocumentRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getBookingProposalDocumentRawDataFromJSON(
   jsonString: string,
@@ -164,18 +168,20 @@ export function getBookingProposalDocumentRawDataFromJSON(
 export const GetBookingProposalDocumentResponse$inboundSchema: z.ZodMiniType<
   GetBookingProposalDocumentResponse,
   unknown
-> = z.object({
-  meta: z.optional(
-    z.nullable(z.lazy(() => GetBookingProposalDocumentMeta$inboundSchema)),
-  ),
-  data: models.DocumentResponseDto$inboundSchema,
-  errors: types.nullable(
-    z.lazy(() => GetBookingProposalDocumentErrors$inboundSchema),
-  ),
-  rawData: types.nullable(
-    z.lazy(() => GetBookingProposalDocumentRawData$inboundSchema),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => GetBookingProposalDocumentMeta$inboundSchema)),
+    ),
+    data: models.DocumentResponseDto$inboundSchema,
+    errors: types.nullable(
+      z.lazy(() => GetBookingProposalDocumentErrors$inboundSchema),
+    ),
+    rawData: types.nullable(
+      z.lazy(() => GetBookingProposalDocumentRawData$inboundSchema),
+    ),
+  })
+);
 
 export function getBookingProposalDocumentResponseFromJSON(
   jsonString: string,

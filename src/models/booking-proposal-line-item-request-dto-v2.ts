@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import {
   AccountRequestCommonDtoV2,
@@ -41,9 +42,10 @@ export type BookingProposalLineItemRequestDtoV2 = {
 
 /** @internal */
 export const BookingProposalLineItemRequestDtoV2Type$outboundSchema:
-  z.ZodMiniEnum<typeof BookingProposalLineItemRequestDtoV2Type> = z.enum(
-    BookingProposalLineItemRequestDtoV2Type,
-  );
+  z.ZodMiniEnum<typeof BookingProposalLineItemRequestDtoV2Type> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.enum(BookingProposalLineItemRequestDtoV2Type)
+    );
 
 /** @internal */
 export type BookingProposalLineItemRequestDtoV2$Outbound = {
@@ -66,21 +68,23 @@ export type BookingProposalLineItemRequestDtoV2$Outbound = {
 export const BookingProposalLineItemRequestDtoV2$outboundSchema: z.ZodMiniType<
   BookingProposalLineItemRequestDtoV2$Outbound,
   BookingProposalLineItemRequestDtoV2
-> = z.object({
-  id: z.optional(z.string()),
-  account: z.optional(AccountRequestCommonDtoV2$outboundSchema),
-  description: z.optional(z.string()),
-  dimensions: z.optional(z.array(DimensionRequestCommonDtoV2$outboundSchema)),
-  discountAmount: z.optional(z.number()),
-  discountAmount2: z.optional(z.number()),
-  discountPercentage: z.optional(z.number()),
-  discountPercentage2: z.optional(z.number()),
-  taxCode: z.optional(z.string()),
-  taxRatePercentage: z.optional(z.number()),
-  totalGrossAmount: z.optional(z.number()),
-  totalNetAmount: z.optional(z.number()),
-  type: z.optional(BookingProposalLineItemRequestDtoV2Type$outboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.optional(z.string()),
+    account: z.optional(AccountRequestCommonDtoV2$outboundSchema),
+    description: z.optional(z.string()),
+    dimensions: z.optional(z.array(DimensionRequestCommonDtoV2$outboundSchema)),
+    discountAmount: z.optional(z.number()),
+    discountAmount2: z.optional(z.number()),
+    discountPercentage: z.optional(z.number()),
+    discountPercentage2: z.optional(z.number()),
+    taxCode: z.optional(z.string()),
+    taxRatePercentage: z.optional(z.number()),
+    totalGrossAmount: z.optional(z.number()),
+    totalNetAmount: z.optional(z.number()),
+    type: z.optional(BookingProposalLineItemRequestDtoV2Type$outboundSchema),
+  })
+);
 
 export function bookingProposalLineItemRequestDtoV2ToJSON(
   bookingProposalLineItemRequestDtoV2: BookingProposalLineItemRequestDtoV2,

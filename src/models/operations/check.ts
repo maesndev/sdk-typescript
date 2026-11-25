@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 
@@ -38,10 +38,12 @@ export type CheckRequest$Outbound = {
 export const CheckRequest$outboundSchema: z.ZodMiniType<
   CheckRequest$Outbound,
   CheckRequest
-> = z.object({
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function checkRequestToJSON(checkRequest: CheckRequest): string {
   return JSON.stringify(CheckRequest$outboundSchema.parse(checkRequest));
@@ -51,7 +53,7 @@ export function checkRequestToJSON(checkRequest: CheckRequest): string {
 export const CheckResponse$inboundSchema: z.ZodMiniType<
   CheckResponse,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function checkResponseFromJSON(
   jsonString: string,

@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
@@ -21,14 +21,16 @@ export type BankAccountResponse = {
 export const BankAccountResponse$inboundSchema: z.ZodMiniType<
   BankAccountResponse,
   unknown
-> = z.object({
-  bic: types.nullable(types.string()),
-  holder: types.nullable(types.string()),
-  isMainAccount: types.nullable(types.boolean()),
-  iban: types.nullable(types.string()),
-  name: types.nullable(types.string()),
-  sepa: types.nullable(types.boolean()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    bic: types.nullable(types.string()),
+    holder: types.nullable(types.string()),
+    isMainAccount: types.nullable(types.boolean()),
+    iban: types.nullable(types.string()),
+    name: types.nullable(types.string()),
+    sepa: types.nullable(types.boolean()),
+  })
+);
 
 export function bankAccountResponseFromJSON(
   jsonString: string,

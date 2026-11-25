@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
@@ -128,15 +128,17 @@ export type CreateBookingProposalV2File$Outbound = {
 export const CreateBookingProposalV2File$outboundSchema: z.ZodMiniType<
   CreateBookingProposalV2File$Outbound,
   CreateBookingProposalV2File
-> = z.object({
-  fileName: z.string(),
-  content: z.union([
-    z.custom<ReadableStream<Uint8Array>>(x => x instanceof ReadableStream),
-    z.custom<Blob>(x => x instanceof Blob),
-    z.custom<ArrayBuffer>(x => x instanceof ArrayBuffer),
-    z.custom<Uint8Array>(x => x instanceof Uint8Array),
-  ]),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    fileName: z.string(),
+    content: z.union([
+      z.custom<ReadableStream<Uint8Array>>(x => x instanceof ReadableStream),
+      z.custom<Blob>(x => x instanceof Blob),
+      z.custom<ArrayBuffer>(x => x instanceof ArrayBuffer),
+      z.custom<Uint8Array>(x => x instanceof Uint8Array),
+    ]),
+  })
+);
 
 export function createBookingProposalV2FileToJSON(
   createBookingProposalV2File: CreateBookingProposalV2File,
@@ -151,7 +153,9 @@ export function createBookingProposalV2FileToJSON(
 /** @internal */
 export const CreateBookingProposalV2BookingType$outboundSchema: z.ZodMiniEnum<
   typeof CreateBookingProposalV2BookingType
-> = z.enum(CreateBookingProposalV2BookingType);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.enum(CreateBookingProposalV2BookingType)
+);
 
 /** @internal */
 export type CreateBookingProposalV2FolderManagement$Outbound = {
@@ -165,11 +169,13 @@ export const CreateBookingProposalV2FolderManagement$outboundSchema:
   z.ZodMiniType<
     CreateBookingProposalV2FolderManagement$Outbound,
     CreateBookingProposalV2FolderManagement
-  > = z.object({
-    category: z.optional(z.string()),
-    folder: z.optional(z.string()),
-    register: z.optional(z.string()),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      category: z.optional(z.string()),
+      folder: z.optional(z.string()),
+      register: z.optional(z.string()),
+    })
+  );
 
 export function createBookingProposalV2FolderManagementToJSON(
   createBookingProposalV2FolderManagement:
@@ -198,18 +204,20 @@ export type CreateBookingProposalV2RequestBody$Outbound = {
 export const CreateBookingProposalV2RequestBody$outboundSchema: z.ZodMiniType<
   CreateBookingProposalV2RequestBody$Outbound,
   CreateBookingProposalV2RequestBody
-> = z.object({
-  files: z.optional(
-    z.array(z.lazy(() => CreateBookingProposalV2File$outboundSchema)),
-  ),
-  bookingType: z.optional(CreateBookingProposalV2BookingType$outboundSchema),
-  bookingProposal: z.optional(
-    models.CreateBookingProposalRequestDtoV2$outboundSchema,
-  ),
-  folderManagement: z.optional(
-    z.lazy(() => CreateBookingProposalV2FolderManagement$outboundSchema),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    files: z.optional(
+      z.array(z.lazy(() => CreateBookingProposalV2File$outboundSchema)),
+    ),
+    bookingType: z.optional(CreateBookingProposalV2BookingType$outboundSchema),
+    bookingProposal: z.optional(
+      models.CreateBookingProposalRequestDtoV2$outboundSchema,
+    ),
+    folderManagement: z.optional(
+      z.lazy(() => CreateBookingProposalV2FolderManagement$outboundSchema),
+    ),
+  })
+);
 
 export function createBookingProposalV2RequestBodyToJSON(
   createBookingProposalV2RequestBody: CreateBookingProposalV2RequestBody,
@@ -233,12 +241,14 @@ export type CreateBookingProposalV2Request$Outbound = {
 export const CreateBookingProposalV2Request$outboundSchema: z.ZodMiniType<
   CreateBookingProposalV2Request$Outbound,
   CreateBookingProposalV2Request
-> = z.object({
-  companyId: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-  body: z.lazy(() => CreateBookingProposalV2RequestBody$outboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    companyId: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+    body: z.lazy(() => CreateBookingProposalV2RequestBody$outboundSchema),
+  })
+);
 
 export function createBookingProposalV2RequestToJSON(
   createBookingProposalV2Request: CreateBookingProposalV2Request,
@@ -254,12 +264,14 @@ export function createBookingProposalV2RequestToJSON(
 export const CreateBookingProposalV2Pagination2$inboundSchema: z.ZodMiniType<
   CreateBookingProposalV2Pagination2,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function createBookingProposalV2Pagination2FromJSON(
   jsonString: string,
@@ -276,15 +288,19 @@ export function createBookingProposalV2Pagination2FromJSON(
 export const CreateBookingProposalV2Meta2$inboundSchema: z.ZodMiniType<
   CreateBookingProposalV2Meta2,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => CreateBookingProposalV2Pagination2$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(
+        z.lazy(() => CreateBookingProposalV2Pagination2$inboundSchema),
+      ),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function createBookingProposalV2Meta2FromJSON(
   jsonString: string,
@@ -300,7 +316,7 @@ export function createBookingProposalV2Meta2FromJSON(
 export const CreateBookingProposalV2Errors2$inboundSchema: z.ZodMiniType<
   CreateBookingProposalV2Errors2,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createBookingProposalV2Errors2FromJSON(
   jsonString: string,
@@ -316,7 +332,7 @@ export function createBookingProposalV2Errors2FromJSON(
 export const CreateBookingProposalV2RawData2$inboundSchema: z.ZodMiniType<
   CreateBookingProposalV2RawData2,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createBookingProposalV2RawData2FromJSON(
   jsonString: string,
@@ -332,18 +348,20 @@ export function createBookingProposalV2RawData2FromJSON(
 export const CreateBookingProposalV2ResponseBody2$inboundSchema: z.ZodMiniType<
   CreateBookingProposalV2ResponseBody2,
   unknown
-> = z.object({
-  meta: z.optional(
-    z.nullable(z.lazy(() => CreateBookingProposalV2Meta2$inboundSchema)),
-  ),
-  data: models.TaskIdResponseDto$inboundSchema,
-  errors: types.nullable(
-    z.lazy(() => CreateBookingProposalV2Errors2$inboundSchema),
-  ),
-  rawData: types.nullable(
-    z.lazy(() => CreateBookingProposalV2RawData2$inboundSchema),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => CreateBookingProposalV2Meta2$inboundSchema)),
+    ),
+    data: models.TaskIdResponseDto$inboundSchema,
+    errors: types.nullable(
+      z.lazy(() => CreateBookingProposalV2Errors2$inboundSchema),
+    ),
+    rawData: types.nullable(
+      z.lazy(() => CreateBookingProposalV2RawData2$inboundSchema),
+    ),
+  })
+);
 
 export function createBookingProposalV2ResponseBody2FromJSON(
   jsonString: string,
@@ -360,12 +378,14 @@ export function createBookingProposalV2ResponseBody2FromJSON(
 export const CreateBookingProposalV2Pagination1$inboundSchema: z.ZodMiniType<
   CreateBookingProposalV2Pagination1,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function createBookingProposalV2Pagination1FromJSON(
   jsonString: string,
@@ -382,15 +402,19 @@ export function createBookingProposalV2Pagination1FromJSON(
 export const CreateBookingProposalV2Meta1$inboundSchema: z.ZodMiniType<
   CreateBookingProposalV2Meta1,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => CreateBookingProposalV2Pagination1$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(
+        z.lazy(() => CreateBookingProposalV2Pagination1$inboundSchema),
+      ),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function createBookingProposalV2Meta1FromJSON(
   jsonString: string,
@@ -406,7 +430,7 @@ export function createBookingProposalV2Meta1FromJSON(
 export const CreateBookingProposalV2Errors1$inboundSchema: z.ZodMiniType<
   CreateBookingProposalV2Errors1,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createBookingProposalV2Errors1FromJSON(
   jsonString: string,
@@ -422,7 +446,7 @@ export function createBookingProposalV2Errors1FromJSON(
 export const CreateBookingProposalV2RawData1$inboundSchema: z.ZodMiniType<
   CreateBookingProposalV2RawData1,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createBookingProposalV2RawData1FromJSON(
   jsonString: string,
@@ -438,18 +462,20 @@ export function createBookingProposalV2RawData1FromJSON(
 export const CreateBookingProposalV2ResponseBody1$inboundSchema: z.ZodMiniType<
   CreateBookingProposalV2ResponseBody1,
   unknown
-> = z.object({
-  meta: z.optional(
-    z.nullable(z.lazy(() => CreateBookingProposalV2Meta1$inboundSchema)),
-  ),
-  data: models.BookingProposalResponseDtoV2$inboundSchema,
-  errors: types.nullable(
-    z.lazy(() => CreateBookingProposalV2Errors1$inboundSchema),
-  ),
-  rawData: types.nullable(
-    z.lazy(() => CreateBookingProposalV2RawData1$inboundSchema),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => CreateBookingProposalV2Meta1$inboundSchema)),
+    ),
+    data: models.BookingProposalResponseDtoV2$inboundSchema,
+    errors: types.nullable(
+      z.lazy(() => CreateBookingProposalV2Errors1$inboundSchema),
+    ),
+    rawData: types.nullable(
+      z.lazy(() => CreateBookingProposalV2RawData1$inboundSchema),
+    ),
+  })
+);
 
 export function createBookingProposalV2ResponseBody1FromJSON(
   jsonString: string,
@@ -466,10 +492,12 @@ export function createBookingProposalV2ResponseBody1FromJSON(
 export const CreateBookingProposalV2Response$inboundSchema: z.ZodMiniType<
   CreateBookingProposalV2Response,
   unknown
-> = smartUnion([
-  z.lazy(() => CreateBookingProposalV2ResponseBody1$inboundSchema),
-  z.lazy(() => CreateBookingProposalV2ResponseBody2$inboundSchema),
-]);
+> = /* @__PURE__ */ lazySchema$(() =>
+  smartUnion([
+    z.lazy(() => CreateBookingProposalV2ResponseBody1$inboundSchema),
+    z.lazy(() => CreateBookingProposalV2ResponseBody2$inboundSchema),
+  ])
+);
 
 export function createBookingProposalV2ResponseFromJSON(
   jsonString: string,

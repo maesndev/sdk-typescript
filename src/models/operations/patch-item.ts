@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -76,14 +76,16 @@ export type PatchItemRequest$Outbound = {
 export const PatchItemRequest$outboundSchema: z.ZodMiniType<
   PatchItemRequest$Outbound,
   PatchItemRequest
-> = z.object({
-  itemId: z.string(),
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-  body: models.PatchItemRequestDto$outboundSchema,
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    itemId: z.string(),
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+    body: models.PatchItemRequestDto$outboundSchema,
+  })
+);
 
 export function patchItemRequestToJSON(
   patchItemRequest: PatchItemRequest,
@@ -97,12 +99,14 @@ export function patchItemRequestToJSON(
 export const PatchItemPagination$inboundSchema: z.ZodMiniType<
   PatchItemPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function patchItemPaginationFromJSON(
   jsonString: string,
@@ -118,15 +122,17 @@ export function patchItemPaginationFromJSON(
 export const PatchItemMeta$inboundSchema: z.ZodMiniType<
   PatchItemMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => PatchItemPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => PatchItemPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function patchItemMetaFromJSON(
   jsonString: string,
@@ -142,7 +148,7 @@ export function patchItemMetaFromJSON(
 export const PatchItemErrors$inboundSchema: z.ZodMiniType<
   PatchItemErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function patchItemErrorsFromJSON(
   jsonString: string,
@@ -158,7 +164,7 @@ export function patchItemErrorsFromJSON(
 export const PatchItemRawData$inboundSchema: z.ZodMiniType<
   PatchItemRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function patchItemRawDataFromJSON(
   jsonString: string,
@@ -174,12 +180,14 @@ export function patchItemRawDataFromJSON(
 export const PatchItemResponse$inboundSchema: z.ZodMiniType<
   PatchItemResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => PatchItemMeta$inboundSchema))),
-  data: models.ItemResponseDto$inboundSchema,
-  errors: types.nullable(z.lazy(() => PatchItemErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => PatchItemRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(z.nullable(z.lazy(() => PatchItemMeta$inboundSchema))),
+    data: models.ItemResponseDto$inboundSchema,
+    errors: types.nullable(z.lazy(() => PatchItemErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => PatchItemRawData$inboundSchema)),
+  })
+);
 
 export function patchItemResponseFromJSON(
   jsonString: string,

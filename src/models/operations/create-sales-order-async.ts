@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -64,11 +64,13 @@ export type CreateSalesOrderAsyncRequest$Outbound = {
 export const CreateSalesOrderAsyncRequest$outboundSchema: z.ZodMiniType<
   CreateSalesOrderAsyncRequest$Outbound,
   CreateSalesOrderAsyncRequest
-> = z.object({
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-  body: models.CreateSalesOrderRequestDto$outboundSchema,
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+    body: models.CreateSalesOrderRequestDto$outboundSchema,
+  })
+);
 
 export function createSalesOrderAsyncRequestToJSON(
   createSalesOrderAsyncRequest: CreateSalesOrderAsyncRequest,
@@ -84,12 +86,14 @@ export function createSalesOrderAsyncRequestToJSON(
 export const CreateSalesOrderAsyncPagination$inboundSchema: z.ZodMiniType<
   CreateSalesOrderAsyncPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function createSalesOrderAsyncPaginationFromJSON(
   jsonString: string,
@@ -105,15 +109,17 @@ export function createSalesOrderAsyncPaginationFromJSON(
 export const CreateSalesOrderAsyncMeta$inboundSchema: z.ZodMiniType<
   CreateSalesOrderAsyncMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => CreateSalesOrderAsyncPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => CreateSalesOrderAsyncPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function createSalesOrderAsyncMetaFromJSON(
   jsonString: string,
@@ -129,7 +135,7 @@ export function createSalesOrderAsyncMetaFromJSON(
 export const CreateSalesOrderAsyncErrors$inboundSchema: z.ZodMiniType<
   CreateSalesOrderAsyncErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createSalesOrderAsyncErrorsFromJSON(
   jsonString: string,
@@ -145,7 +151,7 @@ export function createSalesOrderAsyncErrorsFromJSON(
 export const CreateSalesOrderAsyncRawData$inboundSchema: z.ZodMiniType<
   CreateSalesOrderAsyncRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createSalesOrderAsyncRawDataFromJSON(
   jsonString: string,
@@ -161,18 +167,20 @@ export function createSalesOrderAsyncRawDataFromJSON(
 export const CreateSalesOrderAsyncResponse$inboundSchema: z.ZodMiniType<
   CreateSalesOrderAsyncResponse,
   unknown
-> = z.object({
-  meta: z.optional(
-    z.nullable(z.lazy(() => CreateSalesOrderAsyncMeta$inboundSchema)),
-  ),
-  data: models.TaskIdResponseDto$inboundSchema,
-  errors: types.nullable(
-    z.lazy(() => CreateSalesOrderAsyncErrors$inboundSchema),
-  ),
-  rawData: types.nullable(
-    z.lazy(() => CreateSalesOrderAsyncRawData$inboundSchema),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => CreateSalesOrderAsyncMeta$inboundSchema)),
+    ),
+    data: models.TaskIdResponseDto$inboundSchema,
+    errors: types.nullable(
+      z.lazy(() => CreateSalesOrderAsyncErrors$inboundSchema),
+    ),
+    rawData: types.nullable(
+      z.lazy(() => CreateSalesOrderAsyncRawData$inboundSchema),
+    ),
+  })
+);
 
 export function createSalesOrderAsyncResponseFromJSON(
   jsonString: string,

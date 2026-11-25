@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 
 export type CreatePaymentLine = {
   accountId?: string | undefined;
@@ -33,17 +34,19 @@ export type CreatePaymentLine$Outbound = {
 export const CreatePaymentLine$outboundSchema: z.ZodMiniType<
   CreatePaymentLine$Outbound,
   CreatePaymentLine
-> = z.object({
-  accountId: z.optional(z.string()),
-  amount: z.optional(z.number()),
-  contactName: z.optional(z.string()),
-  contactId: z.optional(z.string()),
-  customerId: z.optional(z.string()),
-  description: z.optional(z.string()),
-  invoiceId: z.optional(z.string()),
-  supplierId: z.optional(z.string()),
-  paymentDate: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    accountId: z.optional(z.string()),
+    amount: z.optional(z.number()),
+    contactName: z.optional(z.string()),
+    contactId: z.optional(z.string()),
+    customerId: z.optional(z.string()),
+    description: z.optional(z.string()),
+    invoiceId: z.optional(z.string()),
+    supplierId: z.optional(z.string()),
+    paymentDate: z.optional(z.string()),
+  })
+);
 
 export function createPaymentLineToJSON(
   createPaymentLine: CreatePaymentLine,

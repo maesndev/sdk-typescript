@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 
 export type CreateEventSubscriptionRequestDto = {
   eventType: string;
@@ -19,10 +20,12 @@ export type CreateEventSubscriptionRequestDto$Outbound = {
 export const CreateEventSubscriptionRequestDto$outboundSchema: z.ZodMiniType<
   CreateEventSubscriptionRequestDto$Outbound,
   CreateEventSubscriptionRequestDto
-> = z.object({
-  eventType: z.string(),
-  callbackUrl: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    eventType: z.string(),
+    callbackUrl: z.string(),
+  })
+);
 
 export function createEventSubscriptionRequestDtoToJSON(
   createEventSubscriptionRequestDto: CreateEventSubscriptionRequestDto,

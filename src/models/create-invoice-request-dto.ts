@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import {
   CreateAddress,
@@ -104,22 +105,26 @@ export type CreateInvoiceRequestDto = {
 /** @internal */
 export const CreateInvoiceRequestDtoInvoiceType$outboundSchema: z.ZodMiniEnum<
   typeof CreateInvoiceRequestDtoInvoiceType
-> = z.enum(CreateInvoiceRequestDtoInvoiceType);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.enum(CreateInvoiceRequestDtoInvoiceType)
+);
 
 /** @internal */
 export const CreateInvoiceRequestDtoShippingType$outboundSchema: z.ZodMiniEnum<
   typeof CreateInvoiceRequestDtoShippingType
-> = z.enum(CreateInvoiceRequestDtoShippingType);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.enum(CreateInvoiceRequestDtoShippingType)
+);
 
 /** @internal */
 export const CreateInvoiceRequestDtoStatus$outboundSchema: z.ZodMiniEnum<
   typeof CreateInvoiceRequestDtoStatus
-> = z.enum(CreateInvoiceRequestDtoStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(CreateInvoiceRequestDtoStatus));
 
 /** @internal */
 export const CreateInvoiceRequestDtoTaxRule$outboundSchema: z.ZodMiniEnum<
   typeof CreateInvoiceRequestDtoTaxRule
-> = z.enum(CreateInvoiceRequestDtoTaxRule);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(CreateInvoiceRequestDtoTaxRule));
 
 /** @internal */
 export type CreateInvoiceRequestDto$Outbound = {
@@ -156,35 +161,39 @@ export type CreateInvoiceRequestDto$Outbound = {
 export const CreateInvoiceRequestDto$outboundSchema: z.ZodMiniType<
   CreateInvoiceRequestDto$Outbound,
   CreateInvoiceRequestDto
-> = z.object({
-  invoiceId: z.optional(z.string()),
-  addresses: z.optional(z.array(CreateAddress$outboundSchema)),
-  contactId: z.optional(z.string()),
-  currency: z.optional(z.string()),
-  discountPercentage: z.optional(z.number()),
-  dueDate: z.optional(z.string()),
-  fileId: z.optional(z.string()),
-  grossTotalAmount: z.optional(z.number()),
-  invoiceDate: z.string(),
-  invoiceNumber: z.optional(z.string()),
-  invoiceType: z.optional(CreateInvoiceRequestDtoInvoiceType$outboundSchema),
-  journalCode: z.optional(z.string()),
-  lineAmountTypes: z.optional(z.string()),
-  lineItems: z.array(CreateLineItemRequestDto$outboundSchema),
-  name: z.optional(z.string()),
-  oneLineAddress: z.optional(z.string()),
-  paidDate: z.optional(z.string()),
-  paymentTermDuration: z.optional(z.number()),
-  paymentTermId: z.optional(z.string()),
-  reference: z.optional(z.string()),
-  salesOrderId: z.nullable(z.string()),
-  shippingDate: z.optional(z.string()),
-  shippingType: z.optional(CreateInvoiceRequestDtoShippingType$outboundSchema),
-  shippingEndDate: z.optional(z.string()),
-  status: z.optional(CreateInvoiceRequestDtoStatus$outboundSchema),
-  taxRule: z.optional(CreateInvoiceRequestDtoTaxRule$outboundSchema),
-  taxText: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    invoiceId: z.optional(z.string()),
+    addresses: z.optional(z.array(CreateAddress$outboundSchema)),
+    contactId: z.optional(z.string()),
+    currency: z.optional(z.string()),
+    discountPercentage: z.optional(z.number()),
+    dueDate: z.optional(z.string()),
+    fileId: z.optional(z.string()),
+    grossTotalAmount: z.optional(z.number()),
+    invoiceDate: z.string(),
+    invoiceNumber: z.optional(z.string()),
+    invoiceType: z.optional(CreateInvoiceRequestDtoInvoiceType$outboundSchema),
+    journalCode: z.optional(z.string()),
+    lineAmountTypes: z.optional(z.string()),
+    lineItems: z.array(CreateLineItemRequestDto$outboundSchema),
+    name: z.optional(z.string()),
+    oneLineAddress: z.optional(z.string()),
+    paidDate: z.optional(z.string()),
+    paymentTermDuration: z.optional(z.number()),
+    paymentTermId: z.optional(z.string()),
+    reference: z.optional(z.string()),
+    salesOrderId: z.nullable(z.string()),
+    shippingDate: z.optional(z.string()),
+    shippingType: z.optional(
+      CreateInvoiceRequestDtoShippingType$outboundSchema,
+    ),
+    shippingEndDate: z.optional(z.string()),
+    status: z.optional(CreateInvoiceRequestDtoStatus$outboundSchema),
+    taxRule: z.optional(CreateInvoiceRequestDtoTaxRule$outboundSchema),
+    taxText: z.optional(z.string()),
+  })
+);
 
 export function createInvoiceRequestDtoToJSON(
   createInvoiceRequestDto: CreateInvoiceRequestDto,

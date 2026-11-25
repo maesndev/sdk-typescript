@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -64,11 +64,13 @@ export type GetProjectAsyncRequest$Outbound = {
 export const GetProjectAsyncRequest$outboundSchema: z.ZodMiniType<
   GetProjectAsyncRequest$Outbound,
   GetProjectAsyncRequest
-> = z.object({
-  projectId: z.string(),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    projectId: z.string(),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getProjectAsyncRequestToJSON(
   getProjectAsyncRequest: GetProjectAsyncRequest,
@@ -82,12 +84,14 @@ export function getProjectAsyncRequestToJSON(
 export const GetProjectAsyncPagination$inboundSchema: z.ZodMiniType<
   GetProjectAsyncPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getProjectAsyncPaginationFromJSON(
   jsonString: string,
@@ -103,15 +107,17 @@ export function getProjectAsyncPaginationFromJSON(
 export const GetProjectAsyncMeta$inboundSchema: z.ZodMiniType<
   GetProjectAsyncMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => GetProjectAsyncPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => GetProjectAsyncPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function getProjectAsyncMetaFromJSON(
   jsonString: string,
@@ -127,7 +133,7 @@ export function getProjectAsyncMetaFromJSON(
 export const GetProjectAsyncErrors$inboundSchema: z.ZodMiniType<
   GetProjectAsyncErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getProjectAsyncErrorsFromJSON(
   jsonString: string,
@@ -143,7 +149,7 @@ export function getProjectAsyncErrorsFromJSON(
 export const GetProjectAsyncRawData$inboundSchema: z.ZodMiniType<
   GetProjectAsyncRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getProjectAsyncRawDataFromJSON(
   jsonString: string,
@@ -159,12 +165,16 @@ export function getProjectAsyncRawDataFromJSON(
 export const GetProjectAsyncResponse$inboundSchema: z.ZodMiniType<
   GetProjectAsyncResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => GetProjectAsyncMeta$inboundSchema))),
-  data: models.TaskIdResponseDto$inboundSchema,
-  errors: types.nullable(z.lazy(() => GetProjectAsyncErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => GetProjectAsyncRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => GetProjectAsyncMeta$inboundSchema)),
+    ),
+    data: models.TaskIdResponseDto$inboundSchema,
+    errors: types.nullable(z.lazy(() => GetProjectAsyncErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => GetProjectAsyncRawData$inboundSchema)),
+  })
+);
 
 export function getProjectAsyncResponseFromJSON(
   jsonString: string,
