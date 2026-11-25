@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
@@ -169,27 +169,27 @@ export type GetBillsResponse = {
 
 /** @internal */
 export const GetBillsLimit$outboundSchema: z.ZodMiniEnum<typeof GetBillsLimit> =
-  z.enum(GetBillsLimit);
+  /* @__PURE__ */ lazySchema$(() => z.enum(GetBillsLimit));
 
 /** @internal */
 export const GetBillsStatus$outboundSchema: z.ZodMiniEnum<
   typeof GetBillsStatus
-> = z.enum(GetBillsStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(GetBillsStatus));
 
 /** @internal */
 export const GetBillsPaymentStatus$outboundSchema: z.ZodMiniEnum<
   typeof GetBillsPaymentStatus
-> = z.enum(GetBillsPaymentStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(GetBillsPaymentStatus));
 
 /** @internal */
 export const GetBillsOrderField$outboundSchema: z.ZodMiniEnum<
   typeof GetBillsOrderField
-> = z.enum(GetBillsOrderField);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(GetBillsOrderField));
 
 /** @internal */
 export const GetBillsOrderDir$outboundSchema: z.ZodMiniEnum<
   typeof GetBillsOrderDir
-> = z.enum(GetBillsOrderDir);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(GetBillsOrderDir));
 
 /** @internal */
 export type GetBillsRequest$Outbound = {
@@ -212,21 +212,23 @@ export type GetBillsRequest$Outbound = {
 export const GetBillsRequest$outboundSchema: z.ZodMiniType<
   GetBillsRequest$Outbound,
   GetBillsRequest
-> = z.object({
-  page: z.optional(z.number()),
-  limit: z.optional(GetBillsLimit$outboundSchema),
-  lastModifiedAt: z.optional(z.string()),
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  status: z.optional(GetBillsStatus$outboundSchema),
-  paymentStatus: z.optional(GetBillsPaymentStatus$outboundSchema),
-  rawData: z.optional(z.boolean()),
-  orderField: z.optional(GetBillsOrderField$outboundSchema),
-  orderDir: z.optional(GetBillsOrderDir$outboundSchema),
-  billDateFrom: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    page: z.optional(z.number()),
+    limit: z.optional(GetBillsLimit$outboundSchema),
+    lastModifiedAt: z.optional(z.string()),
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    status: z.optional(GetBillsStatus$outboundSchema),
+    paymentStatus: z.optional(GetBillsPaymentStatus$outboundSchema),
+    rawData: z.optional(z.boolean()),
+    orderField: z.optional(GetBillsOrderField$outboundSchema),
+    orderDir: z.optional(GetBillsOrderDir$outboundSchema),
+    billDateFrom: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getBillsRequestToJSON(
   getBillsRequest: GetBillsRequest,
@@ -238,12 +240,14 @@ export function getBillsRequestToJSON(
 export const GetBillsPagination$inboundSchema: z.ZodMiniType<
   GetBillsPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getBillsPaginationFromJSON(
   jsonString: string,
@@ -257,15 +261,17 @@ export function getBillsPaginationFromJSON(
 
 /** @internal */
 export const GetBillsMeta$inboundSchema: z.ZodMiniType<GetBillsMeta, unknown> =
-  z.object({
-    warnings: z.optional(z.nullable(z.array(types.string()))),
-    pagination: z.optional(
-      z.nullable(z.lazy(() => GetBillsPagination$inboundSchema)),
-    ),
-    partialErrors: z.optional(
-      z.nullable(z.array(models.PartialError$inboundSchema)),
-    ),
-  });
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      warnings: z.optional(z.nullable(z.array(types.string()))),
+      pagination: z.optional(
+        z.nullable(z.lazy(() => GetBillsPagination$inboundSchema)),
+      ),
+      partialErrors: z.optional(
+        z.nullable(z.array(models.PartialError$inboundSchema)),
+      ),
+    })
+  );
 
 export function getBillsMetaFromJSON(
   jsonString: string,
@@ -281,7 +287,7 @@ export function getBillsMetaFromJSON(
 export const GetBillsErrors$inboundSchema: z.ZodMiniType<
   GetBillsErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getBillsErrorsFromJSON(
   jsonString: string,
@@ -297,7 +303,7 @@ export function getBillsErrorsFromJSON(
 export const GetBillsRawData$inboundSchema: z.ZodMiniType<
   GetBillsRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getBillsRawDataFromJSON(
   jsonString: string,
@@ -313,12 +319,14 @@ export function getBillsRawDataFromJSON(
 export const GetBillsResponse$inboundSchema: z.ZodMiniType<
   GetBillsResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => GetBillsMeta$inboundSchema))),
-  data: z.array(models.BillResponseDto$inboundSchema),
-  errors: types.nullable(z.lazy(() => GetBillsErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => GetBillsRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(z.nullable(z.lazy(() => GetBillsMeta$inboundSchema))),
+    data: z.array(models.BillResponseDto$inboundSchema),
+    errors: types.nullable(z.lazy(() => GetBillsErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => GetBillsRawData$inboundSchema)),
+  })
+);
 
 export function getBillsResponseFromJSON(
   jsonString: string,

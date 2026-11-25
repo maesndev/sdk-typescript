@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
@@ -112,61 +112,63 @@ export type BillResponseDto = {
 /** @internal */
 export const BillResponseDtoPaymentStatus$inboundSchema: z.ZodMiniEnum<
   typeof BillResponseDtoPaymentStatus
-> = z.enum(BillResponseDtoPaymentStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(BillResponseDtoPaymentStatus));
 
 /** @internal */
 export const BillResponseDtoShippingType$inboundSchema: z.ZodMiniEnum<
   typeof BillResponseDtoShippingType
-> = z.enum(BillResponseDtoShippingType);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(BillResponseDtoShippingType));
 
 /** @internal */
 export const BillResponseDtoStatus$inboundSchema: z.ZodMiniEnum<
   typeof BillResponseDtoStatus
-> = z.enum(BillResponseDtoStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(BillResponseDtoStatus));
 
 /** @internal */
 export const BillResponseDtoTaxRule$inboundSchema: z.ZodMiniEnum<
   typeof BillResponseDtoTaxRule
-> = z.enum(BillResponseDtoTaxRule);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(BillResponseDtoTaxRule));
 
 /** @internal */
 export const BillResponseDto$inboundSchema: z.ZodMiniType<
   BillResponseDto,
   unknown
-> = z.object({
-  id: types.nullable(types.string()),
-  accountId: types.nullable(types.string()),
-  addresses: types.nullable(z.array(Address$inboundSchema)),
-  billDate: types.nullable(types.string()),
-  billNumber: types.nullable(types.string()),
-  contactId: types.nullable(types.string()),
-  createdDate: types.nullable(types.string()),
-  currency: types.nullable(types.string()),
-  deliveryDate: types.nullable(types.string()),
-  dueDate: types.nullable(types.string()),
-  fileId: types.nullable(types.string()),
-  journalCode: types.nullable(types.string()),
-  lineItems: types.nullable(z.array(BillLineItemResponseDto$inboundSchema)),
-  name: types.nullable(types.string()),
-  oneLineAddress: types.nullable(types.string()),
-  paidDate: types.nullable(types.string()),
-  paymentDays: types.nullable(types.number()),
-  paymentReference: types.nullable(types.string()),
-  paymentStatus: types.nullable(BillResponseDtoPaymentStatus$inboundSchema),
-  paymentTermCode: types.nullable(types.string()),
-  reference: types.nullable(types.string()),
-  shippingDate: types.nullable(types.string()),
-  shippingType: types.nullable(BillResponseDtoShippingType$inboundSchema),
-  status: types.nullable(BillResponseDtoStatus$inboundSchema),
-  taxRule: types.nullable(BillResponseDtoTaxRule$inboundSchema),
-  taxText: types.nullable(types.string()),
-  totalDiscountAmount: types.nullable(types.number()),
-  totalDiscountPercentage: types.nullable(types.number()),
-  totalGrossAmount: types.nullable(types.number()),
-  totalNetAmount: types.nullable(types.number()),
-  totalTaxAmount: types.nullable(types.number()),
-  updatedDate: types.nullable(types.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: types.nullable(types.string()),
+    accountId: types.nullable(types.string()),
+    addresses: types.nullable(z.array(Address$inboundSchema)),
+    billDate: types.nullable(types.string()),
+    billNumber: types.nullable(types.string()),
+    contactId: types.nullable(types.string()),
+    createdDate: types.nullable(types.string()),
+    currency: types.nullable(types.string()),
+    deliveryDate: types.nullable(types.string()),
+    dueDate: types.nullable(types.string()),
+    fileId: types.nullable(types.string()),
+    journalCode: types.nullable(types.string()),
+    lineItems: types.nullable(z.array(BillLineItemResponseDto$inboundSchema)),
+    name: types.nullable(types.string()),
+    oneLineAddress: types.nullable(types.string()),
+    paidDate: types.nullable(types.string()),
+    paymentDays: types.nullable(types.number()),
+    paymentReference: types.nullable(types.string()),
+    paymentStatus: types.nullable(BillResponseDtoPaymentStatus$inboundSchema),
+    paymentTermCode: types.nullable(types.string()),
+    reference: types.nullable(types.string()),
+    shippingDate: types.nullable(types.string()),
+    shippingType: types.nullable(BillResponseDtoShippingType$inboundSchema),
+    status: types.nullable(BillResponseDtoStatus$inboundSchema),
+    taxRule: types.nullable(BillResponseDtoTaxRule$inboundSchema),
+    taxText: types.nullable(types.string()),
+    totalDiscountAmount: types.nullable(types.number()),
+    totalDiscountPercentage: types.nullable(types.number()),
+    totalGrossAmount: types.nullable(types.number()),
+    totalNetAmount: types.nullable(types.number()),
+    totalTaxAmount: types.nullable(types.number()),
+    updatedDate: types.nullable(types.string()),
+  })
+);
 
 export function billResponseDtoFromJSON(
   jsonString: string,

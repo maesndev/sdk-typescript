@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
@@ -198,32 +198,34 @@ export type ProjectResponseDto = {
 /** @internal */
 export const ProjectResponseDtoCurrency$inboundSchema: z.ZodMiniEnum<
   typeof ProjectResponseDtoCurrency
-> = z.enum(ProjectResponseDtoCurrency);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(ProjectResponseDtoCurrency));
 
 /** @internal */
 export const ProjectResponseDtoStatus$inboundSchema: z.ZodMiniEnum<
   typeof ProjectResponseDtoStatus
-> = z.enum(ProjectResponseDtoStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(ProjectResponseDtoStatus));
 
 /** @internal */
 export const ProjectResponseDto$inboundSchema: z.ZodMiniType<
   ProjectResponseDto,
   unknown
-> = z.object({
-  id: types.nullable(types.string()),
-  code: types.nullable(types.string()),
-  createdDate: types.nullable(types.string()),
-  contactId: types.nullable(types.string()),
-  currency: types.nullable(ProjectResponseDtoCurrency$inboundSchema),
-  description: types.nullable(types.string()),
-  endDate: types.nullable(types.string()),
-  name: types.nullable(types.string()),
-  number: types.nullable(types.string()),
-  parentProjectId: types.nullable(types.string()),
-  status: types.nullable(ProjectResponseDtoStatus$inboundSchema),
-  startDate: types.nullable(types.string()),
-  updatedDate: types.nullable(types.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: types.nullable(types.string()),
+    code: types.nullable(types.string()),
+    createdDate: types.nullable(types.string()),
+    contactId: types.nullable(types.string()),
+    currency: types.nullable(ProjectResponseDtoCurrency$inboundSchema),
+    description: types.nullable(types.string()),
+    endDate: types.nullable(types.string()),
+    name: types.nullable(types.string()),
+    number: types.nullable(types.string()),
+    parentProjectId: types.nullable(types.string()),
+    status: types.nullable(ProjectResponseDtoStatus$inboundSchema),
+    startDate: types.nullable(types.string()),
+    updatedDate: types.nullable(types.string()),
+  })
+);
 
 export function projectResponseDtoFromJSON(
   jsonString: string,

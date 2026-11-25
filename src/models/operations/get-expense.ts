@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -79,14 +79,16 @@ export type GetExpenseRequest$Outbound = {
 export const GetExpenseRequest$outboundSchema: z.ZodMiniType<
   GetExpenseRequest$Outbound,
   GetExpenseRequest
-> = z.object({
-  expenseId: z.string(),
-  companyId: z.optional(z.string()),
-  journalCode: z.optional(z.string()),
-  rawData: z.optional(z.boolean()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    expenseId: z.string(),
+    companyId: z.optional(z.string()),
+    journalCode: z.optional(z.string()),
+    rawData: z.optional(z.boolean()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getExpenseRequestToJSON(
   getExpenseRequest: GetExpenseRequest,
@@ -100,12 +102,14 @@ export function getExpenseRequestToJSON(
 export const GetExpensePagination$inboundSchema: z.ZodMiniType<
   GetExpensePagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getExpensePaginationFromJSON(
   jsonString: string,
@@ -121,15 +125,17 @@ export function getExpensePaginationFromJSON(
 export const GetExpenseMeta$inboundSchema: z.ZodMiniType<
   GetExpenseMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => GetExpensePagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => GetExpensePagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function getExpenseMetaFromJSON(
   jsonString: string,
@@ -145,7 +151,7 @@ export function getExpenseMetaFromJSON(
 export const GetExpenseErrors$inboundSchema: z.ZodMiniType<
   GetExpenseErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getExpenseErrorsFromJSON(
   jsonString: string,
@@ -161,7 +167,7 @@ export function getExpenseErrorsFromJSON(
 export const GetExpenseRawData$inboundSchema: z.ZodMiniType<
   GetExpenseRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getExpenseRawDataFromJSON(
   jsonString: string,
@@ -177,12 +183,14 @@ export function getExpenseRawDataFromJSON(
 export const GetExpenseResponse$inboundSchema: z.ZodMiniType<
   GetExpenseResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => GetExpenseMeta$inboundSchema))),
-  data: models.ExpenseResponseDto$inboundSchema,
-  errors: types.nullable(z.lazy(() => GetExpenseErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => GetExpenseRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(z.nullable(z.lazy(() => GetExpenseMeta$inboundSchema))),
+    data: models.ExpenseResponseDto$inboundSchema,
+    errors: types.nullable(z.lazy(() => GetExpenseErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => GetExpenseRawData$inboundSchema)),
+  })
+);
 
 export function getExpenseResponseFromJSON(
   jsonString: string,

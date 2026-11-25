@@ -1,6 +1,6 @@
 {
   "name": "@maesn/typescript-sdk",
-  "version": "0.8.30",
+  "version": "0.8.31",
   "author": "Speakeasy",
   "license": "MIT",
   "publishConfig": {
@@ -15,6 +15,11 @@
       "default": "./esm/index.js"
     },
     "./package.json": "./package.json",
+    "./node": {
+      "source": "./src/node.ts",
+      "types": "./esm/node.d.ts",
+      "default": "./esm/node.js"
+    },
     "./types": {
       "source": "./src/types/index.ts",
       "types": "./esm/types/index.d.ts",

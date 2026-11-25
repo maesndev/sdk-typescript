@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
@@ -94,15 +94,17 @@ export type UpdateBookingProposalFile$Outbound = {
 export const UpdateBookingProposalFile$outboundSchema: z.ZodMiniType<
   UpdateBookingProposalFile$Outbound,
   UpdateBookingProposalFile
-> = z.object({
-  fileName: z.string(),
-  content: z.union([
-    z.custom<ReadableStream<Uint8Array>>(x => x instanceof ReadableStream),
-    z.custom<Blob>(x => x instanceof Blob),
-    z.custom<ArrayBuffer>(x => x instanceof ArrayBuffer),
-    z.custom<Uint8Array>(x => x instanceof Uint8Array),
-  ]),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    fileName: z.string(),
+    content: z.union([
+      z.custom<ReadableStream<Uint8Array>>(x => x instanceof ReadableStream),
+      z.custom<Blob>(x => x instanceof Blob),
+      z.custom<ArrayBuffer>(x => x instanceof ArrayBuffer),
+      z.custom<Uint8Array>(x => x instanceof Uint8Array),
+    ]),
+  })
+);
 
 export function updateBookingProposalFileToJSON(
   updateBookingProposalFile: UpdateBookingProposalFile,
@@ -115,7 +117,7 @@ export function updateBookingProposalFileToJSON(
 /** @internal */
 export const UpdateBookingProposalBookingType$outboundSchema: z.ZodMiniEnum<
   typeof UpdateBookingProposalBookingType
-> = z.enum(UpdateBookingProposalBookingType);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(UpdateBookingProposalBookingType));
 
 /** @internal */
 export type UpdateBookingProposalRequestBody$Outbound = {
@@ -128,15 +130,17 @@ export type UpdateBookingProposalRequestBody$Outbound = {
 export const UpdateBookingProposalRequestBody$outboundSchema: z.ZodMiniType<
   UpdateBookingProposalRequestBody$Outbound,
   UpdateBookingProposalRequestBody
-> = z.object({
-  files: z.optional(
-    z.array(z.lazy(() => UpdateBookingProposalFile$outboundSchema)),
-  ),
-  bookingType: z.optional(UpdateBookingProposalBookingType$outboundSchema),
-  bookingProposal: z.optional(
-    models.CreateBookingProposalRequestDto$outboundSchema,
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    files: z.optional(
+      z.array(z.lazy(() => UpdateBookingProposalFile$outboundSchema)),
+    ),
+    bookingType: z.optional(UpdateBookingProposalBookingType$outboundSchema),
+    bookingProposal: z.optional(
+      models.CreateBookingProposalRequestDto$outboundSchema,
+    ),
+  })
+);
 
 export function updateBookingProposalRequestBodyToJSON(
   updateBookingProposalRequestBody: UpdateBookingProposalRequestBody,
@@ -162,14 +166,16 @@ export type UpdateBookingProposalRequest$Outbound = {
 export const UpdateBookingProposalRequest$outboundSchema: z.ZodMiniType<
   UpdateBookingProposalRequest$Outbound,
   UpdateBookingProposalRequest
-> = z.object({
-  bookingProposalId: z.string(),
-  companyId: z.optional(z.string()),
-  environmentName: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-  body: z.lazy(() => UpdateBookingProposalRequestBody$outboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    bookingProposalId: z.string(),
+    companyId: z.optional(z.string()),
+    environmentName: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+    body: z.lazy(() => UpdateBookingProposalRequestBody$outboundSchema),
+  })
+);
 
 export function updateBookingProposalRequestToJSON(
   updateBookingProposalRequest: UpdateBookingProposalRequest,
@@ -185,12 +191,14 @@ export function updateBookingProposalRequestToJSON(
 export const UpdateBookingProposalPagination$inboundSchema: z.ZodMiniType<
   UpdateBookingProposalPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function updateBookingProposalPaginationFromJSON(
   jsonString: string,
@@ -206,15 +214,17 @@ export function updateBookingProposalPaginationFromJSON(
 export const UpdateBookingProposalMeta$inboundSchema: z.ZodMiniType<
   UpdateBookingProposalMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => UpdateBookingProposalPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => UpdateBookingProposalPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function updateBookingProposalMetaFromJSON(
   jsonString: string,
@@ -230,7 +240,7 @@ export function updateBookingProposalMetaFromJSON(
 export const UpdateBookingProposalErrors$inboundSchema: z.ZodMiniType<
   UpdateBookingProposalErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function updateBookingProposalErrorsFromJSON(
   jsonString: string,
@@ -246,7 +256,7 @@ export function updateBookingProposalErrorsFromJSON(
 export const UpdateBookingProposalRawData$inboundSchema: z.ZodMiniType<
   UpdateBookingProposalRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function updateBookingProposalRawDataFromJSON(
   jsonString: string,
@@ -262,18 +272,20 @@ export function updateBookingProposalRawDataFromJSON(
 export const UpdateBookingProposalResponse$inboundSchema: z.ZodMiniType<
   UpdateBookingProposalResponse,
   unknown
-> = z.object({
-  meta: z.optional(
-    z.nullable(z.lazy(() => UpdateBookingProposalMeta$inboundSchema)),
-  ),
-  data: models.BookingProposalResponseDto$inboundSchema,
-  errors: types.nullable(
-    z.lazy(() => UpdateBookingProposalErrors$inboundSchema),
-  ),
-  rawData: types.nullable(
-    z.lazy(() => UpdateBookingProposalRawData$inboundSchema),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => UpdateBookingProposalMeta$inboundSchema)),
+    ),
+    data: models.BookingProposalResponseDto$inboundSchema,
+    errors: types.nullable(
+      z.lazy(() => UpdateBookingProposalErrors$inboundSchema),
+    ),
+    rawData: types.nullable(
+      z.lazy(() => UpdateBookingProposalRawData$inboundSchema),
+    ),
+  })
+);
 
 export function updateBookingProposalResponseFromJSON(
   jsonString: string,

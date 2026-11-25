@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import {
   Address,
@@ -122,7 +123,7 @@ export type CreateBillRequestDtoPaidDate$Outbound = {};
 export const CreateBillRequestDtoPaidDate$outboundSchema: z.ZodMiniType<
   CreateBillRequestDtoPaidDate$Outbound,
   CreateBillRequestDtoPaidDate
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createBillRequestDtoPaidDateToJSON(
   createBillRequestDtoPaidDate: CreateBillRequestDtoPaidDate,
@@ -137,7 +138,9 @@ export function createBillRequestDtoPaidDateToJSON(
 /** @internal */
 export const CreateBillRequestDtoPaymentStatus$outboundSchema: z.ZodMiniEnum<
   typeof CreateBillRequestDtoPaymentStatus
-> = z.enum(CreateBillRequestDtoPaymentStatus);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.enum(CreateBillRequestDtoPaymentStatus)
+);
 
 /** @internal */
 export type CreateBillRequestDtoShippingDate$Outbound = {};
@@ -146,7 +149,7 @@ export type CreateBillRequestDtoShippingDate$Outbound = {};
 export const CreateBillRequestDtoShippingDate$outboundSchema: z.ZodMiniType<
   CreateBillRequestDtoShippingDate$Outbound,
   CreateBillRequestDtoShippingDate
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createBillRequestDtoShippingDateToJSON(
   createBillRequestDtoShippingDate: CreateBillRequestDtoShippingDate,
@@ -161,17 +164,17 @@ export function createBillRequestDtoShippingDateToJSON(
 /** @internal */
 export const CreateBillRequestDtoShippingType$outboundSchema: z.ZodMiniEnum<
   typeof CreateBillRequestDtoShippingType
-> = z.enum(CreateBillRequestDtoShippingType);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(CreateBillRequestDtoShippingType));
 
 /** @internal */
 export const CreateBillRequestDtoStatus$outboundSchema: z.ZodMiniEnum<
   typeof CreateBillRequestDtoStatus
-> = z.enum(CreateBillRequestDtoStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(CreateBillRequestDtoStatus));
 
 /** @internal */
 export const CreateBillRequestDtoTaxRule$outboundSchema: z.ZodMiniEnum<
   typeof CreateBillRequestDtoTaxRule
-> = z.enum(CreateBillRequestDtoTaxRule);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(CreateBillRequestDtoTaxRule));
 
 /** @internal */
 export type CreateBillRequestDto$Outbound = {
@@ -210,41 +213,43 @@ export type CreateBillRequestDto$Outbound = {
 export const CreateBillRequestDto$outboundSchema: z.ZodMiniType<
   CreateBillRequestDto$Outbound,
   CreateBillRequestDto
-> = z.object({
-  accountId: z.optional(z.string()),
-  addresses: z.optional(z.array(Address$outboundSchema)),
-  billDate: z.optional(z.string()),
-  billNumber: z.optional(z.string()),
-  contactId: z.optional(z.string()),
-  currency: z.optional(z.string()),
-  deliveryDate: z.optional(z.string()),
-  dueDate: z.optional(z.string()),
-  fileId: z.optional(z.string()),
-  journalCode: z.optional(z.string()),
-  lineItems: z.optional(z.array(CreateBillLineItemRequestDto$outboundSchema)),
-  name: z.optional(z.string()),
-  oneLineAddress: z.optional(z.string()),
-  paidDate: z.optional(
-    z.lazy(() => CreateBillRequestDtoPaidDate$outboundSchema),
-  ),
-  paymentReference: z.optional(z.string()),
-  paymentTermCode: z.optional(z.string()),
-  paymentStatus: z.optional(CreateBillRequestDtoPaymentStatus$outboundSchema),
-  paymentDays: z.optional(z.number()),
-  reference: z.optional(z.string()),
-  shippingDate: z.optional(
-    z.lazy(() => CreateBillRequestDtoShippingDate$outboundSchema),
-  ),
-  shippingType: z.optional(CreateBillRequestDtoShippingType$outboundSchema),
-  status: z.optional(CreateBillRequestDtoStatus$outboundSchema),
-  taxRule: z.optional(CreateBillRequestDtoTaxRule$outboundSchema),
-  taxText: z.optional(z.string()),
-  totalDiscountAmount: z.optional(z.number()),
-  totalDiscountPercentage: z.optional(z.number()),
-  totalGrossAmount: z.optional(z.number()),
-  totalNetAmount: z.optional(z.number()),
-  totalTaxAmount: z.optional(z.number()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    accountId: z.optional(z.string()),
+    addresses: z.optional(z.array(Address$outboundSchema)),
+    billDate: z.optional(z.string()),
+    billNumber: z.optional(z.string()),
+    contactId: z.optional(z.string()),
+    currency: z.optional(z.string()),
+    deliveryDate: z.optional(z.string()),
+    dueDate: z.optional(z.string()),
+    fileId: z.optional(z.string()),
+    journalCode: z.optional(z.string()),
+    lineItems: z.optional(z.array(CreateBillLineItemRequestDto$outboundSchema)),
+    name: z.optional(z.string()),
+    oneLineAddress: z.optional(z.string()),
+    paidDate: z.optional(
+      z.lazy(() => CreateBillRequestDtoPaidDate$outboundSchema),
+    ),
+    paymentReference: z.optional(z.string()),
+    paymentTermCode: z.optional(z.string()),
+    paymentStatus: z.optional(CreateBillRequestDtoPaymentStatus$outboundSchema),
+    paymentDays: z.optional(z.number()),
+    reference: z.optional(z.string()),
+    shippingDate: z.optional(
+      z.lazy(() => CreateBillRequestDtoShippingDate$outboundSchema),
+    ),
+    shippingType: z.optional(CreateBillRequestDtoShippingType$outboundSchema),
+    status: z.optional(CreateBillRequestDtoStatus$outboundSchema),
+    taxRule: z.optional(CreateBillRequestDtoTaxRule$outboundSchema),
+    taxText: z.optional(z.string()),
+    totalDiscountAmount: z.optional(z.number()),
+    totalDiscountPercentage: z.optional(z.number()),
+    totalGrossAmount: z.optional(z.number()),
+    totalNetAmount: z.optional(z.number()),
+    totalTaxAmount: z.optional(z.number()),
+  })
+);
 
 export function createBillRequestDtoToJSON(
   createBillRequestDto: CreateBillRequestDto,

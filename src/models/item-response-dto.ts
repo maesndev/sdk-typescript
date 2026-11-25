@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
@@ -63,35 +63,37 @@ export type ItemResponseDto = {
 /** @internal */
 export const ItemResponseDtoType$inboundSchema: z.ZodMiniEnum<
   typeof ItemResponseDtoType
-> = z.enum(ItemResponseDtoType);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(ItemResponseDtoType));
 
 /** @internal */
 export const ItemResponseDtoUnitName$inboundSchema: z.ZodMiniEnum<
   typeof ItemResponseDtoUnitName
-> = z.enum(ItemResponseDtoUnitName);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(ItemResponseDtoUnitName));
 
 /** @internal */
 export const ItemResponseDto$inboundSchema: z.ZodMiniType<
   ItemResponseDto,
   unknown
-> = z.object({
-  id: types.nullable(types.string()),
-  assetAccountId: types.nullable(types.string()),
-  expenseAccountId: types.nullable(types.string()),
-  incomeAccountId: types.nullable(types.string()),
-  inventoryStartDate: types.nullable(types.string()),
-  itemNumber: types.nullable(types.string()),
-  lastModifiedDate: types.nullable(types.string()),
-  name: types.nullable(types.string()),
-  priceIncludesTax: types.nullable(types.boolean()),
-  stockCount: types.nullable(types.number()),
-  taxCode: types.nullable(types.string()),
-  taxRatePercentage: types.nullable(types.number()),
-  type: types.nullable(ItemResponseDtoType$inboundSchema),
-  unitName: types.nullable(ItemResponseDtoUnitName$inboundSchema),
-  unitPurchasePrice: types.nullable(types.number()),
-  unitSalesPrice: types.nullable(types.number()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: types.nullable(types.string()),
+    assetAccountId: types.nullable(types.string()),
+    expenseAccountId: types.nullable(types.string()),
+    incomeAccountId: types.nullable(types.string()),
+    inventoryStartDate: types.nullable(types.string()),
+    itemNumber: types.nullable(types.string()),
+    lastModifiedDate: types.nullable(types.string()),
+    name: types.nullable(types.string()),
+    priceIncludesTax: types.nullable(types.boolean()),
+    stockCount: types.nullable(types.number()),
+    taxCode: types.nullable(types.string()),
+    taxRatePercentage: types.nullable(types.number()),
+    type: types.nullable(ItemResponseDtoType$inboundSchema),
+    unitName: types.nullable(ItemResponseDtoUnitName$inboundSchema),
+    unitPurchasePrice: types.nullable(types.number()),
+    unitSalesPrice: types.nullable(types.number()),
+  })
+);
 
 export function itemResponseDtoFromJSON(
   jsonString: string,

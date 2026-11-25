@@ -417,6 +417,45 @@ paths:
         statusCodes:
           - 5XX
         retryConnectionErrors: true
+    patch:
+      operationId: patchBankAccount
+      parameters:
+        - name: bankAccountId
+          required: true
+          in: path
+          schema:
+            type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchBankAccountRequestDto'
+      responses:
+        "200":
+          description: Bank account updated successfully
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BaseResponseDto'
+                  - properties:
+                      data:
+                        $ref: '#/components/schemas/BankAccountResponseDto'
+      tags:
+        - accounting
   /accounting/dimensions:
     get:
       operationId: getDimensions
@@ -1587,6 +1626,54 @@ paths:
                         $ref: '#/components/schemas/ContactResponseDtoV2'
       tags:
         - accounting
+    delete:
+      operationId: deleteContact
+      parameters:
+        - name: contactId
+          required: true
+          in: path
+          schema:
+            type: string
+        - name: environmentName
+          required: false
+          in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
+          schema:
+            type: string
+        - name: companyId
+          required: false
+          in: query
+          description: ID of the company (required for multi-company target systems)
+          schema:
+            type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
+      responses:
+        "200":
+          description: Contact deleted successfully
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BaseResponseDto'
+                  - properties:
+                      data:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+      tags:
+        - accounting
   /accounting/contacts/{contactId}/async:
     get:
       operationId: getContactAsync
@@ -2012,6 +2099,54 @@ paths:
                   - properties:
                       data:
                         $ref: '#/components/schemas/InvoiceResponseDto'
+      tags:
+        - accounting
+    delete:
+      operationId: deleteInvoice
+      parameters:
+        - name: invoiceId
+          required: true
+          in: path
+          schema:
+            type: string
+        - name: environmentName
+          required: false
+          in: query
+          description: Environment name (required for multi-environment systems such as Business Central)
+          schema:
+            type: string
+        - name: companyId
+          required: false
+          in: query
+          description: ID of the company (required for multi-company target systems)
+          schema:
+            type: string
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
+      responses:
+        "200":
+          description: Invoice deleted successfully
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BaseResponseDto'
+                  - properties:
+                      data:
+                        type: object
+                        properties:
+                          id:
+                            type: string
       tags:
         - accounting
   /accounting/invoices/{invoiceId}/document:
@@ -5663,6 +5798,13 @@ paths:
           schema:
             type: string
           x-speakeasy-name-override: accountKey
+      requestBody:
+        required: false
+        description: SevDesk requires a document type and ID.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BookPaymentRequestDto'
       responses:
         "201":
           description: Payment booked successfully
@@ -9648,7 +9790,7 @@ paths:
           - 5XX
         retryConnectionErrors: true
   /auth/longToken:
-    get:
+    post:
       operationId: longToken
       tags:
         - auth
@@ -9697,16 +9839,6 @@ paths:
               schema:
                 type: string
       x-speakeasy-ignore: true
-      x-speakeasy-retries:
-        strategy: backoff
-        backoff:
-          initialInterval: 500
-          maxInterval: 60000
-          maxElapsedTime: 3600000
-          exponent: 1.5
-        statusCodes:
-          - 5XX
-        retryConnectionErrors: true
   /auth/selections:
     get:
       operationId: getEnvironmentPage
@@ -19596,6 +19728,9 @@ components:
         updatedDate:
           type: string
           nullable: true
+        version:
+          type: number
+          nullable: true
       required:
         - id
         - balance
@@ -19612,6 +19747,7 @@ components:
         - status
         - type
         - updatedDate
+        - version
     CreateBankAccountRequestDto:
       type: object
       properties:
@@ -21045,6 +21181,16 @@ components:
             - YEAR_END_REFLECTION
             - INDIRECT_YEAR_END_COSTING
             - DIRECT_YEAR_END_COSTING
+    PatchBankAccountRequestDto:
+      type: object
+      properties:
+        balance:
+          type: number
+        version:
+          type: number
+      required:
+        - balance
+        - version
     CreateContactPerson:
       type: object
       properties:
@@ -22310,6 +22456,19 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/CreatePaymentLine'
+    BookPaymentRequestDto:
+      type: object
+      properties:
+        documentType:
+          type: string
+          enum:
+            - INVOICE
+            - BILL
+            - BOOKING_PROPOSAL
+            - INVOICE_BOOKING_PROPOSAL
+            - BILL_BOOKING_PROPOSAL
+        documentId:
+          type: string
     CreateEventSubscriptionRequestDto:
       type: object
       properties:
@@ -23346,6 +23505,24 @@ components:
         - updatedDate
         - vatId
         - website
+    SelectedCompanyDto:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: true
+        name:
+          type: string
+          nullable: true
+        subscriptions:
+          nullable: true
+          type: array
+          items:
+            type: string
+      required:
+        - id
+        - name
+        - subscriptions
     UserInfoResponseDto:
       type: object
       properties:
@@ -23361,6 +23538,10 @@ components:
         name:
           type: string
           nullable: true
+        selectedCompany:
+          nullable: true
+          allOf:
+            - $ref: '#/components/schemas/SelectedCompanyDto'
       required:
         - id
         - account_id

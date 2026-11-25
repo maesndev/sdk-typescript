@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import {
@@ -26,15 +26,17 @@ export type ContactByBatchMetaDataResponseDto = {
 export const ContactByBatchMetaDataResponseDto$inboundSchema: z.ZodMiniType<
   ContactByBatchMetaDataResponseDto,
   unknown
-> = z.object({
-  id: types.nullable(types.string()),
-  accountNumberLength: types.nullable(types.number()),
-  chartOfAccount: types.nullable(types.string()),
-  createdDate: types.nullable(types.string()),
-  entries: types.nullable(z.array(ContactResponseDto$inboundSchema)),
-  fiscalYearStartDate: types.nullable(types.string()),
-  taskId: types.nullable(types.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: types.nullable(types.string()),
+    accountNumberLength: types.nullable(types.number()),
+    chartOfAccount: types.nullable(types.string()),
+    createdDate: types.nullable(types.string()),
+    entries: types.nullable(z.array(ContactResponseDto$inboundSchema)),
+    fiscalYearStartDate: types.nullable(types.string()),
+    taskId: types.nullable(types.string()),
+  })
+);
 
 export function contactByBatchMetaDataResponseDtoFromJSON(
   jsonString: string,

@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
@@ -83,7 +83,7 @@ export type GetOpenItemsAsyncResponse = {
 /** @internal */
 export const GetOpenItemsAsyncLimit$outboundSchema: z.ZodMiniEnum<
   typeof GetOpenItemsAsyncLimit
-> = z.enum(GetOpenItemsAsyncLimit);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(GetOpenItemsAsyncLimit));
 
 /** @internal */
 export type GetOpenItemsAsyncRequest$Outbound = {
@@ -101,16 +101,18 @@ export type GetOpenItemsAsyncRequest$Outbound = {
 export const GetOpenItemsAsyncRequest$outboundSchema: z.ZodMiniType<
   GetOpenItemsAsyncRequest$Outbound,
   GetOpenItemsAsyncRequest
-> = z.object({
-  page: z.optional(z.number()),
-  limit: z.optional(GetOpenItemsAsyncLimit$outboundSchema),
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  rawData: z.optional(z.boolean()),
-  fiscalYearStartDate: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    page: z.optional(z.number()),
+    limit: z.optional(GetOpenItemsAsyncLimit$outboundSchema),
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    rawData: z.optional(z.boolean()),
+    fiscalYearStartDate: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getOpenItemsAsyncRequestToJSON(
   getOpenItemsAsyncRequest: GetOpenItemsAsyncRequest,
@@ -124,12 +126,14 @@ export function getOpenItemsAsyncRequestToJSON(
 export const GetOpenItemsAsyncPagination$inboundSchema: z.ZodMiniType<
   GetOpenItemsAsyncPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getOpenItemsAsyncPaginationFromJSON(
   jsonString: string,
@@ -145,15 +149,17 @@ export function getOpenItemsAsyncPaginationFromJSON(
 export const GetOpenItemsAsyncMeta$inboundSchema: z.ZodMiniType<
   GetOpenItemsAsyncMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => GetOpenItemsAsyncPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => GetOpenItemsAsyncPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function getOpenItemsAsyncMetaFromJSON(
   jsonString: string,
@@ -169,7 +175,7 @@ export function getOpenItemsAsyncMetaFromJSON(
 export const GetOpenItemsAsyncErrors$inboundSchema: z.ZodMiniType<
   GetOpenItemsAsyncErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getOpenItemsAsyncErrorsFromJSON(
   jsonString: string,
@@ -185,7 +191,7 @@ export function getOpenItemsAsyncErrorsFromJSON(
 export const GetOpenItemsAsyncRawData$inboundSchema: z.ZodMiniType<
   GetOpenItemsAsyncRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getOpenItemsAsyncRawDataFromJSON(
   jsonString: string,
@@ -201,14 +207,18 @@ export function getOpenItemsAsyncRawDataFromJSON(
 export const GetOpenItemsAsyncResponse$inboundSchema: z.ZodMiniType<
   GetOpenItemsAsyncResponse,
   unknown
-> = z.object({
-  meta: z.optional(
-    z.nullable(z.lazy(() => GetOpenItemsAsyncMeta$inboundSchema)),
-  ),
-  data: models.TaskIdResponseDto$inboundSchema,
-  errors: types.nullable(z.lazy(() => GetOpenItemsAsyncErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => GetOpenItemsAsyncRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => GetOpenItemsAsyncMeta$inboundSchema)),
+    ),
+    data: models.TaskIdResponseDto$inboundSchema,
+    errors: types.nullable(z.lazy(() => GetOpenItemsAsyncErrors$inboundSchema)),
+    rawData: types.nullable(
+      z.lazy(() => GetOpenItemsAsyncRawData$inboundSchema),
+    ),
+  })
+);
 
 export function getOpenItemsAsyncResponseFromJSON(
   jsonString: string,

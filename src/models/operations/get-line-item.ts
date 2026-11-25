@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -81,15 +81,17 @@ export type GetLineItemRequest$Outbound = {
 export const GetLineItemRequest$outboundSchema: z.ZodMiniType<
   GetLineItemRequest$Outbound,
   GetLineItemRequest
-> = z.object({
-  invoiceId: z.string(),
-  lineItemId: z.string(),
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  rawData: z.optional(z.boolean()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    invoiceId: z.string(),
+    lineItemId: z.string(),
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    rawData: z.optional(z.boolean()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getLineItemRequestToJSON(
   getLineItemRequest: GetLineItemRequest,
@@ -103,12 +105,14 @@ export function getLineItemRequestToJSON(
 export const GetLineItemPagination$inboundSchema: z.ZodMiniType<
   GetLineItemPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getLineItemPaginationFromJSON(
   jsonString: string,
@@ -124,15 +128,17 @@ export function getLineItemPaginationFromJSON(
 export const GetLineItemMeta$inboundSchema: z.ZodMiniType<
   GetLineItemMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => GetLineItemPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => GetLineItemPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function getLineItemMetaFromJSON(
   jsonString: string,
@@ -148,7 +154,7 @@ export function getLineItemMetaFromJSON(
 export const GetLineItemErrors$inboundSchema: z.ZodMiniType<
   GetLineItemErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getLineItemErrorsFromJSON(
   jsonString: string,
@@ -164,7 +170,7 @@ export function getLineItemErrorsFromJSON(
 export const GetLineItemRawData$inboundSchema: z.ZodMiniType<
   GetLineItemRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getLineItemRawDataFromJSON(
   jsonString: string,
@@ -180,12 +186,14 @@ export function getLineItemRawDataFromJSON(
 export const GetLineItemResponse$inboundSchema: z.ZodMiniType<
   GetLineItemResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => GetLineItemMeta$inboundSchema))),
-  data: models.LineItemResponseDto$inboundSchema,
-  errors: types.nullable(z.lazy(() => GetLineItemErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => GetLineItemRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(z.nullable(z.lazy(() => GetLineItemMeta$inboundSchema))),
+    data: models.LineItemResponseDto$inboundSchema,
+    errors: types.nullable(z.lazy(() => GetLineItemErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => GetLineItemRawData$inboundSchema)),
+  })
+);
 
 export function getLineItemResponseFromJSON(
   jsonString: string,

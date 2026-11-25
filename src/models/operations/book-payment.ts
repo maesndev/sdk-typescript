@@ -3,6 +3,8 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../../lib/schemas.js";
+import * as models from "../index.js";
 
 export type BookPaymentGlobals = {
   apiKey?: string | undefined;
@@ -27,6 +29,10 @@ export type BookPaymentRequest = {
    * Account key
    */
   accountKey?: string | undefined;
+  /**
+   * SevDesk requires a document type and ID.
+   */
+  body?: models.BookPaymentRequestDto | undefined;
 };
 
 /** @internal */
@@ -36,19 +42,23 @@ export type BookPaymentRequest$Outbound = {
   environmentName?: string | undefined;
   apiKey?: string | undefined;
   accountKey?: string | undefined;
+  body?: models.BookPaymentRequestDto$Outbound | undefined;
 };
 
 /** @internal */
 export const BookPaymentRequest$outboundSchema: z.ZodMiniType<
   BookPaymentRequest$Outbound,
   BookPaymentRequest
-> = z.object({
-  paymentId: z.string(),
-  companyId: z.optional(z.string()),
-  environmentName: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    paymentId: z.string(),
+    companyId: z.optional(z.string()),
+    environmentName: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+    body: z.optional(models.BookPaymentRequestDto$outboundSchema),
+  })
+);
 
 export function bookPaymentRequestToJSON(
   bookPaymentRequest: BookPaymentRequest,

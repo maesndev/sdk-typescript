@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
@@ -27,7 +27,7 @@ export type PhoneNumberV2 = {
 /** @internal */
 export const PhoneNumberV2Type$inboundSchema: z.ZodMiniEnum<
   typeof PhoneNumberV2Type
-> = z.enum(PhoneNumberV2Type);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(PhoneNumberV2Type));
 /** @internal */
 export const PhoneNumberV2Type$outboundSchema: z.ZodMiniEnum<
   typeof PhoneNumberV2Type
@@ -37,10 +37,12 @@ export const PhoneNumberV2Type$outboundSchema: z.ZodMiniEnum<
 export const PhoneNumberV2$inboundSchema: z.ZodMiniType<
   PhoneNumberV2,
   unknown
-> = z.object({
-  number: types.nullable(types.string()),
-  type: types.nullable(PhoneNumberV2Type$inboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    number: types.nullable(types.string()),
+    type: types.nullable(PhoneNumberV2Type$inboundSchema),
+  })
+);
 /** @internal */
 export type PhoneNumberV2$Outbound = {
   number: string | null;
@@ -51,10 +53,12 @@ export type PhoneNumberV2$Outbound = {
 export const PhoneNumberV2$outboundSchema: z.ZodMiniType<
   PhoneNumberV2$Outbound,
   PhoneNumberV2
-> = z.object({
-  number: z.nullable(z.string()),
-  type: z.nullable(PhoneNumberV2Type$outboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    number: z.nullable(z.string()),
+    type: z.nullable(PhoneNumberV2Type$outboundSchema),
+  })
+);
 
 export function phoneNumberV2ToJSON(phoneNumberV2: PhoneNumberV2): string {
   return JSON.stringify(PhoneNumberV2$outboundSchema.parse(phoneNumberV2));

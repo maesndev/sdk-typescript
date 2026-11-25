@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
@@ -62,34 +62,36 @@ export type ContactResponseDtoV2 = {
 /** @internal */
 export const ContactResponseDtoV2ContactType$inboundSchema: z.ZodMiniEnum<
   typeof ContactResponseDtoV2ContactType
-> = z.enum(ContactResponseDtoV2ContactType);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(ContactResponseDtoV2ContactType));
 
 /** @internal */
 export const ContactResponseDtoV2$inboundSchema: z.ZodMiniType<
   ContactResponseDtoV2,
   unknown
-> = z.object({
-  id: types.nullable(types.string()),
-  addresses: types.nullable(z.array(ContactAddressV2$inboundSchema)),
-  bankAccounts: types.nullable(
-    z.array(BankAccountResponseCommonDtoV2$inboundSchema),
-  ),
-  businessRegistrationNumber: types.nullable(types.string()),
-  companyName: types.nullable(types.string()),
-  contactPersons: types.nullable(z.array(ContactPersonDtoV2$inboundSchema)),
-  contactType: types.nullable(ContactResponseDtoV2ContactType$inboundSchema),
-  createdDate: types.nullable(types.string()),
-  emailAddresses: types.nullable(z.array(EmailAddressV2$inboundSchema)),
-  isCustomer: types.nullable(types.boolean()),
-  isSupplier: types.nullable(types.boolean()),
-  number: types.nullable(types.string()),
-  parentId: types.nullable(types.string()),
-  phoneNumbers: types.nullable(z.array(PhoneNumberV2$inboundSchema)),
-  projectId: types.nullable(types.string()),
-  updatedDate: types.nullable(types.string()),
-  vatId: types.nullable(types.string()),
-  website: types.nullable(types.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: types.nullable(types.string()),
+    addresses: types.nullable(z.array(ContactAddressV2$inboundSchema)),
+    bankAccounts: types.nullable(
+      z.array(BankAccountResponseCommonDtoV2$inboundSchema),
+    ),
+    businessRegistrationNumber: types.nullable(types.string()),
+    companyName: types.nullable(types.string()),
+    contactPersons: types.nullable(z.array(ContactPersonDtoV2$inboundSchema)),
+    contactType: types.nullable(ContactResponseDtoV2ContactType$inboundSchema),
+    createdDate: types.nullable(types.string()),
+    emailAddresses: types.nullable(z.array(EmailAddressV2$inboundSchema)),
+    isCustomer: types.nullable(types.boolean()),
+    isSupplier: types.nullable(types.boolean()),
+    number: types.nullable(types.string()),
+    parentId: types.nullable(types.string()),
+    phoneNumbers: types.nullable(z.array(PhoneNumberV2$inboundSchema)),
+    projectId: types.nullable(types.string()),
+    updatedDate: types.nullable(types.string()),
+    vatId: types.nullable(types.string()),
+    website: types.nullable(types.string()),
+  })
+);
 
 export function contactResponseDtoV2FromJSON(
   jsonString: string,

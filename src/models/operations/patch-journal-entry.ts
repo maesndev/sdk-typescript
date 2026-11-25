@@ -4,7 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -79,15 +79,17 @@ export type PatchJournalEntryFile$Outbound = {
 export const PatchJournalEntryFile$outboundSchema: z.ZodMiniType<
   PatchJournalEntryFile$Outbound,
   PatchJournalEntryFile
-> = z.object({
-  fileName: z.string(),
-  content: z.union([
-    z.custom<ReadableStream<Uint8Array>>(x => x instanceof ReadableStream),
-    z.custom<Blob>(x => x instanceof Blob),
-    z.custom<ArrayBuffer>(x => x instanceof ArrayBuffer),
-    z.custom<Uint8Array>(x => x instanceof Uint8Array),
-  ]),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    fileName: z.string(),
+    content: z.union([
+      z.custom<ReadableStream<Uint8Array>>(x => x instanceof ReadableStream),
+      z.custom<Blob>(x => x instanceof Blob),
+      z.custom<ArrayBuffer>(x => x instanceof ArrayBuffer),
+      z.custom<Uint8Array>(x => x instanceof Uint8Array),
+    ]),
+  })
+);
 
 export function patchJournalEntryFileToJSON(
   patchJournalEntryFile: PatchJournalEntryFile,
@@ -107,20 +109,22 @@ export type PatchJournalEntryRequestBody$Outbound = {
 export const PatchJournalEntryRequestBody$outboundSchema: z.ZodMiniType<
   PatchJournalEntryRequestBody$Outbound,
   PatchJournalEntryRequestBody
-> = z.pipe(
-  z.object({
-    files: z.optional(
-      z.array(z.lazy(() => PatchJournalEntryFile$outboundSchema)),
-    ),
-    journalEntry: z.optional(
-      models.CreateJournalEntryRequestDto$outboundSchema,
-    ),
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      journalEntry: "journal_entry",
-    });
-  }),
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.pipe(
+    z.object({
+      files: z.optional(
+        z.array(z.lazy(() => PatchJournalEntryFile$outboundSchema)),
+      ),
+      journalEntry: z.optional(
+        models.CreateJournalEntryRequestDto$outboundSchema,
+      ),
+    }),
+    z.transform((v) => {
+      return remap$(v, {
+        journalEntry: "journal_entry",
+      });
+    }),
+  )
 );
 
 export function patchJournalEntryRequestBodyToJSON(
@@ -146,13 +150,15 @@ export type PatchJournalEntryRequest$Outbound = {
 export const PatchJournalEntryRequest$outboundSchema: z.ZodMiniType<
   PatchJournalEntryRequest$Outbound,
   PatchJournalEntryRequest
-> = z.object({
-  journalEntryId: z.string(),
-  companyId: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-  body: z.lazy(() => PatchJournalEntryRequestBody$outboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    journalEntryId: z.string(),
+    companyId: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+    body: z.lazy(() => PatchJournalEntryRequestBody$outboundSchema),
+  })
+);
 
 export function patchJournalEntryRequestToJSON(
   patchJournalEntryRequest: PatchJournalEntryRequest,
@@ -166,12 +172,14 @@ export function patchJournalEntryRequestToJSON(
 export const PatchJournalEntryPagination$inboundSchema: z.ZodMiniType<
   PatchJournalEntryPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function patchJournalEntryPaginationFromJSON(
   jsonString: string,
@@ -187,15 +195,17 @@ export function patchJournalEntryPaginationFromJSON(
 export const PatchJournalEntryMeta$inboundSchema: z.ZodMiniType<
   PatchJournalEntryMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => PatchJournalEntryPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => PatchJournalEntryPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function patchJournalEntryMetaFromJSON(
   jsonString: string,
@@ -211,7 +221,7 @@ export function patchJournalEntryMetaFromJSON(
 export const PatchJournalEntryErrors$inboundSchema: z.ZodMiniType<
   PatchJournalEntryErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function patchJournalEntryErrorsFromJSON(
   jsonString: string,
@@ -227,7 +237,7 @@ export function patchJournalEntryErrorsFromJSON(
 export const PatchJournalEntryRawData$inboundSchema: z.ZodMiniType<
   PatchJournalEntryRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function patchJournalEntryRawDataFromJSON(
   jsonString: string,
@@ -243,14 +253,18 @@ export function patchJournalEntryRawDataFromJSON(
 export const PatchJournalEntryResponse$inboundSchema: z.ZodMiniType<
   PatchJournalEntryResponse,
   unknown
-> = z.object({
-  meta: z.optional(
-    z.nullable(z.lazy(() => PatchJournalEntryMeta$inboundSchema)),
-  ),
-  data: models.JournalEntryResponseDto$inboundSchema,
-  errors: types.nullable(z.lazy(() => PatchJournalEntryErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => PatchJournalEntryRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => PatchJournalEntryMeta$inboundSchema)),
+    ),
+    data: models.JournalEntryResponseDto$inboundSchema,
+    errors: types.nullable(z.lazy(() => PatchJournalEntryErrors$inboundSchema)),
+    rawData: types.nullable(
+      z.lazy(() => PatchJournalEntryRawData$inboundSchema),
+    ),
+  })
+);
 
 export function patchJournalEntryResponseFromJSON(
   jsonString: string,

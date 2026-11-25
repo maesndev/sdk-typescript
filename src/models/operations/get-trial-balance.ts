@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
@@ -99,7 +99,7 @@ export type GetTrialBalanceResponse = {
 /** @internal */
 export const GetTrialBalanceLimit$outboundSchema: z.ZodMiniEnum<
   typeof GetTrialBalanceLimit
-> = z.enum(GetTrialBalanceLimit);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(GetTrialBalanceLimit));
 
 /** @internal */
 export type GetTrialBalanceRequest$Outbound = {
@@ -121,20 +121,22 @@ export type GetTrialBalanceRequest$Outbound = {
 export const GetTrialBalanceRequest$outboundSchema: z.ZodMiniType<
   GetTrialBalanceRequest$Outbound,
   GetTrialBalanceRequest
-> = z.object({
-  page: z.optional(z.number()),
-  limit: z.optional(GetTrialBalanceLimit$outboundSchema),
-  lastModifiedAt: z.optional(z.string()),
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  rawData: z.optional(z.boolean()),
-  fiscalYear: z.optional(z.number()),
-  accountNumber: z.optional(z.string()),
-  accountCode: z.optional(z.string()),
-  fiscalYearStartDate: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    page: z.optional(z.number()),
+    limit: z.optional(GetTrialBalanceLimit$outboundSchema),
+    lastModifiedAt: z.optional(z.string()),
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    rawData: z.optional(z.boolean()),
+    fiscalYear: z.optional(z.number()),
+    accountNumber: z.optional(z.string()),
+    accountCode: z.optional(z.string()),
+    fiscalYearStartDate: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getTrialBalanceRequestToJSON(
   getTrialBalanceRequest: GetTrialBalanceRequest,
@@ -148,12 +150,14 @@ export function getTrialBalanceRequestToJSON(
 export const GetTrialBalancePagination$inboundSchema: z.ZodMiniType<
   GetTrialBalancePagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getTrialBalancePaginationFromJSON(
   jsonString: string,
@@ -169,15 +173,17 @@ export function getTrialBalancePaginationFromJSON(
 export const GetTrialBalanceMeta$inboundSchema: z.ZodMiniType<
   GetTrialBalanceMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => GetTrialBalancePagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => GetTrialBalancePagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function getTrialBalanceMetaFromJSON(
   jsonString: string,
@@ -193,7 +199,7 @@ export function getTrialBalanceMetaFromJSON(
 export const GetTrialBalanceErrors$inboundSchema: z.ZodMiniType<
   GetTrialBalanceErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getTrialBalanceErrorsFromJSON(
   jsonString: string,
@@ -209,7 +215,7 @@ export function getTrialBalanceErrorsFromJSON(
 export const GetTrialBalanceRawData$inboundSchema: z.ZodMiniType<
   GetTrialBalanceRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getTrialBalanceRawDataFromJSON(
   jsonString: string,
@@ -225,12 +231,16 @@ export function getTrialBalanceRawDataFromJSON(
 export const GetTrialBalanceResponse$inboundSchema: z.ZodMiniType<
   GetTrialBalanceResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => GetTrialBalanceMeta$inboundSchema))),
-  data: z.array(models.TrialBalanceResponseDto$inboundSchema),
-  errors: types.nullable(z.lazy(() => GetTrialBalanceErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => GetTrialBalanceRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => GetTrialBalanceMeta$inboundSchema)),
+    ),
+    data: z.array(models.TrialBalanceResponseDto$inboundSchema),
+    errors: types.nullable(z.lazy(() => GetTrialBalanceErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => GetTrialBalanceRawData$inboundSchema)),
+  })
+);
 
 export function getTrialBalanceResponseFromJSON(
   jsonString: string,

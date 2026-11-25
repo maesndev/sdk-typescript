@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
@@ -20,13 +20,15 @@ export type DimensionResponseCommonDtoV2 = {
 export const DimensionResponseCommonDtoV2$inboundSchema: z.ZodMiniType<
   DimensionResponseCommonDtoV2,
   unknown
-> = z.object({
-  id: types.nullable(types.string()),
-  code: types.nullable(types.string()),
-  dimension: types.nullable(types.string()),
-  name: types.nullable(types.string()),
-  amount: types.nullable(types.number()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: types.nullable(types.string()),
+    code: types.nullable(types.string()),
+    dimension: types.nullable(types.string()),
+    name: types.nullable(types.string()),
+    amount: types.nullable(types.number()),
+  })
+);
 
 export function dimensionResponseCommonDtoV2FromJSON(
   jsonString: string,

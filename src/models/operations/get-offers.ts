@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
@@ -103,12 +103,12 @@ export type GetOffersResponse = {
 /** @internal */
 export const GetOffersLimit$outboundSchema: z.ZodMiniEnum<
   typeof GetOffersLimit
-> = z.enum(GetOffersLimit);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(GetOffersLimit));
 
 /** @internal */
 export const GetOffersStatus$outboundSchema: z.ZodMiniEnum<
   typeof GetOffersStatus
-> = z.enum(GetOffersStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(GetOffersStatus));
 
 /** @internal */
 export type GetOffersRequest$Outbound = {
@@ -127,17 +127,19 @@ export type GetOffersRequest$Outbound = {
 export const GetOffersRequest$outboundSchema: z.ZodMiniType<
   GetOffersRequest$Outbound,
   GetOffersRequest
-> = z.object({
-  page: z.optional(z.number()),
-  limit: z.optional(GetOffersLimit$outboundSchema),
-  lastModifiedAt: z.optional(z.string()),
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  status: z.optional(GetOffersStatus$outboundSchema),
-  rawData: z.optional(z.boolean()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    page: z.optional(z.number()),
+    limit: z.optional(GetOffersLimit$outboundSchema),
+    lastModifiedAt: z.optional(z.string()),
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    status: z.optional(GetOffersStatus$outboundSchema),
+    rawData: z.optional(z.boolean()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getOffersRequestToJSON(
   getOffersRequest: GetOffersRequest,
@@ -151,12 +153,14 @@ export function getOffersRequestToJSON(
 export const GetOffersPagination$inboundSchema: z.ZodMiniType<
   GetOffersPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getOffersPaginationFromJSON(
   jsonString: string,
@@ -172,15 +176,17 @@ export function getOffersPaginationFromJSON(
 export const GetOffersMeta$inboundSchema: z.ZodMiniType<
   GetOffersMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => GetOffersPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => GetOffersPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function getOffersMetaFromJSON(
   jsonString: string,
@@ -196,7 +202,7 @@ export function getOffersMetaFromJSON(
 export const GetOffersErrors$inboundSchema: z.ZodMiniType<
   GetOffersErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getOffersErrorsFromJSON(
   jsonString: string,
@@ -212,7 +218,7 @@ export function getOffersErrorsFromJSON(
 export const GetOffersRawData$inboundSchema: z.ZodMiniType<
   GetOffersRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getOffersRawDataFromJSON(
   jsonString: string,
@@ -228,12 +234,14 @@ export function getOffersRawDataFromJSON(
 export const GetOffersResponse$inboundSchema: z.ZodMiniType<
   GetOffersResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => GetOffersMeta$inboundSchema))),
-  data: z.array(models.OfferResponseDto$inboundSchema),
-  errors: types.nullable(z.lazy(() => GetOffersErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => GetOffersRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(z.nullable(z.lazy(() => GetOffersMeta$inboundSchema))),
+    data: z.array(models.OfferResponseDto$inboundSchema),
+    errors: types.nullable(z.lazy(() => GetOffersErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => GetOffersRawData$inboundSchema)),
+  })
+);
 
 export function getOffersResponseFromJSON(
   jsonString: string,

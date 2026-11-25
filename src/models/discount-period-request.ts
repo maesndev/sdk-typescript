@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 
 export type DiscountPeriodRequest = {
   invoiceRange?: string | undefined;
@@ -23,12 +24,14 @@ export type DiscountPeriodRequest$Outbound = {
 export const DiscountPeriodRequest$outboundSchema: z.ZodMiniType<
   DiscountPeriodRequest$Outbound,
   DiscountPeriodRequest
-> = z.object({
-  invoiceRange: z.optional(z.string()),
-  discountDeadline: z.optional(z.string()),
-  discountDeadline2: z.optional(z.string()),
-  paymentDeadline: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    invoiceRange: z.optional(z.string()),
+    discountDeadline: z.optional(z.string()),
+    discountDeadline2: z.optional(z.string()),
+    paymentDeadline: z.optional(z.string()),
+  })
+);
 
 export function discountPeriodRequestToJSON(
   discountPeriodRequest: DiscountPeriodRequest,

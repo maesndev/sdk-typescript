@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -74,13 +74,15 @@ export type DeleteVendorCreditRequest$Outbound = {
 export const DeleteVendorCreditRequest$outboundSchema: z.ZodMiniType<
   DeleteVendorCreditRequest$Outbound,
   DeleteVendorCreditRequest
-> = z.object({
-  vendorCreditId: z.string(),
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    vendorCreditId: z.string(),
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function deleteVendorCreditRequestToJSON(
   deleteVendorCreditRequest: DeleteVendorCreditRequest,
@@ -94,12 +96,14 @@ export function deleteVendorCreditRequestToJSON(
 export const DeleteVendorCreditPagination$inboundSchema: z.ZodMiniType<
   DeleteVendorCreditPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function deleteVendorCreditPaginationFromJSON(
   jsonString: string,
@@ -115,15 +119,17 @@ export function deleteVendorCreditPaginationFromJSON(
 export const DeleteVendorCreditMeta$inboundSchema: z.ZodMiniType<
   DeleteVendorCreditMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => DeleteVendorCreditPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => DeleteVendorCreditPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function deleteVendorCreditMetaFromJSON(
   jsonString: string,
@@ -139,7 +145,7 @@ export function deleteVendorCreditMetaFromJSON(
 export const DeleteVendorCreditErrors$inboundSchema: z.ZodMiniType<
   DeleteVendorCreditErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function deleteVendorCreditErrorsFromJSON(
   jsonString: string,
@@ -155,7 +161,7 @@ export function deleteVendorCreditErrorsFromJSON(
 export const DeleteVendorCreditRawData$inboundSchema: z.ZodMiniType<
   DeleteVendorCreditRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function deleteVendorCreditRawDataFromJSON(
   jsonString: string,
@@ -171,16 +177,20 @@ export function deleteVendorCreditRawDataFromJSON(
 export const DeleteVendorCreditResponse$inboundSchema: z.ZodMiniType<
   DeleteVendorCreditResponse,
   unknown
-> = z.object({
-  meta: z.optional(
-    z.nullable(z.lazy(() => DeleteVendorCreditMeta$inboundSchema)),
-  ),
-  data: types.string(),
-  errors: types.nullable(z.lazy(() => DeleteVendorCreditErrors$inboundSchema)),
-  rawData: types.nullable(
-    z.lazy(() => DeleteVendorCreditRawData$inboundSchema),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => DeleteVendorCreditMeta$inboundSchema)),
+    ),
+    data: types.string(),
+    errors: types.nullable(
+      z.lazy(() => DeleteVendorCreditErrors$inboundSchema),
+    ),
+    rawData: types.nullable(
+      z.lazy(() => DeleteVendorCreditRawData$inboundSchema),
+    ),
+  })
+);
 
 export function deleteVendorCreditResponseFromJSON(
   jsonString: string,

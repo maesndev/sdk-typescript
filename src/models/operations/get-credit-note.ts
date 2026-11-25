@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -79,14 +79,16 @@ export type GetCreditNoteRequest$Outbound = {
 export const GetCreditNoteRequest$outboundSchema: z.ZodMiniType<
   GetCreditNoteRequest$Outbound,
   GetCreditNoteRequest
-> = z.object({
-  creditNoteId: z.string(),
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  rawData: z.optional(z.boolean()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    creditNoteId: z.string(),
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    rawData: z.optional(z.boolean()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getCreditNoteRequestToJSON(
   getCreditNoteRequest: GetCreditNoteRequest,
@@ -100,12 +102,14 @@ export function getCreditNoteRequestToJSON(
 export const GetCreditNotePagination$inboundSchema: z.ZodMiniType<
   GetCreditNotePagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getCreditNotePaginationFromJSON(
   jsonString: string,
@@ -121,15 +125,17 @@ export function getCreditNotePaginationFromJSON(
 export const GetCreditNoteMeta$inboundSchema: z.ZodMiniType<
   GetCreditNoteMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => GetCreditNotePagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => GetCreditNotePagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function getCreditNoteMetaFromJSON(
   jsonString: string,
@@ -145,7 +151,7 @@ export function getCreditNoteMetaFromJSON(
 export const GetCreditNoteErrors$inboundSchema: z.ZodMiniType<
   GetCreditNoteErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getCreditNoteErrorsFromJSON(
   jsonString: string,
@@ -161,7 +167,7 @@ export function getCreditNoteErrorsFromJSON(
 export const GetCreditNoteRawData$inboundSchema: z.ZodMiniType<
   GetCreditNoteRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getCreditNoteRawDataFromJSON(
   jsonString: string,
@@ -177,12 +183,14 @@ export function getCreditNoteRawDataFromJSON(
 export const GetCreditNoteResponse$inboundSchema: z.ZodMiniType<
   GetCreditNoteResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => GetCreditNoteMeta$inboundSchema))),
-  data: models.CreditNoteResponseDto$inboundSchema,
-  errors: types.nullable(z.lazy(() => GetCreditNoteErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => GetCreditNoteRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(z.nullable(z.lazy(() => GetCreditNoteMeta$inboundSchema))),
+    data: models.CreditNoteResponseDto$inboundSchema,
+    errors: types.nullable(z.lazy(() => GetCreditNoteErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => GetCreditNoteRawData$inboundSchema)),
+  })
+);
 
 export function getCreditNoteResponseFromJSON(
   jsonString: string,

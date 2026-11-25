@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import {
   CreateBankAccount,
@@ -65,12 +66,14 @@ export type CreateContactRequestDto = {
 /** @internal */
 export const CreateContactRequestDtoContactType$outboundSchema: z.ZodMiniEnum<
   typeof CreateContactRequestDtoContactType
-> = z.enum(CreateContactRequestDtoContactType);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.enum(CreateContactRequestDtoContactType)
+);
 
 /** @internal */
 export const CreateContactRequestDtoRole$outboundSchema: z.ZodMiniEnum<
   typeof CreateContactRequestDtoRole
-> = z.enum(CreateContactRequestDtoRole);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(CreateContactRequestDtoRole));
 
 /** @internal */
 export type CreateContactRequestDto$Outbound = {
@@ -92,20 +95,22 @@ export type CreateContactRequestDto$Outbound = {
 export const CreateContactRequestDto$outboundSchema: z.ZodMiniType<
   CreateContactRequestDto$Outbound,
   CreateContactRequestDto
-> = z.object({
-  addresses: z.optional(z.array(CreateContactAddress$outboundSchema)),
-  bankAccount: z.optional(CreateBankAccount$outboundSchema),
-  companyName: z.optional(z.string()),
-  contactPersons: z.optional(z.array(CreateContactPerson$outboundSchema)),
-  contactType: CreateContactRequestDtoContactType$outboundSchema,
-  documentId: z.optional(z.string()),
-  emailAddresses: z.optional(z.array(CreateEmailAddress$outboundSchema)),
-  number: z.optional(z.string()),
-  phoneNumbers: z.optional(z.array(CreatePhoneNumber$outboundSchema)),
-  projectId: z.optional(z.string()),
-  role: z.optional(CreateContactRequestDtoRole$outboundSchema),
-  vatId: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    addresses: z.optional(z.array(CreateContactAddress$outboundSchema)),
+    bankAccount: z.optional(CreateBankAccount$outboundSchema),
+    companyName: z.optional(z.string()),
+    contactPersons: z.optional(z.array(CreateContactPerson$outboundSchema)),
+    contactType: CreateContactRequestDtoContactType$outboundSchema,
+    documentId: z.optional(z.string()),
+    emailAddresses: z.optional(z.array(CreateEmailAddress$outboundSchema)),
+    number: z.optional(z.string()),
+    phoneNumbers: z.optional(z.array(CreatePhoneNumber$outboundSchema)),
+    projectId: z.optional(z.string()),
+    role: z.optional(CreateContactRequestDtoRole$outboundSchema),
+    vatId: z.optional(z.string()),
+  })
+);
 
 export function createContactRequestDtoToJSON(
   createContactRequestDto: CreateContactRequestDto,

@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import {
   ExpenseLineItem,
@@ -216,17 +217,17 @@ export type CreateExpenseDto = {
 /** @internal */
 export const CreateExpenseDtoCurrency$outboundSchema: z.ZodMiniEnum<
   typeof CreateExpenseDtoCurrency
-> = z.enum(CreateExpenseDtoCurrency);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(CreateExpenseDtoCurrency));
 
 /** @internal */
 export const CreateExpenseDtoPaymentType$outboundSchema: z.ZodMiniEnum<
   typeof CreateExpenseDtoPaymentType
-> = z.enum(CreateExpenseDtoPaymentType);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(CreateExpenseDtoPaymentType));
 
 /** @internal */
 export const CreateExpenseDtoType$outboundSchema: z.ZodMiniEnum<
   typeof CreateExpenseDtoType
-> = z.enum(CreateExpenseDtoType);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(CreateExpenseDtoType));
 
 /** @internal */
 export type CreateExpenseDto$Outbound = {
@@ -257,29 +258,31 @@ export type CreateExpenseDto$Outbound = {
 export const CreateExpenseDto$outboundSchema: z.ZodMiniType<
   CreateExpenseDto$Outbound,
   CreateExpenseDto
-> = z.object({
-  id: z.optional(z.string()),
-  accountCode: z.optional(z.string()),
-  accountId: z.optional(z.string()),
-  accountNumber: z.optional(z.number()),
-  currency: z.optional(CreateExpenseDtoCurrency$outboundSchema),
-  customerId: z.optional(z.string()),
-  exchangeRate: z.optional(z.string()),
-  expenseLines: z.optional(z.array(ExpenseLineItem$outboundSchema)),
-  description: z.optional(z.string()),
-  documentId: z.optional(z.string()),
-  journalCode: z.optional(z.string()),
-  ledgerName: z.optional(z.string()),
-  note: z.optional(z.string()),
-  paymentTermId: z.optional(z.string()),
-  paymentType: z.optional(CreateExpenseDtoPaymentType$outboundSchema),
-  supplierId: z.optional(z.string()),
-  type: z.optional(CreateExpenseDtoType$outboundSchema),
-  totalGrossAmount: z.optional(z.number()),
-  totalNetAmount: z.optional(z.number()),
-  totalTaxAmount: z.optional(z.number()),
-  transactionDate: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.optional(z.string()),
+    accountCode: z.optional(z.string()),
+    accountId: z.optional(z.string()),
+    accountNumber: z.optional(z.number()),
+    currency: z.optional(CreateExpenseDtoCurrency$outboundSchema),
+    customerId: z.optional(z.string()),
+    exchangeRate: z.optional(z.string()),
+    expenseLines: z.optional(z.array(ExpenseLineItem$outboundSchema)),
+    description: z.optional(z.string()),
+    documentId: z.optional(z.string()),
+    journalCode: z.optional(z.string()),
+    ledgerName: z.optional(z.string()),
+    note: z.optional(z.string()),
+    paymentTermId: z.optional(z.string()),
+    paymentType: z.optional(CreateExpenseDtoPaymentType$outboundSchema),
+    supplierId: z.optional(z.string()),
+    type: z.optional(CreateExpenseDtoType$outboundSchema),
+    totalGrossAmount: z.optional(z.number()),
+    totalNetAmount: z.optional(z.number()),
+    totalTaxAmount: z.optional(z.number()),
+    transactionDate: z.optional(z.string()),
+  })
+);
 
 export function createExpenseDtoToJSON(
   createExpenseDto: CreateExpenseDto,

@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -79,14 +79,16 @@ export type GetInvoiceRequest$Outbound = {
 export const GetInvoiceRequest$outboundSchema: z.ZodMiniType<
   GetInvoiceRequest$Outbound,
   GetInvoiceRequest
-> = z.object({
-  invoiceId: z.string(),
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  rawData: z.optional(z.boolean()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    invoiceId: z.string(),
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    rawData: z.optional(z.boolean()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getInvoiceRequestToJSON(
   getInvoiceRequest: GetInvoiceRequest,
@@ -100,12 +102,14 @@ export function getInvoiceRequestToJSON(
 export const GetInvoicePagination$inboundSchema: z.ZodMiniType<
   GetInvoicePagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getInvoicePaginationFromJSON(
   jsonString: string,
@@ -121,15 +125,17 @@ export function getInvoicePaginationFromJSON(
 export const GetInvoiceMeta$inboundSchema: z.ZodMiniType<
   GetInvoiceMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => GetInvoicePagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => GetInvoicePagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function getInvoiceMetaFromJSON(
   jsonString: string,
@@ -145,7 +151,7 @@ export function getInvoiceMetaFromJSON(
 export const GetInvoiceErrors$inboundSchema: z.ZodMiniType<
   GetInvoiceErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getInvoiceErrorsFromJSON(
   jsonString: string,
@@ -161,7 +167,7 @@ export function getInvoiceErrorsFromJSON(
 export const GetInvoiceRawData$inboundSchema: z.ZodMiniType<
   GetInvoiceRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getInvoiceRawDataFromJSON(
   jsonString: string,
@@ -177,12 +183,14 @@ export function getInvoiceRawDataFromJSON(
 export const GetInvoiceResponse$inboundSchema: z.ZodMiniType<
   GetInvoiceResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => GetInvoiceMeta$inboundSchema))),
-  data: models.InvoiceResponseDto$inboundSchema,
-  errors: types.nullable(z.lazy(() => GetInvoiceErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => GetInvoiceRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(z.nullable(z.lazy(() => GetInvoiceMeta$inboundSchema))),
+    data: models.InvoiceResponseDto$inboundSchema,
+    errors: types.nullable(z.lazy(() => GetInvoiceErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => GetInvoiceRawData$inboundSchema)),
+  })
+);
 
 export function getInvoiceResponseFromJSON(
   jsonString: string,

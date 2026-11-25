@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 
 export const CreateCreditNoteLineItemRequestDtoType = {
@@ -37,9 +38,10 @@ export type CreateCreditNoteLineItemRequestDto = {
 
 /** @internal */
 export const CreateCreditNoteLineItemRequestDtoType$outboundSchema:
-  z.ZodMiniEnum<typeof CreateCreditNoteLineItemRequestDtoType> = z.enum(
-    CreateCreditNoteLineItemRequestDtoType,
-  );
+  z.ZodMiniEnum<typeof CreateCreditNoteLineItemRequestDtoType> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.enum(CreateCreditNoteLineItemRequestDtoType)
+    );
 
 /** @internal */
 export type CreateCreditNoteLineItemRequestDto$Outbound = {
@@ -66,25 +68,27 @@ export type CreateCreditNoteLineItemRequestDto$Outbound = {
 export const CreateCreditNoteLineItemRequestDto$outboundSchema: z.ZodMiniType<
   CreateCreditNoteLineItemRequestDto$Outbound,
   CreateCreditNoteLineItemRequestDto
-> = z.object({
-  id: z.optional(z.string()),
-  description: z.optional(z.string()),
-  itemId: z.optional(z.string()),
-  itemName: z.optional(z.string()),
-  quantity: z.optional(z.number()),
-  taxCode: z.optional(z.string()),
-  taxRatePercentage: z.optional(z.number()),
-  totalDiscountAmount: z.optional(z.number()),
-  totalDiscountPercentage: z.optional(z.number()),
-  totalGrossAmount: z.optional(z.number()),
-  totalNetAmount: z.optional(z.number()),
-  totalTaxAmount: z.optional(z.number()),
-  type: z.optional(CreateCreditNoteLineItemRequestDtoType$outboundSchema),
-  unitAmount: z.optional(z.number()),
-  unitDiscountAmount: z.optional(z.number()),
-  unitDiscountPercentage: z.optional(z.number()),
-  unitName: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.optional(z.string()),
+    description: z.optional(z.string()),
+    itemId: z.optional(z.string()),
+    itemName: z.optional(z.string()),
+    quantity: z.optional(z.number()),
+    taxCode: z.optional(z.string()),
+    taxRatePercentage: z.optional(z.number()),
+    totalDiscountAmount: z.optional(z.number()),
+    totalDiscountPercentage: z.optional(z.number()),
+    totalGrossAmount: z.optional(z.number()),
+    totalNetAmount: z.optional(z.number()),
+    totalTaxAmount: z.optional(z.number()),
+    type: z.optional(CreateCreditNoteLineItemRequestDtoType$outboundSchema),
+    unitAmount: z.optional(z.number()),
+    unitDiscountAmount: z.optional(z.number()),
+    unitDiscountPercentage: z.optional(z.number()),
+    unitName: z.optional(z.string()),
+  })
+);
 
 export function createCreditNoteLineItemRequestDtoToJSON(
   createCreditNoteLineItemRequestDto: CreateCreditNoteLineItemRequestDto,

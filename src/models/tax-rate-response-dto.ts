@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
@@ -41,26 +41,29 @@ export type TaxRateResponseDto = {
 /** @internal */
 export const TaxRateResponseDtoType$inboundSchema: z.ZodMiniEnum<
   typeof TaxRateResponseDtoType
-> = z.enum(TaxRateResponseDtoType);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(TaxRateResponseDtoType));
 
 /** @internal */
-export const Usage$inboundSchema: z.ZodMiniEnum<typeof Usage> = z.enum(Usage);
+export const Usage$inboundSchema: z.ZodMiniEnum<typeof Usage> =
+  /* @__PURE__ */ lazySchema$(() => z.enum(Usage));
 
 /** @internal */
 export const TaxRateResponseDto$inboundSchema: z.ZodMiniType<
   TaxRateResponseDto,
   unknown
-> = z.object({
-  id: types.nullable(types.string()),
-  code: types.nullable(types.string()),
-  createdDate: types.nullable(types.string()),
-  description: types.nullable(types.string()),
-  name: types.nullable(types.string()),
-  percentage: types.nullable(types.number()),
-  type: types.nullable(TaxRateResponseDtoType$inboundSchema),
-  updatedDate: types.nullable(types.string()),
-  usage: types.nullable(Usage$inboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: types.nullable(types.string()),
+    code: types.nullable(types.string()),
+    createdDate: types.nullable(types.string()),
+    description: types.nullable(types.string()),
+    name: types.nullable(types.string()),
+    percentage: types.nullable(types.number()),
+    type: types.nullable(TaxRateResponseDtoType$inboundSchema),
+    updatedDate: types.nullable(types.string()),
+    usage: types.nullable(Usage$inboundSchema),
+  })
+);
 
 export function taxRateResponseDtoFromJSON(
   jsonString: string,

@@ -4,7 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -83,15 +83,17 @@ export type CreateJournalEntryFile$Outbound = {
 export const CreateJournalEntryFile$outboundSchema: z.ZodMiniType<
   CreateJournalEntryFile$Outbound,
   CreateJournalEntryFile
-> = z.object({
-  fileName: z.string(),
-  content: z.union([
-    z.custom<ReadableStream<Uint8Array>>(x => x instanceof ReadableStream),
-    z.custom<Blob>(x => x instanceof Blob),
-    z.custom<ArrayBuffer>(x => x instanceof ArrayBuffer),
-    z.custom<Uint8Array>(x => x instanceof Uint8Array),
-  ]),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    fileName: z.string(),
+    content: z.union([
+      z.custom<ReadableStream<Uint8Array>>(x => x instanceof ReadableStream),
+      z.custom<Blob>(x => x instanceof Blob),
+      z.custom<ArrayBuffer>(x => x instanceof ArrayBuffer),
+      z.custom<Uint8Array>(x => x instanceof Uint8Array),
+    ]),
+  })
+);
 
 export function createJournalEntryFileToJSON(
   createJournalEntryFile: CreateJournalEntryFile,
@@ -112,21 +114,23 @@ export type CreateJournalEntryRequestBody$Outbound = {
 export const CreateJournalEntryRequestBody$outboundSchema: z.ZodMiniType<
   CreateJournalEntryRequestBody$Outbound,
   CreateJournalEntryRequestBody
-> = z.pipe(
-  z.object({
-    files: z.optional(
-      z.array(z.lazy(() => CreateJournalEntryFile$outboundSchema)),
-    ),
-    filesPos: z.optional(z.array(z.string())),
-    journalEntry: z.optional(
-      models.CreateJournalEntryRequestDto$outboundSchema,
-    ),
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      journalEntry: "journal_entry",
-    });
-  }),
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.pipe(
+    z.object({
+      files: z.optional(
+        z.array(z.lazy(() => CreateJournalEntryFile$outboundSchema)),
+      ),
+      filesPos: z.optional(z.array(z.string())),
+      journalEntry: z.optional(
+        models.CreateJournalEntryRequestDto$outboundSchema,
+      ),
+    }),
+    z.transform((v) => {
+      return remap$(v, {
+        journalEntry: "journal_entry",
+      });
+    }),
+  )
 );
 
 export function createJournalEntryRequestBodyToJSON(
@@ -152,13 +156,15 @@ export type CreateJournalEntryRequest$Outbound = {
 export const CreateJournalEntryRequest$outboundSchema: z.ZodMiniType<
   CreateJournalEntryRequest$Outbound,
   CreateJournalEntryRequest
-> = z.object({
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-  body: z.lazy(() => CreateJournalEntryRequestBody$outboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+    body: z.lazy(() => CreateJournalEntryRequestBody$outboundSchema),
+  })
+);
 
 export function createJournalEntryRequestToJSON(
   createJournalEntryRequest: CreateJournalEntryRequest,
@@ -172,12 +178,14 @@ export function createJournalEntryRequestToJSON(
 export const CreateJournalEntryPagination$inboundSchema: z.ZodMiniType<
   CreateJournalEntryPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function createJournalEntryPaginationFromJSON(
   jsonString: string,
@@ -193,15 +201,17 @@ export function createJournalEntryPaginationFromJSON(
 export const CreateJournalEntryMeta$inboundSchema: z.ZodMiniType<
   CreateJournalEntryMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => CreateJournalEntryPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => CreateJournalEntryPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function createJournalEntryMetaFromJSON(
   jsonString: string,
@@ -217,7 +227,7 @@ export function createJournalEntryMetaFromJSON(
 export const CreateJournalEntryErrors$inboundSchema: z.ZodMiniType<
   CreateJournalEntryErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createJournalEntryErrorsFromJSON(
   jsonString: string,
@@ -233,7 +243,7 @@ export function createJournalEntryErrorsFromJSON(
 export const CreateJournalEntryRawData$inboundSchema: z.ZodMiniType<
   CreateJournalEntryRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createJournalEntryRawDataFromJSON(
   jsonString: string,
@@ -249,16 +259,20 @@ export function createJournalEntryRawDataFromJSON(
 export const CreateJournalEntryResponse$inboundSchema: z.ZodMiniType<
   CreateJournalEntryResponse,
   unknown
-> = z.object({
-  meta: z.optional(
-    z.nullable(z.lazy(() => CreateJournalEntryMeta$inboundSchema)),
-  ),
-  data: models.JournalEntryResponseDto$inboundSchema,
-  errors: types.nullable(z.lazy(() => CreateJournalEntryErrors$inboundSchema)),
-  rawData: types.nullable(
-    z.lazy(() => CreateJournalEntryRawData$inboundSchema),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => CreateJournalEntryMeta$inboundSchema)),
+    ),
+    data: models.JournalEntryResponseDto$inboundSchema,
+    errors: types.nullable(
+      z.lazy(() => CreateJournalEntryErrors$inboundSchema),
+    ),
+    rawData: types.nullable(
+      z.lazy(() => CreateJournalEntryRawData$inboundSchema),
+    ),
+  })
+);
 
 export function createJournalEntryResponseFromJSON(
   jsonString: string,

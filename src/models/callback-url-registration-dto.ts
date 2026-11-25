@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 
 export type CallbackUrlRegistrationDto = {
   callbackUrl: string;
@@ -19,10 +20,12 @@ export type CallbackUrlRegistrationDto$Outbound = {
 export const CallbackUrlRegistrationDto$outboundSchema: z.ZodMiniType<
   CallbackUrlRegistrationDto$Outbound,
   CallbackUrlRegistrationDto
-> = z.object({
-  callbackUrl: z.string(),
-  cancelCallbackUrl: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    callbackUrl: z.string(),
+    cancelCallbackUrl: z.string(),
+  })
+);
 
 export function callbackUrlRegistrationDtoToJSON(
   callbackUrlRegistrationDto: CallbackUrlRegistrationDto,

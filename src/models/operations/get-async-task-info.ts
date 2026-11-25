@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
@@ -76,7 +76,7 @@ export type GetAsyncTaskInfoResponse = {
 /** @internal */
 export const GetAsyncTaskInfoLimit$outboundSchema: z.ZodMiniEnum<
   typeof GetAsyncTaskInfoLimit
-> = z.enum(GetAsyncTaskInfoLimit);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(GetAsyncTaskInfoLimit));
 
 /** @internal */
 export type GetAsyncTaskInfoRequest$Outbound = {
@@ -93,15 +93,17 @@ export type GetAsyncTaskInfoRequest$Outbound = {
 export const GetAsyncTaskInfoRequest$outboundSchema: z.ZodMiniType<
   GetAsyncTaskInfoRequest$Outbound,
   GetAsyncTaskInfoRequest
-> = z.object({
-  taskId: z.string(),
-  companyId: z.optional(z.string()),
-  page: z.optional(z.number()),
-  limit: z.optional(GetAsyncTaskInfoLimit$outboundSchema),
-  rawData: z.optional(z.boolean()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    taskId: z.string(),
+    companyId: z.optional(z.string()),
+    page: z.optional(z.number()),
+    limit: z.optional(GetAsyncTaskInfoLimit$outboundSchema),
+    rawData: z.optional(z.boolean()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getAsyncTaskInfoRequestToJSON(
   getAsyncTaskInfoRequest: GetAsyncTaskInfoRequest,
@@ -115,12 +117,14 @@ export function getAsyncTaskInfoRequestToJSON(
 export const GetAsyncTaskInfoPagination$inboundSchema: z.ZodMiniType<
   GetAsyncTaskInfoPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getAsyncTaskInfoPaginationFromJSON(
   jsonString: string,
@@ -136,15 +140,17 @@ export function getAsyncTaskInfoPaginationFromJSON(
 export const GetAsyncTaskInfoMeta$inboundSchema: z.ZodMiniType<
   GetAsyncTaskInfoMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => GetAsyncTaskInfoPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => GetAsyncTaskInfoPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function getAsyncTaskInfoMetaFromJSON(
   jsonString: string,
@@ -160,7 +166,7 @@ export function getAsyncTaskInfoMetaFromJSON(
 export const GetAsyncTaskInfoErrors$inboundSchema: z.ZodMiniType<
   GetAsyncTaskInfoErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getAsyncTaskInfoErrorsFromJSON(
   jsonString: string,
@@ -176,7 +182,7 @@ export function getAsyncTaskInfoErrorsFromJSON(
 export const GetAsyncTaskInfoRawData$inboundSchema: z.ZodMiniType<
   GetAsyncTaskInfoRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getAsyncTaskInfoRawDataFromJSON(
   jsonString: string,
@@ -192,14 +198,18 @@ export function getAsyncTaskInfoRawDataFromJSON(
 export const GetAsyncTaskInfoResponse$inboundSchema: z.ZodMiniType<
   GetAsyncTaskInfoResponse,
   unknown
-> = z.object({
-  meta: z.optional(
-    z.nullable(z.lazy(() => GetAsyncTaskInfoMeta$inboundSchema)),
-  ),
-  data: models.AsyncTaskResponseDto$inboundSchema,
-  errors: types.nullable(z.lazy(() => GetAsyncTaskInfoErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => GetAsyncTaskInfoRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => GetAsyncTaskInfoMeta$inboundSchema)),
+    ),
+    data: models.AsyncTaskResponseDto$inboundSchema,
+    errors: types.nullable(z.lazy(() => GetAsyncTaskInfoErrors$inboundSchema)),
+    rawData: types.nullable(
+      z.lazy(() => GetAsyncTaskInfoRawData$inboundSchema),
+    ),
+  })
+);
 
 export function getAsyncTaskInfoResponseFromJSON(
   jsonString: string,

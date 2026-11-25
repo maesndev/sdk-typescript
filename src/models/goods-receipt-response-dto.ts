@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
@@ -27,18 +27,20 @@ export type GoodsReceiptResponseDto = {
 export const GoodsReceiptResponseDto$inboundSchema: z.ZodMiniType<
   GoodsReceiptResponseDto,
   unknown
-> = z.object({
-  id: types.nullable(types.string()),
-  comment: types.nullable(types.string()),
-  createdDate: types.nullable(types.string()),
-  description: types.nullable(types.string()),
-  lineItems: types.nullable(
-    z.array(GoodsReceiptLineItemResponse$inboundSchema),
-  ),
-  reference: types.nullable(types.string()),
-  supplierId: types.nullable(types.string()),
-  updatedDate: types.nullable(types.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: types.nullable(types.string()),
+    comment: types.nullable(types.string()),
+    createdDate: types.nullable(types.string()),
+    description: types.nullable(types.string()),
+    lineItems: types.nullable(
+      z.array(GoodsReceiptLineItemResponse$inboundSchema),
+    ),
+    reference: types.nullable(types.string()),
+    supplierId: types.nullable(types.string()),
+    updatedDate: types.nullable(types.string()),
+  })
+);
 
 export function goodsReceiptResponseDtoFromJSON(
   jsonString: string,

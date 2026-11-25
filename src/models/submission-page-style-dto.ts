@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import {
   SubmissionPageLocalizationDto,
   SubmissionPageLocalizationDto$Outbound,
@@ -44,22 +45,24 @@ export type SubmissionPageStyleDto$Outbound = {
 export const SubmissionPageStyleDto$outboundSchema: z.ZodMiniType<
   SubmissionPageStyleDto$Outbound,
   SubmissionPageStyleDto
-> = z.object({
-  logoSvg: z.string(),
-  logoPng: z.string(),
-  backgroundColor: z.string(),
-  titleColor: z.string(),
-  textColor: z.string(),
-  inputBackgroundColor: z.string(),
-  submitButtonColor: z.string(),
-  submitButtonTextColor: z.string(),
-  cancelButtonColor: z.string(),
-  cancelButtonTextColor: z.string(),
-  errorTextColor: z.string(),
-  pageLocalizations: z.optional(
-    z.array(SubmissionPageLocalizationDto$outboundSchema),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    logoSvg: z.string(),
+    logoPng: z.string(),
+    backgroundColor: z.string(),
+    titleColor: z.string(),
+    textColor: z.string(),
+    inputBackgroundColor: z.string(),
+    submitButtonColor: z.string(),
+    submitButtonTextColor: z.string(),
+    cancelButtonColor: z.string(),
+    cancelButtonTextColor: z.string(),
+    errorTextColor: z.string(),
+    pageLocalizations: z.optional(
+      z.array(SubmissionPageLocalizationDto$outboundSchema),
+    ),
+  })
+);
 
 export function submissionPageStyleDtoToJSON(
   submissionPageStyleDto: SubmissionPageStyleDto,

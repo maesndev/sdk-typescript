@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 
 export const PatchContactAddressCountryCode = {
@@ -284,12 +285,12 @@ export type PatchContactAddress = {
 /** @internal */
 export const PatchContactAddressCountryCode$outboundSchema: z.ZodMiniEnum<
   typeof PatchContactAddressCountryCode
-> = z.enum(PatchContactAddressCountryCode);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(PatchContactAddressCountryCode));
 
 /** @internal */
 export const PatchContactAddressType$outboundSchema: z.ZodMiniEnum<
   typeof PatchContactAddressType
-> = z.enum(PatchContactAddressType);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(PatchContactAddressType));
 
 /** @internal */
 export type PatchContactAddress$Outbound = {
@@ -305,14 +306,16 @@ export type PatchContactAddress$Outbound = {
 export const PatchContactAddress$outboundSchema: z.ZodMiniType<
   PatchContactAddress$Outbound,
   PatchContactAddress
-> = z.object({
-  addressLine1: z.optional(z.string()),
-  addressLine2: z.optional(z.string()),
-  postalCode: z.optional(z.string()),
-  city: z.optional(z.string()),
-  countryCode: z.optional(PatchContactAddressCountryCode$outboundSchema),
-  type: z.optional(PatchContactAddressType$outboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    addressLine1: z.optional(z.string()),
+    addressLine2: z.optional(z.string()),
+    postalCode: z.optional(z.string()),
+    city: z.optional(z.string()),
+    countryCode: z.optional(PatchContactAddressCountryCode$outboundSchema),
+    type: z.optional(PatchContactAddressType$outboundSchema),
+  })
+);
 
 export function patchContactAddressToJSON(
   patchContactAddress: PatchContactAddress,

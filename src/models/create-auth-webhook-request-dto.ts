@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 
 export type CreateAuthWebhookRequestDto = {
   baseUrl?: string | undefined;
@@ -29,15 +30,17 @@ export type CreateAuthWebhookRequestDto$Outbound = {
 export const CreateAuthWebhookRequestDto$outboundSchema: z.ZodMiniType<
   CreateAuthWebhookRequestDto$Outbound,
   CreateAuthWebhookRequestDto
-> = z.object({
-  baseUrl: z.optional(z.string()),
-  callBackUrl: z.optional(z.string()),
-  cancelCallbackUrl: z.optional(z.string()),
-  includeSignature: z.optional(z.boolean()),
-  tenantId: z.optional(z.string()),
-  webhookCallbackUrl: z.optional(z.string()),
-  locale: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    baseUrl: z.optional(z.string()),
+    callBackUrl: z.optional(z.string()),
+    cancelCallbackUrl: z.optional(z.string()),
+    includeSignature: z.optional(z.boolean()),
+    tenantId: z.optional(z.string()),
+    webhookCallbackUrl: z.optional(z.string()),
+    locale: z.optional(z.string()),
+  })
+);
 
 export function createAuthWebhookRequestDtoToJSON(
   createAuthWebhookRequestDto: CreateAuthWebhookRequestDto,

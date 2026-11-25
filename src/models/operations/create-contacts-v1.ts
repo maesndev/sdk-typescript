@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -69,12 +69,14 @@ export type CreateContactsV1Request$Outbound = {
 export const CreateContactsV1Request$outboundSchema: z.ZodMiniType<
   CreateContactsV1Request$Outbound,
   CreateContactsV1Request
-> = z.object({
-  companyId: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-  body: models.CreateContactByBatchMetaDataDto$outboundSchema,
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    companyId: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+    body: models.CreateContactByBatchMetaDataDto$outboundSchema,
+  })
+);
 
 export function createContactsV1RequestToJSON(
   createContactsV1Request: CreateContactsV1Request,
@@ -88,12 +90,14 @@ export function createContactsV1RequestToJSON(
 export const CreateContactsV1Pagination$inboundSchema: z.ZodMiniType<
   CreateContactsV1Pagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function createContactsV1PaginationFromJSON(
   jsonString: string,
@@ -109,15 +113,17 @@ export function createContactsV1PaginationFromJSON(
 export const CreateContactsV1Meta$inboundSchema: z.ZodMiniType<
   CreateContactsV1Meta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => CreateContactsV1Pagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => CreateContactsV1Pagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function createContactsV1MetaFromJSON(
   jsonString: string,
@@ -133,7 +139,7 @@ export function createContactsV1MetaFromJSON(
 export const CreateContactsV1Errors$inboundSchema: z.ZodMiniType<
   CreateContactsV1Errors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createContactsV1ErrorsFromJSON(
   jsonString: string,
@@ -149,7 +155,7 @@ export function createContactsV1ErrorsFromJSON(
 export const CreateContactsV1RawData$inboundSchema: z.ZodMiniType<
   CreateContactsV1RawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createContactsV1RawDataFromJSON(
   jsonString: string,
@@ -165,14 +171,18 @@ export function createContactsV1RawDataFromJSON(
 export const CreateContactsV1Response$inboundSchema: z.ZodMiniType<
   CreateContactsV1Response,
   unknown
-> = z.object({
-  meta: z.optional(
-    z.nullable(z.lazy(() => CreateContactsV1Meta$inboundSchema)),
-  ),
-  data: models.ContactByBatchMetaDataResponseDto$inboundSchema,
-  errors: types.nullable(z.lazy(() => CreateContactsV1Errors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => CreateContactsV1RawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => CreateContactsV1Meta$inboundSchema)),
+    ),
+    data: models.ContactByBatchMetaDataResponseDto$inboundSchema,
+    errors: types.nullable(z.lazy(() => CreateContactsV1Errors$inboundSchema)),
+    rawData: types.nullable(
+      z.lazy(() => CreateContactsV1RawData$inboundSchema),
+    ),
+  })
+);
 
 export function createContactsV1ResponseFromJSON(
   jsonString: string,

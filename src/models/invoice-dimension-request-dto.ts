@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 
 export type InvoiceDimensionRequestDto = {
   id?: string | undefined;
@@ -21,11 +22,13 @@ export type InvoiceDimensionRequestDto$Outbound = {
 export const InvoiceDimensionRequestDto$outboundSchema: z.ZodMiniType<
   InvoiceDimensionRequestDto$Outbound,
   InvoiceDimensionRequestDto
-> = z.object({
-  id: z.optional(z.string()),
-  categoryName: z.optional(z.string()),
-  name: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.optional(z.string()),
+    categoryName: z.optional(z.string()),
+    name: z.optional(z.string()),
+  })
+);
 
 export function invoiceDimensionRequestDtoToJSON(
   invoiceDimensionRequestDto: InvoiceDimensionRequestDto,

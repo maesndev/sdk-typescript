@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
@@ -83,7 +83,7 @@ export type GetCreditNotesResponse = {
 /** @internal */
 export const GetCreditNotesLimit$outboundSchema: z.ZodMiniEnum<
   typeof GetCreditNotesLimit
-> = z.enum(GetCreditNotesLimit);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(GetCreditNotesLimit));
 
 /** @internal */
 export type GetCreditNotesRequest$Outbound = {
@@ -101,16 +101,18 @@ export type GetCreditNotesRequest$Outbound = {
 export const GetCreditNotesRequest$outboundSchema: z.ZodMiniType<
   GetCreditNotesRequest$Outbound,
   GetCreditNotesRequest
-> = z.object({
-  page: z.optional(z.number()),
-  limit: z.optional(GetCreditNotesLimit$outboundSchema),
-  lastModifiedAt: z.optional(z.string()),
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  rawData: z.optional(z.boolean()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    page: z.optional(z.number()),
+    limit: z.optional(GetCreditNotesLimit$outboundSchema),
+    lastModifiedAt: z.optional(z.string()),
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    rawData: z.optional(z.boolean()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getCreditNotesRequestToJSON(
   getCreditNotesRequest: GetCreditNotesRequest,
@@ -124,12 +126,14 @@ export function getCreditNotesRequestToJSON(
 export const GetCreditNotesPagination$inboundSchema: z.ZodMiniType<
   GetCreditNotesPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getCreditNotesPaginationFromJSON(
   jsonString: string,
@@ -145,15 +149,17 @@ export function getCreditNotesPaginationFromJSON(
 export const GetCreditNotesMeta$inboundSchema: z.ZodMiniType<
   GetCreditNotesMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => GetCreditNotesPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => GetCreditNotesPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function getCreditNotesMetaFromJSON(
   jsonString: string,
@@ -169,7 +175,7 @@ export function getCreditNotesMetaFromJSON(
 export const GetCreditNotesErrors$inboundSchema: z.ZodMiniType<
   GetCreditNotesErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getCreditNotesErrorsFromJSON(
   jsonString: string,
@@ -185,7 +191,7 @@ export function getCreditNotesErrorsFromJSON(
 export const GetCreditNotesRawData$inboundSchema: z.ZodMiniType<
   GetCreditNotesRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getCreditNotesRawDataFromJSON(
   jsonString: string,
@@ -201,12 +207,16 @@ export function getCreditNotesRawDataFromJSON(
 export const GetCreditNotesResponse$inboundSchema: z.ZodMiniType<
   GetCreditNotesResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => GetCreditNotesMeta$inboundSchema))),
-  data: z.array(models.CreditNoteResponseDto$inboundSchema),
-  errors: types.nullable(z.lazy(() => GetCreditNotesErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => GetCreditNotesRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => GetCreditNotesMeta$inboundSchema)),
+    ),
+    data: z.array(models.CreditNoteResponseDto$inboundSchema),
+    errors: types.nullable(z.lazy(() => GetCreditNotesErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => GetCreditNotesRawData$inboundSchema)),
+  })
+);
 
 export function getCreditNotesResponseFromJSON(
   jsonString: string,

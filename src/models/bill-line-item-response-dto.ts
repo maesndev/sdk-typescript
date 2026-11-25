@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import {
@@ -42,31 +42,33 @@ export type BillLineItemResponseDto = {
 export const BillLineItemResponseDto$inboundSchema: z.ZodMiniType<
   BillLineItemResponseDto,
   unknown
-> = z.object({
-  id: types.nullable(types.string()),
-  accountId: types.nullable(types.string()),
-  accountNumber: types.nullable(types.string()),
-  createdDate: types.nullable(types.string()),
-  deferredEndDate: types.nullable(types.string()),
-  deferredStartDate: types.nullable(types.string()),
-  description: types.nullable(types.string()),
-  dimensions: types.nullable(z.array(BillDimensionResponseDto$inboundSchema)),
-  itemId: types.nullable(types.string()),
-  itemName: types.nullable(types.string()),
-  quantity: types.nullable(types.number()),
-  taxCode: types.nullable(types.string()),
-  taxRatePercentage: types.nullable(types.number()),
-  totalDiscountAmount: types.nullable(types.number()),
-  totalDiscountPercentage: types.nullable(types.number()),
-  totalGrossAmount: types.nullable(types.number()),
-  totalNetAmount: types.nullable(types.number()),
-  totalTaxAmount: types.nullable(types.number()),
-  unitAmount: types.nullable(types.number()),
-  unitDiscountAmount: types.nullable(types.number()),
-  unitDiscountPercentage: types.nullable(types.number()),
-  unitName: types.nullable(types.string()),
-  updatedDate: types.nullable(types.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: types.nullable(types.string()),
+    accountId: types.nullable(types.string()),
+    accountNumber: types.nullable(types.string()),
+    createdDate: types.nullable(types.string()),
+    deferredEndDate: types.nullable(types.string()),
+    deferredStartDate: types.nullable(types.string()),
+    description: types.nullable(types.string()),
+    dimensions: types.nullable(z.array(BillDimensionResponseDto$inboundSchema)),
+    itemId: types.nullable(types.string()),
+    itemName: types.nullable(types.string()),
+    quantity: types.nullable(types.number()),
+    taxCode: types.nullable(types.string()),
+    taxRatePercentage: types.nullable(types.number()),
+    totalDiscountAmount: types.nullable(types.number()),
+    totalDiscountPercentage: types.nullable(types.number()),
+    totalGrossAmount: types.nullable(types.number()),
+    totalNetAmount: types.nullable(types.number()),
+    totalTaxAmount: types.nullable(types.number()),
+    unitAmount: types.nullable(types.number()),
+    unitDiscountAmount: types.nullable(types.number()),
+    unitDiscountPercentage: types.nullable(types.number()),
+    unitName: types.nullable(types.string()),
+    updatedDate: types.nullable(types.string()),
+  })
+);
 
 export function billLineItemResponseDtoFromJSON(
   jsonString: string,

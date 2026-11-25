@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -76,14 +76,16 @@ export type PatchCustomersRequest$Outbound = {
 export const PatchCustomersRequest$outboundSchema: z.ZodMiniType<
   PatchCustomersRequest$Outbound,
   PatchCustomersRequest
-> = z.object({
-  contactId: z.string(),
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-  body: models.PatchContactRequestDto$outboundSchema,
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    contactId: z.string(),
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+    body: models.PatchContactRequestDto$outboundSchema,
+  })
+);
 
 export function patchCustomersRequestToJSON(
   patchCustomersRequest: PatchCustomersRequest,
@@ -97,12 +99,14 @@ export function patchCustomersRequestToJSON(
 export const PatchCustomersPagination$inboundSchema: z.ZodMiniType<
   PatchCustomersPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function patchCustomersPaginationFromJSON(
   jsonString: string,
@@ -118,15 +122,17 @@ export function patchCustomersPaginationFromJSON(
 export const PatchCustomersMeta$inboundSchema: z.ZodMiniType<
   PatchCustomersMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => PatchCustomersPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => PatchCustomersPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function patchCustomersMetaFromJSON(
   jsonString: string,
@@ -142,7 +148,7 @@ export function patchCustomersMetaFromJSON(
 export const PatchCustomersErrors$inboundSchema: z.ZodMiniType<
   PatchCustomersErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function patchCustomersErrorsFromJSON(
   jsonString: string,
@@ -158,7 +164,7 @@ export function patchCustomersErrorsFromJSON(
 export const PatchCustomersRawData$inboundSchema: z.ZodMiniType<
   PatchCustomersRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function patchCustomersRawDataFromJSON(
   jsonString: string,
@@ -174,12 +180,16 @@ export function patchCustomersRawDataFromJSON(
 export const PatchCustomersResponse$inboundSchema: z.ZodMiniType<
   PatchCustomersResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => PatchCustomersMeta$inboundSchema))),
-  data: models.ContactResponseDto$inboundSchema,
-  errors: types.nullable(z.lazy(() => PatchCustomersErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => PatchCustomersRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => PatchCustomersMeta$inboundSchema)),
+    ),
+    data: models.ContactResponseDto$inboundSchema,
+    errors: types.nullable(z.lazy(() => PatchCustomersErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => PatchCustomersRawData$inboundSchema)),
+  })
+);
 
 export function patchCustomersResponseFromJSON(
   jsonString: string,

@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
@@ -19,12 +19,14 @@ export type UnitResponseDto = {
 export const UnitResponseDto$inboundSchema: z.ZodMiniType<
   UnitResponseDto,
   unknown
-> = z.object({
-  id: types.nullable(types.string()),
-  code: types.nullable(types.string()),
-  description: types.nullable(types.string()),
-  type: types.nullable(types.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: types.nullable(types.string()),
+    code: types.nullable(types.string()),
+    description: types.nullable(types.string()),
+    type: types.nullable(types.string()),
+  })
+);
 
 export function unitResponseDtoFromJSON(
   jsonString: string,

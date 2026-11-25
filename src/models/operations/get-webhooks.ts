@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -77,13 +77,15 @@ export type GetWebhooksRequest$Outbound = {
 export const GetWebhooksRequest$outboundSchema: z.ZodMiniType<
   GetWebhooksRequest$Outbound,
   GetWebhooksRequest
-> = z.object({
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  rawData: z.optional(z.boolean()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    rawData: z.optional(z.boolean()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getWebhooksRequestToJSON(
   getWebhooksRequest: GetWebhooksRequest,
@@ -97,12 +99,14 @@ export function getWebhooksRequestToJSON(
 export const GetWebhooksPagination$inboundSchema: z.ZodMiniType<
   GetWebhooksPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getWebhooksPaginationFromJSON(
   jsonString: string,
@@ -118,15 +122,17 @@ export function getWebhooksPaginationFromJSON(
 export const GetWebhooksMeta$inboundSchema: z.ZodMiniType<
   GetWebhooksMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => GetWebhooksPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => GetWebhooksPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function getWebhooksMetaFromJSON(
   jsonString: string,
@@ -142,7 +148,7 @@ export function getWebhooksMetaFromJSON(
 export const GetWebhooksErrors$inboundSchema: z.ZodMiniType<
   GetWebhooksErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getWebhooksErrorsFromJSON(
   jsonString: string,
@@ -158,7 +164,7 @@ export function getWebhooksErrorsFromJSON(
 export const GetWebhooksRawData$inboundSchema: z.ZodMiniType<
   GetWebhooksRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getWebhooksRawDataFromJSON(
   jsonString: string,
@@ -174,12 +180,14 @@ export function getWebhooksRawDataFromJSON(
 export const GetWebhooksResponse$inboundSchema: z.ZodMiniType<
   GetWebhooksResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => GetWebhooksMeta$inboundSchema))),
-  data: z.array(models.WebhookResponseDto$inboundSchema),
-  errors: types.nullable(z.lazy(() => GetWebhooksErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => GetWebhooksRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(z.nullable(z.lazy(() => GetWebhooksMeta$inboundSchema))),
+    data: z.array(models.WebhookResponseDto$inboundSchema),
+    errors: types.nullable(z.lazy(() => GetWebhooksErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => GetWebhooksRawData$inboundSchema)),
+  })
+);
 
 export function getWebhooksResponseFromJSON(
   jsonString: string,

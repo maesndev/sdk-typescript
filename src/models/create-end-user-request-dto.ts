@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 
 export type CreateEndUserRequestDto = {
   apiKey: string;
@@ -35,18 +36,20 @@ export type CreateEndUserRequestDto$Outbound = {
 export const CreateEndUserRequestDto$outboundSchema: z.ZodMiniType<
   CreateEndUserRequestDto$Outbound,
   CreateEndUserRequestDto
-> = z.object({
-  apiKey: z.string(),
-  baseUrl: z.string(),
-  clientName: z.string(),
-  clientSecret: z.string(),
-  database: z.string(),
-  mandant: z.string(),
-  password: z.string(),
-  tenantId: z.string(),
-  url: z.string(),
-  username: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.string(),
+    baseUrl: z.string(),
+    clientName: z.string(),
+    clientSecret: z.string(),
+    database: z.string(),
+    mandant: z.string(),
+    password: z.string(),
+    tenantId: z.string(),
+    url: z.string(),
+    username: z.string(),
+  })
+);
 
 export function createEndUserRequestDtoToJSON(
   createEndUserRequestDto: CreateEndUserRequestDto,

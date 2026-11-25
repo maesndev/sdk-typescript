@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
@@ -83,7 +83,7 @@ export type GetProjectsResponse = {
 /** @internal */
 export const GetProjectsLimit$outboundSchema: z.ZodMiniEnum<
   typeof GetProjectsLimit
-> = z.enum(GetProjectsLimit);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(GetProjectsLimit));
 
 /** @internal */
 export type GetProjectsRequest$Outbound = {
@@ -101,16 +101,18 @@ export type GetProjectsRequest$Outbound = {
 export const GetProjectsRequest$outboundSchema: z.ZodMiniType<
   GetProjectsRequest$Outbound,
   GetProjectsRequest
-> = z.object({
-  page: z.optional(z.number()),
-  limit: z.optional(GetProjectsLimit$outboundSchema),
-  lastModifiedAt: z.optional(z.string()),
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  rawData: z.optional(z.boolean()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    page: z.optional(z.number()),
+    limit: z.optional(GetProjectsLimit$outboundSchema),
+    lastModifiedAt: z.optional(z.string()),
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    rawData: z.optional(z.boolean()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getProjectsRequestToJSON(
   getProjectsRequest: GetProjectsRequest,
@@ -124,12 +126,14 @@ export function getProjectsRequestToJSON(
 export const GetProjectsPagination$inboundSchema: z.ZodMiniType<
   GetProjectsPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getProjectsPaginationFromJSON(
   jsonString: string,
@@ -145,15 +149,17 @@ export function getProjectsPaginationFromJSON(
 export const GetProjectsMeta$inboundSchema: z.ZodMiniType<
   GetProjectsMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => GetProjectsPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => GetProjectsPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function getProjectsMetaFromJSON(
   jsonString: string,
@@ -169,7 +175,7 @@ export function getProjectsMetaFromJSON(
 export const GetProjectsErrors$inboundSchema: z.ZodMiniType<
   GetProjectsErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getProjectsErrorsFromJSON(
   jsonString: string,
@@ -185,7 +191,7 @@ export function getProjectsErrorsFromJSON(
 export const GetProjectsRawData$inboundSchema: z.ZodMiniType<
   GetProjectsRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getProjectsRawDataFromJSON(
   jsonString: string,
@@ -201,12 +207,14 @@ export function getProjectsRawDataFromJSON(
 export const GetProjectsResponse$inboundSchema: z.ZodMiniType<
   GetProjectsResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => GetProjectsMeta$inboundSchema))),
-  data: z.array(models.ProjectResponseDto$inboundSchema),
-  errors: types.nullable(z.lazy(() => GetProjectsErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => GetProjectsRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(z.nullable(z.lazy(() => GetProjectsMeta$inboundSchema))),
+    data: z.array(models.ProjectResponseDto$inboundSchema),
+    errors: types.nullable(z.lazy(() => GetProjectsErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => GetProjectsRawData$inboundSchema)),
+  })
+);
 
 export function getProjectsResponseFromJSON(
   jsonString: string,

@@ -4,13 +4,12 @@
 
 import * as z from "zod/v4-mini";
 import { MaesnCore } from "../core.js";
-import { encodeFormQuery, encodeSimple } from "../lib/encodings.js";
+import { encodeFormQuery, encodeJSON, encodeSimple } from "../lib/encodings.js";
 import { matchStatusCode } from "../lib/http.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
-import { RequestOptions } from "../lib/sdks.js";
-import { pathToFunc } from "../lib/url.js";
+import { encodePath, RequestOptions } from "../lib/sdks.js";
 import {
   ConnectionError,
   InvalidRequestError,
@@ -79,7 +78,7 @@ async function $do(
     return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
-  const body = null;
+  const body = encodeJSON("body", payload.body, { explode: true });
 
   const pathParams = {
     paymentId: encodeSimple("paymentId", payload.paymentId, {
@@ -87,7 +86,14 @@ async function $do(
       charEncoding: "percent",
     }),
   };
-  const path = pathToFunc("/accounting/payments/{paymentId}/book")(pathParams);
+  const pathResult = encodePath(
+    "/accounting/payments/{paymentId}/book",
+    pathParams,
+  );
+  if (!pathResult.ok) {
+    return [pathResult, { status: "invalid" }];
+  }
+  const path = pathResult.value;
 
   const query = encodeFormQuery({
     "companyId": payload.companyId,
@@ -95,6 +101,7 @@ async function $do(
   });
 
   const headers = new Headers(compactMap({
+    "Content-Type": "application/json",
     Accept: "application/json",
     "X-ACCOUNT-KEY": encodeSimple(
       "X-ACCOUNT-KEY",

@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -74,13 +74,15 @@ export type CreateProjectRequest$Outbound = {
 export const CreateProjectRequest$outboundSchema: z.ZodMiniType<
   CreateProjectRequest$Outbound,
   CreateProjectRequest
-> = z.object({
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-  body: models.CreateProjectRequestDto$outboundSchema,
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+    body: models.CreateProjectRequestDto$outboundSchema,
+  })
+);
 
 export function createProjectRequestToJSON(
   createProjectRequest: CreateProjectRequest,
@@ -94,12 +96,14 @@ export function createProjectRequestToJSON(
 export const CreateProjectPagination$inboundSchema: z.ZodMiniType<
   CreateProjectPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function createProjectPaginationFromJSON(
   jsonString: string,
@@ -115,15 +119,17 @@ export function createProjectPaginationFromJSON(
 export const CreateProjectMeta$inboundSchema: z.ZodMiniType<
   CreateProjectMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => CreateProjectPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => CreateProjectPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function createProjectMetaFromJSON(
   jsonString: string,
@@ -139,7 +145,7 @@ export function createProjectMetaFromJSON(
 export const CreateProjectErrors$inboundSchema: z.ZodMiniType<
   CreateProjectErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createProjectErrorsFromJSON(
   jsonString: string,
@@ -155,7 +161,7 @@ export function createProjectErrorsFromJSON(
 export const CreateProjectRawData$inboundSchema: z.ZodMiniType<
   CreateProjectRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createProjectRawDataFromJSON(
   jsonString: string,
@@ -171,12 +177,14 @@ export function createProjectRawDataFromJSON(
 export const CreateProjectResponse$inboundSchema: z.ZodMiniType<
   CreateProjectResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => CreateProjectMeta$inboundSchema))),
-  data: models.ProjectResponseDto$inboundSchema,
-  errors: types.nullable(z.lazy(() => CreateProjectErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => CreateProjectRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(z.nullable(z.lazy(() => CreateProjectMeta$inboundSchema))),
+    data: models.ProjectResponseDto$inboundSchema,
+    errors: types.nullable(z.lazy(() => CreateProjectErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => CreateProjectRawData$inboundSchema)),
+  })
+);
 
 export function createProjectResponseFromJSON(
   jsonString: string,

@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
@@ -35,26 +35,28 @@ export type LineItemResponseDto = {
 export const LineItemResponseDto$inboundSchema: z.ZodMiniType<
   LineItemResponseDto,
   unknown
-> = z.object({
-  lineItemId: types.nullable(types.string()),
-  accountId: types.nullable(types.string()),
-  createdDate: types.nullable(types.string()),
-  description: types.nullable(types.string()),
-  dimensions: types.nullable(
-    z.array(InvoiceDimensionResponseDto$inboundSchema),
-  ),
-  discountItemAmount: types.nullable(types.number()),
-  discountItemPercentage: types.nullable(types.number()),
-  grossAmount: types.nullable(types.number()),
-  itemsAmount: types.nullable(types.number()),
-  itemId: types.nullable(types.string()),
-  name: types.nullable(types.string()),
-  quantity: types.nullable(types.number()),
-  taxCode: types.nullable(types.string()),
-  taxRatePercentage: types.nullable(types.number()),
-  unitAmount: types.nullable(types.number()),
-  updatedDate: types.nullable(types.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    lineItemId: types.nullable(types.string()),
+    accountId: types.nullable(types.string()),
+    createdDate: types.nullable(types.string()),
+    description: types.nullable(types.string()),
+    dimensions: types.nullable(
+      z.array(InvoiceDimensionResponseDto$inboundSchema),
+    ),
+    discountItemAmount: types.nullable(types.number()),
+    discountItemPercentage: types.nullable(types.number()),
+    grossAmount: types.nullable(types.number()),
+    itemsAmount: types.nullable(types.number()),
+    itemId: types.nullable(types.string()),
+    name: types.nullable(types.string()),
+    quantity: types.nullable(types.number()),
+    taxCode: types.nullable(types.string()),
+    taxRatePercentage: types.nullable(types.number()),
+    unitAmount: types.nullable(types.number()),
+    updatedDate: types.nullable(types.string()),
+  })
+);
 
 export function lineItemResponseDtoFromJSON(
   jsonString: string,

@@ -10,6 +10,7 @@
 * [getBankAccounts](#getbankaccounts)
 * [createBankAccount](#createbankaccount)
 * [getBankAccount](#getbankaccount)
+* [patchBankAccount](#patchbankaccount)
 * [getDimensions](#getdimensions)
 * [getDimensionsByDimension](#getdimensionsbydimension)
 * [createTransaction](#createtransaction)
@@ -30,6 +31,7 @@
 * [getContact](#getcontact)
 * [putContact](#putcontact)
 * [patchContact](#patchcontact)
+* [deleteContact](#deletecontact)
 * [getContactAsync](#getcontactasync)
 * [createContacts](#createcontacts)
 * [createContactsV1](#createcontactsv1)
@@ -37,6 +39,7 @@
 * [createInvoice](#createinvoice)
 * [getInvoice](#getinvoice)
 * [patchInvoice](#patchinvoice)
+* [deleteInvoice](#deleteinvoice)
 * [getInvoiceDocument](#getinvoicedocument)
 * [postFile](#postfile)
 * [postFileAsync](#postfileasync)
@@ -580,6 +583,89 @@ run();
 ### Response
 
 **Promise\<[operations.GetBankAccountResponse](../../models/operations/get-bank-account-response.md)\>**
+
+### Errors
+
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
+
+## patchBankAccount
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="patchBankAccount" method="patch" path="/accounting/bankAccounts/{bankAccountId}" -->
+```typescript
+import { Maesn } from "@maesn/typescript-sdk";
+
+const maesn = new Maesn({
+  serverURL: "https://api.example.com",
+  apiKey: "<value>",
+  accountKey: "<value>",
+});
+
+async function run() {
+  const result = await maesn.accounting.patchBankAccount({
+    bankAccountId: "<id>",
+    body: {
+      balance: 4022.57,
+      version: 9390.94,
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingPatchBankAccount } from "@maesn/typescript-sdk/funcs/accounting-patch-bank-account.js";
+
+// Use `MaesnCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const maesn = new MaesnCore({
+  serverURL: "https://api.example.com",
+  apiKey: "<value>",
+  accountKey: "<value>",
+});
+
+async function run() {
+  const res = await accountingPatchBankAccount(maesn, {
+    bankAccountId: "<id>",
+    body: {
+      balance: 4022.57,
+      version: 9390.94,
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingPatchBankAccount failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.PatchBankAccountRequest](../../models/operations/patch-bank-account-request.md)                                                                                    | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.PatchBankAccountResponse](../../models/operations/patch-bank-account-response.md)\>**
 
 ### Errors
 
@@ -2111,6 +2197,81 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
+## deleteContact
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="deleteContact" method="delete" path="/accounting/contacts/{contactId}" -->
+```typescript
+import { Maesn } from "@maesn/typescript-sdk";
+
+const maesn = new Maesn({
+  serverURL: "https://api.example.com",
+  apiKey: "<value>",
+  accountKey: "<value>",
+});
+
+async function run() {
+  const result = await maesn.accounting.deleteContact({
+    contactId: "<id>",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingDeleteContact } from "@maesn/typescript-sdk/funcs/accounting-delete-contact.js";
+
+// Use `MaesnCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const maesn = new MaesnCore({
+  serverURL: "https://api.example.com",
+  apiKey: "<value>",
+  accountKey: "<value>",
+});
+
+async function run() {
+  const res = await accountingDeleteContact(maesn, {
+    contactId: "<id>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingDeleteContact failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.DeleteContactRequest](../../models/operations/delete-contact-request.md)                                                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.DeleteContactResponse](../../models/operations/delete-contact-response.md)\>**
+
+### Errors
+
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
+
 ## getContactAsync
 
 ### Example Usage
@@ -2751,6 +2912,81 @@ run();
 ### Response
 
 **Promise\<[operations.PatchInvoiceResponse](../../models/operations/patch-invoice-response.md)\>**
+
+### Errors
+
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
+
+## deleteInvoice
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="deleteInvoice" method="delete" path="/accounting/invoices/{invoiceId}" -->
+```typescript
+import { Maesn } from "@maesn/typescript-sdk";
+
+const maesn = new Maesn({
+  serverURL: "https://api.example.com",
+  apiKey: "<value>",
+  accountKey: "<value>",
+});
+
+async function run() {
+  const result = await maesn.accounting.deleteInvoice({
+    invoiceId: "<id>",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingDeleteInvoice } from "@maesn/typescript-sdk/funcs/accounting-delete-invoice.js";
+
+// Use `MaesnCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const maesn = new MaesnCore({
+  serverURL: "https://api.example.com",
+  apiKey: "<value>",
+  accountKey: "<value>",
+});
+
+async function run() {
+  const res = await accountingDeleteInvoice(maesn, {
+    invoiceId: "<id>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingDeleteInvoice failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.DeleteInvoiceRequest](../../models/operations/delete-invoice-request.md)                                                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.DeleteInvoiceResponse](../../models/operations/delete-invoice-response.md)\>**
 
 ### Errors
 

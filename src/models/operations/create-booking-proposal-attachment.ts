@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { blobLikeSchema } from "../../types/blobs.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
@@ -92,15 +92,17 @@ export type CreateBookingProposalAttachmentFile$Outbound = {
 export const CreateBookingProposalAttachmentFile$outboundSchema: z.ZodMiniType<
   CreateBookingProposalAttachmentFile$Outbound,
   CreateBookingProposalAttachmentFile
-> = z.object({
-  fileName: z.string(),
-  content: z.union([
-    z.custom<ReadableStream<Uint8Array>>(x => x instanceof ReadableStream),
-    z.custom<Blob>(x => x instanceof Blob),
-    z.custom<ArrayBuffer>(x => x instanceof ArrayBuffer),
-    z.custom<Uint8Array>(x => x instanceof Uint8Array),
-  ]),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    fileName: z.string(),
+    content: z.union([
+      z.custom<ReadableStream<Uint8Array>>(x => x instanceof ReadableStream),
+      z.custom<Blob>(x => x instanceof Blob),
+      z.custom<ArrayBuffer>(x => x instanceof ArrayBuffer),
+      z.custom<Uint8Array>(x => x instanceof Uint8Array),
+    ]),
+  })
+);
 
 export function createBookingProposalAttachmentFileToJSON(
   createBookingProposalAttachmentFile: CreateBookingProposalAttachmentFile,
@@ -113,8 +115,8 @@ export function createBookingProposalAttachmentFileToJSON(
 }
 
 /** @internal */
-export const DocumentType$outboundSchema: z.ZodMiniEnum<typeof DocumentType> = z
-  .enum(DocumentType);
+export const DocumentType$outboundSchema: z.ZodMiniEnum<typeof DocumentType> =
+  /* @__PURE__ */ lazySchema$(() => z.enum(DocumentType));
 
 /** @internal */
 export type CreateBookingProposalAttachmentRequestBody$Outbound = {
@@ -127,13 +129,15 @@ export const CreateBookingProposalAttachmentRequestBody$outboundSchema:
   z.ZodMiniType<
     CreateBookingProposalAttachmentRequestBody$Outbound,
     CreateBookingProposalAttachmentRequestBody
-  > = z.object({
-    file: z.union([
-      z.lazy(() => CreateBookingProposalAttachmentFile$outboundSchema),
-      blobLikeSchema,
-    ]),
-    documentType: z.optional(DocumentType$outboundSchema),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      file: z.union([
+        z.lazy(() => CreateBookingProposalAttachmentFile$outboundSchema),
+        blobLikeSchema,
+      ]),
+      documentType: z.optional(DocumentType$outboundSchema),
+    })
+  );
 
 export function createBookingProposalAttachmentRequestBodyToJSON(
   createBookingProposalAttachmentRequestBody:
@@ -161,16 +165,18 @@ export const CreateBookingProposalAttachmentRequest$outboundSchema:
   z.ZodMiniType<
     CreateBookingProposalAttachmentRequest$Outbound,
     CreateBookingProposalAttachmentRequest
-  > = z.object({
-    bookingProposalId: z.string(),
-    companyId: z.optional(z.string()),
-    environmentName: z.optional(z.string()),
-    apiKey: z.optional(z.string()),
-    accountKey: z.optional(z.string()),
-    body: z.lazy(() =>
-      CreateBookingProposalAttachmentRequestBody$outboundSchema
-    ),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      bookingProposalId: z.string(),
+      companyId: z.optional(z.string()),
+      environmentName: z.optional(z.string()),
+      apiKey: z.optional(z.string()),
+      accountKey: z.optional(z.string()),
+      body: z.lazy(() =>
+        CreateBookingProposalAttachmentRequestBody$outboundSchema
+      ),
+    })
+  );
 
 export function createBookingProposalAttachmentRequestToJSON(
   createBookingProposalAttachmentRequest:
@@ -185,12 +191,15 @@ export function createBookingProposalAttachmentRequestToJSON(
 
 /** @internal */
 export const CreateBookingProposalAttachmentPagination$inboundSchema:
-  z.ZodMiniType<CreateBookingProposalAttachmentPagination, unknown> = z.object({
-    total: types.number(),
-    perPage: types.number(),
-    currentPage: types.number(),
-    totalPages: types.number(),
-  });
+  z.ZodMiniType<CreateBookingProposalAttachmentPagination, unknown> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.object({
+        total: types.number(),
+        perPage: types.number(),
+        currentPage: types.number(),
+        totalPages: types.number(),
+      })
+    );
 
 export function createBookingProposalAttachmentPaginationFromJSON(
   jsonString: string,
@@ -212,17 +221,17 @@ export function createBookingProposalAttachmentPaginationFromJSON(
 export const CreateBookingProposalAttachmentMeta$inboundSchema: z.ZodMiniType<
   CreateBookingProposalAttachmentMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() =>
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(z.nullable(z.lazy(() =>
       CreateBookingProposalAttachmentPagination$inboundSchema
-    )),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+    ))),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function createBookingProposalAttachmentMetaFromJSON(
   jsonString: string,
@@ -239,7 +248,7 @@ export function createBookingProposalAttachmentMetaFromJSON(
 export const CreateBookingProposalAttachmentErrors$inboundSchema: z.ZodMiniType<
   CreateBookingProposalAttachmentErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createBookingProposalAttachmentErrorsFromJSON(
   jsonString: string,
@@ -254,7 +263,8 @@ export function createBookingProposalAttachmentErrorsFromJSON(
 
 /** @internal */
 export const CreateBookingProposalAttachmentRawData$inboundSchema:
-  z.ZodMiniType<CreateBookingProposalAttachmentRawData, unknown> = z.object({});
+  z.ZodMiniType<CreateBookingProposalAttachmentRawData, unknown> =
+    /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createBookingProposalAttachmentRawDataFromJSON(
   jsonString: string,
@@ -269,20 +279,21 @@ export function createBookingProposalAttachmentRawDataFromJSON(
 
 /** @internal */
 export const CreateBookingProposalAttachmentResponse$inboundSchema:
-  z.ZodMiniType<CreateBookingProposalAttachmentResponse, unknown> = z.object({
-    meta: z.optional(
-      z.nullable(
-        z.lazy(() => CreateBookingProposalAttachmentMeta$inboundSchema),
-      ),
-    ),
-    data: models.DocumentResponseDto$inboundSchema,
-    errors: types.nullable(
-      z.lazy(() => CreateBookingProposalAttachmentErrors$inboundSchema),
-    ),
-    rawData: types.nullable(
-      z.lazy(() => CreateBookingProposalAttachmentRawData$inboundSchema),
-    ),
-  });
+  z.ZodMiniType<CreateBookingProposalAttachmentResponse, unknown> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.object({
+        meta: z.optional(z.nullable(z.lazy(() =>
+          CreateBookingProposalAttachmentMeta$inboundSchema
+        ))),
+        data: models.DocumentResponseDto$inboundSchema,
+        errors: types.nullable(z.lazy(() =>
+          CreateBookingProposalAttachmentErrors$inboundSchema
+        )),
+        rawData: types.nullable(z.lazy(() =>
+          CreateBookingProposalAttachmentRawData$inboundSchema
+        )),
+      })
+    );
 
 export function createBookingProposalAttachmentResponseFromJSON(
   jsonString: string,

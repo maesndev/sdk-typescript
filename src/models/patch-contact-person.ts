@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 
 export type PatchContactPerson = {
   salutation?: string | undefined;
@@ -25,13 +26,15 @@ export type PatchContactPerson$Outbound = {
 export const PatchContactPerson$outboundSchema: z.ZodMiniType<
   PatchContactPerson$Outbound,
   PatchContactPerson
-> = z.object({
-  salutation: z.optional(z.string()),
-  firstName: z.optional(z.string()),
-  lastName: z.optional(z.string()),
-  emailAddresses: z.optional(z.array(z.string())),
-  phoneNumbers: z.optional(z.array(z.string())),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    salutation: z.optional(z.string()),
+    firstName: z.optional(z.string()),
+    lastName: z.optional(z.string()),
+    emailAddresses: z.optional(z.array(z.string())),
+    phoneNumbers: z.optional(z.array(z.string())),
+  })
+);
 
 export function patchContactPersonToJSON(
   patchContactPerson: PatchContactPerson,

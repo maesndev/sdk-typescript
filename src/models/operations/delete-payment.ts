@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -69,12 +69,14 @@ export type DeletePaymentRequest$Outbound = {
 export const DeletePaymentRequest$outboundSchema: z.ZodMiniType<
   DeletePaymentRequest$Outbound,
   DeletePaymentRequest
-> = z.object({
-  paymentId: z.string(),
-  companyId: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    paymentId: z.string(),
+    companyId: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function deletePaymentRequestToJSON(
   deletePaymentRequest: DeletePaymentRequest,
@@ -88,12 +90,14 @@ export function deletePaymentRequestToJSON(
 export const DeletePaymentPagination$inboundSchema: z.ZodMiniType<
   DeletePaymentPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function deletePaymentPaginationFromJSON(
   jsonString: string,
@@ -109,15 +113,17 @@ export function deletePaymentPaginationFromJSON(
 export const DeletePaymentMeta$inboundSchema: z.ZodMiniType<
   DeletePaymentMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => DeletePaymentPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => DeletePaymentPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function deletePaymentMetaFromJSON(
   jsonString: string,
@@ -133,7 +139,7 @@ export function deletePaymentMetaFromJSON(
 export const DeletePaymentErrors$inboundSchema: z.ZodMiniType<
   DeletePaymentErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function deletePaymentErrorsFromJSON(
   jsonString: string,
@@ -149,7 +155,7 @@ export function deletePaymentErrorsFromJSON(
 export const DeletePaymentRawData$inboundSchema: z.ZodMiniType<
   DeletePaymentRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function deletePaymentRawDataFromJSON(
   jsonString: string,
@@ -165,12 +171,14 @@ export function deletePaymentRawDataFromJSON(
 export const DeletePaymentResponse$inboundSchema: z.ZodMiniType<
   DeletePaymentResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => DeletePaymentMeta$inboundSchema))),
-  data: types.string(),
-  errors: types.nullable(z.lazy(() => DeletePaymentErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => DeletePaymentRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(z.nullable(z.lazy(() => DeletePaymentMeta$inboundSchema))),
+    data: types.string(),
+    errors: types.nullable(z.lazy(() => DeletePaymentErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => DeletePaymentRawData$inboundSchema)),
+  })
+);
 
 export function deletePaymentResponseFromJSON(
   jsonString: string,

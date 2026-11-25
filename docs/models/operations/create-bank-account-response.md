@@ -24,6 +24,7 @@ let value: CreateBankAccountResponse = {
     status: "ACTIVE",
     type: "<value>",
     updatedDate: "<value>",
+    version: 7813.99,
   },
   errors: {},
   rawData: {},

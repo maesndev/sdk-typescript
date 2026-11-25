@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 
 export const CreateTransactionRequestDtoCurrency = {
@@ -215,17 +216,21 @@ export type CreateTransactionRequestDto = {
 /** @internal */
 export const CreateTransactionRequestDtoCurrency$outboundSchema: z.ZodMiniEnum<
   typeof CreateTransactionRequestDtoCurrency
-> = z.enum(CreateTransactionRequestDtoCurrency);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.enum(CreateTransactionRequestDtoCurrency)
+);
 
 /** @internal */
 export const CreateTransactionRequestDtoStatus$outboundSchema: z.ZodMiniEnum<
   typeof CreateTransactionRequestDtoStatus
-> = z.enum(CreateTransactionRequestDtoStatus);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.enum(CreateTransactionRequestDtoStatus)
+);
 
 /** @internal */
 export const CreateTransactionRequestDtoType$outboundSchema: z.ZodMiniEnum<
   typeof CreateTransactionRequestDtoType
-> = z.enum(CreateTransactionRequestDtoType);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(CreateTransactionRequestDtoType));
 
 /** @internal */
 export type CreateTransactionRequestDto$Outbound = {
@@ -251,24 +256,26 @@ export type CreateTransactionRequestDto$Outbound = {
 export const CreateTransactionRequestDto$outboundSchema: z.ZodMiniType<
   CreateTransactionRequestDto$Outbound,
   CreateTransactionRequestDto
-> = z.object({
-  id: z.optional(z.string()),
-  accountId: z.optional(z.string()),
-  accountNumber: z.optional(z.number()),
-  amount: z.optional(z.number()),
-  bookingDate: z.optional(z.string()),
-  code: z.optional(z.string()),
-  contact: z.optional(z.string()),
-  currency: z.optional(CreateTransactionRequestDtoCurrency$outboundSchema),
-  description: z.optional(z.string()),
-  journalCode: z.optional(z.string()),
-  ledgerName: z.optional(z.string()),
-  reference: z.optional(z.string()),
-  status: z.optional(CreateTransactionRequestDtoStatus$outboundSchema),
-  taxRatePercentage: z.optional(z.number()),
-  type: z.optional(CreateTransactionRequestDtoType$outboundSchema),
-  valueDate: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.optional(z.string()),
+    accountId: z.optional(z.string()),
+    accountNumber: z.optional(z.number()),
+    amount: z.optional(z.number()),
+    bookingDate: z.optional(z.string()),
+    code: z.optional(z.string()),
+    contact: z.optional(z.string()),
+    currency: z.optional(CreateTransactionRequestDtoCurrency$outboundSchema),
+    description: z.optional(z.string()),
+    journalCode: z.optional(z.string()),
+    ledgerName: z.optional(z.string()),
+    reference: z.optional(z.string()),
+    status: z.optional(CreateTransactionRequestDtoStatus$outboundSchema),
+    taxRatePercentage: z.optional(z.number()),
+    type: z.optional(CreateTransactionRequestDtoType$outboundSchema),
+    valueDate: z.optional(z.string()),
+  })
+);
 
 export function createTransactionRequestDtoToJSON(
   createTransactionRequestDto: CreateTransactionRequestDto,

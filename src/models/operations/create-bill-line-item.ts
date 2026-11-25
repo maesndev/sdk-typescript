@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -71,13 +71,15 @@ export type CreateBillLineItemRequest$Outbound = {
 export const CreateBillLineItemRequest$outboundSchema: z.ZodMiniType<
   CreateBillLineItemRequest$Outbound,
   CreateBillLineItemRequest
-> = z.object({
-  billId: z.string(),
-  companyId: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-  body: models.CreateBillLineItemRequestDto$outboundSchema,
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    billId: z.string(),
+    companyId: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+    body: models.CreateBillLineItemRequestDto$outboundSchema,
+  })
+);
 
 export function createBillLineItemRequestToJSON(
   createBillLineItemRequest: CreateBillLineItemRequest,
@@ -91,12 +93,14 @@ export function createBillLineItemRequestToJSON(
 export const CreateBillLineItemPagination$inboundSchema: z.ZodMiniType<
   CreateBillLineItemPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function createBillLineItemPaginationFromJSON(
   jsonString: string,
@@ -112,15 +116,17 @@ export function createBillLineItemPaginationFromJSON(
 export const CreateBillLineItemMeta$inboundSchema: z.ZodMiniType<
   CreateBillLineItemMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => CreateBillLineItemPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => CreateBillLineItemPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function createBillLineItemMetaFromJSON(
   jsonString: string,
@@ -136,7 +142,7 @@ export function createBillLineItemMetaFromJSON(
 export const CreateBillLineItemErrors$inboundSchema: z.ZodMiniType<
   CreateBillLineItemErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createBillLineItemErrorsFromJSON(
   jsonString: string,
@@ -152,7 +158,7 @@ export function createBillLineItemErrorsFromJSON(
 export const CreateBillLineItemRawData$inboundSchema: z.ZodMiniType<
   CreateBillLineItemRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createBillLineItemRawDataFromJSON(
   jsonString: string,
@@ -168,16 +174,20 @@ export function createBillLineItemRawDataFromJSON(
 export const CreateBillLineItemResponse$inboundSchema: z.ZodMiniType<
   CreateBillLineItemResponse,
   unknown
-> = z.object({
-  meta: z.optional(
-    z.nullable(z.lazy(() => CreateBillLineItemMeta$inboundSchema)),
-  ),
-  data: z.array(models.BillLineItemResponseDto$inboundSchema),
-  errors: types.nullable(z.lazy(() => CreateBillLineItemErrors$inboundSchema)),
-  rawData: types.nullable(
-    z.lazy(() => CreateBillLineItemRawData$inboundSchema),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => CreateBillLineItemMeta$inboundSchema)),
+    ),
+    data: z.array(models.BillLineItemResponseDto$inboundSchema),
+    errors: types.nullable(
+      z.lazy(() => CreateBillLineItemErrors$inboundSchema),
+    ),
+    rawData: types.nullable(
+      z.lazy(() => CreateBillLineItemRawData$inboundSchema),
+    ),
+  })
+);
 
 export function createBillLineItemResponseFromJSON(
   jsonString: string,

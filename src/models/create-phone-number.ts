@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 
 export const CreatePhoneNumberType = {
@@ -26,7 +27,7 @@ export type CreatePhoneNumber = {
 /** @internal */
 export const CreatePhoneNumberType$outboundSchema: z.ZodMiniEnum<
   typeof CreatePhoneNumberType
-> = z.enum(CreatePhoneNumberType);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(CreatePhoneNumberType));
 
 /** @internal */
 export type CreatePhoneNumber$Outbound = {
@@ -38,10 +39,12 @@ export type CreatePhoneNumber$Outbound = {
 export const CreatePhoneNumber$outboundSchema: z.ZodMiniType<
   CreatePhoneNumber$Outbound,
   CreatePhoneNumber
-> = z.object({
-  number: z.string(),
-  type: CreatePhoneNumberType$outboundSchema,
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    number: z.string(),
+    type: CreatePhoneNumberType$outboundSchema,
+  })
+);
 
 export function createPhoneNumberToJSON(
   createPhoneNumber: CreatePhoneNumber,

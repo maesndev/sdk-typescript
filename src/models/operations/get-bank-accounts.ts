@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
@@ -83,7 +83,7 @@ export type GetBankAccountsResponse = {
 /** @internal */
 export const GetBankAccountsLimit$outboundSchema: z.ZodMiniEnum<
   typeof GetBankAccountsLimit
-> = z.enum(GetBankAccountsLimit);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(GetBankAccountsLimit));
 
 /** @internal */
 export type GetBankAccountsRequest$Outbound = {
@@ -101,16 +101,18 @@ export type GetBankAccountsRequest$Outbound = {
 export const GetBankAccountsRequest$outboundSchema: z.ZodMiniType<
   GetBankAccountsRequest$Outbound,
   GetBankAccountsRequest
-> = z.object({
-  page: z.optional(z.number()),
-  limit: z.optional(GetBankAccountsLimit$outboundSchema),
-  lastModifiedAt: z.optional(z.string()),
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  rawData: z.optional(z.boolean()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    page: z.optional(z.number()),
+    limit: z.optional(GetBankAccountsLimit$outboundSchema),
+    lastModifiedAt: z.optional(z.string()),
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    rawData: z.optional(z.boolean()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getBankAccountsRequestToJSON(
   getBankAccountsRequest: GetBankAccountsRequest,
@@ -124,12 +126,14 @@ export function getBankAccountsRequestToJSON(
 export const GetBankAccountsPagination$inboundSchema: z.ZodMiniType<
   GetBankAccountsPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getBankAccountsPaginationFromJSON(
   jsonString: string,
@@ -145,15 +149,17 @@ export function getBankAccountsPaginationFromJSON(
 export const GetBankAccountsMeta$inboundSchema: z.ZodMiniType<
   GetBankAccountsMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => GetBankAccountsPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => GetBankAccountsPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function getBankAccountsMetaFromJSON(
   jsonString: string,
@@ -169,7 +175,7 @@ export function getBankAccountsMetaFromJSON(
 export const GetBankAccountsErrors$inboundSchema: z.ZodMiniType<
   GetBankAccountsErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getBankAccountsErrorsFromJSON(
   jsonString: string,
@@ -185,7 +191,7 @@ export function getBankAccountsErrorsFromJSON(
 export const GetBankAccountsRawData$inboundSchema: z.ZodMiniType<
   GetBankAccountsRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getBankAccountsRawDataFromJSON(
   jsonString: string,
@@ -201,12 +207,16 @@ export function getBankAccountsRawDataFromJSON(
 export const GetBankAccountsResponse$inboundSchema: z.ZodMiniType<
   GetBankAccountsResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => GetBankAccountsMeta$inboundSchema))),
-  data: z.array(models.BankAccountResponseDto$inboundSchema),
-  errors: types.nullable(z.lazy(() => GetBankAccountsErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => GetBankAccountsRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => GetBankAccountsMeta$inboundSchema)),
+    ),
+    data: z.array(models.BankAccountResponseDto$inboundSchema),
+    errors: types.nullable(z.lazy(() => GetBankAccountsErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => GetBankAccountsRawData$inboundSchema)),
+  })
+);
 
 export function getBankAccountsResponseFromJSON(
   jsonString: string,

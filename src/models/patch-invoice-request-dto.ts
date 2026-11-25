@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import {
   PatchAddress,
@@ -108,28 +109,33 @@ export type PatchInvoiceRequestDto = {
 /** @internal */
 export const PatchInvoiceRequestDtoStatus$outboundSchema: z.ZodMiniEnum<
   typeof PatchInvoiceRequestDtoStatus
-> = z.enum(PatchInvoiceRequestDtoStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(PatchInvoiceRequestDtoStatus));
 
 /** @internal */
 export const PatchInvoiceRequestDtoInvoiceType$outboundSchema: z.ZodMiniEnum<
   typeof PatchInvoiceRequestDtoInvoiceType
-> = z.enum(PatchInvoiceRequestDtoInvoiceType);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.enum(PatchInvoiceRequestDtoInvoiceType)
+);
 
 /** @internal */
 export const PatchInvoiceRequestDtoTaxRule$outboundSchema: z.ZodMiniEnum<
   typeof PatchInvoiceRequestDtoTaxRule
-> = z.enum(PatchInvoiceRequestDtoTaxRule);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(PatchInvoiceRequestDtoTaxRule));
 
 /** @internal */
 export const PatchInvoiceRequestDtoShippingType$outboundSchema: z.ZodMiniEnum<
   typeof PatchInvoiceRequestDtoShippingType
-> = z.enum(PatchInvoiceRequestDtoShippingType);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.enum(PatchInvoiceRequestDtoShippingType)
+);
 
 /** @internal */
 export const PatchInvoiceRequestDtoLineAmountTypes$outboundSchema:
-  z.ZodMiniEnum<typeof PatchInvoiceRequestDtoLineAmountTypes> = z.enum(
-    PatchInvoiceRequestDtoLineAmountTypes,
-  );
+  z.ZodMiniEnum<typeof PatchInvoiceRequestDtoLineAmountTypes> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.enum(PatchInvoiceRequestDtoLineAmountTypes)
+    );
 
 /** @internal */
 export type PatchInvoiceRequestDto$Outbound = {
@@ -163,34 +169,36 @@ export type PatchInvoiceRequestDto$Outbound = {
 export const PatchInvoiceRequestDto$outboundSchema: z.ZodMiniType<
   PatchInvoiceRequestDto$Outbound,
   PatchInvoiceRequestDto
-> = z.object({
-  invoiceId: z.optional(z.string()),
-  contactId: z.optional(z.string()),
-  name: z.optional(z.string()),
-  reference: z.optional(z.string()),
-  currency: z.optional(z.string()),
-  invoiceDate: z.optional(z.string()),
-  journalCode: z.optional(z.string()),
-  paymentTermId: z.optional(z.string()),
-  fileId: z.optional(z.string()),
-  status: z.optional(PatchInvoiceRequestDtoStatus$outboundSchema),
-  invoiceType: z.optional(PatchInvoiceRequestDtoInvoiceType$outboundSchema),
-  oneLineAddress: z.optional(z.string()),
-  addresses: z.optional(z.array(PatchAddress$outboundSchema)),
-  taxRule: z.optional(PatchInvoiceRequestDtoTaxRule$outboundSchema),
-  taxText: z.optional(z.string()),
-  lineItems: z.optional(z.array(PatchLineItemRequest$outboundSchema)),
-  discountPercentage: z.optional(z.number()),
-  shippingType: z.optional(PatchInvoiceRequestDtoShippingType$outboundSchema),
-  shippingDate: z.optional(z.string()),
-  shippingEndDate: z.optional(z.string()),
-  lineAmountTypes: z.optional(
-    PatchInvoiceRequestDtoLineAmountTypes$outboundSchema,
-  ),
-  dueDate: z.optional(z.string()),
-  paidDate: z.optional(z.string()),
-  paymentTermDuration: z.optional(z.number()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    invoiceId: z.optional(z.string()),
+    contactId: z.optional(z.string()),
+    name: z.optional(z.string()),
+    reference: z.optional(z.string()),
+    currency: z.optional(z.string()),
+    invoiceDate: z.optional(z.string()),
+    journalCode: z.optional(z.string()),
+    paymentTermId: z.optional(z.string()),
+    fileId: z.optional(z.string()),
+    status: z.optional(PatchInvoiceRequestDtoStatus$outboundSchema),
+    invoiceType: z.optional(PatchInvoiceRequestDtoInvoiceType$outboundSchema),
+    oneLineAddress: z.optional(z.string()),
+    addresses: z.optional(z.array(PatchAddress$outboundSchema)),
+    taxRule: z.optional(PatchInvoiceRequestDtoTaxRule$outboundSchema),
+    taxText: z.optional(z.string()),
+    lineItems: z.optional(z.array(PatchLineItemRequest$outboundSchema)),
+    discountPercentage: z.optional(z.number()),
+    shippingType: z.optional(PatchInvoiceRequestDtoShippingType$outboundSchema),
+    shippingDate: z.optional(z.string()),
+    shippingEndDate: z.optional(z.string()),
+    lineAmountTypes: z.optional(
+      PatchInvoiceRequestDtoLineAmountTypes$outboundSchema,
+    ),
+    dueDate: z.optional(z.string()),
+    paidDate: z.optional(z.string()),
+    paymentTermDuration: z.optional(z.number()),
+  })
+);
 
 export function patchInvoiceRequestDtoToJSON(
   patchInvoiceRequestDto: PatchInvoiceRequestDto,

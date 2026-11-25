@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
@@ -53,19 +53,23 @@ export type TrialBalanceResponseDto = {
 
 /** @internal */
 export const TrialBalanceResponseDtoBalanceDebitCreditIndicator$inboundSchema:
-  z.ZodMiniEnum<typeof TrialBalanceResponseDtoBalanceDebitCreditIndicator> = z
-    .enum(TrialBalanceResponseDtoBalanceDebitCreditIndicator);
+  z.ZodMiniEnum<typeof TrialBalanceResponseDtoBalanceDebitCreditIndicator> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.enum(TrialBalanceResponseDtoBalanceDebitCreditIndicator)
+    );
 
 /** @internal */
 export const TrialBalanceResponseDtoBalance$inboundSchema: z.ZodMiniType<
   TrialBalanceResponseDtoBalance,
   unknown
-> = z.object({
-  amount: types.nullable(types.number()),
-  debitCreditIndicator: types.nullable(
-    TrialBalanceResponseDtoBalanceDebitCreditIndicator$inboundSchema,
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    amount: types.nullable(types.number()),
+    debitCreditIndicator: types.nullable(
+      TrialBalanceResponseDtoBalanceDebitCreditIndicator$inboundSchema,
+    ),
+  })
+);
 
 export function trialBalanceResponseDtoBalanceFromJSON(
   jsonString: string,
@@ -80,18 +84,22 @@ export function trialBalanceResponseDtoBalanceFromJSON(
 /** @internal */
 export const OpeningBalanceDebitCreditIndicator$inboundSchema: z.ZodMiniEnum<
   typeof OpeningBalanceDebitCreditIndicator
-> = z.enum(OpeningBalanceDebitCreditIndicator);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.enum(OpeningBalanceDebitCreditIndicator)
+);
 
 /** @internal */
 export const OpeningBalance$inboundSchema: z.ZodMiniType<
   OpeningBalance,
   unknown
-> = z.object({
-  amount: types.nullable(types.number()),
-  debitCreditIndicator: types.nullable(
-    OpeningBalanceDebitCreditIndicator$inboundSchema,
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    amount: types.nullable(types.number()),
+    debitCreditIndicator: types.nullable(
+      OpeningBalanceDebitCreditIndicator$inboundSchema,
+    ),
+  })
+);
 
 export function openingBalanceFromJSON(
   jsonString: string,
@@ -107,20 +115,22 @@ export function openingBalanceFromJSON(
 export const TrialBalanceResponseDto$inboundSchema: z.ZodMiniType<
   TrialBalanceResponseDto,
   unknown
-> = z.object({
-  accountCode: types.nullable(types.string()),
-  accountName: types.nullable(types.string()),
-  accountNumber: types.nullable(types.string()),
-  balance: types.nullable(
-    z.lazy(() => TrialBalanceResponseDtoBalance$inboundSchema),
-  ),
-  createdDate: types.nullable(types.string()),
-  monthlyValues: types.nullable(z.array(MonthlyValue$inboundSchema)),
-  openingBalance: types.nullable(z.lazy(() => OpeningBalance$inboundSchema)),
-  totalCreditAmount: types.nullable(types.number()),
-  totalDebitAmount: types.nullable(types.number()),
-  updatedDate: types.nullable(types.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    accountCode: types.nullable(types.string()),
+    accountName: types.nullable(types.string()),
+    accountNumber: types.nullable(types.string()),
+    balance: types.nullable(
+      z.lazy(() => TrialBalanceResponseDtoBalance$inboundSchema),
+    ),
+    createdDate: types.nullable(types.string()),
+    monthlyValues: types.nullable(z.array(MonthlyValue$inboundSchema)),
+    openingBalance: types.nullable(z.lazy(() => OpeningBalance$inboundSchema)),
+    totalCreditAmount: types.nullable(types.number()),
+    totalDebitAmount: types.nullable(types.number()),
+    updatedDate: types.nullable(types.string()),
+  })
+);
 
 export function trialBalanceResponseDtoFromJSON(
   jsonString: string,

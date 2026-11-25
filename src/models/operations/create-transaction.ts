@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -77,15 +77,17 @@ export type CreateTransactionFile$Outbound = {
 export const CreateTransactionFile$outboundSchema: z.ZodMiniType<
   CreateTransactionFile$Outbound,
   CreateTransactionFile
-> = z.object({
-  fileName: z.string(),
-  content: z.union([
-    z.custom<ReadableStream<Uint8Array>>(x => x instanceof ReadableStream),
-    z.custom<Blob>(x => x instanceof Blob),
-    z.custom<ArrayBuffer>(x => x instanceof ArrayBuffer),
-    z.custom<Uint8Array>(x => x instanceof Uint8Array),
-  ]),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    fileName: z.string(),
+    content: z.union([
+      z.custom<ReadableStream<Uint8Array>>(x => x instanceof ReadableStream),
+      z.custom<Blob>(x => x instanceof Blob),
+      z.custom<ArrayBuffer>(x => x instanceof ArrayBuffer),
+      z.custom<Uint8Array>(x => x instanceof Uint8Array),
+    ]),
+  })
+);
 
 export function createTransactionFileToJSON(
   createTransactionFile: CreateTransactionFile,
@@ -105,12 +107,14 @@ export type CreateTransactionRequestBody$Outbound = {
 export const CreateTransactionRequestBody$outboundSchema: z.ZodMiniType<
   CreateTransactionRequestBody$Outbound,
   CreateTransactionRequestBody
-> = z.object({
-  files: z.optional(
-    z.array(z.lazy(() => CreateTransactionFile$outboundSchema)),
-  ),
-  transaction: z.optional(models.CreateTransactionRequestDto$outboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    files: z.optional(
+      z.array(z.lazy(() => CreateTransactionFile$outboundSchema)),
+    ),
+    transaction: z.optional(models.CreateTransactionRequestDto$outboundSchema),
+  })
+);
 
 export function createTransactionRequestBodyToJSON(
   createTransactionRequestBody: CreateTransactionRequestBody,
@@ -134,12 +138,14 @@ export type CreateTransactionRequest$Outbound = {
 export const CreateTransactionRequest$outboundSchema: z.ZodMiniType<
   CreateTransactionRequest$Outbound,
   CreateTransactionRequest
-> = z.object({
-  companyId: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-  body: z.lazy(() => CreateTransactionRequestBody$outboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    companyId: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+    body: z.lazy(() => CreateTransactionRequestBody$outboundSchema),
+  })
+);
 
 export function createTransactionRequestToJSON(
   createTransactionRequest: CreateTransactionRequest,
@@ -153,12 +159,14 @@ export function createTransactionRequestToJSON(
 export const CreateTransactionPagination$inboundSchema: z.ZodMiniType<
   CreateTransactionPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function createTransactionPaginationFromJSON(
   jsonString: string,
@@ -174,15 +182,17 @@ export function createTransactionPaginationFromJSON(
 export const CreateTransactionMeta$inboundSchema: z.ZodMiniType<
   CreateTransactionMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => CreateTransactionPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => CreateTransactionPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function createTransactionMetaFromJSON(
   jsonString: string,
@@ -198,7 +208,7 @@ export function createTransactionMetaFromJSON(
 export const CreateTransactionErrors$inboundSchema: z.ZodMiniType<
   CreateTransactionErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createTransactionErrorsFromJSON(
   jsonString: string,
@@ -214,7 +224,7 @@ export function createTransactionErrorsFromJSON(
 export const CreateTransactionRawData$inboundSchema: z.ZodMiniType<
   CreateTransactionRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createTransactionRawDataFromJSON(
   jsonString: string,
@@ -230,14 +240,18 @@ export function createTransactionRawDataFromJSON(
 export const CreateTransactionResponse$inboundSchema: z.ZodMiniType<
   CreateTransactionResponse,
   unknown
-> = z.object({
-  meta: z.optional(
-    z.nullable(z.lazy(() => CreateTransactionMeta$inboundSchema)),
-  ),
-  data: models.TransactionResponseDto$inboundSchema,
-  errors: types.nullable(z.lazy(() => CreateTransactionErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => CreateTransactionRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => CreateTransactionMeta$inboundSchema)),
+    ),
+    data: models.TransactionResponseDto$inboundSchema,
+    errors: types.nullable(z.lazy(() => CreateTransactionErrors$inboundSchema)),
+    rawData: types.nullable(
+      z.lazy(() => CreateTransactionRawData$inboundSchema),
+    ),
+  })
+);
 
 export function createTransactionResponseFromJSON(
   jsonString: string,

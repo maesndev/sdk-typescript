@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import {
   SubmissionPageInputTextsDto,
   SubmissionPageInputTextsDto$Outbound,
@@ -34,15 +35,17 @@ export type SubmissionPageLocalizationDto$Outbound = {
 export const SubmissionPageLocalizationDto$outboundSchema: z.ZodMiniType<
   SubmissionPageLocalizationDto$Outbound,
   SubmissionPageLocalizationDto
-> = z.object({
-  locale: z.optional(z.string()),
-  titleText: z.optional(z.string()),
-  freeText: z.optional(z.string()),
-  submitButtonText: z.optional(z.string()),
-  cancelButtonText: z.optional(z.string()),
-  environmentPlaceholderText: z.optional(z.string()),
-  inputTexts: z.optional(SubmissionPageInputTextsDto$outboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    locale: z.optional(z.string()),
+    titleText: z.optional(z.string()),
+    freeText: z.optional(z.string()),
+    submitButtonText: z.optional(z.string()),
+    cancelButtonText: z.optional(z.string()),
+    environmentPlaceholderText: z.optional(z.string()),
+    inputTexts: z.optional(SubmissionPageInputTextsDto$outboundSchema),
+  })
+);
 
 export function submissionPageLocalizationDtoToJSON(
   submissionPageLocalizationDto: SubmissionPageLocalizationDto,

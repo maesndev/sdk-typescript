@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
@@ -203,44 +203,48 @@ export type BankAccountResponseDto = {
   status: BankAccountResponseDtoStatus | null;
   type: string | null;
   updatedDate: string | null;
+  version: number | null;
 };
 
 /** @internal */
 export const BankAccountResponseDtoCurrency$inboundSchema: z.ZodMiniEnum<
   typeof BankAccountResponseDtoCurrency
-> = z.enum(BankAccountResponseDtoCurrency);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(BankAccountResponseDtoCurrency));
 
 /** @internal */
 export const BankAccountResponseDtoFileType$inboundSchema: z.ZodMiniEnum<
   typeof BankAccountResponseDtoFileType
-> = z.enum(BankAccountResponseDtoFileType);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(BankAccountResponseDtoFileType));
 
 /** @internal */
 export const BankAccountResponseDtoStatus$inboundSchema: z.ZodMiniEnum<
   typeof BankAccountResponseDtoStatus
-> = z.enum(BankAccountResponseDtoStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(BankAccountResponseDtoStatus));
 
 /** @internal */
 export const BankAccountResponseDto$inboundSchema: z.ZodMiniType<
   BankAccountResponseDto,
   unknown
-> = z.object({
-  id: types.nullable(types.string()),
-  balance: types.nullable(types.number()),
-  bankName: types.nullable(types.string()),
-  bic: types.nullable(types.string()),
-  createdDate: types.nullable(types.string()),
-  currency: types.nullable(BankAccountResponseDtoCurrency$inboundSchema),
-  description: types.nullable(types.string()),
-  fileType: types.nullable(BankAccountResponseDtoFileType$inboundSchema),
-  iban: types.nullable(types.string()),
-  name: types.nullable(types.string()),
-  number: types.nullable(types.string()),
-  system: types.nullable(types.string()),
-  status: types.nullable(BankAccountResponseDtoStatus$inboundSchema),
-  type: types.nullable(types.string()),
-  updatedDate: types.nullable(types.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: types.nullable(types.string()),
+    balance: types.nullable(types.number()),
+    bankName: types.nullable(types.string()),
+    bic: types.nullable(types.string()),
+    createdDate: types.nullable(types.string()),
+    currency: types.nullable(BankAccountResponseDtoCurrency$inboundSchema),
+    description: types.nullable(types.string()),
+    fileType: types.nullable(BankAccountResponseDtoFileType$inboundSchema),
+    iban: types.nullable(types.string()),
+    name: types.nullable(types.string()),
+    number: types.nullable(types.string()),
+    system: types.nullable(types.string()),
+    status: types.nullable(BankAccountResponseDtoStatus$inboundSchema),
+    type: types.nullable(types.string()),
+    updatedDate: types.nullable(types.string()),
+    version: types.nullable(types.number()),
+  })
+);
 
 export function bankAccountResponseDtoFromJSON(
   jsonString: string,

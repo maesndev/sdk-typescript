@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 
 export const PatchLineItemRequestDtoType = {
@@ -34,7 +35,7 @@ export type PatchLineItemRequestDto = {
 /** @internal */
 export const PatchLineItemRequestDtoType$outboundSchema: z.ZodMiniEnum<
   typeof PatchLineItemRequestDtoType
-> = z.enum(PatchLineItemRequestDtoType);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(PatchLineItemRequestDtoType));
 
 /** @internal */
 export type PatchLineItemRequestDto$Outbound = {
@@ -57,21 +58,23 @@ export type PatchLineItemRequestDto$Outbound = {
 export const PatchLineItemRequestDto$outboundSchema: z.ZodMiniType<
   PatchLineItemRequestDto$Outbound,
   PatchLineItemRequestDto
-> = z.object({
-  accountCode: z.optional(z.string()),
-  description: z.optional(z.string()),
-  discountItemPercentage: z.optional(z.number()),
-  grossAmount: z.optional(z.number()),
-  itemId: z.optional(z.string()),
-  name: z.optional(z.string()),
-  quantity: z.optional(z.number()),
-  taxCode: z.optional(z.string()),
-  taxRatePercentage: z.optional(z.number()),
-  taxType: z.optional(z.string()),
-  type: z.optional(PatchLineItemRequestDtoType$outboundSchema),
-  unitAmount: z.optional(z.number()),
-  unitName: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    accountCode: z.optional(z.string()),
+    description: z.optional(z.string()),
+    discountItemPercentage: z.optional(z.number()),
+    grossAmount: z.optional(z.number()),
+    itemId: z.optional(z.string()),
+    name: z.optional(z.string()),
+    quantity: z.optional(z.number()),
+    taxCode: z.optional(z.string()),
+    taxRatePercentage: z.optional(z.number()),
+    taxType: z.optional(z.string()),
+    type: z.optional(PatchLineItemRequestDtoType$outboundSchema),
+    unitAmount: z.optional(z.number()),
+    unitName: z.optional(z.string()),
+  })
+);
 
 export function patchLineItemRequestDtoToJSON(
   patchLineItemRequestDto: PatchLineItemRequestDto,

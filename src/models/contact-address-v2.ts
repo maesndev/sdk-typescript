@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
@@ -285,25 +285,27 @@ export type ContactAddressV2 = {
 /** @internal */
 export const ContactAddressV2CountryCode$inboundSchema: z.ZodMiniEnum<
   typeof ContactAddressV2CountryCode
-> = z.enum(ContactAddressV2CountryCode);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(ContactAddressV2CountryCode));
 
 /** @internal */
 export const ContactAddressV2Type$inboundSchema: z.ZodMiniEnum<
   typeof ContactAddressV2Type
-> = z.enum(ContactAddressV2Type);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(ContactAddressV2Type));
 
 /** @internal */
 export const ContactAddressV2$inboundSchema: z.ZodMiniType<
   ContactAddressV2,
   unknown
-> = z.object({
-  addressLine1: types.nullable(types.string()),
-  addressLine2: types.nullable(types.string()),
-  city: types.nullable(types.string()),
-  countryCode: types.nullable(ContactAddressV2CountryCode$inboundSchema),
-  postalCode: types.nullable(types.string()),
-  type: ContactAddressV2Type$inboundSchema,
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    addressLine1: types.nullable(types.string()),
+    addressLine2: types.nullable(types.string()),
+    city: types.nullable(types.string()),
+    countryCode: types.nullable(ContactAddressV2CountryCode$inboundSchema),
+    postalCode: types.nullable(types.string()),
+    type: ContactAddressV2Type$inboundSchema,
+  })
+);
 
 export function contactAddressV2FromJSON(
   jsonString: string,

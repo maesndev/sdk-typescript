@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import {
   CreateContactRequestDtoV2,
@@ -31,9 +32,10 @@ export type CreateContactByBatchMetaDataDto = {
 
 /** @internal */
 export const CreateContactByBatchMetaDataDtoChartOfAccount$outboundSchema:
-  z.ZodMiniEnum<typeof CreateContactByBatchMetaDataDtoChartOfAccount> = z.enum(
-    CreateContactByBatchMetaDataDtoChartOfAccount,
-  );
+  z.ZodMiniEnum<typeof CreateContactByBatchMetaDataDtoChartOfAccount> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.enum(CreateContactByBatchMetaDataDtoChartOfAccount)
+    );
 
 /** @internal */
 export type CreateContactByBatchMetaDataDto$Outbound = {
@@ -47,12 +49,15 @@ export type CreateContactByBatchMetaDataDto$Outbound = {
 export const CreateContactByBatchMetaDataDto$outboundSchema: z.ZodMiniType<
   CreateContactByBatchMetaDataDto$Outbound,
   CreateContactByBatchMetaDataDto
-> = z.object({
-  accountNumberLength: z.number(),
-  chartOfAccount: CreateContactByBatchMetaDataDtoChartOfAccount$outboundSchema,
-  entries: z.array(CreateContactRequestDtoV2$outboundSchema),
-  fiscalYearStartDate: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    accountNumberLength: z.number(),
+    chartOfAccount:
+      CreateContactByBatchMetaDataDtoChartOfAccount$outboundSchema,
+    entries: z.array(CreateContactRequestDtoV2$outboundSchema),
+    fiscalYearStartDate: z.string(),
+  })
+);
 
 export function createContactByBatchMetaDataDtoToJSON(
   createContactByBatchMetaDataDto: CreateContactByBatchMetaDataDto,

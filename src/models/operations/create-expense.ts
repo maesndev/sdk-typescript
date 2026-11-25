@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -81,15 +81,17 @@ export type CreateExpenseFile$Outbound = {
 export const CreateExpenseFile$outboundSchema: z.ZodMiniType<
   CreateExpenseFile$Outbound,
   CreateExpenseFile
-> = z.object({
-  fileName: z.string(),
-  content: z.union([
-    z.custom<ReadableStream<Uint8Array>>(x => x instanceof ReadableStream),
-    z.custom<Blob>(x => x instanceof Blob),
-    z.custom<ArrayBuffer>(x => x instanceof ArrayBuffer),
-    z.custom<Uint8Array>(x => x instanceof Uint8Array),
-  ]),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    fileName: z.string(),
+    content: z.union([
+      z.custom<ReadableStream<Uint8Array>>(x => x instanceof ReadableStream),
+      z.custom<Blob>(x => x instanceof Blob),
+      z.custom<ArrayBuffer>(x => x instanceof ArrayBuffer),
+      z.custom<Uint8Array>(x => x instanceof Uint8Array),
+    ]),
+  })
+);
 
 export function createExpenseFileToJSON(
   createExpenseFile: CreateExpenseFile,
@@ -109,10 +111,12 @@ export type CreateExpenseRequestBody$Outbound = {
 export const CreateExpenseRequestBody$outboundSchema: z.ZodMiniType<
   CreateExpenseRequestBody$Outbound,
   CreateExpenseRequestBody
-> = z.object({
-  files: z.optional(z.array(z.lazy(() => CreateExpenseFile$outboundSchema))),
-  expense: z.optional(models.CreateExpenseDto$outboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    files: z.optional(z.array(z.lazy(() => CreateExpenseFile$outboundSchema))),
+    expense: z.optional(models.CreateExpenseDto$outboundSchema),
+  })
+);
 
 export function createExpenseRequestBodyToJSON(
   createExpenseRequestBody: CreateExpenseRequestBody,
@@ -135,13 +139,15 @@ export type CreateExpenseRequest$Outbound = {
 export const CreateExpenseRequest$outboundSchema: z.ZodMiniType<
   CreateExpenseRequest$Outbound,
   CreateExpenseRequest
-> = z.object({
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-  body: z.lazy(() => CreateExpenseRequestBody$outboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+    body: z.lazy(() => CreateExpenseRequestBody$outboundSchema),
+  })
+);
 
 export function createExpenseRequestToJSON(
   createExpenseRequest: CreateExpenseRequest,
@@ -155,12 +161,14 @@ export function createExpenseRequestToJSON(
 export const CreateExpensePagination$inboundSchema: z.ZodMiniType<
   CreateExpensePagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function createExpensePaginationFromJSON(
   jsonString: string,
@@ -176,15 +184,17 @@ export function createExpensePaginationFromJSON(
 export const CreateExpenseMeta$inboundSchema: z.ZodMiniType<
   CreateExpenseMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => CreateExpensePagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => CreateExpensePagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function createExpenseMetaFromJSON(
   jsonString: string,
@@ -200,7 +210,7 @@ export function createExpenseMetaFromJSON(
 export const CreateExpenseErrors$inboundSchema: z.ZodMiniType<
   CreateExpenseErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createExpenseErrorsFromJSON(
   jsonString: string,
@@ -216,7 +226,7 @@ export function createExpenseErrorsFromJSON(
 export const CreateExpenseRawData$inboundSchema: z.ZodMiniType<
   CreateExpenseRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createExpenseRawDataFromJSON(
   jsonString: string,
@@ -232,12 +242,14 @@ export function createExpenseRawDataFromJSON(
 export const CreateExpenseResponse$inboundSchema: z.ZodMiniType<
   CreateExpenseResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => CreateExpenseMeta$inboundSchema))),
-  data: models.ExpenseResponseDto$inboundSchema,
-  errors: types.nullable(z.lazy(() => CreateExpenseErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => CreateExpenseRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(z.nullable(z.lazy(() => CreateExpenseMeta$inboundSchema))),
+    data: models.ExpenseResponseDto$inboundSchema,
+    errors: types.nullable(z.lazy(() => CreateExpenseErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => CreateExpenseRawData$inboundSchema)),
+  })
+);
 
 export function createExpenseResponseFromJSON(
   jsonString: string,

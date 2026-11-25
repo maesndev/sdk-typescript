@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -74,13 +74,15 @@ export type CreateWebhookEndUserRequest$Outbound = {
 export const CreateWebhookEndUserRequest$outboundSchema: z.ZodMiniType<
   CreateWebhookEndUserRequest$Outbound,
   CreateWebhookEndUserRequest
-> = z.object({
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-  body: models.CreateAccountingWebhookRequestDto$outboundSchema,
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+    body: models.CreateAccountingWebhookRequestDto$outboundSchema,
+  })
+);
 
 export function createWebhookEndUserRequestToJSON(
   createWebhookEndUserRequest: CreateWebhookEndUserRequest,
@@ -96,12 +98,14 @@ export function createWebhookEndUserRequestToJSON(
 export const CreateWebhookEndUserPagination$inboundSchema: z.ZodMiniType<
   CreateWebhookEndUserPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function createWebhookEndUserPaginationFromJSON(
   jsonString: string,
@@ -117,15 +121,17 @@ export function createWebhookEndUserPaginationFromJSON(
 export const CreateWebhookEndUserMeta$inboundSchema: z.ZodMiniType<
   CreateWebhookEndUserMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => CreateWebhookEndUserPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => CreateWebhookEndUserPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function createWebhookEndUserMetaFromJSON(
   jsonString: string,
@@ -141,7 +147,7 @@ export function createWebhookEndUserMetaFromJSON(
 export const CreateWebhookEndUserErrors$inboundSchema: z.ZodMiniType<
   CreateWebhookEndUserErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createWebhookEndUserErrorsFromJSON(
   jsonString: string,
@@ -157,7 +163,7 @@ export function createWebhookEndUserErrorsFromJSON(
 export const CreateWebhookEndUserRawData$inboundSchema: z.ZodMiniType<
   CreateWebhookEndUserRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createWebhookEndUserRawDataFromJSON(
   jsonString: string,
@@ -173,18 +179,20 @@ export function createWebhookEndUserRawDataFromJSON(
 export const CreateWebhookEndUserResponse$inboundSchema: z.ZodMiniType<
   CreateWebhookEndUserResponse,
   unknown
-> = z.object({
-  meta: z.optional(
-    z.nullable(z.lazy(() => CreateWebhookEndUserMeta$inboundSchema)),
-  ),
-  data: models.WebhookResponseDto$inboundSchema,
-  errors: types.nullable(
-    z.lazy(() => CreateWebhookEndUserErrors$inboundSchema),
-  ),
-  rawData: types.nullable(
-    z.lazy(() => CreateWebhookEndUserRawData$inboundSchema),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => CreateWebhookEndUserMeta$inboundSchema)),
+    ),
+    data: models.WebhookResponseDto$inboundSchema,
+    errors: types.nullable(
+      z.lazy(() => CreateWebhookEndUserErrors$inboundSchema),
+    ),
+    rawData: types.nullable(
+      z.lazy(() => CreateWebhookEndUserRawData$inboundSchema),
+    ),
+  })
+);
 
 export function createWebhookEndUserResponseFromJSON(
   jsonString: string,

@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -79,14 +79,16 @@ export type GetSalesOrderRequest$Outbound = {
 export const GetSalesOrderRequest$outboundSchema: z.ZodMiniType<
   GetSalesOrderRequest$Outbound,
   GetSalesOrderRequest
-> = z.object({
-  salesOrderId: z.string(),
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  rawData: z.optional(z.boolean()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    salesOrderId: z.string(),
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    rawData: z.optional(z.boolean()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getSalesOrderRequestToJSON(
   getSalesOrderRequest: GetSalesOrderRequest,
@@ -100,12 +102,14 @@ export function getSalesOrderRequestToJSON(
 export const GetSalesOrderPagination$inboundSchema: z.ZodMiniType<
   GetSalesOrderPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getSalesOrderPaginationFromJSON(
   jsonString: string,
@@ -121,15 +125,17 @@ export function getSalesOrderPaginationFromJSON(
 export const GetSalesOrderMeta$inboundSchema: z.ZodMiniType<
   GetSalesOrderMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => GetSalesOrderPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => GetSalesOrderPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function getSalesOrderMetaFromJSON(
   jsonString: string,
@@ -145,7 +151,7 @@ export function getSalesOrderMetaFromJSON(
 export const GetSalesOrderErrors$inboundSchema: z.ZodMiniType<
   GetSalesOrderErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getSalesOrderErrorsFromJSON(
   jsonString: string,
@@ -161,7 +167,7 @@ export function getSalesOrderErrorsFromJSON(
 export const GetSalesOrderRawData$inboundSchema: z.ZodMiniType<
   GetSalesOrderRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getSalesOrderRawDataFromJSON(
   jsonString: string,
@@ -177,12 +183,14 @@ export function getSalesOrderRawDataFromJSON(
 export const GetSalesOrderResponse$inboundSchema: z.ZodMiniType<
   GetSalesOrderResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => GetSalesOrderMeta$inboundSchema))),
-  data: models.SalesOrderResponseDto$inboundSchema,
-  errors: types.nullable(z.lazy(() => GetSalesOrderErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => GetSalesOrderRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(z.nullable(z.lazy(() => GetSalesOrderMeta$inboundSchema))),
+    data: models.SalesOrderResponseDto$inboundSchema,
+    errors: types.nullable(z.lazy(() => GetSalesOrderErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => GetSalesOrderRawData$inboundSchema)),
+  })
+);
 
 export function getSalesOrderResponseFromJSON(
   jsonString: string,

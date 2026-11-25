@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -81,15 +81,17 @@ export type GetPurchaseOrderLineItemRequest$Outbound = {
 export const GetPurchaseOrderLineItemRequest$outboundSchema: z.ZodMiniType<
   GetPurchaseOrderLineItemRequest$Outbound,
   GetPurchaseOrderLineItemRequest
-> = z.object({
-  purchaseOrderId: z.string(),
-  lineItemId: z.string(),
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  rawData: z.optional(z.boolean()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    purchaseOrderId: z.string(),
+    lineItemId: z.string(),
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    rawData: z.optional(z.boolean()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getPurchaseOrderLineItemRequestToJSON(
   getPurchaseOrderLineItemRequest: GetPurchaseOrderLineItemRequest,
@@ -105,12 +107,14 @@ export function getPurchaseOrderLineItemRequestToJSON(
 export const GetPurchaseOrderLineItemPagination$inboundSchema: z.ZodMiniType<
   GetPurchaseOrderLineItemPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getPurchaseOrderLineItemPaginationFromJSON(
   jsonString: string,
@@ -127,15 +131,19 @@ export function getPurchaseOrderLineItemPaginationFromJSON(
 export const GetPurchaseOrderLineItemMeta$inboundSchema: z.ZodMiniType<
   GetPurchaseOrderLineItemMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => GetPurchaseOrderLineItemPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(
+        z.lazy(() => GetPurchaseOrderLineItemPagination$inboundSchema),
+      ),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function getPurchaseOrderLineItemMetaFromJSON(
   jsonString: string,
@@ -151,7 +159,7 @@ export function getPurchaseOrderLineItemMetaFromJSON(
 export const GetPurchaseOrderLineItemErrors$inboundSchema: z.ZodMiniType<
   GetPurchaseOrderLineItemErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getPurchaseOrderLineItemErrorsFromJSON(
   jsonString: string,
@@ -167,7 +175,7 @@ export function getPurchaseOrderLineItemErrorsFromJSON(
 export const GetPurchaseOrderLineItemRawData$inboundSchema: z.ZodMiniType<
   GetPurchaseOrderLineItemRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getPurchaseOrderLineItemRawDataFromJSON(
   jsonString: string,
@@ -183,18 +191,20 @@ export function getPurchaseOrderLineItemRawDataFromJSON(
 export const GetPurchaseOrderLineItemResponse$inboundSchema: z.ZodMiniType<
   GetPurchaseOrderLineItemResponse,
   unknown
-> = z.object({
-  meta: z.optional(
-    z.nullable(z.lazy(() => GetPurchaseOrderLineItemMeta$inboundSchema)),
-  ),
-  data: models.PurchaseOrderLineItemResponseDto$inboundSchema,
-  errors: types.nullable(
-    z.lazy(() => GetPurchaseOrderLineItemErrors$inboundSchema),
-  ),
-  rawData: types.nullable(
-    z.lazy(() => GetPurchaseOrderLineItemRawData$inboundSchema),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => GetPurchaseOrderLineItemMeta$inboundSchema)),
+    ),
+    data: models.PurchaseOrderLineItemResponseDto$inboundSchema,
+    errors: types.nullable(
+      z.lazy(() => GetPurchaseOrderLineItemErrors$inboundSchema),
+    ),
+    rawData: types.nullable(
+      z.lazy(() => GetPurchaseOrderLineItemRawData$inboundSchema),
+    ),
+  })
+);
 
 export function getPurchaseOrderLineItemResponseFromJSON(
   jsonString: string,

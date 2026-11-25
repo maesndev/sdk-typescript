@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
@@ -27,7 +27,7 @@ export type EmailAddressV2 = {
 /** @internal */
 export const EmailAddressV2Type$inboundSchema: z.ZodMiniEnum<
   typeof EmailAddressV2Type
-> = z.enum(EmailAddressV2Type);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(EmailAddressV2Type));
 /** @internal */
 export const EmailAddressV2Type$outboundSchema: z.ZodMiniEnum<
   typeof EmailAddressV2Type
@@ -37,10 +37,12 @@ export const EmailAddressV2Type$outboundSchema: z.ZodMiniEnum<
 export const EmailAddressV2$inboundSchema: z.ZodMiniType<
   EmailAddressV2,
   unknown
-> = z.object({
-  email: types.nullable(types.string()),
-  type: types.nullable(EmailAddressV2Type$inboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    email: types.nullable(types.string()),
+    type: types.nullable(EmailAddressV2Type$inboundSchema),
+  })
+);
 /** @internal */
 export type EmailAddressV2$Outbound = {
   email: string | null;
@@ -51,10 +53,12 @@ export type EmailAddressV2$Outbound = {
 export const EmailAddressV2$outboundSchema: z.ZodMiniType<
   EmailAddressV2$Outbound,
   EmailAddressV2
-> = z.object({
-  email: z.nullable(z.string()),
-  type: z.nullable(EmailAddressV2Type$outboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    email: z.nullable(z.string()),
+    type: z.nullable(EmailAddressV2Type$outboundSchema),
+  })
+);
 
 export function emailAddressV2ToJSON(emailAddressV2: EmailAddressV2): string {
   return JSON.stringify(EmailAddressV2$outboundSchema.parse(emailAddressV2));

@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
@@ -87,7 +87,7 @@ export type GetTaxRatesResponse = {
 /** @internal */
 export const GetTaxRatesLimit$outboundSchema: z.ZodMiniEnum<
   typeof GetTaxRatesLimit
-> = z.enum(GetTaxRatesLimit);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(GetTaxRatesLimit));
 
 /** @internal */
 export type GetTaxRatesRequest$Outbound = {
@@ -106,17 +106,19 @@ export type GetTaxRatesRequest$Outbound = {
 export const GetTaxRatesRequest$outboundSchema: z.ZodMiniType<
   GetTaxRatesRequest$Outbound,
   GetTaxRatesRequest
-> = z.object({
-  page: z.optional(z.number()),
-  limit: z.optional(GetTaxRatesLimit$outboundSchema),
-  lastModifiedAt: z.optional(z.string()),
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  rawData: z.optional(z.boolean()),
-  isActive: z.optional(z.boolean()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    page: z.optional(z.number()),
+    limit: z.optional(GetTaxRatesLimit$outboundSchema),
+    lastModifiedAt: z.optional(z.string()),
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    rawData: z.optional(z.boolean()),
+    isActive: z.optional(z.boolean()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getTaxRatesRequestToJSON(
   getTaxRatesRequest: GetTaxRatesRequest,
@@ -130,12 +132,14 @@ export function getTaxRatesRequestToJSON(
 export const GetTaxRatesPagination$inboundSchema: z.ZodMiniType<
   GetTaxRatesPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getTaxRatesPaginationFromJSON(
   jsonString: string,
@@ -151,15 +155,17 @@ export function getTaxRatesPaginationFromJSON(
 export const GetTaxRatesMeta$inboundSchema: z.ZodMiniType<
   GetTaxRatesMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => GetTaxRatesPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => GetTaxRatesPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function getTaxRatesMetaFromJSON(
   jsonString: string,
@@ -175,7 +181,7 @@ export function getTaxRatesMetaFromJSON(
 export const GetTaxRatesErrors$inboundSchema: z.ZodMiniType<
   GetTaxRatesErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getTaxRatesErrorsFromJSON(
   jsonString: string,
@@ -191,7 +197,7 @@ export function getTaxRatesErrorsFromJSON(
 export const GetTaxRatesRawData$inboundSchema: z.ZodMiniType<
   GetTaxRatesRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getTaxRatesRawDataFromJSON(
   jsonString: string,
@@ -207,12 +213,14 @@ export function getTaxRatesRawDataFromJSON(
 export const GetTaxRatesResponse$inboundSchema: z.ZodMiniType<
   GetTaxRatesResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => GetTaxRatesMeta$inboundSchema))),
-  data: z.array(models.TaxRateResponseDto$inboundSchema),
-  errors: types.nullable(z.lazy(() => GetTaxRatesErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => GetTaxRatesRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(z.nullable(z.lazy(() => GetTaxRatesMeta$inboundSchema))),
+    data: z.array(models.TaxRateResponseDto$inboundSchema),
+    errors: types.nullable(z.lazy(() => GetTaxRatesErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => GetTaxRatesRawData$inboundSchema)),
+  })
+);
 
 export function getTaxRatesResponseFromJSON(
   jsonString: string,

@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 
 export const CreateBankAccountRequestDtoCurrency = {
@@ -271,22 +272,28 @@ export type CreateBankAccountRequestDto = {
 /** @internal */
 export const CreateBankAccountRequestDtoCurrency$outboundSchema: z.ZodMiniEnum<
   typeof CreateBankAccountRequestDtoCurrency
-> = z.enum(CreateBankAccountRequestDtoCurrency);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.enum(CreateBankAccountRequestDtoCurrency)
+);
 
 /** @internal */
 export const CreateBankAccountRequestDtoFileType$outboundSchema: z.ZodMiniEnum<
   typeof CreateBankAccountRequestDtoFileType
-> = z.enum(CreateBankAccountRequestDtoFileType);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.enum(CreateBankAccountRequestDtoFileType)
+);
 
 /** @internal */
 export const CreateBankAccountRequestDtoStatus$outboundSchema: z.ZodMiniEnum<
   typeof CreateBankAccountRequestDtoStatus
-> = z.enum(CreateBankAccountRequestDtoStatus);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.enum(CreateBankAccountRequestDtoStatus)
+);
 
 /** @internal */
 export const CreateBankAccountRequestDtoType$outboundSchema: z.ZodMiniEnum<
   typeof CreateBankAccountRequestDtoType
-> = z.enum(CreateBankAccountRequestDtoType);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(CreateBankAccountRequestDtoType));
 
 /** @internal */
 export type CreateBankAccountRequestDto$Outbound = {
@@ -308,20 +315,22 @@ export type CreateBankAccountRequestDto$Outbound = {
 export const CreateBankAccountRequestDto$outboundSchema: z.ZodMiniType<
   CreateBankAccountRequestDto$Outbound,
   CreateBankAccountRequestDto
-> = z.object({
-  balance: z.optional(z.number()),
-  bankName: z.optional(z.string()),
-  bic: z.optional(z.string()),
-  currency: z.optional(CreateBankAccountRequestDtoCurrency$outboundSchema),
-  description: z.optional(z.string()),
-  fileType: z.optional(CreateBankAccountRequestDtoFileType$outboundSchema),
-  iban: z.optional(z.string()),
-  name: z.optional(z.string()),
-  number: z.optional(z.string()),
-  system: z.optional(z.string()),
-  status: z.optional(CreateBankAccountRequestDtoStatus$outboundSchema),
-  type: z.optional(CreateBankAccountRequestDtoType$outboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    balance: z.optional(z.number()),
+    bankName: z.optional(z.string()),
+    bic: z.optional(z.string()),
+    currency: z.optional(CreateBankAccountRequestDtoCurrency$outboundSchema),
+    description: z.optional(z.string()),
+    fileType: z.optional(CreateBankAccountRequestDtoFileType$outboundSchema),
+    iban: z.optional(z.string()),
+    name: z.optional(z.string()),
+    number: z.optional(z.string()),
+    system: z.optional(z.string()),
+    status: z.optional(CreateBankAccountRequestDtoStatus$outboundSchema),
+    type: z.optional(CreateBankAccountRequestDtoType$outboundSchema),
+  })
+);
 
 export function createBankAccountRequestDtoToJSON(
   createBankAccountRequestDto: CreateBankAccountRequestDto,

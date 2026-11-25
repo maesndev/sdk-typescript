@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
@@ -17,10 +17,12 @@ export type DimensionMetaResponseDto = {
 export const DimensionMetaResponseDto$inboundSchema: z.ZodMiniType<
   DimensionMetaResponseDto,
   unknown
-> = z.object({
-  description: types.nullable(types.string()),
-  dimension: types.nullable(types.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    description: types.nullable(types.string()),
+    dimension: types.nullable(types.string()),
+  })
+);
 
 export function dimensionMetaResponseDtoFromJSON(
   jsonString: string,

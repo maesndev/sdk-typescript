@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import {
   AdvancePaymentInput,
@@ -235,25 +236,31 @@ export type CreateJournalEntryRequestDto = {
 
 /** @internal */
 export const CreateJournalEntryRequestDtoAccountingReason$outboundSchema:
-  z.ZodMiniEnum<typeof CreateJournalEntryRequestDtoAccountingReason> = z.enum(
-    CreateJournalEntryRequestDtoAccountingReason,
-  );
+  z.ZodMiniEnum<typeof CreateJournalEntryRequestDtoAccountingReason> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.enum(CreateJournalEntryRequestDtoAccountingReason)
+    );
 
 /** @internal */
 export const CreateJournalEntryRequestDtoCurrency$outboundSchema: z.ZodMiniEnum<
   typeof CreateJournalEntryRequestDtoCurrency
-> = z.enum(CreateJournalEntryRequestDtoCurrency);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.enum(CreateJournalEntryRequestDtoCurrency)
+);
 
 /** @internal */
 export const CreateJournalEntryRequestDtoDebitCreditIndicator$outboundSchema:
-  z.ZodMiniEnum<typeof CreateJournalEntryRequestDtoDebitCreditIndicator> = z
-    .enum(CreateJournalEntryRequestDtoDebitCreditIndicator);
+  z.ZodMiniEnum<typeof CreateJournalEntryRequestDtoDebitCreditIndicator> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.enum(CreateJournalEntryRequestDtoDebitCreditIndicator)
+    );
 
 /** @internal */
 export const CreateJournalEntryRequestDtoRecordType$outboundSchema:
-  z.ZodMiniEnum<typeof CreateJournalEntryRequestDtoRecordType> = z.enum(
-    CreateJournalEntryRequestDtoRecordType,
-  );
+  z.ZodMiniEnum<typeof CreateJournalEntryRequestDtoRecordType> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.enum(CreateJournalEntryRequestDtoRecordType)
+    );
 
 /** @internal */
 export type CreateJournalEntryRequestDto$Outbound = {
@@ -285,34 +292,38 @@ export type CreateJournalEntryRequestDto$Outbound = {
 export const CreateJournalEntryRequestDto$outboundSchema: z.ZodMiniType<
   CreateJournalEntryRequestDto$Outbound,
   CreateJournalEntryRequestDto
-> = z.object({
-  accountId: z.optional(z.string()),
-  accountingPeriodId: z.optional(z.string()),
-  accountingReason: z.optional(
-    CreateJournalEntryRequestDtoAccountingReason$outboundSchema,
-  ),
-  additionalInformation: z.optional(z.string()),
-  advancePayment: z.optional(AdvancePaymentInput$outboundSchema),
-  currency: z.optional(CreateJournalEntryRequestDtoCurrency$outboundSchema),
-  debitCreditIndicator: z.optional(
-    CreateJournalEntryRequestDtoDebitCreditIndicator$outboundSchema,
-  ),
-  deliveryDate: z.optional(z.string()),
-  description: z.optional(z.string()),
-  documentId: z.optional(z.string()),
-  dueDate: z.optional(z.string()),
-  exchangeRate: z.optional(z.string()),
-  isProvisional: z.optional(z.boolean()),
-  isReversal: z.optional(z.boolean()),
-  journalCode: z.optional(z.string()),
-  journalLineItems: z.optional(z.array(CreateJournalLineItem$outboundSchema)),
-  journalType: z.optional(z.string()),
-  number: z.optional(z.string()),
-  recordType: z.optional(CreateJournalEntryRequestDtoRecordType$outboundSchema),
-  taxAssignmentDate: z.optional(z.string()),
-  transactionDate: z.optional(z.string()),
-  version: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    accountId: z.optional(z.string()),
+    accountingPeriodId: z.optional(z.string()),
+    accountingReason: z.optional(
+      CreateJournalEntryRequestDtoAccountingReason$outboundSchema,
+    ),
+    additionalInformation: z.optional(z.string()),
+    advancePayment: z.optional(AdvancePaymentInput$outboundSchema),
+    currency: z.optional(CreateJournalEntryRequestDtoCurrency$outboundSchema),
+    debitCreditIndicator: z.optional(
+      CreateJournalEntryRequestDtoDebitCreditIndicator$outboundSchema,
+    ),
+    deliveryDate: z.optional(z.string()),
+    description: z.optional(z.string()),
+    documentId: z.optional(z.string()),
+    dueDate: z.optional(z.string()),
+    exchangeRate: z.optional(z.string()),
+    isProvisional: z.optional(z.boolean()),
+    isReversal: z.optional(z.boolean()),
+    journalCode: z.optional(z.string()),
+    journalLineItems: z.optional(z.array(CreateJournalLineItem$outboundSchema)),
+    journalType: z.optional(z.string()),
+    number: z.optional(z.string()),
+    recordType: z.optional(
+      CreateJournalEntryRequestDtoRecordType$outboundSchema,
+    ),
+    taxAssignmentDate: z.optional(z.string()),
+    transactionDate: z.optional(z.string()),
+    version: z.optional(z.string()),
+  })
+);
 
 export function createJournalEntryRequestDtoToJSON(
   createJournalEntryRequestDto: CreateJournalEntryRequestDto,

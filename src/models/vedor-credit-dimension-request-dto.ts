@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 
 export type VedorCreditDimensionRequestDto = {
   name: string;
@@ -19,10 +20,12 @@ export type VedorCreditDimensionRequestDto$Outbound = {
 export const VedorCreditDimensionRequestDto$outboundSchema: z.ZodMiniType<
   VedorCreditDimensionRequestDto$Outbound,
   VedorCreditDimensionRequestDto
-> = z.object({
-  name: z.string(),
-  categoryName: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    name: z.string(),
+    categoryName: z.string(),
+  })
+);
 
 export function vedorCreditDimensionRequestDtoToJSON(
   vedorCreditDimensionRequestDto: VedorCreditDimensionRequestDto,

@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 
 export const CreateItemRequestDtoType = {
@@ -59,12 +60,12 @@ export type CreateItemRequestDto = {
 /** @internal */
 export const CreateItemRequestDtoType$outboundSchema: z.ZodMiniEnum<
   typeof CreateItemRequestDtoType
-> = z.enum(CreateItemRequestDtoType);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(CreateItemRequestDtoType));
 
 /** @internal */
 export const CreateItemRequestDtoUnitName$outboundSchema: z.ZodMiniEnum<
   typeof CreateItemRequestDtoUnitName
-> = z.enum(CreateItemRequestDtoUnitName);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(CreateItemRequestDtoUnitName));
 
 /** @internal */
 export type CreateItemRequestDto$Outbound = {
@@ -88,22 +89,24 @@ export type CreateItemRequestDto$Outbound = {
 export const CreateItemRequestDto$outboundSchema: z.ZodMiniType<
   CreateItemRequestDto$Outbound,
   CreateItemRequestDto
-> = z.object({
-  assetAccountId: z.optional(z.string()),
-  expenseAccountId: z.optional(z.string()),
-  incomeAccountId: z.optional(z.string()),
-  inventoryStartDate: z.optional(z.string()),
-  itemNumber: z.optional(z.string()),
-  name: z.optional(z.string()),
-  priceIncludesTax: z.optional(z.boolean()),
-  stockCount: z.optional(z.number()),
-  taxCode: z.optional(z.string()),
-  taxRatePercentage: z.optional(z.number()),
-  type: z.optional(CreateItemRequestDtoType$outboundSchema),
-  unitName: z.optional(CreateItemRequestDtoUnitName$outboundSchema),
-  unitPurchasePrice: z.optional(z.number()),
-  unitSalesPrice: z.optional(z.number()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    assetAccountId: z.optional(z.string()),
+    expenseAccountId: z.optional(z.string()),
+    incomeAccountId: z.optional(z.string()),
+    inventoryStartDate: z.optional(z.string()),
+    itemNumber: z.optional(z.string()),
+    name: z.optional(z.string()),
+    priceIncludesTax: z.optional(z.boolean()),
+    stockCount: z.optional(z.number()),
+    taxCode: z.optional(z.string()),
+    taxRatePercentage: z.optional(z.number()),
+    type: z.optional(CreateItemRequestDtoType$outboundSchema),
+    unitName: z.optional(CreateItemRequestDtoUnitName$outboundSchema),
+    unitPurchasePrice: z.optional(z.number()),
+    unitSalesPrice: z.optional(z.number()),
+  })
+);
 
 export function createItemRequestDtoToJSON(
   createItemRequestDto: CreateItemRequestDto,

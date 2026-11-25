@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
@@ -95,7 +95,7 @@ export type GetJournalEntriesResponse = {
 /** @internal */
 export const GetJournalEntriesLimit$outboundSchema: z.ZodMiniEnum<
   typeof GetJournalEntriesLimit
-> = z.enum(GetJournalEntriesLimit);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(GetJournalEntriesLimit));
 
 /** @internal */
 export type GetJournalEntriesRequest$Outbound = {
@@ -116,19 +116,21 @@ export type GetJournalEntriesRequest$Outbound = {
 export const GetJournalEntriesRequest$outboundSchema: z.ZodMiniType<
   GetJournalEntriesRequest$Outbound,
   GetJournalEntriesRequest
-> = z.object({
-  page: z.optional(z.number()),
-  limit: z.optional(GetJournalEntriesLimit$outboundSchema),
-  lastModifiedAt: z.optional(z.string()),
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  rawData: z.optional(z.boolean()),
-  fiscalYear: z.optional(z.number()),
-  fiscalYearStartDate: z.optional(z.string()),
-  transactionDateFrom: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    page: z.optional(z.number()),
+    limit: z.optional(GetJournalEntriesLimit$outboundSchema),
+    lastModifiedAt: z.optional(z.string()),
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    rawData: z.optional(z.boolean()),
+    fiscalYear: z.optional(z.number()),
+    fiscalYearStartDate: z.optional(z.string()),
+    transactionDateFrom: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getJournalEntriesRequestToJSON(
   getJournalEntriesRequest: GetJournalEntriesRequest,
@@ -142,12 +144,14 @@ export function getJournalEntriesRequestToJSON(
 export const GetJournalEntriesPagination$inboundSchema: z.ZodMiniType<
   GetJournalEntriesPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getJournalEntriesPaginationFromJSON(
   jsonString: string,
@@ -163,15 +167,17 @@ export function getJournalEntriesPaginationFromJSON(
 export const GetJournalEntriesMeta$inboundSchema: z.ZodMiniType<
   GetJournalEntriesMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => GetJournalEntriesPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => GetJournalEntriesPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function getJournalEntriesMetaFromJSON(
   jsonString: string,
@@ -187,7 +193,7 @@ export function getJournalEntriesMetaFromJSON(
 export const GetJournalEntriesErrors$inboundSchema: z.ZodMiniType<
   GetJournalEntriesErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getJournalEntriesErrorsFromJSON(
   jsonString: string,
@@ -203,7 +209,7 @@ export function getJournalEntriesErrorsFromJSON(
 export const GetJournalEntriesRawData$inboundSchema: z.ZodMiniType<
   GetJournalEntriesRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getJournalEntriesRawDataFromJSON(
   jsonString: string,
@@ -219,14 +225,18 @@ export function getJournalEntriesRawDataFromJSON(
 export const GetJournalEntriesResponse$inboundSchema: z.ZodMiniType<
   GetJournalEntriesResponse,
   unknown
-> = z.object({
-  meta: z.optional(
-    z.nullable(z.lazy(() => GetJournalEntriesMeta$inboundSchema)),
-  ),
-  data: z.array(models.JournalEntryResponseDto$inboundSchema),
-  errors: types.nullable(z.lazy(() => GetJournalEntriesErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => GetJournalEntriesRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => GetJournalEntriesMeta$inboundSchema)),
+    ),
+    data: z.array(models.JournalEntryResponseDto$inboundSchema),
+    errors: types.nullable(z.lazy(() => GetJournalEntriesErrors$inboundSchema)),
+    rawData: types.nullable(
+      z.lazy(() => GetJournalEntriesRawData$inboundSchema),
+    ),
+  })
+);
 
 export function getJournalEntriesResponseFromJSON(
   jsonString: string,

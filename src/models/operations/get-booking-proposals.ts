@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
@@ -173,27 +173,27 @@ export type GetBookingProposalsResponse = {
 /** @internal */
 export const GetBookingProposalsLimit$outboundSchema: z.ZodMiniEnum<
   typeof GetBookingProposalsLimit
-> = z.enum(GetBookingProposalsLimit);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(GetBookingProposalsLimit));
 
 /** @internal */
 export const GetBookingProposalsBookingType$outboundSchema: z.ZodMiniEnum<
   typeof GetBookingProposalsBookingType
-> = z.enum(GetBookingProposalsBookingType);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(GetBookingProposalsBookingType));
 
 /** @internal */
 export const GetBookingProposalsStatus$outboundSchema: z.ZodMiniEnum<
   typeof GetBookingProposalsStatus
-> = z.enum(GetBookingProposalsStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(GetBookingProposalsStatus));
 
 /** @internal */
 export const GetBookingProposalsOrderField$outboundSchema: z.ZodMiniEnum<
   typeof GetBookingProposalsOrderField
-> = z.enum(GetBookingProposalsOrderField);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(GetBookingProposalsOrderField));
 
 /** @internal */
 export const GetBookingProposalsOrderDir$outboundSchema: z.ZodMiniEnum<
   typeof GetBookingProposalsOrderDir
-> = z.enum(GetBookingProposalsOrderDir);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(GetBookingProposalsOrderDir));
 
 /** @internal */
 export type GetBookingProposalsRequest$Outbound = {
@@ -215,20 +215,22 @@ export type GetBookingProposalsRequest$Outbound = {
 export const GetBookingProposalsRequest$outboundSchema: z.ZodMiniType<
   GetBookingProposalsRequest$Outbound,
   GetBookingProposalsRequest
-> = z.object({
-  page: z.optional(z.number()),
-  limit: z.optional(GetBookingProposalsLimit$outboundSchema),
-  lastModifiedAt: z.optional(z.string()),
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  bookingType: z.optional(GetBookingProposalsBookingType$outboundSchema),
-  status: z.optional(GetBookingProposalsStatus$outboundSchema),
-  rawData: z.optional(z.boolean()),
-  orderField: z.optional(GetBookingProposalsOrderField$outboundSchema),
-  orderDir: z.optional(GetBookingProposalsOrderDir$outboundSchema),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    page: z.optional(z.number()),
+    limit: z.optional(GetBookingProposalsLimit$outboundSchema),
+    lastModifiedAt: z.optional(z.string()),
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    bookingType: z.optional(GetBookingProposalsBookingType$outboundSchema),
+    status: z.optional(GetBookingProposalsStatus$outboundSchema),
+    rawData: z.optional(z.boolean()),
+    orderField: z.optional(GetBookingProposalsOrderField$outboundSchema),
+    orderDir: z.optional(GetBookingProposalsOrderDir$outboundSchema),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getBookingProposalsRequestToJSON(
   getBookingProposalsRequest: GetBookingProposalsRequest,
@@ -242,12 +244,14 @@ export function getBookingProposalsRequestToJSON(
 export const GetBookingProposalsPagination$inboundSchema: z.ZodMiniType<
   GetBookingProposalsPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getBookingProposalsPaginationFromJSON(
   jsonString: string,
@@ -263,15 +267,17 @@ export function getBookingProposalsPaginationFromJSON(
 export const GetBookingProposalsMeta$inboundSchema: z.ZodMiniType<
   GetBookingProposalsMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => GetBookingProposalsPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => GetBookingProposalsPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function getBookingProposalsMetaFromJSON(
   jsonString: string,
@@ -287,7 +293,7 @@ export function getBookingProposalsMetaFromJSON(
 export const GetBookingProposalsErrors$inboundSchema: z.ZodMiniType<
   GetBookingProposalsErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getBookingProposalsErrorsFromJSON(
   jsonString: string,
@@ -303,7 +309,7 @@ export function getBookingProposalsErrorsFromJSON(
 export const GetBookingProposalsRawData$inboundSchema: z.ZodMiniType<
   GetBookingProposalsRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getBookingProposalsRawDataFromJSON(
   jsonString: string,
@@ -319,16 +325,20 @@ export function getBookingProposalsRawDataFromJSON(
 export const GetBookingProposalsResponse$inboundSchema: z.ZodMiniType<
   GetBookingProposalsResponse,
   unknown
-> = z.object({
-  meta: z.optional(
-    z.nullable(z.lazy(() => GetBookingProposalsMeta$inboundSchema)),
-  ),
-  data: z.array(models.BookingProposalResponseDto$inboundSchema),
-  errors: types.nullable(z.lazy(() => GetBookingProposalsErrors$inboundSchema)),
-  rawData: types.nullable(
-    z.lazy(() => GetBookingProposalsRawData$inboundSchema),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => GetBookingProposalsMeta$inboundSchema)),
+    ),
+    data: z.array(models.BookingProposalResponseDto$inboundSchema),
+    errors: types.nullable(
+      z.lazy(() => GetBookingProposalsErrors$inboundSchema),
+    ),
+    rawData: types.nullable(
+      z.lazy(() => GetBookingProposalsRawData$inboundSchema),
+    ),
+  })
+);
 
 export function getBookingProposalsResponseFromJSON(
   jsonString: string,

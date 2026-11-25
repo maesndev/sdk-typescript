@@ -4,35 +4,69 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../lib/primitives.js";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
+
+export type SelectedCompany = {
+  id: string | null;
+  name: string | null;
+  subscriptions: Array<string> | null;
+};
 
 export type UserInfoResponseDto = {
   id: string | null;
   accountId: string | null;
   familyName: string | null;
   name: string | null;
+  selectedCompany?: SelectedCompany | null | undefined;
 };
+
+/** @internal */
+export const SelectedCompany$inboundSchema: z.ZodMiniType<
+  SelectedCompany,
+  unknown
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: types.nullable(types.string()),
+    name: types.nullable(types.string()),
+    subscriptions: types.nullable(z.array(types.string())),
+  })
+);
+
+export function selectedCompanyFromJSON(
+  jsonString: string,
+): SafeParseResult<SelectedCompany, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => SelectedCompany$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SelectedCompany' from JSON`,
+  );
+}
 
 /** @internal */
 export const UserInfoResponseDto$inboundSchema: z.ZodMiniType<
   UserInfoResponseDto,
   unknown
-> = z.pipe(
-  z.object({
-    id: types.nullable(types.string()),
-    account_id: types.nullable(types.string()),
-    family_name: types.nullable(types.string()),
-    name: types.nullable(types.string()),
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      "account_id": "accountId",
-      "family_name": "familyName",
-    });
-  }),
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.pipe(
+    z.object({
+      id: types.nullable(types.string()),
+      account_id: types.nullable(types.string()),
+      family_name: types.nullable(types.string()),
+      name: types.nullable(types.string()),
+      selectedCompany: z.optional(
+        z.nullable(z.lazy(() => SelectedCompany$inboundSchema)),
+      ),
+    }),
+    z.transform((v) => {
+      return remap$(v, {
+        "account_id": "accountId",
+        "family_name": "familyName",
+      });
+    }),
+  )
 );
 
 export function userInfoResponseDtoFromJSON(

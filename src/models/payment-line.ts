@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
@@ -21,18 +21,20 @@ export type PaymentLine = {
 };
 
 /** @internal */
-export const PaymentLine$inboundSchema: z.ZodMiniType<PaymentLine, unknown> = z
-  .object({
-    accountId: types.nullable(types.string()),
-    amount: types.nullable(types.number()),
-    contactName: types.nullable(types.string()),
-    contactId: types.nullable(types.string()),
-    customerId: types.nullable(types.string()),
-    description: types.nullable(types.string()),
-    invoiceId: types.nullable(types.string()),
-    supplierId: types.nullable(types.string()),
-    paymentDate: types.nullable(types.string()),
-  });
+export const PaymentLine$inboundSchema: z.ZodMiniType<PaymentLine, unknown> =
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      accountId: types.nullable(types.string()),
+      amount: types.nullable(types.number()),
+      contactName: types.nullable(types.string()),
+      contactId: types.nullable(types.string()),
+      customerId: types.nullable(types.string()),
+      description: types.nullable(types.string()),
+      invoiceId: types.nullable(types.string()),
+      supplierId: types.nullable(types.string()),
+      paymentDate: types.nullable(types.string()),
+    })
+  );
 
 export function paymentLineFromJSON(
   jsonString: string,

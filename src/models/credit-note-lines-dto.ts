@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
@@ -42,33 +42,35 @@ export type CreditNoteLinesDto = {
 /** @internal */
 export const CreditNoteLinesDtoType$inboundSchema: z.ZodMiniEnum<
   typeof CreditNoteLinesDtoType
-> = z.enum(CreditNoteLinesDtoType);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(CreditNoteLinesDtoType));
 
 /** @internal */
 export const CreditNoteLinesDto$inboundSchema: z.ZodMiniType<
   CreditNoteLinesDto,
   unknown
-> = z.object({
-  id: types.nullable(types.string()),
-  createdDate: types.nullable(types.string()),
-  description: types.nullable(types.string()),
-  itemId: types.nullable(types.string()),
-  itemName: types.nullable(types.string()),
-  quantity: types.nullable(types.number()),
-  taxCode: types.nullable(types.string()),
-  taxRatePercentage: types.nullable(types.number()),
-  totalDiscountAmount: types.nullable(types.number()),
-  totalDiscountPercentage: types.nullable(types.number()),
-  totalGrossAmount: types.nullable(types.number()),
-  totalNetAmount: types.nullable(types.number()),
-  totalTaxAmount: types.nullable(types.number()),
-  type: types.nullable(CreditNoteLinesDtoType$inboundSchema),
-  unitAmount: types.nullable(types.number()),
-  unitDiscountAmount: types.nullable(types.number()),
-  unitDiscountPercentage: types.nullable(types.number()),
-  unitName: types.nullable(types.string()),
-  updatedDate: types.nullable(types.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: types.nullable(types.string()),
+    createdDate: types.nullable(types.string()),
+    description: types.nullable(types.string()),
+    itemId: types.nullable(types.string()),
+    itemName: types.nullable(types.string()),
+    quantity: types.nullable(types.number()),
+    taxCode: types.nullable(types.string()),
+    taxRatePercentage: types.nullable(types.number()),
+    totalDiscountAmount: types.nullable(types.number()),
+    totalDiscountPercentage: types.nullable(types.number()),
+    totalGrossAmount: types.nullable(types.number()),
+    totalNetAmount: types.nullable(types.number()),
+    totalTaxAmount: types.nullable(types.number()),
+    type: types.nullable(CreditNoteLinesDtoType$inboundSchema),
+    unitAmount: types.nullable(types.number()),
+    unitDiscountAmount: types.nullable(types.number()),
+    unitDiscountPercentage: types.nullable(types.number()),
+    unitName: types.nullable(types.string()),
+    updatedDate: types.nullable(types.string()),
+  })
+);
 
 export function creditNoteLinesDtoFromJSON(
   jsonString: string,

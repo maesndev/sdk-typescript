@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
@@ -30,14 +30,16 @@ export type PhoneNumber = {
 /** @internal */
 export const PhoneNumberType$inboundSchema: z.ZodMiniEnum<
   typeof PhoneNumberType
-> = z.enum(PhoneNumberType);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(PhoneNumberType));
 
 /** @internal */
-export const PhoneNumber$inboundSchema: z.ZodMiniType<PhoneNumber, unknown> = z
-  .object({
-    number: z.optional(z.nullable(types.string())),
-    type: z.optional(z.nullable(PhoneNumberType$inboundSchema)),
-  });
+export const PhoneNumber$inboundSchema: z.ZodMiniType<PhoneNumber, unknown> =
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      number: z.optional(z.nullable(types.string())),
+      type: z.optional(z.nullable(PhoneNumberType$inboundSchema)),
+    })
+  );
 
 export function phoneNumberFromJSON(
   jsonString: string,

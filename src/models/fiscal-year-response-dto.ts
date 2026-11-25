@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
@@ -52,36 +52,40 @@ export type FiscalYearResponseDto = {
 /** @internal */
 export const AvailableLedger$inboundSchema: z.ZodMiniEnum<
   typeof AvailableLedger
-> = z.enum(AvailableLedger);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(AvailableLedger));
 
 /** @internal */
 export const FiscalYearResponseDtoChartOfAccount$inboundSchema: z.ZodMiniEnum<
   typeof FiscalYearResponseDtoChartOfAccount
-> = z.enum(FiscalYearResponseDtoChartOfAccount);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.enum(FiscalYearResponseDtoChartOfAccount)
+);
 
 /** @internal */
 export const FiscalYearResponseDtoStatus$inboundSchema: z.ZodMiniEnum<
   typeof FiscalYearResponseDtoStatus
-> = z.enum(FiscalYearResponseDtoStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(FiscalYearResponseDtoStatus));
 
 /** @internal */
 export const FiscalYearResponseDto$inboundSchema: z.ZodMiniType<
   FiscalYearResponseDto,
   unknown
-> = z.object({
-  id: types.nullable(types.string()),
-  accountNumberLength: types.nullable(types.number()),
-  availableLedgers: types.nullable(z.array(AvailableLedger$inboundSchema)),
-  chartOfAccount: types.nullable(
-    FiscalYearResponseDtoChartOfAccount$inboundSchema,
-  ),
-  createdDate: types.nullable(types.string()),
-  description: types.nullable(types.string()),
-  endDate: types.nullable(types.string()),
-  startDate: types.nullable(types.string()),
-  status: types.nullable(FiscalYearResponseDtoStatus$inboundSchema),
-  updatedDate: types.nullable(types.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: types.nullable(types.string()),
+    accountNumberLength: types.nullable(types.number()),
+    availableLedgers: types.nullable(z.array(AvailableLedger$inboundSchema)),
+    chartOfAccount: types.nullable(
+      FiscalYearResponseDtoChartOfAccount$inboundSchema,
+    ),
+    createdDate: types.nullable(types.string()),
+    description: types.nullable(types.string()),
+    endDate: types.nullable(types.string()),
+    startDate: types.nullable(types.string()),
+    status: types.nullable(FiscalYearResponseDtoStatus$inboundSchema),
+    updatedDate: types.nullable(types.string()),
+  })
+);
 
 export function fiscalYearResponseDtoFromJSON(
   jsonString: string,

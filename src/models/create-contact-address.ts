@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 
 export const CreateContactAddressCountryCode = {
@@ -284,12 +285,12 @@ export type CreateContactAddress = {
 /** @internal */
 export const CreateContactAddressCountryCode$outboundSchema: z.ZodMiniEnum<
   typeof CreateContactAddressCountryCode
-> = z.enum(CreateContactAddressCountryCode);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(CreateContactAddressCountryCode));
 
 /** @internal */
 export const CreateContactAddressType$outboundSchema: z.ZodMiniEnum<
   typeof CreateContactAddressType
-> = z.enum(CreateContactAddressType);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(CreateContactAddressType));
 
 /** @internal */
 export type CreateContactAddress$Outbound = {
@@ -305,14 +306,16 @@ export type CreateContactAddress$Outbound = {
 export const CreateContactAddress$outboundSchema: z.ZodMiniType<
   CreateContactAddress$Outbound,
   CreateContactAddress
-> = z.object({
-  addressLine1: z.optional(z.string()),
-  addressLine2: z.optional(z.string()),
-  city: z.optional(z.string()),
-  countryCode: z.optional(CreateContactAddressCountryCode$outboundSchema),
-  postalCode: z.optional(z.string()),
-  type: z.optional(CreateContactAddressType$outboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    addressLine1: z.optional(z.string()),
+    addressLine2: z.optional(z.string()),
+    city: z.optional(z.string()),
+    countryCode: z.optional(CreateContactAddressCountryCode$outboundSchema),
+    postalCode: z.optional(z.string()),
+    type: z.optional(CreateContactAddressType$outboundSchema),
+  })
+);
 
 export function createContactAddressToJSON(
   createContactAddress: CreateContactAddress,

@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 
 export type CreateSalesOrderLineItemRequestDto = {
   itemId?: string | undefined;
@@ -51,26 +52,28 @@ export type CreateSalesOrderLineItemRequestDto$Outbound = {
 export const CreateSalesOrderLineItemRequestDto$outboundSchema: z.ZodMiniType<
   CreateSalesOrderLineItemRequestDto$Outbound,
   CreateSalesOrderLineItemRequestDto
-> = z.object({
-  itemId: z.optional(z.string()),
-  description: z.optional(z.string()),
-  itemName: z.optional(z.string()),
-  lineNumber: z.optional(z.string()),
-  optional: z.optional(z.boolean()),
-  parentLineNumber: z.optional(z.string()),
-  quantity: z.optional(z.number()),
-  taxCode: z.optional(z.string()),
-  taxRatePercentage: z.optional(z.number()),
-  totalDiscountAmount: z.optional(z.number()),
-  totalDiscountPercentage: z.optional(z.number()),
-  totalGrossAmount: z.optional(z.number()),
-  totalNetAmount: z.optional(z.number()),
-  totalTaxAmount: z.optional(z.number()),
-  unitAmount: z.optional(z.number()),
-  unitDiscountAmount: z.optional(z.number()),
-  unitDiscountPercentage: z.optional(z.number()),
-  unitName: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    itemId: z.optional(z.string()),
+    description: z.optional(z.string()),
+    itemName: z.optional(z.string()),
+    lineNumber: z.optional(z.string()),
+    optional: z.optional(z.boolean()),
+    parentLineNumber: z.optional(z.string()),
+    quantity: z.optional(z.number()),
+    taxCode: z.optional(z.string()),
+    taxRatePercentage: z.optional(z.number()),
+    totalDiscountAmount: z.optional(z.number()),
+    totalDiscountPercentage: z.optional(z.number()),
+    totalGrossAmount: z.optional(z.number()),
+    totalNetAmount: z.optional(z.number()),
+    totalTaxAmount: z.optional(z.number()),
+    unitAmount: z.optional(z.number()),
+    unitDiscountAmount: z.optional(z.number()),
+    unitDiscountPercentage: z.optional(z.number()),
+    unitName: z.optional(z.string()),
+  })
+);
 
 export function createSalesOrderLineItemRequestDtoToJSON(
   createSalesOrderLineItemRequestDto: CreateSalesOrderLineItemRequestDto,

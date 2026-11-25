@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -74,13 +74,15 @@ export type CreateSupplierRequest$Outbound = {
 export const CreateSupplierRequest$outboundSchema: z.ZodMiniType<
   CreateSupplierRequest$Outbound,
   CreateSupplierRequest
-> = z.object({
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-  body: models.CreateContactRequestDto$outboundSchema,
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+    body: models.CreateContactRequestDto$outboundSchema,
+  })
+);
 
 export function createSupplierRequestToJSON(
   createSupplierRequest: CreateSupplierRequest,
@@ -94,12 +96,14 @@ export function createSupplierRequestToJSON(
 export const CreateSupplierPagination$inboundSchema: z.ZodMiniType<
   CreateSupplierPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function createSupplierPaginationFromJSON(
   jsonString: string,
@@ -115,15 +119,17 @@ export function createSupplierPaginationFromJSON(
 export const CreateSupplierMeta$inboundSchema: z.ZodMiniType<
   CreateSupplierMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => CreateSupplierPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => CreateSupplierPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function createSupplierMetaFromJSON(
   jsonString: string,
@@ -139,7 +145,7 @@ export function createSupplierMetaFromJSON(
 export const CreateSupplierErrors$inboundSchema: z.ZodMiniType<
   CreateSupplierErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createSupplierErrorsFromJSON(
   jsonString: string,
@@ -155,7 +161,7 @@ export function createSupplierErrorsFromJSON(
 export const CreateSupplierRawData$inboundSchema: z.ZodMiniType<
   CreateSupplierRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createSupplierRawDataFromJSON(
   jsonString: string,
@@ -171,12 +177,16 @@ export function createSupplierRawDataFromJSON(
 export const CreateSupplierResponse$inboundSchema: z.ZodMiniType<
   CreateSupplierResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => CreateSupplierMeta$inboundSchema))),
-  data: models.ContactResponseDto$inboundSchema,
-  errors: types.nullable(z.lazy(() => CreateSupplierErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => CreateSupplierRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => CreateSupplierMeta$inboundSchema)),
+    ),
+    data: models.ContactResponseDto$inboundSchema,
+    errors: types.nullable(z.lazy(() => CreateSupplierErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => CreateSupplierRawData$inboundSchema)),
+  })
+);
 
 export function createSupplierResponseFromJSON(
   jsonString: string,

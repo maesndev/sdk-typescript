@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
@@ -214,23 +214,27 @@ export type JournalLineItem = {
 /** @internal */
 export const JournalLineItemCurrency$inboundSchema: z.ZodMiniEnum<
   typeof JournalLineItemCurrency
-> = z.enum(JournalLineItemCurrency);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(JournalLineItemCurrency));
 
 /** @internal */
 export const JournalLineItemDebitCreditIndicator$inboundSchema: z.ZodMiniEnum<
   typeof JournalLineItemDebitCreditIndicator
-> = z.enum(JournalLineItemDebitCreditIndicator);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.enum(JournalLineItemDebitCreditIndicator)
+);
 
 /** @internal */
 export const JournalLineItemTaxRate$inboundSchema: z.ZodMiniType<
   JournalLineItemTaxRate,
   unknown
-> = z.object({
-  id: types.nullable(types.string()),
-  code: types.nullable(types.string()),
-  name: types.nullable(types.string()),
-  taxRatePercentage: types.nullable(types.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: types.nullable(types.string()),
+    code: types.nullable(types.string()),
+    name: types.nullable(types.string()),
+    taxRatePercentage: types.nullable(types.string()),
+  })
+);
 
 export function journalLineItemTaxRateFromJSON(
   jsonString: string,
@@ -246,31 +250,33 @@ export function journalLineItemTaxRateFromJSON(
 export const JournalLineItem$inboundSchema: z.ZodMiniType<
   JournalLineItem,
   unknown
-> = z.object({
-  id: types.nullable(types.string()),
-  accountCode: types.nullable(types.string()),
-  accountId: types.nullable(types.string()),
-  accountNumber: types.nullable(types.number()),
-  createdDate: types.nullable(types.string()),
-  currency: types.nullable(JournalLineItemCurrency$inboundSchema),
-  customerId: types.nullable(types.string()),
-  debitCreditIndicator: types.nullable(
-    JournalLineItemDebitCreditIndicator$inboundSchema,
-  ),
-  description: types.nullable(types.string()),
-  dimensions: types.nullable(z.array(Dimension$inboundSchema)),
-  discountAmount: z.optional(z.nullable(types.number())),
-  documentId: types.nullable(types.string()),
-  documentNumber: types.nullable(types.string()),
-  exchangeRate: types.nullable(types.number()),
-  supplierId: types.nullable(types.string()),
-  taxRate: types.nullable(z.lazy(() => JournalLineItemTaxRate$inboundSchema)),
-  thirdPartyCode: types.nullable(types.string()),
-  totalGrossAmount: types.nullable(types.number()),
-  totalNetAmount: types.nullable(types.number()),
-  totalTaxAmount: types.nullable(types.number()),
-  updatedDate: types.nullable(types.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: types.nullable(types.string()),
+    accountCode: types.nullable(types.string()),
+    accountId: types.nullable(types.string()),
+    accountNumber: types.nullable(types.number()),
+    createdDate: types.nullable(types.string()),
+    currency: types.nullable(JournalLineItemCurrency$inboundSchema),
+    customerId: types.nullable(types.string()),
+    debitCreditIndicator: types.nullable(
+      JournalLineItemDebitCreditIndicator$inboundSchema,
+    ),
+    description: types.nullable(types.string()),
+    dimensions: types.nullable(z.array(Dimension$inboundSchema)),
+    discountAmount: z.optional(z.nullable(types.number())),
+    documentId: types.nullable(types.string()),
+    documentNumber: types.nullable(types.string()),
+    exchangeRate: types.nullable(types.number()),
+    supplierId: types.nullable(types.string()),
+    taxRate: types.nullable(z.lazy(() => JournalLineItemTaxRate$inboundSchema)),
+    thirdPartyCode: types.nullable(types.string()),
+    totalGrossAmount: types.nullable(types.number()),
+    totalNetAmount: types.nullable(types.number()),
+    totalTaxAmount: types.nullable(types.number()),
+    updatedDate: types.nullable(types.string()),
+  })
+);
 
 export function journalLineItemFromJSON(
   jsonString: string,

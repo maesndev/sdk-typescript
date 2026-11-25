@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import {
   CreateAddress,
@@ -90,19 +91,22 @@ export type CreateCreditNoteRequestDto = {
 
 /** @internal */
 export const CreateCreditNoteRequestDtoPaymentStatus$outboundSchema:
-  z.ZodMiniEnum<typeof CreateCreditNoteRequestDtoPaymentStatus> = z.enum(
-    CreateCreditNoteRequestDtoPaymentStatus,
-  );
+  z.ZodMiniEnum<typeof CreateCreditNoteRequestDtoPaymentStatus> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.enum(CreateCreditNoteRequestDtoPaymentStatus)
+    );
 
 /** @internal */
 export const CreateCreditNoteRequestDtoStatus$outboundSchema: z.ZodMiniEnum<
   typeof CreateCreditNoteRequestDtoStatus
-> = z.enum(CreateCreditNoteRequestDtoStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(CreateCreditNoteRequestDtoStatus));
 
 /** @internal */
 export const CreateCreditNoteRequestDtoTaxRule$outboundSchema: z.ZodMiniEnum<
   typeof CreateCreditNoteRequestDtoTaxRule
-> = z.enum(CreateCreditNoteRequestDtoTaxRule);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.enum(CreateCreditNoteRequestDtoTaxRule)
+);
 
 /** @internal */
 export type CreateCreditNoteRequestDto$Outbound = {
@@ -128,26 +132,28 @@ export type CreateCreditNoteRequestDto$Outbound = {
 export const CreateCreditNoteRequestDto$outboundSchema: z.ZodMiniType<
   CreateCreditNoteRequestDto$Outbound,
   CreateCreditNoteRequestDto
-> = z.object({
-  addresses: z.optional(z.array(CreateAddress$outboundSchema)),
-  contactId: z.optional(z.string()),
-  creditNoteDate: z.string(),
-  creditNoteLines: z.array(CreateCreditNoteLineItemRequestDto$outboundSchema),
-  creditNoteNumber: z.optional(z.string()),
-  currency: z.optional(z.string()),
-  paymentStatus: z.optional(
-    CreateCreditNoteRequestDtoPaymentStatus$outboundSchema,
-  ),
-  paymentTermId: z.optional(z.string()),
-  reference: z.optional(z.string()),
-  status: z.optional(CreateCreditNoteRequestDtoStatus$outboundSchema),
-  taxRule: z.optional(CreateCreditNoteRequestDtoTaxRule$outboundSchema),
-  totalDiscountAmount: z.optional(z.number()),
-  totalDiscountPercentage: z.optional(z.number()),
-  totalGrossAmount: z.optional(z.number()),
-  totalNetAmount: z.optional(z.number()),
-  totalTaxAmount: z.optional(z.number()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    addresses: z.optional(z.array(CreateAddress$outboundSchema)),
+    contactId: z.optional(z.string()),
+    creditNoteDate: z.string(),
+    creditNoteLines: z.array(CreateCreditNoteLineItemRequestDto$outboundSchema),
+    creditNoteNumber: z.optional(z.string()),
+    currency: z.optional(z.string()),
+    paymentStatus: z.optional(
+      CreateCreditNoteRequestDtoPaymentStatus$outboundSchema,
+    ),
+    paymentTermId: z.optional(z.string()),
+    reference: z.optional(z.string()),
+    status: z.optional(CreateCreditNoteRequestDtoStatus$outboundSchema),
+    taxRule: z.optional(CreateCreditNoteRequestDtoTaxRule$outboundSchema),
+    totalDiscountAmount: z.optional(z.number()),
+    totalDiscountPercentage: z.optional(z.number()),
+    totalGrossAmount: z.optional(z.number()),
+    totalNetAmount: z.optional(z.number()),
+    totalTaxAmount: z.optional(z.number()),
+  })
+);
 
 export function createCreditNoteRequestDtoToJSON(
   createCreditNoteRequestDto: CreateCreditNoteRequestDto,

@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 
@@ -50,13 +50,15 @@ export type DeleteWebhookEndUserRequest$Outbound = {
 export const DeleteWebhookEndUserRequest$outboundSchema: z.ZodMiniType<
   DeleteWebhookEndUserRequest$Outbound,
   DeleteWebhookEndUserRequest
-> = z.object({
-  webhookId: z.string(),
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    webhookId: z.string(),
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function deleteWebhookEndUserRequestToJSON(
   deleteWebhookEndUserRequest: DeleteWebhookEndUserRequest,
@@ -72,7 +74,7 @@ export function deleteWebhookEndUserRequestToJSON(
 export const DeleteWebhookEndUserResponse$inboundSchema: z.ZodMiniType<
   DeleteWebhookEndUserResponse,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function deleteWebhookEndUserResponseFromJSON(
   jsonString: string,

@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -64,11 +64,13 @@ export type CreateCreditNoteRequest$Outbound = {
 export const CreateCreditNoteRequest$outboundSchema: z.ZodMiniType<
   CreateCreditNoteRequest$Outbound,
   CreateCreditNoteRequest
-> = z.object({
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-  body: models.CreateCreditNoteRequestDto$outboundSchema,
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+    body: models.CreateCreditNoteRequestDto$outboundSchema,
+  })
+);
 
 export function createCreditNoteRequestToJSON(
   createCreditNoteRequest: CreateCreditNoteRequest,
@@ -82,12 +84,14 @@ export function createCreditNoteRequestToJSON(
 export const CreateCreditNotePagination$inboundSchema: z.ZodMiniType<
   CreateCreditNotePagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function createCreditNotePaginationFromJSON(
   jsonString: string,
@@ -103,15 +107,17 @@ export function createCreditNotePaginationFromJSON(
 export const CreateCreditNoteMeta$inboundSchema: z.ZodMiniType<
   CreateCreditNoteMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => CreateCreditNotePagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => CreateCreditNotePagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function createCreditNoteMetaFromJSON(
   jsonString: string,
@@ -127,7 +133,7 @@ export function createCreditNoteMetaFromJSON(
 export const CreateCreditNoteErrors$inboundSchema: z.ZodMiniType<
   CreateCreditNoteErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createCreditNoteErrorsFromJSON(
   jsonString: string,
@@ -143,7 +149,7 @@ export function createCreditNoteErrorsFromJSON(
 export const CreateCreditNoteRawData$inboundSchema: z.ZodMiniType<
   CreateCreditNoteRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createCreditNoteRawDataFromJSON(
   jsonString: string,
@@ -159,14 +165,18 @@ export function createCreditNoteRawDataFromJSON(
 export const CreateCreditNoteResponse$inboundSchema: z.ZodMiniType<
   CreateCreditNoteResponse,
   unknown
-> = z.object({
-  meta: z.optional(
-    z.nullable(z.lazy(() => CreateCreditNoteMeta$inboundSchema)),
-  ),
-  data: models.CreditNoteResponseDto$inboundSchema,
-  errors: types.nullable(z.lazy(() => CreateCreditNoteErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => CreateCreditNoteRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => CreateCreditNoteMeta$inboundSchema)),
+    ),
+    data: models.CreditNoteResponseDto$inboundSchema,
+    errors: types.nullable(z.lazy(() => CreateCreditNoteErrors$inboundSchema)),
+    rawData: types.nullable(
+      z.lazy(() => CreateCreditNoteRawData$inboundSchema),
+    ),
+  })
+);
 
 export function createCreditNoteResponseFromJSON(
   jsonString: string,

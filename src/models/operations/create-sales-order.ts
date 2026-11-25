@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -74,13 +74,15 @@ export type CreateSalesOrderRequest$Outbound = {
 export const CreateSalesOrderRequest$outboundSchema: z.ZodMiniType<
   CreateSalesOrderRequest$Outbound,
   CreateSalesOrderRequest
-> = z.object({
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-  body: models.CreateSalesOrderRequestDto$outboundSchema,
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+    body: models.CreateSalesOrderRequestDto$outboundSchema,
+  })
+);
 
 export function createSalesOrderRequestToJSON(
   createSalesOrderRequest: CreateSalesOrderRequest,
@@ -94,12 +96,14 @@ export function createSalesOrderRequestToJSON(
 export const CreateSalesOrderPagination$inboundSchema: z.ZodMiniType<
   CreateSalesOrderPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function createSalesOrderPaginationFromJSON(
   jsonString: string,
@@ -115,15 +119,17 @@ export function createSalesOrderPaginationFromJSON(
 export const CreateSalesOrderMeta$inboundSchema: z.ZodMiniType<
   CreateSalesOrderMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => CreateSalesOrderPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => CreateSalesOrderPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function createSalesOrderMetaFromJSON(
   jsonString: string,
@@ -139,7 +145,7 @@ export function createSalesOrderMetaFromJSON(
 export const CreateSalesOrderErrors$inboundSchema: z.ZodMiniType<
   CreateSalesOrderErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createSalesOrderErrorsFromJSON(
   jsonString: string,
@@ -155,7 +161,7 @@ export function createSalesOrderErrorsFromJSON(
 export const CreateSalesOrderRawData$inboundSchema: z.ZodMiniType<
   CreateSalesOrderRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createSalesOrderRawDataFromJSON(
   jsonString: string,
@@ -171,14 +177,18 @@ export function createSalesOrderRawDataFromJSON(
 export const CreateSalesOrderResponse$inboundSchema: z.ZodMiniType<
   CreateSalesOrderResponse,
   unknown
-> = z.object({
-  meta: z.optional(
-    z.nullable(z.lazy(() => CreateSalesOrderMeta$inboundSchema)),
-  ),
-  data: models.SalesOrderResponseDto$inboundSchema,
-  errors: types.nullable(z.lazy(() => CreateSalesOrderErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => CreateSalesOrderRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => CreateSalesOrderMeta$inboundSchema)),
+    ),
+    data: models.SalesOrderResponseDto$inboundSchema,
+    errors: types.nullable(z.lazy(() => CreateSalesOrderErrors$inboundSchema)),
+    rawData: types.nullable(
+      z.lazy(() => CreateSalesOrderRawData$inboundSchema),
+    ),
+  })
+);
 
 export function createSalesOrderResponseFromJSON(
   jsonString: string,

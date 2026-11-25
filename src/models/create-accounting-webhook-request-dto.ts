@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 
 export type CreateAccountingWebhookRequestDto = {
   callbackUrl: string;
@@ -23,12 +24,14 @@ export type CreateAccountingWebhookRequestDto$Outbound = {
 export const CreateAccountingWebhookRequestDto$outboundSchema: z.ZodMiniType<
   CreateAccountingWebhookRequestDto$Outbound,
   CreateAccountingWebhookRequestDto
-> = z.object({
-  callbackUrl: z.string(),
-  eventType: z.optional(z.string()),
-  resource: z.optional(z.string()),
-  targetSystem: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    callbackUrl: z.string(),
+    eventType: z.optional(z.string()),
+    resource: z.optional(z.string()),
+    targetSystem: z.optional(z.string()),
+  })
+);
 
 export function createAccountingWebhookRequestDtoToJSON(
   createAccountingWebhookRequestDto: CreateAccountingWebhookRequestDto,

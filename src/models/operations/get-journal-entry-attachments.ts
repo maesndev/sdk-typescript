@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -74,13 +74,15 @@ export type GetJournalEntryAttachmentsRequest$Outbound = {
 export const GetJournalEntryAttachmentsRequest$outboundSchema: z.ZodMiniType<
   GetJournalEntryAttachmentsRequest$Outbound,
   GetJournalEntryAttachmentsRequest
-> = z.object({
-  journalEntryId: z.string(),
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    journalEntryId: z.string(),
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getJournalEntryAttachmentsRequestToJSON(
   getJournalEntryAttachmentsRequest: GetJournalEntryAttachmentsRequest,
@@ -96,12 +98,14 @@ export function getJournalEntryAttachmentsRequestToJSON(
 export const GetJournalEntryAttachmentsPagination$inboundSchema: z.ZodMiniType<
   GetJournalEntryAttachmentsPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getJournalEntryAttachmentsPaginationFromJSON(
   jsonString: string,
@@ -118,17 +122,17 @@ export function getJournalEntryAttachmentsPaginationFromJSON(
 export const GetJournalEntryAttachmentsMeta$inboundSchema: z.ZodMiniType<
   GetJournalEntryAttachmentsMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(
-      z.lazy(() => GetJournalEntryAttachmentsPagination$inboundSchema),
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(z.nullable(z.lazy(() =>
+      GetJournalEntryAttachmentsPagination$inboundSchema
+    ))),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
     ),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+  })
+);
 
 export function getJournalEntryAttachmentsMetaFromJSON(
   jsonString: string,
@@ -144,7 +148,7 @@ export function getJournalEntryAttachmentsMetaFromJSON(
 export const GetJournalEntryAttachmentsErrors$inboundSchema: z.ZodMiniType<
   GetJournalEntryAttachmentsErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getJournalEntryAttachmentsErrorsFromJSON(
   jsonString: string,
@@ -160,7 +164,7 @@ export function getJournalEntryAttachmentsErrorsFromJSON(
 export const GetJournalEntryAttachmentsRawData$inboundSchema: z.ZodMiniType<
   GetJournalEntryAttachmentsRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getJournalEntryAttachmentsRawDataFromJSON(
   jsonString: string,
@@ -176,18 +180,20 @@ export function getJournalEntryAttachmentsRawDataFromJSON(
 export const GetJournalEntryAttachmentsResponse$inboundSchema: z.ZodMiniType<
   GetJournalEntryAttachmentsResponse,
   unknown
-> = z.object({
-  meta: z.optional(
-    z.nullable(z.lazy(() => GetJournalEntryAttachmentsMeta$inboundSchema)),
-  ),
-  data: z.array(models.JournalEntryResponseDto$inboundSchema),
-  errors: types.nullable(
-    z.lazy(() => GetJournalEntryAttachmentsErrors$inboundSchema),
-  ),
-  rawData: types.nullable(
-    z.lazy(() => GetJournalEntryAttachmentsRawData$inboundSchema),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => GetJournalEntryAttachmentsMeta$inboundSchema)),
+    ),
+    data: z.array(models.JournalEntryResponseDto$inboundSchema),
+    errors: types.nullable(
+      z.lazy(() => GetJournalEntryAttachmentsErrors$inboundSchema),
+    ),
+    rawData: types.nullable(
+      z.lazy(() => GetJournalEntryAttachmentsRawData$inboundSchema),
+    ),
+  })
+);
 
 export function getJournalEntryAttachmentsResponseFromJSON(
   jsonString: string,

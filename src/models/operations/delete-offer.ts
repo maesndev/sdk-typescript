@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -78,13 +78,15 @@ export type DeleteOfferRequest$Outbound = {
 export const DeleteOfferRequest$outboundSchema: z.ZodMiniType<
   DeleteOfferRequest$Outbound,
   DeleteOfferRequest
-> = z.object({
-  offerId: z.string(),
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    offerId: z.string(),
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function deleteOfferRequestToJSON(
   deleteOfferRequest: DeleteOfferRequest,
@@ -98,12 +100,14 @@ export function deleteOfferRequestToJSON(
 export const DeleteOfferPagination$inboundSchema: z.ZodMiniType<
   DeleteOfferPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function deleteOfferPaginationFromJSON(
   jsonString: string,
@@ -119,15 +123,17 @@ export function deleteOfferPaginationFromJSON(
 export const DeleteOfferMeta$inboundSchema: z.ZodMiniType<
   DeleteOfferMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => DeleteOfferPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => DeleteOfferPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function deleteOfferMetaFromJSON(
   jsonString: string,
@@ -143,9 +149,11 @@ export function deleteOfferMetaFromJSON(
 export const DeleteOfferData$inboundSchema: z.ZodMiniType<
   DeleteOfferData,
   unknown
-> = z.object({
-  id: types.optional(types.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: types.optional(types.string()),
+  })
+);
 
 export function deleteOfferDataFromJSON(
   jsonString: string,
@@ -161,7 +169,7 @@ export function deleteOfferDataFromJSON(
 export const DeleteOfferErrors$inboundSchema: z.ZodMiniType<
   DeleteOfferErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function deleteOfferErrorsFromJSON(
   jsonString: string,
@@ -177,7 +185,7 @@ export function deleteOfferErrorsFromJSON(
 export const DeleteOfferRawData$inboundSchema: z.ZodMiniType<
   DeleteOfferRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function deleteOfferRawDataFromJSON(
   jsonString: string,
@@ -193,12 +201,14 @@ export function deleteOfferRawDataFromJSON(
 export const DeleteOfferResponse$inboundSchema: z.ZodMiniType<
   DeleteOfferResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => DeleteOfferMeta$inboundSchema))),
-  data: z.lazy(() => DeleteOfferData$inboundSchema),
-  errors: types.nullable(z.lazy(() => DeleteOfferErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => DeleteOfferRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(z.nullable(z.lazy(() => DeleteOfferMeta$inboundSchema))),
+    data: z.lazy(() => DeleteOfferData$inboundSchema),
+    errors: types.nullable(z.lazy(() => DeleteOfferErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => DeleteOfferRawData$inboundSchema)),
+  })
+);
 
 export function deleteOfferResponseFromJSON(
   jsonString: string,

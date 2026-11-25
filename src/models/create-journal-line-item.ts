@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import {
   DimensionInput,
@@ -210,13 +211,14 @@ export type CreateJournalLineItem = {
 /** @internal */
 export const CreateJournalLineItemCurrency$outboundSchema: z.ZodMiniEnum<
   typeof CreateJournalLineItemCurrency
-> = z.enum(CreateJournalLineItemCurrency);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(CreateJournalLineItemCurrency));
 
 /** @internal */
 export const CreateJournalLineItemDebitCreditIndicator$outboundSchema:
-  z.ZodMiniEnum<typeof CreateJournalLineItemDebitCreditIndicator> = z.enum(
-    CreateJournalLineItemDebitCreditIndicator,
-  );
+  z.ZodMiniEnum<typeof CreateJournalLineItemDebitCreditIndicator> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.enum(CreateJournalLineItemDebitCreditIndicator)
+    );
 
 /** @internal */
 export type CreateJournalLineItem$Outbound = {
@@ -245,29 +247,31 @@ export type CreateJournalLineItem$Outbound = {
 export const CreateJournalLineItem$outboundSchema: z.ZodMiniType<
   CreateJournalLineItem$Outbound,
   CreateJournalLineItem
-> = z.object({
-  id: z.optional(z.string()),
-  accountCode: z.optional(z.string()),
-  accountId: z.optional(z.string()),
-  accountNumber: z.optional(z.string()),
-  currency: z.optional(CreateJournalLineItemCurrency$outboundSchema),
-  customerId: z.optional(z.string()),
-  debitCreditIndicator: z.optional(
-    CreateJournalLineItemDebitCreditIndicator$outboundSchema,
-  ),
-  description: z.optional(z.string()),
-  dimensions: z.optional(z.array(DimensionInput$outboundSchema)),
-  discountAmount: z.optional(z.number()),
-  documentId: z.optional(z.string()),
-  documentNumber: z.optional(z.string()),
-  exchangeRate: z.optional(z.string()),
-  supplierId: z.optional(z.string()),
-  taxRate: z.optional(TaxRateInput$outboundSchema),
-  thirdPartyCode: z.optional(z.string()),
-  totalGrossAmount: z.optional(z.number()),
-  totalNetAmount: z.optional(z.number()),
-  totalTaxAmount: z.optional(z.number()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.optional(z.string()),
+    accountCode: z.optional(z.string()),
+    accountId: z.optional(z.string()),
+    accountNumber: z.optional(z.string()),
+    currency: z.optional(CreateJournalLineItemCurrency$outboundSchema),
+    customerId: z.optional(z.string()),
+    debitCreditIndicator: z.optional(
+      CreateJournalLineItemDebitCreditIndicator$outboundSchema,
+    ),
+    description: z.optional(z.string()),
+    dimensions: z.optional(z.array(DimensionInput$outboundSchema)),
+    discountAmount: z.optional(z.number()),
+    documentId: z.optional(z.string()),
+    documentNumber: z.optional(z.string()),
+    exchangeRate: z.optional(z.string()),
+    supplierId: z.optional(z.string()),
+    taxRate: z.optional(TaxRateInput$outboundSchema),
+    thirdPartyCode: z.optional(z.string()),
+    totalGrossAmount: z.optional(z.number()),
+    totalNetAmount: z.optional(z.number()),
+    totalTaxAmount: z.optional(z.number()),
+  })
+);
 
 export function createJournalLineItemToJSON(
   createJournalLineItem: CreateJournalLineItem,

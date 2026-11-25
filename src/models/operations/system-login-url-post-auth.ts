@@ -4,6 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { lazySchema as lazySchema$ } from "../../lib/schemas.js";
 import * as models from "../index.js";
 
 export type SystemLoginUrlPostAuthGlobals = {
@@ -36,18 +37,20 @@ export type SystemLoginUrlPostAuthRequest$Outbound = {
 export const SystemLoginUrlPostAuthRequest$outboundSchema: z.ZodMiniType<
   SystemLoginUrlPostAuthRequest$Outbound,
   SystemLoginUrlPostAuthRequest
-> = z.pipe(
-  z.object({
-    targetSystem: z.string(),
-    apiKey: z.optional(z.string()),
-    accountKey: z.optional(z.string()),
-    body: models.CreateAuthWebhookRequestDto$outboundSchema,
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      targetSystem: "TARGET_SYSTEM",
-    });
-  }),
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.pipe(
+    z.object({
+      targetSystem: z.string(),
+      apiKey: z.optional(z.string()),
+      accountKey: z.optional(z.string()),
+      body: models.CreateAuthWebhookRequestDto$outboundSchema,
+    }),
+    z.transform((v) => {
+      return remap$(v, {
+        targetSystem: "TARGET_SYSTEM",
+      });
+    }),
+  )
 );
 
 export function systemLoginUrlPostAuthRequestToJSON(

@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
@@ -86,7 +86,7 @@ export type GetSalesOrderLinesResponse = {
 /** @internal */
 export const GetSalesOrderLinesLimit$outboundSchema: z.ZodMiniEnum<
   typeof GetSalesOrderLinesLimit
-> = z.enum(GetSalesOrderLinesLimit);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(GetSalesOrderLinesLimit));
 
 /** @internal */
 export type GetSalesOrderLinesRequest$Outbound = {
@@ -105,17 +105,19 @@ export type GetSalesOrderLinesRequest$Outbound = {
 export const GetSalesOrderLinesRequest$outboundSchema: z.ZodMiniType<
   GetSalesOrderLinesRequest$Outbound,
   GetSalesOrderLinesRequest
-> = z.object({
-  salesOrderId: z.string(),
-  page: z.optional(z.number()),
-  limit: z.optional(GetSalesOrderLinesLimit$outboundSchema),
-  lastModifiedAt: z.optional(z.string()),
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  rawData: z.optional(z.boolean()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    salesOrderId: z.string(),
+    page: z.optional(z.number()),
+    limit: z.optional(GetSalesOrderLinesLimit$outboundSchema),
+    lastModifiedAt: z.optional(z.string()),
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    rawData: z.optional(z.boolean()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getSalesOrderLinesRequestToJSON(
   getSalesOrderLinesRequest: GetSalesOrderLinesRequest,
@@ -129,12 +131,14 @@ export function getSalesOrderLinesRequestToJSON(
 export const GetSalesOrderLinesPagination$inboundSchema: z.ZodMiniType<
   GetSalesOrderLinesPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getSalesOrderLinesPaginationFromJSON(
   jsonString: string,
@@ -150,15 +154,17 @@ export function getSalesOrderLinesPaginationFromJSON(
 export const GetSalesOrderLinesMeta$inboundSchema: z.ZodMiniType<
   GetSalesOrderLinesMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => GetSalesOrderLinesPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => GetSalesOrderLinesPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function getSalesOrderLinesMetaFromJSON(
   jsonString: string,
@@ -174,7 +180,7 @@ export function getSalesOrderLinesMetaFromJSON(
 export const GetSalesOrderLinesErrors$inboundSchema: z.ZodMiniType<
   GetSalesOrderLinesErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getSalesOrderLinesErrorsFromJSON(
   jsonString: string,
@@ -190,7 +196,7 @@ export function getSalesOrderLinesErrorsFromJSON(
 export const GetSalesOrderLinesRawData$inboundSchema: z.ZodMiniType<
   GetSalesOrderLinesRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getSalesOrderLinesRawDataFromJSON(
   jsonString: string,
@@ -206,16 +212,20 @@ export function getSalesOrderLinesRawDataFromJSON(
 export const GetSalesOrderLinesResponse$inboundSchema: z.ZodMiniType<
   GetSalesOrderLinesResponse,
   unknown
-> = z.object({
-  meta: z.optional(
-    z.nullable(z.lazy(() => GetSalesOrderLinesMeta$inboundSchema)),
-  ),
-  data: z.array(models.SalesOrderLineItemResponseDto$inboundSchema),
-  errors: types.nullable(z.lazy(() => GetSalesOrderLinesErrors$inboundSchema)),
-  rawData: types.nullable(
-    z.lazy(() => GetSalesOrderLinesRawData$inboundSchema),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => GetSalesOrderLinesMeta$inboundSchema)),
+    ),
+    data: z.array(models.SalesOrderLineItemResponseDto$inboundSchema),
+    errors: types.nullable(
+      z.lazy(() => GetSalesOrderLinesErrors$inboundSchema),
+    ),
+    rawData: types.nullable(
+      z.lazy(() => GetSalesOrderLinesRawData$inboundSchema),
+    ),
+  })
+);
 
 export function getSalesOrderLinesResponseFromJSON(
   jsonString: string,

@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -76,14 +76,16 @@ export type UpdateBillRequest$Outbound = {
 export const UpdateBillRequest$outboundSchema: z.ZodMiniType<
   UpdateBillRequest$Outbound,
   UpdateBillRequest
-> = z.object({
-  billId: z.string(),
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-  body: models.CreateBillRequestDto$outboundSchema,
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    billId: z.string(),
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+    body: models.CreateBillRequestDto$outboundSchema,
+  })
+);
 
 export function updateBillRequestToJSON(
   updateBillRequest: UpdateBillRequest,
@@ -97,12 +99,14 @@ export function updateBillRequestToJSON(
 export const UpdateBillPagination$inboundSchema: z.ZodMiniType<
   UpdateBillPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function updateBillPaginationFromJSON(
   jsonString: string,
@@ -118,15 +122,17 @@ export function updateBillPaginationFromJSON(
 export const UpdateBillMeta$inboundSchema: z.ZodMiniType<
   UpdateBillMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => UpdateBillPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => UpdateBillPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function updateBillMetaFromJSON(
   jsonString: string,
@@ -142,7 +148,7 @@ export function updateBillMetaFromJSON(
 export const UpdateBillErrors$inboundSchema: z.ZodMiniType<
   UpdateBillErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function updateBillErrorsFromJSON(
   jsonString: string,
@@ -158,7 +164,7 @@ export function updateBillErrorsFromJSON(
 export const UpdateBillRawData$inboundSchema: z.ZodMiniType<
   UpdateBillRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function updateBillRawDataFromJSON(
   jsonString: string,
@@ -174,12 +180,14 @@ export function updateBillRawDataFromJSON(
 export const UpdateBillResponse$inboundSchema: z.ZodMiniType<
   UpdateBillResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => UpdateBillMeta$inboundSchema))),
-  data: models.BillResponseDto$inboundSchema,
-  errors: types.nullable(z.lazy(() => UpdateBillErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => UpdateBillRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(z.nullable(z.lazy(() => UpdateBillMeta$inboundSchema))),
+    data: models.BillResponseDto$inboundSchema,
+    errors: types.nullable(z.lazy(() => UpdateBillErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => UpdateBillRawData$inboundSchema)),
+  })
+);
 
 export function updateBillResponseFromJSON(
   jsonString: string,

@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -79,14 +79,16 @@ export type GetItemRequest$Outbound = {
 export const GetItemRequest$outboundSchema: z.ZodMiniType<
   GetItemRequest$Outbound,
   GetItemRequest
-> = z.object({
-  itemId: z.string(),
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  rawData: z.optional(z.boolean()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    itemId: z.string(),
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    rawData: z.optional(z.boolean()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getItemRequestToJSON(getItemRequest: GetItemRequest): string {
   return JSON.stringify(GetItemRequest$outboundSchema.parse(getItemRequest));
@@ -96,12 +98,14 @@ export function getItemRequestToJSON(getItemRequest: GetItemRequest): string {
 export const GetItemPagination$inboundSchema: z.ZodMiniType<
   GetItemPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getItemPaginationFromJSON(
   jsonString: string,
@@ -114,16 +118,18 @@ export function getItemPaginationFromJSON(
 }
 
 /** @internal */
-export const GetItemMeta$inboundSchema: z.ZodMiniType<GetItemMeta, unknown> = z
-  .object({
-    warnings: z.optional(z.nullable(z.array(types.string()))),
-    pagination: z.optional(
-      z.nullable(z.lazy(() => GetItemPagination$inboundSchema)),
-    ),
-    partialErrors: z.optional(
-      z.nullable(z.array(models.PartialError$inboundSchema)),
-    ),
-  });
+export const GetItemMeta$inboundSchema: z.ZodMiniType<GetItemMeta, unknown> =
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      warnings: z.optional(z.nullable(z.array(types.string()))),
+      pagination: z.optional(
+        z.nullable(z.lazy(() => GetItemPagination$inboundSchema)),
+      ),
+      partialErrors: z.optional(
+        z.nullable(z.array(models.PartialError$inboundSchema)),
+      ),
+    })
+  );
 
 export function getItemMetaFromJSON(
   jsonString: string,
@@ -139,7 +145,7 @@ export function getItemMetaFromJSON(
 export const GetItemErrors$inboundSchema: z.ZodMiniType<
   GetItemErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getItemErrorsFromJSON(
   jsonString: string,
@@ -155,7 +161,7 @@ export function getItemErrorsFromJSON(
 export const GetItemRawData$inboundSchema: z.ZodMiniType<
   GetItemRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getItemRawDataFromJSON(
   jsonString: string,
@@ -171,12 +177,14 @@ export function getItemRawDataFromJSON(
 export const GetItemResponse$inboundSchema: z.ZodMiniType<
   GetItemResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => GetItemMeta$inboundSchema))),
-  data: z.array(models.ItemResponseDto$inboundSchema),
-  errors: types.nullable(z.lazy(() => GetItemErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => GetItemRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(z.nullable(z.lazy(() => GetItemMeta$inboundSchema))),
+    data: z.array(models.ItemResponseDto$inboundSchema),
+    errors: types.nullable(z.lazy(() => GetItemErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => GetItemRawData$inboundSchema)),
+  })
+);
 
 export function getItemResponseFromJSON(
   jsonString: string,

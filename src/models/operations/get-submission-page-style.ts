@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 
@@ -43,11 +43,13 @@ export type GetSubmissionPageStyleRequest$Outbound = {
 export const GetSubmissionPageStyleRequest$outboundSchema: z.ZodMiniType<
   GetSubmissionPageStyleRequest$Outbound,
   GetSubmissionPageStyleRequest
-> = z.object({
-  code: z.string(),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    code: z.string(),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getSubmissionPageStyleRequestToJSON(
   getSubmissionPageStyleRequest: GetSubmissionPageStyleRequest,
@@ -63,7 +65,7 @@ export function getSubmissionPageStyleRequestToJSON(
 export const GetSubmissionPageStyleResponse$inboundSchema: z.ZodMiniType<
   GetSubmissionPageStyleResponse,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getSubmissionPageStyleResponseFromJSON(
   jsonString: string,

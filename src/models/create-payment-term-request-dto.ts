@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import {
   DiscountPeriodRequest,
@@ -35,7 +36,9 @@ export type CreatePaymentTermRequestDto = {
 /** @internal */
 export const CreatePaymentTermRequestDtoDueType$outboundSchema: z.ZodMiniEnum<
   typeof CreatePaymentTermRequestDtoDueType
-> = z.enum(CreatePaymentTermRequestDtoDueType);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.enum(CreatePaymentTermRequestDtoDueType)
+);
 
 /** @internal */
 export type CreatePaymentTermRequestDto$Outbound = {
@@ -56,19 +59,21 @@ export type CreatePaymentTermRequestDto$Outbound = {
 export const CreatePaymentTermRequestDto$outboundSchema: z.ZodMiniType<
   CreatePaymentTermRequestDto$Outbound,
   CreatePaymentTermRequestDto
-> = z.object({
-  code: z.optional(z.string()),
-  description: z.optional(z.string()),
-  discountDays: z.optional(z.number()),
-  discountDays2: z.optional(z.number()),
-  discountPercentage: z.optional(z.number()),
-  discountPercentage2: z.optional(z.number()),
-  discountPeriods: z.optional(z.array(DiscountPeriodRequest$outboundSchema)),
-  dueType: z.optional(CreatePaymentTermRequestDtoDueType$outboundSchema),
-  name: z.optional(z.string()),
-  paymentDays: z.optional(z.number()),
-  paymentMethod: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    code: z.optional(z.string()),
+    description: z.optional(z.string()),
+    discountDays: z.optional(z.number()),
+    discountDays2: z.optional(z.number()),
+    discountPercentage: z.optional(z.number()),
+    discountPercentage2: z.optional(z.number()),
+    discountPeriods: z.optional(z.array(DiscountPeriodRequest$outboundSchema)),
+    dueType: z.optional(CreatePaymentTermRequestDtoDueType$outboundSchema),
+    name: z.optional(z.string()),
+    paymentDays: z.optional(z.number()),
+    paymentMethod: z.optional(z.string()),
+  })
+);
 
 export function createPaymentTermRequestDtoToJSON(
   createPaymentTermRequestDto: CreatePaymentTermRequestDto,

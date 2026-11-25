@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -76,14 +76,16 @@ export type UpdateVendorCreditRequest$Outbound = {
 export const UpdateVendorCreditRequest$outboundSchema: z.ZodMiniType<
   UpdateVendorCreditRequest$Outbound,
   UpdateVendorCreditRequest
-> = z.object({
-  vendorCreditId: z.string(),
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-  body: models.CreateVendorCreditRequestDto$outboundSchema,
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    vendorCreditId: z.string(),
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+    body: models.CreateVendorCreditRequestDto$outboundSchema,
+  })
+);
 
 export function updateVendorCreditRequestToJSON(
   updateVendorCreditRequest: UpdateVendorCreditRequest,
@@ -97,12 +99,14 @@ export function updateVendorCreditRequestToJSON(
 export const UpdateVendorCreditPagination$inboundSchema: z.ZodMiniType<
   UpdateVendorCreditPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function updateVendorCreditPaginationFromJSON(
   jsonString: string,
@@ -118,15 +122,17 @@ export function updateVendorCreditPaginationFromJSON(
 export const UpdateVendorCreditMeta$inboundSchema: z.ZodMiniType<
   UpdateVendorCreditMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => UpdateVendorCreditPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => UpdateVendorCreditPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function updateVendorCreditMetaFromJSON(
   jsonString: string,
@@ -142,7 +148,7 @@ export function updateVendorCreditMetaFromJSON(
 export const UpdateVendorCreditErrors$inboundSchema: z.ZodMiniType<
   UpdateVendorCreditErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function updateVendorCreditErrorsFromJSON(
   jsonString: string,
@@ -158,7 +164,7 @@ export function updateVendorCreditErrorsFromJSON(
 export const UpdateVendorCreditRawData$inboundSchema: z.ZodMiniType<
   UpdateVendorCreditRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function updateVendorCreditRawDataFromJSON(
   jsonString: string,
@@ -174,16 +180,20 @@ export function updateVendorCreditRawDataFromJSON(
 export const UpdateVendorCreditResponse$inboundSchema: z.ZodMiniType<
   UpdateVendorCreditResponse,
   unknown
-> = z.object({
-  meta: z.optional(
-    z.nullable(z.lazy(() => UpdateVendorCreditMeta$inboundSchema)),
-  ),
-  data: models.BillResponseDto$inboundSchema,
-  errors: types.nullable(z.lazy(() => UpdateVendorCreditErrors$inboundSchema)),
-  rawData: types.nullable(
-    z.lazy(() => UpdateVendorCreditRawData$inboundSchema),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => UpdateVendorCreditMeta$inboundSchema)),
+    ),
+    data: models.BillResponseDto$inboundSchema,
+    errors: types.nullable(
+      z.lazy(() => UpdateVendorCreditErrors$inboundSchema),
+    ),
+    rawData: types.nullable(
+      z.lazy(() => UpdateVendorCreditRawData$inboundSchema),
+    ),
+  })
+);
 
 export function updateVendorCreditResponseFromJSON(
   jsonString: string,

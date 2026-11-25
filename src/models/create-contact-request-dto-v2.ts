@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import {
   BankAccountRequestCommonDtoV2,
@@ -61,7 +62,9 @@ export type CreateContactRequestDtoV2 = {
 /** @internal */
 export const CreateContactRequestDtoV2ContactType$outboundSchema: z.ZodMiniEnum<
   typeof CreateContactRequestDtoV2ContactType
-> = z.enum(CreateContactRequestDtoV2ContactType);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.enum(CreateContactRequestDtoV2ContactType)
+);
 
 /** @internal */
 export type CreateContactRequestDtoV2$Outbound = {
@@ -87,26 +90,30 @@ export type CreateContactRequestDtoV2$Outbound = {
 export const CreateContactRequestDtoV2$outboundSchema: z.ZodMiniType<
   CreateContactRequestDtoV2$Outbound,
   CreateContactRequestDtoV2
-> = z.object({
-  id: z.optional(z.string()),
-  addresses: z.optional(z.array(CreateContactAddressV2$outboundSchema)),
-  bankAccounts: z.optional(
-    z.array(BankAccountRequestCommonDtoV2$outboundSchema),
-  ),
-  businessRegistrationNumber: z.optional(z.string()),
-  companyName: z.optional(z.string()),
-  contactPersons: z.optional(z.array(CreateContactPersonDtoV2$outboundSchema)),
-  contactType: CreateContactRequestDtoV2ContactType$outboundSchema,
-  emailAddresses: z.optional(z.array(EmailAddressV2$outboundSchema)),
-  isCustomer: z.optional(z.boolean()),
-  isSupplier: z.optional(z.boolean()),
-  number: z.optional(z.string()),
-  parentId: z.optional(z.string()),
-  phoneNumbers: z.optional(z.array(PhoneNumberV2$outboundSchema)),
-  projectId: z.optional(z.string()),
-  vatId: z.optional(z.string()),
-  website: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.optional(z.string()),
+    addresses: z.optional(z.array(CreateContactAddressV2$outboundSchema)),
+    bankAccounts: z.optional(
+      z.array(BankAccountRequestCommonDtoV2$outboundSchema),
+    ),
+    businessRegistrationNumber: z.optional(z.string()),
+    companyName: z.optional(z.string()),
+    contactPersons: z.optional(
+      z.array(CreateContactPersonDtoV2$outboundSchema),
+    ),
+    contactType: CreateContactRequestDtoV2ContactType$outboundSchema,
+    emailAddresses: z.optional(z.array(EmailAddressV2$outboundSchema)),
+    isCustomer: z.optional(z.boolean()),
+    isSupplier: z.optional(z.boolean()),
+    number: z.optional(z.string()),
+    parentId: z.optional(z.string()),
+    phoneNumbers: z.optional(z.array(PhoneNumberV2$outboundSchema)),
+    projectId: z.optional(z.string()),
+    vatId: z.optional(z.string()),
+    website: z.optional(z.string()),
+  })
+);
 
 export function createContactRequestDtoV2ToJSON(
   createContactRequestDtoV2: CreateContactRequestDtoV2,

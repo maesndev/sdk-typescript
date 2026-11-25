@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import {
   EmailAddressV2,
   EmailAddressV2$Outbound,
@@ -41,16 +42,18 @@ export type CreateContactPersonDtoV2$Outbound = {
 export const CreateContactPersonDtoV2$outboundSchema: z.ZodMiniType<
   CreateContactPersonDtoV2$Outbound,
   CreateContactPersonDtoV2
-> = z.object({
-  id: z.optional(z.string()),
-  birthDate: z.optional(z.string()),
-  emailAddresses: z.optional(z.array(EmailAddressV2$outboundSchema)),
-  firstName: z.optional(z.string()),
-  jobTitle: z.optional(z.string()),
-  lastName: z.optional(z.string()),
-  phoneNumbers: z.optional(z.array(PhoneNumberV2$outboundSchema)),
-  salutation: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.optional(z.string()),
+    birthDate: z.optional(z.string()),
+    emailAddresses: z.optional(z.array(EmailAddressV2$outboundSchema)),
+    firstName: z.optional(z.string()),
+    jobTitle: z.optional(z.string()),
+    lastName: z.optional(z.string()),
+    phoneNumbers: z.optional(z.array(PhoneNumberV2$outboundSchema)),
+    salutation: z.optional(z.string()),
+  })
+);
 
 export function createContactPersonDtoV2ToJSON(
   createContactPersonDtoV2: CreateContactPersonDtoV2,

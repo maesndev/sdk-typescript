@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -64,11 +64,13 @@ export type CreateProjectAsyncRequest$Outbound = {
 export const CreateProjectAsyncRequest$outboundSchema: z.ZodMiniType<
   CreateProjectAsyncRequest$Outbound,
   CreateProjectAsyncRequest
-> = z.object({
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-  body: models.CreateProjectRequestDto$outboundSchema,
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+    body: models.CreateProjectRequestDto$outboundSchema,
+  })
+);
 
 export function createProjectAsyncRequestToJSON(
   createProjectAsyncRequest: CreateProjectAsyncRequest,
@@ -82,12 +84,14 @@ export function createProjectAsyncRequestToJSON(
 export const CreateProjectAsyncPagination$inboundSchema: z.ZodMiniType<
   CreateProjectAsyncPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function createProjectAsyncPaginationFromJSON(
   jsonString: string,
@@ -103,15 +107,17 @@ export function createProjectAsyncPaginationFromJSON(
 export const CreateProjectAsyncMeta$inboundSchema: z.ZodMiniType<
   CreateProjectAsyncMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => CreateProjectAsyncPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => CreateProjectAsyncPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function createProjectAsyncMetaFromJSON(
   jsonString: string,
@@ -127,7 +133,7 @@ export function createProjectAsyncMetaFromJSON(
 export const CreateProjectAsyncErrors$inboundSchema: z.ZodMiniType<
   CreateProjectAsyncErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createProjectAsyncErrorsFromJSON(
   jsonString: string,
@@ -143,7 +149,7 @@ export function createProjectAsyncErrorsFromJSON(
 export const CreateProjectAsyncRawData$inboundSchema: z.ZodMiniType<
   CreateProjectAsyncRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createProjectAsyncRawDataFromJSON(
   jsonString: string,
@@ -159,16 +165,20 @@ export function createProjectAsyncRawDataFromJSON(
 export const CreateProjectAsyncResponse$inboundSchema: z.ZodMiniType<
   CreateProjectAsyncResponse,
   unknown
-> = z.object({
-  meta: z.optional(
-    z.nullable(z.lazy(() => CreateProjectAsyncMeta$inboundSchema)),
-  ),
-  data: models.TaskIdResponseDto$inboundSchema,
-  errors: types.nullable(z.lazy(() => CreateProjectAsyncErrors$inboundSchema)),
-  rawData: types.nullable(
-    z.lazy(() => CreateProjectAsyncRawData$inboundSchema),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => CreateProjectAsyncMeta$inboundSchema)),
+    ),
+    data: models.TaskIdResponseDto$inboundSchema,
+    errors: types.nullable(
+      z.lazy(() => CreateProjectAsyncErrors$inboundSchema),
+    ),
+    rawData: types.nullable(
+      z.lazy(() => CreateProjectAsyncRawData$inboundSchema),
+    ),
+  })
+);
 
 export function createProjectAsyncResponseFromJSON(
   jsonString: string,

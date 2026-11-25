@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../../lib/schemas.js";
 
 export type DeleteRegisteredSystemGlobals = {
   apiKey?: string | undefined;
@@ -32,11 +33,13 @@ export type DeleteRegisteredSystemRequest$Outbound = {
 export const DeleteRegisteredSystemRequest$outboundSchema: z.ZodMiniType<
   DeleteRegisteredSystemRequest$Outbound,
   DeleteRegisteredSystemRequest
-> = z.object({
-  targetSystem: z.string(),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    targetSystem: z.string(),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function deleteRegisteredSystemRequestToJSON(
   deleteRegisteredSystemRequest: DeleteRegisteredSystemRequest,

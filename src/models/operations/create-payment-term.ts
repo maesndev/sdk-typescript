@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -69,12 +69,14 @@ export type CreatePaymentTermRequest$Outbound = {
 export const CreatePaymentTermRequest$outboundSchema: z.ZodMiniType<
   CreatePaymentTermRequest$Outbound,
   CreatePaymentTermRequest
-> = z.object({
-  companyId: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-  body: models.CreatePaymentTermRequestDto$outboundSchema,
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    companyId: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+    body: models.CreatePaymentTermRequestDto$outboundSchema,
+  })
+);
 
 export function createPaymentTermRequestToJSON(
   createPaymentTermRequest: CreatePaymentTermRequest,
@@ -88,12 +90,14 @@ export function createPaymentTermRequestToJSON(
 export const CreatePaymentTermPagination$inboundSchema: z.ZodMiniType<
   CreatePaymentTermPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function createPaymentTermPaginationFromJSON(
   jsonString: string,
@@ -109,15 +113,17 @@ export function createPaymentTermPaginationFromJSON(
 export const CreatePaymentTermMeta$inboundSchema: z.ZodMiniType<
   CreatePaymentTermMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => CreatePaymentTermPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => CreatePaymentTermPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function createPaymentTermMetaFromJSON(
   jsonString: string,
@@ -133,7 +139,7 @@ export function createPaymentTermMetaFromJSON(
 export const CreatePaymentTermErrors$inboundSchema: z.ZodMiniType<
   CreatePaymentTermErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createPaymentTermErrorsFromJSON(
   jsonString: string,
@@ -149,7 +155,7 @@ export function createPaymentTermErrorsFromJSON(
 export const CreatePaymentTermRawData$inboundSchema: z.ZodMiniType<
   CreatePaymentTermRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createPaymentTermRawDataFromJSON(
   jsonString: string,
@@ -165,14 +171,18 @@ export function createPaymentTermRawDataFromJSON(
 export const CreatePaymentTermResponse$inboundSchema: z.ZodMiniType<
   CreatePaymentTermResponse,
   unknown
-> = z.object({
-  meta: z.optional(
-    z.nullable(z.lazy(() => CreatePaymentTermMeta$inboundSchema)),
-  ),
-  data: models.PaymentTermResponseDto$inboundSchema,
-  errors: types.nullable(z.lazy(() => CreatePaymentTermErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => CreatePaymentTermRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => CreatePaymentTermMeta$inboundSchema)),
+    ),
+    data: models.PaymentTermResponseDto$inboundSchema,
+    errors: types.nullable(z.lazy(() => CreatePaymentTermErrors$inboundSchema)),
+    rawData: types.nullable(
+      z.lazy(() => CreatePaymentTermRawData$inboundSchema),
+    ),
+  })
+);
 
 export function createPaymentTermResponseFromJSON(
   jsonString: string,

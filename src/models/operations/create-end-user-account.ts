@@ -4,7 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -52,19 +52,21 @@ export type CreateEndUserAccountRequest$Outbound = {
 export const CreateEndUserAccountRequest$outboundSchema: z.ZodMiniType<
   CreateEndUserAccountRequest$Outbound,
   CreateEndUserAccountRequest
-> = z.pipe(
-  z.object({
-    targetSystem: z.string(),
-    companyId: z.optional(z.string()),
-    apiKey: z.optional(z.string()),
-    accountKey: z.optional(z.string()),
-    body: models.CreateEndUserRequestDto$outboundSchema,
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      targetSystem: "TARGET_SYSTEM",
-    });
-  }),
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.pipe(
+    z.object({
+      targetSystem: z.string(),
+      companyId: z.optional(z.string()),
+      apiKey: z.optional(z.string()),
+      accountKey: z.optional(z.string()),
+      body: models.CreateEndUserRequestDto$outboundSchema,
+    }),
+    z.transform((v) => {
+      return remap$(v, {
+        targetSystem: "TARGET_SYSTEM",
+      });
+    }),
+  )
 );
 
 export function createEndUserAccountRequestToJSON(
@@ -81,9 +83,11 @@ export function createEndUserAccountRequestToJSON(
 export const CreateEndUserAccountResponse$inboundSchema: z.ZodMiniType<
   CreateEndUserAccountResponse,
   unknown
-> = z.object({
-  accountKey: types.optional(types.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    accountKey: types.optional(types.string()),
+  })
+);
 
 export function createEndUserAccountResponseFromJSON(
   jsonString: string,

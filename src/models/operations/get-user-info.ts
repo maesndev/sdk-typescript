@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -59,10 +59,12 @@ export type GetUserInfoRequest$Outbound = {
 export const GetUserInfoRequest$outboundSchema: z.ZodMiniType<
   GetUserInfoRequest$Outbound,
   GetUserInfoRequest
-> = z.object({
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getUserInfoRequestToJSON(
   getUserInfoRequest: GetUserInfoRequest,
@@ -76,12 +78,14 @@ export function getUserInfoRequestToJSON(
 export const GetUserInfoPagination$inboundSchema: z.ZodMiniType<
   GetUserInfoPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getUserInfoPaginationFromJSON(
   jsonString: string,
@@ -97,15 +101,17 @@ export function getUserInfoPaginationFromJSON(
 export const GetUserInfoMeta$inboundSchema: z.ZodMiniType<
   GetUserInfoMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => GetUserInfoPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => GetUserInfoPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function getUserInfoMetaFromJSON(
   jsonString: string,
@@ -121,7 +127,7 @@ export function getUserInfoMetaFromJSON(
 export const GetUserInfoErrors$inboundSchema: z.ZodMiniType<
   GetUserInfoErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getUserInfoErrorsFromJSON(
   jsonString: string,
@@ -137,7 +143,7 @@ export function getUserInfoErrorsFromJSON(
 export const GetUserInfoRawData$inboundSchema: z.ZodMiniType<
   GetUserInfoRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getUserInfoRawDataFromJSON(
   jsonString: string,
@@ -153,12 +159,14 @@ export function getUserInfoRawDataFromJSON(
 export const GetUserInfoResponse$inboundSchema: z.ZodMiniType<
   GetUserInfoResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => GetUserInfoMeta$inboundSchema))),
-  data: models.UserInfoResponseDto$inboundSchema,
-  errors: types.nullable(z.lazy(() => GetUserInfoErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => GetUserInfoRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(z.nullable(z.lazy(() => GetUserInfoMeta$inboundSchema))),
+    data: models.UserInfoResponseDto$inboundSchema,
+    errors: types.nullable(z.lazy(() => GetUserInfoErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => GetUserInfoRawData$inboundSchema)),
+  })
+);
 
 export function getUserInfoResponseFromJSON(
   jsonString: string,

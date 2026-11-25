@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 
 export type CreateAddress = {
   addressLine1?: string | undefined;
@@ -27,14 +28,16 @@ export type CreateAddress$Outbound = {
 export const CreateAddress$outboundSchema: z.ZodMiniType<
   CreateAddress$Outbound,
   CreateAddress
-> = z.object({
-  addressLine1: z.optional(z.string()),
-  addressLine2: z.optional(z.string()),
-  city: z.optional(z.string()),
-  postalCode: z.optional(z.string()),
-  countryCode: z.optional(z.string()),
-  type: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    addressLine1: z.optional(z.string()),
+    addressLine2: z.optional(z.string()),
+    city: z.optional(z.string()),
+    postalCode: z.optional(z.string()),
+    countryCode: z.optional(z.string()),
+    type: z.optional(z.string()),
+  })
+);
 
 export function createAddressToJSON(createAddress: CreateAddress): string {
   return JSON.stringify(CreateAddress$outboundSchema.parse(createAddress));

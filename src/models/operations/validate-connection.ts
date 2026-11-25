@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -62,10 +62,12 @@ export type ValidateConnectionRequest$Outbound = {
 export const ValidateConnectionRequest$outboundSchema: z.ZodMiniType<
   ValidateConnectionRequest$Outbound,
   ValidateConnectionRequest
-> = z.object({
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function validateConnectionRequestToJSON(
   validateConnectionRequest: ValidateConnectionRequest,
@@ -79,12 +81,14 @@ export function validateConnectionRequestToJSON(
 export const ValidateConnectionPagination$inboundSchema: z.ZodMiniType<
   ValidateConnectionPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function validateConnectionPaginationFromJSON(
   jsonString: string,
@@ -100,15 +104,17 @@ export function validateConnectionPaginationFromJSON(
 export const ValidateConnectionMeta$inboundSchema: z.ZodMiniType<
   ValidateConnectionMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => ValidateConnectionPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => ValidateConnectionPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function validateConnectionMetaFromJSON(
   jsonString: string,
@@ -124,7 +130,7 @@ export function validateConnectionMetaFromJSON(
 export const ValidateConnectionErrors$inboundSchema: z.ZodMiniType<
   ValidateConnectionErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function validateConnectionErrorsFromJSON(
   jsonString: string,
@@ -140,7 +146,7 @@ export function validateConnectionErrorsFromJSON(
 export const ValidateConnectionRawData$inboundSchema: z.ZodMiniType<
   ValidateConnectionRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function validateConnectionRawDataFromJSON(
   jsonString: string,
@@ -156,16 +162,20 @@ export function validateConnectionRawDataFromJSON(
 export const ValidateConnectionResponse$inboundSchema: z.ZodMiniType<
   ValidateConnectionResponse,
   unknown
-> = z.object({
-  meta: z.optional(
-    z.nullable(z.lazy(() => ValidateConnectionMeta$inboundSchema)),
-  ),
-  data: models.ConnectionValidationResponseDto$inboundSchema,
-  errors: types.nullable(z.lazy(() => ValidateConnectionErrors$inboundSchema)),
-  rawData: types.nullable(
-    z.lazy(() => ValidateConnectionRawData$inboundSchema),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => ValidateConnectionMeta$inboundSchema)),
+    ),
+    data: models.ConnectionValidationResponseDto$inboundSchema,
+    errors: types.nullable(
+      z.lazy(() => ValidateConnectionErrors$inboundSchema),
+    ),
+    rawData: types.nullable(
+      z.lazy(() => ValidateConnectionRawData$inboundSchema),
+    ),
+  })
+);
 
 export function validateConnectionResponseFromJSON(
   jsonString: string,

@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
@@ -39,26 +39,28 @@ export type PaymentResponseDto = {
 /** @internal */
 export const PaymentResponseDtoDocumentType$inboundSchema: z.ZodMiniEnum<
   typeof PaymentResponseDtoDocumentType
-> = z.enum(PaymentResponseDtoDocumentType);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(PaymentResponseDtoDocumentType));
 
 /** @internal */
 export const PaymentResponseDto$inboundSchema: z.ZodMiniType<
   PaymentResponseDto,
   unknown
-> = z.object({
-  id: types.nullable(types.string()),
-  currency: types.nullable(types.string()),
-  createdDate: types.nullable(types.string()),
-  description: types.nullable(types.string()),
-  documentType: types.nullable(PaymentResponseDtoDocumentType$inboundSchema),
-  exchangeRate: types.nullable(types.number()),
-  journalId: types.nullable(types.string()),
-  journalCode: types.nullable(types.string()),
-  updatedDate: types.nullable(types.string()),
-  paymentDate: types.nullable(types.string()),
-  paymentType: types.nullable(types.string()),
-  paymentLines: types.nullable(z.array(PaymentLine$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: types.nullable(types.string()),
+    currency: types.nullable(types.string()),
+    createdDate: types.nullable(types.string()),
+    description: types.nullable(types.string()),
+    documentType: types.nullable(PaymentResponseDtoDocumentType$inboundSchema),
+    exchangeRate: types.nullable(types.number()),
+    journalId: types.nullable(types.string()),
+    journalCode: types.nullable(types.string()),
+    updatedDate: types.nullable(types.string()),
+    paymentDate: types.nullable(types.string()),
+    paymentType: types.nullable(types.string()),
+    paymentLines: types.nullable(z.array(PaymentLine$inboundSchema)),
+  })
+);
 
 export function paymentResponseDtoFromJSON(
   jsonString: string,

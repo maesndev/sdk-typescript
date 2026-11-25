@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import {
@@ -31,16 +31,18 @@ export type ContactPersonDtoV2 = {
 export const ContactPersonDtoV2$inboundSchema: z.ZodMiniType<
   ContactPersonDtoV2,
   unknown
-> = z.object({
-  id: types.nullable(types.string()),
-  birthDate: types.nullable(types.string()),
-  emailAddresses: types.nullable(z.array(EmailAddressV2$inboundSchema)),
-  firstName: types.nullable(types.string()),
-  jobTitle: types.nullable(types.string()),
-  lastName: types.nullable(types.string()),
-  phoneNumbers: types.nullable(z.array(PhoneNumberV2$inboundSchema)),
-  salutation: types.nullable(types.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: types.nullable(types.string()),
+    birthDate: types.nullable(types.string()),
+    emailAddresses: types.nullable(z.array(EmailAddressV2$inboundSchema)),
+    firstName: types.nullable(types.string()),
+    jobTitle: types.nullable(types.string()),
+    lastName: types.nullable(types.string()),
+    phoneNumbers: types.nullable(z.array(PhoneNumberV2$inboundSchema)),
+    salutation: types.nullable(types.string()),
+  })
+);
 
 export function contactPersonDtoV2FromJSON(
   jsonString: string,

@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
@@ -85,7 +85,7 @@ export type GetToleranceLimitsResponse = {
 /** @internal */
 export const GetToleranceLimitsLimit$outboundSchema: z.ZodMiniEnum<
   typeof GetToleranceLimitsLimit
-> = z.enum(GetToleranceLimitsLimit);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(GetToleranceLimitsLimit));
 
 /** @internal */
 export type GetToleranceLimitsRequest$Outbound = {
@@ -103,16 +103,18 @@ export type GetToleranceLimitsRequest$Outbound = {
 export const GetToleranceLimitsRequest$outboundSchema: z.ZodMiniType<
   GetToleranceLimitsRequest$Outbound,
   GetToleranceLimitsRequest
-> = z.object({
-  page: z.optional(z.number()),
-  limit: z.optional(GetToleranceLimitsLimit$outboundSchema),
-  lastModifiedAt: z.optional(z.string()),
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  rawData: z.optional(z.boolean()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    page: z.optional(z.number()),
+    limit: z.optional(GetToleranceLimitsLimit$outboundSchema),
+    lastModifiedAt: z.optional(z.string()),
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    rawData: z.optional(z.boolean()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getToleranceLimitsRequestToJSON(
   getToleranceLimitsRequest: GetToleranceLimitsRequest,
@@ -126,12 +128,14 @@ export function getToleranceLimitsRequestToJSON(
 export const GetToleranceLimitsPagination$inboundSchema: z.ZodMiniType<
   GetToleranceLimitsPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getToleranceLimitsPaginationFromJSON(
   jsonString: string,
@@ -147,15 +151,17 @@ export function getToleranceLimitsPaginationFromJSON(
 export const GetToleranceLimitsMeta$inboundSchema: z.ZodMiniType<
   GetToleranceLimitsMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => GetToleranceLimitsPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => GetToleranceLimitsPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function getToleranceLimitsMetaFromJSON(
   jsonString: string,
@@ -171,7 +177,7 @@ export function getToleranceLimitsMetaFromJSON(
 export const GetToleranceLimitsErrors$inboundSchema: z.ZodMiniType<
   GetToleranceLimitsErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getToleranceLimitsErrorsFromJSON(
   jsonString: string,
@@ -187,7 +193,7 @@ export function getToleranceLimitsErrorsFromJSON(
 export const GetToleranceLimitsRawData$inboundSchema: z.ZodMiniType<
   GetToleranceLimitsRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getToleranceLimitsRawDataFromJSON(
   jsonString: string,
@@ -203,16 +209,20 @@ export function getToleranceLimitsRawDataFromJSON(
 export const GetToleranceLimitsResponse$inboundSchema: z.ZodMiniType<
   GetToleranceLimitsResponse,
   unknown
-> = z.object({
-  meta: z.optional(
-    z.nullable(z.lazy(() => GetToleranceLimitsMeta$inboundSchema)),
-  ),
-  data: z.array(models.ToleranceLimitResponseDto$inboundSchema),
-  errors: types.nullable(z.lazy(() => GetToleranceLimitsErrors$inboundSchema)),
-  rawData: types.nullable(
-    z.lazy(() => GetToleranceLimitsRawData$inboundSchema),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => GetToleranceLimitsMeta$inboundSchema)),
+    ),
+    data: z.array(models.ToleranceLimitResponseDto$inboundSchema),
+    errors: types.nullable(
+      z.lazy(() => GetToleranceLimitsErrors$inboundSchema),
+    ),
+    rawData: types.nullable(
+      z.lazy(() => GetToleranceLimitsRawData$inboundSchema),
+    ),
+  })
+);
 
 export function getToleranceLimitsResponseFromJSON(
   jsonString: string,

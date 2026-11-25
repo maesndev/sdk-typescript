@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
@@ -38,7 +38,7 @@ export type AsyncTaskResponseDto = {
 
 /** @internal */
 export const ResponseData$inboundSchema: z.ZodMiniType<ResponseData, unknown> =
-  z.object({});
+  /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function responseDataFromJSON(
   jsonString: string,
@@ -53,17 +53,19 @@ export function responseDataFromJSON(
 /** @internal */
 export const AsyncTaskResponseDtoStatus$inboundSchema: z.ZodMiniEnum<
   typeof AsyncTaskResponseDtoStatus
-> = z.enum(AsyncTaskResponseDtoStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(AsyncTaskResponseDtoStatus));
 
 /** @internal */
 export const AsyncTaskResponseDto$inboundSchema: z.ZodMiniType<
   AsyncTaskResponseDto,
   unknown
-> = z.object({
-  information: types.nullable(z.array(InformationResponseDto$inboundSchema)),
-  responseData: types.nullable(z.lazy(() => ResponseData$inboundSchema)),
-  status: types.nullable(AsyncTaskResponseDtoStatus$inboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    information: types.nullable(z.array(InformationResponseDto$inboundSchema)),
+    responseData: types.nullable(z.lazy(() => ResponseData$inboundSchema)),
+    status: types.nullable(AsyncTaskResponseDtoStatus$inboundSchema),
+  })
+);
 
 export function asyncTaskResponseDtoFromJSON(
   jsonString: string,

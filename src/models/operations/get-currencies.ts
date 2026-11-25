@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
@@ -83,7 +83,7 @@ export type GetCurrenciesResponse = {
 /** @internal */
 export const GetCurrenciesLimit$outboundSchema: z.ZodMiniEnum<
   typeof GetCurrenciesLimit
-> = z.enum(GetCurrenciesLimit);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(GetCurrenciesLimit));
 
 /** @internal */
 export type GetCurrenciesRequest$Outbound = {
@@ -101,16 +101,18 @@ export type GetCurrenciesRequest$Outbound = {
 export const GetCurrenciesRequest$outboundSchema: z.ZodMiniType<
   GetCurrenciesRequest$Outbound,
   GetCurrenciesRequest
-> = z.object({
-  page: z.optional(z.number()),
-  limit: z.optional(GetCurrenciesLimit$outboundSchema),
-  lastModifiedAt: z.optional(z.string()),
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  rawData: z.optional(z.boolean()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    page: z.optional(z.number()),
+    limit: z.optional(GetCurrenciesLimit$outboundSchema),
+    lastModifiedAt: z.optional(z.string()),
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    rawData: z.optional(z.boolean()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getCurrenciesRequestToJSON(
   getCurrenciesRequest: GetCurrenciesRequest,
@@ -124,12 +126,14 @@ export function getCurrenciesRequestToJSON(
 export const GetCurrenciesPagination$inboundSchema: z.ZodMiniType<
   GetCurrenciesPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getCurrenciesPaginationFromJSON(
   jsonString: string,
@@ -145,15 +149,17 @@ export function getCurrenciesPaginationFromJSON(
 export const GetCurrenciesMeta$inboundSchema: z.ZodMiniType<
   GetCurrenciesMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => GetCurrenciesPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => GetCurrenciesPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function getCurrenciesMetaFromJSON(
   jsonString: string,
@@ -169,7 +175,7 @@ export function getCurrenciesMetaFromJSON(
 export const GetCurrenciesErrors$inboundSchema: z.ZodMiniType<
   GetCurrenciesErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getCurrenciesErrorsFromJSON(
   jsonString: string,
@@ -185,7 +191,7 @@ export function getCurrenciesErrorsFromJSON(
 export const GetCurrenciesRawData$inboundSchema: z.ZodMiniType<
   GetCurrenciesRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getCurrenciesRawDataFromJSON(
   jsonString: string,
@@ -201,12 +207,14 @@ export function getCurrenciesRawDataFromJSON(
 export const GetCurrenciesResponse$inboundSchema: z.ZodMiniType<
   GetCurrenciesResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => GetCurrenciesMeta$inboundSchema))),
-  data: z.array(models.CurrencyResponseDto$inboundSchema),
-  errors: types.nullable(z.lazy(() => GetCurrenciesErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => GetCurrenciesRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(z.nullable(z.lazy(() => GetCurrenciesMeta$inboundSchema))),
+    data: z.array(models.CurrencyResponseDto$inboundSchema),
+    errors: types.nullable(z.lazy(() => GetCurrenciesErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => GetCurrenciesRawData$inboundSchema)),
+  })
+);
 
 export function getCurrenciesResponseFromJSON(
   jsonString: string,

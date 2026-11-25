@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -69,12 +69,14 @@ export type CreateContactsRequest$Outbound = {
 export const CreateContactsRequest$outboundSchema: z.ZodMiniType<
   CreateContactsRequest$Outbound,
   CreateContactsRequest
-> = z.object({
-  companyId: z.optional(z.string()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-  body: models.CreateContactByBatchMetaDataDto$outboundSchema,
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    companyId: z.optional(z.string()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+    body: models.CreateContactByBatchMetaDataDto$outboundSchema,
+  })
+);
 
 export function createContactsRequestToJSON(
   createContactsRequest: CreateContactsRequest,
@@ -88,12 +90,14 @@ export function createContactsRequestToJSON(
 export const CreateContactsPagination$inboundSchema: z.ZodMiniType<
   CreateContactsPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function createContactsPaginationFromJSON(
   jsonString: string,
@@ -109,15 +113,17 @@ export function createContactsPaginationFromJSON(
 export const CreateContactsMeta$inboundSchema: z.ZodMiniType<
   CreateContactsMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => CreateContactsPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => CreateContactsPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function createContactsMetaFromJSON(
   jsonString: string,
@@ -133,7 +139,7 @@ export function createContactsMetaFromJSON(
 export const CreateContactsErrors$inboundSchema: z.ZodMiniType<
   CreateContactsErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createContactsErrorsFromJSON(
   jsonString: string,
@@ -149,7 +155,7 @@ export function createContactsErrorsFromJSON(
 export const CreateContactsRawData$inboundSchema: z.ZodMiniType<
   CreateContactsRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function createContactsRawDataFromJSON(
   jsonString: string,
@@ -165,12 +171,16 @@ export function createContactsRawDataFromJSON(
 export const CreateContactsResponse$inboundSchema: z.ZodMiniType<
   CreateContactsResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => CreateContactsMeta$inboundSchema))),
-  data: models.ContactByBatchMetaDataResponseDto$inboundSchema,
-  errors: types.nullable(z.lazy(() => CreateContactsErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => CreateContactsRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => CreateContactsMeta$inboundSchema)),
+    ),
+    data: models.ContactByBatchMetaDataResponseDto$inboundSchema,
+    errors: types.nullable(z.lazy(() => CreateContactsErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => CreateContactsRawData$inboundSchema)),
+  })
+);
 
 export function createContactsResponseFromJSON(
   jsonString: string,

@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -64,11 +64,13 @@ export type GetBillDocumentRequest$Outbound = {
 export const GetBillDocumentRequest$outboundSchema: z.ZodMiniType<
   GetBillDocumentRequest$Outbound,
   GetBillDocumentRequest
-> = z.object({
-  billId: z.string(),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    billId: z.string(),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getBillDocumentRequestToJSON(
   getBillDocumentRequest: GetBillDocumentRequest,
@@ -82,12 +84,14 @@ export function getBillDocumentRequestToJSON(
 export const GetBillDocumentPagination$inboundSchema: z.ZodMiniType<
   GetBillDocumentPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getBillDocumentPaginationFromJSON(
   jsonString: string,
@@ -103,15 +107,17 @@ export function getBillDocumentPaginationFromJSON(
 export const GetBillDocumentMeta$inboundSchema: z.ZodMiniType<
   GetBillDocumentMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => GetBillDocumentPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => GetBillDocumentPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function getBillDocumentMetaFromJSON(
   jsonString: string,
@@ -127,7 +133,7 @@ export function getBillDocumentMetaFromJSON(
 export const GetBillDocumentErrors$inboundSchema: z.ZodMiniType<
   GetBillDocumentErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getBillDocumentErrorsFromJSON(
   jsonString: string,
@@ -143,7 +149,7 @@ export function getBillDocumentErrorsFromJSON(
 export const GetBillDocumentRawData$inboundSchema: z.ZodMiniType<
   GetBillDocumentRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getBillDocumentRawDataFromJSON(
   jsonString: string,
@@ -159,12 +165,16 @@ export function getBillDocumentRawDataFromJSON(
 export const GetBillDocumentResponse$inboundSchema: z.ZodMiniType<
   GetBillDocumentResponse,
   unknown
-> = z.object({
-  meta: z.optional(z.nullable(z.lazy(() => GetBillDocumentMeta$inboundSchema))),
-  data: models.DocumentResponseDto$inboundSchema,
-  errors: types.nullable(z.lazy(() => GetBillDocumentErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => GetBillDocumentRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => GetBillDocumentMeta$inboundSchema)),
+    ),
+    data: models.DocumentResponseDto$inboundSchema,
+    errors: types.nullable(z.lazy(() => GetBillDocumentErrors$inboundSchema)),
+    rawData: types.nullable(z.lazy(() => GetBillDocumentRawData$inboundSchema)),
+  })
+);
 
 export function getBillDocumentResponseFromJSON(
   jsonString: string,

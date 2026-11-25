@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
@@ -52,37 +52,39 @@ export type SalesOrderResponseDto = {
 /** @internal */
 export const SalesOrderResponseDtoStatus$inboundSchema: z.ZodMiniEnum<
   typeof SalesOrderResponseDtoStatus
-> = z.enum(SalesOrderResponseDtoStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(SalesOrderResponseDtoStatus));
 
 /** @internal */
 export const SalesOrderResponseDto$inboundSchema: z.ZodMiniType<
   SalesOrderResponseDto,
   unknown
-> = z.object({
-  id: types.nullable(types.string()),
-  addresses: types.nullable(z.array(Address$inboundSchema)),
-  billingContactId: types.nullable(types.string()),
-  comment: types.nullable(types.string()),
-  contactId: types.nullable(types.string()),
-  createdDate: types.nullable(types.string()),
-  currency: types.nullable(types.string()),
-  deliveryDate: types.nullable(types.string()),
-  lineItems: types.nullable(
-    z.array(SalesOrderLineItemResponseDto$inboundSchema),
-  ),
-  oneLineAddress: types.nullable(types.string()),
-  orderDate: types.nullable(types.string()),
-  projectId: types.nullable(types.string()),
-  shippingContactId: types.nullable(types.string()),
-  status: types.nullable(SalesOrderResponseDtoStatus$inboundSchema),
-  taskId: types.nullable(types.string()),
-  totalDiscountAmount: types.nullable(types.number()),
-  totalDiscountPercentage: types.nullable(types.number()),
-  totalGrossAmount: types.nullable(types.number()),
-  totalNetAmount: types.nullable(types.number()),
-  totalTaxAmount: types.nullable(types.number()),
-  updatedDate: types.nullable(types.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: types.nullable(types.string()),
+    addresses: types.nullable(z.array(Address$inboundSchema)),
+    billingContactId: types.nullable(types.string()),
+    comment: types.nullable(types.string()),
+    contactId: types.nullable(types.string()),
+    createdDate: types.nullable(types.string()),
+    currency: types.nullable(types.string()),
+    deliveryDate: types.nullable(types.string()),
+    lineItems: types.nullable(
+      z.array(SalesOrderLineItemResponseDto$inboundSchema),
+    ),
+    oneLineAddress: types.nullable(types.string()),
+    orderDate: types.nullable(types.string()),
+    projectId: types.nullable(types.string()),
+    shippingContactId: types.nullable(types.string()),
+    status: types.nullable(SalesOrderResponseDtoStatus$inboundSchema),
+    taskId: types.nullable(types.string()),
+    totalDiscountAmount: types.nullable(types.number()),
+    totalDiscountPercentage: types.nullable(types.number()),
+    totalGrossAmount: types.nullable(types.number()),
+    totalNetAmount: types.nullable(types.number()),
+    totalTaxAmount: types.nullable(types.number()),
+    updatedDate: types.nullable(types.string()),
+  })
+);
 
 export function salesOrderResponseDtoFromJSON(
   jsonString: string,

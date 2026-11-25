@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import {
   DimensionInput,
@@ -196,7 +197,7 @@ export type ExpenseLineItem = {
 /** @internal */
 export const ExpenseLineItemCurrency$outboundSchema: z.ZodMiniEnum<
   typeof ExpenseLineItemCurrency
-> = z.enum(ExpenseLineItemCurrency);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(ExpenseLineItemCurrency));
 
 /** @internal */
 export type ExpenseLineItem$Outbound = {
@@ -219,21 +220,23 @@ export type ExpenseLineItem$Outbound = {
 export const ExpenseLineItem$outboundSchema: z.ZodMiniType<
   ExpenseLineItem$Outbound,
   ExpenseLineItem
-> = z.object({
-  id: z.optional(z.string()),
-  accountCode: z.optional(z.string()),
-  accountId: z.optional(z.string()),
-  accountNumber: z.optional(z.number()),
-  currency: z.optional(ExpenseLineItemCurrency$outboundSchema),
-  description: z.optional(z.string()),
-  dimensions: z.optional(z.array(DimensionInput$outboundSchema)),
-  documentNumber: z.optional(z.string()),
-  exchangeRate: z.optional(z.number()),
-  itemId: z.optional(z.string()),
-  taxRate: z.optional(TaxRateInput$outboundSchema),
-  totalGrossAmount: z.optional(z.number()),
-  totalNetAmount: z.optional(z.number()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.optional(z.string()),
+    accountCode: z.optional(z.string()),
+    accountId: z.optional(z.string()),
+    accountNumber: z.optional(z.number()),
+    currency: z.optional(ExpenseLineItemCurrency$outboundSchema),
+    description: z.optional(z.string()),
+    dimensions: z.optional(z.array(DimensionInput$outboundSchema)),
+    documentNumber: z.optional(z.string()),
+    exchangeRate: z.optional(z.number()),
+    itemId: z.optional(z.string()),
+    taxRate: z.optional(TaxRateInput$outboundSchema),
+    totalGrossAmount: z.optional(z.number()),
+    totalNetAmount: z.optional(z.number()),
+  })
+);
 
 export function expenseLineItemToJSON(
   expenseLineItem: ExpenseLineItem,

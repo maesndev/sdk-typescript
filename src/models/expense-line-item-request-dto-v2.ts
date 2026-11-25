@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import {
   AccountRequestCommonDtoV2,
   AccountRequestCommonDtoV2$Outbound,
@@ -52,19 +53,21 @@ export type ExpenseLineItemRequestDtoV2$Outbound = {
 export const ExpenseLineItemRequestDtoV2$outboundSchema: z.ZodMiniType<
   ExpenseLineItemRequestDtoV2$Outbound,
   ExpenseLineItemRequestDtoV2
-> = z.object({
-  id: z.optional(z.string()),
-  account: z.optional(AccountRequestCommonDtoV2$outboundSchema),
-  currency: z.optional(z.string()),
-  description: z.optional(z.string()),
-  dimensions: z.optional(z.array(DimensionRequestCommonDtoV2$outboundSchema)),
-  documentNumber: z.optional(z.string()),
-  exchangeRate: z.optional(z.number()),
-  itemId: z.optional(z.string()),
-  taxRate: z.optional(TaxRateRequestDtoV2$outboundSchema),
-  totalGrossAmount: z.optional(z.number()),
-  totalNetAmount: z.optional(z.number()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.optional(z.string()),
+    account: z.optional(AccountRequestCommonDtoV2$outboundSchema),
+    currency: z.optional(z.string()),
+    description: z.optional(z.string()),
+    dimensions: z.optional(z.array(DimensionRequestCommonDtoV2$outboundSchema)),
+    documentNumber: z.optional(z.string()),
+    exchangeRate: z.optional(z.number()),
+    itemId: z.optional(z.string()),
+    taxRate: z.optional(TaxRateRequestDtoV2$outboundSchema),
+    totalGrossAmount: z.optional(z.number()),
+    totalNetAmount: z.optional(z.number()),
+  })
+);
 
 export function expenseLineItemRequestDtoV2ToJSON(
   expenseLineItemRequestDtoV2: ExpenseLineItemRequestDtoV2,

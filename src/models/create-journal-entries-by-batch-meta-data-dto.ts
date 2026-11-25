@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import {
   CreateJournalEntryRequestDto,
@@ -31,8 +32,10 @@ export type CreateJournalEntriesByBatchMetaDataDto = {
 
 /** @internal */
 export const CreateJournalEntriesByBatchMetaDataDtoChartOfAccount$outboundSchema:
-  z.ZodMiniEnum<typeof CreateJournalEntriesByBatchMetaDataDtoChartOfAccount> = z
-    .enum(CreateJournalEntriesByBatchMetaDataDtoChartOfAccount);
+  z.ZodMiniEnum<typeof CreateJournalEntriesByBatchMetaDataDtoChartOfAccount> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.enum(CreateJournalEntriesByBatchMetaDataDtoChartOfAccount)
+    );
 
 /** @internal */
 export type CreateJournalEntriesByBatchMetaDataDto$Outbound = {
@@ -47,13 +50,15 @@ export const CreateJournalEntriesByBatchMetaDataDto$outboundSchema:
   z.ZodMiniType<
     CreateJournalEntriesByBatchMetaDataDto$Outbound,
     CreateJournalEntriesByBatchMetaDataDto
-  > = z.object({
-    accountNumberLength: z.number(),
-    chartOfAccount:
-      CreateJournalEntriesByBatchMetaDataDtoChartOfAccount$outboundSchema,
-    entries: z.array(CreateJournalEntryRequestDto$outboundSchema),
-    fiscalYearStartDate: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      accountNumberLength: z.number(),
+      chartOfAccount:
+        CreateJournalEntriesByBatchMetaDataDtoChartOfAccount$outboundSchema,
+      entries: z.array(CreateJournalEntryRequestDto$outboundSchema),
+      fiscalYearStartDate: z.string(),
+    })
+  );
 
 export function createJournalEntriesByBatchMetaDataDtoToJSON(
   createJournalEntriesByBatchMetaDataDto:

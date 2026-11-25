@@ -21,6 +21,7 @@ let value: BankAccountResponseDto = {
   status: "ACTIVE",
   type: "<value>",
   updatedDate: "<value>",
+  version: 4911.96,
 };
 ```
 
@@ -43,3 +44,4 @@ let value: BankAccountResponseDto = {
 | `status`                                                                                  | [models.BankAccountResponseDtoStatus](../models/bank-account-response-dto-status.md)      | :heavy_check_mark:                                                                        | N/A                                                                                       |
 | `type`                                                                                    | *string*                                                                                  | :heavy_check_mark:                                                                        | N/A                                                                                       |
 | `updatedDate`                                                                             | *string*                                                                                  | :heavy_check_mark:                                                                        | N/A                                                                                       |
+| `version`                                                                                 | *number*                                                                                  | :heavy_check_mark:                                                                        | N/A                                                                                       |

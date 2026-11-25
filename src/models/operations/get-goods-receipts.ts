@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as types from "../../types/primitives.js";
@@ -83,7 +83,7 @@ export type GetGoodsReceiptsResponse = {
 /** @internal */
 export const GetGoodsReceiptsLimit$outboundSchema: z.ZodMiniEnum<
   typeof GetGoodsReceiptsLimit
-> = z.enum(GetGoodsReceiptsLimit);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(GetGoodsReceiptsLimit));
 
 /** @internal */
 export type GetGoodsReceiptsRequest$Outbound = {
@@ -101,16 +101,18 @@ export type GetGoodsReceiptsRequest$Outbound = {
 export const GetGoodsReceiptsRequest$outboundSchema: z.ZodMiniType<
   GetGoodsReceiptsRequest$Outbound,
   GetGoodsReceiptsRequest
-> = z.object({
-  page: z.optional(z.number()),
-  limit: z.optional(GetGoodsReceiptsLimit$outboundSchema),
-  lastModifiedAt: z.optional(z.string()),
-  environmentName: z.optional(z.string()),
-  companyId: z.optional(z.string()),
-  rawData: z.optional(z.boolean()),
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    page: z.optional(z.number()),
+    limit: z.optional(GetGoodsReceiptsLimit$outboundSchema),
+    lastModifiedAt: z.optional(z.string()),
+    environmentName: z.optional(z.string()),
+    companyId: z.optional(z.string()),
+    rawData: z.optional(z.boolean()),
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+  })
+);
 
 export function getGoodsReceiptsRequestToJSON(
   getGoodsReceiptsRequest: GetGoodsReceiptsRequest,
@@ -124,12 +126,14 @@ export function getGoodsReceiptsRequestToJSON(
 export const GetGoodsReceiptsPagination$inboundSchema: z.ZodMiniType<
   GetGoodsReceiptsPagination,
   unknown
-> = z.object({
-  total: types.number(),
-  perPage: types.number(),
-  currentPage: types.number(),
-  totalPages: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    total: types.number(),
+    perPage: types.number(),
+    currentPage: types.number(),
+    totalPages: types.number(),
+  })
+);
 
 export function getGoodsReceiptsPaginationFromJSON(
   jsonString: string,
@@ -145,15 +149,17 @@ export function getGoodsReceiptsPaginationFromJSON(
 export const GetGoodsReceiptsMeta$inboundSchema: z.ZodMiniType<
   GetGoodsReceiptsMeta,
   unknown
-> = z.object({
-  warnings: z.optional(z.nullable(z.array(types.string()))),
-  pagination: z.optional(
-    z.nullable(z.lazy(() => GetGoodsReceiptsPagination$inboundSchema)),
-  ),
-  partialErrors: z.optional(
-    z.nullable(z.array(models.PartialError$inboundSchema)),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    warnings: z.optional(z.nullable(z.array(types.string()))),
+    pagination: z.optional(
+      z.nullable(z.lazy(() => GetGoodsReceiptsPagination$inboundSchema)),
+    ),
+    partialErrors: z.optional(
+      z.nullable(z.array(models.PartialError$inboundSchema)),
+    ),
+  })
+);
 
 export function getGoodsReceiptsMetaFromJSON(
   jsonString: string,
@@ -169,7 +175,7 @@ export function getGoodsReceiptsMetaFromJSON(
 export const GetGoodsReceiptsErrors$inboundSchema: z.ZodMiniType<
   GetGoodsReceiptsErrors,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getGoodsReceiptsErrorsFromJSON(
   jsonString: string,
@@ -185,7 +191,7 @@ export function getGoodsReceiptsErrorsFromJSON(
 export const GetGoodsReceiptsRawData$inboundSchema: z.ZodMiniType<
   GetGoodsReceiptsRawData,
   unknown
-> = z.object({});
+> = /* @__PURE__ */ lazySchema$(() => z.object({}));
 
 export function getGoodsReceiptsRawDataFromJSON(
   jsonString: string,
@@ -201,14 +207,18 @@ export function getGoodsReceiptsRawDataFromJSON(
 export const GetGoodsReceiptsResponse$inboundSchema: z.ZodMiniType<
   GetGoodsReceiptsResponse,
   unknown
-> = z.object({
-  meta: z.optional(
-    z.nullable(z.lazy(() => GetGoodsReceiptsMeta$inboundSchema)),
-  ),
-  data: z.array(models.GoodsReceiptResponseDto$inboundSchema),
-  errors: types.nullable(z.lazy(() => GetGoodsReceiptsErrors$inboundSchema)),
-  rawData: types.nullable(z.lazy(() => GetGoodsReceiptsRawData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    meta: z.optional(
+      z.nullable(z.lazy(() => GetGoodsReceiptsMeta$inboundSchema)),
+    ),
+    data: z.array(models.GoodsReceiptResponseDto$inboundSchema),
+    errors: types.nullable(z.lazy(() => GetGoodsReceiptsErrors$inboundSchema)),
+    rawData: types.nullable(
+      z.lazy(() => GetGoodsReceiptsRawData$inboundSchema),
+    ),
+  })
+);
 
 export function getGoodsReceiptsResponseFromJSON(
   jsonString: string,

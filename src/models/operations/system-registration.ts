@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../../lib/schemas.js";
 import * as models from "../index.js";
 
 export type SystemRegistrationGlobals = {
@@ -33,11 +34,13 @@ export type SystemRegistrationRequest$Outbound = {
 export const SystemRegistrationRequest$outboundSchema: z.ZodMiniType<
   SystemRegistrationRequest$Outbound,
   SystemRegistrationRequest
-> = z.object({
-  apiKey: z.optional(z.string()),
-  accountKey: z.optional(z.string()),
-  body: models.SystemRegistrationDto$outboundSchema,
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    accountKey: z.optional(z.string()),
+    body: models.SystemRegistrationDto$outboundSchema,
+  })
+);
 
 export function systemRegistrationRequestToJSON(
   systemRegistrationRequest: SystemRegistrationRequest,
