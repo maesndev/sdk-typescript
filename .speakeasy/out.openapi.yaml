@@ -2451,6 +2451,57 @@ paths:
         statusCodes:
           - 5XX
         retryConnectionErrors: true
+  /accounting/files/documentPermissions:
+    get:
+      operationId: getDocumentPermissions
+      parameters:
+        - name: companyId
+          required: false
+          in: query
+          description: ID of the company (required for multi-company target systems)
+          schema:
+            type: string
+        - name: rawData
+          required: false
+          in: query
+          description: When true, returns the unprocessed response from the upstream target system
+          schema:
+            type: boolean
+        - name: X-API-KEY
+          description: API key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: apiKey
+        - name: X-ACCOUNT-KEY
+          description: Account key
+          in: header
+          schema:
+            type: string
+          x-speakeasy-name-override: accountKey
+      responses:
+        "200":
+          description: Permissions for file/document storage for the authenticated end user's connected target system
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BaseResponseDto'
+                  - properties:
+                      data:
+                        $ref: '#/components/schemas/DocumentPermissionsResponseDto'
+      tags:
+        - accounting
+      x-speakeasy-retries:
+        strategy: backoff
+        backoff:
+          initialInterval: 500
+          maxInterval: 60000
+          maxElapsedTime: 3600000
+          exponent: 1.5
+        statusCodes:
+          - 5XX
+        retryConnectionErrors: true
   /accounting/asyncTask/{taskId}:
     get:
       operationId: getAsyncTaskInfo
@@ -3690,7 +3741,7 @@ paths:
                         $ref: '#/components/schemas/JournalEntriesByBatchMetaDataResponseDto'
       tags:
         - accounting
-  /accounting/journalEntries/{journalEntryId}/Attachments:
+  /accounting/journalEntries/{journalEntryId}/attachments:
     get:
       operationId: getJournalEntryAttachments
       parameters:
@@ -3797,7 +3848,7 @@ paths:
                         $ref: '#/components/schemas/JournalEntryResponseDto'
       tags:
         - accounting
-  /accounting/journalEntries/{journalEntryId}/Attachments/{attachmentId}:
+  /accounting/journalEntries/{journalEntryId}/attachments/{attachmentId}:
     get:
       operationId: getJournalEntryAttachmentById
       parameters:
@@ -20914,6 +20965,14 @@ components:
         - toleranceAmount
         - tolerancePercent
         - updatedDate
+    DocumentPermissionsResponseDto:
+      type: object
+      properties:
+        isDocumentStorageEnabled:
+          type: boolean
+          nullable: true
+      required:
+        - isDocumentStorageEnabled
     TaxRateRequestCommonDto:
       type: object
       properties:

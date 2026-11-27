@@ -70,6 +70,7 @@ import { accountingGetCustomers } from "../funcs/accounting-get-customers.js";
 import { accountingGetDimensionsByDimension } from "../funcs/accounting-get-dimensions-by-dimension.js";
 import { accountingGetDimensions } from "../funcs/accounting-get-dimensions.js";
 import { accountingGetDocumentExtensions } from "../funcs/accounting-get-document-extensions.js";
+import { accountingGetDocumentPermissions } from "../funcs/accounting-get-document-permissions.js";
 import { accountingGetDocumentTypes } from "../funcs/accounting-get-document-types.js";
 import { accountingGetExpense } from "../funcs/accounting-get-expense.js";
 import { accountingGetExpenses } from "../funcs/accounting-get-expenses.js";
@@ -596,6 +597,17 @@ export class Accounting extends ClientSDK {
     options?: RequestOptions,
   ): Promise<operations.GetDocumentExtensionsResponse> {
     return unwrapAsync(accountingGetDocumentExtensions(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  async getDocumentPermissions(
+    request?: operations.GetDocumentPermissionsRequest | undefined,
+    options?: RequestOptions,
+  ): Promise<operations.GetDocumentPermissionsResponse> {
+    return unwrapAsync(accountingGetDocumentPermissions(
       this,
       request,
       options,

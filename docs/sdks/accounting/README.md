@@ -45,6 +45,7 @@
 * [postFileAsync](#postfileasync)
 * [getDocumentTypes](#getdocumenttypes)
 * [getDocumentExtensions](#getdocumentextensions)
+* [getDocumentPermissions](#getdocumentpermissions)
 * [getAsyncTaskInfo](#getasynctaskinfo)
 * [getItems](#getitems)
 * [createItem](#createitem)
@@ -3393,6 +3394,77 @@ run();
 | ------------------------ | ------------------------ | ------------------------ |
 | errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
 
+## getDocumentPermissions
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="getDocumentPermissions" method="get" path="/accounting/files/documentPermissions" -->
+```typescript
+import { Maesn } from "@maesn/typescript-sdk";
+
+const maesn = new Maesn({
+  serverURL: "https://api.example.com",
+  apiKey: "<value>",
+  accountKey: "<value>",
+});
+
+async function run() {
+  const result = await maesn.accounting.getDocumentPermissions();
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { MaesnCore } from "@maesn/typescript-sdk/core.js";
+import { accountingGetDocumentPermissions } from "@maesn/typescript-sdk/funcs/accounting-get-document-permissions.js";
+
+// Use `MaesnCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const maesn = new MaesnCore({
+  serverURL: "https://api.example.com",
+  apiKey: "<value>",
+  accountKey: "<value>",
+});
+
+async function run() {
+  const res = await accountingGetDocumentPermissions(maesn);
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingGetDocumentPermissions failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetDocumentPermissionsRequest](../../models/operations/get-document-permissions-request.md)                                                                        | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.GetDocumentPermissionsResponse](../../models/operations/get-document-permissions-response.md)\>**
+
+### Errors
+
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| errors.MaesnDefaultError | 4XX, 5XX                 | \*/\*                    |
+
 ## getAsyncTaskInfo
 
 ### Example Usage
@@ -5003,7 +5075,7 @@ run();
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="getJournalEntryAttachments" method="get" path="/accounting/journalEntries/{journalEntryId}/Attachments" -->
+<!-- UsageSnippet language="typescript" operationID="getJournalEntryAttachments" method="get" path="/accounting/journalEntries/{journalEntryId}/attachments" -->
 ```typescript
 import { Maesn } from "@maesn/typescript-sdk";
 
@@ -5078,7 +5150,7 @@ run();
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="createJournalEntryAttachments" method="post" path="/accounting/journalEntries/{journalEntryId}/Attachments" -->
+<!-- UsageSnippet language="typescript" operationID="createJournalEntryAttachments" method="post" path="/accounting/journalEntries/{journalEntryId}/attachments" -->
 ```typescript
 import { Maesn } from "@maesn/typescript-sdk";
 
@@ -5155,7 +5227,7 @@ run();
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="getJournalEntryAttachmentById" method="get" path="/accounting/journalEntries/{journalEntryId}/Attachments/{attachmentId}" -->
+<!-- UsageSnippet language="typescript" operationID="getJournalEntryAttachmentById" method="get" path="/accounting/journalEntries/{journalEntryId}/attachments/{attachmentId}" -->
 ```typescript
 import { Maesn } from "@maesn/typescript-sdk";
 

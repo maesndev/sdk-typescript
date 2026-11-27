@@ -769,6 +769,26 @@ const accountingGetDocumentExtensions =
       ),
     )) as typeof import("../funcs/accounting-get-document-extensions.js").accountingGetDocumentExtensions;
 
+let accountingGetDocumentPermissions$module:
+  | Promise<typeof import("../funcs/accounting-get-document-permissions.js")>
+  | undefined;
+const accountingGetDocumentPermissions =
+  ((
+    ...args: Parameters<
+      typeof import("../funcs/accounting-get-document-permissions.js").accountingGetDocumentPermissions
+    >
+  ) =>
+    new APIPromise(
+      (accountingGetDocumentPermissions$module ??= import(
+        "../funcs/accounting-get-document-permissions.js"
+      ).catch((error: unknown) => {
+        accountingGetDocumentPermissions$module = undefined;
+        throw error;
+      })).then((module) =>
+        module.accountingGetDocumentPermissions(...args).$inspect()
+      ),
+    )) as typeof import("../funcs/accounting-get-document-permissions.js").accountingGetDocumentPermissions;
+
 let accountingGetAsyncTaskInfo$module:
   | Promise<typeof import("../funcs/accounting-get-async-task-info.js")>
   | undefined;
@@ -3177,6 +3197,17 @@ export class Accounting extends ClientSDK {
     options?: RequestOptions,
   ): Promise<operations.GetDocumentExtensionsResponse> {
     return unwrapAsync(accountingGetDocumentExtensions(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  async getDocumentPermissions(
+    request?: operations.GetDocumentPermissionsRequest | undefined,
+    options?: RequestOptions,
+  ): Promise<operations.GetDocumentPermissionsResponse> {
+    return unwrapAsync(accountingGetDocumentPermissions(
       this,
       request,
       options,

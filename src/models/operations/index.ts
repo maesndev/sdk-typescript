@@ -89,6 +89,7 @@ export * from "./get-dimensions-by-dimension.js";
 export * from "./get-dimensions-v2.js";
 export * from "./get-dimensions.js";
 export * from "./get-document-extensions.js";
+export * from "./get-document-permissions.js";
 export * from "./get-document-types.js";
 export * from "./get-end-user-list.js";
 export * from "./get-environments.js";
