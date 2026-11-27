@@ -132,7 +132,7 @@ async function $do(
     }),
   };
   const pathResult = encodePath(
-    "/accounting/journalEntries/{journalEntryId}/Attachments",
+    "/accounting/journalEntries/{journalEntryId}/attachments",
     pathParams,
   );
   if (!pathResult.ok) {

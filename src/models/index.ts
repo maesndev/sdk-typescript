@@ -92,6 +92,7 @@ export * from "./dimension.js";
 export * from "./discount-period-request.js";
 export * from "./discount-period-response.js";
 export * from "./document-extensions-response-dto.js";
+export * from "./document-permissions-response-dto.js";
 export * from "./document-response-dto.js";
 export * from "./document-types-response-dto.js";
 export * from "./email-address-v2.js";
